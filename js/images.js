@@ -176,7 +176,6 @@ const AC_IMAGES = {
 
     // ── Compilations / Other ──
     "Assassin's Creed Heritage Collection":                                "images/other/heritage-collection.jpg",
-    "Assassin's Creed: The Ezio Collection":                               "images/other/ezio-collection.jpg",
     "Assassin's Creed: The Official Collection (Hachette Partworks)":      "images/statues/hachette-official-collection.jpg",
 };
 

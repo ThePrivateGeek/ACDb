@@ -1351,15 +1351,6 @@ const AC_DATABASE = [
     "edition_type": "Compilation"
   },
   {
-    "name": "Assassin's Creed: The Ezio Collection",
-    "game": "General",
-    "year": 2016,
-    "category": "Other",
-    "description": "Remastered compilation of the three Ezio Auditore games for PS4 and Xbox One.",
-    "contents": "Assassin's Creed II Remastered, Assassin's Creed Brotherhood Remastered, Assassin's Creed Revelations Remastered, two short films (Lineage and Embers)",
-    "edition_type": "Compilation"
-  },
-  {
     "name": "PureArts Assassin's Creed Valhalla Life-Size Hidden Blade Prop",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
