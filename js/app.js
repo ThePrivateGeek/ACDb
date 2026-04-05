@@ -9,6 +9,7 @@
     const STORAGE_KEY = 'acdb_collection';
     const CUSTOM_ITEMS_KEY = 'acdb_custom_items';
     const CUSTOM_GAMES_KEY = 'acdb_custom_games';
+    const isAdmin = localStorage.getItem('acdb_admin') === 'true';
     let collection = loadCollection();
     let currentView = 'grid';
     let activeGameFilter = '';
@@ -1176,6 +1177,12 @@
 
     // ---- Initialize ----
     function init() {
+        // Hide admin-only buttons for public visitors
+        if (!isAdmin) {
+            dom.addItemBtn.style.display = 'none';
+            dom.manageBtn.style.display = 'none';
+        }
+
         initFilters();
         initEvents();
         renderItems();
