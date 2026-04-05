@@ -1252,6 +1252,15 @@ const AC_DATABASE = [
     "edition_type": "Jewelry"
   },
   {
+    "name": "Ubi Workshop Templar Ring",
+    "game": "General",
+    "year": 2013,
+    "category": "Other",
+    "description": "Assassin's Creed Templar Ring Official Ubisoft Collection by Ubi Workshop (Large, Silver), Sterling Silver",
+    "contents": "Templar Ring",
+    "edition_type": "Other"
+  },
+  {
     "name": "Ubi Workshop Connor Amulet Necklace (Silver)",
     "game": "Assassin's Creed III",
     "year": 2017,

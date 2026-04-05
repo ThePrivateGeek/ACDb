@@ -167,6 +167,7 @@ const AC_IMAGES = {
 
     // ── Jewelry ──
     "Ubi Workshop Master Assassin Ring":                                   "images/other/ubi-workshop-master-assassin-ring.jpg",
+    "Ubi Workshop Templar Ring":                                           "images/other/ubi-workshop-templar-ring.jpg",
     "Ubi Workshop Connor Amulet Necklace (Silver)":                        "images/other/ubi-workshop-connor-amulet-necklace.jpg",
     "Ubi Workshop Syndicate Rooks Necklace":                               "images/other/ubi-workshop-rooks-necklace.jpg",
     "Ubi Workshop Syndicate Starrick Templar Necklace":                    "images/other/ubi-workshop-starrick-templar-necklace.jpg",
