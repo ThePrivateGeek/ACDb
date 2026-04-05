@@ -145,6 +145,7 @@ const AC_IMAGES = {
 
     // ── Funko Pop ──
     "Funko Pop! Games #20 - Altair":                                       "images/funko-pop/funko-pop-20-altair.jpg",
+    "Funko Pop Assassin's Creed Game Cover 901 Altair":                    "images/funko-pop/funko-pop-901-altair-cover.jpg",
     "Funko Pop! Games #21 - Ezio (Standard White)":                        "images/funko-pop/funko-pop-21-ezio-white.jpg",
     "Funko Pop! Games #21 - Ezio (Eagle Vision Blue) (GameStop Exclusive)":"images/funko-pop/funko-pop-21-ezio-eagle-vision-blue.jpg",
     "Funko Pop! Games #21 - Ezio (Black)":                                 "images/funko-pop/funko-pop-21-ezio-black.jpg",
