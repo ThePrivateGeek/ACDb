@@ -1012,16 +1012,25 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #20 - Altair",
     "game": "Assassin's Creed",
     "year": 2013,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Altair from the original Assassin's Creed.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
   },
   {
+    "name": "Funko Pop Assassin's Creed Game Cover 901 Altair",
+    "game": "Assassin's Creed",
+    "year": 2023,
+    "category": "Funko Pop",
+    "description": "Funko Pop Assassin's Creed Game Cover 901 Altair",
+    "contents": "Funko Pop Assassin's Creed Game Cover",
+    "edition_type": "Funko Pop"
+  },
+  {
     "name": "Funko Pop! Games #21 - Ezio (Standard White)",
     "game": "Assassin's Creed II",
     "year": 2013,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Ezio Auditore in standard white robes.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1030,7 +1039,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #21 - Ezio (Eagle Vision Blue) (GameStop Exclusive)",
     "game": "Assassin's Creed II",
     "year": 2013,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "GameStop exclusive translucent blue Ezio variant representing Eagle Vision.",
     "contents": "Pop! vinyl figure (translucent blue exclusive)",
     "edition_type": "Figurine"
@@ -1039,7 +1048,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #21 - Ezio (Black)",
     "game": "Assassin's Creed II",
     "year": 2013,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Black robed variant of Ezio Funko Pop!",
     "contents": "Pop! vinyl figure (black variant)",
     "edition_type": "Figurine"
@@ -1048,7 +1057,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #22 - Connor",
     "game": "Assassin's Creed III",
     "year": 2013,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Connor Kenway.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1057,7 +1066,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #23 - Edward",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Edward Kenway.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1066,7 +1075,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #24 - Plague Doctor (Multiplayer)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2013,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of the Plague Doctor multiplayer character.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1075,7 +1084,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #28 - Aveline de Grandpre",
     "game": "Assassin's Creed III: Liberation",
     "year": 2014,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Aveline de Grandpre.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1084,7 +1093,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #35 - Arno",
     "game": "Assassin's Creed Unity",
     "year": 2014,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Arno Dorian.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1093,7 +1102,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #36 - Elise",
     "game": "Assassin's Creed Unity",
     "year": 2014,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Elise de la Serre.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1102,7 +1111,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #73 - Jacob Frye",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Jacob Frye.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1111,7 +1120,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #74 - Evie Frye",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Evie Frye.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1120,7 +1129,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #80 - Jacob Frye (Uncloaked) (Underground Toys Exclusive)",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Underground Toys exclusive variant of Jacob without his hood.",
     "contents": "Pop! vinyl figure (uncloaked exclusive)",
     "edition_type": "Figurine"
@@ -1129,7 +1138,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #776 - Eivor",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Eivor from Valhalla.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1138,7 +1147,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Games #778 - Eivor with Double Axe (GameStop Exclusive)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "GameStop exclusive Eivor variant wielding double axes.",
     "contents": "Pop! vinyl figure (double axe exclusive)",
     "edition_type": "Figurine"
@@ -1147,7 +1156,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Movies #375 - Aguilar",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Aguilar from the Assassin's Creed movie.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1156,7 +1165,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Movies #376 - Maria",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Maria from the Assassin's Creed movie.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1165,7 +1174,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Movies #377 - Ojeda",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Ojeda from the Assassin's Creed movie.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1174,7 +1183,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Movies #378 - Callum Lynch",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Funko Pop! vinyl figure of Callum Lynch from the Assassin's Creed movie.",
     "contents": "Pop! vinyl figure",
     "edition_type": "Figurine"
@@ -1183,7 +1192,7 @@ const AC_DATABASE = [
     "name": "Funko Pop! Movies #379 - Aguilar (Crouching) (Loot Crate Exclusive)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
-    "category": "Statue/Figurine",
+    "category": "Funko Pop",
     "description": "Loot Crate exclusive crouching variant of Aguilar.",
     "contents": "Pop! vinyl figure (crouching exclusive)",
     "edition_type": "Figurine"

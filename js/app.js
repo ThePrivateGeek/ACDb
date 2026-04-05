@@ -108,7 +108,6 @@
         addGame: document.getElementById('addGame'),
         addYear: document.getElementById('addYear'),
         addCategory: document.getElementById('addCategory'),
-        addEditionType: document.getElementById('addEditionType'),
         addDescription: document.getElementById('addDescription'),
         addContents: document.getElementById('addContents'),
         addImagePath: document.getElementById('addImagePath'),
@@ -572,7 +571,6 @@
             dom.addGame.value = item.game || '';
             dom.addYear.value = item.year || '';
             dom.addCategory.value = item.category || '';
-            dom.addEditionType.value = item.edition_type || item.category || '';
             dom.addDescription.value = item.description || '';
             dom.addContents.value = item.contents || '';
             dom.addImagePath.value = item.imagePath || '';
@@ -585,7 +583,6 @@
             dom.addGame.value = '';
             dom.addYear.value = '';
             dom.addCategory.value = '';
-            dom.addEditionType.value = "Collector's Edition";
             dom.addDescription.value = '';
             dom.addContents.value = '';
             dom.addImagePath.value = '';
@@ -674,7 +671,7 @@
             game: game,
             year: year,
             category: category,
-            edition_type: dom.addEditionType.value || category,
+            edition_type: category,
             description: dom.addDescription.value.trim(),
             contents: dom.addContents.value.trim(),
             imagePath: dom.addImagePath.value.trim() || '',
