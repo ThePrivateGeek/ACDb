@@ -771,6 +771,9 @@
                     <span class="manage-item-meta">${escapeHTML(item.game)} &middot; ${item.year} &middot; ${escapeHTML(item.category)}</span>
                 </div>
                 <div class="manage-item-actions">
+                    <button class="manage-action-btn export-btn" data-idx="${idx}" title="Copy as code">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    </button>
                     <button class="manage-action-btn edit-btn" data-idx="${idx}" title="Edit item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                     </button>
@@ -779,6 +782,11 @@
                     </button>
                 </div>
             `;
+
+            // Export button
+            row.querySelector('.export-btn').addEventListener('click', () => {
+                copyItemAsCode(item);
+            });
 
             // Edit button
             row.querySelector('.edit-btn').addEventListener('click', () => {
@@ -793,6 +801,17 @@
 
             dom.manageItemsList.appendChild(row);
         });
+
+        // Export All button (only if items exist)
+        if (items.length > 0) {
+            const exportAllRow = document.createElement('div');
+            exportAllRow.className = 'manage-export-all';
+            exportAllRow.innerHTML = `<button class="btn-export-all" id="exportAllItems">Copy All as Code</button>`;
+            dom.manageItemsList.appendChild(exportAllRow);
+            document.getElementById('exportAllItems').addEventListener('click', () => {
+                copyAllItemsAsCode(items);
+            });
+        }
     }
 
     function deleteCustomItem(idx) {
@@ -976,6 +995,63 @@
 
         initFilters();
         renderManageGames();
+    }
+
+    // ---- Export ----
+    function itemToDbCode(item) {
+        const lines = [
+            `  {`,
+            `    "name": ${JSON.stringify(item.name)},`,
+            `    "game": ${JSON.stringify(item.game)},`,
+            `    "year": ${item.year},`,
+            `    "category": ${JSON.stringify(item.category)},`,
+            `    "description": ${JSON.stringify(item.description || '')},`,
+            `    "contents": ${JSON.stringify(item.contents || '')},`,
+            `    "edition_type": ${JSON.stringify(item.edition_type || item.category)}`,
+            `  }`
+        ];
+        return lines.join('\n');
+    }
+
+    function itemToImageCode(item) {
+        if (!item.imagePath) return null;
+        return `    ${JSON.stringify(item.name)}:${' '.repeat(Math.max(1, 60 - item.name.length))}${JSON.stringify(item.imagePath)},`;
+    }
+
+    function copyItemAsCode(item) {
+        let code = '// database.js entry:\n' + itemToDbCode(item) + ',\n';
+        const imgLine = itemToImageCode(item);
+        if (imgLine) {
+            code += '\n// images.js entry:\n' + imgLine + '\n';
+        }
+        navigator.clipboard.writeText(code).then(() => {
+            showToast('Copied to clipboard!');
+        });
+    }
+
+    function copyAllItemsAsCode(items) {
+        let dbEntries = items.map(itemToDbCode).join(',\n');
+        let code = '// database.js entries:\n' + dbEntries + '\n';
+
+        const imgLines = items.map(itemToImageCode).filter(Boolean);
+        if (imgLines.length > 0) {
+            code += '\n// images.js entries:\n' + imgLines.join('\n') + '\n';
+        }
+        navigator.clipboard.writeText(code).then(() => {
+            showToast('All items copied to clipboard!');
+        });
+    }
+
+    function showToast(message) {
+        let toast = document.getElementById('acdb-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'acdb-toast';
+            document.body.appendChild(toast);
+        }
+        toast.textContent = message;
+        toast.classList.add('visible');
+        setTimeout(() => { toast.classList.remove('visible'); }, 2000);
     }
 
     // ---- Utilities ----

@@ -1759,6 +1759,11 @@ body {
     border-color: var(--border);
 }
 
+.manage-action-btn.export-btn:hover {
+    color: var(--mint);
+    border-color: var(--mint);
+}
+
 .manage-action-btn.edit-btn:hover {
     color: var(--accent);
     border-color: var(--accent-dark);
@@ -1817,6 +1822,54 @@ body {
     background: transparent;
     border: 1px solid var(--border);
     color: var(--text-muted);
+}
+
+.manage-export-all {
+    padding: 1rem 0.5rem 0.25rem;
+    text-align: right;
+}
+
+.btn-export-all {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--mint);
+    border-radius: 6px;
+    color: var(--mint);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-export-all:hover {
+    background: var(--mint);
+    color: var(--bg-primary);
+}
+
+/* Toast notification */
+#acdb-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--bg-card);
+    border: 1px solid var(--mint);
+    color: var(--mint);
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#acdb-toast.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 .manage-empty {
