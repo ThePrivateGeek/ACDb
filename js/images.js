@@ -1,0 +1,190 @@
+// Image mapping for AC Database items — all images stored locally in /images/
+// Just drop the file in the right folder with the matching name and it works.
+const AC_IMAGES = {
+    // ── Collector's Editions ──
+    "Assassin's Creed Limited Edition":                                     "images/collectors-editions/ac1-limited-edition.jpg",
+    "Assassin's Creed II Black Edition":                                    "images/collectors-editions/ac2-black-edition.jpg",
+    "Assassin's Creed II White Edition":                                    "images/collectors-editions/ac2-white-edition.jpg",
+    "Assassin's Creed II Master Assassin's Edition":                        "images/collectors-editions/ac2-master-assassins-edition.jpg",
+    "Assassin's Creed Brotherhood Collector's Edition":                     "images/collectors-editions/brotherhood-collectors-edition.jpg",
+    "Assassin's Creed Brotherhood Collector's Edition (Doctor Variant)":    "images/collectors-editions/brotherhood-collectors-edition-doctor.jpg",
+    "Assassin's Creed Brotherhood Codex Edition":                           "images/collectors-editions/brotherhood-codex-edition.jpg",
+    "Assassin's Creed Brotherhood Da Vinci Edition":                        "images/collectors-editions/brotherhood-da-vinci-edition.jpg",
+    "Assassin's Creed Revelations Collector's Edition":                     "images/collectors-editions/revelations-collectors-edition.png",
+    "Assassin's Creed Revelations Animus Edition":                          "images/collectors-editions/revelations-animus-edition.jpg",
+    "Assassin's Creed Revelations Templar Collector Edition":               "images/collectors-editions/revelations-templar-edition.jpg",
+    "Assassin's Creed Revelations Signature Edition":                       "images/collectors-editions/revelations-signature-edition.jpg",
+    "Assassin's Creed III Freedom Edition":                                 "images/collectors-editions/ac3-freedom-edition.jpg",
+    "Assassin's Creed III Join or Die Edition":                             "images/collectors-editions/ac3-join-or-die-edition.jpg",
+    "Assassin's Creed III Limited Edition":                                 "images/collectors-editions/ac3-limited-edition.jpg",
+    "Assassin's Creed IV: Black Flag Black Chest Edition":                  "images/collectors-editions/ac4-black-chest-edition.jpg",
+    "Assassin's Creed IV: Black Flag Buccaneer Edition":                    "images/collectors-editions/ac4-buccaneer-edition.jpg",
+    "Assassin's Creed IV: Black Flag Skull Edition":                        "images/collectors-editions/ac4-skull-edition.jpg",
+    "Assassin's Creed IV: Black Flag Limited Edition":                      "images/collectors-editions/ac4-limited-edition.jpg",
+    "Assassin's Creed Rogue Collector's Edition":                           "images/collectors-editions/rogue-collectors-edition.jpg",
+    "Assassin's Creed Unity Guillotine Collector's Case":                   "images/collectors-editions/unity-guillotine-collectors-case.jpg",
+    "Assassin's Creed Unity Notre Dame Edition":                            "images/collectors-editions/unity-notre-dame-edition.jpg",
+    "Assassin's Creed Unity Collector's Edition":                           "images/collectors-editions/unity-collectors-edition.jpg",
+    "Assassin's Creed Unity Bastille Edition":                              "images/collectors-editions/unity-bastille-edition.jpg",
+    "Assassin's Creed Unity Special Edition":                               "images/collectors-editions/unity-special-edition.jpg",
+    "Assassin's Creed Syndicate Big Ben Collector's Case":                  "images/collectors-editions/syndicate-big-ben-collectors-case.jpg",
+    "Assassin's Creed Syndicate Charing Cross Edition":                     "images/collectors-editions/syndicate-charing-cross-edition.jpg",
+    "Assassin's Creed Syndicate The Rooks Edition":                         "images/collectors-editions/syndicate-rooks-edition.jpg",
+    "Assassin's Creed Origins Gods Edition":                                "images/collectors-editions/origins-gods-edition.jpg",
+    "Assassin's Creed Origins Dawn of the Creed Edition":                   "images/collectors-editions/origins-dawn-of-the-creed-edition.jpg",
+    "Assassin's Creed Origins Dawn of the Creed Legendary Edition":         "images/collectors-editions/origins-dawn-of-the-creed-legendary-edition.jpg",
+    "Assassin's Creed Odyssey Pantheon Edition":                            "images/collectors-editions/odyssey-pantheon-edition.jpg",
+    "Assassin's Creed Odyssey Spartan Edition":                             "images/collectors-editions/odyssey-spartan-edition.jpg",
+    "Assassin's Creed Odyssey Medusa Edition":                              "images/collectors-editions/odyssey-medusa-edition.jpg",
+    "Assassin's Creed Valhalla Collector's Edition":                        "images/collectors-editions/valhalla-collectors-edition.jpg",
+    "Assassin's Creed Mirage Collector's Case":                             "images/collectors-editions/mirage-collectors-case.jpg",
+    "Assassin's Creed Shadows Collector's Edition":                         "images/collectors-editions/shadows-collectors-edition.jpg",
+
+    // ── Steelbooks ──
+    "Assassin's Creed Steelbook (AC1, Xbox 360)":                          "images/steelbooks/ac1-steelbook-xbox-360.jpg",
+    "Assassin's Creed III Steelbook Edition":                               "images/steelbooks/ac3-steelbook-edition.jpg",
+    "Assassin's Creed III Future Shop Steelbook Edition":                   "images/steelbooks/ac3-future-shop-steelbook-edition.jpg",
+    "Assassin's Creed Origins Gold SteelBook Edition":                      "images/steelbooks/origins-gold-steelbook.jpg",
+    "Assassin's Creed Valhalla Gold Steelbook Edition":                     "images/steelbooks/valhalla-gold-steelbook.jpg",
+    "Assassin's Creed Valhalla Ultimate Steelbook Edition":                 "images/steelbooks/valhalla-ultimate-steelbook.jpg",
+    "Assassin's Creed (2016 Movie) SteelBook Edition":                     "images/steelbooks/ac-movie-steelbook.jpg",
+
+    // ── PureArts Statues 1/4 Scale ──
+    "PureArts Animus Altair 1/4 Scale Statue":                             "images/statues/purearts-animus-altair-1-4.png",
+    "PureArts Prestige Line Altair Ibn-La'Ahad 1/2 Scale Statue":          "images/statues/purearts-prestige-altair-1-2.jpg",
+    "PureArts Animus Ezio 1/4 Scale Statue":                               "images/statues/purearts-animus-ezio-1-4.png",
+    "PureArts Animus Connor 1/4 Scale Statue (Exclusive Edition)":         "images/statues/purearts-animus-connor-1-4.jpg",
+    "PureArts Animus Edward Kenway 1/4 Scale Statue (Exclusive Edition)":  "images/statues/purearts-animus-edward-1-4.jpg",
+    "PureArts Animus Arno 1/4 Scale Statue (Exclusive Edition)":           "images/statues/purearts-animus-arno-1-4.jpg",
+    "PureArts Animus Jacob & Evie 1/4 Scale Statue (Exclusive Edition)":   "images/statues/purearts-animus-jacob-evie-1-4.jpg",
+    "PureArts Animus Basim 1/4 Scale Statue (Exclusive Edition)":          "images/statues/purearts-animus-basim-1-4.jpg",
+    "PureArts Animus Naoe & Yasuke 1/4 Scale Statue (Exclusive Edition)":  "images/statues/purearts-animus-naoe-yasuke-1-4.jpg",
+
+    // ── PureArts Statues 1/8 Scale ──
+    "PureArts Animus Ezio 1/8 Scale Statue":                               "images/statues/purearts-animus-ezio-1-8.jpg",
+    "PureArts Animus Altair 1/8 Scale Statue":                             "images/statues/purearts-animus-altair-1-8.jpg",
+    "PureArts Animus Connor 1/8 Scale Statue":                             "images/statues/purearts-animus-connor-1-8.jpg",
+    "PureArts Animus Bayek 1/8 Scale Statue":                              "images/statues/purearts-animus-bayek-1-8.jpg",
+    "PureArts Animus Kassandra 1/8 Scale Statue":                          "images/statues/purearts-animus-kassandra-1-8.jpg",
+    "PureArts Animus Eivor 1/8 Scale Statue":                              "images/statues/purearts-animus-eivor-1-8.jpg",
+    "PureArts Animus Basim 1/8 Scale Statue":                              "images/statues/purearts-animus-basim-1-8.jpg",
+    "PureArts Animus Yasuke 1/8 Scale Statue":                             "images/statues/purearts-animus-yasuke-1-8.jpg",
+    "PureArts Animus Naoe 1/8 Scale Statue":                               "images/statues/purearts-animus-naoe-1-8.jpg",
+
+    // ── PureArts Other ──
+    "PureArts Animus Eivor Statue":                                        "images/statues/purearts-animus-eivor-1-4.jpg",
+    "PureArts Spartan Kick Diorama 1/6 Scale (Exclusive Edition)":         "images/statues/purearts-spartan-kick-diorama.jpg",
+    "PureArts Naoe Bust 1/4 Scale":                                        "images/statues/purearts-naoe-bust-1-4.jpg",
+    "PureArts Yasuke Bust 1/4 Scale":                                      "images/statues/purearts-yasuke-bust-1-4.jpg",
+    "PureArts Qlectors Naoe & Yasuke PVC Figure Set":                      "images/statues/purearts-qlectors-naoe-yasuke.jpg",
+    "PureArts Qlectors Ezio Leap of Faith PVC Figure":                     "images/statues/purearts-qlectors-ezio-leap-of-faith.jpg",
+    "PureArts Assassin's Creed Shadows Shogi Board Game":                  "images/other/purearts-shadows-shogi-board.jpg",
+    "PureArts Assassin's Creed Valhalla Life-Size Hidden Blade Prop":      "images/other/valhalla-hidden-blade-replica.jpg",
+    "PureArts Assassin's Creed Valhalla Bundle (Eivor Statue, Hidden Blade & Dice Game)": "images/other/valhalla-bundle-eivor-blade-dice.jpg",
+
+    // ── Ubicollectibles Figurines ──
+    "Ubicollectibles Ezio Leap of Faith Figurine":                         "images/statues/ubicollectibles-ezio-leap-of-faith.jpg",
+    "Ubicollectibles Ezio's Fury Statue (Brotherhood)":                    "images/statues/ubicollectibles-ezios-fury-brotherhood.jpg",
+    "Ubicollectibles Legacy Collection - Altair Bust":                     "images/statues/ubicollectibles-legacy-altair-bust.jpg",
+    "Ubicollectibles Legacy Collection - Ezio Bust":                       "images/statues/ubicollectibles-legacy-ezio-bust.jpg",
+    "Ubicollectibles Legacy Collection - Connor Bust":                     "images/statues/ubicollectibles-legacy-connor-bust.jpg",
+    "Ubicollectibles Legacy Collection - Edward Kenway Bust":              "images/statues/ubicollectibles-legacy-edward-bust.jpg",
+    "Ubicollectibles Legacy Collection - Aveline Bust":                    "images/statues/ubicollectibles-legacy-aveline-bust.jpg",
+    "Ubicollectibles Aveline de Grandpre PVC Statue":                      "images/statues/ubicollectibles-aveline-pvc-statue.jpg",
+    "Ubicollectibles Altair Apple of Eden Keeper Figurine":                "images/statues/ubicollectibles-altair-apple-of-eden.jpg",
+    "Ubicollectibles Jacob Frye 'The Impetuous Brother' Figurine":         "images/statues/ubicollectibles-jacob-frye.jpg",
+    "Ubicollectibles Evie Frye 'The Intrepid Sister' Figurine":            "images/statues/ubicollectibles-evie-frye.jpg",
+    "Ubicollectibles Jacob & Evie 'The Wise and Wild Twins' Diorama":      "images/statues/ubicollectibles-jacob-evie-diorama.jpg",
+    "Ubicollectibles Bayek Figurine":                                      "images/statues/ubicollectibles-bayek.jpg",
+    "Ubicollectibles Aya Figurine":                                        "images/statues/ubicollectibles-aya.jpg",
+    "Ubicollectibles Alexios Figurine":                                    "images/statues/ubicollectibles-alexios.jpg",
+    "Ubicollectibles Kassandra Figurine":                                  "images/statues/ubicollectibles-kassandra.jpg",
+    "Alexios Legendary Figurine":                                          "images/statues/alexios-legendary-figurine.jpg",
+    "Ubicollectibles Aguilar Figurine (24cm)":                             "images/statues/ubicollectibles-aguilar-24cm.jpg",
+    "Ubicollectibles Maria Figurine":                                      "images/statues/ubicollectibles-maria.jpg",
+    "Triforce Aguilar Collector's Edition Statue (35cm)":                   "images/statues/triforce-aguilar-35cm.jpg",
+
+    // ── Replicas / Props ──
+    "Ubicollectibles Apple of Eden Replica (Movie)":                       "images/other/apple-of-eden-replica-movie.jpg",
+    "Ubicollectibles Apple of Eden Collector Chest (Movie)":               "images/other/apple-of-eden-collector-chest-movie.jpg",
+    "Ubicollectibles Hidden Blade Replica (Movie)":                        "images/other/hidden-blade-replica-movie.jpg",
+    "Ubicollectibles Apple of Eden Replica (Origins)":                     "images/other/apple-of-eden-replica-origins.jpg",
+    "Ubicollectibles The First Hidden Blade Replica (Origins)":            "images/other/first-hidden-blade-replica-origins.jpg",
+    "Ubicollectibles Broken Spear of Leonidas Replica":                    "images/other/broken-spear-of-leonidas-replica.jpg",
+    "McFarlane Toys Hidden Blade & Gauntlet with Skull Buckle (Black Flag)": "images/other/mcfarlane-hidden-blade-black-flag.jpg",
+    "McFarlane Toys Gauntlet with Hidden Blade (Syndicate)":               "images/other/mcfarlane-hidden-blade-syndicate.jpg",
+    "McFarlane Toys Aguilar's Hidden Blade (Movie)":                       "images/other/mcfarlane-hidden-blade-movie.jpg",
+
+    // ── McFarlane Action Figures ──
+    "McFarlane Toys Altair Action Figure (Series 1)":                      "images/statues/mcfarlane-altair.jpg",
+    "McFarlane Toys Ezio Action Figure (Series 1)":                        "images/statues/mcfarlane-ezio.jpg",
+    "McFarlane Toys Connor Action Figure (Series 1)":                      "images/statues/mcfarlane-connor.jpg",
+    "McFarlane Toys Edward Kenway Action Figure (Series 1)":               "images/statues/mcfarlane-edward.jpg",
+    "McFarlane Toys Aveline de Grandpre Action Figure (Series 2)":         "images/statues/mcfarlane-aveline.jpg",
+    "McFarlane Toys Aguilar Action Figure (Movie Series)":                 "images/statues/mcfarlane-aguilar.jpg",
+
+    // ── Art Books ──
+    "Assassin's Creed Pre-Order Art Book":                                 "images/art-books/ac1-pre-order-art-book.jpg",
+    "Assassin's Creed Encyclopedia (First Edition)":                       "images/art-books/encyclopedia-first-edition.jpg",
+    "Assassin's Creed Encyclopedia (Second Edition)":                      "images/art-books/encyclopedia-second-edition.jpg",
+    "Assassin's Creed Encyclopedia (Third Edition / Black Edition)":       "images/art-books/encyclopedia-third-edition.jpg",
+    "Assassin's Creed: The Complete Visual History":                        "images/art-books/complete-visual-history.jpg",
+    "Assassin's Creed Limited Edition Art Book (Prima Games)":             "images/art-books/ac1-art-book-prima-games.jpg",
+    "The Art of Assassin's Creed III":                                     "images/art-books/art-of-ac3.jpg",
+    "The Art of Assassin's Creed IV: Black Flag":                          "images/art-books/art-of-ac4-black-flag.jpg",
+    "The Art of Assassin's Creed Unity":                                   "images/art-books/art-of-ac-unity.jpg",
+    "The Art of Assassin's Creed Syndicate":                               "images/art-books/art-of-ac-syndicate.jpg",
+    "The Art of Assassin's Creed Origins":                                 "images/art-books/art-of-ac-origins.jpg",
+    "The Art of Assassin's Creed Odyssey":                                 "images/art-books/art-of-ac-odyssey.jpg",
+    "The Art of Assassin's Creed Valhalla":                                "images/art-books/art-of-ac-valhalla.jpg",
+    "The Art of Assassin's Creed Mirage":                                  "images/art-books/art-of-ac-mirage.jpg",
+    "The Art of Assassin's Creed Mirage (Deluxe Edition)":                 "images/art-books/art-of-ac-mirage_deluxe.jpg",
+    "The Art of Assassin's Creed Shadows":                                 "images/art-books/art-of-ac-shadows.jpg",
+    "The Art of Assassin's Creed Shadows (Deluxe Edition)":                "images/art-books/art-of-ac-shadows-deluxe.jpg",
+
+    // ── Funko Pop ──
+    "Funko Pop! Games #20 - Altair":                                       "images/funko-pop/funko-pop-20-altair.jpg",
+    "Funko Pop! Games #21 - Ezio (Standard White)":                        "images/funko-pop/funko-pop-21-ezio-white.jpg",
+    "Funko Pop! Games #21 - Ezio (Eagle Vision Blue) (GameStop Exclusive)":"images/funko-pop/funko-pop-21-ezio-eagle-vision-blue.jpg",
+    "Funko Pop! Games #21 - Ezio (Black)":                                 "images/funko-pop/funko-pop-21-ezio-black.jpg",
+    "Funko Pop! Games #22 - Connor":                                       "images/funko-pop/funko-pop-22-connor.jpg",
+    "Funko Pop! Games #23 - Edward":                                       "images/funko-pop/funko-pop-23-edward.jpg",
+    "Funko Pop! Games #24 - Plague Doctor (Multiplayer)":                  "images/funko-pop/funko-pop-24-plague-doctor.jpg",
+    "Funko Pop! Games #28 - Aveline de Grandpre":                          "images/funko-pop/funko-pop-28-aveline.jpg",
+    "Funko Pop! Games #35 - Arno":                                         "images/funko-pop/funko-pop-35-arno.jpg",
+    "Funko Pop! Games #36 - Elise":                                        "images/funko-pop/funko-pop-36-elise.jpg",
+    "Funko Pop! Games #73 - Jacob Frye":                                   "images/funko-pop/funko-pop-73-jacob-frye.jpg",
+    "Funko Pop! Games #74 - Evie Frye":                                    "images/funko-pop/funko-pop-74-evie-frye.jpg",
+    "Funko Pop! Games #80 - Jacob Frye (Uncloaked) (Underground Toys Exclusive)": "images/funko-pop/funko-pop-80-jacob-frye-uncloaked.jpg",
+    "Funko Pop! Games #776 - Eivor":                                       "images/funko-pop/funko-pop-776-eivor.jpg",
+    "Funko Pop! Games #778 - Eivor with Double Axe (GameStop Exclusive)":  "images/funko-pop/funko-pop-778-eivor-double-axe.jpg",
+    "Funko Pop! Movies #375 - Aguilar":                                    "images/funko-pop/funko-pop-375-aguilar.jpg",
+    "Funko Pop! Movies #376 - Maria":                                      "images/funko-pop/funko-pop-376-maria.jpg",
+    "Funko Pop! Movies #377 - Ojeda":                                      "images/funko-pop/funko-pop-377-ojeda.jpg",
+    "Funko Pop! Movies #378 - Callum Lynch":                               "images/funko-pop/funko-pop-378-callum-lynch.jpg",
+    "Funko Pop! Movies #379 - Aguilar (Crouching) (Loot Crate Exclusive)": "images/funko-pop/funko-pop-379-aguilar-crouching.jpg",
+
+    // ── Jewelry ──
+    "Ubi Workshop Master Assassin Ring":                                   "images/other/ubi-workshop-master-assassin-ring.jpg",
+    "Ubi Workshop Connor Amulet Necklace (Silver)":                        "images/other/ubi-workshop-connor-amulet-necklace.jpg",
+    "Ubi Workshop Syndicate Rooks Necklace":                               "images/other/ubi-workshop-rooks-necklace.jpg",
+    "Ubi Workshop Syndicate Starrick Templar Necklace":                    "images/other/ubi-workshop-starrick-templar-necklace.jpg",
+    "Ubi Workshop Syndicate Templar Amulet Necklace":                      "images/other/ubi-workshop-templar-amulet-necklace.jpg",
+    "BIXLER x Assassin's Creed Odyssey Jewelry Collection":               "images/other/bixler-odyssey-jewelry-collection.jpg",
+    "King Ice x Assassin's Creed Shadows Necklace (Yasuke Kabuto 14K Gold)": "images/other/king-ice-yasuke-kabuto-necklace.jpg",
+
+    // ── Compilations / Other ──
+    "Assassin's Creed Heritage Collection":                                "images/other/heritage-collection.jpg",
+    "Assassin's Creed: The Ezio Collection":                               "images/other/ezio-collection.jpg",
+    "Assassin's Creed: The Official Collection (Hachette Partworks)":      "images/statues/hachette-official-collection.jpg",
+};
+
+// Apply images to database — only if the file actually exists (image onload handles missing files gracefully)
+(function applyImages() {
+    if (typeof AC_DATABASE === 'undefined') return;
+    AC_DATABASE.forEach(item => {
+        if (AC_IMAGES[item.name]) {
+            item.image = AC_IMAGES[item.name];
+        }
+    });
+})();

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACDb - Assassin's Creed Collector's Database</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Ambient Background -->
+    <div class="ambient-bg"></div>
+    <div class="scanlines"></div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-inner">
+            <div class="logo-area">
+                <div class="ac-symbol">
+                    <svg viewBox="0 0 100 100" class="ac-logo-svg">
+                        <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h1>ACDb</h1>
+                    <span class="logo-subtitle">Assassin's Creed Collector's Database</span>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="stat-block">
+                    <span class="stat-number" id="totalItems">0</span>
+                    <span class="stat-label">Total Items</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-number" id="ownedItems">0</span>
+                    <span class="stat-label">Owned</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-number" id="completionPercent">0%</span>
+                    <span class="stat-label">Complete</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <div class="search-container">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search items..." autocomplete="off">
+                <button id="clearSearch" class="clear-search" title="Clear search">&times;</button>
+            </div>
+            <div class="filter-group">
+                <select id="filterGame" class="filter-select">
+                    <option value="">All Games</option>
+                </select>
+                <select id="filterCategory" class="filter-select">
+                    <option value="">All Categories</option>
+                </select>
+                <select id="filterOwned" class="filter-select">
+                    <option value="">All Items</option>
+                    <option value="owned">Owned Only</option>
+                    <option value="unowned">Not Owned</option>
+                    <option value="wishlist">Wishlist</option>
+                </select>
+            </div>
+            <div class="view-controls">
+                <button id="viewGrid" class="view-btn active" title="Grid View">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                </button>
+                <button id="viewList" class="view-btn" title="List View">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="17" width="18" height="3" rx="1"/></svg>
+                </button>
+                <button id="addItemBtn" class="add-item-btn" title="Add Custom Item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    <span>Add Item</span>
+                </button>
+                <button id="manageBtn" class="manage-btn" title="Manage Custom Items &amp; Games">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Timeline Navigation -->
+    <nav class="game-timeline" id="gameTimeline">
+        <div class="timeline-inner">
+            <!-- Populated by JS -->
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="items-grid" id="itemsContainer">
+            <!-- Items populated by JS -->
+        </div>
+        <div class="no-results" id="noResults" style="display:none;">
+            <svg viewBox="0 0 100 100" class="no-results-icon">
+                <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor" opacity="0.2"/>
+            </svg>
+            <p>Nothing is true, everything is permitted... but no items match your search.</p>
+        </div>
+    </main>
+
+    <!-- Item Detail Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="itemModal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-content">
+                <div class="modal-image-section">
+                    <div class="modal-gallery" id="modalGallery">
+                        <div class="gallery-image-wrapper" id="modalImage">
+                            <svg viewBox="0 0 100 100" class="placeholder-icon">
+                                <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <button class="gallery-nav gallery-prev" id="galleryPrev" title="Previous image">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button class="gallery-nav gallery-next" id="galleryNext" title="Next image">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <div class="gallery-counter" id="galleryCounter"></div>
+                        <div class="gallery-dots" id="galleryDots"></div>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <div class="modal-badge" id="modalBadge"></div>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <div class="modal-meta">
+                        <span class="modal-game" id="modalGame"></span>
+                        <span class="modal-year" id="modalYear"></span>
+                    </div>
+                    <p class="modal-description" id="modalDescription"></p>
+                    <div class="modal-contents-section">
+                        <h3>Contents</h3>
+                        <p id="modalContents"></p>
+                    </div>
+
+                    <div class="modal-divider"></div>
+
+                    <h3 class="collection-heading">My Collection</h3>
+                    <div class="collection-controls">
+                        <div class="control-row">
+                            <label class="toggle-label">
+                                <span>Owned</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="modalOwned">
+                                    <span class="toggle-slider"></span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="control-row">
+                            <label class="toggle-label">
+                                <span>Wishlist</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="modalWishlist">
+                                    <span class="toggle-slider"></span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="control-row">
+                            <label class="toggle-label">
+                                <span>Has Original Box</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="modalHasBox">
+                                    <span class="toggle-slider"></span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="control-row">
+                            <label for="modalCondition">Condition</label>
+                            <select id="modalCondition" class="modal-select">
+                                <option value="">Not Set</option>
+                                <option value="mint">Mint / Sealed</option>
+                                <option value="near-mint">Near Mint</option>
+                                <option value="excellent">Excellent</option>
+                                <option value="good">Good</option>
+                                <option value="fair">Fair</option>
+                                <option value="poor">Poor</option>
+                            </select>
+                        </div>
+                        <div class="control-row">
+                            <label for="modalCopies">Copies Owned</label>
+                            <div class="copies-control">
+                                <button class="copies-btn" id="copiesMinus">-</button>
+                                <input type="number" id="modalCopies" min="0" max="99" value="0">
+                                <button class="copies-btn" id="copiesPlus">+</button>
+                            </div>
+                        </div>
+                        <div class="control-row">
+                            <label for="modalNotes">Notes</label>
+                            <textarea id="modalNotes" placeholder="Add personal notes..." rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Item Modal -->
+    <div class="modal-overlay" id="addModalOverlay">
+        <div class="modal add-item-modal" id="addItemModal">
+            <button class="modal-close" id="addModalClose">&times;</button>
+            <div class="add-modal-content">
+                <h2 class="add-modal-title">Add New Item</h2>
+                <p class="add-modal-subtitle">Add a custom collectible to your database</p>
+
+                <div class="add-form">
+                    <div class="form-row">
+                        <label for="addName">Item Name *</label>
+                        <input type="text" id="addName" placeholder="e.g. Assassin's Creed Valhalla Ragnarök Edition" required>
+                    </div>
+                    <div class="form-row-group">
+                        <div class="form-row">
+                            <label for="addGame">Game *</label>
+                            <div class="select-with-add">
+                                <select id="addGame">
+                                    <option value="">Select game...</option>
+                                    <!-- Populated by JS -->
+                                </select>
+                                <button type="button" id="addGameToggle" class="inline-add-btn" title="Add new game">+</button>
+                            </div>
+                            <div class="inline-add-row" id="addGameRow" style="display:none;">
+                                <input type="text" id="addGameInput" placeholder="New game name...">
+                                <button type="button" id="addGameConfirm" class="inline-confirm-btn">Add</button>
+                                <button type="button" id="addGameCancel" class="inline-cancel-btn">&times;</button>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="addYear">Year *</label>
+                            <input type="number" id="addYear" min="2007" max="2030" placeholder="2024">
+                        </div>
+                    </div>
+                    <div class="form-row-group">
+                        <div class="form-row">
+                            <label for="addCategory">Category *</label>
+                            <select id="addCategory">
+                                <option value="">Select category...</option>
+                                <option value="Collector's Edition">Collector's Edition</option>
+                                <option value="Statue">Statue</option>
+                                <option value="Art Book">Art Book</option>
+                                <option value="Steelbook">Steelbook</option>
+                                <option value="Funko Pop">Funko Pop</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="addEditionType">Edition Type</label>
+                            <select id="addEditionType">
+                                <option value="Collector's Edition">Collector's Edition</option>
+                                <option value="Deluxe">Deluxe</option>
+                                <option value="Statue">Statue</option>
+                                <option value="Art Book">Art Book</option>
+                                <option value="Steelbook">Steelbook</option>
+                                <option value="Funko Pop">Funko Pop</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label for="addDescription">Description</label>
+                        <textarea id="addDescription" rows="2" placeholder="Brief description of the item..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="addContents">Contents</label>
+                        <textarea id="addContents" rows="2" placeholder="List what's included..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="addImagePath">Image Path</label>
+                        <input type="text" id="addImagePath" placeholder="images/collectors-editions/my-item.jpg">
+                        <span class="form-hint">Drop the image file in the images/ folder and enter its path here</span>
+                    </div>
+
+                    <div class="form-actions">
+                        <button id="addItemCancel" class="btn-cancel">Cancel</button>
+                        <button id="addItemSave" class="btn-save">Add Item</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Manage Modal -->
+    <div class="modal-overlay" id="manageModalOverlay">
+        <div class="modal manage-modal" id="manageModal">
+            <button class="modal-close" id="manageModalClose">&times;</button>
+            <div class="manage-modal-content">
+                <h2 class="manage-modal-title">Manage</h2>
+                <div class="manage-tabs">
+                    <button class="manage-tab active" data-tab="items">Custom Items</button>
+                    <button class="manage-tab" data-tab="games">Custom Games</button>
+                </div>
+                <div class="manage-tab-content active" id="manageItemsTab">
+                    <div class="manage-list" id="manageItemsList"></div>
+                    <p class="manage-empty" id="manageItemsEmpty">No custom items yet. Use the "Add Item" button to create one.</p>
+                </div>
+                <div class="manage-tab-content" id="manageGamesTab">
+                    <div class="manage-add-row" id="manageAddGameRow">
+                        <input type="text" id="manageAddGameInput" placeholder="New game name...">
+                        <button id="manageAddGameBtn" class="inline-confirm-btn">Add Game</button>
+                    </div>
+                    <div class="manage-list" id="manageGamesList"></div>
+                    <p class="manage-empty" id="manageGamesEmpty">No custom games yet. Add one above.</p>
+                </div>
+            </div>
+            <!-- Confirm dialog -->
+            <div class="manage-confirm-overlay" id="manageConfirmOverlay">
+                <div class="manage-confirm-dialog">
+                    <p id="manageConfirmMsg">Are you sure?</p>
+                    <div class="manage-confirm-actions">
+                        <button class="btn-cancel" id="manageConfirmNo">Cancel</button>
+                        <button class="btn-danger" id="manageConfirmYes">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <p>ACDb - Assassin's Creed Collector's Database</p>
+            <p class="footer-disclaimer">This is a fan-made collection tracker. Assassin's Creed is a trademark of Ubisoft Entertainment.</p>
+            <p class="footer-disclaimer">All items listed are officially produced or licensed by Ubisoft.</p>
+        </div>
+    </footer>
+
+    <script src="js/database.js"></script>
+    <script src="js/images.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
