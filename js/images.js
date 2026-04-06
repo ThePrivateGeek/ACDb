@@ -183,6 +183,24 @@ const AC_IMAGES = {
     "Assassin's Creed Anthology Edition":                                  "images/collectors-editions/ac-anthology.jpg",
     "Ubicollectibles Connor 'The Last Breath' Figurine":                   "images/statues/connor-the-last-breath.jpg",
     "Ubicollectibles Connor 'The Hunter' Figurine":                        "images/statues/connor-the-hunter.jpg",
+
+    // ── Novels ──
+    "Assassin's Creed: Renaissance":                                       "images/novels/ac-renaissance.jpg",
+    "Assassin's Creed: Brotherhood (Novel)":                               "images/novels/ac-brotherhood-novel.jpg",
+    "Assassin's Creed: The Secret Crusade":                                "images/novels/ac-secret-crusade.jpg",
+    "Assassin's Creed: Revelations (Novel)":                               "images/novels/ac-revelations-novel.jpg",
+    "Assassin's Creed: Forsaken":                                          "images/novels/ac-forsaken.jpg",
+    "Assassin's Creed: Black Flag (Novel)":                                "images/novels/ac-black-flag-novel.jpg",
+    "Assassin's Creed: Underworld":                                        "images/novels/ac-underworld.jpg",
+    "Assassin's Creed: Heresy":                                            "images/novels/ac-heresy.jpg",
+    "Assassin's Creed: Last Descendants":                                  "images/novels/ac-last-descendants.jpg",
+    "Assassin's Creed: Last Descendants - Tomb of the Khan":               "images/novels/ac-last-descendants-tomb-of-khan.jpg",
+    "Assassin's Creed: Last Descendants - Fate of the Gods":               "images/novels/ac-last-descendants-fate-of-gods.jpg",
+    "Assassin's Creed Origins: Desert Oath":                               "images/novels/ac-origins-desert-oath.jpg",
+    "Assassin's Creed: Odyssey (Novel)":                                   "images/novels/ac-odyssey-novel.jpg",
+    "Assassin's Creed Valhalla: Geirmund's Saga":                          "images/novels/ac-valhalla-geirmunds-saga.jpg",
+    "Assassin's Creed: The Ming Storm":                                    "images/novels/ac-ming-storm.jpg",
+    "Assassin's Creed: Fragments - The Blade of Aizu":                     "images/novels/ac-fragments-blade-of-aizu.jpg",
 };
 
 // Apply images to database — only if the file actually exists (image onload handles missing files gracefully)

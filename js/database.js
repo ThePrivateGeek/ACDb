@@ -1430,5 +1430,230 @@ const AC_DATABASE = [
     "description": "Detailed 25cm PVC figurine of Connor perched in a dead Silver Birch tree, drawing his bow. Features positionable hidden blade, real cord bowstring, and tomahawk with Assassin logo. Sculpted using Ubisoft's CGI models.",
     "contents": "Connor 'The Hunter' PVC statue (25cm), tree base/diorama, window box packaging",
     "edition_type": "Figurine"
+  },
+  {
+    "name": "Assassin's Creed: Renaissance",
+    "game": "Assassin's Creed II",
+    "year": 2009,
+    "category": "Novel",
+    "description": "Novelization of Ezio Auditore's origin story in Renaissance Italy, covering his transformation from a Florentine nobleman's son into a Master Assassin. By Oliver Bowden.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Brotherhood (Novel)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2010,
+    "category": "Novel",
+    "description": "Continues Ezio's story as he travels to Rome to confront Cesare Borgia and rebuilds the Assassin Brotherhood. By Oliver Bowden.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: The Secret Crusade",
+    "game": "Assassin's Creed",
+    "year": 2011,
+    "category": "Novel",
+    "description": "The full life story of Altair Ibn-La'Ahad, framed as Niccolo Polo's account, covering events from the first game and beyond through Altair's later years. By Oliver Bowden.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Revelations (Novel)",
+    "game": "Assassin's Creed Revelations",
+    "year": 2011,
+    "category": "Novel",
+    "description": "Novelization of an aging Ezio's journey to Constantinople to uncover Altair's secrets hidden beneath Masyaf, navigating Ottoman-era political intrigue. By Oliver Bowden.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Forsaken",
+    "game": "Assassin's Creed III",
+    "year": 2012,
+    "category": "Novel",
+    "description": "Told partly through Haytham Kenway's journal, this novel explores the Kenway family saga, offering a Templar perspective on the events of AC III. By Oliver Bowden.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Black Flag (Novel)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Novel",
+    "description": "Novelization of Edward Kenway's pirate adventures in the Caribbean during the Golden Age of Piracy. By Oliver Bowden.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Unity (Novel)",
+    "game": "Assassin's Creed Unity",
+    "year": 2014,
+    "category": "Novel",
+    "description": "Follows Arno Dorian during the French Revolution as he joins the Assassin Brotherhood and pursues those responsible for his adoptive father's murder. By Oliver Bowden.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Underworld",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2015,
+    "category": "Novel",
+    "description": "A prequel/companion to Syndicate set in Victorian London, following Assassin Henry Green and events leading up to the arrival of Jacob and Evie Frye. By Oliver Bowden.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Heresy",
+    "game": "General",
+    "year": 2016,
+    "category": "Novel",
+    "description": "Abstergo employee Simon Hathaway relives the memories of Joan of Arc's companion-at-arms, exploring the role of a Sword of Eden in the Hundred Years' War. By Christie Golden.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Last Descendants",
+    "game": "General",
+    "year": 2016,
+    "category": "Novel",
+    "description": "YA novel. Teenagers are recruited by Assassins and Templars to use the Animus, reliving ancestors' memories during the 1863 New York City draft riots to find a Piece of Eden. By Matthew Kirby.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Last Descendants - Tomb of the Khan",
+    "game": "General",
+    "year": 2017,
+    "category": "Novel",
+    "description": "YA novel. The young protagonists are sent into memories from the time of the Mongol Empire, searching for a prong of the Trident of Eden. By Matthew Kirby.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Last Descendants - Fate of the Gods",
+    "game": "General",
+    "year": 2018,
+    "category": "Novel",
+    "description": "YA novel. The conclusion of the trilogy, where the teens must locate the final prong of the Trident of Eden across multiple historical eras. By Matthew Kirby.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed Origins: Desert Oath",
+    "game": "Assassin's Creed Origins",
+    "year": 2017,
+    "category": "Novel",
+    "description": "A prequel to AC Origins, following a young Bayek in ancient Egypt as he trains to become a Medjay and the events that shaped him before the game's story. By Oliver Bowden.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Odyssey (Novel)",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2018,
+    "category": "Novel",
+    "description": "Novelization following the Eagle Bearer during the Peloponnesian War in ancient Greece, uncovering the Cult of Kosmos and her family's legacy. By Gordon Doherty.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: Geirmund's Saga",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Novel",
+    "description": "Follows Norse warrior Geirmund Hel-hide during the Viking invasion of England, offering a parallel story to the game's events. By Matthew Kirby.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: The Ming Storm",
+    "game": "General",
+    "year": 2021,
+    "category": "Novel",
+    "description": "Follows Shao Jun as she returns to Ming Dynasty China to rebuild the Brotherhood after training with Ezio Auditore in Italy. By Yan Leisheng.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: The Desert Threat",
+    "game": "General",
+    "year": 2022,
+    "category": "Novel",
+    "description": "Continues Shao Jun's story as she faces new threats to the Chinese Brotherhood, navigating palace intrigue and Templar plots in Ming Dynasty China. By Yan Leisheng.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: The Jade Seal",
+    "game": "General",
+    "year": 2023,
+    "category": "Novel",
+    "description": "The final installment of Shao Jun's trilogy, concluding her mission to restore the Chinese Brotherhood and defeat the Templar presence in China. By Yan Leisheng.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: The Magus Conspiracy",
+    "game": "General",
+    "year": 2022,
+    "category": "Novel",
+    "description": "Follows Assassin Pierrette Arnaud and magician Simeon Price across 1870s Europe, confronting a Templar conspiracy involving Isu artifacts during the era of the Paris Commune. By Kate Heartfield.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: Sword of the White Horse",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2022,
+    "category": "Novel",
+    "description": "Follows Niamh, a blind Norse-Gaelic woman and Hidden One, in the court of King Alfred's Wessex, as she protects a sacred artifact. By Elsa Sjunneson.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: The Golden City",
+    "game": "General",
+    "year": 2023,
+    "category": "Novel",
+    "description": "An original Assassin's Creed novel exploring the conflict between Assassins and Templars through a new story. By Jaleigh Johnson.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed Mirage: Daughter of No One",
+    "game": "Assassin's Creed Mirage",
+    "year": 2023,
+    "category": "Novel",
+    "description": "Master Assassin Roshan's past is revealed as she joins a hunt along the Silk Road for a powerful lost artifact. A prequel companion to AC Mirage. By Maria Lewis.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Mirage (Novel)",
+    "game": "Assassin's Creed Mirage",
+    "year": 2023,
+    "category": "Novel",
+    "description": "Novelization of Basim Ibn Ishaq's story in 9th-century Baghdad, covering his transformation from a street thief into a member of the Hidden Ones. By Oliver Bowden.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Fragments - The Blade of Aizu",
+    "game": "General",
+    "year": 2023,
+    "category": "Novel",
+    "description": "Set during the Boshin War in Japan, this novel follows characters caught between Assassins and Templars in the twilight of the samurai era. By Olivier Gay.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: Fragments - The Highlands Children",
+    "game": "General",
+    "year": 2023,
+    "category": "Novel",
+    "description": "Set in the Scottish Highlands, this Fragments novel follows characters caught in the Assassin-Templar conflict. By Alain T. Puyssegur.",
+    "contents": "Paperback novel",
+    "edition_type": "Novel"
   }
 ];
