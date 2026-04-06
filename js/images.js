@@ -191,6 +191,7 @@ const AC_IMAGES = {
     "Assassin's Creed: Revelations (Novel)":                               "images/novels/ac-revelations-novel.jpg",
     "Assassin's Creed: Forsaken":                                          "images/novels/ac-forsaken.jpg",
     "Assassin's Creed: Black Flag (Novel)":                                "images/novels/ac-black-flag-novel.jpg",
+    "Assassin's Creed: Unity (Novel)":                                     "images/novels/ac-unity-novel.jpg",
     "Assassin's Creed: Underworld":                                        "images/novels/ac-underworld.jpg",
     "Assassin's Creed: Heresy":                                            "images/novels/ac-heresy.jpg",
     "Assassin's Creed: Last Descendants":                                  "images/novels/ac-last-descendants.jpg",
@@ -201,6 +202,13 @@ const AC_IMAGES = {
     "Assassin's Creed Valhalla: Geirmund's Saga":                          "images/novels/ac-valhalla-geirmunds-saga.jpg",
     "Assassin's Creed: The Ming Storm":                                    "images/novels/ac-ming-storm.jpg",
     "Assassin's Creed: Fragments - The Blade of Aizu":                     "images/novels/ac-fragments-blade-of-aizu.jpg",
+    "Assassin's Creed: The Desert Threat":                                 "images/novels/ac-desert-threat.jpg",
+    "Assassin's Creed: The Jade Seal":                                     "images/novels/ac-jade-seal.jpg",
+    "Assassin's Creed: The Magus Conspiracy":                              "images/novels/ac-magus-conspiracy.jpg",
+    "Assassin's Creed Valhalla: Sword of the White Horse":                 "images/novels/ac-sword-white-horse.jpg",
+    "Assassin's Creed: The Golden City":                                   "images/novels/ac-golden-city.jpg",
+    "Assassin's Creed Mirage: Daughter of No One":                         "images/novels/ac-daughter-of-no-one.jpg",
+    "Assassin's Creed: Fragments - The Highlands Children":                "images/novels/ac-fragments-highlands-children.jpg",
 };
 
 // Apply images to database — only if the file actually exists (image onload handles missing files gracefully)

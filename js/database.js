@@ -1568,7 +1568,7 @@ const AC_DATABASE = [
   },
   {
     "name": "Assassin's Creed: The Ming Storm",
-    "game": "General",
+    "game": "Assassin's Creed Chronicles: China",
     "year": 2021,
     "category": "Novel",
     "description": "Follows Shao Jun as she returns to Ming Dynasty China to rebuild the Brotherhood after training with Ezio Auditore in Italy. By Yan Leisheng.",
@@ -1577,7 +1577,7 @@ const AC_DATABASE = [
   },
   {
     "name": "Assassin's Creed: The Desert Threat",
-    "game": "General",
+    "game": "Assassin's Creed Chronicles: China",
     "year": 2022,
     "category": "Novel",
     "description": "Continues Shao Jun's story as she faces new threats to the Chinese Brotherhood, navigating palace intrigue and Templar plots in Ming Dynasty China. By Yan Leisheng.",
@@ -1586,7 +1586,7 @@ const AC_DATABASE = [
   },
   {
     "name": "Assassin's Creed: The Jade Seal",
-    "game": "General",
+    "game": "Assassin's Creed Chronicles: China",
     "year": 2023,
     "category": "Novel",
     "description": "The final installment of Shao Jun's trilogy, concluding her mission to restore the Chinese Brotherhood and defeat the Templar presence in China. By Yan Leisheng.",
@@ -1626,15 +1626,6 @@ const AC_DATABASE = [
     "year": 2023,
     "category": "Novel",
     "description": "Master Assassin Roshan's past is revealed as she joins a hunt along the Silk Road for a powerful lost artifact. A prequel companion to AC Mirage. By Maria Lewis.",
-    "contents": "Paperback novel",
-    "edition_type": "Novel"
-  },
-  {
-    "name": "Assassin's Creed: Mirage (Novel)",
-    "game": "Assassin's Creed Mirage",
-    "year": 2023,
-    "category": "Novel",
-    "description": "Novelization of Basim Ibn Ishaq's story in 9th-century Baghdad, covering his transformation from a street thief into a member of the Hidden Ones. By Oliver Bowden.",
     "contents": "Paperback novel",
     "edition_type": "Novel"
   },
