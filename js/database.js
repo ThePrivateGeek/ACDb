@@ -244,6 +244,15 @@ const AC_DATABASE = [
     "edition_type": "Special Edition"
   },
   {
+    "name": "Ubicollectibles Altair The Legendary Assassin",
+    "game": "Assassin's Creed",
+    "year": 2014,
+    "category": "Statue/Figurine",
+    "description": "Inspired by the first act of the saga, this statue depicts Altair Ibn-La'Ahad, the hero featured in Assassin's Creed.",
+    "contents": "Statue of Altair Ibn-La'Ahad",
+    "edition_type": "Statue"
+  },
+  {
     "name": "Assassin's Creed Syndicate Big Ben Collector's Case",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,

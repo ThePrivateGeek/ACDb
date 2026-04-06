@@ -103,7 +103,8 @@ const AC_IMAGES = {
     "Alexios Legendary Figurine":                                          "images/statues/alexios-legendary-figurine.jpg",
     "Ubicollectibles Aguilar Figurine (24cm)":                             "images/statues/ubicollectibles-aguilar-24cm.jpg",
     "Ubicollectibles Maria Figurine":                                      "images/statues/ubicollectibles-maria.jpg",
-    "Triforce Aguilar Collector's Edition Statue (35cm)":                   "images/statues/triforce-aguilar-35cm.jpg",
+    "Triforce Aguilar Collector's Edition Statue (35cm)":                  "images/statues/triforce-aguilar-35cm.jpg",
+    "Ubicollectibles Altair The Legendary Assassin":                       "images/statues/ubicollectibles-altair-the-legendary-assassin.jpg",
 
     // ── Replicas / Props ──
     "Ubicollectibles Apple of Eden Replica (Movie)":                       "images/other/apple-of-eden-replica-movie.jpg",
