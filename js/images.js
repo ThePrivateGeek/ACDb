@@ -179,6 +179,9 @@ const AC_IMAGES = {
     // ── Compilations / Other ──
     "Assassin's Creed Heritage Collection":                                "images/other/heritage-collection.jpg",
     "Assassin's Creed: The Official Collection (Hachette Partworks)":      "images/statues/hachette-official-collection.jpg",
+    "Assassin's Creed Anthology Edition":                                  "images/collectors-editions/ac-anthology.jpg",
+    "Ubicollectibles Connor 'The Last Breath' Figurine":                   "images/statues/connor-the-last-breath.jpg",
+    "Ubicollectibles Connor 'The Hunter' Figurine":                        "images/statues/connor-the-hunter.jpg",
 };
 
 // Apply images to database — only if the file actually exists (image onload handles missing files gracefully)

@@ -1394,5 +1394,32 @@ const AC_DATABASE = [
     "description": "Bi-weekly magazine collection by Hachette Partworks featuring hand-painted figurines of characters from across the Assassin's Creed franchise. Each issue comes with a figurine and accompanying magazine.",
     "contents": "Bi-weekly collectible figurines with companion magazines covering characters from all AC games",
     "edition_type": "Figurine Collection"
+  },
+  {
+    "name": "Assassin's Creed Anthology Edition",
+    "game": "General",
+    "year": 2012,
+    "category": "Collector's Edition",
+    "description": "Prestige PAL-exclusive compilation bringing together all five mainline Assassin's Creed games in one premium collector's box. Released as an Amazon UK exclusive in the UK.",
+    "contents": "Collector's presentation box, exclusive steelbook case, five art lithographs, all five games (AC1, AC2, Brotherhood, Revelations, AC3) with all DLC, AC3 Season Pass",
+    "edition_type": "Collector's Edition"
+  },
+  {
+    "name": "Ubicollectibles Connor 'The Last Breath' Figurine",
+    "game": "Assassin's Creed III",
+    "year": 2016,
+    "category": "Statue/Figurine",
+    "description": "Highly detailed 28cm PVC figurine depicting Connor Kenway in a dramatic pose about to execute an English general, inspired by the AC3 announcement trailer. Produced by Ubicollectibles.",
+    "contents": "Connor 'The Last Breath' PVC statue (28cm), display base, window box packaging",
+    "edition_type": "Figurine"
+  },
+  {
+    "name": "Ubicollectibles Connor 'The Hunter' Figurine",
+    "game": "Assassin's Creed III",
+    "year": 2012,
+    "category": "Statue/Figurine",
+    "description": "Detailed 25cm PVC figurine of Connor perched in a dead Silver Birch tree, drawing his bow. Features positionable hidden blade, real cord bowstring, and tomahawk with Assassin logo. Sculpted using Ubisoft's CGI models.",
+    "contents": "Connor 'The Hunter' PVC statue (25cm), tree base/diorama, window box packaging",
+    "edition_type": "Figurine"
   }
 ];
