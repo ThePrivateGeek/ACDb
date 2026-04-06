@@ -206,18 +206,20 @@
         games.forEach(g => { if (!sortedGames.includes(g)) sortedGames.push(g); });
 
         sortedGames.forEach(game => {
+            const count = AC_DATABASE.filter(i => i.game === game).length;
             const opt = document.createElement('option');
             opt.value = game;
-            opt.textContent = game;
+            opt.textContent = `${game} (${count})`;
             dom.filterGame.appendChild(opt);
         });
 
-        // Categories
+        // Categories (with item counts)
         const categories = [...new Set(AC_DATABASE.map(i => i.category))].sort();
         categories.forEach(cat => {
+            const count = AC_DATABASE.filter(i => i.category === cat).length;
             const opt = document.createElement('option');
             opt.value = cat;
-            opt.textContent = cat;
+            opt.textContent = `${cat} (${count})`;
             dom.filterCategory.appendChild(opt);
         });
 
