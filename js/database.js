@@ -13,7 +13,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Limited Edition Status",
     "game": "Assassin's Creed",
     "year": 2007,
-    "category": "Statue",
+    "category": "Statue/Figurine",
     "description": "Assassin's Creed Limited Collectors Edition Status",
     "contents": "",
     "edition_type": "Statue"
@@ -1018,13 +1018,13 @@ const AC_DATABASE = [
     "edition_type": "Figurine"
   },
   {
-    "name": "Funko Pop Assassin's Creed Game Cover 901 Altair",
+    "name": "Funko Pop Assassin's Creed Game Cover #901 Altair",
     "game": "Assassin's Creed",
     "year": 2023,
     "category": "Funko Pop",
-    "description": "Funko Pop Assassin's Creed Game Cover 901 Altair",
+    "description": "Funko Pop Assassin's Creed Game Cover #901 Altair",
     "contents": "Funko Pop Assassin's Creed Game Cover",
-    "edition_type": "Funko Pop"
+    "edition_type": "Figurine"
   },
   {
     "name": "Funko Pop! Games #21 - Ezio (Standard White)",
@@ -1267,7 +1267,7 @@ const AC_DATABASE = [
     "category": "Other",
     "description": "Assassin's Creed Templar Ring Official Ubisoft Collection by Ubi Workshop (Large, Silver), Sterling Silver",
     "contents": "Templar Ring",
-    "edition_type": "Other"
+    "edition_type": "Jewelry"
   },
   {
     "name": "Ubi Workshop Connor Amulet Necklace (Silver)",
