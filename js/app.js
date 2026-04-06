@@ -72,6 +72,7 @@
         filterGame: document.getElementById('filterGame'),
         filterCategory: document.getElementById('filterCategory'),
         filterOwned: document.getElementById('filterOwned'),
+        sortBy: document.getElementById('sortBy'),
         viewGrid: document.getElementById('viewGrid'),
         viewList: document.getElementById('viewList'),
         gameTimeline: document.getElementById('gameTimeline'),
@@ -271,7 +272,9 @@
         const categoryFilter = dom.filterCategory.value;
         const ownedFilter = dom.filterOwned.value;
 
-        return AC_DATABASE.filter(item => {
+        const sortValue = dom.sortBy.value;
+
+        let results = AC_DATABASE.filter(item => {
             // Search
             if (search) {
                 const haystack = `${item.name} ${item.game} ${item.description} ${item.contents} ${item.edition_type}`.toLowerCase();
@@ -290,6 +293,14 @@
             }
             return true;
         });
+
+        // Sort
+        if (sortValue === 'year-asc') results.sort((a, b) => a.year - b.year);
+        else if (sortValue === 'year-desc') results.sort((a, b) => b.year - a.year);
+        else if (sortValue === 'name-asc') results.sort((a, b) => a.name.localeCompare(b.name));
+        else if (sortValue === 'name-desc') results.sort((a, b) => b.name.localeCompare(a.name));
+
+        return results;
     }
 
     function renderItems() {
@@ -1095,6 +1106,7 @@
 
         dom.filterCategory.addEventListener('change', renderItems);
         dom.filterOwned.addEventListener('change', renderItems);
+        dom.sortBy.addEventListener('change', renderItems);
 
         // View toggle
         dom.viewGrid.addEventListener('click', () => {
