@@ -1889,5 +1889,14 @@ const AC_DATABASE = [
     "description": "Graphic novel set in the world of AC Mirage, expanding on the story of Basim and the Hidden Ones in 9th-century Baghdad.",
     "contents": "Standalone graphic novel",
     "edition_type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed: Brahman",
+    "game": "Assassin's Creed Chronicles: India",
+    "year": 2013,
+    "category": "Comic Book",
+    "description": "Set in the Assassin's Creed universe, it tells the story of Arbaaz Mir, a member of the Indian Brotherhood of Assassins during the 19th century, who fights the increasing influence and occupation of the East India Company while also clashing with the Assassins' longtime enemies, the Templar Order.",
+    "contents": "Standalone graphic novel",
+    "edition_type": "Graphic Novel"
   }
 ];

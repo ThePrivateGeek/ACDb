@@ -238,6 +238,7 @@ const AC_IMAGES = {
     "Assassin's Creed: Dynasty":                                           "images/comics/ac-dynasty.jpg",
     "Assassin's Creed: Visionaries":                                       "images/comics/ac-visionaries.jpg",
     "Assassin's Creed Mirage: A Soar of Eagles":                           "images/comics/ac-soar-of-eagles.jpg",
+    "Assassin's Creed: Brahman":                                           "images/comics/ac-brahman.jpg"
 };
 
 // Apply images to database — only if the file actually exists (image onload handles missing files gracefully)
