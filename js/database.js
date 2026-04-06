@@ -1646,5 +1646,248 @@ const AC_DATABASE = [
     "description": "Set in the Scottish Highlands, this Fragments novel follows characters caught in the Assassin-Templar conflict. By Alain T. Puyssegur.",
     "contents": "Paperback novel",
     "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: The Fall",
+    "game": "Assassin's Creed Chronicles: Russia",
+    "year": 2010,
+    "category": "Comic Book",
+    "description": "3-issue limited series following Daniel Cross, a modern-day Assassin who discovers his ancestor Nikolai Orelov, an Assassin in early 20th-century Russia. Published by WildStorm/DC Comics.",
+    "contents": "3-issue collected trade paperback",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: The Chain",
+    "game": "General",
+    "year": 2012,
+    "category": "Comic Book",
+    "description": "Sequel to The Fall. Continues Daniel Cross's story as he infiltrates the Brotherhood, and follows Nikolai Orelov's final mission in Russia. Published by UbiWorkshop/DC Comics.",
+    "contents": "3-issue collected trade paperback",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed Vol. 1: Desmond",
+    "game": "Assassin's Creed",
+    "year": 2009,
+    "category": "Comic Book",
+    "description": "French bande dessinée retelling and expanding upon Desmond Miles's story from the first game. Published by Les Deux Royaumes.",
+    "contents": "Hardcover graphic novel (French language)",
+    "edition_type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed Vol. 2: Aquilus",
+    "game": "General",
+    "year": 2010,
+    "category": "Comic Book",
+    "description": "French BD introducing Aquilus, a Gallo-Roman Assassin in 3rd-century Lugdunum (Lyon). An original story. Published by Les Deux Royaumes.",
+    "contents": "Hardcover graphic novel (French language)",
+    "edition_type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed Vol. 3: Accipiter",
+    "game": "General",
+    "year": 2011,
+    "category": "Comic Book",
+    "description": "French BD following Accipiter, an Egyptian Assassin ancestor of Aquilus operating in ancient Rome. Published by Les Deux Royaumes.",
+    "contents": "Hardcover graphic novel (French language)",
+    "edition_type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed Vol. 4: Hawk",
+    "game": "General",
+    "year": 2012,
+    "category": "Comic Book",
+    "description": "Fourth volume in the French BD cycle, continuing the Aquilus/Accipiter saga set in late antiquity. Published by Les Deux Royaumes.",
+    "contents": "Hardcover graphic novel (French language)",
+    "edition_type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed Vol. 5: El Cakr",
+    "game": "General",
+    "year": 2013,
+    "category": "Comic Book",
+    "description": "Fifth volume in the French BD cycle, introducing new historical settings. Published by Les Deux Royaumes.",
+    "contents": "Hardcover graphic novel (French language)",
+    "edition_type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed Vol. 6: Leila",
+    "game": "General",
+    "year": 2014,
+    "category": "Comic Book",
+    "description": "Final volume concluding the original French BD cycle with the character Leila. Published by Les Deux Royaumes.",
+    "contents": "Hardcover graphic novel (French language)",
+    "edition_type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed Vol. 1: Trial by Fire",
+    "game": "General",
+    "year": 2015,
+    "category": "Comic Book",
+    "description": "Introduces Charlotte de la Cruz, a modern-day Assassin recruit who relives the memories of Tom Stoddard during the Salem witch trials. Published by Titan Comics. Collects issues #1-5.",
+    "contents": "Trade paperback collecting issues #1-5",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed Vol. 2: Setting Sun",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Charlotte continues her Animus journeys, exploring the Inca Empire as the Templars close in. Published by Titan Comics. Collects issues #6-10.",
+    "contents": "Trade paperback collecting issues #6-10",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed Vol. 3: Homecoming",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Charlotte goes deeper into the Brotherhood and uncovers conspiracies on both sides of the Assassin-Templar war. Published by Titan Comics. Collects issues #11-14.",
+    "contents": "Trade paperback collecting issues #11-14",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Templars Vol. 1 - Black Cross",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Tells the story from the Templar side, following the Black Cross — an internal enforcer of the Templar Order — in 1920s Shanghai. Published by Titan Comics. Collects issues #1-4.",
+    "contents": "Trade paperback collecting issues #1-4",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Templars Vol. 2 - Cross of War",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Continues the Black Cross storyline set during World War II, exploring Templar operations during the global conflict. Published by Titan Comics. Collects issues #5-9.",
+    "contents": "Trade paperback collecting issues #5-9",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Last Descendants - Locus",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Tie-in to the Last Descendants novel series. Follows a Pinkerton agent ancestor during the era of the Transcontinental Railroad. Published by Titan Comics. 4-issue limited series.",
+    "contents": "Trade paperback collecting 4 issues",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising Vol. 1 - Common Ground",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Mega-crossover combining Charlotte de la Cruz with characters from the Templars series. Assassins and a rogue Templar faction unite against a mutual threat. Published by Titan Comics. Collects issues #1-4.",
+    "contents": "Trade paperback collecting issues #1-4",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising Vol. 2 - Inflection Point",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "The alliance faces the Instruments of the First Will while exploring ancestors in the Spanish Civil War. Published by Titan Comics. Collects issues #5-8.",
+    "contents": "Trade paperback collecting issues #5-8",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising Vol. 3 - Finale",
+    "game": "General",
+    "year": 2018,
+    "category": "Comic Book",
+    "description": "Conclusion of Charlotte de la Cruz's arc and the Titan Comics storyline. Wraps up the Instruments of the First Will threat. Collects issues #9-12.",
+    "contents": "Trade paperback collecting issues #9-12",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Reflections",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Anthology series featuring short stories about fan-favourite protagonists: Ezio, Edward Kenway, Connor, and Altair. Each issue focuses on a different character. Published by Titan Comics.",
+    "contents": "Trade paperback collecting 4 issues",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Origins (Comic)",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Comic Book",
+    "description": "Prequel/companion to AC Origins following Bayek and Aya on a mission in ancient Egypt, expanding on the founding of the Hidden Ones. Published by Titan Comics. 4-issue limited series.",
+    "contents": "Trade paperback collecting 4 issues",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Conspiracies",
+    "game": "General",
+    "year": 2018,
+    "category": "Comic Book",
+    "description": "Set during WWII, follows an Assassin entangled in the Manhattan Project and the development of the atomic bomb. Originally published by Les Deux Royaumes in French, later by Titan Comics in English.",
+    "contents": "Collected graphic novel (2 volumes in French, 1 in English)",
+    "edition_type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: Song of Glory",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Comic Book",
+    "description": "Prequel to AC Valhalla following Eivor and their clan in Norway before the journey to England. Features Eivor, Sigurd, and other key characters. Published by Dark Horse Comics. 3-issue limited series.",
+    "contents": "Trade paperback collecting 3 issues",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: Blood Brothers",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2021,
+    "category": "Comic Book",
+    "description": "Explores the relationship between Eivor and Sigurd before their voyage to England, adding depth to their bond. Published by Dark Horse Comics.",
+    "contents": "Standalone graphic novel",
+    "edition_type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: Forgotten Myths",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2022,
+    "category": "Comic Book",
+    "description": "Ties into the mythological realm segments of Valhalla. Follows Baldr in Asgard as he confronts a threat to the Norse gods. Published by Dark Horse Comics. 3-issue limited series.",
+    "contents": "Trade paperback collecting 3 issues",
+    "edition_type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Dynasty",
+    "game": "General",
+    "year": 2021,
+    "category": "Comic Book",
+    "description": "Manhua (Chinese comic) set in 8th-century Tang Dynasty China during the An Lushan rebellion. Follows Li E, an Assassin navigating imperial court intrigue. The longest-running AC comic. Published by Tokyopop. 6+ volumes (ongoing).",
+    "contents": "Collected manga volumes (6+ volumes, ongoing)",
+    "edition_type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed: Blade of Shao Jun",
+    "game": "Assassin's Creed Chronicles: China",
+    "year": 2021,
+    "category": "Comic Book",
+    "description": "Manga adaptation expanding on Shao Jun's story from AC Chronicles: China. Follows her training under Ezio and return to fight the Templars in Ming Dynasty China. Art by Minoji Kurata. Published by VIZ Media. 4 volumes (2021-2023).",
+    "contents": "Manga series (4 volumes)",
+    "edition_type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed: Visionaries",
+    "game": "General",
+    "year": 2023,
+    "category": "Comic Book",
+    "description": "Anthology graphic novel featuring stories by multiple high-profile comic creators, each telling an original AC story in different historical periods. Published by Massive Publishing (Ubisoft).",
+    "contents": "Anthology graphic novel",
+    "edition_type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed Mirage: A Soar of Eagles",
+    "game": "Assassin's Creed Mirage",
+    "year": 2023,
+    "category": "Comic Book",
+    "description": "Graphic novel set in the world of AC Mirage, expanding on the story of Basim and the Hidden Ones in 9th-century Baghdad.",
+    "contents": "Standalone graphic novel",
+    "edition_type": "Graphic Novel"
   }
 ];
