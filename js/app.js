@@ -1521,6 +1521,7 @@
                 dom.modalCondition.value = '';
                 dom.modalNotes.value = '';
             }
+            saveModalData();
         });
 
         dom.modalCondition.addEventListener('change', () => {
@@ -1529,6 +1530,7 @@
                 if (parseInt(dom.modalCopies.value) === 0) {
                     dom.modalCopies.value = 1;
                 }
+                saveModalData();
             }
         });
 
@@ -1538,6 +1540,7 @@
                 if (parseInt(dom.modalCopies.value) === 0) {
                     dom.modalCopies.value = 1;
                 }
+                saveModalData();
             }
         });
 
@@ -1546,12 +1549,14 @@
             const val = parseInt(dom.modalCopies.value) || 0;
             if (val > 0 && !dom.modalOwned.checked) {
                 dom.modalOwned.checked = true;
+                saveModalData();
             }
             if (val === 0 && dom.modalOwned.checked) {
                 dom.modalOwned.checked = false;
                 dom.modalHasBox.checked = false;
                 dom.modalCondition.value = '';
                 dom.modalNotes.value = '';
+                saveModalData();
             }
         });
     }
