@@ -1880,5 +1880,86 @@ const AC_DATABASE = [
     "description": "Set in the Assassin's Creed universe, it tells the story of Arbaaz Mir, a member of the Indian Brotherhood of Assassins during the 19th century, who fights the increasing influence and occupation of the East India Company while also clashing with the Assassins' longtime enemies, the Templar Order.",
     "contents": "Standalone graphic novel",
     "edition_type": "Graphic Novel"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed 'The Creed' Tankard",
+    "game": "Assassin's Creed",
+    "year": 2021,
+    "category": "Other",
+    "description": "Cast resin tankard featuring the iconic Assassin Brotherhood crest and a hooded Assassin figure with ornate detailing. Stainless steel insert, ~15.5cm tall, 500ml capacity. By Nemesis Now.",
+    "contents": "Cast resin tankard with stainless steel insert",
+    "edition_type": "Tankard"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed Brotherhood Tankard",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2021,
+    "category": "Other",
+    "description": "Stealthy Assassin's Design: Showcases the Hidden Blade in its full glory, with a detailed bracer and blade, capturing the essence of the Assassin's Brotherhood. Stainless steel insert, ~15cm tall, 500ml capacity. By Nemesis Now.",
+    "contents": "Cast resin tankard with stainless steel insert",
+    "edition_type": "Tankard"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed 'Through the Ages' Tankard",
+    "game": "General",
+    "year": 2022,
+    "category": "Other",
+    "description": "A masterfully crafted vessel that pays homage to the legendary assassins who have left their mark across centuries. Stainless steel insert, ~15.5cm tall, 500ml capacity. By Nemesis Now.",
+    "contents": "Cast resin tankard with stainless steel insert",
+    "edition_type": "Tankard"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed Valhalla Tankard",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2021,
+    "category": "Other",
+    "description": "Cast resin tankard with Viking-inspired designs, Norse imagery, axes, and the Valhalla logo. Evokes the world of Eivor and the Viking expansion. Stainless steel insert, ~15.5cm tall, 500ml capacity. By Nemesis Now.",
+    "contents": "Cast resin tankard with stainless steel insert",
+    "edition_type": "Tankard"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed Shadows Tankard",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Other",
+    "description": "Cast resin tankard themed around feudal Japan, featuring Japanese-inspired motifs and Shadows branding. Stainless steel insert, ~15.5cm tall, 500ml capacity. By Nemesis Now.",
+    "contents": "Cast resin tankard with stainless steel insert",
+    "edition_type": "Tankard"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed 'The Creed' Goblet",
+    "game": "Assassin's Creed",
+    "year": 2021,
+    "category": "Other",
+    "description": "Chalice-style goblet featuring the Assassin Brotherhood crest and hooded Assassin imagery with ornate detailing around the stem and base. Stainless steel insert, ~20.5cm tall, 200ml capacity. By Nemesis Now.",
+    "contents": "Cast resin goblet with stainless steel insert",
+    "edition_type": "Goblet"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed Brotherhood Goblet",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2021,
+    "category": "Other",
+    "description": "Goblet featuring Ezio-era iconography, the Brotherhood insignia, and Renaissance design elements. Stainless steel insert, ~20.5cm tall, 200ml capacity. By Nemesis Now.",
+    "contents": "Cast resin goblet with stainless steel insert",
+    "edition_type": "Goblet"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed Valhalla Goblet",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2021,
+    "category": "Other",
+    "description": "Viking-themed goblet featuring Norse runes, axes, and Valhalla branding. Stainless steel insert, ~20.5cm tall, 200ml capacity. By Nemesis Now.",
+    "contents": "Cast resin goblet with stainless steel insert",
+    "edition_type": "Goblet"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed Shadows Goblet",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Other",
+    "description": "Feudal Japan-themed goblet tied to Assassin's Creed Shadows, featuring Japanese artistic motifs and game branding. Stainless steel insert, ~20.5cm tall, 200ml capacity. By Nemesis Now.",
+    "contents": "Cast resin goblet with stainless steel insert",
+    "edition_type": "Goblet"
   }
 ];

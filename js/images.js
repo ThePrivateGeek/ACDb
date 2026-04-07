@@ -236,7 +236,19 @@ const AC_IMAGES = {
     "Assassin's Creed: Dynasty":                                           "images/comics/ac-dynasty.jpg",
     "Assassin's Creed: Visionaries":                                       "images/comics/ac-visionaries.jpg",
     "Assassin's Creed Mirage: A Soar of Eagles":                           "images/comics/ac-soar-of-eagles.jpg",
-    "Assassin's Creed: Brahman":                                           "images/comics/ac-brahman.jpg"
+    "Assassin's Creed: Brahman":                                           "images/comics/ac-brahman.jpg",
+
+    // ── Other/Tankards and Goblets ──
+    "Nemesis Now Assassin's Creed 'The Creed' Tankard":                    "images/other/nemesis-the-creed-tankard.jpg",
+    "Nemesis Now Assassin's Creed Brotherhood Tankard":                    "images/other/nemesis-brotherhood-tankard.jpg",
+    "Nemesis Now Assassin's Creed 'Through the Ages' Tankard":             "images/other/nemesis-through-the-ages-tankard.jpg",
+    "Nemesis Now Assassin's Creed Valhalla Tankard":                       "images/other/nemesis-valhalla-tankard.jpg",
+    "Nemesis Now Assassin's Creed Shadows Tankard":                        "images/other/nemesis-shadows-tankard.jpg",
+    "Nemesis Now Assassin's Creed 'The Creed' Goblet":                     "images/other/nemesis-the-creed-goblet.jpg",
+    "Nemesis Now Assassin's Creed Brotherhood Goblet":                     "images/other/nemesis-brotherhood-goblet.jpg",
+    "Nemesis Now Assassin's Creed Valhalla Goblet":                        "images/other/nemesis-valhalla-goblet.jpg",
+    "Nemesis Now Assassin's Creed Shadows Goblet":                         "images/other/nemesis-shadows-goblet.jpg",
+
 };
 
 // Apply images to database — only if the file actually exists (image onload handles missing files gracefully)
