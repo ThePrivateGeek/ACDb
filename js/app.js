@@ -12,7 +12,8 @@
     const isAdmin = localStorage.getItem('acdb_admin') === 'true';
     let collection = loadCollection();
     let currentView = 'grid';
-    let activeGameFilter = '';
+    let selectedGames = new Set();
+    let selectedCategories = new Set();
     let currentItemId = null;
 
     // Gallery state
@@ -168,11 +169,61 @@
         saveCollection();
     }
 
+    // ---- Multi-Select Helpers ----
+    function getSelectedValues(multiSelectEl) {
+        const checked = multiSelectEl.querySelectorAll('.multi-select-option input:checked');
+        return new Set([...checked].map(cb => cb.value));
+    }
+
+    function updateMultiSelectLabel(multiSelectEl) {
+        const placeholder = multiSelectEl.dataset.placeholder;
+        const selected = getSelectedValues(multiSelectEl);
+        const label = multiSelectEl.querySelector('.multi-select-label');
+
+        if (selected.size === 0) {
+            label.textContent = placeholder;
+            multiSelectEl.classList.remove('has-selection');
+        } else if (selected.size === 1) {
+            label.textContent = [...selected][0];
+            multiSelectEl.classList.add('has-selection');
+        } else {
+            const noun = placeholder.replace('All ', '');
+            label.textContent = `${selected.size} ${noun}`;
+            multiSelectEl.classList.add('has-selection');
+        }
+    }
+
+    function setMultiSelectValues(multiSelectEl, valuesSet) {
+        multiSelectEl.querySelectorAll('.multi-select-option input').forEach(cb => {
+            cb.checked = valuesSet.has(cb.value);
+        });
+        updateMultiSelectLabel(multiSelectEl);
+    }
+
+    function clearMultiSelect(multiSelectEl) {
+        multiSelectEl.querySelectorAll('.multi-select-option input').forEach(cb => {
+            cb.checked = false;
+        });
+        updateMultiSelectLabel(multiSelectEl);
+    }
+
+    function syncTimelineToSelectedGames() {
+        document.querySelectorAll('.timeline-btn').forEach(btn => {
+            if (btn.dataset.game === '') {
+                btn.classList.toggle('active', selectedGames.size === 0);
+            } else {
+                btn.classList.toggle('active', selectedGames.has(btn.dataset.game));
+            }
+        });
+    }
+
     // ---- Populate Filters ----
     function initFilters() {
-        // Clear existing options (keep first "All" option)
-        while (dom.filterGame.options.length > 1) dom.filterGame.remove(1);
-        while (dom.filterCategory.options.length > 1) dom.filterCategory.remove(1);
+        // Clear existing options
+        const gameOptionsContainer = dom.filterGame.querySelector('.multi-select-options');
+        gameOptionsContainer.innerHTML = '';
+        const catOptionsContainer = dom.filterCategory.querySelector('.multi-select-options');
+        catOptionsContainer.innerHTML = '';
         const timelineInner = dom.gameTimeline.querySelector('.timeline-inner');
         timelineInner.innerHTML = '';
 
@@ -214,21 +265,43 @@
 
         sortedGames.forEach(game => {
             const count = AC_DATABASE.filter(i => i.game === game).length;
-            const opt = document.createElement('option');
-            opt.value = game;
-            opt.textContent = `${game} (${count})`;
-            dom.filterGame.appendChild(opt);
+            const label = document.createElement('label');
+            label.className = 'multi-select-option';
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.value = game;
+            const check = document.createElement('span');
+            check.className = 'multi-select-check';
+            const text = document.createElement('span');
+            text.className = 'multi-select-text';
+            text.textContent = `${game} (${count})`;
+            label.appendChild(cb);
+            label.appendChild(check);
+            label.appendChild(text);
+            gameOptionsContainer.appendChild(label);
         });
+        setMultiSelectValues(dom.filterGame, selectedGames);
 
         // Categories (with item counts)
         const categories = [...new Set(AC_DATABASE.map(i => i.category))].sort();
         categories.forEach(cat => {
             const count = AC_DATABASE.filter(i => i.category === cat).length;
-            const opt = document.createElement('option');
-            opt.value = cat;
-            opt.textContent = `${cat} (${count})`;
-            dom.filterCategory.appendChild(opt);
+            const label = document.createElement('label');
+            label.className = 'multi-select-option';
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.value = cat;
+            const check = document.createElement('span');
+            check.className = 'multi-select-check';
+            const text = document.createElement('span');
+            text.className = 'multi-select-text';
+            text.textContent = `${cat} (${count})`;
+            label.appendChild(cb);
+            label.appendChild(check);
+            label.appendChild(text);
+            catOptionsContainer.appendChild(label);
         });
+        setMultiSelectValues(dom.filterCategory, selectedCategories);
 
         // Timeline buttons
         const allBtn = document.createElement('button');
@@ -277,8 +350,8 @@
     // ---- Render Items ----
     function getFilteredItems() {
         const search = dom.searchInput.value.toLowerCase().trim();
-        const gameFilter = dom.filterGame.value || activeGameFilter;
-        const categoryFilter = dom.filterCategory.value;
+        const gameFilters = getSelectedValues(dom.filterGame);
+        const categoryFilters = getSelectedValues(dom.filterCategory);
         const ownedFilter = dom.filterOwned.value;
 
         const sortValue = dom.sortBy.value;
@@ -289,10 +362,10 @@
                 const haystack = `${item.name} ${item.game} ${item.description} ${item.contents} ${item.edition_type}`.toLowerCase();
                 if (!haystack.includes(search)) return false;
             }
-            // Game
-            if (gameFilter && item.game !== gameFilter) return false;
-            // Category
-            if (categoryFilter && item.category !== categoryFilter) return false;
+            // Game (empty set = all)
+            if (gameFilters.size > 0 && !gameFilters.has(item.game)) return false;
+            // Category (empty set = all)
+            if (categoryFilters.size > 0 && !categoryFilters.has(item.category)) return false;
             // Owned status
             if (ownedFilter) {
                 const data = getItemData(item.id);
@@ -328,7 +401,7 @@
         });
         dom.itemsContainer.appendChild(fragment);
 
-        updateStats();
+        updateStats(items);
     }
 
     function createCard(item) {
@@ -394,10 +467,12 @@
     }
 
     // ---- Stats ----
-    function updateStats() {
-        const total = AC_DATABASE.length;
+    function updateStats(filtered) {
+        const items = filtered || getFilteredItems();
+        const total = items.length;
         let owned = 0;
-        Object.values(collection).forEach(data => {
+        items.forEach(item => {
+            const data = getItemData(item.id);
             if (data.owned) owned++;
         });
         const percent = total > 0 ? Math.round((owned / total) * 100) : 0;
@@ -1170,16 +1245,53 @@
         });
 
         // Filters
-        dom.filterGame.addEventListener('change', () => {
-            // Sync timeline
-            activeGameFilter = '';
-            document.querySelectorAll('.timeline-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.game === dom.filterGame.value);
-            });
+        // Multi-select clear buttons
+        dom.filterGame.querySelector('.multi-select-clear').addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedGames.clear();
+            clearMultiSelect(dom.filterGame);
+            syncTimelineToSelectedGames();
+            renderItems();
+        });
+        dom.filterCategory.querySelector('.multi-select-clear').addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedCategories.clear();
+            clearMultiSelect(dom.filterCategory);
             renderItems();
         });
 
-        dom.filterCategory.addEventListener('change', renderItems);
+        // Multi-select open/close
+        document.querySelectorAll('.multi-select-toggle').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const ms = btn.closest('.multi-select');
+                const wasOpen = ms.classList.contains('open');
+                document.querySelectorAll('.multi-select.open').forEach(el => el.classList.remove('open'));
+                if (!wasOpen) ms.classList.add('open');
+            });
+        });
+
+        // Close multi-selects on outside click
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.multi-select')) {
+                document.querySelectorAll('.multi-select.open').forEach(el => el.classList.remove('open'));
+            }
+        });
+
+        // Multi-select change handlers
+        dom.filterGame.querySelector('.multi-select-options').addEventListener('change', () => {
+            selectedGames = getSelectedValues(dom.filterGame);
+            updateMultiSelectLabel(dom.filterGame);
+            syncTimelineToSelectedGames();
+            renderItems();
+        });
+
+        dom.filterCategory.querySelector('.multi-select-options').addEventListener('change', () => {
+            selectedCategories = getSelectedValues(dom.filterCategory);
+            updateMultiSelectLabel(dom.filterCategory);
+            renderItems();
+        });
+
         dom.filterOwned.addEventListener('change', renderItems);
         dom.sortBy.addEventListener('change', renderItems);
 
@@ -1198,16 +1310,25 @@
             dom.itemsContainer.classList.add('list-view');
         });
 
-        // Timeline
+        // Timeline — toggle game in multi-select
         dom.gameTimeline.addEventListener('click', (e) => {
             const btn = e.target.closest('.timeline-btn');
             if (!btn) return;
 
-            document.querySelectorAll('.timeline-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            activeGameFilter = btn.dataset.game;
-            dom.filterGame.value = btn.dataset.game;
+            const game = btn.dataset.game;
+            if (game === '') {
+                // "All" button: clear selections
+                selectedGames.clear();
+                clearMultiSelect(dom.filterGame);
+            } else {
+                if (selectedGames.has(game)) {
+                    selectedGames.delete(game);
+                } else {
+                    selectedGames.add(game);
+                }
+                setMultiSelectValues(dom.filterGame, selectedGames);
+            }
+            syncTimelineToSelectedGames();
             renderItems();
         });
 
@@ -1219,7 +1340,10 @@
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                if (dom.manageConfirmOverlay.classList.contains('active')) {
+                const openDropdown = document.querySelector('.multi-select.open');
+                if (openDropdown) {
+                    openDropdown.classList.remove('open');
+                } else if (dom.manageConfirmOverlay.classList.contains('active')) {
                     dom.manageConfirmOverlay.classList.remove('active');
                     confirmCallback = null;
                 } else if (dom.manageModalOverlay.classList.contains('active')) {
@@ -1272,13 +1396,13 @@
         document.getElementById('statTotal').addEventListener('click', () => {
             dom.searchInput.value = '';
             dom.clearSearch.classList.remove('visible');
-            dom.filterGame.value = '';
-            dom.filterCategory.value = '';
+            selectedGames.clear();
+            selectedCategories.clear();
+            clearMultiSelect(dom.filterGame);
+            clearMultiSelect(dom.filterCategory);
             dom.filterOwned.value = '';
             dom.sortBy.value = '';
-            activeGameFilter = '';
-            document.querySelectorAll('.timeline-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector('.timeline-btn[data-game=""]').classList.add('active');
+            syncTimelineToSelectedGames();
             renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -1308,13 +1432,13 @@
             e.preventDefault();
             dom.searchInput.value = '';
             dom.clearSearch.classList.remove('visible');
-            dom.filterGame.value = '';
-            dom.filterCategory.value = '';
+            selectedGames.clear();
+            selectedCategories.clear();
+            clearMultiSelect(dom.filterGame);
+            clearMultiSelect(dom.filterCategory);
             dom.filterOwned.value = '';
             dom.sortBy.value = '';
-            activeGameFilter = '';
-            document.querySelectorAll('.timeline-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector('.timeline-btn[data-game=""]').classList.add('active');
+            syncTimelineToSelectedGames();
             renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });

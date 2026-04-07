@@ -67,12 +67,26 @@
                 <button id="clearSearch" class="clear-search" title="Clear search">&times;</button>
             </div>
             <div class="filter-group">
-                <select id="filterGame" class="filter-select">
-                    <option value="">All Games</option>
-                </select>
-                <select id="filterCategory" class="filter-select">
-                    <option value="">All Categories</option>
-                </select>
+                <div class="multi-select" id="filterGame" data-placeholder="All Games">
+                    <button class="multi-select-toggle" type="button">
+                        <span class="multi-select-label">All Games</span>
+                        <span class="multi-select-clear" title="Clear selection">&times;</span>
+                        <svg class="multi-select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="multi-select-dropdown">
+                        <div class="multi-select-options"></div>
+                    </div>
+                </div>
+                <div class="multi-select" id="filterCategory" data-placeholder="All Categories">
+                    <button class="multi-select-toggle" type="button">
+                        <span class="multi-select-label">All Categories</span>
+                        <span class="multi-select-clear" title="Clear selection">&times;</span>
+                        <svg class="multi-select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="multi-select-dropdown">
+                        <div class="multi-select-options"></div>
+                    </div>
+                </div>
                 <select id="filterOwned" class="filter-select">
                     <option value="">All Items</option>
                     <option value="owned">Owned Only</option>
