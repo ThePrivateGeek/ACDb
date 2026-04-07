@@ -82,15 +82,6 @@ const AC_DATABASE = [
     "edition_type": "Collector's Edition"
   },
   {
-    "name": "Assassin's Creed Brotherhood Da Vinci Edition",
-    "game": "Assassin's Creed Brotherhood",
-    "year": 2011,
-    "category": "Special Edition",
-    "description": "Re-release of Brotherhood including The Da Vinci Disappearance DLC.",
-    "contents": "Base game with The Da Vinci Disappearance DLC included",
-    "edition_type": "Special Edition"
-  },
-  {
     "name": "Assassin's Creed Revelations Collector's Edition",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
@@ -233,15 +224,6 @@ const AC_DATABASE = [
     "description": "Mid-tier collector's edition in a jumbo steelbook format.",
     "contents": "Game, jumbo steelbook, artbook, two lithographs, soundtrack, two bonus DLC missions (The Science Mission, The Chemical Revolution)",
     "edition_type": "Collector's Edition"
-  },
-  {
-    "name": "Assassin's Creed Unity Special Edition",
-    "game": "Assassin's Creed Unity",
-    "year": 2014,
-    "category": "Special Edition",
-    "description": "European special edition with bonus in-game content.",
-    "contents": "Game, bonus in-game missions",
-    "edition_type": "Special Edition"
   },
   {
     "name": "Ubicollectibles Altair The Legendary Assassin",

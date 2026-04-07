@@ -1201,6 +1201,22 @@
         });
 
         // Add Item modal
+        // Logo — reset all filters
+        document.getElementById('logoLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            dom.searchInput.value = '';
+            dom.clearSearch.classList.remove('visible');
+            dom.filterGame.value = '';
+            dom.filterCategory.value = '';
+            dom.filterOwned.value = '';
+            dom.sortBy.value = '';
+            activeGameFilter = '';
+            document.querySelectorAll('.timeline-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.timeline-btn[data-game=""]').classList.add('active');
+            renderItems();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
         dom.addItemBtn.addEventListener('click', () => openAddModal());
         dom.addModalClose.addEventListener('click', closeAddModal);
         dom.addItemCancel.addEventListener('click', closeAddModal);

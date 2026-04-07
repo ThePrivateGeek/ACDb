@@ -125,6 +125,9 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 .ac-symbol {
