@@ -1285,12 +1285,12 @@
         document.getElementById('statOwned').addEventListener('click', () => {
             dom.filterOwned.value = 'owned';
             renderItems();
-            window.scrollTo({ top: dom.itemsContainer.offsetTop - 100, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         document.getElementById('statCompletion').addEventListener('click', () => {
             dom.filterOwned.value = 'owned';
             renderItems();
-            window.scrollTo({ top: dom.itemsContainer.offsetTop - 100, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // Export / Import
