@@ -1379,6 +1379,12 @@
             let val = parseInt(dom.modalCopies.value) || 0;
             if (val > 0) {
                 dom.modalCopies.value = val - 1;
+                if (val - 1 === 0) {
+                    dom.modalOwned.checked = false;
+                    dom.modalHasBox.checked = false;
+                    dom.modalCondition.value = '';
+                    dom.modalNotes.value = '';
+                }
                 saveModalData();
             }
         });
@@ -1387,6 +1393,9 @@
             let val = parseInt(dom.modalCopies.value) || 0;
             if (val < 99) {
                 dom.modalCopies.value = val + 1;
+                if (!dom.modalOwned.checked) {
+                    dom.modalOwned.checked = true;
+                }
                 saveModalData();
             }
         });
@@ -1501,13 +1510,48 @@
             confirmCallback = null;
         });
 
-        // When marking as owned, auto-set copies to 1 if currently 0
+        // Collection field interdependencies
         dom.modalOwned.addEventListener('change', () => {
             if (dom.modalOwned.checked && parseInt(dom.modalCopies.value) === 0) {
                 dom.modalCopies.value = 1;
             }
             if (!dom.modalOwned.checked) {
                 dom.modalCopies.value = 0;
+                dom.modalHasBox.checked = false;
+                dom.modalCondition.value = '';
+                dom.modalNotes.value = '';
+            }
+        });
+
+        dom.modalCondition.addEventListener('change', () => {
+            if (dom.modalCondition.value && !dom.modalOwned.checked) {
+                dom.modalOwned.checked = true;
+                if (parseInt(dom.modalCopies.value) === 0) {
+                    dom.modalCopies.value = 1;
+                }
+            }
+        });
+
+        dom.modalHasBox.addEventListener('change', () => {
+            if (dom.modalHasBox.checked && !dom.modalOwned.checked) {
+                dom.modalOwned.checked = true;
+                if (parseInt(dom.modalCopies.value) === 0) {
+                    dom.modalCopies.value = 1;
+                }
+            }
+        });
+
+        // Copies +/- already handled above; add ownership trigger for manual input
+        dom.modalCopies.addEventListener('change', () => {
+            const val = parseInt(dom.modalCopies.value) || 0;
+            if (val > 0 && !dom.modalOwned.checked) {
+                dom.modalOwned.checked = true;
+            }
+            if (val === 0 && dom.modalOwned.checked) {
+                dom.modalOwned.checked = false;
+                dom.modalHasBox.checked = false;
+                dom.modalCondition.value = '';
+                dom.modalNotes.value = '';
             }
         });
     }
