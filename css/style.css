@@ -1368,6 +1368,23 @@ body {
     letter-spacing: 0 !important;
 }
 
+.footer-feedback {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+}
+
+.footer-feedback a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-feedback a:hover {
+    color: var(--accent-glow);
+    text-decoration: underline;
+}
+
 /* ---- Animations ---- */
 @keyframes fadeInUp {
     from {
