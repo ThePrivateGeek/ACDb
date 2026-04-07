@@ -29,17 +29,28 @@
                 </div>
             </a>
             <div class="header-stats">
-                <div class="stat-block">
+                <div class="stat-block clickable" id="statTotal" title="Show all items">
                     <span class="stat-number" id="totalItems">0</span>
                     <span class="stat-label">Total Items</span>
                 </div>
-                <div class="stat-block">
+                <div class="stat-block clickable" id="statOwned" title="Show owned items">
                     <span class="stat-number" id="ownedItems">0</span>
                     <span class="stat-label">Owned</span>
                 </div>
-                <div class="stat-block">
+                <div class="stat-block clickable" id="statCompletion" title="Show owned items">
                     <span class="stat-number" id="completionPercent">0%</span>
                     <span class="stat-label">Complete</span>
+                </div>
+                <div class="collection-actions">
+                    <button id="exportBtn" class="collection-action-btn" title="Export collection data">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span>Export</span>
+                    </button>
+                    <button id="importBtn" class="collection-action-btn" title="Import collection data">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        <span>Import</span>
+                    </button>
+                    <input type="file" id="importFile" accept=".json" style="display:none;">
                 </div>
             </div>
         </div>

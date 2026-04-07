@@ -168,11 +168,57 @@ body {
 
 .header-stats {
     display: flex;
+    align-items: center;
     gap: 2rem;
+}
+
+.collection-actions {
+    display: flex;
+    gap: 0.4rem;
+    margin-left: 0.5rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--border);
+}
+
+.collection-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.35rem 0.6rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.collection-action-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.collection-action-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 .stat-block {
     text-align: center;
+}
+
+.stat-block.clickable {
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.stat-block.clickable:hover {
+    background: rgba(201, 168, 76, 0.1);
 }
 
 .stat-number {
@@ -1243,6 +1289,14 @@ body {
 
     .header-stats {
         gap: 1.5rem;
+    }
+
+    .collection-action-btn span {
+        display: none;
+    }
+
+    .collection-actions {
+        padding-left: 1rem;
     }
 
     .toolbar {

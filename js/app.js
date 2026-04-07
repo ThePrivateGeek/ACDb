@@ -118,6 +118,9 @@
         addGameConfirm: document.getElementById('addGameConfirm'),
         addGameCancel: document.getElementById('addGameCancel'),
         // Manage modal
+        exportBtn: document.getElementById('exportBtn'),
+        importBtn: document.getElementById('importBtn'),
+        importFile: document.getElementById('importFile'),
         manageBtn: document.getElementById('manageBtn'),
         manageModalOverlay: document.getElementById('manageModalOverlay'),
         manageModalClose: document.getElementById('manageModalClose'),
@@ -1015,6 +1018,70 @@
         renderManageGames();
     }
 
+    // ---- Collection Export / Import ----
+    function exportCollection() {
+        const exportData = [];
+        AC_DATABASE.forEach(item => {
+            const data = getItemData(item.id);
+            if (data.owned || data.wishlist || data.hasBox || data.condition || data.copies > 0 || data.notes) {
+                exportData.push({
+                    name: item.name,
+                    game: item.game,
+                    owned: data.owned || false,
+                    wishlist: data.wishlist || false,
+                    hasBox: data.hasBox || false,
+                    condition: data.condition || '',
+                    copies: data.copies || 0,
+                    notes: data.notes || ''
+                });
+            }
+        });
+
+        const json = JSON.stringify(exportData, null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'acdb-collection-' + new Date().toISOString().slice(0, 10) + '.json';
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast(`Exported ${exportData.length} items`);
+    }
+
+    function importCollection(file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            try {
+                const importData = JSON.parse(e.target.result);
+                if (!Array.isArray(importData)) throw new Error('Invalid format');
+
+                let matched = 0;
+                importData.forEach(entry => {
+                    // Match by name
+                    const item = AC_DATABASE.find(i => i.name === entry.name);
+                    if (item) {
+                        const data = {
+                            owned: entry.owned || false,
+                            wishlist: entry.wishlist || false,
+                            hasBox: entry.hasBox || false,
+                            condition: entry.condition || '',
+                            copies: entry.copies || 0,
+                            notes: entry.notes || ''
+                        };
+                        setItemData(item.id, data);
+                        matched++;
+                    }
+                });
+
+                renderItems();
+                showToast(`Imported ${matched} of ${importData.length} items`);
+            } catch (err) {
+                showToast('Import failed — invalid file');
+            }
+        };
+        reader.readAsText(file);
+    }
+
     // ---- Export ----
     function itemToDbCode(item) {
         const lines = [
@@ -1201,6 +1268,41 @@
         });
 
         // Add Item modal
+        // Stat block clicks
+        document.getElementById('statTotal').addEventListener('click', () => {
+            dom.searchInput.value = '';
+            dom.clearSearch.classList.remove('visible');
+            dom.filterGame.value = '';
+            dom.filterCategory.value = '';
+            dom.filterOwned.value = '';
+            dom.sortBy.value = '';
+            activeGameFilter = '';
+            document.querySelectorAll('.timeline-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.timeline-btn[data-game=""]').classList.add('active');
+            renderItems();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        document.getElementById('statOwned').addEventListener('click', () => {
+            dom.filterOwned.value = 'owned';
+            renderItems();
+            window.scrollTo({ top: dom.itemsContainer.offsetTop - 100, behavior: 'smooth' });
+        });
+        document.getElementById('statCompletion').addEventListener('click', () => {
+            dom.filterOwned.value = 'owned';
+            renderItems();
+            window.scrollTo({ top: dom.itemsContainer.offsetTop - 100, behavior: 'smooth' });
+        });
+
+        // Export / Import
+        dom.exportBtn.addEventListener('click', exportCollection);
+        dom.importBtn.addEventListener('click', () => dom.importFile.click());
+        dom.importFile.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                importCollection(e.target.files[0]);
+                e.target.value = ''; // reset so same file can be re-imported
+            }
+        });
+
         // Logo — reset all filters
         document.getElementById('logoLink').addEventListener('click', (e) => {
             e.preventDefault();
