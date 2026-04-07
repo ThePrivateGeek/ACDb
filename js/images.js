@@ -221,6 +221,7 @@ const AC_IMAGES = {
     "Assassin's Creed Valhalla: Forgotten Myths":                          "images/comics/ac-forgotten-myths.jpg",
     "Assassin's Creed: Blade of Shao Jun":                                 "images/comics/ac-blade-shao-jun.jpg",
     "Assassin's Creed: The Fall":                                          "images/comics/ac-the-fall.jpg",
+    "Assassin's Creed: The Fall (Deluxe Edition)":                         "images/comics/ac-the-fall-deluxe.jpg",
     "Assassin's Creed Vol. 1: Desmond":                                    "images/comics/ac-vol1-desmond.jpg",
     "Assassin's Creed Vol. 2: Aquilus":                                    "images/comics/ac-vol2-aquilus.jpg",
     "Assassin's Creed Vol. 3: Accipiter":                                  "images/comics/ac-vol3-accipiter.jpg",

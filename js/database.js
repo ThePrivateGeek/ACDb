@@ -1639,8 +1639,17 @@ const AC_DATABASE = [
     "edition_type": "Comic Book"
   },
   {
+    "name": "Assassin's Creed: The Fall (Deluxe Edition)",
+    "game": "Assassin's Creed Chronicles: Russia",
+    "year": 2012,
+    "category": "Comic Book",
+    "description": "Deluxe edition collecting Assassins The Fall (2010 DC/Wildstorm) #1-3. Story and art by Cameron Stewart and Karl Kerschl with bonus content, behind-the-scenes material, and additional artwork. The Fall follows 19th century Russian assassin Nikolai Orelov as he strives to claim an artifact of immense power from the hands of the Templars, leading to a climactic and violent showdown with the ruthless Tsar Alexander III aboard a speeding train! Published by UbiWorkshop.",
+    "contents": "Deluxe edition collecting The Fall series (3 issues) with bonus material",
+    "edition_type": "Graphic Novel"
+  },
+  {
     "name": "Assassin's Creed: The Chain",
-    "game": "General",
+    "game": "Assassin's Creed Chronicles: Russia",
     "year": 2012,
     "category": "Comic Book",
     "description": "Sequel to The Fall. Continues Daniel Cross's story as he infiltrates the Brotherhood, and follows Nikolai Orelov's final mission in Russia. Published by UbiWorkshop/DC Comics.",
