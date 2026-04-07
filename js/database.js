@@ -1909,6 +1909,96 @@ const AC_DATABASE = [
     "edition_type": "Figurine"
   },
   {
+    "name": "Loot Crate Assassin's Creed IV: Black Flag Edward Kenway Figure",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2014,
+    "category": "Statue/Figurine",
+    "description": "Exclusive Loot Crate mini figure of Edward Kenway from AC IV: Black Flag.",
+    "contents": "Edward Kenway figure",
+    "edition_type": "Figurine"
+  },
+  {
+    "name": "Loot Crate Assassin's Creed Origins Bayek Figure",
+    "game": "Assassin's Creed Origins",
+    "year": 2017,
+    "category": "Statue/Figurine",
+    "description": "Exclusive Loot Crate figure of Bayek from AC Origins.",
+    "contents": "Bayek figure",
+    "edition_type": "Figurine"
+  },
+  {
+    "name": "Ubisoft Heroes Collection Chibi Figure - Shao Jun",
+    "game": "Assassin's Creed Chronicles: China",
+    "year": 2020,
+    "category": "Statue/Figurine",
+    "description": "Chibi-style collectible figure of Shao Jun, approximately 10cm tall. Part of the Ubisoft Heroes Collection by Ubicollectibles.",
+    "contents": "Shao Jun chibi figure (10cm)",
+    "edition_type": "Figurine"
+  },
+  {
+    "name": "Ubisoft Heroes Collection Chibi Figure - Ezio",
+    "game": "Assassin's Creed II",
+    "year": 2020,
+    "category": "Statue/Figurine",
+    "description": "Chibi-style collectible figure of Ezio Auditore, approximately 10cm tall. Part of the Ubisoft Heroes Collection by Ubicollectibles.",
+    "contents": "Ezio chibi figure (10cm)",
+    "edition_type": "Figurine"
+  },
+  {
+    "name": "Ubisoft Heroes Collection - Eivor Male",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2021,
+    "category": "Statue/Figurine",
+    "description": "Chibi-style collectible figure of male Eivor, approximately 10cm tall. Part of the Ubisoft Heroes Collection by Ubicollectibles.",
+    "contents": "Eivor (male) chibi figure (10cm)",
+    "edition_type": "Figurine"
+  },
+  {
+    "name": "Ubisoft Heroes Collection - Eivor Female",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2021,
+    "category": "Statue/Figurine",
+    "description": "Chibi-style collectible figure of female Eivor, approximately 10cm tall. Part of the Ubisoft Heroes Collection by Ubicollectibles.",
+    "contents": "Eivor (female) chibi figure (10cm)",
+    "edition_type": "Figurine"
+  },
+  {
+    "name": "YouTooz Assassin's Creed #0 - Ezio",
+    "game": "Assassin's Creed II",
+    "year": 2024,
+    "category": "Statue/Figurine",
+    "description": "YouTooz vinyl collectible figure of Ezio Auditore, approximately 12.5cm tall. #0 in the Assassin's Creed YouTooz series.",
+    "contents": "Ezio vinyl figure (12.5cm)",
+    "edition_type": "Figurine"
+  },
+  {
+    "name": "YouTooz Assassin's Creed #1 - Eivor",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2024,
+    "category": "Statue/Figurine",
+    "description": "YouTooz vinyl collectible figure of Eivor, approximately 12.5cm tall. #1 in the Assassin's Creed YouTooz series.",
+    "contents": "Eivor vinyl figure (12.5cm)",
+    "edition_type": "Figurine"
+  },
+  {
+    "name": "YouTooz Assassin's Creed #2 - Yasuke",
+    "game": "Assassin's Creed Shadows",
+    "year": 2024,
+    "category": "Statue/Figurine",
+    "description": "YouTooz vinyl collectible figure of Yasuke, approximately 12.5cm tall. #2 in the Assassin's Creed YouTooz series.",
+    "contents": "Yasuke vinyl figure (12.5cm)",
+    "edition_type": "Figurine"
+  },
+  {
+    "name": "YouTooz Assassin's Creed #3 - Naoe",
+    "game": "Assassin's Creed Shadows",
+    "year": 2024,
+    "category": "Statue/Figurine",
+    "description": "YouTooz vinyl collectible figure of Naoe, approximately 12.5cm tall. #3 in the Assassin's Creed YouTooz series.",
+    "contents": "Naoe vinyl figure (12.5cm)",
+    "edition_type": "Figurine"
+  },
+  {
     "name": "Nemesis Now Assassin's Creed 'The Creed' Tankard",
     "game": "Assassin's Creed",
     "year": 2021,

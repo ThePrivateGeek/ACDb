@@ -183,6 +183,16 @@ const AC_IMAGES = {
     "Ubicollectibles Connor 'The Hunter' Figurine":                        "images/statues/connor-the-hunter.jpg",
     "Ubicollectibles Edward Kenway 'The Assassin Pirate' Figurine":        "images/statues/ubicollectibles-edward-the-assassin-pirate.jpg",
     "Ubicollectibles Blackbeard 'The Legendary Pirate' Figurine":          "images/statues/ubicollectibles-blackbeard-the-legendary-pirate.jpg",
+    "Loot Crate Assassin's Creed IV: Black Flag Edward Kenway Figure":     "images/statues/lootcrate-edward-kenway.jpg",
+    "Loot Crate Assassin's Creed Origins Bayek Figure":                    "images/statues/lootcrate-bayek.jpg",
+    "Ubisoft Heroes Collection Chibi Figure - Shao Jun":                   "images/statues/ubisoft-heroes-shao-jun.jpg",
+    "Ubisoft Heroes Collection Chibi Figure - Ezio":                       "images/statues/ubisoft-heroes-ezio.jpg",
+    "Ubisoft Heroes Collection - Eivor Male":                              "images/statues/ubisoft-heroes-eivor-male.jpg",
+    "Ubisoft Heroes Collection - Eivor Female":                            "images/statues/ubisoft-heroes-eivor-female.jpg",
+    "YouTooz Assassin's Creed #0 - Ezio":                                  "images/statues/youtooz-ac-0-ezio.jpg",
+    "YouTooz Assassin's Creed #1 - Eivor":                                 "images/statues/youtooz-ac-1-eivor.jpg",
+    "YouTooz Assassin's Creed #2 - Yasuke":                                "images/statues/youtooz-ac-2-yasuke.jpg",
+    "YouTooz Assassin's Creed #3 - Naoe":                                  "images/statues/youtooz-ac-3-naoe.jpg",
 
     // ── Novels ──
     "Assassin's Creed: Renaissance":                                       "images/novels/ac-renaissance.jpg",
