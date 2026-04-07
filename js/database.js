@@ -1891,6 +1891,24 @@ const AC_DATABASE = [
     "edition_type": "Graphic Novel"
   },
   {
+    "name": "Ubicollectibles Edward Kenway 'The Assassin Pirate' Figurine",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Statue/Figurine",
+    "description": "PVC figurine of Edward Kenway in his iconic pirate-assassin outfit, dual-wielding his cutlasses. Produced by Ubicollectibles.",
+    "contents": "Edward Kenway PVC figurine, display base",
+    "edition_type": "Figurine"
+  },
+  {
+    "name": "Ubicollectibles Blackbeard 'The Legendary Pirate' Figurine",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Statue/Figurine",
+    "description": "PVC figurine of the infamous pirate Blackbeard (Edward Thatch) as depicted in AC IV: Black Flag. Produced by Ubicollectibles.",
+    "contents": "Blackbeard PVC figurine, display base",
+    "edition_type": "Figurine"
+  },
+  {
     "name": "Nemesis Now Assassin's Creed 'The Creed' Tankard",
     "game": "Assassin's Creed",
     "year": 2021,

@@ -181,6 +181,8 @@ const AC_IMAGES = {
     "Assassin's Creed Anthology Edition":                                  "images/collectors-editions/ac-anthology.jpg",
     "Ubicollectibles Connor 'The Last Breath' Figurine":                   "images/statues/connor-the-last-breath.jpg",
     "Ubicollectibles Connor 'The Hunter' Figurine":                        "images/statues/connor-the-hunter.jpg",
+    "Ubicollectibles Edward Kenway 'The Assassin Pirate' Figurine":        "images/statues/ubicollectibles-edward-the-assassin-pirate.jpg",
+    "Ubicollectibles Blackbeard 'The Legendary Pirate' Figurine":          "images/statues/ubicollectibles-blackbeard-the-legendary-pirate.jpg",
 
     // ── Novels ──
     "Assassin's Creed: Renaissance":                                       "images/novels/ac-renaissance.jpg",
