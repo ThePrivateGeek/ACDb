@@ -617,6 +617,11 @@
             img.onerror = function () {
                 dom.modalImage.innerHTML = '<svg viewBox="0 0 100 100" class="placeholder-icon"><path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/></svg>';
             };
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openLightbox();
+            });
             dom.modalImage.innerHTML = '';
             dom.modalImage.appendChild(img);
         }
@@ -666,6 +671,65 @@
 
     function galleryPrev() { galleryGoTo(galleryIndex - 1, 'right'); }
     function galleryNext() { galleryGoTo(galleryIndex + 1, 'left'); }
+
+    // ---- Lightbox ----
+    const lightbox = {
+        overlay: null,
+        image: null,
+        counter: null,
+        init() {
+            this.overlay = document.getElementById('lightboxOverlay');
+            this.image = document.getElementById('lightboxImage');
+            this.counter = document.getElementById('lightboxCounter');
+
+            document.getElementById('lightboxClose').addEventListener('click', () => this.close());
+            this.overlay.addEventListener('click', (e) => {
+                if (e.target === this.overlay || e.target === this.overlay.querySelector('.lightbox-image-container')) this.close();
+            });
+            document.getElementById('lightboxPrev').addEventListener('click', (e) => { e.stopPropagation(); this.prev(); });
+            document.getElementById('lightboxNext').addEventListener('click', (e) => { e.stopPropagation(); this.next(); });
+
+            // Touch swipe in lightbox
+            let lbTouchX = 0;
+            this.overlay.addEventListener('touchstart', (e) => { lbTouchX = e.changedTouches[0].screenX; }, { passive: true });
+            this.overlay.addEventListener('touchend', (e) => {
+                if (galleryImages.length <= 1) return;
+                const diff = e.changedTouches[0].screenX - lbTouchX;
+                if (Math.abs(diff) > 50) {
+                    if (diff < 0) this.next();
+                    else this.prev();
+                }
+            });
+        },
+        open() {
+            this.render();
+            this.overlay.classList.add('active');
+        },
+        close() {
+            this.overlay.classList.remove('active');
+        },
+        render() {
+            this.image.src = galleryImages[galleryIndex];
+            this.image.alt = 'Image ' + (galleryIndex + 1);
+            const hasMultiple = galleryImages.length > 1;
+            document.getElementById('lightboxPrev').style.display = hasMultiple ? '' : 'none';
+            document.getElementById('lightboxNext').style.display = hasMultiple ? '' : 'none';
+            this.counter.textContent = hasMultiple ? `${galleryIndex + 1} / ${galleryImages.length}` : '';
+        },
+        prev() {
+            galleryGoTo(galleryIndex - 1, 'right');
+            this.render();
+        },
+        next() {
+            galleryGoTo(galleryIndex + 1, 'left');
+            this.render();
+        }
+    };
+
+    function openLightbox() {
+        if (galleryImages.length === 0) return;
+        lightbox.open();
+    }
 
     function saveModalData() {
         if (currentItemId === null) return;
@@ -1404,6 +1468,9 @@
         });
 
         // Filters
+        // Lightbox
+        lightbox.init();
+
         // Stats dashboard toggle
         dom.statsToggle.addEventListener('click', () => {
             dom.statsDashboard.classList.toggle('open');
@@ -1507,6 +1574,10 @@
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
+                if (lightbox.overlay.classList.contains('active')) {
+                    lightbox.close();
+                    return;
+                }
                 const openDropdown = document.querySelector('.multi-select.open');
                 if (openDropdown) {
                     openDropdown.classList.remove('open');
@@ -1520,6 +1591,11 @@
                 } else if (dom.modalOverlay.classList.contains('active')) {
                     closeModal();
                 }
+            }
+            if (lightbox.overlay.classList.contains('active')) {
+                if (e.key === 'ArrowLeft' && galleryImages.length > 1) lightbox.prev();
+                if (e.key === 'ArrowRight' && galleryImages.length > 1) lightbox.next();
+                return;
             }
             if (!dom.modalOverlay.classList.contains('active')) return;
             if (e.key === 'ArrowLeft' && galleryImages.length > 1) galleryPrev();

@@ -272,6 +272,21 @@
         </div>
     </div>
 
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="lightbox-image-container">
+            <img id="lightboxImage" src="" alt="">
+        </div>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
     <!-- Add Item Modal -->
     <div class="modal-overlay" id="addModalOverlay">
         <div class="modal add-item-modal" id="addItemModal">
