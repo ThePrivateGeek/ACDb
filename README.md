@@ -17,18 +17,20 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 ## Features
 
 - **250+ officially licensed items** — collector's editions, statues, figurines, art books, novels, comic books, steelbooks, replicas, Funko Pops, and more
-- **Collection tracking** — mark items as owned, wishlist, track condition, number of copies, original box status, and personal notes
-- **Multi-image gallery** — swipe or click through multiple photos per item
-- **Smart filters** — multi-select by game and category, filter by ownership status, sort by year or name
+- **Collection tracking** — mark items as owned, wishlist, track condition, number of copies, original box status, purchase price, acquisition date, and personal notes
+- **Smart field logic** — setting condition or copies automatically marks as owned; clearing ownership resets all fields
+- **Collection Insights** — collapsible stats dashboard showing completion progress by game and category, sorted by completion percentage, with condition breakdown
+- **Multi-image gallery** — swipe or click through multiple photos per item with smooth directional slide transitions
+- **Smart filters** — multi-select by game and category, filter by ownership status, sort by year, name, or recently added. Filters persist across page reloads
 - **Game timeline** — quick-access bar spanning every AC title from AC1 to Shadows
-- **Search** — instant search across item names, games, descriptions, and contents
+- **Search** — instant search across item names, games, descriptions, and contents with result count
 - **Export / Import** — download your collection as JSON, import it on another device
 - **Fully static** — no backend, no server, no account needed. All data stays in your browser (LocalStorage)
 - **Responsive** — works on desktop, tablet, and mobile with touch swipe support
 
 ## How It Works
 
-Your collection data is stored entirely in your browser's LocalStorage. Nothing is sent to any server. You can back up your data anytime using the Export button in the header, and restore it with Import.
+Your collection data is stored entirely in your browser's LocalStorage. Nothing is sent to any server. You can back up your data anytime using the Export button in the header, and restore it with Import. Filters are remembered between visits.
 
 Just open the site, browse the database, and click any item to track it in your collection.
 
