@@ -115,6 +115,7 @@ const AC_IMAGES = {
     "McFarlane Toys Hidden Blade & Gauntlet with Skull Buckle (Black Flag)": "images/other/mcfarlane-hidden-blade-black-flag.jpg",
     "McFarlane Toys Gauntlet with Hidden Blade (Syndicate)":               "images/other/mcfarlane-hidden-blade-syndicate.jpg",
     "McFarlane Toys Aguilar's Hidden Blade (Movie)":                       "images/other/mcfarlane-hidden-blade-movie.jpg",
+    "Assassins Creed Syndicate Official Press Promo Power Bank Cane Handle": "images/other/syndicate-cane-handle-power-bank.jpg",
 
     // ── McFarlane Action Figures ──
     "McFarlane Toys Altair Action Figure (Series 1)":                      "images/statues/mcfarlane-altair.jpg",
