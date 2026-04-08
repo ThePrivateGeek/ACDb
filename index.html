@@ -100,6 +100,7 @@
                     <option value="year-desc">Year (Newest First)</option>
                     <option value="name-asc">Name (A-Z)</option>
                     <option value="name-desc">Name (Z-A)</option>
+                    <option value="recent">Recently Added</option>
                 </select>
             </div>
             <div class="view-controls">
@@ -129,8 +130,33 @@
         </div>
     </nav>
 
+    <!-- Stats Dashboard (collapsible) -->
+    <div class="stats-dashboard" id="statsDashboard">
+        <button class="stats-toggle" id="statsToggle">
+            <span>Collection Insights</span>
+            <svg class="stats-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="stats-panel" id="statsPanel">
+            <div class="stats-grid">
+                <div class="stats-section">
+                    <h4>By Game</h4>
+                    <div class="stats-bars" id="statsByGame"></div>
+                </div>
+                <div class="stats-section">
+                    <h4>By Category</h4>
+                    <div class="stats-bars" id="statsByCategory"></div>
+                </div>
+                <div class="stats-section">
+                    <h4>Condition Breakdown</h4>
+                    <div class="stats-bars" id="statsByCondition"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <main class="main-content">
+        <div class="results-count" id="resultsCount"></div>
         <div class="items-grid" id="itemsContainer">
             <!-- Items populated by JS -->
         </div>
@@ -227,6 +253,14 @@
                                 <input type="number" id="modalCopies" min="0" max="99" value="0">
                                 <button class="copies-btn" id="copiesPlus">+</button>
                             </div>
+                        </div>
+                        <div class="control-row">
+                            <label for="modalPricePaid">Price Paid</label>
+                            <input type="number" id="modalPricePaid" min="0" step="0.01" placeholder="0.00" class="modal-price-input">
+                        </div>
+                        <div class="control-row">
+                            <label for="modalAcquiredDate">Acquired</label>
+                            <input type="date" id="modalAcquiredDate" class="modal-date-input">
                         </div>
                         <div class="control-row">
                             <label for="modalNotes">Notes</label>

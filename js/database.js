@@ -2269,15 +2269,6 @@ const AC_DATABASE = [
     "edition_type": "Goblet"
   },
   {
-    "name": "Nemesis Now Assassin's Creed Shadows Goblet",
-    "game": "Assassin's Creed Shadows",
-    "year": 2025,
-    "category": "Other",
-    "description": "Feudal Japan-themed goblet tied to Assassin's Creed Shadows, featuring Japanese artistic motifs and game branding. Stainless steel insert, ~20.5cm tall, 200ml capacity. By Nemesis Now.",
-    "contents": "Cast resin goblet with stainless steel insert",
-    "edition_type": "Goblet"
-  },
-  {
     "name": "Assassins Creed Syndicate Official Press Promo Power Bank Cane Handle",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,

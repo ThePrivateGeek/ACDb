@@ -9,6 +9,7 @@
     const STORAGE_KEY = 'acdb_collection';
     const CUSTOM_ITEMS_KEY = 'acdb_custom_items';
     const CUSTOM_GAMES_KEY = 'acdb_custom_games';
+    const FILTERS_KEY = 'acdb_filters';
     const isAdmin = localStorage.getItem('acdb_admin') === 'true';
     let collection = loadCollection();
     let currentView = 'grid';
@@ -19,6 +20,30 @@
     // Gallery state
     let galleryImages = [];
     let galleryIndex = 0;
+
+    // Short game names (shared between timeline and stats)
+    const SHORT_GAME_NAMES = {
+        "Assassin's Creed": "AC1",
+        "Assassin's Creed II": "AC2",
+        "Assassin's Creed Brotherhood": "Brotherhood",
+        "Assassin's Creed Revelations": "Revelations",
+        "Assassin's Creed III": "AC3",
+        "Assassin's Creed III: Liberation": "Liberation",
+        "Assassin's Creed IV: Black Flag": "Black Flag",
+        "Assassin's Creed Rogue": "Rogue",
+        "Assassin's Creed Unity": "Unity",
+        "Assassin's Creed Chronicles: China": "China",
+        "Assassin's Creed Chronicles: India": "India",
+        "Assassin's Creed Chronicles: Russia": "Russia",
+        "Assassin's Creed Syndicate": "Syndicate",
+        "Assassin's Creed Origins": "Origins",
+        "Assassin's Creed Odyssey": "Odyssey",
+        "Assassin's Creed Valhalla": "Valhalla",
+        "Assassin's Creed Mirage": "Mirage",
+        "Assassin's Creed Shadows": "Shadows",
+        "Assassin's Creed (Movie)": "Movie",
+        "General": "General"
+    };
 
     // ---- Load custom items and merge into database ----
     function loadCustomItems() {
@@ -122,6 +147,15 @@
         exportBtn: document.getElementById('exportBtn'),
         importBtn: document.getElementById('importBtn'),
         importFile: document.getElementById('importFile'),
+        modalPricePaid: document.getElementById('modalPricePaid'),
+        modalAcquiredDate: document.getElementById('modalAcquiredDate'),
+        resultsCount: document.getElementById('resultsCount'),
+        statsDashboard: document.getElementById('statsDashboard'),
+        statsToggle: document.getElementById('statsToggle'),
+        statsPanel: document.getElementById('statsPanel'),
+        statsByGame: document.getElementById('statsByGame'),
+        statsByCategory: document.getElementById('statsByCategory'),
+        statsByCondition: document.getElementById('statsByCondition'),
         manageBtn: document.getElementById('manageBtn'),
         manageModalOverlay: document.getElementById('manageModalOverlay'),
         manageModalClose: document.getElementById('manageModalClose'),
@@ -160,6 +194,8 @@
             hasBox: false,
             condition: '',
             copies: 0,
+            pricePaid: '',
+            acquiredDate: '',
             notes: ''
         };
     }
@@ -314,29 +350,7 @@
             const btn = document.createElement('button');
             btn.className = 'timeline-btn';
             // Short display names
-            const shortNames = {
-                "Assassin's Creed": "AC1",
-                "Assassin's Creed II": "AC2",
-                "Assassin's Creed Brotherhood": "Brotherhood",
-                "Assassin's Creed Revelations": "Revelations",
-                "Assassin's Creed III": "AC3",
-                "Assassin's Creed III: Liberation": "Liberation",
-                "Assassin's Creed IV: Black Flag": "Black Flag",
-                "Assassin's Creed Rogue": "Rogue",
-                "Assassin's Creed Unity": "Unity",
-                "Assassin's Creed Chronicles: China": "China",
-                "Assassin's Creed Chronicles: India": "India",
-                "Assassin's Creed Chronicles: Russia": "Russia",
-                "Assassin's Creed Syndicate": "Syndicate",
-                "Assassin's Creed Origins": "Origins",
-                "Assassin's Creed Odyssey": "Odyssey",
-                "Assassin's Creed Valhalla": "Valhalla",
-                "Assassin's Creed Mirage": "Mirage",
-                "Assassin's Creed Shadows": "Shadows",
-                "Assassin's Creed (Movie)": "Movie",
-                "General": "General"
-            };
-            btn.textContent = shortNames[game] || game;
+            btn.textContent = SHORT_GAME_NAMES[game] || game;
             btn.dataset.game = game;
 
             // Count items per game
@@ -381,6 +395,7 @@
         else if (sortValue === 'year-desc') results.sort((a, b) => b.year - a.year);
         else if (sortValue === 'name-asc') results.sort((a, b) => a.name.localeCompare(b.name));
         else if (sortValue === 'name-desc') results.sort((a, b) => b.name.localeCompare(a.name));
+        else if (sortValue === 'recent') results.sort((a, b) => b.id - a.id);
 
         return results;
     }
@@ -391,8 +406,13 @@
 
         if (items.length === 0) {
             dom.noResults.style.display = 'block';
+            dom.resultsCount.textContent = '';
         } else {
             dom.noResults.style.display = 'none';
+            const total = AC_DATABASE.length;
+            dom.resultsCount.textContent = items.length === total
+                ? `Showing all ${total} items`
+                : `Showing ${items.length} of ${total} items`;
         }
 
         const fragment = document.createDocumentFragment();
@@ -402,6 +422,7 @@
         dom.itemsContainer.appendChild(fragment);
 
         updateStats(items);
+        saveFilters();
     }
 
     function createCard(item) {
@@ -471,15 +492,24 @@
         const items = filtered || getFilteredItems();
         const total = items.length;
         let owned = 0;
+        let totalValue = 0;
         items.forEach(item => {
             const data = getItemData(item.id);
-            if (data.owned) owned++;
+            if (data.owned) {
+                owned++;
+                if (data.pricePaid) totalValue += parseFloat(data.pricePaid) || 0;
+            }
         });
         const percent = total > 0 ? Math.round((owned / total) * 100) : 0;
 
         dom.totalItems.textContent = total;
         dom.ownedItems.textContent = owned;
         dom.completionPercent.textContent = percent + '%';
+
+        // Update dashboard if open
+        if (dom.statsDashboard.classList.contains('open')) {
+            renderStatsDashboard(items);
+        }
     }
 
     // ---- Modal ----
@@ -515,6 +545,8 @@
         dom.modalHasBox.checked = data.hasBox;
         dom.modalCondition.value = data.condition || '';
         dom.modalCopies.value = data.copies || 0;
+        dom.modalPricePaid.value = data.pricePaid || '';
+        dom.modalAcquiredDate.value = data.acquiredDate || '';
         dom.modalNotes.value = data.notes || '';
 
         dom.modalOverlay.classList.add('active');
@@ -643,6 +675,8 @@
             hasBox: dom.modalHasBox.checked,
             condition: dom.modalCondition.value,
             copies: parseInt(dom.modalCopies.value) || 0,
+            pricePaid: dom.modalPricePaid.value,
+            acquiredDate: dom.modalAcquiredDate.value,
             notes: dom.modalNotes.value
         };
         setItemData(currentItemId, data);
@@ -1095,12 +1129,131 @@
         renderManageGames();
     }
 
+    // ---- Filter Persistence ----
+    function saveFilters() {
+        const filters = {
+            search: dom.searchInput.value,
+            games: [...selectedGames],
+            categories: [...selectedCategories],
+            owned: dom.filterOwned.value,
+            sort: dom.sortBy.value
+        };
+        localStorage.setItem(FILTERS_KEY, JSON.stringify(filters));
+    }
+
+    function restoreFilters() {
+        try {
+            const data = localStorage.getItem(FILTERS_KEY);
+            if (!data) return;
+            const filters = JSON.parse(data);
+
+            if (filters.search) {
+                dom.searchInput.value = filters.search;
+                dom.clearSearch.classList.toggle('visible', filters.search.length > 0);
+            }
+            if (filters.games && filters.games.length > 0) {
+                selectedGames = new Set(filters.games);
+                setMultiSelectValues(dom.filterGame, selectedGames);
+                syncTimelineToSelectedGames();
+            }
+            if (filters.categories && filters.categories.length > 0) {
+                selectedCategories = new Set(filters.categories);
+                setMultiSelectValues(dom.filterCategory, selectedCategories);
+            }
+            if (filters.owned) dom.filterOwned.value = filters.owned;
+            if (filters.sort) dom.sortBy.value = filters.sort;
+        } catch { /* ignore corrupt data */ }
+    }
+
+    // ---- Stats Dashboard ----
+    function shortenGameName(name) {
+        return SHORT_GAME_NAMES[name] || name;
+    }
+
+    function renderStatsDashboard(filtered) {
+        const items = filtered || getFilteredItems();
+
+        // By Game
+        const byGame = {};
+        const ownedByGame = {};
+        items.forEach(item => {
+            byGame[item.game] = (byGame[item.game] || 0) + 1;
+            const data = getItemData(item.id);
+            if (data.owned) ownedByGame[item.game] = (ownedByGame[item.game] || 0) + 1;
+        });
+        renderBars(dom.statsByGame, byGame, ownedByGame, shortenGameName);
+
+        // By Category
+        const byCat = {};
+        const ownedByCat = {};
+        items.forEach(item => {
+            byCat[item.category] = (byCat[item.category] || 0) + 1;
+            const data = getItemData(item.id);
+            if (data.owned) ownedByCat[item.category] = (ownedByCat[item.category] || 0) + 1;
+        });
+        renderBars(dom.statsByCategory, byCat, ownedByCat);
+
+        // By Condition (owned items only) — simple count list
+        const byCondition = {};
+        items.forEach(item => {
+            const data = getItemData(item.id);
+            if (data.owned && data.condition) {
+                const label = formatCondition(data.condition);
+                byCondition[label] = (byCondition[label] || 0) + 1;
+            }
+        });
+        dom.statsByCondition.innerHTML = '';
+        const conditionEntries = Object.entries(byCondition).sort((a, b) => b[1] - a[1]);
+        if (conditionEntries.length === 0) {
+            dom.statsByCondition.innerHTML = '<span class="stats-bar-value" style="text-align:left">No condition data yet</span>';
+        } else {
+            conditionEntries.forEach(([label, count]) => {
+                const row = document.createElement('div');
+                row.className = 'stats-bar-row';
+                row.innerHTML = `
+                    <span class="stats-bar-label">${label}</span>
+                    <span class="stats-bar-value">${count}</span>
+                `;
+                dom.statsByCondition.appendChild(row);
+            });
+        }
+    }
+
+    function renderBars(container, totals, owned, labelFn) {
+        container.innerHTML = '';
+        const sorted = Object.entries(totals).sort((a, b) => {
+            if (owned) {
+                // Sort by completion percentage (desc), then by total (desc)
+                const pctA = (owned[a[0]] || 0) / a[1];
+                const pctB = (owned[b[0]] || 0) / b[1];
+                return pctB - pctA || b[1] - a[1];
+            }
+            return b[1] - a[1];
+        });
+
+        sorted.forEach(([label, total]) => {
+            const ownedCount = owned ? (owned[label] || 0) : total;
+            const pct = owned ? Math.round((ownedCount / total) * 100) : 100;
+
+            const row = document.createElement('div');
+            row.className = 'stats-bar-row';
+            row.innerHTML = `
+                <span class="stats-bar-label" title="${label}">${labelFn ? labelFn(label) : label}</span>
+                <div class="stats-bar-track">
+                    <div class="stats-bar-fill green" style="width:${pct}%"></div>
+                </div>
+                <span class="stats-bar-value">${owned ? ownedCount + '/' + total + ' <span class="stats-bar-pct">' + pct + '%</span>' : total}</span>
+            `;
+            container.appendChild(row);
+        });
+    }
+
     // ---- Collection Export / Import ----
     function exportCollection() {
         const exportData = [];
         AC_DATABASE.forEach(item => {
             const data = getItemData(item.id);
-            if (data.owned || data.wishlist || data.hasBox || data.condition || data.copies > 0 || data.notes) {
+            if (data.owned || data.wishlist || data.hasBox || data.condition || data.copies > 0 || data.notes || data.pricePaid || data.acquiredDate) {
                 exportData.push({
                     name: item.name,
                     game: item.game,
@@ -1109,6 +1262,8 @@
                     hasBox: data.hasBox || false,
                     condition: data.condition || '',
                     copies: data.copies || 0,
+                    pricePaid: data.pricePaid || '',
+                    acquiredDate: data.acquiredDate || '',
                     notes: data.notes || ''
                 });
             }
@@ -1143,6 +1298,8 @@
                             hasBox: entry.hasBox || false,
                             condition: entry.condition || '',
                             copies: entry.copies || 0,
+                            pricePaid: entry.pricePaid || '',
+                            acquiredDate: entry.acquiredDate || '',
                             notes: entry.notes || ''
                         };
                         setItemData(item.id, data);
@@ -1247,6 +1404,14 @@
         });
 
         // Filters
+        // Stats dashboard toggle
+        dom.statsToggle.addEventListener('click', () => {
+            dom.statsDashboard.classList.toggle('open');
+            if (dom.statsDashboard.classList.contains('open')) {
+                renderStatsDashboard();
+            }
+        });
+
         // Multi-select clear buttons
         dom.filterGame.querySelector('.multi-select-clear').addEventListener('click', (e) => {
             e.stopPropagation();
@@ -1380,7 +1545,7 @@
         });
 
         // Modal collection controls - auto-save on change
-        const autoSaveControls = [dom.modalOwned, dom.modalWishlist, dom.modalHasBox, dom.modalCondition];
+        const autoSaveControls = [dom.modalOwned, dom.modalWishlist, dom.modalHasBox, dom.modalCondition, dom.modalPricePaid, dom.modalAcquiredDate];
         autoSaveControls.forEach(el => {
             el.addEventListener('change', saveModalData);
         });
@@ -1399,6 +1564,8 @@
                     dom.modalOwned.checked = false;
                     dom.modalHasBox.checked = false;
                     dom.modalCondition.value = '';
+                    dom.modalPricePaid.value = '';
+                    dom.modalAcquiredDate.value = '';
                     dom.modalNotes.value = '';
                 }
                 saveModalData();
@@ -1535,6 +1702,8 @@
                 dom.modalCopies.value = 0;
                 dom.modalHasBox.checked = false;
                 dom.modalCondition.value = '';
+                dom.modalPricePaid.value = '';
+                dom.modalAcquiredDate.value = '';
                 dom.modalNotes.value = '';
             }
             saveModalData();
@@ -1571,6 +1740,8 @@
                 dom.modalOwned.checked = false;
                 dom.modalHasBox.checked = false;
                 dom.modalCondition.value = '';
+                dom.modalPricePaid.value = '';
+                dom.modalAcquiredDate.value = '';
                 dom.modalNotes.value = '';
                 saveModalData();
             }
@@ -1587,8 +1758,8 @@
 
         initFilters();
         initEvents();
+        restoreFilters();
         renderItems();
-        updateStats();
     }
 
     // Start

@@ -566,6 +566,146 @@ body {
     background: rgba(201, 168, 76, 0.1);
 }
 
+/* ---- Stats Dashboard ---- */
+.stats-dashboard {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.stats-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.stats-toggle:hover {
+    color: var(--accent);
+}
+
+.stats-chevron {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s ease;
+}
+
+.stats-dashboard.open .stats-chevron {
+    transform: rotate(180deg);
+}
+
+.stats-panel {
+    display: none;
+    padding: 1rem 0 0.5rem;
+}
+
+.stats-dashboard.open .stats-panel {
+    display: block;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.stats-section h4 {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.75rem;
+}
+
+.stats-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 0.8rem;
+}
+
+.stats-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+}
+
+.stats-bar-label {
+    width: 140px;
+    flex-shrink: 0;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stats-bar-track {
+    flex: 1;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.stats-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+}
+
+.stats-bar-fill.green {
+    background: var(--owned-green);
+}
+
+.stats-bar-value {
+    min-width: 70px;
+    text-align: right;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+
+.stats-bar-pct {
+    color: var(--accent);
+    margin-left: 0.25rem;
+}
+
+/* ---- Results Count ---- */
+.results-count {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+}
+
 /* ---- Main Content ---- */
 .main-content {
     max-width: 1600px;
@@ -1348,6 +1488,30 @@ body {
 
 #modalNotes::placeholder {
     color: var(--text-muted);
+}
+
+.modal-price-input,
+.modal-date-input {
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    transition: var(--transition);
+    width: 140px;
+}
+
+.modal-price-input:focus,
+.modal-date-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.modal-date-input::-webkit-calendar-picker-indicator {
+    filter: invert(0.7);
+    cursor: pointer;
 }
 
 /* ---- Footer ---- */
