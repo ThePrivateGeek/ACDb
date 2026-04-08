@@ -208,6 +208,132 @@ const AC_DATABASE = [
     "edition_type": "Action Figure"
   },
   {
+    "name": "McFarlane Toys Haytham Kenway Action Figure (Series 1)",
+    "game": "Assassin's Creed III",
+    "year": 2013,
+    "category": "Statue/Figurine",
+    "description": "Connor's father and Templar Grand Master. Comes with sword and pistol. ~25 points of articulation. McFarlane Series 1.",
+    "contents": "Haytham Kenway figure with sword and pistol accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Ratonhnhake:ton Action Figure (Series 1)",
+    "game": "Assassin's Creed III",
+    "year": 2013,
+    "category": "Statue/Figurine",
+    "description": "Alternate-reality Connor from 'The Tyranny of King Washington' DLC, in a different outfit from the standard Connor figure. McFarlane Series 1.",
+    "contents": "Ratonhnhake:ton figure with accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Benjamin Hornigold Action Figure (Series 1)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Statue/Figurine",
+    "description": "1700s naval captain from AC IV: Black Flag with navy blue, gold-trimmed fearnought jacket. McFarlane Series 1.",
+    "contents": "Benjamin Hornigold figure with accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Blackbeard Action Figure (Series 1)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Statue/Figurine",
+    "description": "Edward Teach (Blackbeard) the legendary pirate. ~27 points of articulation. Comes with four pistols, rifle, and sword. McFarlane Series 1.",
+    "contents": "Blackbeard figure with four pistols, rifle, and sword",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Black Bart Action Figure (Series 1)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Statue/Figurine",
+    "description": "Bartholomew Roberts, the legendary pirate known as Black Bart, from AC IV: Black Flag. McFarlane Series 1.",
+    "contents": "Black Bart figure with accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Adewale Action Figure (Series 2)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2014,
+    "category": "Statue/Figurine",
+    "description": "Adewale, a freed slave who became an Assassin, from AC IV: Black Flag's Freedom Cry DLC. McFarlane Series 2.",
+    "contents": "Adewale figure with accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Arno Dorian Action Figure (Series 3)",
+    "game": "Assassin's Creed Unity",
+    "year": 2014,
+    "category": "Statue/Figurine",
+    "description": "The lead Assassin from AC Unity, armed with Phantom Blade (wrist crossbow), French cutlass, and multi-barreled pistol. McFarlane Series 3.",
+    "contents": "Arno Dorian figure with Phantom Blade, cutlass, and pistol",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Ah Tabai Action Figure (Series 3)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2014,
+    "category": "Statue/Figurine",
+    "description": "Mayan Assassin Mentor and leader of the Caribbean Brotherhood from AC IV: Black Flag. Walgreens exclusive. McFarlane Series 3.",
+    "contents": "Ah Tabai figure with accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Jacob Frye Action Figure (Series 4)",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2015,
+    "category": "Statue/Figurine",
+    "description": "Jacob Frye in Blackguard outfit from AC Syndicate. Equipped with cane sword, two pistols, and detachable hood. GameStop exclusive. McFarlane Series 4.",
+    "contents": "Jacob Frye figure with cane sword, pistols, and detachable hood",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Union Jacob Frye Action Figure (Series 5)",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2016,
+    "category": "Statue/Figurine",
+    "description": "Jacob Frye in Union outfit from AC Syndicate. Armed with cane sword, two large pistols, kukri, and extended/retracted hidden blades. McFarlane Series 5.",
+    "contents": "Jacob Frye figure with cane sword, pistols, kukri, and hidden blades",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Il Tricolore Ezio Auditore Action Figure (Series 5)",
+    "game": "Assassin's Creed Revelations",
+    "year": 2016,
+    "category": "Statue/Figurine",
+    "description": "Ezio in a unique tricolor outfit from AC Revelations. McFarlane Series 5.",
+    "contents": "Ezio Auditore figure with accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Revolutionary Connor Action Figure (Series 5)",
+    "game": "Assassin's Creed III",
+    "year": 2016,
+    "category": "Statue/Figurine",
+    "description": "Connor in his unhooded Revolutionary costume from AC III. McFarlane Series 5.",
+    "contents": "Connor figure with accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Connor Color Tops Collector Edition",
+    "game": "Assassin's Creed III",
+    "year": 2017,
+    "category": "Statue/Figurine",
+    "description": "7-inch scale figure sculpted from 3D game assets from AC III. Comes with bow and arrow and a stylized display base. Part of McFarlane's Color Tops collector program.",
+    "contents": "Connor 7-inch figure with bow, arrow, and display base",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Phantom Blade Replica (Unity)",
+    "game": "Assassin's Creed Unity",
+    "year": 2014,
+    "category": "Replica/Prop",
+    "description": "Life-size wearable replica of Arno's Phantom Blade. Features functional hidden blade, retractable crossbow arms, and soft-firing dart. Adjustable straps with simulated-leather gauntlet.",
+    "contents": "Phantom Blade wearable replica with functional hidden blade and crossbow",
+    "edition_type": "Replica"
+  },
+  {
     "name": "Assassin's Creed Unity Guillotine Collector's Case",
     "game": "Assassin's Creed Unity",
     "year": 2014,
