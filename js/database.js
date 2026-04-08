@@ -280,6 +280,51 @@ const AC_DATABASE = [
     "edition_type": "Action Figure"
   },
   {
+    "name": "McFarlane Toys Edward Kenway Mayan Outfit Action Figure (Series 3)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2014,
+    "category": "Statue/Figurine",
+    "description": "Edward Kenway wearing the golden Mayan/First Civilization armor unlocked by collecting all Mayan Keystones in AC IV: Black Flag. Target exclusive. McFarlane Series 3.",
+    "contents": "Edward Kenway (Mayan Outfit) figure with accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Connor with Mohawk Action Figure (Series 3)",
+    "game": "Assassin's Creed III",
+    "year": 2014,
+    "category": "Statue/Figurine",
+    "description": "Connor Kenway in an alternate look featuring a mohawk hairstyle, based on his appearance in AC III. Walgreens exclusive. McFarlane Series 3.",
+    "contents": "Connor (Mohawk) figure with accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Arno Dorian Master Assassin Outfit Action Figure (Series 4)",
+    "game": "Assassin's Creed Unity",
+    "year": 2015,
+    "category": "Statue/Figurine",
+    "description": "Arno Dorian in an alternate costume designed by Todd McFarlane himself, featuring a unique Master Assassin outfit distinct from his standard Unity robes. McFarlane Series 4.",
+    "contents": "Arno Dorian (Master Assassin Outfit) figure with accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Eagle Vision Arno Dorian Action Figure (Series 4)",
+    "game": "Assassin's Creed Unity",
+    "year": 2015,
+    "category": "Statue/Figurine",
+    "description": "Translucent blue-glowing version of Arno Dorian depicting the Eagle Vision effect. The first-ever Eagle Vision figure in the McFarlane AC line. Walgreens exclusive. McFarlane Series 4.",
+    "contents": "Eagle Vision Arno Dorian translucent figure with accessories",
+    "edition_type": "Action Figure"
+  },
+  {
+    "name": "McFarlane Toys Cane Sword Replica (Syndicate)",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2015,
+    "category": "Replica/Prop",
+    "description": "Life-size replica of Jacob Frye's signature cane sword from AC Syndicate. Features a concealed blade within a gentleman's walking cane. McFarlane Series 4.",
+    "contents": "Cane sword replica",
+    "edition_type": "Replica"
+  },
+  {
     "name": "McFarlane Toys Jacob Frye Action Figure (Series 4)",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -1333,18 +1378,18 @@ const AC_DATABASE = [
     "edition_type": "Figurine"
   },
   {
-    "name": "McFarlane Toys Altair Action Figure (Series 1)",
+    "name": "McFarlane Toys Altair Action Figure (Series 3)",
     "game": "Assassin's Creed",
-    "year": 2012,
+    "year": 2014,
     "category": "Statue/Figurine",
     "description": "7-inch articulated action figure of Altair with included weapons and accessories.",
     "contents": "7-inch Altair action figure with weapons",
     "edition_type": "Action Figure"
   },
   {
-    "name": "McFarlane Toys Ezio Action Figure (Series 1)",
+    "name": "McFarlane Toys Ezio Action Figure (Series 3)",
     "game": "Assassin's Creed II",
-    "year": 2012,
+    "year": 2014,
     "category": "Statue/Figurine",
     "description": "7-inch articulated action figure of Ezio Auditore with included weapons.",
     "contents": "7-inch Ezio action figure with weapons",
@@ -1353,7 +1398,7 @@ const AC_DATABASE = [
   {
     "name": "McFarlane Toys Connor Action Figure (Series 1)",
     "game": "Assassin's Creed III",
-    "year": 2012,
+    "year": 2013,
     "category": "Statue/Figurine",
     "description": "7-inch articulated action figure of Connor Kenway with included weapons.",
     "contents": "7-inch Connor action figure with weapons",

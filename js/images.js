@@ -118,8 +118,8 @@ const AC_IMAGES = {
     "Assassins Creed Syndicate Official Press Promo Power Bank Cane Handle": "images/other/syndicate-cane-handle-power-bank.jpg",
 
     // ── McFarlane Action Figures ──
-    "McFarlane Toys Altair Action Figure (Series 1)":                      "images/statues/mcfarlane-altair.jpg",
-    "McFarlane Toys Ezio Action Figure (Series 1)":                        "images/statues/mcfarlane-ezio.jpg",
+    "McFarlane Toys Altair Action Figure (Series 3)":                      "images/statues/mcfarlane-altair.jpg",
+    "McFarlane Toys Ezio Action Figure (Series 3)":                        "images/statues/mcfarlane-ezio.jpg",
     "McFarlane Toys Connor Action Figure (Series 1)":                      "images/statues/mcfarlane-connor.jpg",
     "McFarlane Toys Edward Kenway Action Figure (Series 1)":               "images/statues/mcfarlane-edward.jpg",
     "McFarlane Toys Aveline de Grandpre Action Figure (Series 2)":         "images/statues/mcfarlane-aveline.jpg",
@@ -133,6 +133,11 @@ const AC_IMAGES = {
     "McFarlane Toys Adewale Action Figure (Series 2)":                     "images/statues/mcfarlane-adewale.jpg",
     "McFarlane Toys Arno Dorian Action Figure (Series 3)":                 "images/statues/mcfarlane-arno.jpg",
     "McFarlane Toys Ah Tabai Action Figure (Series 3)":                    "images/statues/mcfarlane-ah-tabai.jpg",
+    "McFarlane Toys Edward Kenway Mayan Outfit Action Figure (Series 3)":  "images/statues/mcfarlane-edward-mayan.jpg",
+    "McFarlane Toys Connor with Mohawk Action Figure (Series 3)":          "images/statues/mcfarlane-connor-mohawk.jpg",
+    "McFarlane Toys Arno Dorian Master Assassin Outfit Action Figure (Series 4)": "images/statues/mcfarlane-arno-master-assassin.jpg",
+    "McFarlane Toys Eagle Vision Arno Dorian Action Figure (Series 4)":    "images/statues/mcfarlane-arno-eagle-vision.jpg",
+    "McFarlane Toys Cane Sword Replica (Syndicate)":                       "images/other/mcfarlane-cane-sword.jpg",
     "McFarlane Toys Jacob Frye Action Figure (Series 4)":                  "images/statues/mcfarlane-jacob-frye.jpg",
     "McFarlane Toys Union Jacob Frye Action Figure (Series 5)":            "images/statues/mcfarlane-union-jacob.jpg",
     "McFarlane Toys Il Tricolore Ezio Auditore Action Figure (Series 5)":  "images/statues/mcfarlane-il-tricolore-ezio.jpg",
