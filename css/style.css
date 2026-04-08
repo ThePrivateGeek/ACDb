@@ -1664,6 +1664,14 @@ body {
     text-decoration: underline;
 }
 
+.footer-meta {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    opacity: 0.6;
+}
+
 /* ---- Animations ---- */
 @keyframes fadeInUp {
     from {

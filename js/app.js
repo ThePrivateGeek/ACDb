@@ -1836,6 +1836,10 @@
         initEvents();
         restoreFilters();
         renderItems();
+
+        // Footer item count
+        const footerCount = document.getElementById('footerItemCount');
+        if (footerCount) footerCount.textContent = AC_DATABASE.length;
     }
 
     // Start
