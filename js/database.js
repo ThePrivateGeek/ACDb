@@ -190,6 +190,24 @@ const AC_DATABASE = [
     "edition_type": "Collector's Edition"
   },
   {
+    "name": "Ubicollectibles Assassin's Creed Rogue: The Renegade",
+    "game": "Assassin's Creed Rogue",
+    "year": 2018,
+    "category": "Statue/Figurine",
+    "description": "The Renegade figurine by Ubicollectibles is a 24cm tall PVC collectible featuring Shay Patrick Cormac walking through a snowy, rocky landscape, capturing his transition from Assassin to Templar. Released in 2018, it showcases high-detail, including his iconic rifle, pistols, and specialized, red-and-white accented gear.",
+    "contents": "Shay in his Templar outfit walking on a snowy base, armed with his signature air rifle and two pistols.",
+    "edition_type": "Statue"
+  },
+  {
+    "name": "McFarlane Toys Shay Cormac Figure (Series 4)",
+    "game": "Assassin's Creed Rogue",
+    "year": 2015,
+    "category": "Statue/Figurine",
+    "description": "Shay action figure comes equipped with a pistol, rifle and sword",
+    "contents": "Figure comes with Pistol, Air Rifle and Sword accessories",
+    "edition_type": "Action Figure"
+  },
+  {
     "name": "Assassin's Creed Unity Guillotine Collector's Case",
     "game": "Assassin's Creed Unity",
     "year": 2014,

@@ -103,6 +103,7 @@ const AC_IMAGES = {
     "Ubicollectibles Maria Figurine":                                      "images/statues/ubicollectibles-maria.jpg",
     "Triforce Aguilar Collector's Edition Statue (35cm)":                  "images/statues/triforce-aguilar-35cm.jpg",
     "Ubicollectibles Altair The Legendary Assassin":                       "images/statues/ubicollectibles-altair-the-legendary-assassin.jpg",
+    "Ubicollectibles Assassin's Creed Rogue: The Renegade":                "images/statues/ubicollectibles-rogue-the-renegade.jpg",
 
     // ── Replicas / Props ──
     "Ubicollectibles Apple of Eden Replica (Movie)":                       "images/other/apple-of-eden-replica-movie.jpg",
@@ -122,6 +123,7 @@ const AC_IMAGES = {
     "McFarlane Toys Edward Kenway Action Figure (Series 1)":               "images/statues/mcfarlane-edward.jpg",
     "McFarlane Toys Aveline de Grandpre Action Figure (Series 2)":         "images/statues/mcfarlane-aveline.jpg",
     "McFarlane Toys Aguilar Action Figure (Movie Series)":                 "images/statues/mcfarlane-aguilar.jpg",
+    "McFarlane Toys Shay Cormac Figure (Series 4)":                        "images/statues/mcfarlane-shay.jpg",
 
     // ── Art Books ──
     "Assassin's Creed Pre-Order Art Book":                                 "images/art-books/ac1-pre-order-art-book.jpg",
