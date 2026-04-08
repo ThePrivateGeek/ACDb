@@ -1,0 +1,43 @@
+# ACDb - Assassin's Creed Collector's Database
+
+A fan-made collection tracker for official Assassin's Creed collectibles. Browse, search, and track your collection — all in your browser.
+
+**Live site:** [acdb.theprivategeek.com](https://acdb.theprivategeek.com)
+
+![ACDb Grid View](images/acdb_00.png)
+
+![ACDb Filters](images/acdb.png)
+
+![ACDb Item Detail](images/acdb_01.png)
+
+## Features
+
+- **250+ officially licensed items** — collector's editions, statues, figurines, art books, novels, comic books, steelbooks, replicas, Funko Pops, and more
+- **Collection tracking** — mark items as owned, wishlist, track condition, number of copies, original box status, and personal notes
+- **Multi-image gallery** — swipe or click through multiple photos per item
+- **Smart filters** — multi-select by game and category, filter by ownership status, sort by year or name
+- **Game timeline** — quick-access bar spanning every AC title from AC1 to Shadows
+- **Search** — instant search across item names, games, descriptions, and contents
+- **Export / Import** — download your collection as JSON, import it on another device
+- **Fully static** — no backend, no server, no account needed. All data stays in your browser (LocalStorage)
+- **Responsive** — works on desktop, tablet, and mobile with touch swipe support
+
+## How It Works
+
+Your collection data is stored entirely in your browser's LocalStorage. Nothing is sent to any server. You can back up your data anytime using the Export button in the header, and restore it with Import.
+
+Just open the site, browse the database, and click any item to track it in your collection.
+
+## Tech Stack
+
+- HTML / CSS / JavaScript (vanilla, no frameworks)
+- LocalStorage for persistence
+- Hosted on GitHub Pages with custom domain
+
+## Disclaimer
+
+This is a fan-made collection tracker, not affiliated with or endorsed by Ubisoft. Assassin's Creed and all related images and trademarks are property of Ubisoft Entertainment. No data is collected or stored on any server.
+
+## Feedback
+
+Found a bug, missing item, or have a suggestion? [Open an issue](https://github.com/ThePrivateGeek/ACDb/issues).
