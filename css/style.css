@@ -981,12 +981,21 @@ body {
     max-height: 70vh;
     object-fit: contain;
     border-radius: 8px;
-    animation: galleryFadeIn 0.25s ease;
+    animation: gallerySlideLeft 0.25s ease;
 }
 
-@keyframes galleryFadeIn {
-    from { opacity: 0; transform: scale(0.97); }
-    to   { opacity: 1; transform: scale(1); }
+.gallery-image-wrapper img.slide-right {
+    animation: gallerySlideRight 0.25s ease;
+}
+
+@keyframes gallerySlideLeft {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes gallerySlideRight {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
 .gallery-image-wrapper .placeholder-icon {

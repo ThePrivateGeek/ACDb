@@ -567,7 +567,7 @@
         tryNext();
     }
 
-    function renderGalleryImage() {
+    function renderGalleryImage(direction) {
         const modal = document.getElementById('itemModal');
 
         if (galleryImages.length === 0) {
@@ -578,6 +578,7 @@
             const img = document.createElement('img');
             img.src = src;
             img.alt = 'Image ' + (galleryIndex + 1);
+            if (direction === 'right') img.classList.add('slide-right');
             img.onload = function () {
                 modal.classList.toggle('landscape', img.naturalWidth > img.naturalHeight);
             };
@@ -623,15 +624,16 @@
         }
     }
 
-    function galleryGoTo(idx) {
+    function galleryGoTo(idx, direction) {
         if (idx < 0) idx = galleryImages.length - 1;
         if (idx >= galleryImages.length) idx = 0;
+        const dir = direction || (idx > galleryIndex ? 'left' : 'right');
         galleryIndex = idx;
-        renderGalleryImage();
+        renderGalleryImage(dir);
     }
 
-    function galleryPrev() { galleryGoTo(galleryIndex - 1); }
-    function galleryNext() { galleryGoTo(galleryIndex + 1); }
+    function galleryPrev() { galleryGoTo(galleryIndex - 1, 'right'); }
+    function galleryNext() { galleryGoTo(galleryIndex + 1, 'left'); }
 
     function saveModalData() {
         if (currentItemId === null) return;
