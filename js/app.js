@@ -1363,6 +1363,20 @@
         dom.galleryPrev.addEventListener('click', (e) => { e.stopPropagation(); galleryPrev(); });
         dom.galleryNext.addEventListener('click', (e) => { e.stopPropagation(); galleryNext(); });
 
+        // Gallery touch swipe
+        let touchStartX = 0;
+        dom.modalImage.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        dom.modalImage.addEventListener('touchend', (e) => {
+            if (galleryImages.length <= 1) return;
+            const diff = e.changedTouches[0].screenX - touchStartX;
+            if (Math.abs(diff) > 50) {
+                if (diff < 0) galleryNext();
+                else galleryPrev();
+            }
+        });
+
         // Modal collection controls - auto-save on change
         const autoSaveControls = [dom.modalOwned, dom.modalWishlist, dom.modalHasBox, dom.modalCondition];
         autoSaveControls.forEach(el => {
