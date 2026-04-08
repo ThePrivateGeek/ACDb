@@ -1672,6 +1672,46 @@ body {
     opacity: 0.6;
 }
 
+/* ---- Back to Top ---- */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 42px;
+    height: 42px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+    transform: translateY(10px);
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.back-to-top svg {
+    width: 20px;
+    height: 20px;
+}
+
 /* ---- Animations ---- */
 @keyframes fadeInUp {
     from {
