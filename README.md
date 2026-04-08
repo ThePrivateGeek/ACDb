@@ -4,9 +4,9 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 
 **Live site:** [acdb.theprivategeek.com](https://acdb.theprivategeek.com)
 
-![ACDb Grid View](images/acdb_00.png)
+![ACDb Grid View](images/acdb.png)
 
-![ACDb Filters](images/acdb.png)
+![ACDb Filter](images/acdb_00.png)
 
 ![ACDb Item Detail](images/acdb_01.png)
 
