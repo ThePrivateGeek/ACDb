@@ -1467,20 +1467,20 @@ body {
 
     .filter-group {
         width: 100%;
+        flex-direction: column;
     }
 
     .multi-select {
-        flex: 1;
-        min-width: 0;
+        width: 100%;
     }
 
     .multi-select-dropdown {
         max-height: 250px;
-        width: max(100%, 220px);
+        width: 100%;
     }
 
     .filter-select {
-        flex: 1;
+        width: 100%;
     }
 
     .add-item-btn span {
