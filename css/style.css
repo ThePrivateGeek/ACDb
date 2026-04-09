@@ -325,6 +325,8 @@ body {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    align-items: center;
+    min-height: 38px;
 }
 
 .filter-select {
@@ -809,6 +811,7 @@ body {
     color: var(--text-muted);
     margin-bottom: 0.75rem;
     font-family: var(--font-mono);
+    min-height: 1.2em;
 }
 
 /* ---- Main Content ---- */
