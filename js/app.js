@@ -743,8 +743,10 @@
             acquiredDate: dom.modalAcquiredDate.value,
             notes: dom.modalNotes.value
         };
+        const wasOwned = getItemData(currentItemId).owned;
         setItemData(currentItemId, data);
         renderItems();
+        if (data.owned && !wasOwned) checkCompletionCelebration();
     }
 
     // ---- Add / Edit Item ----
@@ -1306,7 +1308,8 @@
                 <div class="stats-bar-track">
                     <div class="stats-bar-fill green" style="width:${pct}%"></div>
                 </div>
-                <span class="stats-bar-value">${owned ? ownedCount + '/' + total + ' <span class="stats-bar-pct">' + pct + '%</span>' : total}</span>
+                <span class="stats-bar-value">${owned ? ownedCount + '/' + total + ' <span class="stats-bar-pct' + (pct === 100 ? ' complete' : '') + '">' + pct + '%</span>' : total}</span>
+                ${owned && pct === 100 ? '<span class="stats-complete-badge">&#10003;</span>' : ''}
             `;
             container.appendChild(row);
         });
@@ -1423,6 +1426,64 @@
         navigator.clipboard.writeText(code).then(() => {
             showToast('All items copied to clipboard!');
         });
+    }
+
+    function launchConfetti() {
+        const colors = ['#c9a84c', '#d4b85a', '#27ae60', '#2ecc71', '#fff'];
+        const container = document.createElement('div');
+        container.className = 'confetti-container';
+        document.body.appendChild(container);
+
+        for (let i = 0; i < 60; i++) {
+            const piece = document.createElement('div');
+            piece.className = 'confetti-piece';
+            piece.style.left = Math.random() * 100 + '%';
+            piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            piece.style.animationDelay = Math.random() * 0.5 + 's';
+            piece.style.animationDuration = (1.5 + Math.random() * 1.5) + 's';
+            piece.style.width = (4 + Math.random() * 6) + 'px';
+            piece.style.height = (4 + Math.random() * 6) + 'px';
+            container.appendChild(piece);
+        }
+
+        setTimeout(() => container.remove(), 3500);
+    }
+
+    function checkCompletionCelebration() {
+        if (currentItemId === null) return;
+        const item = AC_DATABASE.find(i => i.id === currentItemId);
+        if (!item) return;
+        const data = getItemData(currentItemId);
+        if (!data.owned) return;
+
+        // Check if this item's game is now 100%
+        const gameItems = AC_DATABASE.filter(i => i.game === item.game);
+        const gameOwned = gameItems.filter(i => getItemData(i.id).owned).length;
+        if (gameOwned === gameItems.length) {
+            launchConfetti();
+            showCelebration(`${SHORT_GAME_NAMES[item.game] || item.game} — 100% complete!`);
+            return;
+        }
+
+        // Check if this item's category is now 100%
+        const catItems = AC_DATABASE.filter(i => i.category === item.category);
+        const catOwned = catItems.filter(i => getItemData(i.id).owned).length;
+        if (catOwned === catItems.length) {
+            launchConfetti();
+            showCelebration(`${item.category} — 100% complete!`);
+        }
+    }
+
+    function showCelebration(message) {
+        let el = document.getElementById('acdb-celebration');
+        if (!el) {
+            el = document.createElement('div');
+            el.id = 'acdb-celebration';
+            document.body.appendChild(el);
+        }
+        el.textContent = message;
+        el.classList.add('visible');
+        setTimeout(() => { el.classList.remove('visible'); }, 3000);
     }
 
     function showToast(message) {
