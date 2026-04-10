@@ -1081,6 +1081,24 @@ const AC_DATABASE = [
     "edition_type": "Art Book"
   },
   {
+    "name": "Assassin's Creed IV Black Flag: Blackbeard - The Lost Journal",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2014,
+    "category": "Art Book",
+    "description": "An in-universe journal presented as the lost writings of Edward Thatch (Blackbeard), filled with hand-drawn illustrations, maps, and personal accounts from the Golden Age of Piracy. Published by Insight Editions.",
+    "contents": "Hardcover in-universe journal with illustrations and maps",
+    "edition_type": "Companion Book"
+  },
+  {
+    "name": "Assassin's Creed Unity: Abstergo Entertainment Employee Handbook",
+    "game": "Assassin's Creed Unity",
+    "year": 2014,
+    "category": "Art Book",
+    "description": "An in-universe hardcover guide presented as an Abstergo Entertainment employee handbook, offering insight into the Templar front company's inner workings, Animus technology, and secret projects. Published by Insight Editions.",
+    "contents": "Hardcover in-universe handbook with illustrations and documents",
+    "edition_type": "Companion Book"
+  },
+  {
     "name": "Assassin's Creed Limited Edition Art Book (Prima Games)",
     "game": "Assassin's Creed",
     "year": 2007,
@@ -1817,6 +1835,15 @@ const AC_DATABASE = [
     "description": "Set in the Scottish Highlands, this Fragments novel follows characters caught in the Assassin-Templar conflict. By Alain T. Puyssegur.",
     "contents": "Paperback novel",
     "edition_type": "Novel"
+  },
+  {
+    "name": "Assassin's Creed: La Route de la Soie (The Silk Road)",
+    "game": "General",
+    "year": 2022,
+    "category": "Novel",
+    "description": "Interactive gamebook (choose-your-own-adventure) where the reader takes on the role of an Assassin on a mission along the Silk Road. French language only ('Le Livre dont vous etes l'Assassin'). By Mathieu Rivero.",
+    "contents": "Interactive gamebook (French language only)",
+    "edition_type": "Gamebook"
   },
   {
     "name": "Assassin's Creed: The Fall",

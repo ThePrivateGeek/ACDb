@@ -151,6 +151,8 @@ const AC_IMAGES = {
     "Assassin's Creed Encyclopedia (Second Edition)":                      "images/art-books/encyclopedia-second-edition.jpg",
     "Assassin's Creed Encyclopedia (Third Edition / Black Edition)":       "images/art-books/encyclopedia-third-edition.jpg",
     "Assassin's Creed: The Complete Visual History":                        "images/art-books/complete-visual-history.jpg",
+    "Assassin's Creed IV Black Flag: Blackbeard - The Lost Journal":       "images/art-books/blackbeard-lost-journal.jpg",
+    "Assassin's Creed Unity: Abstergo Entertainment Employee Handbook":    "images/art-books/abstergo-employee-handbook.jpg",
     "Assassin's Creed Limited Edition Art Book (Prima Games)":             "images/art-books/ac1-art-book-prima-games.jpg",
     "The Art of Assassin's Creed III":                                     "images/art-books/art-of-ac3.jpg",
     "The Art of Assassin's Creed IV: Black Flag":                          "images/art-books/art-of-ac4-black-flag.jpg",
@@ -241,6 +243,7 @@ const AC_IMAGES = {
     "Assassin's Creed: The Golden City":                                   "images/novels/ac-golden-city.jpg",
     "Assassin's Creed Mirage: Daughter of No One":                         "images/novels/ac-daughter-of-no-one.jpg",
     "Assassin's Creed: Fragments - The Highlands Children":                "images/novels/ac-fragments-highlands-children.jpg",
+    "Assassin's Creed: La Route de la Soie (The Silk Road)":               "images/novels/ac-silk-road.jpg",
 
     // ── Comic Books ──
     "Assassin's Creed: The Chain":                                         "images/comics/ac-the-chain.jpg",
