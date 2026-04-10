@@ -1099,6 +1099,195 @@ const AC_DATABASE = [
     "type": "Companion Book"
   },
   {
+    "name": "Assassin's Creed: Prima Official Game Guide",
+    "game": "Assassin's Creed",
+    "year": 2007,
+    "category": "Art Book",
+    "description": "Official strategy guide for the original Assassin's Creed. Published by Prima Games.",
+    "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed II: The Complete Official Guide",
+    "game": "Assassin's Creed II",
+    "year": 2009,
+    "category": "Art Book",
+    "description": "Complete official strategy guide for AC II. Published by Piggyback Interactive.",
+    "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed II: The Complete Official Guide - Collector's Edition",
+    "game": "Assassin's Creed II",
+    "year": 2009,
+    "category": "Art Book",
+    "description": "Hardcover collector's edition of the AC II official guide with additional art content. Published by Piggyback Interactive.",
+    "contents": "Hardcover strategy guide with bonus art, lithographs, and ribbon bookmark",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Brotherhood: The Complete Official Guide",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2010,
+    "category": "Art Book",
+    "description": "Complete official strategy guide for AC Brotherhood. Published by Piggyback Interactive.",
+    "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Brotherhood: The Complete Official Guide - Collector's Edition",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2010,
+    "category": "Art Book",
+    "description": "Hardcover collector's edition of the AC Brotherhood official guide. Published by Piggyback Interactive.",
+    "contents": "Hardcover strategy guide with bonus art and ribbon bookmark",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Revelations: The Complete Official Guide",
+    "game": "Assassin's Creed Revelations",
+    "year": 2011,
+    "category": "Art Book",
+    "description": "Complete official strategy guide for AC Revelations. Published by Piggyback Interactive.",
+    "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Revelations: The Complete Official Guide - Collector's Edition",
+    "game": "Assassin's Creed Revelations",
+    "year": 2011,
+    "category": "Art Book",
+    "description": "Hardcover collector's edition of the AC Revelations official guide. Published by Piggyback Interactive.",
+    "contents": "Hardcover strategy guide with bonus art and ribbon bookmark",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed III: The Complete Official Guide",
+    "game": "Assassin's Creed III",
+    "year": 2012,
+    "category": "Art Book",
+    "description": "Complete official strategy guide for AC III. Published by Piggyback Interactive.",
+    "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed III: The Complete Official Guide - Collector's Edition",
+    "game": "Assassin's Creed III",
+    "year": 2012,
+    "category": "Art Book",
+    "description": "Hardcover collector's edition of the AC III official guide. Published by Piggyback Interactive.",
+    "contents": "Hardcover strategy guide with bonus art and ribbon bookmark",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed IV Black Flag: The Complete Official Guide",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Art Book",
+    "description": "Complete official strategy guide for AC IV: Black Flag. Published by Piggyback Interactive.",
+    "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed IV Black Flag: The Complete Official Guide - Collector's Edition",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Art Book",
+    "description": "Hardcover collector's edition of the AC IV: Black Flag official guide. Published by Piggyback Interactive.",
+    "contents": "Hardcover strategy guide with bonus art and ribbon bookmark",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Unity: The Complete Official Guide",
+    "game": "Assassin's Creed Unity",
+    "year": 2014,
+    "category": "Art Book",
+    "description": "Complete official strategy guide for AC Unity. Published by Piggyback Interactive.",
+    "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Unity: The Complete Official Guide - Collector's Edition",
+    "game": "Assassin's Creed Unity",
+    "year": 2014,
+    "category": "Art Book",
+    "description": "Hardcover collector's edition of the AC Unity official guide. Published by Piggyback Interactive.",
+    "contents": "Hardcover strategy guide with bonus art and ribbon bookmark",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Syndicate: Official Strategy Guide",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2015,
+    "category": "Art Book",
+    "description": "Official strategy guide for AC Syndicate. Published by Prima Games.",
+    "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Syndicate: Official Collector's Edition Guide",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2015,
+    "category": "Art Book",
+    "description": "Hardcover collector's edition of the AC Syndicate official guide. Published by Prima Games.",
+    "contents": "Hardcover strategy guide with bonus art",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Origins: Official Guide",
+    "game": "Assassin's Creed Origins",
+    "year": 2017,
+    "category": "Art Book",
+    "description": "Official strategy guide for AC Origins. Published by Prima Games.",
+    "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Origins: Official Collector's Edition Guide",
+    "game": "Assassin's Creed Origins",
+    "year": 2017,
+    "category": "Art Book",
+    "description": "Hardcover collector's edition of the AC Origins official guide. Published by Prima Games.",
+    "contents": "Hardcover strategy guide with bonus art",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Odyssey: Official Collector's Edition Guide",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2018,
+    "category": "Art Book",
+    "description": "Hardcover collector's edition official guide for AC Odyssey. One of Prima Games' final publications before closing in 2019.",
+    "contents": "Hardcover strategy guide with bonus art",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Odyssey: Official Platinum Edition Guide",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2018,
+    "category": "Art Book",
+    "description": "Hardcover platinum edition official guide for AC Odyssey. One of Prima Games' final publications before closing in 2019.",
+    "contents": "Hardcover strategy guide with bonus art",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Shadows: The Complete Official Guide",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Art Book",
+    "description": "Complete official strategy guide for AC Shadows. Marks the return of Piggyback Interactive to the franchise after a decade. Published by Piggyback Interactive.",
+    "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
+    "type": "Official Guide"
+  },
+  {
+    "name": "Assassin's Creed Shadows: The Complete Official Guide - Collector's Edition",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Art Book",
+    "description": "Hardcover collector's edition of the AC Shadows official guide. Published by Piggyback Interactive.",
+    "contents": "Hardcover strategy guide with bonus art and premium finish",
+    "type": "Official Guide"
+  },
+  {
     "name": "Assassin's Creed Limited Edition Art Book (Prima Games)",
     "game": "Assassin's Creed",
     "year": 2007,
