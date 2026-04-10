@@ -427,8 +427,9 @@
 
     function createCard(item) {
         const data = getItemData(item.id);
-        const card = document.createElement('div');
+        const card = document.createElement('a');
         card.className = 'item-card';
+        card.href = '#' + getItemSlug(item);
         if (data.owned) card.classList.add('owned');
         if (data.wishlist && !data.owned) card.classList.add('wishlist');
         card.dataset.id = item.id;
@@ -471,7 +472,12 @@
             </div>
         `;
 
-        card.addEventListener('click', () => openModal(item.id));
+        card.addEventListener('click', (e) => {
+            // Let Ctrl+click / middle-click open in new tab naturally
+            if (e.ctrlKey || e.metaKey || e.button === 1) return;
+            e.preventDefault();
+            openModal(item.id);
+        });
         return card;
     }
 
@@ -513,10 +519,11 @@
     }
 
     // ---- Modal ----
-    function openModal(id) {
+    function openModal(id, fromHash) {
         const item = AC_DATABASE.find(i => i.id === id);
         if (!item) return;
 
+        if (!fromHash) setHash(item);
         currentItemId = id;
         const data = getItemData(id);
 
@@ -560,6 +567,7 @@
         currentItemId = null;
         galleryImages = [];
         galleryIndex = 0;
+        clearHash();
     }
 
     // ---- Gallery ----
@@ -1498,6 +1506,54 @@
         setTimeout(() => { toast.classList.remove('visible'); }, 2000);
     }
 
+    // ---- URL Hash Routing ----
+    function slugify(str) {
+        return str.toLowerCase()
+            .replace(/['']/g, '')
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-|-$/g, '');
+    }
+
+    function getItemSlug(item) {
+        return slugify(item.name);
+    }
+
+    function findItemBySlug(slug) {
+        return AC_DATABASE.find(i => slugify(i.name) === slug);
+    }
+
+    let suppressHashChange = false;
+
+    function setHash(item) {
+        suppressHashChange = true;
+        history.pushState(null, '', '#' + getItemSlug(item));
+        suppressHashChange = false;
+    }
+
+    function clearHash() {
+        suppressHashChange = true;
+        history.pushState(null, '', window.location.pathname + window.location.search);
+        suppressHashChange = false;
+    }
+
+    function handleHash() {
+        const hash = window.location.hash.slice(1);
+        if (!hash) {
+            // Hash cleared (back button) — close modal if open
+            if (dom.modalOverlay.classList.contains('active')) {
+                dom.modalOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                document.getElementById('itemModal').classList.remove('landscape');
+                currentItemId = null;
+                galleryImages = [];
+                galleryIndex = 0;
+            }
+            return;
+        }
+        const item = findItemBySlug(hash);
+        if (item) openModal(item.id, true);
+    }
+
     // ---- Utilities ----
     function escapeHTML(str) {
         const div = document.createElement('div');
@@ -1529,6 +1585,11 @@
         });
 
         // Filters
+        // URL hash routing (back button support)
+        window.addEventListener('popstate', () => {
+            if (!suppressHashChange) handleHash();
+        });
+
         // Back to top
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
@@ -1910,6 +1971,9 @@
         // Footer item count
         const footerCount = document.getElementById('footerItemCount');
         if (footerCount) footerCount.textContent = AC_DATABASE.length;
+
+        // Open item from URL hash if present
+        handleHash();
     }
 
     // Start

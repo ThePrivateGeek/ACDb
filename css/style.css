@@ -915,6 +915,9 @@ body {
     cursor: pointer;
     transition: var(--transition);
     position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .item-card:hover {
