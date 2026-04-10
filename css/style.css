@@ -427,8 +427,6 @@ body {
     left: 0;
     min-width: 100%;
     width: max-content;
-    max-height: 300px;
-    overflow-y: auto;
     background: var(--bg-secondary);
     border: 1px solid var(--border-light);
     border-radius: 8px;
@@ -437,15 +435,21 @@ body {
     padding: 0.25rem 0;
 }
 
+.multi-select-options {
+    max-height: 260px;
+    overflow-y: auto;
+}
+
 .multi-select.open .multi-select-dropdown {
     display: block;
 }
 
 .multi-select-search {
+    display: block;
     width: calc(100% - 1rem);
     margin: 0.4rem 0.5rem;
     padding: 0.4rem 0.6rem;
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: 5px;
     color: var(--text-primary);
@@ -453,6 +457,7 @@ body {
     font-size: 0.8rem;
     outline: none;
     transition: border-color 0.2s ease;
+    border-bottom: 1px solid var(--border);
 }
 
 .multi-select-search:focus {
@@ -1917,8 +1922,11 @@ body {
     }
 
     .multi-select-dropdown {
-        max-height: 250px;
         width: 100%;
+    }
+
+    .multi-select-options {
+        max-height: 220px;
     }
 
     .filter-select {
