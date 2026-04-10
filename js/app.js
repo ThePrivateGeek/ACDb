@@ -1710,15 +1710,33 @@
                 e.stopPropagation();
                 const ms = btn.closest('.multi-select');
                 const wasOpen = ms.classList.contains('open');
-                document.querySelectorAll('.multi-select.open').forEach(el => el.classList.remove('open'));
-                if (!wasOpen) ms.classList.add('open');
+                document.querySelectorAll('.multi-select.open').forEach(el => {
+                    el.classList.remove('open');
+                    const search = el.querySelector('.multi-select-search');
+                    if (search) {
+                        search.value = '';
+                        el.querySelectorAll('.multi-select-option').forEach(opt => opt.style.display = '');
+                    }
+                });
+                if (!wasOpen) {
+                    ms.classList.add('open');
+                    const search = ms.querySelector('.multi-select-search');
+                    if (search) setTimeout(() => search.focus(), 50);
+                }
             });
         });
 
         // Close multi-selects on outside click
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.multi-select')) {
-                document.querySelectorAll('.multi-select.open').forEach(el => el.classList.remove('open'));
+                document.querySelectorAll('.multi-select.open').forEach(el => {
+                    el.classList.remove('open');
+                    const search = el.querySelector('.multi-select-search');
+                    if (search) {
+                        search.value = '';
+                        el.querySelectorAll('.multi-select-option').forEach(opt => opt.style.display = '');
+                    }
+                });
             }
         });
 
@@ -1744,6 +1762,18 @@
             updateMultiSelectLabel(dom.filterType);
             renderItems();
         });
+
+        // Type search within dropdown
+        const typeSearch = document.getElementById('typeSearch');
+        typeSearch.addEventListener('input', () => {
+            const query = typeSearch.value.toLowerCase();
+            dom.filterType.querySelectorAll('.multi-select-option').forEach(opt => {
+                const text = opt.querySelector('.multi-select-text').textContent.toLowerCase();
+                opt.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+        // Prevent dropdown from closing when clicking search
+        typeSearch.addEventListener('click', (e) => e.stopPropagation());
 
         dom.filterOwned.addEventListener('change', renderItems);
         dom.sortBy.addEventListener('change', renderItems);
@@ -1894,6 +1924,8 @@
             dom.filterOwned.value = '';
             dom.sortBy.value = '';
             syncTimelineToSelectedGames();
+            populateCategoryFilter();
+            populateTypeFilter();
             renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -1932,6 +1964,8 @@
             dom.filterOwned.value = '';
             dom.sortBy.value = '';
             syncTimelineToSelectedGames();
+            populateCategoryFilter();
+            populateTypeFilter();
             renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });

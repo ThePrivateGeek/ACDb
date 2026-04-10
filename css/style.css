@@ -441,6 +441,28 @@ body {
     display: block;
 }
 
+.multi-select-search {
+    width: calc(100% - 1rem);
+    margin: 0.4rem 0.5rem;
+    padding: 0.4rem 0.6rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.multi-select-search:focus {
+    border-color: var(--accent);
+}
+
+.multi-select-search::placeholder {
+    color: var(--text-muted);
+}
+
 .multi-select-option {
     display: flex;
     align-items: center;
