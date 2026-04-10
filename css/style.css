@@ -228,6 +228,7 @@ body {
     font-weight: 700;
     color: var(--accent);
     line-height: 1.2;
+    min-height: 1.8rem;
 }
 
 .stat-label {
@@ -373,6 +374,7 @@ body {
     transition: var(--transition);
     text-align: left;
     white-space: nowrap;
+    min-height: 38px;
 }
 
 .multi-select-toggle:focus {
@@ -526,6 +528,7 @@ body {
     border-bottom: 1px solid var(--border);
     overflow-x: auto;
     scrollbar-width: none;
+    min-height: 44px;
 }
 
 .game-timeline::-webkit-scrollbar {
