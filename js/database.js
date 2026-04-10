@@ -946,7 +946,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
-    "name": "Ubicollectibles Aguilar Figurine (24cm)",
+    "name": "Ubicollectibles Aguilar Statue (24cm)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
     "category": "Statue",
@@ -955,7 +955,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
-    "name": "Ubicollectibles Maria Figurine",
+    "name": "Ubicollectibles Maria Statue (24cm)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
     "category": "Statue",
