@@ -2303,5 +2303,275 @@ const AC_DATABASE = [
     "description": "Official press promo power bank, featuring the cane or walking stick handle for Jacob Frye.",
     "contents": "Power bank with Jacob Frye cane design.",
     "type": "Replica"
+  },
+  {
+    "name": "Jazwares - Altair Ibn-La'Ahad (Basic Series)",
+    "game": "Assassin's Creed",
+    "year": 2017,
+    "category": "Figurine",
+    "description": "Jazwares Basic Series action figure of Altair Ibn-La'Ahad.",
+    "contents": "Jazwares figure",
+    "type": "Jazwares"
+  },
+  {
+    "name": "Jazwares - Evie Frye (Basic Series)",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2017,
+    "category": "Figurine",
+    "description": "Jazwares Basic Series action figure of Evie Frye.",
+    "contents": "Jazwares figure",
+    "type": "Jazwares"
+  },
+  {
+    "name": "Jazwares - Jacob Frye (Basic Series)",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2017,
+    "category": "Figurine",
+    "description": "Jazwares Basic Series action figure of Jacob Frye.",
+    "contents": "Jazwares figure",
+    "type": "Jazwares"
+  },
+  {
+    "name": "Jazwares - Altair Ibn-La'Ahad (Mystery Figures)",
+    "game": "Assassin's Creed",
+    "year": 2018,
+    "category": "Figurine",
+    "description": "Jazwares Mystery Figures mini figure of Altair Ibn-La'Ahad.",
+    "contents": "Jazwares figure",
+    "type": "Jazwares"
+  },
+  {
+    "name": "Jazwares - Aya (Mystery Figures)",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Figurine",
+    "description": "Jazwares Mystery Figures mini figure of Aya.",
+    "contents": "Jazwares figure",
+    "type": "Jazwares"
+  },
+  {
+    "name": "Jazwares - Bayek (Mystery Figures)",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Figurine",
+    "description": "Jazwares Mystery Figures mini figure of Bayek.",
+    "contents": "Jazwares figure",
+    "type": "Jazwares"
+  },
+  {
+    "name": "Jazwares - Ezio Auditore (Mystery Figures)",
+    "game": "Assassin's Creed II",
+    "year": 2018,
+    "category": "Figurine",
+    "description": "Jazwares Mystery Figures mini figure of Ezio Auditore.",
+    "contents": "Jazwares figure",
+    "type": "Jazwares"
+  },
+  {
+    "name": "Jazwares - Thomas de Carneillon (Chase) (Mystery Figures)",
+    "game": "Assassin's Creed Unity",
+    "year": 2018,
+    "category": "Figurine",
+    "description": "Jazwares Mystery Figures chase mini figure of Thomas de Carneillon.",
+    "contents": "Jazwares figure",
+    "type": "Jazwares"
+  },
+  {
+    "name": "Xtreme Play - Alexios (Basic Series)",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Basic Series figure of Alexios.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Altair (Basic Series)",
+    "game": "Assassin's Creed",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Basic Series figure of Altair.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Arno (Basic Series)",
+    "game": "Assassin's Creed Unity",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Basic Series figure of Arno.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Bayek (Basic Series)",
+    "game": "Assassin's Creed Origins",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Basic Series figure of Bayek.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Connor (Basic Series)",
+    "game": "Assassin's Creed III",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Basic Series figure of Connor.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Edward (Basic Series)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Basic Series figure of Edward.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Evie (Basic Series)",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Basic Series figure of Evie.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Ezio (Basic Series)",
+    "game": "Assassin's Creed II",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Basic Series figure of Ezio.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Jacob (Basic Series)",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Basic Series figure of Jacob.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Kassandra (Basic Series)",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Basic Series figure of Kassandra.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Altair (Plush)",
+    "game": "Assassin's Creed",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Plush figure of Altair.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Connor (Plush)",
+    "game": "Assassin's Creed III",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Plush figure of Connor.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Evie (Plush)",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Plush figure of Evie.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Xtreme Play - Kassandra (Plush)",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2019,
+    "category": "Figurine",
+    "description": "Xtreme Play Plush figure of Kassandra.",
+    "contents": "Xtreme Play figure",
+    "type": "Xtreme Play"
+  },
+  {
+    "name": "Neca - Ezio (Auditore da Firenze) (Basic Series)",
+    "game": "Assassin's Creed II",
+    "year": 2010,
+    "category": "Figurine",
+    "description": "Neca Basic Series 7-inch figure of Ezio (Auditore da Firenze). Features include a retractable blade and a removable blade.",
+    "contents": "Neca figure",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca - Ezio (Master Assassin) (Basic Series)",
+    "game": "Assassin's Creed II",
+    "year": 2010,
+    "category": "Figurine",
+    "description": "Neca Basic Series 7-inch figure of Ezio in his dark Master Assassin attire. Features include a retractable blade.",
+    "contents": "Neca figure",
+    "type": "Neca"
+  },
+  {
+    "name": "Unimax - Cesare Borgia (Gamestars Collectibles)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2011,
+    "category": "Figurine",
+    "description": "Unimax Gamestars Collectibles figure of Cesare Borgia.",
+    "contents": "Unimax figure",
+    "type": "Unimax"
+  },
+  {
+    "name": "Unimax - Ezio Auditore da Firenze (Gamestars Collectibles)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2011,
+    "category": "Figurine",
+    "description": "Unimax Gamestars Collectibles figure of Ezio Auditore da Firenze.",
+    "contents": "Unimax figure",
+    "type": "Unimax"
+  },
+  {
+    "name": "Unimax - Leonardo da Vinci (Gamestars Collectibles)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2011,
+    "category": "Figurine",
+    "description": "Unimax Gamestars Collectibles figure of Leonardo da Vinci.",
+    "contents": "Unimax figure",
+    "type": "Unimax"
+  },
+  {
+    "name": "Unimax - Niccolo Machiavelli (Gamestars Collectibles)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2011,
+    "category": "Figurine",
+    "description": "Unimax Gamestars Collectibles figure of Niccolo Machiavelli.",
+    "contents": "Unimax figure",
+    "type": "Unimax"
+  },
+  {
+    "name": "Unimax - The Doctor (Gamestars Collectibles)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2011,
+    "category": "Figurine",
+    "description": "Unimax Gamestars Collectibles figure of The Doctor.",
+    "contents": "Unimax figure",
+    "type": "Unimax"
+  },
+  {
+    "name": "Unimax - The Harlequin (Gamestars Collectibles)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2011,
+    "category": "Figurine",
+    "description": "Unimax Gamestars Collectibles figure of The Harlequin.",
+    "contents": "Unimax figure",
+    "type": "Unimax"
   }
 ];

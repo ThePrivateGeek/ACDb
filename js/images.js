@@ -287,6 +287,44 @@ const AC_IMAGES = {
     "Nemesis Now Assassin's Creed Valhalla Goblet":                        "images/other/nemesis-valhalla-goblet.jpg",
     "Nemesis Now Assassin's Creed Shadows Goblet":                         "images/other/nemesis-shadows-goblet.jpg",
 
+    // ── Jazwares ──
+    "Jazwares - Altair Ibn-La'Ahad (Basic Series)":               "images/statues/jazwares-altair-basic.jpg",
+    "Jazwares - Evie Frye (Basic Series)":                        "images/statues/jazwares-evie-frye-basic.jpg",
+    "Jazwares - Jacob Frye (Basic Series)":                       "images/statues/jazwares-jacob-frye-basic.jpg",
+    "Jazwares - Altair Ibn-La'Ahad (Mystery Figures)":            "images/statues/jazwares-altair-mystery.jpg",
+    "Jazwares - Aya (Mystery Figures)":                           "images/statues/jazwares-aya-mystery.jpg",
+    "Jazwares - Bayek (Mystery Figures)":                         "images/statues/jazwares-bayek-mystery.jpg",
+    "Jazwares - Ezio Auditore (Mystery Figures)":                 "images/statues/jazwares-ezio-auditore-mystery.jpg",
+    "Jazwares - Thomas de Carneillon (Chase) (Mystery Figures)":  "images/statues/jazwares-thomas-de-carneillon-mystery.jpg",
+
+    // ── Xtreme Play ──
+    "Xtreme Play - Alexios (Basic Series)":     "images/statues/xtreme-play-alexios-basic.jpg",
+    "Xtreme Play - Altair (Basic Series)":      "images/statues/xtreme-play-altair-basic.jpg",
+    "Xtreme Play - Arno (Basic Series)":        "images/statues/xtreme-play-arno-basic.jpg",
+    "Xtreme Play - Bayek (Basic Series)":       "images/statues/xtreme-play-bayek-basic.jpg",
+    "Xtreme Play - Connor (Basic Series)":      "images/statues/xtreme-play-connor-basic.jpg",
+    "Xtreme Play - Edward (Basic Series)":      "images/statues/xtreme-play-edward-basic.jpg",
+    "Xtreme Play - Evie (Basic Series)":        "images/statues/xtreme-play-evie-basic.jpg",
+    "Xtreme Play - Ezio (Basic Series)":        "images/statues/xtreme-play-ezio-basic.jpg",
+    "Xtreme Play - Jacob (Basic Series)":       "images/statues/xtreme-play-jacob-basic.jpg",
+    "Xtreme Play - Kassandra (Basic Series)":   "images/statues/xtreme-play-kassandra-basic.jpg",
+    "Xtreme Play - Altair (Plush)":             "images/statues/xtreme-play-altair-plush.jpg",
+    "Xtreme Play - Connor (Plush)":             "images/statues/xtreme-play-connor-plush.jpg",
+    "Xtreme Play - Evie (Plush)":               "images/statues/xtreme-play-evie-plush.jpg",
+    "Xtreme Play - Kassandra (Plush)":          "images/statues/xtreme-play-kassandra-plush.jpg",
+
+    // ── Neca ──
+    "Neca - Ezio (Auditore da Firenze) (Basic Series)": "images/statues/neca-ezio-auditore-da-firenze-basic.jpg",
+    "Neca - Ezio (Master Assassin) (Basic Series)":     "images/statues/neca-ezio-master-assassin-basic.jpg",
+
+    // ── Unimax ──
+    "Unimax - Cesare Borgia (Gamestars Collectibles)":          "images/statues/unimax-cesare-borgia-gamestars-collectibles.jpg",
+    "Unimax - Ezio Auditore da Firenze (Gamestars Collectibles)": "images/statues/unimax-ezio-auditore-da-firenze-gamestars-collectibles.jpg",
+    "Unimax - Leonardo da Vinci (Gamestars Collectibles)":      "images/statues/unimax-leonardo-da-vinci-gamestars-collectibles.jpg",
+    "Unimax - Niccolo Machiavelli (Gamestars Collectibles)":    "images/statues/unimax-niccolo-machiavelli-gamestars-collectibles.jpg",
+    "Unimax - The Doctor (Gamestars Collectibles)":             "images/statues/unimax-the-doctor-gamestars-collectibles.jpg",
+    "Unimax - The Harlequin (Gamestars Collectibles)":          "images/statues/unimax-the-harlequin-gamestars-collectibles.jpg",
+
 };
 
 // Apply images to database — only if the file actually exists (image onload handles missing files gracefully)
