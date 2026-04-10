@@ -15,6 +15,7 @@
     let currentView = 'grid';
     let selectedGames = new Set();
     let selectedCategories = new Set();
+    let selectedTypes = new Set();
     let currentItemId = null;
 
     // Gallery state
@@ -97,6 +98,7 @@
         clearSearch: document.getElementById('clearSearch'),
         filterGame: document.getElementById('filterGame'),
         filterCategory: document.getElementById('filterCategory'),
+        filterType: document.getElementById('filterType'),
         filterOwned: document.getElementById('filterOwned'),
         sortBy: document.getElementById('sortBy'),
         viewGrid: document.getElementById('viewGrid'),
@@ -243,6 +245,77 @@
         updateMultiSelectLabel(multiSelectEl);
     }
 
+    function populateCategoryFilter() {
+        const catOptionsContainer = dom.filterCategory.querySelector('.multi-select-options');
+        catOptionsContainer.innerHTML = '';
+
+        // Only show categories from items matching current game selection
+        const gameFilters = getSelectedValues(dom.filterGame);
+        const relevantItems = gameFilters.size > 0
+            ? AC_DATABASE.filter(i => gameFilters.has(i.game))
+            : AC_DATABASE;
+
+        const categories = [...new Set(relevantItems.map(i => i.category))].sort();
+
+        // Remove selected categories that no longer exist in the filtered set
+        selectedCategories.forEach(c => { if (!categories.includes(c)) selectedCategories.delete(c); });
+
+        categories.forEach(cat => {
+            const count = relevantItems.filter(i => i.category === cat).length;
+            const label = document.createElement('label');
+            label.className = 'multi-select-option';
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.value = cat;
+            const check = document.createElement('span');
+            check.className = 'multi-select-check';
+            const text = document.createElement('span');
+            text.className = 'multi-select-text';
+            text.textContent = `${cat} (${count})`;
+            label.appendChild(cb);
+            label.appendChild(check);
+            label.appendChild(text);
+            catOptionsContainer.appendChild(label);
+        });
+        setMultiSelectValues(dom.filterCategory, selectedCategories);
+    }
+
+    function populateTypeFilter() {
+        const typeOptionsContainer = dom.filterType.querySelector('.multi-select-options');
+        typeOptionsContainer.innerHTML = '';
+
+        // Only show types from items matching current game + category selection
+        const gameFilters = getSelectedValues(dom.filterGame);
+        const catFilters = getSelectedValues(dom.filterCategory);
+        let relevantItems = AC_DATABASE;
+        if (gameFilters.size > 0) relevantItems = relevantItems.filter(i => gameFilters.has(i.game));
+        if (catFilters.size > 0) relevantItems = relevantItems.filter(i => catFilters.has(i.category));
+
+        const types = [...new Set(relevantItems.map(i => i.type).filter(Boolean))].sort();
+
+        // Remove selected types that no longer exist in the filtered set
+        selectedTypes.forEach(t => { if (!types.includes(t)) selectedTypes.delete(t); });
+
+        types.forEach(type => {
+            const count = relevantItems.filter(i => i.type === type).length;
+            const label = document.createElement('label');
+            label.className = 'multi-select-option';
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.value = type;
+            const check = document.createElement('span');
+            check.className = 'multi-select-check';
+            const text = document.createElement('span');
+            text.className = 'multi-select-text';
+            text.textContent = `${type} (${count})`;
+            label.appendChild(cb);
+            label.appendChild(check);
+            label.appendChild(text);
+            typeOptionsContainer.appendChild(label);
+        });
+        setMultiSelectValues(dom.filterType, selectedTypes);
+    }
+
     function syncTimelineToSelectedGames() {
         document.querySelectorAll('.timeline-btn').forEach(btn => {
             if (btn.dataset.game === '') {
@@ -318,26 +391,8 @@
         });
         setMultiSelectValues(dom.filterGame, selectedGames);
 
-        // Categories (with item counts)
-        const categories = [...new Set(AC_DATABASE.map(i => i.category))].sort();
-        categories.forEach(cat => {
-            const count = AC_DATABASE.filter(i => i.category === cat).length;
-            const label = document.createElement('label');
-            label.className = 'multi-select-option';
-            const cb = document.createElement('input');
-            cb.type = 'checkbox';
-            cb.value = cat;
-            const check = document.createElement('span');
-            check.className = 'multi-select-check';
-            const text = document.createElement('span');
-            text.className = 'multi-select-text';
-            text.textContent = `${cat} (${count})`;
-            label.appendChild(cb);
-            label.appendChild(check);
-            label.appendChild(text);
-            catOptionsContainer.appendChild(label);
-        });
-        setMultiSelectValues(dom.filterCategory, selectedCategories);
+        populateCategoryFilter();
+        populateTypeFilter();
 
         // Timeline buttons
         const allBtn = document.createElement('button');
@@ -366,6 +421,7 @@
         const search = dom.searchInput.value.toLowerCase().trim();
         const gameFilters = getSelectedValues(dom.filterGame);
         const categoryFilters = getSelectedValues(dom.filterCategory);
+        const typeFilters = getSelectedValues(dom.filterType);
         const ownedFilter = dom.filterOwned.value;
 
         const sortValue = dom.sortBy.value;
@@ -373,13 +429,15 @@
         let results = AC_DATABASE.filter(item => {
             // Search
             if (search) {
-                const haystack = `${item.name} ${item.game} ${item.description} ${item.contents} ${item.edition_type}`.toLowerCase();
+                const haystack = `${item.name} ${item.game} ${item.description} ${item.contents} ${item.type}`.toLowerCase();
                 if (!haystack.includes(search)) return false;
             }
             // Game (empty set = all)
             if (gameFilters.size > 0 && !gameFilters.has(item.game)) return false;
             // Category (empty set = all)
             if (categoryFilters.size > 0 && !categoryFilters.has(item.category)) return false;
+            // Type (empty set = all)
+            if (typeFilters.size > 0 && !typeFilters.has(item.type)) return false;
             // Owned status
             if (ownedFilter) {
                 const data = getItemData(item.id);
@@ -466,7 +524,7 @@
                 <div class="card-description">${escapeHTML(item.description)}</div>
                 <div class="card-footer">
                     <span class="card-year">${item.year}</span>
-                    <span class="card-type">${escapeHTML(item.edition_type)}</span>
+                    <span class="card-type">${escapeHTML(item.type)}</span>
                     ${conditionHTML}
                 </div>
             </div>
@@ -540,6 +598,13 @@
         renderGalleryImage();
 
         dom.modalBadge.textContent = item.category;
+        const badgeType = document.getElementById('modalBadgeType');
+        if (item.type && item.type !== item.category) {
+            badgeType.textContent = item.type;
+            badgeType.style.display = '';
+        } else {
+            badgeType.style.display = 'none';
+        }
         dom.modalTitle.textContent = item.name;
         dom.modalGame.textContent = item.game;
         dom.modalYear.textContent = item.year;
@@ -880,7 +945,7 @@
             game: game,
             year: year,
             category: category,
-            edition_type: category,
+            type: category,
             description: dom.addDescription.value.trim(),
             contents: dom.addContents.value.trim(),
             imagePath: dom.addImagePath.value.trim() || '',
@@ -1209,6 +1274,7 @@
             search: dom.searchInput.value,
             games: [...selectedGames],
             categories: [...selectedCategories],
+            types: [...selectedTypes],
             owned: dom.filterOwned.value,
             sort: dom.sortBy.value
         };
@@ -1233,6 +1299,10 @@
             if (filters.categories && filters.categories.length > 0) {
                 selectedCategories = new Set(filters.categories);
                 setMultiSelectValues(dom.filterCategory, selectedCategories);
+            }
+            if (filters.types && filters.types.length > 0) {
+                selectedTypes = new Set(filters.types);
+                setMultiSelectValues(dom.filterType, selectedTypes);
             }
             if (filters.owned) dom.filterOwned.value = filters.owned;
             if (filters.sort) dom.sortBy.value = filters.sort;
@@ -1401,7 +1471,7 @@
             `    "category": ${JSON.stringify(item.category)},`,
             `    "description": ${JSON.stringify(item.description || '')},`,
             `    "contents": ${JSON.stringify(item.contents || '')},`,
-            `    "edition_type": ${JSON.stringify(item.edition_type || item.category)}`,
+            `    "type": ${JSON.stringify(item.type || item.category)}`,
             `  }`
         ];
         return lines.join('\n');
@@ -1616,12 +1686,21 @@
             selectedGames.clear();
             clearMultiSelect(dom.filterGame);
             syncTimelineToSelectedGames();
+            populateCategoryFilter();
+            populateTypeFilter();
             renderItems();
         });
         dom.filterCategory.querySelector('.multi-select-clear').addEventListener('click', (e) => {
             e.stopPropagation();
             selectedCategories.clear();
             clearMultiSelect(dom.filterCategory);
+            populateTypeFilter();
+            renderItems();
+        });
+        dom.filterType.querySelector('.multi-select-clear').addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedTypes.clear();
+            clearMultiSelect(dom.filterType);
             renderItems();
         });
 
@@ -1648,12 +1727,21 @@
             selectedGames = getSelectedValues(dom.filterGame);
             updateMultiSelectLabel(dom.filterGame);
             syncTimelineToSelectedGames();
+            populateCategoryFilter();
+            populateTypeFilter();
             renderItems();
         });
 
         dom.filterCategory.querySelector('.multi-select-options').addEventListener('change', () => {
             selectedCategories = getSelectedValues(dom.filterCategory);
             updateMultiSelectLabel(dom.filterCategory);
+            populateTypeFilter();
+            renderItems();
+        });
+
+        dom.filterType.querySelector('.multi-select-options').addEventListener('change', () => {
+            selectedTypes = getSelectedValues(dom.filterType);
+            updateMultiSelectLabel(dom.filterType);
             renderItems();
         });
 
@@ -1694,6 +1782,8 @@
                 setMultiSelectValues(dom.filterGame, selectedGames);
             }
             syncTimelineToSelectedGames();
+            populateCategoryFilter();
+            populateTypeFilter();
             renderItems();
         });
 
@@ -1797,8 +1887,10 @@
             dom.clearSearch.classList.remove('visible');
             selectedGames.clear();
             selectedCategories.clear();
+            selectedTypes.clear();
             clearMultiSelect(dom.filterGame);
             clearMultiSelect(dom.filterCategory);
+            clearMultiSelect(dom.filterType);
             dom.filterOwned.value = '';
             dom.sortBy.value = '';
             syncTimelineToSelectedGames();
@@ -1833,8 +1925,10 @@
             dom.clearSearch.classList.remove('visible');
             selectedGames.clear();
             selectedCategories.clear();
+            selectedTypes.clear();
             clearMultiSelect(dom.filterGame);
             clearMultiSelect(dom.filterCategory);
+            clearMultiSelect(dom.filterType);
             dom.filterOwned.value = '';
             dom.sortBy.value = '';
             syncTimelineToSelectedGames();

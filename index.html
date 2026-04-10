@@ -88,6 +88,16 @@
                         <div class="multi-select-options"></div>
                     </div>
                 </div>
+                <div class="multi-select" id="filterType" data-placeholder="All Types">
+                    <button class="multi-select-toggle" type="button">
+                        <span class="multi-select-label">All Types</span>
+                        <span class="multi-select-clear" title="Clear selection">&times;</span>
+                        <svg class="multi-select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="multi-select-dropdown">
+                        <div class="multi-select-options"></div>
+                    </div>
+                </div>
                 <select id="filterOwned" class="filter-select">
                     <option value="">All Items</option>
                     <option value="owned">Owned Only</option>
@@ -191,7 +201,10 @@
                     </div>
                 </div>
                 <div class="modal-details">
-                    <div class="modal-badge" id="modalBadge"></div>
+                    <div class="modal-badges-row">
+                        <div class="modal-badge" id="modalBadge"></div>
+                        <div class="modal-badge modal-badge-type" id="modalBadgeType"></div>
+                    </div>
                     <h2 class="modal-title" id="modalTitle"></h2>
                     <div class="modal-meta">
                         <span class="modal-game" id="modalGame"></span>
@@ -327,8 +340,9 @@
                             <option value="">Select category...</option>
                             <option value="Collector's Edition">Collector's Edition</option>
                             <option value="Special Edition">Special Edition</option>
-                            <option value="Statue/Figurine">Statue/Figurine</option>
-                            <option value="Funko Pop">Funko Pop</option>
+                            <option value="Statue">Statue</option>
+                            <option value="Figurine">Figurine</option>
+                            <option value="Action Figure">Action Figure</option>
                             <option value="Art Book">Art Book</option>
                             <option value="Steelbook">Steelbook</option>
                             <option value="Replica/Prop">Replica/Prop</option>
@@ -404,7 +418,7 @@
             <p class="footer-disclaimer">Assassin's Creed and all related images and trademarks are property of Ubisoft Entertainment.</p>
             <p class="footer-disclaimer">All collection data stays in your browser. Anonymous visitor analytics by Cloudflare (no cookies).</p>
             <p class="footer-feedback">Found a bug, missing item, or have a suggestion? <a href="https://github.com/ThePrivateGeek/ACDb/issues" target="_blank" rel="noopener">Leave feedback on GitHub</a></p>
-            <p class="footer-meta">&copy; 2026 ACDb &middot; v1.0 &middot; <span id="footerItemCount">253</span> items</p>
+            <p class="footer-meta">&copy; 2026 ACDb &middot; v1.1 &middot; <span id="footerItemCount">256</span> items</p>
         </div>
     </footer>
 

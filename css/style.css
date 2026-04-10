@@ -1423,6 +1423,13 @@ body {
     overflow-y: auto;
 }
 
+.modal-badges-row {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
 .modal-badge {
     display: inline-block;
     padding: 4px 10px;
@@ -1433,7 +1440,12 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 0.75rem;
+}
+
+.modal-badge-type {
+    background: rgba(201, 168, 76, 0.08);
+    color: var(--text-secondary);
+    font-weight: 500;
 }
 
 .modal-title {

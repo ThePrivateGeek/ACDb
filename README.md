@@ -16,12 +16,13 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 
 ## Features
 
-- **250+ officially licensed items** — collector's editions, statues, figurines, art books, novels, comic books, steelbooks, replicas, Funko Pops, and more
+- **256 officially licensed items** — statues, figurines, action figures, collector's editions, art books, novels, comic books, steelbooks, replicas, and more
 - **Collection tracking** — mark items as owned, wishlist, track condition, number of copies, original box status, purchase price, acquisition date, and personal notes
 - **Smart field logic** — setting condition or copies automatically marks as owned; clearing ownership resets all fields
-- **Collection Insights** — collapsible stats dashboard showing completion progress by game and category, sorted by completion percentage, with condition breakdown
-- **Multi-image gallery** — swipe or click through multiple photos per item with smooth directional slide transitions
-- **Smart filters** — multi-select by game and category, filter by ownership status, sort by year, name, or recently added. Filters persist across page reloads
+- **Cascading filters** — multi-select by game, category, and type. Filters cascade: selecting a game narrows categories, selecting a category narrows types. Filters persist across page reloads
+- **Collection Insights** — collapsible stats dashboard showing completion progress by game and category (sorted by completion %), condition breakdown, and 100% completion celebration with confetti
+- **Multi-image gallery** — swipe or click through multiple photos per item with smooth directional slide transitions and full-screen lightbox zoom
+- **Shareable item links** — each item has a unique URL. Ctrl+click or right-click to open in a new tab. Browser back button closes the modal
 - **Game timeline** — quick-access bar spanning every AC title from AC1 to Shadows
 - **Search** — instant search across item names, games, descriptions, and contents with result count
 - **Export / Import** — download your collection as JSON, import it on another device
