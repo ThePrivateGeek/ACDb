@@ -2762,5 +2762,59 @@ const AC_DATABASE = [
     "description": "Unimax Gamestars Collectibles figure of The Harlequin.",
     "contents": "Unimax figure",
     "type": "Unimax"
+  },
+  {
+    "name": "Funko Pop! Altair #080 (Dorbz)",
+    "game": "Assassin's Creed",
+    "year": 2015,
+    "category": "Figurine",
+    "description": "Funko Pop Dorbz figure of Altair.",
+    "contents": "Funko figure",
+    "type": "Funko Pop"
+  },
+  {
+    "name": "Funko Pop! Arno #081 (Dorbz)",
+    "game": "Assassin's Creed Unity",
+    "year": 2015,
+    "category": "Figurine",
+    "description": "Funko Pop Dorbz figure of Arno.",
+    "contents": "Funko figure",
+    "type": "Funko Pop"
+  },
+  {
+    "name": "Funko Pop! Elise #082 (Dorbz)",
+    "game": "Assassin's Creed Unity",
+    "year": 2015,
+    "category": "Figurine",
+    "description": "Funko Pop Dorbz figure of Elise.",
+    "contents": "Funko figure",
+    "type": "Funko Pop"
+  },
+  {
+    "name": "Funko Pop! Edward #083 (Dorbz)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2015,
+    "category": "Figurine",
+    "description": "Funko Pop Dorbz figure of Edward.",
+    "contents": "Funko figure",
+    "type": "Funko Pop"
+  },
+  {
+    "name": "Funko Pop! Ezio #084 (Dorbz)",
+    "game": "Assassin's Creed II",
+    "year": 2015,
+    "category": "Figurine",
+    "description": "Funko Pop Dorbz figure of Ezio.",
+    "contents": "Funko figure",
+    "type": "Funko Pop"
+  },
+  {
+    "name": "Funko Pop! Jacob #085 (Dorbz)",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2015,
+    "category": "Figurine",
+    "description": "Funko Pop Dorbz figure of Jacob.",
+    "contents": "Funko figure",
+    "type": "Funko Pop"
   }
 ];

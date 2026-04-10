@@ -209,6 +209,12 @@ const AC_IMAGES = {
     "Funko Pop! Movies #377 - Ojeda":                                      "images/funko-pop/funko-pop-377-ojeda.jpg",
     "Funko Pop! Movies #378 - Callum Lynch":                               "images/funko-pop/funko-pop-378-callum-lynch.jpg",
     "Funko Pop! Movies #379 - Aguilar (Crouching) (Loot Crate Exclusive)": "images/funko-pop/funko-pop-379-aguilar-crouching.jpg",
+    "Funko Pop! Altair #080 (Dorbz)":  "images/funko-pop/funko-altair-080-dorbz.jpg",
+    "Funko Pop! Arno #081 (Dorbz)":    "images/funko-pop/funko-arno-081-dorbz.jpg",
+    "Funko Pop! Elise #082 (Dorbz)":   "images/funko-pop/funko-elise-082-dorbz.jpg",
+    "Funko Pop! Edward #083 (Dorbz)":  "images/funko-pop/funko-edward-083-dorbz.jpg",
+    "Funko Pop! Ezio #084 (Dorbz)":    "images/funko-pop/funko-ezio-084-dorbz.jpg",
+    "Funko Pop! Jacob #085 (Dorbz)":   "images/funko-pop/funko-jacob-085-dorbz.jpg",
 
     // ── Jewelry ──
     "Ubi Workshop Master Assassin Ring":                                   "images/other/ubi-workshop-master-assassin-ring.jpg",
