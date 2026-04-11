@@ -10,7 +10,6 @@
     const FILTERS_KEY = 'acdb_filters';
     const isAdmin = localStorage.getItem('acdb_admin') === 'true';
     let collection = loadCollection();
-    let currentView = 'grid';
     let selectedGames = new Set();
     let selectedCategories = new Set();
     let selectedTypes = new Set();
@@ -44,7 +43,10 @@
         "General": "General"
     };
 
-    // ---- Migrate old numeric-keyed collection to name-based keys ----
+    // ---- TEMPORARY: Migration from numeric IDs to name-based keys ----
+    // Added: 2026-04-11 | Safe to remove after: 2026-04-18
+    // To remove: delete this entire IIFE block (from here to the closing })();)
+    // Also remove localStorage.getItem('acdb_migrated') check — no longer needed
     // Must run BEFORE reassigning IDs, while array indices still match old numeric keys
     (function migrateCollection() {
         if (localStorage.getItem('acdb_migrated')) return;
@@ -1393,14 +1395,12 @@
 
         // View toggle
         dom.viewGrid.addEventListener('click', () => {
-            currentView = 'grid';
             dom.viewGrid.classList.add('active');
             dom.viewList.classList.remove('active');
             dom.itemsContainer.classList.remove('list-view');
         });
 
         dom.viewList.addEventListener('click', () => {
-            currentView = 'list';
             dom.viewList.classList.add('active');
             dom.viewGrid.classList.remove('active');
             dom.itemsContainer.classList.add('list-view');
