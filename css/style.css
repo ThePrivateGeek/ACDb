@@ -468,6 +468,12 @@ body {
     color: var(--text-muted);
 }
 
+.multi-select-separator {
+    height: 1px;
+    background: var(--border);
+    margin: 0.25rem 0.75rem;
+}
+
 .multi-select-option {
     display: flex;
     align-items: center;

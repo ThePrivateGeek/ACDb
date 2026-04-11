@@ -1360,6 +1360,15 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "name": "The Art of Assassin's Creed Valhalla (Deluxe Edition)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Art Book",
+    "description": "This masterfully designed oversized hardcover art book invites the reader on a visual journey through the world of Assassin's Creed Valhalla: A world defined by the harsh beauty of Viking life, rich with fascinating characters and breathtaking landscapes. Deluxe edition with exclusive packaging and lavish treatments. Published by Dark Horse Comics.",
+    "contents": "Hardcover art book with concept art and development artwork. An exclusive cover. A decorative slipcase. A gallery-quality lithograph print",
+    "type": "Art Book"
+  },
+  {
     "name": "The Art of Assassin's Creed Mirage",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
@@ -1891,6 +1900,15 @@ const AC_DATABASE = [
     "type": "Novel"
   },
   {
+    "name": "Assassin's Creed: Heresy - Special Edition",
+    "game": "General",
+    "year": 2016,
+    "category": "Novel",
+    "description": "Abstergo employee Simon Hathaway relives the memories of Joan of Arc's companion-at-arms, exploring the role of a Sword of Eden in the Hundred Years' War. By Christie Golden.",
+    "contents": "Premium hardcover edition features exclusive art sketches and behind the scenes interviews, as well as a special code to unlock Assassin's Creed rewards through Ubisoft Club's loyalty program.",
+    "type": "Novel"
+  },
+  {
     "name": "Assassin's Creed: Last Descendants",
     "game": "General",
     "year": 2016,
@@ -2255,8 +2273,17 @@ const AC_DATABASE = [
     "game": "General",
     "year": 2021,
     "category": "Comic Book",
-    "description": "Manhua (Chinese comic) set in 8th-century Tang Dynasty China during the An Lushan rebellion. Follows Li E, an Assassin navigating imperial court intrigue. The longest-running AC comic. Published by Tokyopop. 6+ volumes (ongoing).",
+    "description": "In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan.",
     "contents": "Collected manga volumes (6+ volumes, ongoing)",
+    "type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed Dynasty (Box Set)",
+    "game": "General",
+    "year": 2025,
+    "category": "Comic Book",
+    "description": "In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan.",
+    "contents": "Volumes 1-5 of the Assassin's Creed: Dynasty series collected in a box set",
     "type": "Manga"
   },
   {

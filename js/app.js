@@ -229,6 +229,34 @@
             label.textContent = `${selected.size} ${noun}`;
             multiSelectEl.classList.add('has-selection');
         }
+        sortMultiSelectOptions(multiSelectEl);
+    }
+
+    function sortMultiSelectOptions(multiSelectEl) {
+        const container = multiSelectEl.querySelector('.multi-select-options');
+        const options = [...container.querySelectorAll('.multi-select-option')];
+
+        // Remove existing separator
+        const existing = container.querySelector('.multi-select-separator');
+        if (existing) existing.remove();
+
+        options.sort((a, b) => {
+            const aChecked = a.querySelector('input').checked;
+            const bChecked = b.querySelector('input').checked;
+            if (aChecked !== bChecked) return aChecked ? -1 : 1;
+            const aText = a.querySelector('.multi-select-text').textContent;
+            const bText = b.querySelector('.multi-select-text').textContent;
+            return aText.localeCompare(bText);
+        });
+        options.forEach(opt => container.appendChild(opt));
+
+        // Add separator between checked and unchecked
+        const checkedCount = options.filter(o => o.querySelector('input').checked).length;
+        if (checkedCount > 0 && checkedCount < options.length) {
+            const sep = document.createElement('div');
+            sep.className = 'multi-select-separator';
+            options[checkedCount - 1].after(sep);
+        }
     }
 
     function setMultiSelectValues(multiSelectEl, valuesSet) {
