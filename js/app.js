@@ -44,9 +44,34 @@
         "General": "General"
     };
 
-    // ---- Assign unique IDs to each database item ----
-    AC_DATABASE.forEach((item, i) => {
-        item.id = i;
+    // ---- Migrate old numeric-keyed collection to name-based keys ----
+    // Must run BEFORE reassigning IDs, while array indices still match old numeric keys
+    (function migrateCollection() {
+        if (localStorage.getItem('acdb_migrated')) return;
+        const keys = Object.keys(collection);
+        if (keys.length === 0) { localStorage.setItem('acdb_migrated', '1'); return; }
+
+        // Check if keys are numeric (old format)
+        const isNumeric = keys.some(k => /^\d+$/.test(k));
+        if (!isNumeric) { localStorage.setItem('acdb_migrated', '1'); return; }
+
+        // Map numeric IDs to names using current array order
+        const migrated = {};
+        keys.forEach(k => {
+            const idx = parseInt(k);
+            if (idx >= 0 && idx < AC_DATABASE.length) {
+                migrated[AC_DATABASE[idx].name] = collection[k];
+            }
+        });
+
+        collection = migrated;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(collection));
+        localStorage.setItem('acdb_migrated', '1');
+    })();
+
+    // ---- Assign stable IDs (name-based) to each database item ----
+    AC_DATABASE.forEach((item) => {
+        item.id = item.name;
     });
 
     // ---- DOM References ----
@@ -410,7 +435,7 @@
         else if (sortValue === 'year-desc') results.sort((a, b) => b.year - a.year);
         else if (sortValue === 'name-asc') results.sort((a, b) => a.name.localeCompare(b.name));
         else if (sortValue === 'name-desc') results.sort((a, b) => b.name.localeCompare(a.name));
-        else if (sortValue === 'recent') results.sort((a, b) => b.id - a.id);
+        else if (sortValue === 'recent') results.sort((a, b) => AC_DATABASE.indexOf(b) - AC_DATABASE.indexOf(a));
 
         return results;
     }
