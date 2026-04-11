@@ -126,11 +126,6 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     <span>Add Item</span>
                 </button>
-                <button id="manageBtn" class="manage-btn" title="Manage Custom Items &amp; Games">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                    </svg>
-                </button>
             </div>
         </div>
     </div>
@@ -302,110 +297,86 @@
         <div class="lightbox-counter" id="lightboxCounter"></div>
     </div>
 
-    <!-- Add Item Modal -->
-    <div class="modal-overlay" id="addModalOverlay">
-        <div class="modal add-item-modal" id="addItemModal">
-            <button class="modal-close" id="addModalClose">&times;</button>
-            <div class="add-modal-content">
-                <h2 class="add-modal-title">Add New Item</h2>
-                <p class="add-modal-subtitle">Add a custom collectible to your database</p>
-
-                <div class="add-form">
-                    <div class="form-row">
-                        <label for="addName">Item Name *</label>
-                        <input type="text" id="addName" placeholder="e.g. Assassin's Creed Valhalla Ragnarök Edition" required>
-                    </div>
-                    <div class="form-row-group">
+    <!-- Dev Tool Modal -->
+    <div class="modal-overlay" id="devToolOverlay">
+        <div class="modal dev-tool-modal" id="devToolModal">
+            <button class="modal-close" id="devToolClose">&times;</button>
+            <div class="dev-tool-content">
+                <h2 class="add-modal-title">Code Generator</h2>
+                <p class="add-modal-subtitle">Generate database.js and images.js entries</p>
+                <div class="dev-tool-layout">
+                    <div class="dev-tool-form">
                         <div class="form-row">
-                            <label for="addGame">Game *</label>
-                            <div class="select-with-add">
-                                <select id="addGame">
-                                    <option value="">Select game...</option>
-                                    <!-- Populated by JS -->
+                            <label for="devName">Item Name *</label>
+                            <input type="text" id="devName" placeholder="e.g. Assassin's Creed Valhalla Ragnarök Edition">
+                        </div>
+                        <div class="form-row">
+                            <label class="toggle-label">
+                                <span>Game *</span>
+                                <label class="toggle-label-mini">
+                                    <span>New</span>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="devNewGame">
+                                        <span class="toggle-slider"></span>
+                                    </div>
+                                </label>
+                            </label>
+                            <select id="devGame">
+                                <option value="">Select game...</option>
+                            </select>
+                            <div id="devNewGameFields" style="display:none;">
+                                <input type="text" id="devNewGameName" placeholder="Full name, e.g. Assassin's Creed Hexe">
+                                <input type="text" id="devNewGameShort" placeholder="Short name for timeline, e.g. Hexe" style="margin-top:0.35rem;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="devYear">Year *</label>
+                            <input type="number" id="devYear" min="2007" max="2030" placeholder="2024">
+                        </div>
+                        <div class="form-row-group">
+                            <div class="form-row">
+                                <label for="devCategory">Category *</label>
+                                <select id="devCategory">
+                                    <option value="">Select category...</option>
+                                    <option value="Collector's Edition">Collector's Edition</option>
+                                    <option value="Special Edition">Special Edition</option>
+                                    <option value="Statue">Statue</option>
+                                    <option value="Figurine">Figurine</option>
+                                    <option value="Action Figure">Action Figure</option>
+                                    <option value="Art & Reference">Art & Reference</option>
+                                    <option value="Steelbook">Steelbook</option>
+                                    <option value="Replica/Prop">Replica/Prop</option>
+                                    <option value="Novel">Novel</option>
+                                    <option value="Comic Book">Comic Book</option>
+                                    <option value="Other">Other</option>
                                 </select>
-                                <button type="button" id="addGameToggle" class="inline-add-btn" title="Add new game">+</button>
                             </div>
-                            <div class="inline-add-row" id="addGameRow" style="display:none;">
-                                <input type="text" id="addGameInput" placeholder="New game name...">
-                                <button type="button" id="addGameConfirm" class="inline-confirm-btn">Add</button>
-                                <button type="button" id="addGameCancel" class="inline-cancel-btn">&times;</button>
+                            <div class="form-row">
+                                <label for="devType">Type</label>
+                                <select id="devType">
+                                    <option value="">Select type...</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-row">
-                            <label for="addYear">Year *</label>
-                            <input type="number" id="addYear" min="2007" max="2030" placeholder="2024">
+                            <label for="devDescription">Description</label>
+                            <textarea id="devDescription" rows="2" placeholder="Brief description..."></textarea>
+                        </div>
+                        <div class="form-row">
+                            <label for="devContents">Contents</label>
+                            <textarea id="devContents" rows="2" placeholder="What's included..."></textarea>
+                        </div>
+                        <div class="form-row">
+                            <label for="devImagePath">Image Path</label>
+                            <input type="text" id="devImagePath" placeholder="images/statues/my-item.jpg">
                         </div>
                     </div>
-                    <div class="form-row">
-                        <label for="addCategory">Category *</label>
-                        <select id="addCategory">
-                            <option value="">Select category...</option>
-                            <option value="Collector's Edition">Collector's Edition</option>
-                            <option value="Special Edition">Special Edition</option>
-                            <option value="Statue">Statue</option>
-                            <option value="Figurine">Figurine</option>
-                            <option value="Action Figure">Action Figure</option>
-                            <option value="Art & Reference">Art & Reference</option>
-                            <option value="Steelbook">Steelbook</option>
-                            <option value="Replica/Prop">Replica/Prop</option>
-                            <option value="Novel">Novel</option>
-                            <option value="Comic Book">Comic Book</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-row">
-                        <label for="addDescription">Description</label>
-                        <textarea id="addDescription" rows="2" placeholder="Brief description of the item..."></textarea>
-                    </div>
-                    <div class="form-row">
-                        <label for="addContents">Contents</label>
-                        <textarea id="addContents" rows="2" placeholder="List what's included..."></textarea>
-                    </div>
-                    <div class="form-row">
-                        <label for="addImagePath">Image Path</label>
-                        <input type="text" id="addImagePath" placeholder="images/collectors-editions/my-item.jpg">
-                        <span class="form-hint">Drop the image file in the images/ folder and enter its path here</span>
-                    </div>
-
-                    <div class="form-actions">
-                        <button id="addItemCancel" class="btn-cancel">Cancel</button>
-                        <button id="addItemSave" class="btn-save">Add Item</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Manage Modal -->
-    <div class="modal-overlay" id="manageModalOverlay">
-        <div class="modal manage-modal" id="manageModal">
-            <button class="modal-close" id="manageModalClose">&times;</button>
-            <div class="manage-modal-content">
-                <h2 class="manage-modal-title">Manage</h2>
-                <div class="manage-tabs">
-                    <button class="manage-tab active" data-tab="items">Custom Items</button>
-                    <button class="manage-tab" data-tab="games">Custom Games</button>
-                </div>
-                <div class="manage-tab-content active" id="manageItemsTab">
-                    <div class="manage-list" id="manageItemsList"></div>
-                    <p class="manage-empty" id="manageItemsEmpty">No custom items yet. Use the "Add Item" button to create one.</p>
-                </div>
-                <div class="manage-tab-content" id="manageGamesTab">
-                    <div class="manage-add-row" id="manageAddGameRow">
-                        <input type="text" id="manageAddGameInput" placeholder="New game name...">
-                        <button id="manageAddGameBtn" class="inline-confirm-btn">Add Game</button>
-                    </div>
-                    <div class="manage-list" id="manageGamesList"></div>
-                    <p class="manage-empty" id="manageGamesEmpty">No custom games yet. Add one above.</p>
-                </div>
-            </div>
-            <!-- Confirm dialog -->
-            <div class="manage-confirm-overlay" id="manageConfirmOverlay">
-                <div class="manage-confirm-dialog">
-                    <p id="manageConfirmMsg">Are you sure?</p>
-                    <div class="manage-confirm-actions">
-                        <button class="btn-cancel" id="manageConfirmNo">Cancel</button>
-                        <button class="btn-danger" id="manageConfirmYes">Delete</button>
+                    <div class="dev-tool-preview">
+                        <div class="dev-preview-header">
+                            <span>Generated Code</span>
+                            <button id="devCopyCode" class="btn-save">Copy Code</button>
+                        </div>
+                        <textarea id="devCodeOutput" readonly rows="20" placeholder="Fill in the form to generate code..."></textarea>
                     </div>
                 </div>
             </div>

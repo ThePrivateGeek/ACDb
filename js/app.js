@@ -7,8 +7,6 @@
 
     // ---- State ----
     const STORAGE_KEY = 'acdb_collection';
-    const CUSTOM_ITEMS_KEY = 'acdb_custom_items';
-    const CUSTOM_GAMES_KEY = 'acdb_custom_games';
     const FILTERS_KEY = 'acdb_filters';
     const isAdmin = localStorage.getItem('acdb_admin') === 'true';
     let collection = loadCollection();
@@ -45,44 +43,6 @@
         "Assassin's Creed (Movie)": "Movie",
         "General": "General"
     };
-
-    // ---- Load custom items and merge into database ----
-    function loadCustomItems() {
-        try {
-            const data = localStorage.getItem(CUSTOM_ITEMS_KEY);
-            return data ? JSON.parse(data) : [];
-        } catch {
-            return [];
-        }
-    }
-
-    function saveCustomItems(items) {
-        localStorage.setItem(CUSTOM_ITEMS_KEY, JSON.stringify(items));
-    }
-
-    function loadCustomGames() {
-        try {
-            const data = localStorage.getItem(CUSTOM_GAMES_KEY);
-            return data ? JSON.parse(data) : [];
-        } catch {
-            return [];
-        }
-    }
-
-    function saveCustomGames(games) {
-        localStorage.setItem(CUSTOM_GAMES_KEY, JSON.stringify(games));
-    }
-
-    // Merge custom items into AC_DATABASE
-    const customItems = loadCustomItems();
-    customItems.forEach(item => {
-        // Set image property directly (images.js already ran)
-        if (item.imagePath) {
-            item.image = item.imagePath;
-            AC_IMAGES[item.name] = item.imagePath;
-        }
-        AC_DATABASE.push(item);
-    });
 
     // ---- Assign unique IDs to each database item ----
     AC_DATABASE.forEach((item, i) => {
@@ -127,25 +87,7 @@
         galleryNext: document.getElementById('galleryNext'),
         galleryCounter: document.getElementById('galleryCounter'),
         galleryDots: document.getElementById('galleryDots'),
-        // Add Item modal
-        addItemBtn: document.getElementById('addItemBtn'),
-        addModalOverlay: document.getElementById('addModalOverlay'),
-        addModalClose: document.getElementById('addModalClose'),
-        addItemCancel: document.getElementById('addItemCancel'),
-        addItemSave: document.getElementById('addItemSave'),
-        addName: document.getElementById('addName'),
-        addGame: document.getElementById('addGame'),
-        addYear: document.getElementById('addYear'),
-        addCategory: document.getElementById('addCategory'),
-        addDescription: document.getElementById('addDescription'),
-        addContents: document.getElementById('addContents'),
-        addImagePath: document.getElementById('addImagePath'),
-        addGameToggle: document.getElementById('addGameToggle'),
-        addGameRow: document.getElementById('addGameRow'),
-        addGameInput: document.getElementById('addGameInput'),
-        addGameConfirm: document.getElementById('addGameConfirm'),
-        addGameCancel: document.getElementById('addGameCancel'),
-        // Manage modal
+        // Export/Import
         exportBtn: document.getElementById('exportBtn'),
         importBtn: document.getElementById('importBtn'),
         importFile: document.getElementById('importFile'),
@@ -158,21 +100,10 @@
         statsByGame: document.getElementById('statsByGame'),
         statsByCategory: document.getElementById('statsByCategory'),
         statsByCondition: document.getElementById('statsByCondition'),
-        manageBtn: document.getElementById('manageBtn'),
-        manageModalOverlay: document.getElementById('manageModalOverlay'),
-        manageModalClose: document.getElementById('manageModalClose'),
-        manageItemsList: document.getElementById('manageItemsList'),
-        manageGamesList: document.getElementById('manageGamesList'),
-        manageItemsTab: document.getElementById('manageItemsTab'),
-        manageGamesTab: document.getElementById('manageGamesTab'),
-        manageItemsEmpty: document.getElementById('manageItemsEmpty'),
-        manageGamesEmpty: document.getElementById('manageGamesEmpty'),
-        manageAddGameInput: document.getElementById('manageAddGameInput'),
-        manageAddGameBtn: document.getElementById('manageAddGameBtn'),
-        manageConfirmOverlay: document.getElementById('manageConfirmOverlay'),
-        manageConfirmMsg: document.getElementById('manageConfirmMsg'),
-        manageConfirmYes: document.getElementById('manageConfirmYes'),
-        manageConfirmNo: document.getElementById('manageConfirmNo'),
+        // Dev Tool
+        addItemBtn: document.getElementById('addItemBtn'),
+        devToolOverlay: document.getElementById('devToolOverlay'),
+        devToolClose: document.getElementById('devToolClose'),
     };
 
     // ---- Collection Persistence ----
@@ -392,13 +323,7 @@
             "General"
         ];
 
-        // Include custom games
-        const customGamesList = loadCustomGames();
-        customGamesList.forEach(g => { if (!gameOrder.includes(g)) gameOrder.push(g); });
-
         const games = [...new Set(AC_DATABASE.map(i => i.game))];
-        // Also include custom games even if no items exist yet
-        customGamesList.forEach(g => { if (!games.includes(g)) games.push(g); });
 
         const sortedGames = gameOrder.filter(g => games.includes(g));
         // Add any games not in our predefined order
@@ -722,12 +647,14 @@
         } else {
             const src = galleryImages[galleryIndex];
             const img = document.createElement('img');
-            img.src = src;
             img.alt = 'Image ' + (galleryIndex + 1);
             if (direction === 'right') img.classList.add('slide-right');
+            img.style.opacity = '0';
             img.onload = function () {
                 modal.classList.toggle('landscape', img.naturalWidth > img.naturalHeight);
+                requestAnimationFrame(() => { img.style.opacity = ''; });
             };
+            img.src = src;
             img.onerror = function () {
                 dom.modalImage.innerHTML = '<svg viewBox="0 0 100 100" class="placeholder-icon"><path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/></svg>';
             };
@@ -863,72 +790,53 @@
         if (data.owned && !wasOwned) checkCompletionCelebration();
     }
 
-    // ---- Add / Edit Item ----
-    let editingCustomIndex = null; // when non-null, Add Item modal is in edit mode
-
-    function openAddModal(editIndex) {
-        editingCustomIndex = (editIndex !== undefined) ? editIndex : null;
-
-        dom.addGameRow.style.display = 'none';
-        dom.addGameInput.value = '';
-        populateAddGameSelect();
-
-        const titleEl = document.querySelector('.add-modal-title');
-        const subtitleEl = document.querySelector('.add-modal-subtitle');
-
-        if (editingCustomIndex !== null) {
-            // Edit mode — pre-fill form
-            const items = loadCustomItems();
-            const item = items[editingCustomIndex];
-            dom.addName.value = item.name || '';
-            dom.addGame.value = item.game || '';
-            dom.addYear.value = item.year || '';
-            dom.addCategory.value = item.category || '';
-            dom.addDescription.value = item.description || '';
-            dom.addContents.value = item.contents || '';
-            dom.addImagePath.value = item.imagePath || '';
-            titleEl.textContent = 'Edit Item';
-            subtitleEl.textContent = 'Modify your custom collectible';
-            dom.addItemSave.textContent = 'Save Changes';
-        } else {
-            // Add mode — reset form
-            dom.addName.value = '';
-            dom.addGame.value = '';
-            dom.addYear.value = '';
-            dom.addCategory.value = '';
-            dom.addDescription.value = '';
-            dom.addContents.value = '';
-            dom.addImagePath.value = '';
-            titleEl.textContent = 'Add New Item';
-            subtitleEl.textContent = 'Add a custom collectible to your database';
-            dom.addItemSave.textContent = 'Add Item';
-        }
-
-        dom.addModalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        dom.addName.focus();
-    }
-
-    function closeAddModal() {
-        dom.addModalOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-        editingCustomIndex = null;
-    }
-
-    function populateAddGameSelect() {
-        const select = dom.addGame;
-        const currentVal = select.value;
-        while (select.options.length > 1) select.remove(1);
-
-        const allGames = getAllGameNames();
-        allGames.forEach(game => {
+    // ---- Dev Tool (Code Generator) ----
+    function openDevTool() {
+        // Populate game dropdown
+        const gameSelect = document.getElementById('devGame');
+        gameSelect.innerHTML = '<option value="">Select game...</option>';
+        getAllGameNames().forEach(g => {
             const opt = document.createElement('option');
-            opt.value = game;
-            opt.textContent = game;
-            select.appendChild(opt);
+            opt.value = g;
+            opt.textContent = g;
+            gameSelect.appendChild(opt);
         });
 
-        if (currentVal) select.value = currentVal;
+        // Populate type dropdown
+        const typeSelect = document.getElementById('devType');
+        typeSelect.innerHTML = '<option value="">Select type...</option>';
+        const types = [...new Set(AC_DATABASE.map(i => i.type).filter(Boolean))].sort();
+        types.forEach(t => {
+            const opt = document.createElement('option');
+            opt.value = t;
+            opt.textContent = t;
+            typeSelect.appendChild(opt);
+        });
+
+        // Clear form
+        document.getElementById('devName').value = '';
+        document.getElementById('devGame').value = '';
+        document.getElementById('devGame').style.display = '';
+        document.getElementById('devYear').value = '';
+        document.getElementById('devCategory').value = '';
+        document.getElementById('devType').value = '';
+        document.getElementById('devDescription').value = '';
+        document.getElementById('devContents').value = '';
+        document.getElementById('devImagePath').value = '';
+        document.getElementById('devNewGame').checked = false;
+        document.getElementById('devNewGameFields').style.display = 'none';
+        document.getElementById('devNewGameName').value = '';
+        document.getElementById('devNewGameShort').value = '';
+        document.getElementById('devCodeOutput').value = '';
+
+        dom.devToolOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('devName').focus();
+    }
+
+    function closeDevTool() {
+        dom.devToolOverlay.classList.remove('active');
+        document.body.style.overflow = '';
     }
 
     function getAllGameNames() {
@@ -942,372 +850,56 @@
             "Assassin's Creed Valhalla", "Assassin's Creed Mirage", "Assassin's Creed Shadows",
             "Assassin's Creed (Movie)", "General"
         ];
-        const custom = loadCustomGames();
-        custom.forEach(g => { if (!gameOrder.includes(g)) gameOrder.push(g); });
         return gameOrder;
     }
 
-    function addNewGame() {
-        const name = dom.addGameInput.value.trim();
-        if (!name) return;
+    function generateCode() {
+        const name = document.getElementById('devName').value.trim();
+        const isNewGame = document.getElementById('devNewGame').checked;
+        const newGameName = document.getElementById('devNewGameName').value.trim();
+        const newGameShort = document.getElementById('devNewGameShort').value.trim();
+        const game = isNewGame ? newGameName : document.getElementById('devGame').value;
+        const year = document.getElementById('devYear').value;
+        const category = document.getElementById('devCategory').value;
+        const type = document.getElementById('devType').value;
+        const description = document.getElementById('devDescription').value.trim();
+        const contents = document.getElementById('devContents').value.trim();
+        const imagePath = document.getElementById('devImagePath').value.trim();
 
-        const games = loadCustomGames();
-        if (!games.includes(name)) {
-            games.push(name);
-            saveCustomGames(games);
+        let code = '';
+
+        // database.js entry
+        code += '// database.js — add before the closing ];\n';
+        code += '  {\n';
+        code += `    "name": ${JSON.stringify(name || 'Item Name')},\n`;
+        code += `    "game": ${JSON.stringify(game || 'Game Name')},\n`;
+        code += `    "year": ${year || 2025},\n`;
+        code += `    "category": ${JSON.stringify(category || 'Category')},\n`;
+        code += `    "description": ${JSON.stringify(description)},\n`;
+        code += `    "contents": ${JSON.stringify(contents)},\n`;
+        code += `    "type": ${JSON.stringify(type || category || 'Type')}\n`;
+        code += '  },';
+
+        // images.js entry
+        if (imagePath) {
+            code += '\n\n// images.js — add before the closing };\n';
+            code += `    ${JSON.stringify(name || 'Item Name')}: ${JSON.stringify(imagePath)},`;
         }
 
-        populateAddGameSelect();
-        initFilters();
-
-        dom.addGame.value = name;
-        dom.addGameRow.style.display = 'none';
-        dom.addGameInput.value = '';
-    }
-
-    function saveItemFromForm() {
-        const name = dom.addName.value.trim();
-        const game = dom.addGame.value;
-        const year = parseInt(dom.addYear.value);
-        const category = dom.addCategory.value;
-
-        if (!name || !game || !year || !category) {
-            [dom.addName, dom.addGame, dom.addYear, dom.addCategory].forEach(el => {
-                if (!el.value.trim()) {
-                    el.style.borderColor = 'var(--red)';
-                    setTimeout(() => { el.style.borderColor = ''; }, 2000);
-                }
-            });
-            return;
+        // New game code
+        if (isNewGame && newGameName) {
+            code += '\n\n// app.js — add to SHORT_GAME_NAMES object\n';
+            code += `    ${JSON.stringify(newGameName)}: ${JSON.stringify(newGameShort || newGameName)},`;
+            code += '\n\n// app.js — add to gameOrder array in initFilters()\n';
+            code += `    ${JSON.stringify(newGameName)},`;
+            code += '\n\n// app.js — add to getAllGameNames() in dev tool\n';
+            code += `    ${JSON.stringify(newGameName)},`;
         }
 
-        const itemData = {
-            name: name,
-            game: game,
-            year: year,
-            category: category,
-            type: category,
-            description: dom.addDescription.value.trim(),
-            contents: dom.addContents.value.trim(),
-            imagePath: dom.addImagePath.value.trim() || '',
-            _custom: true
-        };
-
-        if (editingCustomIndex !== null) {
-            // ---- Edit existing custom item ----
-            const items = loadCustomItems();
-            const oldName = items[editingCustomIndex].name;
-            items[editingCustomIndex] = itemData;
-            saveCustomItems(items);
-
-            // Update live AC_DATABASE entry
-            const liveItem = AC_DATABASE.find(i => i._custom && i.name === oldName);
-            if (liveItem) {
-                Object.assign(liveItem, itemData);
-                if (itemData.imagePath) {
-                    liveItem.image = itemData.imagePath;
-                    AC_IMAGES[itemData.name] = itemData.imagePath;
-                } else {
-                    delete liveItem.image;
-                }
-                // If name changed, migrate collection data
-                if (oldName !== itemData.name) {
-                    delete AC_IMAGES[oldName];
-                }
-            }
-        } else {
-            // ---- Add new custom item ----
-            const items = loadCustomItems();
-            items.push(itemData);
-            saveCustomItems(items);
-
-            if (itemData.imagePath) {
-                itemData.image = itemData.imagePath;
-                AC_IMAGES[itemData.name] = itemData.imagePath;
-            }
-            itemData.id = AC_DATABASE.length;
-            AC_DATABASE.push(itemData);
-        }
-
-        initFilters();
-        renderItems();
-        closeAddModal();
+        document.getElementById('devCodeOutput').value = code;
     }
 
-    // ---- Manage Modal ----
-    let confirmCallback = null;
 
-    function openManageModal() {
-        dom.manageModalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        switchManageTab('items');
-    }
-
-    function closeManageModal() {
-        dom.manageModalOverlay.classList.remove('active');
-        dom.manageConfirmOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-        confirmCallback = null;
-    }
-
-    function switchManageTab(tab) {
-        document.querySelectorAll('.manage-tab').forEach(t => {
-            t.classList.toggle('active', t.dataset.tab === tab);
-        });
-        dom.manageItemsTab.classList.toggle('active', tab === 'items');
-        dom.manageGamesTab.classList.toggle('active', tab === 'games');
-
-        if (tab === 'items') renderManageItems();
-        else renderManageGames();
-    }
-
-    function showConfirm(message, onConfirm) {
-        dom.manageConfirmMsg.textContent = message;
-        dom.manageConfirmOverlay.classList.add('active');
-        confirmCallback = onConfirm;
-    }
-
-    // ---- Manage: Custom Items ----
-    function renderManageItems() {
-        const items = loadCustomItems();
-        dom.manageItemsList.innerHTML = '';
-        dom.manageItemsEmpty.style.display = items.length ? 'none' : 'block';
-
-        items.forEach((item, idx) => {
-            const row = document.createElement('div');
-            row.className = 'manage-list-item';
-
-            row.innerHTML = `
-                <div class="manage-item-info">
-                    <span class="manage-item-name">${escapeHTML(item.name)}</span>
-                    <span class="manage-item-meta">${escapeHTML(item.game)} &middot; ${item.year} &middot; ${escapeHTML(item.category)}</span>
-                </div>
-                <div class="manage-item-actions">
-                    <button class="manage-action-btn export-btn" data-idx="${idx}" title="Copy as code">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                    </button>
-                    <button class="manage-action-btn edit-btn" data-idx="${idx}" title="Edit item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                    </button>
-                    <button class="manage-action-btn delete-btn" data-idx="${idx}" title="Delete item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-                    </button>
-                </div>
-            `;
-
-            // Export button
-            row.querySelector('.export-btn').addEventListener('click', () => {
-                copyItemAsCode(item);
-            });
-
-            // Edit button
-            row.querySelector('.edit-btn').addEventListener('click', () => {
-                closeManageModal();
-                openAddModal(idx);
-            });
-
-            // Delete button
-            row.querySelector('.delete-btn').addEventListener('click', () => {
-                showConfirm(`Delete "${item.name}"? This cannot be undone.`, () => deleteCustomItem(idx));
-            });
-
-            dom.manageItemsList.appendChild(row);
-        });
-
-        // Export All button (only if items exist)
-        if (items.length > 0) {
-            const exportAllRow = document.createElement('div');
-            exportAllRow.className = 'manage-export-all';
-            exportAllRow.innerHTML = `<button class="btn-export-all" id="exportAllItems">Copy All as Code</button>`;
-            dom.manageItemsList.appendChild(exportAllRow);
-            document.getElementById('exportAllItems').addEventListener('click', () => {
-                copyAllItemsAsCode(items);
-            });
-        }
-    }
-
-    function deleteCustomItem(idx) {
-        const items = loadCustomItems();
-        const deleted = items[idx];
-        items.splice(idx, 1);
-        saveCustomItems(items);
-
-        // Build name-to-collection map before removing from live database
-        const collectionByName = {};
-        AC_DATABASE.forEach(item => {
-            const data = collection[item.id];
-            if (data) collectionByName[item.name] = data;
-        });
-        delete collectionByName[deleted.name];
-
-        // Remove from live database
-        const liveIdx = AC_DATABASE.findIndex(i => i._custom && i.name === deleted.name);
-        if (liveIdx !== -1) AC_DATABASE.splice(liveIdx, 1);
-
-        // Re-assign IDs and remap collection
-        collection = {};
-        AC_DATABASE.forEach((item, i) => {
-            item.id = i;
-            if (collectionByName[item.name]) {
-                collection[i] = collectionByName[item.name];
-            }
-        });
-        saveCollection();
-
-        // Clean up image mapping
-        delete AC_IMAGES[deleted.name];
-
-        initFilters();
-        renderItems();
-        renderManageItems();
-        dom.manageConfirmOverlay.classList.remove('active');
-    }
-
-    // ---- Manage: Custom Games ----
-    function renderManageGames() {
-        const games = loadCustomGames();
-        dom.manageGamesList.innerHTML = '';
-        dom.manageGamesEmpty.style.display = games.length ? 'none' : 'block';
-
-        games.forEach((gameName, idx) => {
-            const itemCount = AC_DATABASE.filter(i => i.game === gameName).length;
-            const row = document.createElement('div');
-            row.className = 'manage-list-item';
-
-            row.innerHTML = `
-                <div class="manage-item-info">
-                    <span class="manage-item-name">${escapeHTML(gameName)}</span>
-                    <span class="manage-item-meta">${itemCount} item${itemCount !== 1 ? 's' : ''} using this game</span>
-                </div>
-                <div class="manage-item-actions">
-                    <button class="manage-action-btn edit-btn" title="Rename game">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                    </button>
-                    <button class="manage-action-btn delete-btn" title="Delete game">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-                    </button>
-                </div>
-            `;
-
-            // Rename
-            row.querySelector('.edit-btn').addEventListener('click', () => {
-                startGameRename(row, gameName, idx);
-            });
-
-            // Delete
-            row.querySelector('.delete-btn').addEventListener('click', () => {
-                const msg = itemCount > 0
-                    ? `Delete "${gameName}"? ${itemCount} item${itemCount !== 1 ? 's' : ''} will be reassigned to "General".`
-                    : `Delete "${gameName}"?`;
-                showConfirm(msg, () => deleteCustomGame(idx, gameName));
-            });
-
-            dom.manageGamesList.appendChild(row);
-        });
-    }
-
-    function startGameRename(row, oldName, idx) {
-        const infoEl = row.querySelector('.manage-item-info');
-        const actionsEl = row.querySelector('.manage-item-actions');
-        actionsEl.style.display = 'none';
-
-        infoEl.innerHTML = `
-            <div class="manage-edit-inline">
-                <input type="text" value="${escapeHTML(oldName)}">
-                <button class="save-btn">Save</button>
-                <button class="cancel-edit-btn">Cancel</button>
-            </div>
-        `;
-
-        const input = infoEl.querySelector('input');
-        const saveBtn = infoEl.querySelector('.save-btn');
-        const cancelBtn = infoEl.querySelector('.cancel-edit-btn');
-
-        input.focus();
-        input.select();
-
-        function doSave() {
-            const newName = input.value.trim();
-            if (!newName || newName === oldName) { doCancel(); return; }
-            renameCustomGame(idx, oldName, newName);
-        }
-
-        function doCancel() {
-            renderManageGames(); // re-render to restore original state
-        }
-
-        saveBtn.addEventListener('click', doSave);
-        cancelBtn.addEventListener('click', doCancel);
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') doSave();
-            if (e.key === 'Escape') doCancel();
-        });
-    }
-
-    function renameCustomGame(idx, oldName, newName) {
-        // Update custom games list
-        const games = loadCustomGames();
-        games[idx] = newName;
-        saveCustomGames(games);
-
-        // Update all custom items that reference this game
-        const items = loadCustomItems();
-        items.forEach(item => {
-            if (item.game === oldName) item.game = newName;
-        });
-        saveCustomItems(items);
-
-        // Update live database
-        AC_DATABASE.forEach(item => {
-            if (item._custom && item.game === oldName) item.game = newName;
-        });
-
-        initFilters();
-        renderItems();
-        renderManageGames();
-    }
-
-    function deleteCustomGame(idx, gameName) {
-        const games = loadCustomGames();
-        games.splice(idx, 1);
-        saveCustomGames(games);
-
-        // Reassign items using this game to "General"
-        const items = loadCustomItems();
-        items.forEach(item => {
-            if (item.game === gameName) item.game = 'General';
-        });
-        saveCustomItems(items);
-
-        // Update live database
-        AC_DATABASE.forEach(item => {
-            if (item._custom && item.game === gameName) item.game = 'General';
-        });
-
-        initFilters();
-        renderItems();
-        renderManageGames();
-        dom.manageConfirmOverlay.classList.remove('active');
-    }
-
-    function addGameFromManage() {
-        const name = dom.manageAddGameInput.value.trim();
-        if (!name) return;
-
-        const games = loadCustomGames();
-        if (games.includes(name)) {
-            dom.manageAddGameInput.style.borderColor = 'var(--red)';
-            setTimeout(() => { dom.manageAddGameInput.style.borderColor = ''; }, 2000);
-            return;
-        }
-
-        games.push(name);
-        saveCustomGames(games);
-        dom.manageAddGameInput.value = '';
-
-        initFilters();
-        renderManageGames();
-    }
 
     // ---- Filter Persistence ----
     function saveFilters() {
@@ -1500,51 +1092,6 @@
             }
         };
         reader.readAsText(file);
-    }
-
-    // ---- Export ----
-    function itemToDbCode(item) {
-        const lines = [
-            `  {`,
-            `    "name": ${JSON.stringify(item.name)},`,
-            `    "game": ${JSON.stringify(item.game)},`,
-            `    "year": ${item.year},`,
-            `    "category": ${JSON.stringify(item.category)},`,
-            `    "description": ${JSON.stringify(item.description || '')},`,
-            `    "contents": ${JSON.stringify(item.contents || '')},`,
-            `    "type": ${JSON.stringify(item.type || item.category)}`,
-            `  }`
-        ];
-        return lines.join('\n');
-    }
-
-    function itemToImageCode(item) {
-        if (!item.imagePath) return null;
-        return `    ${JSON.stringify(item.name)}:${' '.repeat(Math.max(1, 60 - item.name.length))}${JSON.stringify(item.imagePath)},`;
-    }
-
-    function copyItemAsCode(item) {
-        let code = '// database.js entry:\n' + itemToDbCode(item) + ',\n';
-        const imgLine = itemToImageCode(item);
-        if (imgLine) {
-            code += '\n// images.js entry:\n' + imgLine + '\n';
-        }
-        navigator.clipboard.writeText(code).then(() => {
-            showToast('Copied to clipboard!');
-        });
-    }
-
-    function copyAllItemsAsCode(items) {
-        let dbEntries = items.map(itemToDbCode).join(',\n');
-        let code = '// database.js entries:\n' + dbEntries + '\n';
-
-        const imgLines = items.map(itemToImageCode).filter(Boolean);
-        if (imgLines.length > 0) {
-            code += '\n// images.js entries:\n' + imgLines.join('\n') + '\n';
-        }
-        navigator.clipboard.writeText(code).then(() => {
-            showToast('All items copied to clipboard!');
-        });
     }
 
     function launchConfetti() {
@@ -1873,13 +1420,8 @@
                 const openDropdown = document.querySelector('.multi-select.open');
                 if (openDropdown) {
                     openDropdown.classList.remove('open');
-                } else if (dom.manageConfirmOverlay.classList.contains('active')) {
-                    dom.manageConfirmOverlay.classList.remove('active');
-                    confirmCallback = null;
-                } else if (dom.manageModalOverlay.classList.contains('active')) {
-                    closeManageModal();
-                } else if (dom.addModalOverlay.classList.contains('active')) {
-                    closeAddModal();
+                } else if (dom.devToolOverlay.classList.contains('active')) {
+                    closeDevTool();
                 } else if (dom.modalOverlay.classList.contains('active')) {
                     closeModal();
                 }
@@ -2011,62 +1553,35 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        dom.addItemBtn.addEventListener('click', () => openAddModal());
-        dom.addModalClose.addEventListener('click', closeAddModal);
-        dom.addItemCancel.addEventListener('click', closeAddModal);
-        dom.addModalOverlay.addEventListener('click', (e) => {
-            if (e.target === dom.addModalOverlay) closeAddModal();
-        });
-        dom.addItemSave.addEventListener('click', saveItemFromForm);
-
-        // Add Game inline controls (in Add Item form)
-        dom.addGameToggle.addEventListener('click', () => {
-            dom.addGameRow.style.display = 'flex';
-            dom.addGameInput.focus();
-        });
-        dom.addGameConfirm.addEventListener('click', addNewGame);
-        dom.addGameCancel.addEventListener('click', () => {
-            dom.addGameRow.style.display = 'none';
-            dom.addGameInput.value = '';
-        });
-        dom.addGameInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') addNewGame();
-            if (e.key === 'Escape') {
-                dom.addGameRow.style.display = 'none';
-                dom.addGameInput.value = '';
-            }
+        // Dev Tool
+        dom.addItemBtn.addEventListener('click', openDevTool);
+        dom.devToolClose.addEventListener('click', closeDevTool);
+        dom.devToolOverlay.addEventListener('click', (e) => {
+            if (e.target === dom.devToolOverlay) closeDevTool();
         });
 
-        // Allow Enter in the add form to submit
-        dom.addImagePath.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') saveItemFromForm();
+        // Dev Tool — live code generation on any input change
+        const devFields = ['devName', 'devGame', 'devYear', 'devCategory', 'devType',
+            'devDescription', 'devContents', 'devImagePath', 'devNewGameName', 'devNewGameShort'];
+        devFields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', generateCode);
+            if (el && el.tagName === 'SELECT') el.addEventListener('change', generateCode);
         });
 
-        // ---- Manage Modal events ----
-        dom.manageBtn.addEventListener('click', openManageModal);
-        dom.manageModalClose.addEventListener('click', closeManageModal);
-        dom.manageModalOverlay.addEventListener('click', (e) => {
-            if (e.target === dom.manageModalOverlay) closeManageModal();
+        // New Game toggle
+        document.getElementById('devNewGame').addEventListener('change', (e) => {
+            const isNew = e.target.checked;
+            document.getElementById('devGame').style.display = isNew ? 'none' : '';
+            document.getElementById('devNewGameFields').style.display = isNew ? '' : 'none';
+            generateCode();
         });
 
-        // Tab switching
-        document.querySelectorAll('.manage-tab').forEach(tab => {
-            tab.addEventListener('click', () => switchManageTab(tab.dataset.tab));
-        });
-
-        // Add game from manage modal
-        dom.manageAddGameBtn.addEventListener('click', addGameFromManage);
-        dom.manageAddGameInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') addGameFromManage();
-        });
-
-        // Confirm dialog
-        dom.manageConfirmYes.addEventListener('click', () => {
-            if (confirmCallback) confirmCallback();
-        });
-        dom.manageConfirmNo.addEventListener('click', () => {
-            dom.manageConfirmOverlay.classList.remove('active');
-            confirmCallback = null;
+        // Copy Code button
+        document.getElementById('devCopyCode').addEventListener('click', () => {
+            const code = document.getElementById('devCodeOutput').value;
+            if (!code) return;
+            navigator.clipboard.writeText(code).then(() => showToast('Code copied to clipboard!'));
         });
 
         // Collection field interdependencies
@@ -2129,7 +1644,6 @@
         // Hide admin-only buttons for public visitors
         if (!isAdmin) {
             dom.addItemBtn.style.display = 'none';
-            dom.manageBtn.style.display = 'none';
         }
 
         initFilters();

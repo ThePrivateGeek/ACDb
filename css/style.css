@@ -2018,6 +2018,99 @@ body {
     max-width: 640px;
 }
 
+.dev-tool-modal {
+    max-width: 1100px;
+}
+
+.dev-tool-content {
+    padding: 2rem;
+}
+
+.dev-tool-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.toggle-label-mini {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.toggle-label-mini .toggle-switch {
+    width: 36px;
+    height: 20px;
+}
+
+.toggle-label-mini .toggle-slider::before {
+    width: 14px;
+    height: 14px;
+}
+
+.dev-tool-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.dev-tool-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dev-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dev-preview-header span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#devCodeOutput {
+    flex: 1;
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--mint);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    resize: none;
+    white-space: pre;
+    overflow: auto;
+}
+
+#devCodeOutput:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .dev-tool-layout {
+        grid-template-columns: 1fr;
+    }
+    .dev-tool-modal {
+        max-width: 100%;
+    }
+}
+
 .add-modal-content {
     padding: 2rem;
 }
@@ -2101,96 +2194,6 @@ body {
     font-style: italic;
 }
 
-.select-with-add {
-    display: flex;
-    gap: 0.4rem;
-}
-
-.select-with-add select {
-    flex: 1;
-}
-
-.inline-add-btn {
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--accent);
-    font-size: 1.2rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.inline-add-btn:hover {
-    background: var(--accent-dark);
-    border-color: var(--accent);
-}
-
-.inline-add-row {
-    display: flex;
-    gap: 0.4rem;
-    margin-top: 0.35rem;
-}
-
-.inline-add-row input {
-    flex: 1;
-    padding: 0.5rem 0.75rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--accent);
-    border-radius: 6px;
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-}
-
-.inline-add-row input:focus {
-    outline: none;
-    border-color: var(--accent-glow);
-}
-
-.inline-confirm-btn {
-    padding: 0.5rem 0.75rem;
-    background: var(--accent);
-    border: none;
-    border-radius: 6px;
-    color: var(--bg-primary);
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.inline-confirm-btn:hover {
-    background: var(--accent-glow);
-}
-
-.inline-cancel-btn {
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.inline-cancel-btn:hover {
-    border-color: var(--red);
-    color: var(--red);
-}
 
 .form-actions {
     display: flex;
@@ -2260,338 +2263,6 @@ body {
 }
 
 /* ---- Manage Button ---- */
-.manage-btn {
-    width: 36px;
-    height: 36px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.manage-btn svg {
-    width: 18px;
-    height: 18px;
-}
-
-.manage-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(201, 168, 76, 0.1);
-}
-
-/* ---- Manage Modal ---- */
-.manage-modal {
-    max-width: 640px;
-}
-
-.manage-modal-content {
-    padding: 2rem;
-}
-
-.manage-modal-title {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    color: var(--accent);
-    margin-bottom: 1.25rem;
-}
-
-.manage-tabs {
-    display: flex;
-    gap: 0;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 1rem;
-}
-
-.manage-tab {
-    padding: 0.6rem 1.25rem;
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    color: var(--text-muted);
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.manage-tab:hover {
-    color: var(--text-secondary);
-}
-
-.manage-tab.active {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-}
-
-.manage-tab-content {
-    display: none;
-}
-
-.manage-tab-content.active {
-    display: block;
-}
-
-.manage-add-row {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.manage-add-row input {
-    flex: 1;
-    padding: 0.55rem 0.75rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-}
-
-.manage-add-row input:focus {
-    outline: none;
-    border-color: var(--accent);
-}
-
-.manage-list {
-    display: flex;
-    flex-direction: column;
-    max-height: 50vh;
-    overflow-y: auto;
-}
-
-.manage-list-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.7rem 0.5rem;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.15s ease;
-}
-
-.manage-list-item:last-child {
-    border-bottom: none;
-}
-
-.manage-list-item:hover {
-    background: var(--bg-card-hover);
-}
-
-.manage-item-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    min-width: 0;
-    flex: 1;
-}
-
-.manage-item-name {
-    font-size: 0.9rem;
-    color: var(--text-primary);
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.manage-item-meta {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-}
-
-.manage-item-actions {
-    display: flex;
-    gap: 0.35rem;
-    flex-shrink: 0;
-    margin-left: 0.75rem;
-}
-
-.manage-action-btn {
-    width: 30px;
-    height: 30px;
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-}
-
-.manage-action-btn:hover {
-    border-color: var(--border);
-}
-
-.manage-action-btn.export-btn:hover {
-    color: var(--mint);
-    border-color: var(--mint);
-}
-
-.manage-action-btn.edit-btn:hover {
-    color: var(--accent);
-    border-color: var(--accent-dark);
-}
-
-.manage-action-btn.delete-btn:hover {
-    color: var(--red);
-    border-color: var(--red);
-}
-
-.manage-action-btn svg {
-    width: 15px;
-    height: 15px;
-}
-
-/* Inline edit mode for game names */
-.manage-edit-inline {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    flex: 1;
-    min-width: 0;
-}
-
-.manage-edit-inline input {
-    flex: 1;
-    padding: 0.4rem 0.6rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--accent);
-    border-radius: 4px;
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-}
-
-.manage-edit-inline input:focus {
-    outline: none;
-}
-
-.manage-edit-inline button {
-    padding: 0.35rem 0.6rem;
-    border-radius: 4px;
-    border: none;
-    font-size: 0.75rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.manage-edit-inline .save-btn {
-    background: var(--accent);
-    color: var(--bg-primary);
-}
-
-.manage-edit-inline .cancel-edit-btn {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-}
-
-.manage-export-all {
-    padding: 1rem 0.5rem 0.25rem;
-    text-align: right;
-}
-
-.btn-export-all {
-    padding: 0.5rem 1rem;
-    background: transparent;
-    border: 1px solid var(--mint);
-    border-radius: 6px;
-    color: var(--mint);
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.btn-export-all:hover {
-    background: var(--mint);
-    color: var(--bg-primary);
-}
-
-/* Toast notification */
-#acdb-toast {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    background: var(--bg-card);
-    border: 1px solid var(--mint);
-    color: var(--mint);
-    padding: 0.6rem 1.5rem;
-    border-radius: 8px;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 600;
-    z-index: 2000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-#acdb-toast.visible {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
-.manage-empty {
-    text-align: center;
-    color: var(--text-muted);
-    font-style: italic;
-    padding: 2rem 1rem;
-    font-size: 0.85rem;
-}
-
-/* Confirm dialog overlay */
-.manage-confirm-overlay {
-    display: none;
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 16px;
-    z-index: 5;
-    align-items: center;
-    justify-content: center;
-}
-
-.manage-confirm-overlay.active {
-    display: flex;
-}
-
-.manage-confirm-dialog {
-    background: var(--bg-modal);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    max-width: 360px;
-}
-
-.manage-confirm-dialog p {
-    color: var(--text-primary);
-    font-size: 0.9rem;
-    margin-bottom: 1.25rem;
-    line-height: 1.5;
-}
-
-.manage-confirm-actions {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-}
 
 @media (max-width: 480px) {
     .logo-text h1 {
