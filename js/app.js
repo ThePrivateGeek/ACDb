@@ -525,7 +525,7 @@
             : '';
 
         const imageHTML = item.image
-            ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.name)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.name)}" loading="lazy">
                <svg viewBox="0 0 100 100" class="placeholder-icon" style="display:none;">
                    <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/>
                </svg>`
@@ -557,6 +557,15 @@
                 </div>
             </div>
         `;
+
+        // Handle broken images — show placeholder SVG
+        const cardImg = card.querySelector('.card-image img');
+        if (cardImg) {
+            cardImg.addEventListener('error', function () {
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+            });
+        }
 
         card.addEventListener('click', (e) => {
             // Let Ctrl+click / middle-click open in new tab naturally
