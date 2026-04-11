@@ -314,8 +314,8 @@ body {
 }
 
 .clear-search:hover {
-    color: var(--text-primary);
-    background: var(--border);
+    color: var(--red);
+    background: rgba(192, 57, 43, 0.15);
 }
 
 .clear-search.visible {
