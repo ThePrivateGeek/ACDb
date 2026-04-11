@@ -22,7 +22,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Pre-Order Art Book",
     "game": "Assassin's Creed",
     "year": 2007,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover art book offered as a pre-order bonus through EB Games/GameStop for the original Assassin's Creed.",
     "contents": "Hardcover art book with concept art",
     "type": "Art Book"
@@ -1048,7 +1048,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Encyclopedia (First Edition)",
     "game": "General",
     "year": 2011,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Comprehensive encyclopedia of the Assassin's Creed series by UbiWorkshop. Features artwork by Craig Mullins, Tavis Coburn, 123Klan, Gabz, and James NG.",
     "contents": "Hardcover encyclopedia",
     "type": "Art Book"
@@ -1057,7 +1057,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Encyclopedia (Second Edition)",
     "game": "General",
     "year": 2012,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Updated edition with 120 additional pages covering Assassin's Creed III and Assassin's Creed: The Chain.",
     "contents": "Updated hardcover encyclopedia with additional 120 pages",
     "type": "Art Book"
@@ -1066,7 +1066,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Encyclopedia (Third Edition / Black Edition)",
     "game": "General",
     "year": 2013,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Final updated edition incorporating information from Assassin's Creed IV: Black Flag and Assassin's Creed: Brahman.",
     "contents": "Updated hardcover encyclopedia",
     "type": "Art Book"
@@ -1075,7 +1075,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: The Complete Visual History",
     "game": "General",
     "year": 2015,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Comprehensive visual history of the franchise published by Titan Books.",
     "contents": "Hardcover visual history book",
     "type": "Art Book"
@@ -1084,7 +1084,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed IV Black Flag: Blackbeard - The Lost Journal",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2014,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "An in-universe journal presented as the lost writings of Edward Thatch (Blackbeard), filled with hand-drawn illustrations, maps, and personal accounts from the Golden Age of Piracy. Published by Insight Editions.",
     "contents": "Hardcover in-universe journal with illustrations and maps",
     "type": "Companion Book"
@@ -1093,7 +1093,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Unity: Abstergo Entertainment Employee Handbook",
     "game": "Assassin's Creed Unity",
     "year": 2014,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "An in-universe hardcover guide presented as an Abstergo Entertainment employee handbook, offering insight into the Templar front company's inner workings, Animus technology, and secret projects. Published by Insight Editions.",
     "contents": "Hardcover in-universe handbook with illustrations and documents",
     "type": "Companion Book"
@@ -1102,7 +1102,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: Prima Official Game Guide",
     "game": "Assassin's Creed",
     "year": 2007,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Official strategy guide for the original Assassin's Creed. Published by Prima Games.",
     "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
     "type": "Official Guide"
@@ -1111,7 +1111,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed II: The Complete Official Guide",
     "game": "Assassin's Creed II",
     "year": 2009,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Complete official strategy guide for AC II. Published by Piggyback Interactive.",
     "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
     "type": "Official Guide"
@@ -1120,7 +1120,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed II: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed II",
     "year": 2009,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover collector's edition of the AC II official guide with additional art content. Published by Piggyback Interactive.",
     "contents": "Hardcover strategy guide with bonus art, lithographs, and ribbon bookmark",
     "type": "Official Guide"
@@ -1129,7 +1129,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Brotherhood: The Complete Official Guide",
     "game": "Assassin's Creed Brotherhood",
     "year": 2010,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Complete official strategy guide for AC Brotherhood. Published by Piggyback Interactive.",
     "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
     "type": "Official Guide"
@@ -1138,7 +1138,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Brotherhood: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed Brotherhood",
     "year": 2010,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover collector's edition of the AC Brotherhood official guide. Published by Piggyback Interactive.",
     "contents": "Hardcover strategy guide with bonus art and ribbon bookmark",
     "type": "Official Guide"
@@ -1147,7 +1147,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Revelations: The Complete Official Guide",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Complete official strategy guide for AC Revelations. Published by Piggyback Interactive.",
     "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
     "type": "Official Guide"
@@ -1156,7 +1156,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Revelations: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover collector's edition of the AC Revelations official guide. Published by Piggyback Interactive.",
     "contents": "Hardcover strategy guide with bonus art and ribbon bookmark",
     "type": "Official Guide"
@@ -1165,7 +1165,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed III: The Complete Official Guide",
     "game": "Assassin's Creed III",
     "year": 2012,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Complete official strategy guide for AC III. Published by Piggyback Interactive.",
     "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
     "type": "Official Guide"
@@ -1174,7 +1174,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed III: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed III",
     "year": 2012,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover collector's edition of the AC III official guide. Published by Piggyback Interactive.",
     "contents": "Hardcover strategy guide with bonus art and ribbon bookmark",
     "type": "Official Guide"
@@ -1183,7 +1183,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed IV Black Flag: The Complete Official Guide",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Complete official strategy guide for AC IV: Black Flag. Published by Piggyback Interactive.",
     "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
     "type": "Official Guide"
@@ -1192,7 +1192,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed IV Black Flag: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover collector's edition of the AC IV: Black Flag official guide. Published by Piggyback Interactive.",
     "contents": "Hardcover strategy guide with bonus art and ribbon bookmark",
     "type": "Official Guide"
@@ -1201,7 +1201,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Unity: The Complete Official Guide",
     "game": "Assassin's Creed Unity",
     "year": 2014,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Complete official strategy guide for AC Unity. Published by Piggyback Interactive.",
     "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
     "type": "Official Guide"
@@ -1210,7 +1210,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Unity: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed Unity",
     "year": 2014,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover collector's edition of the AC Unity official guide. Published by Piggyback Interactive.",
     "contents": "Hardcover strategy guide with bonus art and ribbon bookmark",
     "type": "Official Guide"
@@ -1219,7 +1219,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Syndicate: Official Strategy Guide",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Official strategy guide for AC Syndicate. Published by Prima Games.",
     "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
     "type": "Official Guide"
@@ -1228,7 +1228,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Syndicate: Official Collector's Edition Guide",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover collector's edition of the AC Syndicate official guide. Published by Prima Games.",
     "contents": "Hardcover strategy guide with bonus art",
     "type": "Official Guide"
@@ -1237,7 +1237,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Origins: Official Guide",
     "game": "Assassin's Creed Origins",
     "year": 2017,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Official strategy guide for AC Origins. Published by Prima Games.",
     "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
     "type": "Official Guide"
@@ -1246,7 +1246,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Origins: Official Collector's Edition Guide",
     "game": "Assassin's Creed Origins",
     "year": 2017,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover collector's edition of the AC Origins official guide. Published by Prima Games.",
     "contents": "Hardcover strategy guide with bonus art",
     "type": "Official Guide"
@@ -1255,7 +1255,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Odyssey: Official Collector's Edition Guide",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover collector's edition official guide for AC Odyssey. One of Prima Games' final publications before closing in 2019.",
     "contents": "Hardcover strategy guide with bonus art",
     "type": "Official Guide"
@@ -1264,7 +1264,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Odyssey: Official Platinum Edition Guide",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover platinum edition official guide for AC Odyssey. One of Prima Games' final publications before closing in 2019.",
     "contents": "Hardcover strategy guide with bonus art",
     "type": "Official Guide"
@@ -1273,7 +1273,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Shadows: The Complete Official Guide",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Complete official strategy guide for AC Shadows. Marks the return of Piggyback Interactive to the franchise after a decade. Published by Piggyback Interactive.",
     "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
     "type": "Official Guide"
@@ -1282,16 +1282,25 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Shadows: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Hardcover collector's edition of the AC Shadows official guide. Published by Piggyback Interactive.",
     "contents": "Hardcover strategy guide with bonus art and premium finish",
     "type": "Official Guide"
   },
   {
+    "name": "Assassin's Creed: The Culinary Codex",
+    "game": "General",
+    "year": 2022,
+    "category": "Art & Reference",
+    "description": "Official cookbook featuring recipes inspired by the historical settings of the Assassin's Creed franchise, from ancient Egypt to Viking feasts. By Thibaud Villanova. Published by Titan Books.",
+    "contents": "Hardcover cookbook with recipes, food photography, and AC-themed illustrations",
+    "type": "Companion Book"
+  },
+  {
     "name": "Assassin's Creed Limited Edition Art Book (Prima Games)",
     "game": "Assassin's Creed",
     "year": 2007,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "The first official Assassin's Creed art book published by Prima Games.",
     "contents": "Art book with concept art from the original game",
     "type": "Art Book"
@@ -1300,7 +1309,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed III",
     "game": "Assassin's Creed III",
     "year": 2012,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Full-color art book by Andy McVittie, published by Titan Books.",
     "contents": "Hardcover art book with concept art and development artwork",
     "type": "Art Book"
@@ -1309,7 +1318,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed IV: Black Flag",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Full-color art book published by Titan Books.",
     "contents": "Hardcover art book with concept art and development artwork",
     "type": "Art Book"
@@ -1318,7 +1327,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed Unity",
     "game": "Assassin's Creed Unity",
     "year": 2014,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Full-color art book published by Titan Books.",
     "contents": "Hardcover art book with concept art and development artwork",
     "type": "Art Book"
@@ -1327,7 +1336,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed Syndicate",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Full-color art book published by Titan Books.",
     "contents": "Hardcover art book with concept art and development artwork",
     "type": "Art Book"
@@ -1336,7 +1345,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed Origins",
     "game": "Assassin's Creed Origins",
     "year": 2017,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Full-color art book published by Titan Books.",
     "contents": "Hardcover art book with concept art and development artwork",
     "type": "Art Book"
@@ -1345,7 +1354,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed Odyssey",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Full-color art book by Kate Lewis, published by Titan Books.",
     "contents": "Hardcover art book with concept art and development artwork",
     "type": "Art Book"
@@ -1354,7 +1363,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed Valhalla",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Full-color art book published by Dark Horse Comics.",
     "contents": "Hardcover art book with concept art and development artwork",
     "type": "Art Book"
@@ -1363,7 +1372,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed Valhalla (Deluxe Edition)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "This masterfully designed oversized hardcover art book invites the reader on a visual journey through the world of Assassin's Creed Valhalla: A world defined by the harsh beauty of Viking life, rich with fascinating characters and breathtaking landscapes. Deluxe edition with exclusive packaging and lavish treatments. Published by Dark Horse Comics.",
     "contents": "Hardcover art book with concept art and development artwork. An exclusive cover. A decorative slipcase. A gallery-quality lithograph print",
     "type": "Art Book"
@@ -1372,7 +1381,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed Mirage",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Full-color oversized hardcover art book published by Dark Horse Books. Written by Rick Barba.",
     "contents": "Oversized hardcover art book with concept art and commentary",
     "type": "Art Book"
@@ -1381,7 +1390,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed Mirage (Deluxe Edition)",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Deluxe edition with exclusive slipcase, portfolio, and gallery-quality lithograph. Published by Dark Horse Books.",
     "contents": "Oversized hardcover art book, exclusive slipcase, portfolio, gallery-quality lithograph",
     "type": "Art Book"
@@ -1390,7 +1399,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed Shadows",
     "game": "Assassin's Creed Shadows",
     "year": 2024,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Full-color oversized hardcover art book published by Dark Horse Books. Written by Rick Barba.",
     "contents": "Oversized hardcover art book with concept art and commentary",
     "type": "Art Book"
@@ -1399,7 +1408,7 @@ const AC_DATABASE = [
     "name": "The Art of Assassin's Creed Shadows (Deluxe Edition)",
     "game": "Assassin's Creed Shadows",
     "year": 2024,
-    "category": "Art Book",
+    "category": "Art & Reference",
     "description": "Deluxe edition with exclusive packaging and lavish treatments. Published by Dark Horse Books.",
     "contents": "Deluxe hardcover art book with exclusive packaging",
     "type": "Art Book"
@@ -2050,6 +2059,15 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Interactive gamebook (choose-your-own-adventure) where the reader takes on the role of an Assassin on a mission along the Silk Road. French language only ('Le Livre dont vous etes l'Assassin'). By Mathieu Rivero.",
     "contents": "Interactive gamebook (French language only)",
+    "type": "Gamebook"
+  },
+  {
+    "name": "Assassin's Creed - Escape Room Puzzle Book",
+    "game": "General",
+    "year": 2023,
+    "category": "Art & Reference",
+    "description": "An exciting journey through history in which you must solve a series of puzzles and mysteries to save humanity and foil a malevolent Isu plot. Written by real-life escape-room creator James Hamer-Morton.",
+    "contents": "Paperback puzzle book (224 pages)",
     "type": "Gamebook"
   },
   {

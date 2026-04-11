@@ -174,6 +174,7 @@ const AC_IMAGES = {
     "Assassin's Creed Odyssey: Official Platinum Edition Guide":        "images/art-books/guide-odyssey-pe.jpg",
     "Assassin's Creed Shadows: The Complete Official Guide":               "images/art-books/guide-shadows.jpg",
     "Assassin's Creed Shadows: The Complete Official Guide - Collector's Edition": "images/art-books/guide-shadows-ce.jpg",
+    "Assassin's Creed: The Culinary Codex":                                "images/art-books/culinary-codex.jpg",
     "Assassin's Creed Limited Edition Art Book (Prima Games)":             "images/art-books/ac1-art-book-prima-games.jpg",
     "The Art of Assassin's Creed III":                                     "images/art-books/art-of-ac3.jpg",
     "The Art of Assassin's Creed IV: Black Flag":                          "images/art-books/art-of-ac4-black-flag.jpg",
@@ -273,6 +274,7 @@ const AC_IMAGES = {
     "Assassin's Creed Mirage: Daughter of No One":                         "images/novels/ac-daughter-of-no-one.jpg",
     "Assassin's Creed: Fragments - The Highlands Children":                "images/novels/ac-fragments-highlands-children.jpg",
     "Assassin's Creed: La Route de la Soie (The Silk Road)":               "images/novels/ac-silk-road.jpg",
+    "Assassin's Creed - Escape Room Puzzle Book":   "                       images/novels/ac-escape-room-puzzle-book.jpg",
 
     // ── Comic Books ──
     "Assassin's Creed: The Chain":                                         "images/comics/ac-the-chain.jpg",
