@@ -236,6 +236,11 @@
         const container = multiSelectEl.querySelector('.multi-select-options');
         const options = [...container.querySelectorAll('.multi-select-option')];
 
+        // Tag each option with its original index if not already done
+        options.forEach((opt, i) => {
+            if (!opt.dataset.origIndex) opt.dataset.origIndex = i;
+        });
+
         // Remove existing separator
         const existing = container.querySelector('.multi-select-separator');
         if (existing) existing.remove();
@@ -244,9 +249,8 @@
             const aChecked = a.querySelector('input').checked;
             const bChecked = b.querySelector('input').checked;
             if (aChecked !== bChecked) return aChecked ? -1 : 1;
-            const aText = a.querySelector('.multi-select-text').textContent;
-            const bText = b.querySelector('.multi-select-text').textContent;
-            return aText.localeCompare(bText);
+            // Within each group, restore original insertion order
+            return parseInt(a.dataset.origIndex) - parseInt(b.dataset.origIndex);
         });
         options.forEach(opt => container.appendChild(opt));
 
