@@ -2071,6 +2071,24 @@ const AC_DATABASE = [
     "type": "Gamebook"
   },
   {
+    "name": "The Making of Assassin's Creed: 15th Anniversary (Deluxe Edition)",
+    "game": "Assassin's Creed",
+    "year": 2023,
+    "category": "Art & Reference",
+    "description": "A deluxe edition hardcover that celebrates fifteen years of the iconic video game saga. Features an exclusive cover, a protective slipcase, and a folio containing two gallery-quality lithograph prints. Written by Alex Calvin, it offers an insider's look at the genesis and creation of the award-winning franchise.",
+    "contents": "Hardcover book (240 pages), protective slipcase, folio with two lithograph prints",
+    "type": "Art Book"
+  },
+  {
+    "name": "The Making of Assassin's Creed: 15th Anniversary Ultimate Edition HC",
+    "game": "Assassin's Creed",
+    "year": 2023,
+    "category": "Art & Reference",
+    "description": "An exclusive bundle honoring the fifteenth anniversary of Assassin's Creed. It features a sleek 240-page Ultimate Edition hardcover artbook with gold gilded pages and a satin ribbon marker, exploring the genesis of the franchise with gorgeous art and detailed interviews. Limited to just 1000 units.",
+    "contents": "240-page hardcover art book, gold foil clamshell case, double-sided collector's coin (Brotherhood Crest/Apple of Eden), exclusive metal art plate, and a portfolio with two gallery-quality lithograph prints.",
+    "type": "Art Book"
+  },
+  {
     "name": "Assassin's Creed: The Fall",
     "game": "Assassin's Creed Chronicles: Russia",
     "year": 2010,

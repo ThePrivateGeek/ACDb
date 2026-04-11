@@ -188,6 +188,8 @@ const AC_IMAGES = {
     "The Art of Assassin's Creed Mirage (Deluxe Edition)":                 "images/art-books/art-of-ac-mirage_deluxe.jpg",
     "The Art of Assassin's Creed Shadows":                                 "images/art-books/art-of-ac-shadows.jpg",
     "The Art of Assassin's Creed Shadows (Deluxe Edition)":                "images/art-books/art-of-ac-shadows-deluxe.jpg",
+    "The Making of Assassin's Creed: 15th Anniversary (Deluxe Edition)":   "images/art-books/making-of-ac-15th-anniversary-de.jpg",
+    "The Making of Assassin's Creed: 15th Anniversary Ultimate Edition HC": "images/art-books/making-of-ac-15th-anniversary-ue.jpg",
 
     // ── Funko Pop ──
     "Funko Pop! Games #20 - Altair":                                       "images/funko-pop/funko-pop-20-altair.jpg",
