@@ -320,6 +320,8 @@ const AC_IMAGES = {
     "Nemesis Now Assassin's Creed Brotherhood Goblet":                     "images/other/nemesis-brotherhood-goblet.jpg",
     "Nemesis Now Assassin's Creed Valhalla Goblet":                        "images/other/nemesis-valhalla-goblet.jpg",
     "Nemesis Now Assassin's Creed Shadows Goblet":                         "images/other/nemesis-shadows-goblet.jpg",
+    "Assassin's Creed: Leap Into History - Limited Edition 5xLP Boxset":   "images/other/leap-into-history-vinyl.jpg",
+    "Assassin's Creed Shadows: Soundtrack Collection Limited Edition 4LP Box Set": "images/other/ac-shadows-le-vinyl.jpg",
 
     // ── Jazwares ──
     "Jazwares - Altair Ibn-La'Ahad (Basic Series)":               "images/statues/jazwares-altair-basic.jpg",

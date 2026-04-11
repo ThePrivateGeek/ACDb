@@ -2879,5 +2879,23 @@ const AC_DATABASE = [
     "description": "Funko Pop Dorbz figure of Jacob.",
     "contents": "Funko figure",
     "type": "Funko Pop"
-  }
+  },
+  {
+    "name": "Assassin's Creed: Leap Into History - Limited Edition 5xLP Boxset",
+    "game": "General",
+    "year": 2022,
+    "category": "Other",
+    "description": "Limited edition vinyl boxset featuring 70 tracks spanning 12 Assassin's Creed games across 5 LPs. A 15th anniversary celebration of the franchise's iconic music. Published by Laced Records.",
+    "contents": "5xLP vinyl boxset with tracks from AC1 through AC Valhalla",
+    "type": "Vinyl Soundtrack"
+  },
+  {
+    "name": "Assassin's Creed Shadows: Soundtrack Collection Limited Edition 4LP Box Set",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Other",
+    "description": "Limited Edition heavyweight translucent red and black splatter vinyl featuring 44 tracks from the 2025 open-world RPG action game\nIncludes three albums across 5 LPs. Published by Laced Records.",
+    "contents": "4xLP vinyl boxset with tracks from AC Shadows",
+    "type": "Vinyl Soundtrack"
+  },
 ];
