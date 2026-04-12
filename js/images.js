@@ -188,6 +188,7 @@ const AC_IMAGES = {
     "The Art of Assassin's Creed Mirage (Deluxe Edition)":                 "images/art-books/art-of-ac-mirage_deluxe.jpg",
     "The Art of Assassin's Creed Shadows":                                 "images/art-books/art-of-ac-shadows.jpg",
     "The Art of Assassin's Creed Shadows (Deluxe Edition)":                "images/art-books/art-of-ac-shadows-deluxe.jpg",
+    "The Making of Assassin's Creed: 15th Anniversary":                    "images/art-books/making-of-ac-15th-anniversary.jpg",
     "The Making of Assassin's Creed: 15th Anniversary (Deluxe Edition)":   "images/art-books/making-of-ac-15th-anniversary-de.jpg",
     "The Making of Assassin's Creed: 15th Anniversary Ultimate Edition HC": "images/art-books/making-of-ac-15th-anniversary-ue.jpg",
 
@@ -308,6 +309,8 @@ const AC_IMAGES = {
     "Assassin's Creed Dynasty (Box Set)":                                  "images/comics/ac-dynasty-box-set.jpg",
     "Assassin's Creed: Visionaries":                                       "images/comics/ac-visionaries.jpg",
     "Assassin's Creed Mirage: A Soar of Eagles":                           "images/comics/ac-soar-of-eagles.jpg",
+    "Assassin's Creed Valhalla: The Hidden Codex":                         "images/comics/ac-valhalla-hidden-codex.jpg",
+    "Assassin's Creed: The Essential Guide":                               "images/art-books/ac-essential-guide.jpg",
     "Assassin's Creed: Brahman":                                           "images/comics/ac-brahman.jpg",
 
     // ── Other/Tankards and Goblets ──

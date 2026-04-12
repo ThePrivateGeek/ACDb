@@ -2071,8 +2071,17 @@ const AC_DATABASE = [
     "type": "Gamebook"
   },
   {
+    "name": "The Making of Assassin's Creed: 15th Anniversary",
+    "game": "General",
+    "year": 2023,
+    "category": "Art & Reference",
+    "description": "Standard edition celebrating fifteen years of Assassin's Creed. An insider's look at the genesis and creation of the franchise with gorgeous art and detailed interviews. Written by Alex Calvin. Published by Dark Horse Comics.",
+    "contents": "Softcover book (240 pages)",
+    "type": "Art Book"
+  },
+  {
     "name": "The Making of Assassin's Creed: 15th Anniversary (Deluxe Edition)",
-    "game": "Assassin's Creed",
+    "game": "General",
     "year": 2023,
     "category": "Art & Reference",
     "description": "A deluxe edition hardcover that celebrates fifteen years of the iconic video game saga. Features an exclusive cover, a protective slipcase, and a folio containing two gallery-quality lithograph prints. Written by Alex Calvin, it offers an insider's look at the genesis and creation of the award-winning franchise.",
@@ -2081,7 +2090,7 @@ const AC_DATABASE = [
   },
   {
     "name": "The Making of Assassin's Creed: 15th Anniversary Ultimate Edition HC",
-    "game": "Assassin's Creed",
+    "game": "General",
     "year": 2023,
     "category": "Art & Reference",
     "description": "An exclusive bundle honoring the fifteenth anniversary of Assassin's Creed. It features a sleek 240-page Ultimate Edition hardcover artbook with gold gilded pages and a satin ribbon marker, exploring the genesis of the franchise with gorgeous art and detailed interviews. Limited to just 1000 units.",
@@ -2960,5 +2969,23 @@ const AC_DATABASE = [
     "description": "Collaboration vinyl between Lofi Girl and Assassin's Creed Shadows featuring lo-fi remixes of AC Shadows music. Published by Black Screen Records.",
     "contents": "Vinyl LP with lo-fi remixes",
     "type": "Vinyl Soundtrack"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: The Hidden Codex",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2024,
+    "category": "Comic Book",
+    "description": "After securing his freedom from a Viking clan, Edward, a scribe and reluctant monk, returns to find his brother missing and strange documents in a language he innately understands. Written by Mathieu Gabella. Published by Dark Horse Comics. 92 pages.",
+    "contents": "Trade paperback graphic novel",
+    "type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed: The Essential Guide",
+    "game": "General",
+    "year": 2020,
+    "category": "Art & Reference",
+    "description": "The ultimate guide to the millennia-long struggle between the Assassin Brotherhood and the Templar Order. Bursting with timelines, concept art, locations, history, character profiles, and technology. Published by Titan Books.",
+    "contents": "Hardcover reference guide with timelines, concept art, character profiles, and history",
+    "type": "Companion Book"
   }
 ];
