@@ -312,6 +312,7 @@ const AC_IMAGES = {
     "Assassin's Creed Mirage: A Soar of Eagles":                           "images/comics/ac-soar-of-eagles.jpg",
     "Assassin's Creed Valhalla: The Hidden Codex":                         "images/comics/ac-valhalla-hidden-codex.jpg",
     "Assassin's Creed: The Essential Guide":                               "images/art-books/ac-essential-guide.jpg",
+    "Assassin's Creed: The Official Film Tie-In":                          "images/novels/ac-official-film-tie-in.jpg",
     "Assassin's Creed Unity: Chalice Initiate Edition (Prima Games)":      "images/art-books/guide-unity-chalice-initiate.jpg",
     "Assassin's Creed: Brahman":                                           "images/comics/ac-brahman.jpg",
 
