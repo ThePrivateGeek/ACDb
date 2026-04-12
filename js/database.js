@@ -451,6 +451,15 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "name": "Assassin's Creed Origins Deluxe Edition",
+    "game": "Assassin's Creed Origins",
+    "year": 2017,
+    "category": "Special Edition",
+    "description": "Deluxe Edition of AC Origins including the base game and the Deluxe Pack with exclusive in-game content featuring weapons, outfits, and a mount.",
+    "contents": "Game, Game Soundtrack, Hand-drawn Map of Egypt, Desert Cobra Outfit & Mount, Legendary gear set, and 2 Ability points",
+    "type": "Special Edition"
+  },
+  {
     "name": "Assassin's Creed Origins Gods Edition",
     "game": "Assassin's Creed Origins",
     "year": 2017,
