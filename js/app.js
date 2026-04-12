@@ -997,18 +997,36 @@
         });
         renderBars(dom.statsByCategory, byCat, ownedByCat);
 
-        // By Condition (owned items only) — simple count list
+        // By Condition (owned items only) — simple count list + total copies
         const byCondition = {};
+        let ownedCount = 0;
+        let totalCopies = 0;
         items.forEach(item => {
             const data = getItemData(item.id);
-            if (data.owned && data.condition) {
-                const label = formatCondition(data.condition);
-                byCondition[label] = (byCondition[label] || 0) + 1;
+            if (data.owned) {
+                ownedCount++;
+                totalCopies += parseInt(data.copies) || 1;
+                if (data.condition) {
+                    const label = formatCondition(data.condition);
+                    byCondition[label] = (byCondition[label] || 0) + 1;
+                }
             }
         });
         dom.statsByCondition.innerHTML = '';
+
+        // Total copies summary
+        if (ownedCount > 0) {
+            const summary = document.createElement('div');
+            summary.className = 'stats-bar-row';
+            summary.innerHTML = `
+                <span class="stats-bar-label" style="color:var(--accent)">Total Physical Items</span>
+                <span class="stats-bar-value" style="color:var(--accent)">${totalCopies}</span>
+            `;
+            dom.statsByCondition.appendChild(summary);
+        }
+
         const conditionEntries = Object.entries(byCondition).sort((a, b) => b[1] - a[1]);
-        if (conditionEntries.length === 0) {
+        if (conditionEntries.length === 0 && ownedCount === 0) {
             dom.statsByCondition.innerHTML = '<span class="stats-bar-value" style="text-align:left">No condition data yet</span>';
         } else {
             conditionEntries.forEach(([label, count]) => {
