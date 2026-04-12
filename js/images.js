@@ -179,6 +179,7 @@ const AC_IMAGES = {
     "The Art of Assassin's Creed III":                                     "images/art-books/art-of-ac3.jpg",
     "The Art of Assassin's Creed IV: Black Flag":                          "images/art-books/art-of-ac4-black-flag.jpg",
     "The Art of Assassin's Creed Unity":                                   "images/art-books/art-of-ac-unity.jpg",
+    "The Art of Assassin's Creed Unity (Limited Edition)":                 "images/art-books/art-of-ac-unity-le.jpg",
     "The Art of Assassin's Creed Syndicate":                               "images/art-books/art-of-ac-syndicate.jpg",
     "The Art of Assassin's Creed Origins":                                 "images/art-books/art-of-ac-origins.jpg",
     "The Art of Assassin's Creed Odyssey":                                 "images/art-books/art-of-ac-odyssey.jpg",
@@ -311,6 +312,7 @@ const AC_IMAGES = {
     "Assassin's Creed Mirage: A Soar of Eagles":                           "images/comics/ac-soar-of-eagles.jpg",
     "Assassin's Creed Valhalla: The Hidden Codex":                         "images/comics/ac-valhalla-hidden-codex.jpg",
     "Assassin's Creed: The Essential Guide":                               "images/art-books/ac-essential-guide.jpg",
+    "Assassin's Creed Unity: Chalice Initiate Edition (Prima Games)":      "images/art-books/guide-unity-chalice-initiate.jpg",
     "Assassin's Creed: Brahman":                                           "images/comics/ac-brahman.jpg",
 
     // ── Other/Tankards and Goblets ──

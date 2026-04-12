@@ -1333,6 +1333,15 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "name": "The Art of Assassin's Creed Unity (Limited Edition)",
+    "game": "Assassin's Creed Unity",
+    "year": 2014,
+    "category": "Art & Reference",
+    "description": "Limited signed collector's edition of The Art of Assassin's Creed Unity. Features a variant dust jacket cover and a specially designed slipcase unique to this edition. Limited to 500 copies worldwide. Published by Titan Books.",
+    "contents": "Hardcover art book, two signed art prints by game artists Ludovic Ribardière and Gilles Beloeil, variant dust jacket, collector's slipcase",
+    "type": "Art Book"
+  },
+  {
     "name": "The Art of Assassin's Creed Syndicate",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -2987,5 +2996,14 @@ const AC_DATABASE = [
     "description": "The ultimate guide to the millennia-long struggle between the Assassin Brotherhood and the Templar Order. Bursting with timelines, concept art, locations, history, character profiles, and technology. Published by Titan Books.",
     "contents": "Hardcover reference guide with timelines, concept art, character profiles, and history",
     "type": "Companion Book"
+  },
+  {
+    "name": "Assassin's Creed Unity: Chalice Initiate Edition (Prima Games)",
+    "game": "Assassin's Creed Unity",
+    "year": 2014,
+    "category": "Art & Reference",
+    "description": "Special Initiate Edition of the official AC Unity guide, packaged in a decorative chalice. Includes the complete official guide with 32 pages of exclusive bonus content. Published by Prima Games.",
+    "contents": "Official guide with 32 pages of extras, decorative chalice packaging",
+    "type": "Official Guide"
   }
 ];
