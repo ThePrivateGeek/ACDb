@@ -322,6 +322,13 @@ const AC_IMAGES = {
     "Nemesis Now Assassin's Creed Shadows Goblet":                         "images/other/nemesis-shadows-goblet.jpg",
     "Assassin's Creed: Leap Into History - Limited Edition 5xLP Boxset":   "images/other/leap-into-history-vinyl.jpg",
     "Assassin's Creed Shadows: Soundtrack Collection Limited Edition 4LP Box Set": "images/other/ac-shadows-le-vinyl.jpg",
+    "Assassin's Creed Shadows: Original Score - Deluxe 2xLP": "images/other/ac-shadows-original-score-vinyl.jpg",
+    "Assassin's Creed Shadows: Kage No Iro - Deluxe Vinyl": "images/other/ac-shadows-kage-no-iro-vinyl.jpg",
+    "Assassin's Creed Shadows: UKOMBOZI - Deluxe Vinyl": "images/other/ac-shadows-ukombozi-vinyl.jpg",
+    "Assassin's Creed: The Piano Collection Vinyl": "images/other/ac-piano-collection-vinyl.jpg",
+    "Assassin's Creed Mirage: Original Soundtrack Vinyl": "images/other/ac-mirage-ost-vinyl.jpg",
+    "Assassin's Creed Valhalla: Dawn of Ragnarok - Original Soundtrack Vinyl": "images/other/ac-valhalla-dawn-of-ragnarok-vinyl.jpg",
+    "Lofi Girl x Assassin's Creed: Shadows Vinyl": "images/other/ac-shadows-lofi-girl-vinyl.jpg",
 
     // ── Jazwares ──
     "Jazwares - Altair Ibn-La'Ahad (Basic Series)":               "images/statues/jazwares-altair-basic.jpg",

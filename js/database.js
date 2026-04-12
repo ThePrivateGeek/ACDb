@@ -2898,4 +2898,67 @@ const AC_DATABASE = [
     "contents": "4xLP vinyl boxset with tracks from AC Shadows",
     "type": "Vinyl Soundtrack"
   },
+  {
+    "name": "Assassin's Creed Shadows: Original Score - Deluxe 2xLP",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Other",
+    "description": "Double vinyl featuring the original score by The Flight for AC Shadows. Published by Laced Records.",
+    "contents": "2xLP vinyl with original score",
+    "type": "Vinyl Soundtrack"
+  },
+  {
+    "name": "Assassin's Creed Shadows: Kage No Iro - Deluxe Vinyl",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Other",
+    "description": "Single LP featuring music by TEKE::TEKE for AC Shadows. Published by Laced Records.",
+    "contents": "1xLP vinyl",
+    "type": "Vinyl Soundtrack"
+  },
+  {
+    "name": "Assassin's Creed Shadows: UKOMBOZI - Deluxe Vinyl",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Other",
+    "description": "Single LP featuring music by Thunderdrum ft. Tiggs Da Author for AC Shadows. Published by Laced Records.",
+    "contents": "1xLP vinyl",
+    "type": "Vinyl Soundtrack"
+  },
+  {
+    "name": "Assassin's Creed: The Piano Collection Vinyl",
+    "game": "General",
+    "year": 2026,
+    "category": "Other",
+    "description": "Vinyl release of piano arrangements of iconic Assassin's Creed themes. Published by Black Screen Records.",
+    "contents": "Vinyl LP with piano arrangements",
+    "type": "Vinyl Soundtrack"
+  },
+  {
+    "name": "Assassin's Creed Mirage: Original Soundtrack Vinyl",
+    "game": "Assassin's Creed Mirage",
+    "year": 2024,
+    "category": "Other",
+    "description": "Vinyl release of the AC Mirage original soundtrack. Published by Black Screen Records.",
+    "contents": "Vinyl LP(s) with original soundtrack",
+    "type": "Vinyl Soundtrack"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: Dawn of Ragnarok - Original Soundtrack Vinyl",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2023,
+    "category": "Other",
+    "description": "Vinyl release of the Dawn of Ragnarok expansion original soundtrack. Published by Black Screen Records.",
+    "contents": "Vinyl LP(s) with Dawn of Ragnarok soundtrack",
+    "type": "Vinyl Soundtrack"
+  },
+  {
+    "name": "Lofi Girl x Assassin's Creed: Shadows Vinyl",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Other",
+    "description": "Collaboration vinyl between Lofi Girl and Assassin's Creed Shadows featuring lo-fi remixes of AC Shadows music. Published by Black Screen Records.",
+    "contents": "Vinyl LP with lo-fi remixes",
+    "type": "Vinyl Soundtrack"
+  }
 ];
