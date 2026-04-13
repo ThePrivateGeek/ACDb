@@ -380,6 +380,15 @@ const AC_IMAGES = {
     "Neca Ezio Auditore (Revelations) (Head Knockers)":                    "images/statues/neca-ezio-revelations-head-knockers.jpg",
     "Neca Ezio Auditore (The Mentor) version 1":                           "images/statues/neca-revelations-ezio-the-mentor-v1.jpg",
     "Neca Ezio Auditore (The Mentor) version 2":                           "images/statues/neca-revelations-ezio-the-mentor-v2.jpg",
+    "Assassin's Creed Shot Glass Set":                        "images/other/lootcrate-shot-glass-set.jpg",
+    "Assassin's Creed IV Black Flag Flask":                   "images/other/lootcrate-black-flag-flask.jpg",
+    "Ravenforge Altaïr's Sword Replica":                                   "images/other/ravenforge-altair-sword.jpg",
+    "Ravenforge Naoe's Tantō Replica":                                     "images/other/ravenforge-naoe-tanto.jpg",
+    "Ravenforge Yasuke's Wakizashi Replica":                               "images/other/ravenforge-yasuke-wakizashi.jpg",
+    "Ravenforge Assassin's Creed Black Flag Hip Flask":                    "images/other/ravenforge-black-flag-flask.jpg",
+    "Ravenforge Assassin's Creed Hip Flask Gift Set":                      "images/other/ravenforge-flask-gift-set.jpg",
+    "Ravenforge Assassin's Creed Shadows Hip Flask":                       "images/other/ravenforge-shadows-flask.jpg",
+    "Ravenforge Assassin's Creed Odyssey Hip Flask":                       "images/other/ravenforge-odyssey-flask.jpg",
 
 
     // ── Unimax ──

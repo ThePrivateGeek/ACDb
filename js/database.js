@@ -3149,5 +3149,86 @@ const AC_DATABASE = [
     "description": "Ezio Auditore (The Mentor) figurine from the Revelations, produced by Neca.",
     "contents": "Ezio Auditore (The Mentor) figurine",
     "type": "Neca"
+  },
+  {
+    "name": "Assassin's Creed Shot Glass Set",
+    "game": "General",
+    "year": 2016,
+    "category": "Other",
+    "description": "Set of two shot glasses featuring Assassin's Creed designs. Loot Crate exclusive.",
+    "contents": "Shot glass set",
+    "type": "Drinkware"
+  },
+  {
+    "name": "Assassin's Creed IV Black Flag Flask",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2016,
+    "category": "Other",
+    "description": "Black Flag themed hip flask. Loot Crate Gaming July 2016 exclusive.",
+    "contents": "Hip flask",
+    "type": "Drinkware"
+  },
+  {
+    "name": "Ravenforge Altaïr's Sword Replica",
+    "game": "Assassin's Creed",
+    "year": 2024,
+    "category": "Replica/Prop",
+    "description": "Officially licensed replica of Altaïr's iconic sword from the original Assassin's Creed. Crafted by Ravenforge.",
+    "contents": "Sword replica",
+    "type": "Replica"
+  },
+  {
+    "name": "Ravenforge Naoe's Tantō Replica",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Replica/Prop",
+    "description": "Officially licensed replica of Naoe's tantō from AC Shadows. Crafted by Ravenforge.",
+    "contents": "Tantō replica",
+    "type": "Replica"
+  },
+  {
+    "name": "Ravenforge Yasuke's Wakizashi Replica",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Replica/Prop",
+    "description": "Officially licensed replica of Yasuke's wakizashi from AC Shadows. Crafted by Ravenforge.",
+    "contents": "Wakizashi replica",
+    "type": "Replica"
+  },
+  {
+    "name": "Ravenforge Assassin's Creed Black Flag Hip Flask",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2024,
+    "category": "Other",
+    "description": "Officially licensed Black Flag themed hip flask. Crafted by Ravenforge.",
+    "contents": "Hip flask",
+    "type": "Drinkware"
+  },
+  {
+    "name": "Ravenforge Assassin's Creed Hip Flask Gift Set",
+    "game": "General",
+    "year": 2024,
+    "category": "Other",
+    "description": "Officially licensed Assassin's Creed hip flask gift set. Crafted by Ravenforge.",
+    "contents": "Hip flask gift set",
+    "type": "Drinkware"
+  },
+  {
+    "name": "Ravenforge Assassin's Creed Shadows Hip Flask",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Other",
+    "description": "Officially licensed AC Shadows themed hip flask. Crafted by Ravenforge.",
+    "contents": "Hip flask",
+    "type": "Drinkware"
+  },
+  {
+    "name": "Ravenforge Assassin's Creed Odyssey Hip Flask",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2024,
+    "category": "Other",
+    "description": "Officially licensed AC Odyssey themed hip flask. Crafted by Ravenforge.",
+    "contents": "Hip flask",
+    "type": "Drinkware"
   }
 ];
