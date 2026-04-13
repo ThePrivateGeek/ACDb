@@ -389,7 +389,7 @@ const AC_IMAGES = {
     "Ravenforge Assassin's Creed Hip Flask Gift Set":                      "images/other/ravenforge-flask-gift-set.jpg",
     "Ravenforge Assassin's Creed Shadows Hip Flask":                       "images/other/ravenforge-shadows-flask.jpg",
     "Ravenforge Assassin's Creed Odyssey Hip Flask":                       "images/other/ravenforge-odyssey-flask.jpg",
-
+    "Assassin's Creed: Into the Animus":                                   "images/art-books/into-the-animus.jpg",
 
     // ── Unimax ──
     "Unimax - Cesare Borgia (Gamestars Collectibles)":          "images/statues/unimax-cesare-borgia-gamestars-collectibles.jpg",

@@ -3230,5 +3230,14 @@ const AC_DATABASE = [
     "description": "Officially licensed AC Odyssey themed hip flask. Crafted by Ravenforge.",
     "contents": "Hip flask",
     "type": "Drinkware"
+  },
+  {
+    "name": "Assassin's Creed: Into the Animus",
+    "game": "Assassin's Creed (Movie)",
+    "year": 2016,
+    "category": "Art & Reference",
+    "description": "Assassin's Creed: Into the Animus tells the full story behind the filmmaking journey, from the in-depth research into the horrors of the Spanish Inquisition to the intense shooting process in present-day Spain. Featuring the vivid concept art that helped bring the film to life, this deluxe volume also includes comprehensive imagery of the Assassins' signature weapons, behind-the-scenes details on the creation of the Animus, and photography of the death-defying stunts that are a hallmark of the franchise.",
+    "contents": "Hardcover book, removable artifacts such as parkour stunt schematics and Callum Lynch's Animus Report",
+    "type": "Companion Book"
   }
 ];
