@@ -366,6 +366,21 @@ const AC_IMAGES = {
     // ── Neca ──
     "Neca - Ezio (Auditore da Firenze) (Basic Series)": "images/statues/neca-ezio-auditore-da-firenze-basic.jpg",
     "Neca - Ezio (Master Assassin) (Basic Series)":     "images/statues/neca-ezio-master-assassin-basic.jpg",
+    "Neca Altair (Basic Series)":                                          "images/statues/neca-altair-basic.jpg",
+    "Neca Ezio 2-Pack (Basic Series)":                                     "images/statues/neca-ezio-2-pack-basic.jpg",
+    "Neca Da Vinci's Flying Machine Model":                                "images/statues/neca-da-vinci-flying-machine.jpg",
+    "Neca Ezio (Eagle Vision)":                                            "images/statues/neca-ezio-eagle-vision.jpg",
+    "Neca Ezio (Ebony Assassin) (Hooded)":                                 "images/statues/neca-ezio-ebony-hooded.jpg",
+    "Neca Ezio (Ebony Assassin) (Unhooded)":                               "images/statues/neca-ezio-ebony-unhooded.jpg",
+    "Neca Ezio (Legendary Assassin) (Hooded)":                             "images/statues/neca-ezio-legendary-hooded.jpg",
+    "Neca Ezio (Legendary Assassin) (Unhooded)":                           "images/statues/neca-ezio-legendary-unhooded.jpg",
+    "Neca Ezio (Onyx Assassin) (Hooded)":                                  "images/statues/neca-ezio-onyx-hooded.jpg",
+    "Neca Ezio (Onyx Assassin) (Unhooded)":                                "images/statues/neca-ezio-onyx-unhooded.jpg",
+    "Neca Ezio Auditore (Brotherhood) (Head Knockers)":                    "images/statues/neca-ezio-brotherhood-head-knockers.jpg",
+    "Neca Ezio Auditore (Revelations) (Head Knockers)":                    "images/statues/neca-ezio-revelations-head-knockers.jpg",
+    "Neca Ezio Auditore (The Mentor) version 1":                           "images/statues/neca-revelations-ezio-the-mentor-v1.jpg",
+    "Neca Ezio Auditore (The Mentor) version 2":                           "images/statues/neca-revelations-ezio-the-mentor-v2.jpg",
+
 
     // ── Unimax ──
     "Unimax - Cesare Borgia (Gamestars Collectibles)":          "images/statues/unimax-cesare-borgia-gamestars-collectibles.jpg",

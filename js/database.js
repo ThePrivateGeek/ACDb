@@ -3023,5 +3023,131 @@ const AC_DATABASE = [
     "description": "Official novelization of the 2016 Assassin's Creed film starring Michael Fassbender. Follows Callum Lynch as he relives the memories of his ancestor Aguilar during the Spanish Inquisition.",
     "contents": "Paperback novel",
     "type": "Novelization"
+  },
+  {
+    "name": "Neca Altair (Basic Series)",
+    "game": "Assassin's Creed",
+    "year": 2009,
+    "category": "Figurine",
+    "description": "7 inches tall figure of Altair Ibn-La'Ahad from the Basic Series by Neca. Features include a retractable blade and a removable Sword & Daggers.",
+    "contents": "Altair figurine",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio 2-Pack (Basic Series)",
+    "game": "Assassin's Creed II",
+    "year": 2012,
+    "category": "Figurine",
+    "description": "Two 7-inch tall figures of Ezio Auditore da Firenze from the Basic Series by Neca. Features include replaceable hands and weapons.",
+    "contents": "Ezio 2-Pack figurine",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Da Vinci's Flying Machine Model",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2011,
+    "category": "Figurine",
+    "description": "Da Vinci's Flying Machine model from the Brotherhood, produced by Neca. Features articulated wings (pivots up & down), springg-loaded cannon ('fires' projectiles), and handle rotates cannon 180 degrees.",
+    "contents": "Da Vinci's Flying Machine model",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio (Eagle Vision)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2012,
+    "category": "Figurine",
+    "description": "Ezio (Auditore) (Eagle Vision) figurine from the Brotherhood, produced by Neca. Features include a translucent blue 'Eagle Vision' effect.",
+    "contents": "Ezio (Eagle Vision) figurine and Eagle",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio (Ebony Assassin) (Hooded)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2012,
+    "category": "Figurine",
+    "description": "Ezio (Ebony Assassin) (Hooded) figurine from the Brotherhood, produced by Neca.",
+    "contents": "Ezio (Ebony Assassin) (Hooded) figurine",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio (Ebony Assassin) (Unhooded)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2012,
+    "category": "Figurine",
+    "description": "Ezio (Ebony Assassin) (Unhooded) figurine from the Brotherhood, produced by Neca.",
+    "contents": "Ezio (Ebony Assassin) (Unhooded) figurine",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio (Legendary Assassin) (Hooded)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2012,
+    "category": "Figurine",
+    "description": "Ezio (Legendary Assassin) (Hooded) figurine from the Brotherhood, produced by Neca.",
+    "contents": "Ezio (Legendary Assassin) (Hooded) figurine",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio (Legendary Assassin) (Unhooded)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2012,
+    "category": "Figurine",
+    "description": "Ezio (Legendary Assassin) (Unhooded) figurine from the Brotherhood, produced by Neca.",
+    "contents": "Ezio (Legendary Assassin) (Unhooded) figurine",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio (Onyx Assassin) (Hooded)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2012,
+    "category": "Figurine",
+    "description": "Ezio (Onyx Assassin) (Hooded) figurine from the Brotherhood, produced by Neca.",
+    "contents": "Ezio (Onyx Assassin) (Hooded) figurine",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio (Onyx Assassin) (Unhooded)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2012,
+    "category": "Figurine",
+    "description": "Ezio (Onyx Assassin) (Unhooded) figurine from the Brotherhood, produced by Neca.",
+    "contents": "Ezio (Onyx Assassin) (Unhooded) figurine",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio Auditore (Brotherhood) (Head Knockers)",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2024,
+    "category": "Figurine",
+    "description": "Ezio Auditore (Brotherhood) figurine with head knockers, produced by Neca.",
+    "contents": "Ezio Auditore (Brotherhood) figurine",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio Auditore (Revelations) (Head Knockers)",
+    "game": "Assassin's Creed Revelations",
+    "year": 2024,
+    "category": "Figurine",
+    "description": "Ezio Auditore (Revelations) figurine with head knockers, produced by Neca.",
+    "contents": "Ezio Auditore (Revelations) figurine",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio Auditore (The Mentor) version 1",
+    "game": "Assassin's Creed Revelations",
+    "year": 2012,
+    "category": "Figurine",
+    "description": "Ezio Auditore (The Mentor) figurine from the Revelations, produced by Neca.",
+    "contents": "Ezio Auditore (The Mentor) figurine",
+    "type": "Neca"
+  },
+  {
+    "name": "Neca Ezio Auditore (The Mentor) version 2",
+    "game": "Assassin's Creed Revelations",
+    "year": 2023,
+    "category": "Figurine",
+    "description": "Ezio Auditore (The Mentor) figurine from the Revelations, produced by Neca.",
+    "contents": "Ezio Auditore (The Mentor) figurine",
+    "type": "Neca"
   }
 ];
