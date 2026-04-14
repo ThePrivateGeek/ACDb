@@ -3374,5 +3374,14 @@ const AC_DATABASE = [
     "description": "Deluxe edition of the Orlog dice game from AC Valhalla. Crafted from carved wood, cast metal, polished stones, and linen cloth. Limited to 500 individually numbered units. Produced by PureArts.",
     "contents": "Carved wood storage case (numbered), 2 wooden dice bowls, 32 polished stone counters, 2 linen pouches, 50 golden metal tokens, 2 sets wooden God Favor cards, 2 acrylic dice sets, 1 metal game coin, 1 linen game mat (18\" x 26\")",
     "type": "Board Game"
+  },
+  {
+    "name": "Assassin's Creed: Vendetta",
+    "game": "General",
+    "year": 2017,
+    "category": "Other",
+    "description": "Officially licensed social deduction card game for 2-8 players. Players take on roles as Assassins or Templars in a game of bluffing and strategy. French language only. Designed by Sébastien Moricard. Published by Bra*Jeux.",
+    "contents": "Card game with role cards, action cards, and rulebook (French language)",
+    "type": "Card Game"
   }
 ];

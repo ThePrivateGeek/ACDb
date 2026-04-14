@@ -402,6 +402,7 @@ const AC_IMAGES = {
     "PureArts Master Ezio 1/8 Scale PVC Statue":                           "images/statues/purearts-master-ezio.jpg",
     "PureArts Orlog Dice Game Retail Edition":                             "images/other/purearts-orlog-retail.jpg",
     "PureArts Orlog Dice Game Deluxe Edition":                             "images/other/purearts-orlog-deluxe.jpg",
+    "Assassin's Creed: Vendetta":                                          "images/other/ac-vendetta.jpg",
 
     // ── Unimax ──
     "Unimax - Cesare Borgia (Gamestars Collectibles)":          "images/statues/unimax-cesare-borgia-gamestars-collectibles.jpg",
