@@ -2032,16 +2032,16 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Sword of the White Horse is a tie-in novel and sequel to Assassin's Creed Valhalla. Follows Niamh, a blind Norse-Gaelic woman and Hidden One, in the court of King Alfred's Wessex, as she protects a sacred artifact. By Elsa Sjunneson.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed: The Golden City",
-    "game": "General",
+    "game": "Assassin's Creed Valhalla",
     "year": 2023,
     "category": "Novel",
-    "description": "The Golden City is a tie-in novel to Assassin's Creed Valhalla and Assassin's Creed Mirage, bridging the gap between the two games. By Jaleigh Johnson.",
+    "description": "Constantinople, 867 - A murderous plot is afoot. Assisted by the Order of the Ancients, the emperor schemes to assassinate his son and throw the city into chaos. In response, the Hidden Ones have dispatched Assassin acolyte Hytham to join his mentor, Basim Ibn Ishaq, to infiltrate the palace and foil the emperor's plan. But that is not his only mission... Hytham's brotherhood have entrusted him with uncovering where Basim's true loyalties lie and whether the master Assassin's personal obsessions outweigh his sense of duty. For Hytham to succeed, he must tread carefully, for Constantinople is a city of shadows, and danger hides in all of them.. By Jaleigh Johnson.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed Mirage: Daughter of No One",
