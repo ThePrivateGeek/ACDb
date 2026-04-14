@@ -13,6 +13,7 @@
     let selectedGames = new Set();
     let selectedCategories = new Set();
     let selectedTypes = new Set();
+    let statsSortMode = 'percent'; // 'percent' or 'count'
     let currentItemId = null;
 
     // Gallery state
@@ -1045,6 +1046,12 @@
         container.innerHTML = '';
         const sorted = Object.entries(totals).sort((a, b) => {
             if (owned) {
+                if (statsSortMode === 'count') {
+                    // Sort by owned count (desc), then by total (desc)
+                    const countA = owned[a[0]] || 0;
+                    const countB = owned[b[0]] || 0;
+                    return countB - countA || b[1] - a[1];
+                }
                 // Sort by completion percentage (desc), then by total (desc)
                 const pctA = (owned[a[0]] || 0) / a[1];
                 const pctB = (owned[b[0]] || 0) / b[1];
@@ -1308,9 +1315,19 @@
         // Stats dashboard toggle
         dom.statsToggle.addEventListener('click', () => {
             dom.statsDashboard.classList.toggle('open');
-            if (dom.statsDashboard.classList.contains('open')) {
+            const isOpen = dom.statsDashboard.classList.contains('open');
+            document.getElementById('statsSortToggle').style.display = isOpen ? 'flex' : 'none';
+            if (isOpen) renderStatsDashboard();
+        });
+
+        // Stats sort toggle (% vs #)
+        document.querySelectorAll('.stats-sort-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                statsSortMode = btn.dataset.sort;
+                document.querySelectorAll('.stats-sort-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
                 renderStatsDashboard();
-            }
+            });
         });
 
         // Multi-select clear buttons

@@ -651,6 +651,46 @@ body {
     display: block;
 }
 
+.stats-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stats-sort-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.stats-sort-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+.stats-sort-btn:hover {
+    color: var(--text-primary);
+}
+
+.stats-sort-btn.active {
+    color: var(--accent);
+    background: rgba(201, 168, 76, 0.15);
+}
+
+.stats-sort-divider {
+    color: var(--border);
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr auto;

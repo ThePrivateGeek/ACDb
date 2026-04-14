@@ -157,10 +157,18 @@
 
     <!-- Stats Dashboard (collapsible) -->
     <div class="stats-dashboard" id="statsDashboard">
-        <button class="stats-toggle" id="statsToggle">
-            <span>Collection Insights</span>
-            <svg class="stats-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
+        <div class="stats-header">
+            <button class="stats-toggle" id="statsToggle">
+                <span>Collection Insights</span>
+                <svg class="stats-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="stats-sort-toggle" id="statsSortToggle" style="display:none;">
+                <span>Sort:</span>
+                <button class="stats-sort-btn active" data-sort="percent">%</button>
+                <span class="stats-sort-divider">|</span>
+                <button class="stats-sort-btn" data-sort="count">#</button>
+            </div>
+        </div>
         <div class="stats-panel" id="statsPanel">
             <div class="stats-grid">
                 <div class="stats-section">
