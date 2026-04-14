@@ -3239,5 +3239,14 @@ const AC_DATABASE = [
     "description": "Assassin's Creed: Into the Animus tells the full story behind the filmmaking journey, from the in-depth research into the horrors of the Spanish Inquisition to the intense shooting process in present-day Spain. Featuring the vivid concept art that helped bring the film to life, this deluxe volume also includes comprehensive imagery of the Assassins' signature weapons, behind-the-scenes details on the creation of the Animus, and photography of the death-defying stunts that are a hallmark of the franchise.",
     "contents": "Hardcover book, removable artifacts such as parkour stunt schematics and Callum Lynch's Animus Report",
     "type": "Companion Book"
+  },
+  {
+    "name": "Assassin's Creed: Infographics",
+    "game": "General",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "A visually stunning exploration of the Assassin's Creed universe through detailed infographics, covering characters, weapons, locations, and key events across the franchise. By Guillaume Delalande. Assassin's Creed Infographics gives you the keys to understanding the many features of this vast universe. Each page contains unique infographics and illustrations to take you on a visual journey. Published by Titan Books.",
+    "contents": "Hardcover book with infographics, data visualizations, and illustrated statistics",
+    "type": "Companion Book"
   }
 ];
