@@ -403,6 +403,9 @@ const AC_IMAGES = {
     "PureArts Orlog Dice Game Retail Edition":                             "images/other/purearts-orlog-retail.jpg",
     "PureArts Orlog Dice Game Deluxe Edition":                             "images/other/purearts-orlog-deluxe.jpg",
     "Assassin's Creed: Vendetta":                                          "images/other/ac-vendetta.jpg",
+    "Assassin's Creed Unity Collectible Coin":                             "images/other/lootcrate-unity-coin.jpg",
+    "Assassin's Creed Odyssey Promo Coin (Best Buy Exclusive)":            "images/other/odyssey-promo-coin.jpg",
+    "Assassin's Creed (Movie) Exclusive Limited Edition + Hidden Dagger Arm Sleeve": "images/collectors-editions/ac-movie-limited-edition-arm-sleeve.jpg",
 
     // ── Unimax ──
     "Unimax - Cesare Borgia (Gamestars Collectibles)":          "images/statues/unimax-cesare-borgia-gamestars-collectibles.jpg",

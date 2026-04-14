@@ -3383,5 +3383,32 @@ const AC_DATABASE = [
     "description": "Officially licensed social deduction card game for 2-8 players. Players take on roles as Assassins or Templars in a game of bluffing and strategy. French language only. Designed by Sébastien Moricard. Published by Bra*Jeux.",
     "contents": "Card game with role cards, action cards, and rulebook (French language)",
     "type": "Card Game"
+  },
+  {
+    "name": "Assassin's Creed (Movie) Exclusive Limited Edition + Hidden Dagger Arm Sleeve",
+    "game": "Assassin's Creed (Movie)",
+    "year": 2016,
+    "category": "Collector's Edition",
+    "description": "Exclusive limited edition Blu-ray/DVD of the 2016 Assassin's Creed film, bundled with a collectible Hidden Dagger arm sleeve replica.",
+    "contents": "Limited edition Blu-ray/DVD, Hidden Dagger arm sleeve replica",
+    "type": "Collector's Edition"
+  },
+  {
+    "name": "Assassin's Creed Unity Collectible Coin",
+    "game": "Assassin's Creed Unity",
+    "year": 2014,
+    "category": "Other",
+    "description": "Metal collectible coin/medallion featuring 'LIBERTE EGALITE UNITY' from AC Unity, packaged in a red velvet drawstring pouch. Loot Crate November 2014 exclusive.",
+    "contents": "Metal coin/medallion, red velvet pouch",
+    "type": "Loot Crate"
+  },
+  {
+    "name": "Assassin's Creed Odyssey Promo Coin (Best Buy Exclusive)",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2018,
+    "category": "Other",
+    "description": "Metal collectible promotional coin/medal featuring the Spartan helmet design from AC Odyssey. Best Buy exclusive pre-order/purchase bonus.",
+    "contents": "Metal coin/medal in protective case",
+    "type": "Promotional"
   }
 ];
