@@ -49,7 +49,7 @@ const AC_IMAGES = {
     "Assassin's Creed Valhalla Ultimate Steelbook Edition":                 "images/steelbooks/valhalla-ultimate-steelbook.jpg",
     "Assassin's Creed (2016 Movie) SteelBook Edition":                     "images/steelbooks/ac-movie-steelbook.jpg",
 
-    // ── PureArts Statues 1/4 Scale ──
+    // ── PureArts Statues and replicas ──
     "PureArts Animus Altair 1/4 Scale Statue":                             "images/statues/purearts-animus-altair-1-4.png",
     "PureArts Prestige Line Altair Ibn-La'Ahad 1/2 Scale Statue":          "images/statues/purearts-prestige-altair-1-2.jpg",
     "PureArts Animus Ezio 1/4 Scale Statue":                               "images/statues/purearts-animus-ezio-1-4.png",
@@ -59,8 +59,6 @@ const AC_IMAGES = {
     "PureArts Animus Jacob & Evie 1/4 Scale Statue (Exclusive Edition)":   "images/statues/purearts-animus-jacob-evie-1-4.jpg",
     "PureArts Animus Basim 1/4 Scale Statue (Exclusive Edition)":          "images/statues/purearts-animus-basim-1-4.jpg",
     "PureArts Animus Naoe & Yasuke 1/4 Scale Statue (Exclusive Edition)":  "images/statues/purearts-animus-naoe-yasuke-1-4.jpg",
-
-    // ── PureArts Statues 1/8 Scale ──
     "PureArts Animus Ezio 1/8 Scale Statue":                               "images/statues/purearts-animus-ezio-1-8.jpg",
     "PureArts Animus Altair 1/8 Scale Statue":                             "images/statues/purearts-animus-altair-1-8.jpg",
     "PureArts Animus Connor 1/8 Scale Statue":                             "images/statues/purearts-animus-connor-1-8.jpg",
@@ -70,7 +68,9 @@ const AC_IMAGES = {
     "PureArts Animus Basim 1/8 Scale Statue":                              "images/statues/purearts-animus-basim-1-8.jpg",
     "PureArts Animus Yasuke 1/8 Scale Statue":                             "images/statues/purearts-animus-yasuke-1-8.jpg",
     "PureArts Animus Naoe 1/8 Scale Statue":                               "images/statues/purearts-animus-naoe-1-8.jpg",
-
+    "Assassin's Creed Shadows Yasuke Helmet 1/1 Scale Replica":            "images/other/purearts-yasuke-helmet-replica.jpg",
+    "Assassin's Creed Animus Kassandra Exclusive Edition":                 "images/statues/purearts-animus-kassandra-ee.jpg",
+    "Assassin's Creed: Valhalla Eivor 1/6 Scale Articulated Figure":       "images/statues/purearts-eivor-articulated.jpg",
     // ── PureArts Other ──
     "PureArts Animus Eivor Statue":                                        "images/statues/purearts-animus-eivor-1-4.jpg",
     "PureArts Spartan Kick Diorama 1/6 Scale (Exclusive Edition)":         "images/statues/purearts-spartan-kick-diorama.jpg",
@@ -391,6 +391,17 @@ const AC_IMAGES = {
     "Ravenforge Assassin's Creed Odyssey Hip Flask":                       "images/other/ravenforge-odyssey-flask.jpg",
     "Assassin's Creed: Into the Animus":                                   "images/art-books/into-the-animus.jpg",
     "Assassin's Creed: Infographics":                                      "images/art-books/ac-infographics.jpg",
+    "PureArts Assassin's Creed Shadows Naoe Hidden Blade 1/1 Scale Replica": "images/statues/purearts-naoe-hidden-blade.jpg",
+    "PureArts Amunet The Hidden One 1/8 Scale PVC Statue":                 "images/statues/purearts-amunet.jpg",
+    "PureArts Qlectors Altair Bell Tower PVC Figure":                      "images/statues/purearts-qlectors-altair-bell-tower.jpg",
+    "PureArts Desmond 1/6 Scale Premium Articulated Figure":               "images/statues/purearts-desmond.jpg",
+    "PureArts Qlectors Connor The Last Breath PVC Figure":                 "images/statues/purearts-qlectors-connor-last-breath.jpg",
+    "PureArts Prestige Line Ezio Auditore 1/2 Scale Statue":              "images/statues/purearts-prestige-ezio.jpg",
+    "PureArts Hunt for the Nine 1/6 Scale Diorama":                        "images/statues/purearts-hunt-for-the-nine.jpg",
+    "PureArts RIP Altair 1/6 Scale Diorama":                               "images/statues/purearts-rip-altair.jpg",
+    "PureArts Master Ezio 1/8 Scale PVC Statue":                           "images/statues/purearts-master-ezio.jpg",
+    "PureArts Orlog Dice Game Retail Edition":                             "images/other/purearts-orlog-retail.jpg",
+    "PureArts Orlog Dice Game Deluxe Edition":                             "images/other/purearts-orlog-deluxe.jpg",
 
     // ── Unimax ──
     "Unimax - Cesare Borgia (Gamestars Collectibles)":          "images/statues/unimax-cesare-borgia-gamestars-collectibles.jpg",

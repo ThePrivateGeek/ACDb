@@ -754,7 +754,7 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "1/4 scale bust of Naoe.",
     "contents": "1/4 scale Naoe bust",
-    "type": "PureArts Bust"
+    "type": "PureArts"
   },
   {
     "name": "PureArts Yasuke Bust 1/4 Scale",
@@ -763,7 +763,7 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "1/4 scale bust of Yasuke.",
     "contents": "1/4 scale Yasuke bust",
-    "type": "PureArts Bust"
+    "type": "PureArts"
   },
   {
     "name": "PureArts Qlectors Naoe & Yasuke PVC Figure Set",
@@ -3248,5 +3248,131 @@ const AC_DATABASE = [
     "description": "A visually stunning exploration of the Assassin's Creed universe through detailed infographics, covering characters, weapons, locations, and key events across the franchise. By Guillaume Delalande. Assassin's Creed Infographics gives you the keys to understanding the many features of this vast universe. Each page contains unique infographics and illustrations to take you on a visual journey. Published by Titan Books.",
     "contents": "Hardcover book with infographics, data visualizations, and illustrated statistics",
     "type": "Companion Book"
+  },
+  {
+    "name": "PureArts Assassin's Creed Shadows Naoe Hidden Blade 1/1 Scale Replica",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Replica/Prop",
+    "description": "Life-size 1:1 scale replica of Naoe's hidden blade from AC Shadows. Wearable in tantō and hidden blade modes. Produced by PureArts.",
+    "contents": "1/1 scale hidden blade replica",
+    "type": "PureArts"
+  },
+  {
+    "name": "PureArts Amunet The Hidden One 1/8 Scale PVC Statue",
+    "game": "Assassin's Creed Origins",
+    "year": 2024,
+    "category": "Statue",
+    "description": "1/8 scale PVC statue of Amunet (Aya), co-founder of the Hidden Ones, from AC Origins. Produced by PureArts.",
+    "contents": "1/8 scale PVC statue with display base",
+    "type": "PureArts"
+  },
+  {
+    "name": "PureArts Qlectors Altair Bell Tower PVC Figure",
+    "game": "Assassin's Creed",
+    "year": 2024,
+    "category": "Figurine",
+    "description": "Qlectors series PVC figure of Altaïr perched atop a bell tower, capturing the iconic lookout pose. Produced by PureArts.",
+    "contents": "PVC figure with bell tower base",
+    "type": "PureArts"
+  },
+  {
+    "name": "PureArts Desmond 1/6 Scale Premium Articulated Figure",
+    "game": "General",
+    "year": 2022,
+    "category": "Figurine",
+    "description": "1/6 scale premium articulated figure of Desmond Miles, the modern-day protagonist of the original AC saga. Features multiple points of articulation and accessories. Produced by PureArts.",
+    "contents": "1/6 scale articulated figure with accessories and display base",
+    "type": "PureArts"
+  },
+  {
+    "name": "Assassin's Creed Shadows Yasuke Helmet 1/1 Scale Replica",
+    "game": "Assassin's Creed Shadows",
+    "year": 2024,
+    "category": "Replica/Prop",
+    "description": "Made with premium materials and artfully crafted, the highly detailed Yasuke Helmet 1/1 Scale Replica features a removable face plate and Kabuto-style cords.",
+    "contents": "Highly detailed, game accurate helmet replica",
+    "type": "PureArts"
+  },
+  {
+    "name": "Assassin's Creed Animus Kassandra Exclusive Edition",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2022,
+    "category": "Statue",
+    "description": "This stunning collectible includes two head poses and an elaborate LED lit base featuring a massive bronze statue of Athena crumbling into our signature Animus Transition effect",
+    "contents": "Detailed sculpt with classic Misthios battle attire and broken spear.\nA wearable replica of Kassandra’s golden brooch!\nED lit base with bronze colored Athena Statue and engravings depicting Alexios in battle. Exclusive Edition includes a wearable replica of Kassandra’s golden brooch",
+    "type": "PureArts"
+  },
+  {
+    "name": "Assassin's Creed: Valhalla Eivor 1/6 Scale Articulated Figure",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2022,
+    "category": "Statue",
+    "description": "Eivor 1/6 Scale Articulated Figure featuring 27 points of articulation and hyperdetailed sculpt and clothing.",
+    "contents": "Detailed Assassin's Creed Valhalla Eivor 1/6 Scale Articulated Figure.\n4 pairs of interchangeable hands.\nFull arsenal of weapons including Death-Speaker bow, Hidden Blade, Varin’s Axe, Mammen Axe, Blacksmith’s Hammer, Raider Axe, Harpoon, Raven Claw Helmet, Raven Claw Shield and Calling Horn!\nCustom Assassin’s Creed Valhalla styled display stand.",
+    "type": "PureArts"
+  },
+  {
+    "name": "PureArts Qlectors Connor The Last Breath PVC Figure",
+    "game": "Assassin's Creed III",
+    "year": 2024,
+    "category": "Figurine",
+    "description": "Qlectors series 6-inch PVC figure capturing the iconic moment of Connor overpowering a British soldier in his fight to protect the United States from Templar control. Produced by PureArts.",
+    "contents": "6-inch PVC statue with display base",
+    "type": "PureArts"
+  },
+  {
+    "name": "PureArts Prestige Line Ezio Auditore 1/2 Scale Statue",
+    "game": "Assassin's Creed II",
+    "year": 2024,
+    "category": "Statue",
+    "description": "Premium 1/2 scale statue of Ezio in his iconic wide-armed stance. Features hyperrealistic silicone head sculpt with glass eyes, hand-punched facial features, tailored clothing, polished metal weapons, and genuine leather accessories. 43 inches tall. Limited to 500 pieces. Produced by PureArts.",
+    "contents": "1/2 scale polyresin statue with silicone head, real metal weapons, hand-stitched leather, travel case",
+    "type": "PureArts"
+  },
+  {
+    "name": "PureArts Hunt for the Nine 1/6 Scale Diorama",
+    "game": "Assassin's Creed",
+    "year": 2024,
+    "category": "Statue",
+    "description": "Dynamic 1/6 scale diorama capturing the moment Altaïr defeats Robert de Sablé. Polyresin and mixed media with game-accurate costumes and weaponry. 17\" H x 13\" W x 9\" D. Limited to 1,250 pieces (plus 250 Exclusive Edition). Produced by PureArts.",
+    "contents": "1/6 scale polyresin diorama with rock and paving stone base",
+    "type": "PureArts"
+  },
+  {
+    "name": "PureArts RIP Altair 1/6 Scale Diorama",
+    "game": "Assassin's Creed Revelations",
+    "year": 2023,
+    "category": "Statue",
+    "description": "Diorama capturing the pivotal moment from AC Revelations when Ezio discovers Altaïr's remains seated in a chair holding a Memory Seal. Features LED-lit Memory Seal. 11\" H x 14.5\" W x 9\" D. Requires 2 AAA batteries. Limited to 1,250 pieces (plus 250 Exclusive). Produced by PureArts.",
+    "contents": "1/6 scale polyresin diorama with LED-lit Memory Seal (batteries not included)",
+    "type": "PureArts"
+  },
+  {
+    "name": "PureArts Master Ezio 1/8 Scale PVC Statue",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2021,
+    "category": "Statue",
+    "description": "1/8 scale PVC statue of Ezio wielding dual hidden blades with a beautiful Animus effect, inspired by AC Brotherhood. 10\" H x 6\" W x 5.5\" D. Produced by PureArts.",
+    "contents": "1/8 scale PVC statue with display base",
+    "type": "PureArts"
+  },
+  {
+    "name": "PureArts Orlog Dice Game Retail Edition",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2021,
+    "category": "Other",
+    "description": "Officially licensed two-player dice game based on the Orlog mini-game from AC Valhalla. Challenge your opponent using dice rolls and God Favor bonus effects. Produced by PureArts.",
+    "contents": "2 ABS plastic dice bowls, 32 polished stone health counters, 50 God Favor tokens, 40 God Favor cards, 2 acrylic dice sets, 1 game coin, gameplay guide, 2 God Favor guides",
+    "type": "Board Game"
+  },
+  {
+    "name": "PureArts Orlog Dice Game Deluxe Edition",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2021,
+    "category": "Other",
+    "description": "Deluxe edition of the Orlog dice game from AC Valhalla. Crafted from carved wood, cast metal, polished stones, and linen cloth. Limited to 500 individually numbered units. Produced by PureArts.",
+    "contents": "Carved wood storage case (numbered), 2 wooden dice bowls, 32 polished stone counters, 2 linen pouches, 50 golden metal tokens, 2 sets wooden God Favor cards, 2 acrylic dice sets, 1 metal game coin, 1 linen game mat (18\" x 26\")",
+    "type": "Board Game"
   }
 ];
