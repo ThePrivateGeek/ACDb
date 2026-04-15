@@ -2116,12 +2116,30 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
-    "name": "Assassin's Creed: The Fall",
+    "name": "Assassin's Creed: The Fall - Issue #1",
     "game": "Assassin's Creed Chronicles: Russia",
     "year": 2010,
     "category": "Comic Book",
-    "description": "3-issue limited series following Daniel Cross, a modern-day Assassin who discovers his ancestor Nikolai Orelov, an Assassin in early 20th-century Russia. Published by WildStorm/DC Comics.",
-    "contents": "3-issue collected trade paperback",
+    "description": "Issue 1 of 3. Introduces Daniel Cross, a troubled bartender haunted by visions of his ancestor Nikolai Orelov, an Assassin in Imperial Russia. Daniel is drawn into the modern-day Brotherhood while Nikolai's mission to recover a Piece of Eden from the Tsars begins to unfold. Written by Cameron Stewart and Karl Kerschl. Published by WildStorm/DC Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: The Fall - Issue #2",
+    "game": "Assassin's Creed Chronicles: Russia",
+    "year": 2010,
+    "category": "Comic Book",
+    "description": "Issue 2 of 3. Daniel Cross ascends through the Assassin Brotherhood's ranks as the Mentor takes him under his wing. In the past, Nikolai Orelov infiltrates Tsar Alexander III's train in a desperate bid to seize the Staff of Eden. Written by Cameron Stewart and Karl Kerschl. Published by WildStorm/DC Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: The Fall - Issue #3",
+    "game": "Assassin's Creed Chronicles: Russia",
+    "year": 2011,
+    "category": "Comic Book",
+    "description": "Issue 3 of 3. The devastating conclusion. Daniel Cross finally meets the Mentor of the Assassin Brotherhood, leading to a shocking betrayal that changes the course of the Assassin-Templar war forever. Nikolai Orelov's story reaches its violent climax. Written by Cameron Stewart and Karl Kerschl. Published by WildStorm/DC Comics.",
+    "contents": "Single issue comic book",
     "type": "Comic Book"
   },
   {
@@ -2141,6 +2159,15 @@ const AC_DATABASE = [
     "description": "Sequel to The Fall. Continues Daniel Cross's story as he infiltrates the Brotherhood, and follows Nikolai Orelov's final mission in Russia. Published by UbiWorkshop/DC Comics.",
     "contents": "3-issue collected trade paperback",
     "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: The Fall & The Chain (Collected Edition)",
+    "game": "Assassin's Creed Chronicles: Russia",
+    "year": 2014,
+    "category": "Comic Book",
+    "description": "Collected edition combining both The Fall and The Chain series in a single volume. Follows Daniel Cross and his ancestor Nikolai Orelov, a Russian Assassin in the early 20th century. Reprinted by Titan Comics.",
+    "contents": "Collected trade paperback containing The Fall (3 issues) and The Chain (3 issues)",
+    "type": "Graphic Novel"
   },
   {
     "name": "Assassin's Creed Vol. 1: Desmond",
@@ -2332,12 +2359,57 @@ const AC_DATABASE = [
     "type": "Comic Book"
   },
   {
-    "name": "Assassin's Creed: Dynasty",
+    "name": "Assassin's Creed: Dynasty, Vol. 1",
     "game": "General",
-    "year": 2021,
+    "year": 2022,
     "category": "Comic Book",
-    "description": "In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan.",
-    "contents": "Collected manga volumes (6+ volumes, ongoing)",
+    "description": "Volume 1 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
+    "contents": "Paperback manhua",
+    "type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed: Dynasty, Vol. 2",
+    "game": "General",
+    "year": 2022,
+    "category": "Comic Book",
+    "description": "Volume 2 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
+    "contents": "Paperback manhua",
+    "type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed: Dynasty, Vol. 3",
+    "game": "General",
+    "year": 2022,
+    "category": "Comic Book",
+    "description": "Volume 3 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
+    "contents": "Paperback manhua",
+    "type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed: Dynasty, Vol. 4",
+    "game": "General",
+    "year": 2022,
+    "category": "Comic Book",
+    "description": "Volume 4 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
+    "contents": "Paperback manhua",
+    "type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed: Dynasty, Vol. 5",
+    "game": "General",
+    "year": 2023,
+    "category": "Comic Book",
+    "description": "Volume 5 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
+    "contents": "Paperback manhua",
+    "type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed: Dynasty, Vol. 6",
+    "game": "General",
+    "year": 2024,
+    "category": "Comic Book",
+    "description": "Volume 6 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
+    "contents": "Paperback manhua",
     "type": "Manga"
   },
   {
@@ -2350,12 +2422,39 @@ const AC_DATABASE = [
     "type": "Manga"
   },
   {
-    "name": "Assassin's Creed: Blade of Shao Jun",
+    "name": "Assassin's Creed: Blade of Shao Jun, Vol. 1",
     "game": "Assassin's Creed Chronicles: China",
     "year": 2021,
     "category": "Comic Book",
-    "description": "Manga adaptation expanding on Shao Jun's story from AC Chronicles: China. Follows her training under Ezio and return to fight the Templars in Ming Dynasty China. Art by Minoji Kurata. Published by VIZ Media. 4 volumes (2021-2023).",
-    "contents": "Manga series (4 volumes)",
+    "description": "Volume 1 of 4. Set in 1526 AD during China's Ming Empire. Shao Jun, China's last Assassin, returns to her homeland after escaping to Europe. She seeks vengeance and to restore balance following the decimation of her fellow Assassins during the emperor's political purge. Story and art by Minoji Kurata. Published by VIZ Media.",
+    "contents": "Paperback manga (160 pages)",
+    "type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed: Blade of Shao Jun, Vol. 2",
+    "game": "Assassin's Creed Chronicles: China",
+    "year": 2021,
+    "category": "Comic Book",
+    "description": "Volume 2 of 4. Shao Jun, the last Assassin in China, continues her mission of vengeance. As she systematically eliminates her enemies, the full scope of the Templar Order's conspiracy for the Great Ming Empire gradually comes to light. Story and art by Minoji Kurata. Published by VIZ Media.",
+    "contents": "Paperback manga (160 pages)",
+    "type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed: Blade of Shao Jun, Vol. 3",
+    "game": "Assassin's Creed Chronicles: China",
+    "year": 2022,
+    "category": "Comic Book",
+    "description": "Volume 3 of 4. The tension escalates as enemies threaten the lives of Shao Jun's loved ones, forcing her to pursue and eliminate Lord Wei Bin — a confrontation that proves a true challenge for China's last Assassin. Story and art by Minoji Kurata. Published by VIZ Media.",
+    "contents": "Paperback manga (160 pages)",
+    "type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed: Blade of Shao Jun, Vol. 4",
+    "game": "Assassin's Creed Chronicles: China",
+    "year": 2022,
+    "category": "Comic Book",
+    "description": "Volume 4 of 4. The final volume. Shao Jun's enemies have been defeated, her primary target lies ahead, and her closest companion is within reach. Trained by the greatest of the Assassins, she must draw upon all her combat skills to complete this final mission. Story and art by Minoji Kurata. Published by VIZ Media.",
+    "contents": "Paperback manga (160 pages)",
     "type": "Manga"
   },
   {
