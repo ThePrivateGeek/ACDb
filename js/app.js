@@ -1319,6 +1319,12 @@
         const nameInput = document.getElementById('shareDisplayName');
         const submitBtn = document.getElementById('shareSubmit');
         const displayName = nameInput.value.trim();
+
+        if (!displayName || displayName.length < 5) {
+            showToast('Please enter a valid display name');
+            return;
+        }
+
         const owned = getOwnedItemNames();
 
         submitBtn.disabled = true;
@@ -1347,8 +1353,8 @@
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Share Collection';
             }
-        } catch {
-            showToast('Network error. Try again.');
+        } catch (err) {
+            showToast('Error: ' + (err.message || 'Network error'));
             submitBtn.disabled = false;
             submitBtn.textContent = 'Share Collection';
         }
