@@ -1838,6 +1838,18 @@ body {
     opacity: 0.6;
 }
 
+/* ---- Leaderboard Button ---- */
+.leaderboard-btn {
+    text-decoration: none;
+    color: var(--accent);
+    border-color: var(--accent-dark);
+}
+
+.leaderboard-btn:hover {
+    border-color: var(--accent);
+    background: rgba(201, 168, 76, 0.1);
+}
+
 /* ---- Share Button ---- */
 .share-btn {
     border-color: var(--owned-green);
