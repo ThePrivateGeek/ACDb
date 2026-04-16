@@ -116,6 +116,7 @@ body {
 .header-inner {
     max-width: 1600px;
     margin: 0 auto;
+    padding-right: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
