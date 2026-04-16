@@ -1341,6 +1341,7 @@
                 document.getElementById('shareSuccessSection').style.display = '';
                 document.getElementById('shareUrl').value = data.shareUrl;
                 updateShareButton();
+                showToast('Collection shared successfully!');
             } else {
                 showToast(data.error || 'Share failed');
                 submitBtn.disabled = false;
@@ -1859,6 +1860,8 @@
         // Add Item modal
         // Stat block clicks
         document.getElementById('statTotal').addEventListener('click', () => {
+            showMainContent();
+            clearHash();
             dom.searchInput.value = '';
             dom.clearSearch.classList.remove('visible');
             selectedGames.clear();
@@ -1876,11 +1879,15 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         document.getElementById('statOwned').addEventListener('click', () => {
+            showMainContent();
+            clearHash();
             dom.filterOwned.value = 'owned';
             renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         document.getElementById('statCompletion').addEventListener('click', () => {
+            showMainContent();
+            clearHash();
             dom.filterOwned.value = 'owned';
             renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1912,6 +1919,8 @@
             syncTimelineToSelectedGames();
             populateCategoryFilter();
             populateTypeFilter();
+            showMainContent();
+            clearHash();
             renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
