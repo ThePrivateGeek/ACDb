@@ -1403,8 +1403,14 @@
         document.querySelector('.main-content').style.display = 'none';
     }
 
-    async function showProfile(name) {
+    let profileFromLeaderboard = false;
+
+    async function showProfile(name, fromLeaderboard = false) {
         hideMainContent();
+        document.getElementById('leaderboardView').style.display = 'none';
+        profileFromLeaderboard = fromLeaderboard;
+        const backBtn = document.getElementById('profileBackBtn');
+        backBtn.textContent = fromLeaderboard ? 'Back to Leaderboard' : 'Back to Database';
         const profileView = document.getElementById('profileView');
         profileView.style.display = '';
         document.getElementById('profileName').textContent = 'Loading...';
@@ -1556,7 +1562,8 @@
         // Profile view
         if (hash.startsWith('profile/')) {
             const name = hash.replace('profile/', '');
-            showProfile(name);
+            const fromLB = document.getElementById('leaderboardView').style.display !== 'none';
+            showProfile(name, fromLB);
             return;
         }
 
@@ -1953,8 +1960,13 @@
 
         // Profile & Leaderboard back buttons
         document.getElementById('profileBackBtn').addEventListener('click', () => {
-            showMainContent();
-            clearHash();
+            if (profileFromLeaderboard) {
+                document.getElementById('profileView').style.display = 'none';
+                window.location.hash = 'leaderboard';
+            } else {
+                showMainContent();
+                clearHash();
+            }
         });
         document.getElementById('leaderboardBackBtn').addEventListener('click', () => {
             showMainContent();
