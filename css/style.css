@@ -786,6 +786,31 @@ body {
     margin-left: 0.25rem;
 }
 
+/* ---- Toast Notification ---- */
+#acdb-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--bg-card);
+    border: 1px solid var(--mint);
+    color: var(--mint);
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#acdb-toast.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
 /* ---- Celebration Toast ---- */
 #acdb-celebration {
     position: fixed;
