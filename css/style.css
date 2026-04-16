@@ -1838,6 +1838,221 @@ body {
     opacity: 0.6;
 }
 
+/* ---- Share Button ---- */
+.share-btn {
+    border-color: var(--owned-green);
+    color: var(--owned-green);
+}
+
+.share-btn:hover {
+    border-color: var(--owned-glow);
+    color: var(--owned-glow);
+}
+
+/* ---- Share Modal ---- */
+.share-modal {
+    max-width: 480px;
+}
+
+.share-modal-content {
+    padding: 2rem;
+}
+
+.share-preview {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.share-preview-stat {
+    text-align: center;
+}
+
+.share-preview-stat .stat-number {
+    font-size: 1.3rem;
+}
+
+.share-success {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.share-success p {
+    color: var(--owned-green);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.share-url-box {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.share-url-box input {
+    flex: 1;
+    padding: 0.6rem 0.75rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.share-url-box input:focus {
+    outline: none;
+}
+
+#shareNameStatus {
+    min-height: 1.2em;
+}
+
+/* ---- Profile View ---- */
+#profileView,
+#leaderboardView {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 4rem;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-info h2 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.profile-stats span::before {
+    margin-right: 0.3rem;
+}
+
+/* ---- Leaderboard ---- */
+.leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.leaderboard-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--accent);
+}
+
+.leaderboard-table-wrap {
+    overflow-x: auto;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+}
+
+.leaderboard-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    color: var(--accent);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--border);
+}
+
+.leaderboard-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+.leaderboard-table tr:hover td {
+    background: var(--bg-card-hover);
+}
+
+.leaderboard-table .rank-col {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--text-muted);
+    width: 50px;
+}
+
+.leaderboard-table .rank-col.gold { color: #ffd700; }
+.leaderboard-table .rank-col.silver { color: #c0c0c0; }
+.leaderboard-table .rank-col.bronze { color: #cd7f32; }
+
+.leaderboard-table .name-col a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.leaderboard-table .name-col a:hover {
+    text-decoration: underline;
+}
+
+.leaderboard-table .count-col {
+    font-family: var(--font-mono);
+}
+
+.leaderboard-table .pct-col {
+    font-family: var(--font-mono);
+    color: var(--owned-green);
+}
+
+.leaderboard-table .date-col {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.leaderboard-cta {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.leaderboard-cta a {
+    color: var(--accent);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.leaderboard-cta a:hover {
+    text-decoration: underline;
+}
+
+.leaderboard-loading {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+}
+
 /* ---- Back to Top ---- */
 .back-to-top {
     position: fixed;

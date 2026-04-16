@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://api.acdb.workers.dev">
     <title>ACDb - Assassin's Creed Collector's Database | Track Your Collection</title>
     <meta name="description" content="Browse and track your Assassin's Creed collection. 300+ officially licensed collectibles — statues, figurines, collector's editions, art books, novels, comics, steelbooks, and more. Free, no account needed.">
     <meta name="keywords" content="Assassin's Creed, collector, database, collection tracker, statues, figurines, Funko Pop, art books, novels, comics, steelbooks, Ubisoft">
@@ -69,6 +69,10 @@
                     <button id="importBtn" class="collection-action-btn" title="Restore your collection from a previously exported JSON file">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                         <span>Import</span>
+                    </button>
+                    <button id="shareBtn" class="collection-action-btn share-btn" title="Share your collection with the community">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                        <span id="shareBtnText">Share</span>
                     </button>
                     <input type="file" id="importFile" accept=".json" style="display:none;">
                 </div>
@@ -409,6 +413,88 @@
         </div>
     </div>
 
+    <!-- Share Modal -->
+    <div class="modal-overlay" id="shareModalOverlay">
+        <div class="modal share-modal">
+            <button class="modal-close" id="shareModalClose">&times;</button>
+            <div class="share-modal-content">
+                <h2 class="add-modal-title">Share Your Collection</h2>
+                <p class="add-modal-subtitle">Let the community see what you've collected</p>
+                <div id="shareFormSection">
+                    <div class="form-row">
+                        <label for="shareDisplayName">Display Name *</label>
+                        <input type="text" id="shareDisplayName" placeholder="5-25 chars: letters, numbers, hyphens, underscores" maxlength="25">
+                        <span class="form-hint" id="shareNameStatus"></span>
+                    </div>
+                    <div class="share-preview">
+                        <div class="share-preview-stat">
+                            <span class="stat-number" id="sharePreviewOwned">0</span>
+                            <span class="stat-label">Items to Share</span>
+                        </div>
+                        <div class="share-preview-stat">
+                            <span class="stat-number" id="sharePreviewPct">0%</span>
+                            <span class="stat-label">Completion</span>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button id="shareCancel" class="btn-cancel">Cancel</button>
+                        <button id="shareSubmit" class="btn-save" disabled>Share Collection</button>
+                    </div>
+                </div>
+                <div id="shareSuccessSection" style="display:none;">
+                    <div class="share-success">
+                        <p>Your collection is live!</p>
+                        <div class="share-url-box">
+                            <input type="text" id="shareUrl" readonly>
+                            <button id="shareCopyUrl" class="btn-save">Copy</button>
+                        </div>
+                        <p class="form-hint">Share this link with friends or on social media.</p>
+                        <button id="shareDone" class="btn-save" style="margin-top:1rem;">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile View (rendered by JS) -->
+    <div id="profileView" style="display:none;">
+        <div class="profile-header">
+            <div class="profile-info">
+                <h2 id="profileName"></h2>
+                <div class="profile-stats">
+                    <span id="profileOwned"></span>
+                    <span id="profilePct"></span>
+                    <span id="profileUpdated"></span>
+                </div>
+            </div>
+            <button id="profileBackBtn" class="btn-cancel">Back to Database</button>
+        </div>
+        <div class="items-grid" id="profileItemsGrid"></div>
+    </div>
+
+    <!-- Leaderboard View (rendered by JS) -->
+    <div id="leaderboardView" style="display:none;">
+        <div class="leaderboard-header">
+            <h2>Collector's Leaderboard</h2>
+            <button id="leaderboardBackBtn" class="btn-cancel">Back to Database</button>
+        </div>
+        <div class="leaderboard-table-wrap">
+            <table class="leaderboard-table" id="leaderboardTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Collector</th>
+                        <th>Items Owned</th>
+                        <th>Completion</th>
+                        <th>Last Updated</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardBody"></tbody>
+            </table>
+        </div>
+        <p class="leaderboard-cta" id="leaderboardCta"></p>
+    </div>
+
     <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-inner">
@@ -417,6 +503,7 @@
             <p class="footer-disclaimer">Assassin's Creed and all related images and trademarks are property of Ubisoft Entertainment.</p>
             <p class="footer-disclaimer">All collection data stays in your browser. Anonymous visitor analytics by Cloudflare (no cookies).</p>
             <p class="footer-feedback">Found a bug, missing item, or have a suggestion? <a href="https://github.com/ThePrivateGeek/ACDb/issues" target="_blank" rel="noopener">Leave feedback on GitHub</a></p>
+            <p class="footer-feedback"><a href="#leaderboard">View the Collector's Leaderboard</a></p>
             <p class="footer-meta">&copy; 2026 ACDb &middot; v1.3 &middot; <span id="footerItemCount">0</span> items</p>
         </div>
     </footer>

@@ -8,6 +8,9 @@
     // ---- State ----
     const STORAGE_KEY = 'acdb_collection';
     const FILTERS_KEY = 'acdb_filters';
+    const API_URL = 'https://api.acdb.workers.dev';
+    const SHARE_TOKEN_KEY = 'acdb_share_token';
+    const SHARE_NAME_KEY = 'acdb_share_name';
     const isAdmin = localStorage.getItem('acdb_admin') === 'true';
     let collection = loadCollection();
     let selectedGames = new Set();
@@ -1216,6 +1219,287 @@
         setTimeout(() => { toast.classList.remove('visible'); }, 2000);
     }
 
+    // ---- Sharing & Leaderboard ----
+    function getOwnedItemNames() {
+        return AC_DATABASE.filter(item => {
+            const data = getItemData(item.id);
+            return data.owned;
+        }).map(item => item.name);
+    }
+
+    function isShared() {
+        return !!localStorage.getItem(SHARE_TOKEN_KEY);
+    }
+
+    function updateShareButton() {
+        const text = document.getElementById('shareBtnText');
+        if (isShared()) {
+            text.textContent = 'Update';
+            document.getElementById('shareBtn').title = 'Update your shared collection';
+        }
+    }
+
+    function openShareModal() {
+        const overlay = document.getElementById('shareModalOverlay');
+        const formSection = document.getElementById('shareFormSection');
+        const successSection = document.getElementById('shareSuccessSection');
+        const nameInput = document.getElementById('shareDisplayName');
+        const submitBtn = document.getElementById('shareSubmit');
+
+        // Calculate preview stats
+        const owned = getOwnedItemNames();
+        document.getElementById('sharePreviewOwned').textContent = owned.length;
+        document.getElementById('sharePreviewPct').textContent = Math.round((owned.length / AC_DATABASE.length) * 100) + '%';
+
+        if (isShared()) {
+            // Update mode — skip name, go straight to update
+            performUpdate(owned);
+            return;
+        }
+
+        // Share mode — show form
+        formSection.style.display = '';
+        successSection.style.display = 'none';
+        nameInput.value = '';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Share Collection';
+        document.getElementById('shareNameStatus').textContent = '';
+
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        nameInput.focus();
+    }
+
+    function closeShareModal() {
+        document.getElementById('shareModalOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    let nameCheckTimer = null;
+    async function checkNameAvailability(name) {
+        const status = document.getElementById('shareNameStatus');
+        const submitBtn = document.getElementById('shareSubmit');
+
+        if (name.length < 5) {
+            status.textContent = name.length > 0 ? 'Minimum 5 characters' : '';
+            status.style.color = 'var(--text-muted)';
+            submitBtn.disabled = true;
+            return;
+        }
+        if (!/^[a-zA-Z0-9_-]{5,25}$/.test(name)) {
+            status.textContent = 'Only letters, numbers, hyphens, underscores';
+            status.style.color = 'var(--red)';
+            submitBtn.disabled = true;
+            return;
+        }
+
+        status.textContent = 'Checking...';
+        status.style.color = 'var(--text-muted)';
+
+        try {
+            const res = await fetch(`${API_URL}/check-name/${encodeURIComponent(name)}`);
+            const data = await res.json();
+            if (data.available) {
+                status.textContent = 'Available!';
+                status.style.color = 'var(--owned-green)';
+                submitBtn.disabled = false;
+            } else {
+                status.textContent = 'Already taken';
+                status.style.color = 'var(--red)';
+                submitBtn.disabled = true;
+            }
+        } catch {
+            status.textContent = 'Could not check. Try again.';
+            status.style.color = 'var(--red)';
+            submitBtn.disabled = true;
+        }
+    }
+
+    async function performShare() {
+        const nameInput = document.getElementById('shareDisplayName');
+        const submitBtn = document.getElementById('shareSubmit');
+        const displayName = nameInput.value.trim();
+        const owned = getOwnedItemNames();
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sharing...';
+
+        try {
+            const res = await fetch(`${API_URL}/share`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ displayName, ownedItems: owned })
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                localStorage.setItem(SHARE_TOKEN_KEY, data.token);
+                localStorage.setItem(SHARE_NAME_KEY, data.displayName);
+
+                // Show success
+                document.getElementById('shareFormSection').style.display = 'none';
+                document.getElementById('shareSuccessSection').style.display = '';
+                document.getElementById('shareUrl').value = data.shareUrl;
+                updateShareButton();
+            } else {
+                showToast(data.error || 'Share failed');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Share Collection';
+            }
+        } catch {
+            showToast('Network error. Try again.');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Share Collection';
+        }
+    }
+
+    async function performUpdate(owned) {
+        const token = localStorage.getItem(SHARE_TOKEN_KEY);
+        if (!token) return;
+
+        showToast('Updating...');
+        try {
+            const res = await fetch(`${API_URL}/update`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                },
+                body: JSON.stringify({ ownedItems: owned })
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                showToast(`Collection updated! ${data.ownedCount} items shared.`);
+            } else {
+                showToast(data.error || 'Update failed');
+            }
+        } catch {
+            showToast('Network error. Try again.');
+        }
+    }
+
+    // ---- Profile View ----
+    function showMainContent() {
+        document.querySelector('.toolbar').style.display = '';
+        document.querySelector('.game-timeline').style.display = '';
+        document.querySelector('.stats-dashboard').style.display = '';
+        document.querySelector('.main-content').style.display = '';
+        document.getElementById('profileView').style.display = 'none';
+        document.getElementById('leaderboardView').style.display = 'none';
+    }
+
+    function hideMainContent() {
+        document.querySelector('.toolbar').style.display = 'none';
+        document.querySelector('.game-timeline').style.display = 'none';
+        document.querySelector('.stats-dashboard').style.display = 'none';
+        document.querySelector('.main-content').style.display = 'none';
+    }
+
+    async function showProfile(name) {
+        hideMainContent();
+        const profileView = document.getElementById('profileView');
+        profileView.style.display = '';
+        document.getElementById('profileName').textContent = 'Loading...';
+        document.getElementById('profileOwned').textContent = '';
+        document.getElementById('profilePct').textContent = '';
+        document.getElementById('profileUpdated').textContent = '';
+        document.getElementById('profileItemsGrid').innerHTML = '';
+
+        try {
+            const res = await fetch(`${API_URL}/profile/${encodeURIComponent(name)}`);
+            if (!res.ok) {
+                document.getElementById('profileName').textContent = 'Profile not found';
+                return;
+            }
+            const data = await res.json();
+            const pct = Math.round((data.ownedCount / AC_DATABASE.length) * 100);
+            const updated = new Date(data.lastUpdated).toLocaleDateString();
+
+            document.getElementById('profileName').textContent = data.displayName;
+            document.getElementById('profileOwned').textContent = `${data.ownedCount} items owned`;
+            document.getElementById('profilePct').textContent = `${pct}% complete`;
+            document.getElementById('profileUpdated').textContent = `Updated ${updated}`;
+
+            // Render owned items as cards
+            const grid = document.getElementById('profileItemsGrid');
+            const fragment = document.createDocumentFragment();
+            data.ownedItems.forEach(itemName => {
+                const item = AC_DATABASE.find(i => i.name === itemName);
+                if (item) {
+                    const card = createCard(item);
+                    // Remove click handler for profile view cards
+                    card.style.pointerEvents = 'none';
+                    card.style.cursor = 'default';
+                    fragment.appendChild(card);
+                }
+            });
+            grid.appendChild(fragment);
+        } catch {
+            document.getElementById('profileName').textContent = 'Error loading profile';
+        }
+    }
+
+    // ---- Leaderboard View ----
+    async function showLeaderboard() {
+        hideMainContent();
+        const leaderboardView = document.getElementById('leaderboardView');
+        leaderboardView.style.display = '';
+        document.getElementById('leaderboardBody').innerHTML = '<tr><td colspan="5" class="leaderboard-loading">Loading leaderboard...</td></tr>';
+
+        const ctaEl = document.getElementById('leaderboardCta');
+        if (isShared()) {
+            const name = localStorage.getItem(SHARE_NAME_KEY);
+            ctaEl.innerHTML = `You're on the board as <a href="#profile/${name.toLowerCase()}">${name}</a>`;
+        } else {
+            ctaEl.innerHTML = 'Want to join? <a id="leaderboardShareLink">Share your collection</a> to appear on the leaderboard!';
+        }
+
+        try {
+            const res = await fetch(`${API_URL}/leaderboard`);
+            const data = await res.json();
+            const tbody = document.getElementById('leaderboardBody');
+            tbody.innerHTML = '';
+
+            if (data.profiles.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="leaderboard-loading">No collectors yet. Be the first!</td></tr>';
+                return;
+            }
+
+            data.profiles.forEach((profile, idx) => {
+                const rank = idx + 1;
+                const pct = Math.round((profile.ownedCount / AC_DATABASE.length) * 100);
+                const updated = new Date(profile.lastUpdated).toLocaleDateString();
+                const rankClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="rank-col ${rankClass}">${rank}</td>
+                    <td class="name-col"><a href="#profile/${profile.displayName.toLowerCase()}">${escapeHTML(profile.displayName)}</a></td>
+                    <td class="count-col">${profile.ownedCount}</td>
+                    <td class="pct-col">${pct}%</td>
+                    <td class="date-col">${updated}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Wire up the share link in CTA if not shared
+            if (!isShared()) {
+                const shareLink = document.getElementById('leaderboardShareLink');
+                if (shareLink) {
+                    shareLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showMainContent();
+                        clearHash();
+                        openShareModal();
+                    });
+                }
+            }
+        } catch {
+            document.getElementById('leaderboardBody').innerHTML = '<tr><td colspan="5" class="leaderboard-loading">Error loading leaderboard</td></tr>';
+        }
+    }
+
     // ---- URL Hash Routing ----
     function slugify(str) {
         return str.toLowerCase()
@@ -1249,7 +1533,7 @@
     function handleHash() {
         const hash = window.location.hash.slice(1);
         if (!hash) {
-            // Hash cleared (back button) — close modal if open
+            // Hash cleared (back button) — close modal if open, show main content
             if (dom.modalOverlay.classList.contains('active')) {
                 dom.modalOverlay.classList.remove('active');
                 document.body.style.overflow = '';
@@ -1258,8 +1542,25 @@
                 galleryImages = [];
                 galleryIndex = 0;
             }
+            showMainContent();
             return;
         }
+
+        // Profile view
+        if (hash.startsWith('profile/')) {
+            const name = hash.replace('profile/', '');
+            showProfile(name);
+            return;
+        }
+
+        // Leaderboard view
+        if (hash === 'leaderboard') {
+            showLeaderboard();
+            return;
+        }
+
+        // Item modal
+        showMainContent();
         const item = findItemBySlug(hash);
         if (item) openModal(item.id, true);
     }
@@ -1480,6 +1781,8 @@
                 const openDropdown = document.querySelector('.multi-select.open');
                 if (openDropdown) {
                     openDropdown.classList.remove('open');
+                } else if (document.getElementById('shareModalOverlay').classList.contains('active')) {
+                    closeShareModal();
                 } else if (dom.devToolOverlay.classList.contains('active')) {
                     closeDevTool();
                 } else if (dom.modalOverlay.classList.contains('active')) {
@@ -1613,6 +1916,36 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
+        // Share Collection
+        document.getElementById('shareBtn').addEventListener('click', openShareModal);
+        document.getElementById('shareModalClose').addEventListener('click', closeShareModal);
+        document.getElementById('shareCancel').addEventListener('click', closeShareModal);
+        document.getElementById('shareModalOverlay').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('shareModalOverlay')) closeShareModal();
+        });
+        document.getElementById('shareSubmit').addEventListener('click', performShare);
+        document.getElementById('shareDone').addEventListener('click', closeShareModal);
+        document.getElementById('shareCopyUrl').addEventListener('click', () => {
+            const urlInput = document.getElementById('shareUrl');
+            navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!'));
+        });
+
+        // Name availability check with debounce
+        document.getElementById('shareDisplayName').addEventListener('input', (e) => {
+            clearTimeout(nameCheckTimer);
+            nameCheckTimer = setTimeout(() => checkNameAvailability(e.target.value.trim()), 400);
+        });
+
+        // Profile & Leaderboard back buttons
+        document.getElementById('profileBackBtn').addEventListener('click', () => {
+            showMainContent();
+            clearHash();
+        });
+        document.getElementById('leaderboardBackBtn').addEventListener('click', () => {
+            showMainContent();
+            clearHash();
+        });
+
         // Dev Tool
         dom.addItemBtn.addEventListener('click', openDevTool);
         dom.devToolClose.addEventListener('click', closeDevTool);
@@ -1714,6 +2047,9 @@
         // Footer item count
         const footerCount = document.getElementById('footerItemCount');
         if (footerCount) footerCount.textContent = AC_DATABASE.length;
+
+        // Share button state
+        updateShareButton();
 
         // Open item from URL hash if present
         handleHash();
