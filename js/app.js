@@ -1254,6 +1254,11 @@
         const owned = getOwnedItemNames();
         const pct = Math.round((owned.length / AC_DATABASE.length) * 100) + '%';
 
+        if (!isShared() && owned.length === 0) {
+            showToast('Mark some items as owned before sharing!');
+            return;
+        }
+
         if (isShared()) {
             // Manage mode — show update + delete options
             formSection.style.display = 'none';
