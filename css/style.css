@@ -2218,10 +2218,13 @@ body {
     .header-inner {
         flex-direction: column;
         gap: 0.5rem;
+        padding-right: 0;
     }
 
     .header-stats {
-        gap: 1.5rem;
+        width: 100%;
+        justify-content: center;
+        gap: 1rem;
     }
 
     .collection-action-btn span {
@@ -2229,7 +2232,9 @@ body {
     }
 
     .collection-actions {
-        padding-left: 1rem;
+        padding-left: 0.75rem;
+        margin-left: auto;
+        gap: 0.3rem;
     }
 
     .toolbar {
@@ -2599,6 +2604,14 @@ body {
 
     .stat-number {
         font-size: 1.2rem;
+    }
+
+    .header-stats {
+        gap: 0.5rem;
+    }
+
+    .collection-actions {
+        padding-left: 0.5rem;
     }
 
     .items-grid {
