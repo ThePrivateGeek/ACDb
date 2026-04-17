@@ -279,7 +279,7 @@ const AC_IMAGES = {
     "Assassin's Creed Mirage: Daughter of No One":                         "images/novels/ac-daughter-of-no-one.jpg",
     "Assassin's Creed: Fragments - The Highlands Children":                "images/novels/ac-fragments-highlands-children.jpg",
     "Assassin's Creed: La Route de la Soie (The Silk Road)":               "images/novels/ac-silk-road.jpg",
-    "Assassin's Creed - Escape Room Puzzle Book":   "                       images/novels/ac-escape-room-puzzle-book.jpg",
+    "Assassin's Creed - Escape Room Puzzle Book":                          "images/novels/ac-escape-room-puzzle-book.jpg",
 
     // ── Comic Books ──
     "Assassin's Creed: The Chain":                                         "images/comics/ac-the-chain.jpg",
