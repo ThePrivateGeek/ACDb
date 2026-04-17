@@ -1530,7 +1530,13 @@
             const name = localStorage.getItem(SHARE_NAME_KEY);
             ctaEl.innerHTML = `You're on the board as <a href="#profile/${name.toLowerCase()}">${name}</a>`;
         } else {
-            ctaEl.innerHTML = 'Want to join? <a id="leaderboardShareLink">Share your collection</a> to appear on the leaderboard!';
+            ctaEl.innerHTML = 'Want to join? <a href="#" id="leaderboardShareLink">Share your collection</a> to appear on the leaderboard!';
+            document.getElementById('leaderboardShareLink').addEventListener('click', (e) => {
+                e.preventDefault();
+                showMainContent();
+                clearHash();
+                openShareModal();
+            });
         }
 
         try {
@@ -1561,18 +1567,6 @@
                 tbody.appendChild(tr);
             });
 
-            // Wire up the share link in CTA if not shared
-            if (!isShared()) {
-                const shareLink = document.getElementById('leaderboardShareLink');
-                if (shareLink) {
-                    shareLink.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        showMainContent();
-                        clearHash();
-                        openShareModal();
-                    });
-                }
-            }
         } catch {
             document.getElementById('leaderboardBody').innerHTML = '<tr><td colspan="5" class="leaderboard-loading">Error loading leaderboard</td></tr>';
         }
