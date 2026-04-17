@@ -22,14 +22,9 @@
         const data = A.getItemData(id);
         const dom = A.dom;
 
-        // Build gallery images
-        galleryImages = [];
+        // Build gallery images — item.image is always an array (produced by tools/build-images.py)
         galleryIndex = 0;
-
-        if (item.image) {
-            galleryImages.push(item.image);
-            probeAdditionalImages(item.image);
-        }
+        galleryImages = Array.isArray(item.image) ? [...item.image] : [];
 
         renderGalleryImage();
 
@@ -73,39 +68,6 @@
     }
 
     // ---- Gallery ----
-    function probeAdditionalImages(basePath) {
-        const dotIdx = basePath.lastIndexOf('.');
-        if (dotIdx === -1) return;
-
-        const stem = basePath.substring(0, dotIdx);
-        const ext = basePath.substring(dotIdx);
-
-        let index = 1;
-        const MAX = 20;
-
-        function tryNext() {
-            if (index > MAX) {
-                updateGalleryUI();
-                return;
-            }
-            const suffix = String(index).padStart(2, '0');
-            const testPath = `${stem}_${suffix}${ext}`;
-            const img = new Image();
-            img.onload = function () {
-                galleryImages.push(testPath);
-                index++;
-                updateGalleryUI();
-                tryNext();
-            };
-            img.onerror = function () {
-                updateGalleryUI();
-            };
-            img.src = testPath;
-        }
-
-        tryNext();
-    }
-
     function renderGalleryImage(direction) {
         const dom = A.dom;
         const modal = document.getElementById('itemModal');

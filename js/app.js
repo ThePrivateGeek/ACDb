@@ -495,8 +495,9 @@ window.ACDB = window.ACDB || {};
             ? `<span class="card-condition condition-${data.condition}">${formatCondition(data.condition)}</span>`
             : '';
 
-        const imageHTML = item.image
-            ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.name)}" loading="lazy">
+        const thumbPath = Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : null;
+        const imageHTML = thumbPath
+            ? `<img src="${escapeHTML(thumbPath)}" alt="${escapeHTML(item.name)}" loading="lazy">
                <svg viewBox="0 0 100 100" class="placeholder-icon" style="display:none;">
                    <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/>
                </svg>`
