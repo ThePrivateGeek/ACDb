@@ -2,21 +2,34 @@
 // Handles collection sharing and leaderboard
 // KV Binding: ACDB
 
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': 'https://acdb.theprivategeek.com',
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-  'Content-Type': 'application/json'
-};
+const ALLOWED_ORIGINS = [
+  'https://acdb.theprivategeek.com',
+  'http://localhost',
+  'http://127.0.0.1'
+];
+
+function getCorsHeaders(request) {
+  const origin = request.headers.get('Origin') || '';
+  const allowed = ALLOWED_ORIGINS.some(o => origin === o || origin.startsWith(o + ':'));
+  return {
+    'Access-Control-Allow-Origin': allowed ? origin : ALLOWED_ORIGINS[0],
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    'Content-Type': 'application/json'
+  };
+}
+
+// These get set per-request in fetch()
+let corsHeaders = {};
 
 // Handle CORS preflight
 function handleOptions() {
-  return new Response(null, { status: 204, headers: CORS_HEADERS });
+  return new Response(null, { status: 204, headers: corsHeaders });
 }
 
 // JSON response helper
 function json(data, status = 200) {
-  return new Response(JSON.stringify(data), { status, headers: CORS_HEADERS });
+  return new Response(JSON.stringify(data), { status, headers: corsHeaders });
 }
 
 // Generate a random token
@@ -42,6 +55,7 @@ async function checkRateLimit(env, ip) {
 
 export default {
   async fetch(request, env) {
+    corsHeaders = getCorsHeaders(request);
     if (request.method === 'OPTIONS') return handleOptions();
 
     const url = new URL(request.url);

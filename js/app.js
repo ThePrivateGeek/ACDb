@@ -2,6 +2,9 @@
    ACDb - Application Logic
    ============================================ */
 
+// ---- Shared Namespace ----
+window.ACDB = window.ACDB || {};
+
 (function () {
     'use strict';
 
@@ -17,11 +20,7 @@
     let selectedCategories = new Set();
     let selectedTypes = new Set();
     let statsSortMode = 'percent'; // 'percent' or 'count'
-    let currentItemId = null;
-
-    // Gallery state
-    let galleryImages = [];
-    let galleryIndex = 0;
+    // currentItemId, galleryImages, galleryIndex — owned by modal.js
 
     // Short game names (shared between timeline and stats)
     const SHORT_GAME_NAMES = {
@@ -548,399 +547,25 @@
         return card;
     }
 
-    function formatCondition(condition) {
-        const map = {
-            'mint': 'Mint',
-            'near-mint': 'Near Mint',
-            'excellent': 'Excellent',
-            'good': 'Good',
-            'fair': 'Fair',
-            'poor': 'Poor'
-        };
-        return map[condition] || condition;
-    }
+    // formatCondition — moved to utils.js
+    const formatCondition = ACDB.formatCondition;
 
     // ---- Stats ----
-    function updateStats() {
-        const total = AC_DATABASE.length;
-        let owned = 0;
-        let totalValue = 0;
-        AC_DATABASE.forEach(item => {
-            const data = getItemData(item.id);
-            if (data.owned) {
-                owned++;
-                if (data.pricePaid) totalValue += parseFloat(data.pricePaid) || 0;
-            }
-        });
-        const percent = total > 0 ? Math.round((owned / total) * 100) : 0;
+    // updateStats — moved to stats.js
+    const updateStats = ACDB.updateStats;
 
-        dom.totalItems.textContent = total;
-        dom.ownedItems.textContent = owned;
-        dom.completionPercent.textContent = percent + '%';
+    // ---- Modal, Gallery, Lightbox — moved to modal.js ----
+    const openModal = ACDB.openModal;
+    const closeModal = ACDB.closeModal;
+    const saveModalData = ACDB.saveModalData;
+    const galleryPrev = ACDB.galleryPrev;
+    const galleryNext = ACDB.galleryNext;
+    const lightbox = ACDB.lightbox;
 
-        // Update dashboard if open
-        if (dom.statsDashboard.classList.contains('open')) {
-            renderStatsDashboard(AC_DATABASE);
-        }
-    }
-
-    // ---- Modal ----
-    function openModal(id, fromHash) {
-        const item = AC_DATABASE.find(i => i.id === id);
-        if (!item) return;
-
-        if (!fromHash) setHash(item);
-        currentItemId = id;
-        const data = getItemData(id);
-
-        // Build gallery images
-        galleryImages = [];
-        galleryIndex = 0;
-
-        if (item.image) {
-            galleryImages.push(item.image);
-            // Probe for additional images: base_01.ext, base_02.ext, ...
-            probeAdditionalImages(item.image);
-        }
-
-        renderGalleryImage();
-
-        dom.modalBadge.textContent = item.category;
-        const badgeType = document.getElementById('modalBadgeType');
-        if (item.type && item.type !== item.category) {
-            badgeType.textContent = item.type;
-            badgeType.style.display = '';
-        } else {
-            badgeType.style.display = 'none';
-        }
-        dom.modalTitle.textContent = item.name;
-        dom.modalGame.textContent = item.game;
-        dom.modalYear.textContent = item.year;
-        dom.modalDescription.textContent = item.description;
-        dom.modalContents.textContent = item.contents || 'N/A';
-
-        // Collection controls
-        dom.modalOwned.checked = data.owned;
-        dom.modalWishlist.checked = data.wishlist;
-        dom.modalHasBox.checked = data.hasBox;
-        dom.modalCondition.value = data.condition || '';
-        dom.modalCopies.value = data.copies || 0;
-        dom.modalPricePaid.value = data.pricePaid || '';
-        dom.modalAcquiredDate.value = data.acquiredDate || '';
-        dom.modalNotes.value = data.notes || '';
-
-        dom.modalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        dom.modalOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-        document.getElementById('itemModal').classList.remove('landscape');
-        currentItemId = null;
-        galleryImages = [];
-        galleryIndex = 0;
-        clearHash();
-    }
-
-    // ---- Gallery ----
-    function probeAdditionalImages(basePath) {
-        // basePath: "images/collectors-editions/ac1-limited-edition.jpg"
-        // Probe for: ac1-limited-edition_01.jpg, _02.jpg, ... up to _20
-        const dotIdx = basePath.lastIndexOf('.');
-        if (dotIdx === -1) return;
-
-        const stem = basePath.substring(0, dotIdx);    // everything before .ext
-        const ext = basePath.substring(dotIdx);         // .jpg / .png
-
-        let index = 1;
-        const MAX = 20;
-
-        function tryNext() {
-            if (index > MAX) {
-                updateGalleryUI();
-                return;
-            }
-            const suffix = String(index).padStart(2, '0');
-            const testPath = `${stem}_${suffix}${ext}`;
-            const img = new Image();
-            img.onload = function () {
-                galleryImages.push(testPath);
-                index++;
-                updateGalleryUI();
-                tryNext();
-            };
-            img.onerror = function () {
-                // No more images — stop probing
-                updateGalleryUI();
-            };
-            img.src = testPath;
-        }
-
-        tryNext();
-    }
-
-    function renderGalleryImage(direction) {
-        const modal = document.getElementById('itemModal');
-
-        if (galleryImages.length === 0) {
-            dom.modalImage.innerHTML = '<svg viewBox="0 0 100 100" class="placeholder-icon"><path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/></svg>';
-            modal.classList.remove('landscape');
-        } else {
-            const src = galleryImages[galleryIndex];
-            const img = document.createElement('img');
-            img.alt = 'Image ' + (galleryIndex + 1);
-            if (direction === 'right') img.classList.add('slide-right');
-            img.style.opacity = '0';
-            img.onload = function () {
-                modal.classList.toggle('landscape', img.naturalWidth > img.naturalHeight);
-                requestAnimationFrame(() => { img.style.opacity = ''; });
-            };
-            img.src = src;
-            img.onerror = function () {
-                dom.modalImage.innerHTML = '<svg viewBox="0 0 100 100" class="placeholder-icon"><path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/></svg>';
-            };
-            img.style.cursor = 'zoom-in';
-            img.addEventListener('click', (e) => {
-                e.stopPropagation();
-                openLightbox();
-            });
-            dom.modalImage.innerHTML = '';
-            dom.modalImage.appendChild(img);
-        }
-
-        updateGalleryUI();
-    }
-
-    function updateGalleryUI() {
-        const count = galleryImages.length;
-        const hasMultiple = count > 1;
-
-        // Prev / Next arrows
-        dom.galleryPrev.classList.toggle('visible', hasMultiple);
-        dom.galleryNext.classList.toggle('visible', hasMultiple);
-
-        // Counter "2 / 5"
-        if (hasMultiple) {
-            dom.galleryCounter.textContent = `${galleryIndex + 1} / ${count}`;
-            dom.galleryCounter.classList.add('visible');
-        } else {
-            dom.galleryCounter.classList.remove('visible');
-        }
-
-        // Dots
-        if (hasMultiple) {
-            dom.galleryDots.classList.add('visible');
-            dom.galleryDots.innerHTML = '';
-            for (let i = 0; i < count; i++) {
-                const dot = document.createElement('button');
-                dot.className = 'gallery-dot' + (i === galleryIndex ? ' active' : '');
-                dot.addEventListener('click', () => galleryGoTo(i));
-                dom.galleryDots.appendChild(dot);
-            }
-        } else {
-            dom.galleryDots.classList.remove('visible');
-            dom.galleryDots.innerHTML = '';
-        }
-    }
-
-    function galleryGoTo(idx, direction) {
-        if (idx < 0) idx = galleryImages.length - 1;
-        if (idx >= galleryImages.length) idx = 0;
-        const dir = direction || (idx > galleryIndex ? 'left' : 'right');
-        galleryIndex = idx;
-        renderGalleryImage(dir);
-    }
-
-    function galleryPrev() { galleryGoTo(galleryIndex - 1, 'right'); }
-    function galleryNext() { galleryGoTo(galleryIndex + 1, 'left'); }
-
-    // ---- Lightbox ----
-    const lightbox = {
-        overlay: null,
-        image: null,
-        counter: null,
-        init() {
-            this.overlay = document.getElementById('lightboxOverlay');
-            this.image = document.getElementById('lightboxImage');
-            this.counter = document.getElementById('lightboxCounter');
-
-            document.getElementById('lightboxClose').addEventListener('click', () => this.close());
-            this.overlay.addEventListener('click', (e) => {
-                if (e.target === this.overlay || e.target === this.overlay.querySelector('.lightbox-image-container')) this.close();
-            });
-            document.getElementById('lightboxPrev').addEventListener('click', (e) => { e.stopPropagation(); this.prev(); });
-            document.getElementById('lightboxNext').addEventListener('click', (e) => { e.stopPropagation(); this.next(); });
-
-            // Touch swipe in lightbox
-            let lbTouchX = 0;
-            this.overlay.addEventListener('touchstart', (e) => { lbTouchX = e.changedTouches[0].screenX; }, { passive: true });
-            this.overlay.addEventListener('touchend', (e) => {
-                if (galleryImages.length <= 1) return;
-                const diff = e.changedTouches[0].screenX - lbTouchX;
-                if (Math.abs(diff) > 50) {
-                    if (diff < 0) this.next();
-                    else this.prev();
-                }
-            });
-        },
-        open() {
-            this.render();
-            this.overlay.classList.add('active');
-        },
-        close() {
-            this.overlay.classList.remove('active');
-        },
-        render() {
-            this.image.src = galleryImages[galleryIndex];
-            this.image.alt = 'Image ' + (galleryIndex + 1);
-            const hasMultiple = galleryImages.length > 1;
-            document.getElementById('lightboxPrev').style.display = hasMultiple ? '' : 'none';
-            document.getElementById('lightboxNext').style.display = hasMultiple ? '' : 'none';
-            this.counter.textContent = hasMultiple ? `${galleryIndex + 1} / ${galleryImages.length}` : '';
-        },
-        prev() {
-            galleryGoTo(galleryIndex - 1, 'right');
-            this.render();
-        },
-        next() {
-            galleryGoTo(galleryIndex + 1, 'left');
-            this.render();
-        }
-    };
-
-    function openLightbox() {
-        if (galleryImages.length === 0) return;
-        lightbox.open();
-    }
-
-    function saveModalData() {
-        if (currentItemId === null) return;
-        const data = {
-            owned: dom.modalOwned.checked,
-            wishlist: dom.modalWishlist.checked,
-            hasBox: dom.modalHasBox.checked,
-            condition: dom.modalCondition.value,
-            copies: parseInt(dom.modalCopies.value) || 0,
-            pricePaid: dom.modalPricePaid.value,
-            acquiredDate: dom.modalAcquiredDate.value,
-            notes: dom.modalNotes.value
-        };
-        const wasOwned = getItemData(currentItemId).owned;
-        setItemData(currentItemId, data);
-        renderItems();
-        if (data.owned && !wasOwned) checkCompletionCelebration();
-    }
-
-    // ---- Dev Tool (Code Generator) ----
-    function openDevTool() {
-        // Populate game dropdown
-        const gameSelect = document.getElementById('devGame');
-        gameSelect.innerHTML = '<option value="">Select game...</option>';
-        getAllGameNames().forEach(g => {
-            const opt = document.createElement('option');
-            opt.value = g;
-            opt.textContent = g;
-            gameSelect.appendChild(opt);
-        });
-
-        // Populate type dropdown
-        const typeSelect = document.getElementById('devType');
-        typeSelect.innerHTML = '<option value="">Select type...</option>';
-        const types = [...new Set(AC_DATABASE.map(i => i.type).filter(Boolean))].sort();
-        types.forEach(t => {
-            const opt = document.createElement('option');
-            opt.value = t;
-            opt.textContent = t;
-            typeSelect.appendChild(opt);
-        });
-
-        // Clear form
-        document.getElementById('devName').value = '';
-        document.getElementById('devGame').value = '';
-        document.getElementById('devGame').style.display = '';
-        document.getElementById('devYear').value = '';
-        document.getElementById('devCategory').value = '';
-        document.getElementById('devType').value = '';
-        document.getElementById('devDescription').value = '';
-        document.getElementById('devContents').value = '';
-        document.getElementById('devImagePath').value = '';
-        document.getElementById('devNewGame').checked = false;
-        document.getElementById('devNewGameFields').style.display = 'none';
-        document.getElementById('devNewGameName').value = '';
-        document.getElementById('devNewGameShort').value = '';
-        document.getElementById('devCodeOutput').value = '';
-
-        dom.devToolOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        document.getElementById('devName').focus();
-    }
-
-    function closeDevTool() {
-        dom.devToolOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    function getAllGameNames() {
-        const gameOrder = [
-            "Assassin's Creed", "Assassin's Creed II", "Assassin's Creed Brotherhood",
-            "Assassin's Creed Revelations", "Assassin's Creed III", "Assassin's Creed III: Liberation",
-            "Assassin's Creed IV: Black Flag", "Assassin's Creed Rogue", "Assassin's Creed Unity",
-            "Assassin's Creed Chronicles: China", "Assassin's Creed Chronicles: India",
-            "Assassin's Creed Chronicles: Russia", "Assassin's Creed Syndicate",
-            "Assassin's Creed Origins", "Assassin's Creed Odyssey",
-            "Assassin's Creed Valhalla", "Assassin's Creed Mirage", "Assassin's Creed Shadows",
-            "Assassin's Creed (Movie)", "General"
-        ];
-        return gameOrder;
-    }
-
-    function generateCode() {
-        const name = document.getElementById('devName').value.trim();
-        const isNewGame = document.getElementById('devNewGame').checked;
-        const newGameName = document.getElementById('devNewGameName').value.trim();
-        const newGameShort = document.getElementById('devNewGameShort').value.trim();
-        const game = isNewGame ? newGameName : document.getElementById('devGame').value;
-        const year = document.getElementById('devYear').value;
-        const category = document.getElementById('devCategory').value;
-        const type = document.getElementById('devType').value;
-        const description = document.getElementById('devDescription').value.trim();
-        const contents = document.getElementById('devContents').value.trim();
-        const imagePath = document.getElementById('devImagePath').value.trim();
-
-        let code = '';
-
-        // database.js entry
-        code += '// database.js — add before the closing ];\n';
-        code += '  {\n';
-        code += `    "name": ${JSON.stringify(name || 'Item Name')},\n`;
-        code += `    "game": ${JSON.stringify(game || 'Game Name')},\n`;
-        code += `    "year": ${year || 2025},\n`;
-        code += `    "category": ${JSON.stringify(category || 'Category')},\n`;
-        code += `    "description": ${JSON.stringify(description)},\n`;
-        code += `    "contents": ${JSON.stringify(contents)},\n`;
-        code += `    "type": ${JSON.stringify(type || category || 'Type')}\n`;
-        code += '  },';
-
-        // images.js entry
-        if (imagePath) {
-            code += '\n\n// images.js — add before the closing };\n';
-            code += `    ${JSON.stringify(name || 'Item Name')}: ${JSON.stringify(imagePath)},`;
-        }
-
-        // New game code
-        if (isNewGame && newGameName) {
-            code += '\n\n// app.js — add to SHORT_GAME_NAMES object\n';
-            code += `    ${JSON.stringify(newGameName)}: ${JSON.stringify(newGameShort || newGameName)},`;
-            code += '\n\n// app.js — add to gameOrder array in initFilters()\n';
-            code += `    ${JSON.stringify(newGameName)},`;
-            code += '\n\n// app.js — add to getAllGameNames() in dev tool\n';
-            code += `    ${JSON.stringify(newGameName)},`;
-        }
-
-        document.getElementById('devCodeOutput').value = code;
-    }
-
+    // ---- Dev Tool — moved to devtool.js ----
+    const openDevTool = ACDB.openDevTool;
+    const closeDevTool = ACDB.closeDevTool;
+    const generateCode = ACDB.generateCode;
 
 
     // ---- Filter Persistence ----
@@ -984,613 +609,33 @@
         } catch { /* ignore corrupt data */ }
     }
 
-    // ---- Stats Dashboard ----
-    function shortenGameName(name) {
-        return SHORT_GAME_NAMES[name] || name;
-    }
-
-    function renderStatsDashboard(filtered) {
-        const items = filtered || getFilteredItems();
-
-        // By Game
-        const byGame = {};
-        const ownedByGame = {};
-        items.forEach(item => {
-            byGame[item.game] = (byGame[item.game] || 0) + 1;
-            const data = getItemData(item.id);
-            if (data.owned) ownedByGame[item.game] = (ownedByGame[item.game] || 0) + 1;
-        });
-        renderBars(dom.statsByGame, byGame, ownedByGame, shortenGameName);
-
-        // By Category
-        const byCat = {};
-        const ownedByCat = {};
-        items.forEach(item => {
-            byCat[item.category] = (byCat[item.category] || 0) + 1;
-            const data = getItemData(item.id);
-            if (data.owned) ownedByCat[item.category] = (ownedByCat[item.category] || 0) + 1;
-        });
-        renderBars(dom.statsByCategory, byCat, ownedByCat);
-
-        // By Condition (owned items only) — simple count list + total copies
-        const byCondition = {};
-        let ownedCount = 0;
-        let totalCopies = 0;
-        items.forEach(item => {
-            const data = getItemData(item.id);
-            if (data.owned) {
-                ownedCount++;
-                totalCopies += parseInt(data.copies) || 1;
-                if (data.condition) {
-                    const label = formatCondition(data.condition);
-                    byCondition[label] = (byCondition[label] || 0) + 1;
-                }
-            }
-        });
-        dom.statsByCondition.innerHTML = '';
-
-        // Total copies summary
-        if (ownedCount > 0) {
-            const summary = document.createElement('div');
-            summary.className = 'stats-bar-row';
-            summary.innerHTML = `
-                <span class="stats-bar-label" style="color:var(--accent)">Total Physical Items</span>
-                <span class="stats-bar-value" style="color:var(--accent)">${totalCopies}</span>
-            `;
-            dom.statsByCondition.appendChild(summary);
-        }
-
-        const conditionEntries = Object.entries(byCondition).sort((a, b) => b[1] - a[1]);
-        if (conditionEntries.length === 0 && ownedCount === 0) {
-            dom.statsByCondition.innerHTML = '<span class="stats-bar-value" style="text-align:left">No condition data yet</span>';
-        } else {
-            conditionEntries.forEach(([label, count]) => {
-                const row = document.createElement('div');
-                row.className = 'stats-bar-row';
-                row.innerHTML = `
-                    <span class="stats-bar-label">${label}</span>
-                    <span class="stats-bar-value">${count}</span>
-                `;
-                dom.statsByCondition.appendChild(row);
-            });
-        }
-    }
-
-    function renderBars(container, totals, owned, labelFn) {
-        container.innerHTML = '';
-        const sorted = Object.entries(totals).sort((a, b) => {
-            if (owned) {
-                if (statsSortMode === 'count') {
-                    // Sort by owned count (desc), then by total (desc)
-                    const countA = owned[a[0]] || 0;
-                    const countB = owned[b[0]] || 0;
-                    return countB - countA || b[1] - a[1];
-                }
-                // Sort by completion percentage (desc), then by total (desc)
-                const pctA = (owned[a[0]] || 0) / a[1];
-                const pctB = (owned[b[0]] || 0) / b[1];
-                return pctB - pctA || b[1] - a[1];
-            }
-            return b[1] - a[1];
-        });
-
-        sorted.forEach(([label, total]) => {
-            const ownedCount = owned ? (owned[label] || 0) : total;
-            const pct = owned ? Math.round((ownedCount / total) * 100) : 100;
-
-            const row = document.createElement('div');
-            row.className = 'stats-bar-row';
-            row.innerHTML = `
-                <span class="stats-bar-label" title="${label}">${labelFn ? labelFn(label) : label}</span>
-                <div class="stats-bar-track">
-                    <div class="stats-bar-fill green" style="width:${pct}%"></div>
-                </div>
-                <span class="stats-bar-value">${owned ? ownedCount + '/' + total + ' <span class="stats-bar-pct' + (pct === 100 ? ' complete' : '') + '">' + pct + '%</span>' : total}</span>
-                ${owned && pct === 100 ? '<span class="stats-complete-badge">&#10003;</span>' : ''}
-            `;
-            container.appendChild(row);
-        });
-    }
-
-    // ---- Collection Export / Import ----
-    function exportCollection() {
-        const exportData = [];
-        AC_DATABASE.forEach(item => {
-            const data = getItemData(item.id);
-            if (data.owned || data.wishlist || data.hasBox || data.condition || data.copies > 0 || data.notes || data.pricePaid || data.acquiredDate) {
-                exportData.push({
-                    name: item.name,
-                    game: item.game,
-                    owned: data.owned || false,
-                    wishlist: data.wishlist || false,
-                    hasBox: data.hasBox || false,
-                    condition: data.condition || '',
-                    copies: data.copies || 0,
-                    pricePaid: data.pricePaid || '',
-                    acquiredDate: data.acquiredDate || '',
-                    notes: data.notes || ''
-                });
-            }
-        });
-
-        const json = JSON.stringify(exportData, null, 2);
-        const blob = new Blob([json], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'acdb-collection-' + new Date().toISOString().slice(0, 10) + '.json';
-        a.click();
-        URL.revokeObjectURL(url);
-        showToast(`Exported ${exportData.length} items`);
-    }
-
-    function importCollection(file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            try {
-                const importData = JSON.parse(e.target.result);
-                if (!Array.isArray(importData)) throw new Error('Invalid format');
-
-                let matched = 0;
-                importData.forEach(entry => {
-                    // Match by name
-                    const item = AC_DATABASE.find(i => i.name === entry.name);
-                    if (item) {
-                        const data = {
-                            owned: entry.owned || false,
-                            wishlist: entry.wishlist || false,
-                            hasBox: entry.hasBox || false,
-                            condition: entry.condition || '',
-                            copies: entry.copies || 0,
-                            pricePaid: entry.pricePaid || '',
-                            acquiredDate: entry.acquiredDate || '',
-                            notes: entry.notes || ''
-                        };
-                        setItemData(item.id, data);
-                        matched++;
-                    }
-                });
-
-                renderItems();
-                showToast(`Imported ${matched} of ${importData.length} items`);
-            } catch (err) {
-                showToast('Import failed — invalid file');
-            }
-        };
-        reader.readAsText(file);
-    }
-
-    function launchConfetti() {
-        const colors = ['#c9a84c', '#d4b85a', '#27ae60', '#2ecc71', '#fff'];
-        const container = document.createElement('div');
-        container.className = 'confetti-container';
-        document.body.appendChild(container);
-
-        for (let i = 0; i < 60; i++) {
-            const piece = document.createElement('div');
-            piece.className = 'confetti-piece';
-            piece.style.left = Math.random() * 100 + '%';
-            piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            piece.style.animationDelay = Math.random() * 0.5 + 's';
-            piece.style.animationDuration = (1.5 + Math.random() * 1.5) + 's';
-            piece.style.width = (4 + Math.random() * 6) + 'px';
-            piece.style.height = (4 + Math.random() * 6) + 'px';
-            container.appendChild(piece);
-        }
-
-        setTimeout(() => container.remove(), 3500);
-    }
-
-    function checkCompletionCelebration() {
-        if (currentItemId === null) return;
-        const item = AC_DATABASE.find(i => i.id === currentItemId);
-        if (!item) return;
-        const data = getItemData(currentItemId);
-        if (!data.owned) return;
-
-        // Check if this item's game is now 100%
-        const gameItems = AC_DATABASE.filter(i => i.game === item.game);
-        const gameOwned = gameItems.filter(i => getItemData(i.id).owned).length;
-        if (gameOwned === gameItems.length) {
-            launchConfetti();
-            showCelebration(`${SHORT_GAME_NAMES[item.game] || item.game} — 100% complete!`);
-            return;
-        }
-
-        // Check if this item's category is now 100%
-        const catItems = AC_DATABASE.filter(i => i.category === item.category);
-        const catOwned = catItems.filter(i => getItemData(i.id).owned).length;
-        if (catOwned === catItems.length) {
-            launchConfetti();
-            showCelebration(`${item.category} — 100% complete!`);
-        }
-    }
-
-    function showCelebration(message) {
-        let el = document.getElementById('acdb-celebration');
-        if (!el) {
-            el = document.createElement('div');
-            el.id = 'acdb-celebration';
-            document.body.appendChild(el);
-        }
-        el.textContent = message;
-        el.classList.add('visible');
-        setTimeout(() => { el.classList.remove('visible'); }, 3000);
-    }
-
-    function showToast(message) {
-        let toast = document.getElementById('acdb-toast');
-        if (!toast) {
-            toast = document.createElement('div');
-            toast.id = 'acdb-toast';
-            document.body.appendChild(toast);
-        }
-        toast.textContent = message;
-        toast.classList.add('visible');
-        setTimeout(() => { toast.classList.remove('visible'); }, 2000);
-    }
-
-    // ---- Sharing & Leaderboard ----
-    function getOwnedItemNames() {
-        return AC_DATABASE.filter(item => {
-            const data = getItemData(item.id);
-            return data.owned;
-        }).map(item => item.name);
-    }
-
-    function isShared() {
-        return !!localStorage.getItem(SHARE_TOKEN_KEY);
-    }
-
-    function updateShareButton() {
-        const text = document.getElementById('shareBtnText');
-        if (isShared()) {
-            text.textContent = 'Update';
-            document.getElementById('shareBtn').title = 'Update your shared collection';
-        } else {
-            text.textContent = 'Share';
-            document.getElementById('shareBtn').title = 'Share your collection with the community';
-        }
-    }
-
-    function openShareModal() {
-        const overlay = document.getElementById('shareModalOverlay');
-        const formSection = document.getElementById('shareFormSection');
-        const manageSection = document.getElementById('shareManageSection');
-        const successSection = document.getElementById('shareSuccessSection');
-        const nameInput = document.getElementById('shareDisplayName');
-        const submitBtn = document.getElementById('shareSubmit');
-
-        // Calculate preview stats
-        const owned = getOwnedItemNames();
-        const pct = Math.round((owned.length / AC_DATABASE.length) * 100) + '%';
-
-        if (!isShared() && owned.length === 0) {
-            showToast('Mark some items as owned before sharing!');
-            return;
-        }
-
-        if (isShared()) {
-            // Manage mode — show update + delete options
-            formSection.style.display = 'none';
-            successSection.style.display = 'none';
-            manageSection.style.display = '';
-            const name = localStorage.getItem(SHARE_NAME_KEY);
-            document.getElementById('shareManageName').textContent = name;
-            document.getElementById('shareManageOwned').textContent = owned.length;
-            document.getElementById('shareManagePct').textContent = pct;
-            document.getElementById('shareManageUrl').value = `https://acdb.theprivategeek.com/#profile/${name.toLowerCase()}`;
-            document.getElementById('shareUpdateBtn').disabled = false;
-            document.getElementById('shareUpdateBtn').textContent = 'Update Collection';
-            document.getElementById('shareDeleteBtn').disabled = false;
-            document.getElementById('shareDeleteBtn').textContent = 'Delete Profile';
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            return;
-        }
-
-        // Share mode — show form
-        document.getElementById('sharePreviewOwned').textContent = owned.length;
-        document.getElementById('sharePreviewPct').textContent = pct;
-        formSection.style.display = '';
-        manageSection.style.display = 'none';
-        successSection.style.display = 'none';
-        nameInput.value = '';
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Share Collection';
-        document.getElementById('shareNameStatus').textContent = '';
-
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        nameInput.focus();
-    }
-
-    function closeShareModal() {
-        document.getElementById('shareModalOverlay').classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    let nameCheckTimer = null;
-    async function checkNameAvailability(name) {
-        const status = document.getElementById('shareNameStatus');
-        const submitBtn = document.getElementById('shareSubmit');
-
-        if (name.length < 5) {
-            status.textContent = name.length > 0 ? 'Minimum 5 characters' : '';
-            status.style.color = 'var(--text-muted)';
-            submitBtn.disabled = true;
-            return;
-        }
-        if (!/^[a-zA-Z0-9_-]{5,25}$/.test(name)) {
-            status.textContent = 'Only letters, numbers, hyphens, underscores';
-            status.style.color = 'var(--red)';
-            submitBtn.disabled = true;
-            return;
-        }
-
-        status.textContent = 'Checking...';
-        status.style.color = 'var(--text-muted)';
-
-        try {
-            const res = await fetch(`${API_URL}/check-name/${encodeURIComponent(name)}`);
-            const data = await res.json();
-            if (data.available) {
-                status.textContent = 'Available!';
-                status.style.color = 'var(--owned-green)';
-                submitBtn.disabled = false;
-            } else {
-                status.textContent = 'Already taken';
-                status.style.color = 'var(--red)';
-                submitBtn.disabled = true;
-            }
-        } catch {
-            status.textContent = 'Could not check. Try again.';
-            status.style.color = 'var(--red)';
-            submitBtn.disabled = true;
-        }
-    }
-
-    async function performShare() {
-        const nameInput = document.getElementById('shareDisplayName');
-        const submitBtn = document.getElementById('shareSubmit');
-        const displayName = nameInput.value.trim();
-
-        if (!displayName || displayName.length < 5) {
-            showToast('Please enter a valid display name');
-            return;
-        }
-
-        const owned = getOwnedItemNames();
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sharing...';
-
-        try {
-            const res = await fetch(`${API_URL}/share`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ displayName, ownedItems: owned })
-            });
-            const data = await res.json();
-
-            if (data.success) {
-                localStorage.setItem(SHARE_TOKEN_KEY, data.token);
-                localStorage.setItem(SHARE_NAME_KEY, data.displayName);
-
-                // Show success
-                document.getElementById('shareFormSection').style.display = 'none';
-                document.getElementById('shareSuccessSection').style.display = '';
-                document.getElementById('shareUrl').value = data.shareUrl;
-                updateShareButton();
-                showToast('Collection shared successfully!');
-            } else {
-                showToast(data.error || 'Share failed');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Share Collection';
-            }
-        } catch (err) {
-            showToast('Error: ' + (err.message || 'Network error'));
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Share Collection';
-        }
-    }
-
-    async function performUpdate(owned) {
-        const token = localStorage.getItem(SHARE_TOKEN_KEY);
-        if (!token) return;
-
-        const updateBtn = document.getElementById('shareUpdateBtn');
-        updateBtn.disabled = true;
-        updateBtn.textContent = 'Updating...';
-
-        try {
-            const res = await fetch(`${API_URL}/update`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': token
-                },
-                body: JSON.stringify({ ownedItems: owned })
-            });
-            const data = await res.json();
-
-            if (data.success) {
-                closeShareModal();
-                showToast(`Collection updated! ${data.ownedCount} items shared.`);
-            } else {
-                showToast(data.error || 'Update failed');
-                updateBtn.disabled = false;
-                updateBtn.textContent = 'Update Collection';
-            }
-        } catch {
-            showToast('Network error. Try again.');
-            updateBtn.disabled = false;
-            updateBtn.textContent = 'Update Collection';
-        }
-    }
-
-    async function deleteProfile() {
-        const token = localStorage.getItem(SHARE_TOKEN_KEY);
-        if (!token) return;
-
-        const deleteBtn = document.getElementById('shareDeleteBtn');
-        deleteBtn.disabled = true;
-        deleteBtn.textContent = 'Deleting...';
-
-        try {
-            const res = await fetch(`${API_URL}/profile`, {
-                method: 'DELETE',
-                headers: { 'Authorization': token }
-            });
-            const data = await res.json();
-
-            if (data.success) {
-                localStorage.removeItem(SHARE_TOKEN_KEY);
-                localStorage.removeItem(SHARE_NAME_KEY);
-                updateShareButton();
-                closeShareModal();
-                showToast('Profile deleted.');
-            } else {
-                showToast(data.error || 'Delete failed');
-                deleteBtn.disabled = false;
-                deleteBtn.textContent = 'Delete Profile';
-            }
-        } catch {
-            showToast('Network error. Try again.');
-            deleteBtn.disabled = false;
-            deleteBtn.textContent = 'Delete Profile';
-        }
-    }
-
-    // ---- Profile View ----
-    function showMainContent() {
-        document.querySelector('.toolbar').style.display = '';
-        document.querySelector('.game-timeline').style.display = '';
-        document.querySelector('.stats-dashboard').style.display = '';
-        document.querySelector('.main-content').style.display = '';
-        document.getElementById('profileView').style.display = 'none';
-        document.getElementById('leaderboardView').style.display = 'none';
-    }
-
-    function hideMainContent() {
-        document.querySelector('.toolbar').style.display = 'none';
-        document.querySelector('.game-timeline').style.display = 'none';
-        document.querySelector('.stats-dashboard').style.display = 'none';
-        document.querySelector('.main-content').style.display = 'none';
-    }
-
-    let profileFromLeaderboard = false;
-
-    async function showProfile(name, fromLeaderboard = false) {
-        hideMainContent();
-        document.getElementById('leaderboardView').style.display = 'none';
-        profileFromLeaderboard = fromLeaderboard;
-        const backBtn = document.getElementById('profileBackBtn');
-        backBtn.textContent = fromLeaderboard ? 'Back to Leaderboard' : 'Back to Database';
-        const profileView = document.getElementById('profileView');
-        profileView.style.display = '';
-        document.getElementById('profileName').textContent = 'Loading...';
-        document.getElementById('profileOwned').textContent = '';
-        document.getElementById('profilePct').textContent = '';
-        document.getElementById('profileUpdated').textContent = '';
-        document.getElementById('profileItemsGrid').innerHTML = '';
-
-        try {
-            const res = await fetch(`${API_URL}/profile/${encodeURIComponent(name)}`);
-            if (!res.ok) {
-                document.getElementById('profileName').textContent = 'Profile not found';
-                return;
-            }
-            const data = await res.json();
-            const pct = Math.round((data.ownedCount / AC_DATABASE.length) * 100);
-            const updated = new Date(data.lastUpdated).toLocaleDateString();
-
-            document.getElementById('profileName').textContent = data.displayName;
-            document.getElementById('profileOwned').textContent = `${data.ownedCount} items owned`;
-            document.getElementById('profilePct').textContent = `${pct}% complete`;
-            document.getElementById('profileUpdated').textContent = `Updated ${updated}`;
-
-            // Render owned items as cards
-            const grid = document.getElementById('profileItemsGrid');
-            const fragment = document.createDocumentFragment();
-            data.ownedItems.forEach(itemName => {
-                const item = AC_DATABASE.find(i => i.name === itemName);
-                if (item) {
-                    const card = createCard(item);
-                    // Remove click handler for profile view cards
-                    card.style.pointerEvents = 'none';
-                    card.style.cursor = 'default';
-                    fragment.appendChild(card);
-                }
-            });
-            grid.appendChild(fragment);
-        } catch {
-            document.getElementById('profileName').textContent = 'Error loading profile';
-        }
-    }
-
-    // ---- Leaderboard View ----
-    async function showLeaderboard() {
-        hideMainContent();
-        document.getElementById('profileView').style.display = 'none';
-        const leaderboardView = document.getElementById('leaderboardView');
-        leaderboardView.style.display = '';
-        document.getElementById('leaderboardBody').innerHTML = '<tr><td colspan="5" class="leaderboard-loading">Loading leaderboard...</td></tr>';
-
-        const ctaEl = document.getElementById('leaderboardCta');
-        if (isShared()) {
-            const name = localStorage.getItem(SHARE_NAME_KEY);
-            ctaEl.innerHTML = `You're on the board as <a href="#profile/${name.toLowerCase()}">${name}</a>`;
-        } else {
-            ctaEl.innerHTML = 'Want to join? <a href="#" id="leaderboardShareLink">Share your collection</a> to appear on the leaderboard!';
-            document.getElementById('leaderboardShareLink').addEventListener('click', (e) => {
-                e.preventDefault();
-                showMainContent();
-                clearHash();
-                openShareModal();
-            });
-        }
-
-        try {
-            const res = await fetch(`${API_URL}/leaderboard`);
-            const data = await res.json();
-            const tbody = document.getElementById('leaderboardBody');
-            tbody.innerHTML = '';
-
-            if (data.profiles.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="5" class="leaderboard-loading">No collectors yet. Be the first!</td></tr>';
-                return;
-            }
-
-            data.profiles.forEach((profile, idx) => {
-                const rank = idx + 1;
-                const pct = Math.round((profile.ownedCount / AC_DATABASE.length) * 100);
-                const updated = new Date(profile.lastUpdated).toLocaleDateString();
-                const rankClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
-
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td class="rank-col ${rankClass}">${rank}</td>
-                    <td class="name-col"><a href="#profile/${profile.displayName.toLowerCase()}">${escapeHTML(profile.displayName)}</a></td>
-                    <td class="count-col">${profile.ownedCount}</td>
-                    <td class="pct-col">${pct}%</td>
-                    <td class="date-col">${updated}</td>
-                `;
-                tbody.appendChild(tr);
-            });
-
-        } catch {
-            document.getElementById('leaderboardBody').innerHTML = '<tr><td colspan="5" class="leaderboard-loading">Error loading leaderboard</td></tr>';
-        }
-    }
+    // ---- Stats Dashboard — moved to stats.js ----
+    const renderStatsDashboard = ACDB.renderStatsDashboard;
+
+    // ---- Collection Export / Import — moved to collection.js ----
+    const exportCollection = ACDB.exportCollection;
+    const importCollection = ACDB.importCollection;
+
+    // checkCompletionCelebration — moved to stats.js
+    const checkCompletionCelebration = ACDB.checkCompletionCelebration;
+
+    // showToast — moved to utils.js
+    const showToast = ACDB.showToast;
+
+    // ---- Sharing, Profile, Leaderboard — moved to sharing.js ----
+    const getOwnedItemNames = ACDB.getOwnedItemNames;
+    const isShared = ACDB.isShared;
+    const updateShareButton = ACDB.updateShareButton;
+    const openShareModal = ACDB.openShareModal;
+    const closeShareModal = ACDB.closeShareModal;
+    const showMainContent = ACDB.showMainContent;
+    const hideMainContent = ACDB.hideMainContent;
+    const showProfile = ACDB.showProfile;
+    const showLeaderboard = ACDB.showLeaderboard;
 
     // ---- URL Hash Routing ----
-    function slugify(str) {
-        return str.toLowerCase()
-            .replace(/['']/g, '')
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-|-$/g, '');
-    }
+    // slugify — moved to utils.js
+    const slugify = ACDB.slugify;
 
     function getItemSlug(item) {
         return slugify(item.name);
@@ -1622,9 +667,9 @@
                 dom.modalOverlay.classList.remove('active');
                 document.body.style.overflow = '';
                 document.getElementById('itemModal').classList.remove('landscape');
-                currentItemId = null;
-                galleryImages = [];
-                galleryIndex = 0;
+                ACDB.setCurrentItemId(null);
+                ACDB.setGalleryImages([]);
+                ACDB.setGalleryIndex(0);
             }
             showMainContent();
             return;
@@ -1650,20 +695,9 @@
         if (item) openModal(item.id, true);
     }
 
-    // ---- Utilities ----
-    function escapeHTML(str) {
-        const div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML;
-    }
-
-    function debounce(fn, delay) {
-        let timer;
-        return function (...args) {
-            clearTimeout(timer);
-            timer = setTimeout(() => fn.apply(this, args), delay);
-        };
-    }
+    // ---- Utilities (moved to utils.js) ----
+    const escapeHTML = ACDB.escapeHTML;
+    const debounce = ACDB.debounce;
 
     // ---- Event Listeners ----
     function initEvents() {
@@ -1875,13 +909,13 @@
                 }
             }
             if (lightbox.overlay.classList.contains('active')) {
-                if (e.key === 'ArrowLeft' && galleryImages.length > 1) lightbox.prev();
-                if (e.key === 'ArrowRight' && galleryImages.length > 1) lightbox.next();
+                if (e.key === 'ArrowLeft' && ACDB.getGalleryImages().length > 1) lightbox.prev();
+                if (e.key === 'ArrowRight' && ACDB.getGalleryImages().length > 1) lightbox.next();
                 return;
             }
             if (!dom.modalOverlay.classList.contains('active')) return;
-            if (e.key === 'ArrowLeft' && galleryImages.length > 1) galleryPrev();
-            if (e.key === 'ArrowRight' && galleryImages.length > 1) galleryNext();
+            if (e.key === 'ArrowLeft' && ACDB.getGalleryImages().length > 1) galleryPrev();
+            if (e.key === 'ArrowRight' && ACDB.getGalleryImages().length > 1) galleryNext();
         });
 
         // Gallery navigation
@@ -1894,7 +928,7 @@
             touchStartX = e.changedTouches[0].screenX;
         }, { passive: true });
         dom.modalImage.addEventListener('touchend', (e) => {
-            if (galleryImages.length <= 1) return;
+            if (ACDB.getGalleryImages().length <= 1) return;
             const diff = e.changedTouches[0].screenX - touchStartX;
             if (Math.abs(diff) > 50) {
                 if (diff < 0) galleryNext();
@@ -2015,7 +1049,7 @@
         document.getElementById('shareModalOverlay').addEventListener('click', (e) => {
             if (e.target === document.getElementById('shareModalOverlay')) closeShareModal();
         });
-        document.getElementById('shareSubmit').addEventListener('click', performShare);
+        document.getElementById('shareSubmit').addEventListener('click', ACDB.performShare);
         document.getElementById('shareDone').addEventListener('click', closeShareModal);
         document.getElementById('shareCopyUrl').addEventListener('click', () => {
             const urlInput = document.getElementById('shareUrl');
@@ -2029,23 +1063,23 @@
         });
         document.getElementById('shareUpdateBtn').addEventListener('click', () => {
             const owned = getOwnedItemNames();
-            performUpdate(owned);
+            ACDB.performUpdate(owned);
         });
         document.getElementById('shareDeleteBtn').addEventListener('click', () => {
             if (confirm('Are you sure you want to delete your shared profile? This cannot be undone.')) {
-                deleteProfile();
+                ACDB.deleteProfile();
             }
         });
 
         // Name availability check with debounce
         document.getElementById('shareDisplayName').addEventListener('input', (e) => {
-            clearTimeout(nameCheckTimer);
-            nameCheckTimer = setTimeout(() => checkNameAvailability(e.target.value.trim()), 400);
+            clearTimeout(ACDB.nameCheckTimer);
+            ACDB.nameCheckTimer = setTimeout(() => ACDB.checkNameAvailability(e.target.value.trim()), 400);
         });
 
         // Profile & Leaderboard back buttons
         document.getElementById('profileBackBtn').addEventListener('click', () => {
-            if (profileFromLeaderboard) {
+            if (ACDB.getProfileFromLeaderboard()) {
                 document.getElementById('profileView').style.display = 'none';
                 window.location.hash = 'leaderboard';
             } else {
@@ -2166,6 +1200,53 @@
         // Open item from URL hash if present
         handleHash();
     }
+
+    // ---- Expose shared API for multi-file modules ----
+    const A = window.ACDB;
+
+    // Constants
+    A.STORAGE_KEY = STORAGE_KEY;
+    A.FILTERS_KEY = FILTERS_KEY;
+    A.API_URL = API_URL;
+    A.SHARE_TOKEN_KEY = SHARE_TOKEN_KEY;
+    A.SHARE_NAME_KEY = SHARE_NAME_KEY;
+    A.SHORT_GAME_NAMES = SHORT_GAME_NAMES;
+    A.isAdmin = isAdmin;
+
+    // ---- Expose shared state & functions for other modules ----
+    A.dom = dom;
+    A.getCollection = () => collection;
+    A.setCollection = (c) => { collection = c; };
+    A.getSelectedGames = () => selectedGames;
+    A.setSelectedGames = (s) => { selectedGames = s; };
+    A.getSelectedCategories = () => selectedCategories;
+    A.setSelectedCategories = (s) => { selectedCategories = s; };
+    A.getSelectedTypes = () => selectedTypes;
+    A.setSelectedTypes = (s) => { selectedTypes = s; };
+    A.getStatsSortMode = () => statsSortMode;
+    A.setStatsSortMode = (m) => { statsSortMode = m; };
+
+    // Functions still in app.js
+    A.loadCollection = loadCollection;
+    A.saveCollection = saveCollection;
+    A.getItemData = getItemData;
+    A.setItemData = setItemData;
+    A.renderItems = renderItems;
+    A.createCard = createCard;
+    A.getFilteredItems = getFilteredItems;
+    A.initFilters = initFilters;
+    A.populateCategoryFilter = populateCategoryFilter;
+    A.populateTypeFilter = populateTypeFilter;
+    A.getSelectedValues = getSelectedValues;
+    A.updateMultiSelectLabel = updateMultiSelectLabel;
+    A.setMultiSelectValues = setMultiSelectValues;
+    A.clearMultiSelect = clearMultiSelect;
+    A.syncTimelineToSelectedGames = syncTimelineToSelectedGames;
+    A.saveFilters = saveFilters;
+    A.restoreFilters = restoreFilters;
+    A.setHash = setHash;
+    A.clearHash = clearHash;
+    A.handleHash = handleHash;
 
     // Start
     if (document.readyState === 'loading') {
