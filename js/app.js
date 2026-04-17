@@ -1236,6 +1236,9 @@
         if (isShared()) {
             text.textContent = 'Update';
             document.getElementById('shareBtn').title = 'Update your shared collection';
+        } else {
+            text.textContent = 'Share';
+            document.getElementById('shareBtn').title = 'Share your collection with the community';
         }
     }
 
