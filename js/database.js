@@ -8,13 +8,12 @@ const AC_DATABASE = [
     "contents": "Tin box, 3-inch Altair figurine, Penny Arcade comic book, mini strategy guide, bonus DVD with making-of videos, game trailers, and IFC short films",
     "type": "Collector's Edition"
   },
-  // database.js entry:
   {
-    "name": "Assassin's Creed Limited Edition Status",
+    "name": "Assassin's Creed Limited Edition Statue",
     "game": "Assassin's Creed",
     "year": 2007,
     "category": "Statue",
-    "description": "Assassin's Creed Limited Collectors Edition Status",
+    "description": "Assassin's Creed Limited Collector's Edition Statue.",
     "contents": "",
     "type": "Statue"
   },

@@ -31,6 +31,19 @@ function isValidName(name) {
   return /^[a-zA-Z0-9_-]{5,25}$/.test(name);
 }
 
+// Validate ownedItems: array of non-empty strings, bounded in count and length
+const MAX_OWNED_ITEMS = 2000;
+const MAX_ITEM_NAME_LENGTH = 200;
+function validateOwnedItems(ownedItems) {
+  if (!Array.isArray(ownedItems)) return 'ownedItems must be an array.';
+  if (ownedItems.length > MAX_OWNED_ITEMS) return `ownedItems exceeds maximum of ${MAX_OWNED_ITEMS}.`;
+  for (const name of ownedItems) {
+    if (typeof name !== 'string' || name.length === 0) return 'ownedItems must contain non-empty strings.';
+    if (name.length > MAX_ITEM_NAME_LENGTH) return `ownedItems entry exceeds ${MAX_ITEM_NAME_LENGTH} characters.`;
+  }
+  return null;
+}
+
 // Rate limiting: max 10 writes per IP per hour
 async function checkRateLimit(env, ip) {
   const key = `rate:${ip}`;
@@ -62,9 +75,8 @@ export default {
           return json({ error: 'Display name must be 5-25 characters (letters, numbers, hyphens, underscores).' }, 400);
         }
 
-        if (!Array.isArray(ownedItems)) {
-          return json({ error: 'ownedItems must be an array.' }, 400);
-        }
+        const ownedError = validateOwnedItems(ownedItems);
+        if (ownedError) return json({ error: ownedError }, 400);
 
         // Check if name is taken
         const nameLower = displayName.toLowerCase();
@@ -107,9 +119,8 @@ export default {
         const body = await request.json();
         const { ownedItems } = body;
 
-        if (!Array.isArray(ownedItems)) {
-          return json({ error: 'ownedItems must be an array.' }, 400);
-        }
+        const ownedError = validateOwnedItems(ownedItems);
+        if (ownedError) return json({ error: ownedError }, 400);
 
         const existing = JSON.parse(profileData);
         existing.ownedItems = ownedItems;

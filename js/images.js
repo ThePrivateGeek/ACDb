@@ -3,7 +3,7 @@
 const AC_IMAGES = {
     // ── Collector's Editions ──
     "Assassin's Creed Limited Edition":                                     "images/collectors-editions/ac1-limited-edition.jpg",
-    "Assassin's Creed Limited Edition Status":                              "images/collectors-editions/ac1-limited-edition_status.jpg",
+    "Assassin's Creed Limited Edition Statue":                              "images/collectors-editions/ac1-limited-edition_statue.jpg",
     "Assassin's Creed II Black Edition":                                    "images/collectors-editions/ac2-black-edition.jpg",
     "Assassin's Creed II White Edition":                                    "images/collectors-editions/ac2-white-edition.jpg",
     "Assassin's Creed II Master Assassin's Edition":                        "images/collectors-editions/ac2-master-assassins-edition.jpg",

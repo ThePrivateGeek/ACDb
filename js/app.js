@@ -462,7 +462,7 @@ window.ACDB = window.ACDB || {};
                 const ownedFilter = dom.filterOwned.value;
                 if (ownedFilter === 'owned') {
                     dom.resultsCount.textContent = `Showing ${items.length} owned items`;
-                } else if (ownedFilter === 'not-owned') {
+                } else if (ownedFilter === 'unowned') {
                     dom.resultsCount.textContent = `Showing ${items.length} unowned items`;
                 } else {
                     dom.resultsCount.textContent = filteredOwned > 0
