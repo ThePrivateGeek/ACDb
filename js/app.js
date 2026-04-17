@@ -1242,23 +1242,39 @@
     function openShareModal() {
         const overlay = document.getElementById('shareModalOverlay');
         const formSection = document.getElementById('shareFormSection');
+        const manageSection = document.getElementById('shareManageSection');
         const successSection = document.getElementById('shareSuccessSection');
         const nameInput = document.getElementById('shareDisplayName');
         const submitBtn = document.getElementById('shareSubmit');
 
         // Calculate preview stats
         const owned = getOwnedItemNames();
-        document.getElementById('sharePreviewOwned').textContent = owned.length;
-        document.getElementById('sharePreviewPct').textContent = Math.round((owned.length / AC_DATABASE.length) * 100) + '%';
+        const pct = Math.round((owned.length / AC_DATABASE.length) * 100) + '%';
 
         if (isShared()) {
-            // Update mode — skip name, go straight to update
-            performUpdate(owned);
+            // Manage mode — show update + delete options
+            formSection.style.display = 'none';
+            successSection.style.display = 'none';
+            manageSection.style.display = '';
+            const name = localStorage.getItem(SHARE_NAME_KEY);
+            document.getElementById('shareManageName').textContent = name;
+            document.getElementById('shareManageOwned').textContent = owned.length;
+            document.getElementById('shareManagePct').textContent = pct;
+            document.getElementById('shareManageUrl').value = `https://acdb.theprivategeek.com/#profile/${name.toLowerCase()}`;
+            document.getElementById('shareUpdateBtn').disabled = false;
+            document.getElementById('shareUpdateBtn').textContent = 'Update Collection';
+            document.getElementById('shareDeleteBtn').disabled = false;
+            document.getElementById('shareDeleteBtn').textContent = 'Delete Profile';
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
             return;
         }
 
         // Share mode — show form
+        document.getElementById('sharePreviewOwned').textContent = owned.length;
+        document.getElementById('sharePreviewPct').textContent = pct;
         formSection.style.display = '';
+        manageSection.style.display = 'none';
         successSection.style.display = 'none';
         nameInput.value = '';
         submitBtn.disabled = true;
@@ -1364,7 +1380,10 @@
         const token = localStorage.getItem(SHARE_TOKEN_KEY);
         if (!token) return;
 
-        showToast('Updating...');
+        const updateBtn = document.getElementById('shareUpdateBtn');
+        updateBtn.disabled = true;
+        updateBtn.textContent = 'Updating...';
+
         try {
             const res = await fetch(`${API_URL}/update`, {
                 method: 'PUT',
@@ -1377,12 +1396,50 @@
             const data = await res.json();
 
             if (data.success) {
+                closeShareModal();
                 showToast(`Collection updated! ${data.ownedCount} items shared.`);
             } else {
                 showToast(data.error || 'Update failed');
+                updateBtn.disabled = false;
+                updateBtn.textContent = 'Update Collection';
             }
         } catch {
             showToast('Network error. Try again.');
+            updateBtn.disabled = false;
+            updateBtn.textContent = 'Update Collection';
+        }
+    }
+
+    async function deleteProfile() {
+        const token = localStorage.getItem(SHARE_TOKEN_KEY);
+        if (!token) return;
+
+        const deleteBtn = document.getElementById('shareDeleteBtn');
+        deleteBtn.disabled = true;
+        deleteBtn.textContent = 'Deleting...';
+
+        try {
+            const res = await fetch(`${API_URL}/profile`, {
+                method: 'DELETE',
+                headers: { 'Authorization': token }
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                localStorage.removeItem(SHARE_TOKEN_KEY);
+                localStorage.removeItem(SHARE_NAME_KEY);
+                updateShareButton();
+                closeShareModal();
+                showToast('Profile deleted.');
+            } else {
+                showToast(data.error || 'Delete failed');
+                deleteBtn.disabled = false;
+                deleteBtn.textContent = 'Delete Profile';
+            }
+        } catch {
+            showToast('Network error. Try again.');
+            deleteBtn.disabled = false;
+            deleteBtn.textContent = 'Delete Profile';
         }
     }
 
@@ -1950,6 +2007,21 @@
         document.getElementById('shareCopyUrl').addEventListener('click', () => {
             const urlInput = document.getElementById('shareUrl');
             navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!'));
+        });
+
+        document.getElementById('shareManageCancel').addEventListener('click', closeShareModal);
+        document.getElementById('shareManageCopyUrl').addEventListener('click', () => {
+            const urlInput = document.getElementById('shareManageUrl');
+            navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!'));
+        });
+        document.getElementById('shareUpdateBtn').addEventListener('click', () => {
+            const owned = getOwnedItemNames();
+            performUpdate(owned);
+        });
+        document.getElementById('shareDeleteBtn').addEventListener('click', () => {
+            if (confirm('Are you sure you want to delete your shared profile? This cannot be undone.')) {
+                deleteProfile();
+            }
         });
 
         // Name availability check with debounce

@@ -1953,6 +1953,39 @@ body {
     min-height: 1.2em;
 }
 
+.share-manage-name {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.share-manage-name strong {
+    color: var(--accent);
+}
+
+.btn-delete {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--red);
+    border-radius: 6px;
+    color: var(--red);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-delete:hover {
+    background: var(--red);
+    color: var(--bg-primary);
+}
+
+.btn-delete:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 /* ---- Profile View ---- */
 #profileView,
 #leaderboardView {

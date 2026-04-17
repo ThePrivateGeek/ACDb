@@ -444,6 +444,28 @@
                         <button id="shareSubmit" class="btn-save" disabled>Share Collection</button>
                     </div>
                 </div>
+                <div id="shareManageSection" style="display:none;">
+                    <p class="share-manage-name">Sharing as <strong id="shareManageName"></strong></p>
+                    <div class="share-preview">
+                        <div class="share-preview-stat">
+                            <span class="stat-number" id="shareManageOwned">0</span>
+                            <span class="stat-label">Items to Share</span>
+                        </div>
+                        <div class="share-preview-stat">
+                            <span class="stat-number" id="shareManagePct">0%</span>
+                            <span class="stat-label">Completion</span>
+                        </div>
+                    </div>
+                    <div class="share-url-box">
+                        <input type="text" id="shareManageUrl" readonly>
+                        <button id="shareManageCopyUrl" class="btn-save">Copy</button>
+                    </div>
+                    <div class="form-actions">
+                        <button id="shareDeleteBtn" class="btn-delete">Delete Profile</button>
+                        <button id="shareManageCancel" class="btn-cancel">Cancel</button>
+                        <button id="shareUpdateBtn" class="btn-save">Update Collection</button>
+                    </div>
+                </div>
                 <div id="shareSuccessSection" style="display:none;">
                     <div class="share-success">
                         <p>Your collection is live!</p>
