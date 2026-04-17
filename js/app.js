@@ -1931,25 +1931,6 @@
 
         // Add Item modal
         // Stat block clicks
-        document.getElementById('statTotal').addEventListener('click', () => {
-            showMainContent();
-            clearHash();
-            dom.searchInput.value = '';
-            dom.clearSearch.classList.remove('visible');
-            selectedGames.clear();
-            selectedCategories.clear();
-            selectedTypes.clear();
-            clearMultiSelect(dom.filterGame);
-            clearMultiSelect(dom.filterCategory);
-            clearMultiSelect(dom.filterType);
-            dom.filterOwned.value = '';
-            dom.sortBy.value = '';
-            syncTimelineToSelectedGames();
-            populateCategoryFilter();
-            populateTypeFilter();
-            renderItems();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
         document.getElementById('statOwned').addEventListener('click', () => {
             showMainContent();
             clearHash();

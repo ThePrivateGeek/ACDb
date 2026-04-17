@@ -982,11 +982,12 @@ body {
 
 /* ---- Results Count ---- */
 .results-count {
-    font-size: 0.78rem;
-    color: var(--text-muted);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
     margin-bottom: 0.75rem;
     font-family: var(--font-mono);
     min-height: 1.2em;
+    letter-spacing: 0.5px;
 }
 
 /* ---- Main Content ---- */
