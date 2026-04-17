@@ -456,9 +456,21 @@
         } else {
             dom.noResults.style.display = 'none';
             const total = AC_DATABASE.length;
-            dom.resultsCount.textContent = items.length === total
-                ? `Showing all ${total} items`
-                : `Showing ${items.length} of ${total} items`;
+            if (items.length === total) {
+                dom.resultsCount.textContent = `Showing all ${total} items`;
+            } else {
+                const filteredOwned = items.filter(item => getItemData(item.id).owned).length;
+                const ownedFilter = dom.filterOwned.value;
+                if (ownedFilter === 'owned') {
+                    dom.resultsCount.textContent = `Showing ${items.length} owned items`;
+                } else if (ownedFilter === 'not-owned') {
+                    dom.resultsCount.textContent = `Showing ${items.length} unowned items`;
+                } else {
+                    dom.resultsCount.textContent = filteredOwned > 0
+                        ? `Showing ${items.length} of ${total} items · ${filteredOwned} owned`
+                        : `Showing ${items.length} of ${total} items`;
+                }
+            }
         }
 
         const fragment = document.createDocumentFragment();
@@ -467,7 +479,7 @@
         });
         dom.itemsContainer.appendChild(fragment);
 
-        updateStats(items);
+        updateStats();
         saveFilters();
     }
 
@@ -549,12 +561,11 @@
     }
 
     // ---- Stats ----
-    function updateStats(filtered) {
-        const items = filtered || getFilteredItems();
-        const total = items.length;
+    function updateStats() {
+        const total = AC_DATABASE.length;
         let owned = 0;
         let totalValue = 0;
-        items.forEach(item => {
+        AC_DATABASE.forEach(item => {
             const data = getItemData(item.id);
             if (data.owned) {
                 owned++;
@@ -569,7 +580,7 @@
 
         // Update dashboard if open
         if (dom.statsDashboard.classList.contains('open')) {
-            renderStatsDashboard(items);
+            renderStatsDashboard(AC_DATABASE);
         }
     }
 
@@ -1521,6 +1532,7 @@
     // ---- Leaderboard View ----
     async function showLeaderboard() {
         hideMainContent();
+        document.getElementById('profileView').style.display = 'none';
         const leaderboardView = document.getElementById('leaderboardView');
         leaderboardView.style.display = '';
         document.getElementById('leaderboardBody').innerHTML = '<tr><td colspan="5" class="leaderboard-loading">Loading leaderboard...</td></tr>';

@@ -170,7 +170,9 @@ body {
 .header-stats {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .collection-actions {
@@ -2223,7 +2225,6 @@ body {
 
     .header-stats {
         width: 100%;
-        justify-content: center;
         gap: 1rem;
     }
 
@@ -2232,8 +2233,9 @@ body {
     }
 
     .collection-actions {
-        padding-left: 0.75rem;
-        margin-left: auto;
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
         gap: 0.3rem;
     }
 
@@ -2604,14 +2606,6 @@ body {
 
     .stat-number {
         font-size: 1.2rem;
-    }
-
-    .header-stats {
-        gap: 0.5rem;
-    }
-
-    .collection-actions {
-        padding-left: 0.5rem;
     }
 
     .items-grid {
