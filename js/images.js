@@ -656,6 +656,20 @@ const AC_IMAGES = {
     "Assassin's Creed: Templars Vol. 1 - Black Cross": ["images/comics/ac-templars-black-cross.jpg"],
     "Assassin's Creed: Templars Vol. 2 - Cross of War": ["images/comics/ac-templars-cross-of-war.jpg"],
     "Assassin's Creed: Last Descendants - Locus": ["images/comics/ac-locus.jpg"],
+    "Assassin's Creed: Origins - Issue #1": [
+        "images/comics/ac-origins-issue-1.jpg",
+        "images/comics/ac-origins-issue-1_01.jpg",
+        "images/comics/ac-origins-issue-1_02.jpg",
+    ],
+    "Assassin's Creed: Origins - Issue #2": [
+        "images/comics/ac-origins-issue-2.jpg",
+        "images/comics/ac-origins-issue-2_01.jpg",
+    ],
+    "Assassin's Creed: Origins - Issue #3": [
+        "images/comics/ac-origins-issue-3.jpg",
+        "images/comics/ac-origins-issue-3_01.jpg",
+    ],
+    "Assassin's Creed: Origins - Issue #4": ["images/comics/ac-origins-issue-4.jpg"],
     "Assassin's Creed: Origins (Comic)": ["images/comics/ac-origins-comic.jpg"],
     "Assassin's Creed: Dynasty, Vol. 1": ["images/comics/ac-dynasty-vol1.jpg"],
     "Assassin's Creed: Dynasty, Vol. 2": ["images/comics/ac-dynasty-vol2.jpg"],

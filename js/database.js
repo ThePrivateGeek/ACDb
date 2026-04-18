@@ -2664,12 +2664,48 @@ const AC_DATABASE = [
     "type": "Comic Book"
   },
   {
+    "name": "Assassin's Creed: Origins - Issue #1",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Comic Book",
+    "description": "Issue 1 of 4. Go back to where it all began, in this brand-new series spinning out of the smash-hit Assassin's Creed game. Witness the birth of the Creed, from the mother of all Assassins. Written by Anthony Del Col & Anne Toole. Art by PJ Kaiowa. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Origins - Issue #2",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Comic Book",
+    "description": "Issue 2 of 4. Direct tie-in to the videogame Assassin's Creed Origins. Witness the very beginning of the Assassin's Creed, as Bayek and Aya continue their campaign against the Order of the Ancients in Ptolemaic Egypt. Written by Anthony Del Col & Anne Toole. Art by PJ Kaiowa. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Origins - Issue #3",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Comic Book",
+    "description": "Issue 3 of 4. Direct tie-in to the videogame Assassin's Creed Origins. Witness the very beginning of the Assassin's Creed. Now a prisoner of Caesar's ally Mark Antony, Aya prepares for what may be her final judgment. Written by Anthony Del Col & Anne Toole. Art by PJ Kaiowa. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Origins - Issue #4",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Comic Book",
+    "description": "Issue 4 of 4. Final issue. Direct tie-in to the smash-hit videogame Assassin's Creed: Origins. Witness the very beginning of the Assassin's Creed! The shocking climax to the birth of the Creed, as the first assassin faces her nemesis in a conflict that will have consequences for millennia to come. Written by Anthony Del Col & Anne Toole. Art by PJ Kaiowa. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
     "name": "Assassin's Creed: Origins (Comic)",
     "game": "Assassin's Creed Origins",
     "year": 2018,
     "category": "Comic Book",
-    "description": "Prequel/companion to AC Origins following Bayek and Aya on a mission in ancient Egypt, expanding on the founding of the Hidden Ones. Published by Titan Comics. 4-issue limited series.",
-    "contents": "Trade paperback collecting 4 issues",
+    "description": "Bear witness to the inception of the Assassin Brotherhood in a brand new comic series spinning out of Ubisoft's Assassin's Creed Origins! Ancient Egypt, a land of majesty and intrigue, is disappearing in a ruthless fight for power. Unveil dark secrets and forgotten myths as we journey to the very beginnings of the Assassin Brotherhood and beyond. Written by Anthony Del Col & Anne Toole. Art by PJ Kaiowa. Published by Titan Comics (October 2018).",
+    "contents": "112-page trade paperback collecting all 4 issues (ISBN 9781782763086)",
     "type": "Comic Book"
   },
   {
