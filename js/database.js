@@ -2493,6 +2493,42 @@ const AC_DATABASE = [
     "type": "Comic Book"
   },
   {
+    "name": "Assassin's Creed: Reflections - Issue #1",
+    "game": "Assassin's Creed II",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 1 of 4. Featuring Ezio Auditore. Templar agent Otso Berg's Animus research leads him to 15th Century Florence, and the memories of the legendary figure Ezio Auditore da Firenze. In a final meeting with his good friend Leonardo da Vinci, the Assassin shares a treasured moment from his past involving one of the Italian artist's most famous subjects. Written by Ian Edginton. Art by Valeria Favoccia. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Reflections - Issue #2",
+    "game": "Assassin's Creed",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 2 of 4. Featuring Altaïr Ibn-La'Ahad. Master Templar Juhani Otso Berg, now operating as the Black Cross to root out treachery from within the Order, uses Abstergo's Animus to search the past exploits of the Assassin Brotherhood. His search leads him to the Ibn-La'Ahad dynasty and the dusty plains of Western China during the rise of the Mongol Empire. Written by Ian Edginton. Art by Valeria Favoccia. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Reflections - Issue #3",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 3 of 4. Featuring Edward Kenway. Join everyone's favourite pirate Assassin Edward Kenway and his trusty quartermaster Adéwalé as the two come to blows with the notorious pirate captain Ned Low on their final swashbuckling skirmish together. Written by Ian Edginton. Art by Valeria Favoccia. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Reflections - Issue #4",
+    "game": "Assassin's Creed III",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 4 of 4. Final issue. Featuring Ratonhnhaké:ton (Connor). Gaining new insight from the escapades of Ezio Auditore, Darim Ibn-La'Ahad, and Edward Kenway, Black Cross Otso Berg's search now leads him to colonial America and to the later life of Ratonhnhaké:ton, whose legendary skills and cunning helped shape the American Revolution. Written by Ian Edginton. Art by Valeria Favoccia. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
     "name": "Assassin's Creed: Reflections",
     "game": "General",
     "year": 2017,
