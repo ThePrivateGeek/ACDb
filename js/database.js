@@ -2475,11 +2475,47 @@ const AC_DATABASE = [
     "type": "Comic Book"
   },
   {
-    "name": "Assassin's Creed: Last Descendants - Locus",
-    "game": "General",
+    "name": "Assassin's Creed: Last Descendants - Locus - Issue #1",
+    "game": "Assassin's Creed Syndicate",
     "year": 2016,
     "category": "Comic Book",
-    "description": "Tie-in to the Last Descendants novel series. Follows a Pinkerton agent ancestor during the era of the Transcontinental Railroad. Published by Titan Comics. 4-issue limited series.",
+    "description": "Issue 1 of 4. Brand new story set in the stunning world of Assassin's Creed Syndicate. Dive into the sordid underworld of Victorian London, and the memories of New Yorker Tommy Greyling, as he teams up with Evie Frye and Henry Green to search for a Piece of Eden that has the potential to change the world. Tie-in to the Last Descendants young adult novel series by Matthew J. Kirby. Written by Ian Edginton. Art by Caspar Wijngaard. Published by Titan Comics (September 2016).",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Last Descendants - Locus - Issue #2",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 2 of 4. Pinkerton agent Tommy Greyling continues his hunt through the underworld of Victorian London, pursuing a murderer with the aid of Inspector Abberline and members of the Assassin Brotherhood. Written by Ian Edginton. Art by Caspar Wijngaard. Published by Titan Comics (October 2016).",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Last Descendants - Locus - Issue #3",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 3 of 4. The streets of Victorian London grow darker as Tommy Greyling investigates a murder with implications far deeper than anyone anticipated, working alongside the Assassins to unravel the conspiracy. Written by Ian Edginton. Art by Caspar Wijngaard. Published by Titan Comics (December 2016).",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Last Descendants - Locus - Issue #4",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 4 of 4. Final issue. Pinkerton agent Tommy Greyling's hunt across Victorian London reaches a heady climax as the true identity of his target is revealed and a climactic confrontation unfolds. Written by Ian Edginton. Art by Caspar Wijngaard. Published by Titan Comics (January 2017).",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Last Descendants - Locus",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Collected edition of the 4-issue limited series. A return to the Victorian London of Assassin's Creed Syndicate and a tie-in to the Last Descendants young adult novel series by Matthew J. Kirby. Pinkerton agent Tommy Greyling teams up with Evie Frye and Henry Green to hunt a murderer — and a Piece of Eden that could change the world — while in the present day, teenager Sean relives Tommy's memories through the Animus. Written by Ian Edginton. Art by Caspar Wijngaard. Published by Titan Comics.",
     "contents": "Trade paperback collecting 4 issues",
     "type": "Comic Book"
   },
@@ -2705,16 +2741,61 @@ const AC_DATABASE = [
     "year": 2018,
     "category": "Comic Book",
     "description": "Bear witness to the inception of the Assassin Brotherhood in a brand new comic series spinning out of Ubisoft's Assassin's Creed Origins! Ancient Egypt, a land of majesty and intrigue, is disappearing in a ruthless fight for power. Unveil dark secrets and forgotten myths as we journey to the very beginnings of the Assassin Brotherhood and beyond. Written by Anthony Del Col & Anne Toole. Art by PJ Kaiowa. Published by Titan Comics (October 2018).",
-    "contents": "112-page trade paperback collecting all 4 issues (ISBN 9781782763086)",
+    "contents": "112-page trade paperback collecting all 4 issues",
     "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Conspiracies, Vol. 1 - Die Glocke",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Volume 1 of 2 (French bande dessinée). Eddie Gorm is the boss of the docks, and his only obsession is running his small operation — diverting military rations, trafficking alcohol, and settling scores in London's East End. The war? The Nazis? That's someone else's problem. But when death knocks at his door, he has no choice: he becomes the only man who can save the world from atomic horror. Written by Guillaume Dorison. Art by Jean-Baptiste Hostache. Published in French by Les Deux Royaumes (October 2016).",
+    "contents": "48-page hardcover bande dessinée (French language)",
+    "type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed: Conspiracies, Vol. 2 - Le Projet Rainbow",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Volume 2 of 2 (French bande dessinée). In April 1939, Nazi Germany launches a race against the Allies to build the first nuclear bomb. Colonel Boris Pash of the Assassin Brotherhood discovers the Nazi mission is merely a decoy — Hitler is seeking a far superior weapon: Die Glocke. Pash sends English Assassin Eddie Gorm to neutralize its advancement. From Templar plans to Tesla's quantum teleportation, Eddie uncovers a secret war far beyond his reality playing out in 1943. Written by Guillaume Dorison. Art by Patrick Pion. Published in French by Les Deux Royaumes (December 2017).",
+    "contents": "46-page hardcover bande dessinée (French language)",
+    "type": "Graphic Novel"
   },
   {
     "name": "Assassin's Creed: Conspiracies",
     "game": "General",
     "year": 2018,
     "category": "Comic Book",
-    "description": "Set during WWII, follows an Assassin entangled in the Manhattan Project and the development of the atomic bomb. Originally published by Les Deux Royaumes in French, later by Titan Comics in English.",
-    "contents": "Collected graphic novel (2 volumes in French, 1 in English)",
+    "description": "A new era — a new adventure — a new Assassin! Europe, World War II. On the sidelines of the race for the atomic bomb, discover the story of Eddie Gorm and his integration into the Assassin Brotherhood while he infiltrates the Templars to foil their plan to create a devastating weapon. English collected edition combining both French volumes (Die Glocke and Le Projet Rainbow). Written by Guillaume Dorison. Art by Jean-Baptiste Hostache and Patrick Pion. Published by Titan Comics (December 2018).",
+    "contents": "104-page paperback collecting both French volumes in English translation",
+    "type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed: Bloodstone, Vol. 1",
+    "game": "General",
+    "year": 2020,
+    "category": "Comic Book",
+    "description": "Volume 1 of 2. The world of Assassin's Creed visits a new era in the Vietnam War! Tomo, one of the youngest members of the Japanese Assassin cell, has uncovered a conspiracy. More of a man of science than a man of action, Tomo investigates further, leading him to follow the footsteps of Assassins that operated during the Vietnam War. But what secrets will he uncover? Written by Guillaume Dorison. Art by Ennio Bufi. Originally published in French by Les Deux Royaumes (March 2019); English edition by Titan Comics (February 2020).",
+    "contents": "48-page hardcover graphic novel",
+    "type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed: Bloodstone, Vol. 2",
+    "game": "General",
+    "year": 2021,
+    "category": "Comic Book",
+    "description": "Volume 2 of 2. The second volume of the epic Assassin's Creed adventure set in the Vietnam War. Tomo, one of the youngest members of the Japanese Assassin cell, has uncovered a conspiracy. In this thrilling sequel, what secrets will Tomo uncover in his ancestor's memories? What horrific experiments took place secretly during the Vietnam War? Written by Guillaume Dorison. Art by Ennio Bufi. Originally published in French by Les Deux Royaumes (October 2019); English edition by Titan Comics (January 2021).",
+    "contents": "48-page hardcover graphic novel",
+    "type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed: Bloodstone Collection",
+    "game": "General",
+    "year": 2022,
+    "category": "Comic Book",
+    "description": "The secret struggle between Assassins and Templars hits the Vietnam War in a special, complete edition of this exciting graphic novel. Collects both volumes of the Bloodstone series in a single hardcover. Written by Guillaume Dorison. Art by Ennio Bufi. Published by Titan Comics (January 2022).",
+    "contents": "96-page hardcover collecting both Bloodstone volumes",
     "type": "Graphic Novel"
   },
   {
@@ -2749,7 +2830,7 @@ const AC_DATABASE = [
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
     "category": "Comic Book",
-    "description": "Fearless Vikings confront their destiny in this glory-seeking prequel to Ubisoft's Assassin's Creed Valhalla. Norway. Mid-9th Century CE. Eivor, a Viking warrior, observes a village raided by a neighboring kingdom. Bloodshed and mayhem erupt as she seizes the attack in her own favor — but will her victory be a blessing or a curse? Elsewhere in the east, another Viking searches for a different kind of prize, one of crucible steel. Written by Cavan Scott. Art by Martín Túnica. Published by Dark Horse Comics (April 2021). ISBN 9781506719290.",
+    "description": "Fearless Vikings confront their destiny in this glory-seeking prequel to Ubisoft's Assassin's Creed Valhalla. Norway. Mid-9th Century CE. Eivor, a Viking warrior, observes a village raided by a neighboring kingdom. Bloodshed and mayhem erupt as she seizes the attack in her own favor — but will her victory be a blessing or a curse? Elsewhere in the east, another Viking searches for a different kind of prize, one of crucible steel. Written by Cavan Scott. Art by Martín Túnica. Published by Dark Horse Comics (April 2021).",
     "contents": "72-page hardcover collecting all 3 issues",
     "type": "Graphic Novel"
   },
@@ -2902,7 +2983,7 @@ const AC_DATABASE = [
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
     "category": "Comic Book",
-    "description": "Volume 1 of 2. Manga adaptation of Assassin's Creed IV: Black Flag. The title stars Edward Kenway in the 18th century and Yanao Seijin in the present as Seijin relives Edward's memories under the eye of Abstergo Industries. In 1715, pirates established a lawless republic in the Caribbean and ruled the land and seas. These outlaws paralyzed navies, halted international trade, and plundered vast fortunes. Into this world sails a young, cocky, and fearsome captain named Edward Kenway. Written by Takashi Yano. Art by Kenji Oiwa. Originally serialized in Shueisha's Jump X in 2013; English edition published by Titan Comics (August 2017). ISBN 9781785858581.",
+    "description": "Volume 1 of 2. Manga adaptation of Assassin's Creed IV: Black Flag. The title stars Edward Kenway in the 18th century and Yanao Seijin in the present as Seijin relives Edward's memories under the eye of Abstergo Industries. In 1715, pirates established a lawless republic in the Caribbean and ruled the land and seas. These outlaws paralyzed navies, halted international trade, and plundered vast fortunes. Into this world sails a young, cocky, and fearsome captain named Edward Kenway. Written by Takashi Yano. Art by Kenji Oiwa. Originally serialized in Shueisha's Jump X in 2013; English edition published by Titan Comics (August 2017).",
     "contents": "Paperback manga (224 pages)",
     "type": "Manga"
   },
@@ -2911,7 +2992,7 @@ const AC_DATABASE = [
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
     "category": "Comic Book",
-    "description": "Volume 2 of 2. Final volume. The second half of the Assassin's Creed IV: Black Flag manga adaptation serialized in Shueisha's Jump X. Edward Kenway broke the law of the Assassins Brotherhood, but is offered a chance at redemption. Written by Takashi Yano. Art by Kenji Oiwa. English edition published by Titan Comics (October 2017). ISBN 9781785859229.",
+    "description": "Volume 2 of 2. Final volume. The second half of the Assassin's Creed IV: Black Flag manga adaptation serialized in Shueisha's Jump X. Edward Kenway broke the law of the Assassins Brotherhood, but is offered a chance at redemption. Written by Takashi Yano. Art by Kenji Oiwa. English edition published by Titan Comics (October 2017).",
     "contents": "Paperback manga (192 pages)",
     "type": "Manga"
   },
@@ -2947,7 +3028,7 @@ const AC_DATABASE = [
     "game": "General",
     "year": 2024,
     "category": "Comic Book",
-    "description": "Anthology trade paperback collecting all 3 issues of the Visionaries series — six self-contained, non-canon short stories spanning prehistory, Feudal Japan, the 1970s Brazilian Dictatorship, the American Civil War, the Opium Wars, and a Templar-dominated future. Each tale is told by a different creative team. Published by Massive Publishing in partnership with Studio Lounak, licensed from Ubisoft. ISBN 9781961012165.",
+    "description": "Anthology trade paperback collecting all 3 issues of the Visionaries series — six self-contained, non-canon short stories spanning prehistory, Feudal Japan, the 1970s Brazilian Dictatorship, the American Civil War, the Opium Wars, and a Templar-dominated future. Each tale is told by a different creative team. Published by Massive Publishing in partnership with Studio Lounak, licensed from Ubisoft.",
     "contents": "Trade paperback collecting issues #1-3",
     "type": "Graphic Novel"
   },
