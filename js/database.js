@@ -2358,11 +2358,119 @@ const AC_DATABASE = [
     "type": "Comic Book"
   },
   {
+    "name": "Assassin's Creed: Uprising - Issue #1",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 1 of 12. With the Phoenix Project nearing its completion, tensions are running high for both the Brotherhood and the Templar Order. A new world order is on the horizon and only Charlotte and her new allies have the knowledge and skill to save humanity from subjugation. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising - Issue #2",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 2 of 12. The infamous Black Cross shows up to investigate recent happenings at the Project Phoenix labs causing unease amongst the Templar Order. Meanwhile, Charlotte begins to question her allegiances. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising - Issue #3",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 3 of 12. While Charlotte encounters an unusual experience within the jury-rigged Animus, Arend and Kyoshi head to Abstergo HQ in search of answers... but find an ambush waiting for them! Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising - Issue #4",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 4 of 12. End of Arc 1. Discovering a link dating back to the Spanish Civil War, Charlotte de la Cruz entered the Animus in the hopes of learning more about the mysterious enemies that have the Assassin Brotherhood on high alert, but now finds herself trapped in the limbo-like Memory Corridor. Worse of all, it seems an ally is not all they appear to be. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising - Issue #5",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 5 of 12. While Charlotte tries to get traitor Guernica to spill the beans, My'Shell comes back to the Assassin HQ with a badly beaten Berg. That's senior Templar Master Otso Berg. The Assassins, especially Galina, are shall we say less than keen to see him. A very wary temporary truce of sorts is called, and both sides discuss what they know of the new group. Essentially both groups are now compromised, with Juno followers in place within both Assassins and Templars, and only one or two of them known at this point. A reluctant alliance is formed to find and secure the Koh-i-Noor jewel, a Piece of Eden Juno is after. So, off to the Animus again for Charlotte. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising - Issue #6",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 6 of 12. Forced into an uneasy alliance with Master Templar Otso Berg, our Assassins now look to the past for answers. Hoping to discover the location of the Koh-I-Noor, a devastating Isu weapon that could turn the tide in the upcoming battle, Charlotte de la Cruz has entered the memories of her ancestor, the Spanish anarchist Assassin Ignacio Cardona. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising - Issue #7",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 7 of 12. Through the memories of her ancestor Ignacio Cardona, Charlotte discovered the true location of the Koh-I-Noor before quickly succumbing to its power. Now it's Otso Berg's turn to take his own Animus trip — into the memories of Albert Bolden, the enigmatic former Black Cross. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising - Issue #8",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 8 of 12. The final installment of the second story arc. The Phoenix Project saga continues as Charlotte's team, allied with Otso Berg, closes in on the Koh-i-Noor in Spain. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising - Issue #9",
+    "game": "General",
+    "year": 2018,
+    "category": "Comic Book",
+    "description": "Issue 9 of 12. The race for the Koh-I-Noor continues as Charlotte and her Assassin cell head to Spain in order to thwart the Isu deity Juno's rise to power! The Phoenix Project saga reaches its heady climax in this final arc of Assassin's Creed Uprising! Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising - Issue #10",
+    "game": "General",
+    "year": 2018,
+    "category": "Comic Book",
+    "description": "Issue 10 of 12. With a powerful artifact in their possession, the Instruments of the First Will step up their game — taking the fight directly to the Assassins! The Phoenix Project saga reaches its heady climax in this final arc of Assassin's Creed Uprising! Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising - Issue #11",
+    "game": "General",
+    "year": 2018,
+    "category": "Comic Book",
+    "description": "Issue 11 of 12. With Juno's new form nearing completion, our Assassins make a final all-out assault on the Phoenix Project labs. But are they already too late? The Phoenix Project saga reaches its heady climax in this final arc of Assassin's Creed Uprising! Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Uprising - Issue #12",
+    "game": "General",
+    "year": 2018,
+    "category": "Comic Book",
+    "description": "Issue 12 of 12. Time has run out for our modern-day Assassins! With a new world order on the horizon, Charlotte and her cell are faced with the biggest threat the Brotherhood has ever encountered as they race to halt the impending resurrection of the Isu deity Juno, her fanatical acolytes, and their plans for global domination! The final chapter of Assassin's Creed Uprising. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
     "name": "Assassin's Creed: Uprising Vol. 1 - Common Ground",
     "game": "General",
     "year": 2017,
     "category": "Comic Book",
-    "description": "Mega-crossover combining Charlotte de la Cruz with characters from the Templars series. Assassins and a rogue Templar faction unite against a mutual threat. Published by Titan Comics. Collects issues #1-4.",
+    "description": "A game-changing new chapter in the ongoing Assassin's Creed saga! With the Phoenix Project nearing its completion, tensions are running high for both the Brotherhood and the Templar Order. A new world order is on the horizon and only Charlotte and her new allies have the knowledge and skill to save humanity from subjugation! A new world order is on the horizon and only Charlotte and her new allies have the knowledge and skill to save humanity from subjugation! Published by Titan Comics. Collects issues #1-4.",
     "contents": "Trade paperback collecting issues #1-4",
     "type": "Comic Book"
   },
@@ -2371,7 +2479,7 @@ const AC_DATABASE = [
     "game": "General",
     "year": 2017,
     "category": "Comic Book",
-    "description": "The alliance faces the Instruments of the First Will while exploring ancestors in the Spanish Civil War. Published by Titan Comics. Collects issues #5-8.",
+    "description": "The Phoenix project saga begins to unravel in this second thrilling chapter of Assassin's Creed Uprising! Our modern day Assassins take the fight to the heart of the Spanish Civil War in order to secure a valuable artifact that could change the course of history. But when a brand new enemy rears its ugly head, both the Brotherhood and Templar Order are forced to form a shaky alliance. Published by Titan Comics. Collects issues #5-8.",
     "contents": "Trade paperback collecting issues #5-8",
     "type": "Comic Book"
   },
@@ -2380,7 +2488,7 @@ const AC_DATABASE = [
     "game": "General",
     "year": 2018,
     "category": "Comic Book",
-    "description": "Conclusion of Charlotte de la Cruz's arc and the Titan Comics storyline. Wraps up the Instruments of the First Will threat. Collects issues #9-12.",
+    "description": "The final chapter of Assassin's Creed: Uprising concludes the Phoenix Project Saga in epic fashion - the end of a ten-year storyline straight from the video games! Time has run out for our modern-day assassins! While fan-favorite characters Juno, Otso Berg and Black Cross face the advent of a new world order, Charlotte and her cell confront the biggest threat the brotherhood has ever encountered... and not all of them will survive!. Collects issues #9-12.",
     "contents": "Trade paperback collecting issues #9-12",
     "type": "Comic Book"
   },
