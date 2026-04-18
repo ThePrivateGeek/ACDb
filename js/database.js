@@ -2898,6 +2898,24 @@ const AC_DATABASE = [
     "type": "Manga"
   },
   {
+    "name": "Assassin's Creed: Awakening, Vol. 1",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Volume 1 of 2. Manga adaptation of Assassin's Creed IV: Black Flag. The title stars Edward Kenway in the 18th century and Yanao Seijin in the present as Seijin relives Edward's memories under the eye of Abstergo Industries. In 1715, pirates established a lawless republic in the Caribbean and ruled the land and seas. These outlaws paralyzed navies, halted international trade, and plundered vast fortunes. Into this world sails a young, cocky, and fearsome captain named Edward Kenway. Written by Takashi Yano. Art by Kenji Oiwa. Originally serialized in Shueisha's Jump X in 2013; English edition published by Titan Comics (August 2017). ISBN 9781785858581.",
+    "contents": "Paperback manga (224 pages)",
+    "type": "Manga"
+  },
+  {
+    "name": "Assassin's Creed: Awakening, Vol. 2",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Volume 2 of 2. Final volume. The second half of the Assassin's Creed IV: Black Flag manga adaptation serialized in Shueisha's Jump X. Edward Kenway broke the law of the Assassins Brotherhood, but is offered a chance at redemption. Written by Takashi Yano. Art by Kenji Oiwa. English edition published by Titan Comics (October 2017). ISBN 9781785859229.",
+    "contents": "Paperback manga (192 pages)",
+    "type": "Manga"
+  },
+  {
     "name": "Assassin's Creed: Visionaries - Issue #1",
     "game": "General",
     "year": 2023,

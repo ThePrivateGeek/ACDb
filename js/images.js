@@ -622,6 +622,11 @@ const AC_IMAGES = {
     "Assassin's Creed: Blade of Shao Jun, Vol. 2": ["images/comics/ac-blade-shao-jun-vol2.jpg"],
     "Assassin's Creed: Blade of Shao Jun, Vol. 3": ["images/comics/ac-blade-shao-jun-vol3.jpg"],
     "Assassin's Creed: Blade of Shao Jun, Vol. 4": ["images/comics/ac-blade-shao-jun-vol4.jpg"],
+    "Assassin's Creed: Awakening, Vol. 1": [
+        "images/comics/ac-awakening-vol1.jpg",
+        "images/comics/ac-awakening-vol1_01.jpg",
+    ],
+    "Assassin's Creed: Awakening, Vol. 2": ["images/comics/ac-awakening-vol2.jpg"],
     "Assassin's Creed: The Fall - Issue #1": ["images/comics/ac-the-fall-issue-1.jpg"],
     "Assassin's Creed: The Fall - Issue #2": ["images/comics/ac-the-fall-issue-2.jpg"],
     "Assassin's Creed: The Fall - Issue #3": ["images/comics/ac-the-fall-issue-3.jpg"],
