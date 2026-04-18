@@ -2871,12 +2871,39 @@ const AC_DATABASE = [
     "type": "Manga"
   },
   {
-    "name": "Assassin's Creed: Visionaries",
+    "name": "Assassin's Creed: Visionaries - Issue #1",
     "game": "General",
     "year": 2023,
     "category": "Comic Book",
-    "description": "Anthology graphic novel featuring stories by multiple high-profile comic creators, each telling an original AC story in different historical periods. Published by Massive Publishing (Ubisoft).",
-    "contents": "Anthology graphic novel",
+    "description": "Issue 1 of 3. An anthology of two self-contained, non-canon stories. In the first tale, Rafael Albuquerque is joined by writer Ale Santos and colourist Marcelo Maiolo to tell a story set during the 1970s Brazilian Dictatorship, where a Revolutionary Fighter is captured and sent to a military basement, also known as Torture Rooms. In the second tale, European writer/artist Stéphane Louis and colourist Véra Daviet weave a tale set in a future where the Templars are on the verge, yet again, of eliminating the Assassin Brotherhood once and for all. Published by Massive Publishing (November 2023).",
+    "contents": "Single issue comic book (32 pages, contains 2 short stories)",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Visionaries - Issue #2",
+    "game": "General",
+    "year": 2024,
+    "category": "Comic Book",
+    "description": "Issue 2 of 3. Cover-titled 'Visionaries Presents: Shinobi & Uncivil War.' In the first tale SHINOBI, writer Bray Dornback and artist Ryan Benjamin bring us to the Shogunate age of Feudal Japan — the target is a rival clan member and the kill has to be perfect; failure means certain death and instant dishonor. A true Shinobi must protect his clan, even at the cost of his own life, pride, and honor. Then in UNCIVIL WAR, writer Chuck Austen and artist Patrick Olliffe take us to the American Civil War, where a newly liberated slave, William Jones, uncovers a plot to assassinate leaders of the Union, including the President. Published by Massive Publishing (March 2024).",
+    "contents": "Single issue comic book (32 pages, contains 2 short stories)",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Visionaries - Issue #3",
+    "game": "General",
+    "year": 2024,
+    "category": "Comic Book",
+    "description": "Issue 3 of 3. Cover-titled 'Visionaries: Powder Decima.' In the first tale DECIMA, one bloody night, before recorded time, a young warrior watches as her family and the rest of their village are brutally slaughtered. The only hope of saving her tribe is to pick up an axe, steel her nerves, and join the fray — a tale of loss, respect, and valour, stepping into the far reaches of human history, further than previously ventured in the Assassin's Creed universe. Written by Ed Brisson, art by Chris Johnson. Then in POWDER, the Templars expand their influence around the globe while flooding China with opium during the Opium Wars, and a pair of Assassins from separate guilds sow chaos amid the Templar fleet. Written by Fred Kennedy, art by Nick Marinkovich. Published by Massive Publishing (October 2024).",
+    "contents": "Single issue comic book (32 pages, contains 2 short stories)",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Visionaries",
+    "game": "General",
+    "year": 2024,
+    "category": "Comic Book",
+    "description": "Anthology trade paperback collecting all 3 issues of the Visionaries series — six self-contained, non-canon short stories spanning prehistory, Feudal Japan, the 1970s Brazilian Dictatorship, the American Civil War, the Opium Wars, and a Templar-dominated future. Each tale is told by a different creative team. Published by Massive Publishing in partnership with Studio Lounak, licensed from Ubisoft. ISBN 9781961012165.",
+    "contents": "Trade paperback collecting issues #1-3",
     "type": "Graphic Novel"
   },
   {

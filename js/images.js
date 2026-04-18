@@ -683,6 +683,9 @@ const AC_IMAGES = {
         "images/comics/ac-dynasty-box-set_02.jpg",
         "images/comics/ac-dynasty-box-set_03.jpg",
     ],
+    "Assassin's Creed: Visionaries - Issue #1": ["images/comics/ac-visionaries-issue-1.jpg"],
+    "Assassin's Creed: Visionaries - Issue #2": ["images/comics/ac-visionaries-issue-2.jpg"],
+    "Assassin's Creed: Visionaries - Issue #3": ["images/comics/ac-visionaries-issue-3.jpg"],
     "Assassin's Creed: Visionaries": ["images/comics/ac-visionaries.jpg"],
     "Assassin's Creed Mirage: A Soar of Eagles": ["images/comics/ac-soar-of-eagles.jpg"],
     "Assassin's Creed Valhalla: The Hidden Codex": [
