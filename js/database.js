@@ -2439,6 +2439,33 @@ const AC_DATABASE = [
     "type": "Comic Book"
   },
   {
+    "name": "Assassin's Creed Valhalla: Forgotten Myths - Issue #1",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2022,
+    "category": "Comic Book",
+    "description": "Issue 1 of 3. A prequel tied to the Dawn of Ragnarök expansion. Thor, Baldr, and Heimdall discover a fire giant from Muspelheim threatening Asgard's borders. In the aftermath of the battle, Baldr learns that the Muspels are now massing at the gates of Svartalfheim and sets out on a journey to broker lasting peace among the realms. Written by Alexander M. Freed. Art by Martín Túnica, colors by Michael Atiyeh. Published by Dark Horse Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: Forgotten Myths - Issue #2",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2022,
+    "category": "Comic Book",
+    "description": "Issue 2 of 3. Baldr and Loki brave immense peril to seek out rare items as gifts for the Muspel princess Eysa, hoping Baldr can win her heart and restore peace among the nine realms as the fire giants of Muspelheim continue to threaten war. Written by Alexander M. Freed. Art by Martín Túnica, colors by Michael Atiyeh. Published by Dark Horse Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: Forgotten Myths - Issue #3",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2022,
+    "category": "Comic Book",
+    "description": "Issue 3 of 3. The explosive conclusion of the miniseries. Baldr commands the dwarves defending Svartalfheim against the fire giants massing at their gates, while a nighttime visit from a forbidden love complicates everything. Written by Alexander M. Freed. Art by Martín Túnica, colors by Michael Atiyeh. Published by Dark Horse Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
     "name": "Assassin's Creed: Dynasty, Vol. 1",
     "game": "General",
     "year": 2022,
