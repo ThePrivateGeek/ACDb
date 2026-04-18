@@ -2250,12 +2250,93 @@ const AC_DATABASE = [
     "type": "Comic Book"
   },
   {
+    "name": "Assassin's Creed: Templars - Issue #1",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 1 of 9. All-new adventures from the world of Assassin's Creed. In 1927 Darius Gift arrived in Shanghai on his first assignment for the Templar Order. A minor misstep means he soon finds himself mixed up in the shadowy underworld of the International Settlement, and mixed up with the mysterious, enigmatic, Black Cross. Written by Fred Van Lente. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Templars - Issue #2",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 2 of 9. In the bustling streets of Shanghai, Darius Gift has come unstuck, his head turned by a pretty girl and a stunning smile. His tenuous position as a newly initiated member of the Templar Order is under threat, until he is rescued by the mysterious figure that is Black Cross. Written by Fred Van Lente. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Templars - Issue #3",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 3 of 9. In the infamous pleasure tower that dominates the Shanghai nightlife, the Great World, Black Cross battles with the triads that have pursued him through the city night. With time running out, Black Cross has to find the missing information that will reveal what is about to happen in China. Written by Fred Van Lente. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Templars - Issue #4",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 4 of 9. The streets of Shanghai have erupted into utter chaos as Black Cross finally evades the henchmen of Big-Eared Du and heads to the International Settlement to establish just how mush trouble the Shanghai Rite is in, and he learns that the corruption goes deeper than he ever could have imagined. Written by Fred Van Lente. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Templars - Issue #5",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 5 of 9. With the revelation that the puppet master of the corruption in the Shanghai rite is a dangerous political figure, Black Cross is forced to take matters into his own hands as the honor of the Order is at stake. But a moment of distraction could destroy everything he's worked for! Written by Fred Van Lente. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Templars - Issue #6",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 6 of 9. Brand new arc! New characters! In this explosive opener to the brand new arc, the events that happened in Shanghai take on a whole new meaning as the Templars call on Juhani Otso Berg, legendary Sigma Team leader, to try and discover the truth about the mysterious last-known Black Cross. Written by Fred Van Lente. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Templars - Issue #7",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 7 of 9. Under the watchful eyes of Abstergo, Dre Bolden has been viewing the memories that Otso Berg hopes hide the missing piece in the puzzle threatening to dismantle the Templars. As Dre relives the experiences of his Barbary Coast based ancestor, he realizes how much he has to learn about the people who hold his life in their hands. Written by Fred Van Lente. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Templars - Issue #8",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 8 of 9. Things are not all they seem in the Abstergo facility - not for Dre, and definitely not for Otso. When Dre realises he hasn't been told the whole truth, it's time for his survival instincts to kick in... only question is: who can he trust? Written by Fred Van Lente. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Templars - Issue #9",
+    "game": "General",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 9 of 9. With the reality of his situation now almost preternaturally clear to Dre, there is only one possible course of action... he needs to get away from Abstergo. With no clue how to do this, he lets his instincts take over, and finds that he has hidden depths he never knew of... and skills he couldn't have imagined! . Written by Fred Van Lente. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
     "name": "Assassin's Creed: Templars Vol. 1 - Black Cross",
     "game": "General",
     "year": 2016,
     "category": "Comic Book",
-    "description": "Tells the story from the Templar side, following the Black Cross — an internal enforcer of the Templar Order — in 1920s Shanghai. Published by Titan Comics. Collects issues #1-4.",
-    "contents": "Trade paperback collecting issues #1-4",
+    "description": "Assassin's Creed: Templars - Volume 1: Black Cross is a trade paperback that collects the first five issues of the comic-book series Assassin's Creed: Templars by author Fred Van Lente. Published by Titan Comics on 9 November 2016. In 1927, Darius Gift, young, handsome, terribly entitled, is given his first mission for the ancient Templar Order, and the chance to clear his tarnished family name. All doesn't quite go to plan when he arrives in Shanghai, however, and his inexperience jeopardizes the whole operation. Thankfully, he isn't the only Templar new to the city, as the enigmatic Black Cross is stalking the shadows. And saving Darius from failure! Collecting the first arc of the brand new explosive Templars series, from the world of Assassin's Creed, Fred Van Lente and Dennis Calero offer a new perspective on the century-spanning feud between the Assassin Brotherhood and the Templar Order!",
+    "contents": "Trade paperback collecting issues #1-5",
     "type": "Comic Book"
   },
   {
@@ -2263,8 +2344,8 @@ const AC_DATABASE = [
     "game": "General",
     "year": 2017,
     "category": "Comic Book",
-    "description": "Continues the Black Cross storyline set during World War II, exploring Templar operations during the global conflict. Published by Titan Comics. Collects issues #5-9.",
-    "contents": "Trade paperback collecting issues #5-9",
+    "description": "Assassin's Creed: Templars - Volume 2: Cross of War is trade paperback that collects the last four issues of the comic-book series Assassin's Creed: Templars from author and artist Dennis Calero. It was published by Titan Comics on 19 April 2017. Collects the incredible second arc of the riveting Black Cross saga! In the dungeons of Tripoli, a man will have his fortunes changed forever as he becomes an agent of honor for the legendary Templar Order!",
+    "contents": "Trade paperback collecting issues #4-9",
     "type": "Comic Book"
   },
   {
