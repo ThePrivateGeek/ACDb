@@ -2718,20 +2718,47 @@ const AC_DATABASE = [
     "type": "Graphic Novel"
   },
   {
-    "name": "Assassin's Creed Valhalla: Song of Glory",
+    "name": "Assassin's Creed Valhalla: Song of Glory - Issue #1",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
     "category": "Comic Book",
-    "description": "Prequel to AC Valhalla following Eivor and their clan in Norway before the journey to England. Features Eivor, Sigurd, and other key characters. Published by Dark Horse Comics. 3-issue limited series.",
-    "contents": "Trade paperback collecting 3 issues",
+    "description": "Issue 1 of 3. Blades clash in this prequel to Ubisoft's Assassin's Creed Valhalla. Norway. Mid-9th century CE. Eivor, a Viking warrior, observes a village raided by a neighboring kingdom. Bloodshed and mayhem erupt as she seizes the attack in her own favor — but will her victory be a blessing to her clan or a terrible curse? Elsewhere, another Viking searches for a different kind of prize, one of crucible steel. Written by Cavan Scott. Art by Martín Túnica. Published by Dark Horse Comics (October 2020).",
+    "contents": "Single issue comic book (32 pages)",
     "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: Song of Glory - Issue #2",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Comic Book",
+    "description": "Issue 2 of 3. Eivor's prisoner makes her an offer she can't refuse, leading her to the merciless mountains in search of a mysterious treasure. But she's not alone in this hunt — danger lurks at every turn. Meanwhile, her brother tests out his new sword in a surprise attack. Written by Cavan Scott. Art by Martín Túnica. Published by Dark Horse Comics (November 2020).",
+    "contents": "Single issue comic book (32 pages)",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: Song of Glory - Issue #3",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Comic Book",
+    "description": "Issue 3 of 3. Final issue. As the rival Vikings retaliate, the King of Stavanger and his people are vulnerable with both of their champions seeking glory elsewhere. Eivor's prize is within her reach, but will she choose the power it could bring or does her destiny lie with her kingdom? And back at the merchant's castle, Sigurd faces off with the Assassin for a more personal treasure. Written by Cavan Scott. Art by Martín Túnica. Published by Dark Horse Comics (December 2020).",
+    "contents": "Single issue comic book (32 pages)",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed Valhalla: Song of Glory",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2021,
+    "category": "Comic Book",
+    "description": "Fearless Vikings confront their destiny in this glory-seeking prequel to Ubisoft's Assassin's Creed Valhalla. Norway. Mid-9th Century CE. Eivor, a Viking warrior, observes a village raided by a neighboring kingdom. Bloodshed and mayhem erupt as she seizes the attack in her own favor — but will her victory be a blessing or a curse? Elsewhere in the east, another Viking searches for a different kind of prize, one of crucible steel. Written by Cavan Scott. Art by Martín Túnica. Published by Dark Horse Comics (April 2021). ISBN 9781506719290.",
+    "contents": "72-page hardcover collecting all 3 issues",
+    "type": "Graphic Novel"
   },
   {
     "name": "Assassin's Creed Valhalla: Blood Brothers",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
     "category": "Comic Book",
-    "description": "Explores the relationship between Eivor and Sigurd before their voyage to England, adding depth to their bond. Published by Dark Horse Comics.",
+    "description": "Not long before the exploits of Eivor Wolf-Kissed, Jarl Stensson and his [sons], Ulf and Björn, make their way to England at the behest of Halfdan Ragnarsson and Ivarr the Boneless. Filled with excitement, confidence and bloodlust, the [two] brothers are eager to go to war against Aelfred the Great and his Anglo Saxon army. But they would do well not to underestimate what awaits them on those green shores. Published by Tokyopop.",
     "contents": "Standalone graphic novel",
     "type": "Graphic Novel"
   },
