@@ -2223,11 +2223,137 @@ const AC_DATABASE = [
     "type": "Graphic Novel"
   },
   {
-    "name": "Assassin's Creed Vol. 1: Trial by Fire",
+    "name": "Assassin's Creed: Assassins - Issue #1",
     "game": "General",
     "year": 2015,
     "category": "Comic Book",
-    "description": "Introduces Charlotte de la Cruz, a modern-day Assassin recruit who relives the memories of Tom Stoddard during the Salem witch trials. Published by Titan Comics. Collects issues #1-5.",
+    "description": "Issue 1 of 14. Trial by Fire arc begins. Charlotte de la Cruz is over-educated and underemployed, wasting her time in a dead-end San Diego job and chasing conspiracy theories online. When a real-life conspiracy crashes into her life, she is pulled into the orbit of the Assassins — and the Animus reveals a secret in her blood: the genetic memory of an ancestor who witnessed a dark act at the Salem witch trials, Tom Stoddard. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #2",
+    "game": "General",
+    "year": 2015,
+    "category": "Comic Book",
+    "description": "Issue 2 of 14. Events in Salem turn terrifying as Assassin Tom Stoddard faces the townspeople's rising hysteria while they bay for the blood of supposed witches. Viewing his memories, Charlotte witnesses how deep the feud with the Templars goes — and how brutal the choices to be made in her new life will be. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #3",
+    "game": "General",
+    "year": 2015,
+    "category": "Comic Book",
+    "description": "Issue 3 of 14. Desperate to escape from the horrors of Salem, Tom must place his trust in the hands of a stranger, and go against every instinct he has as an Assassin, and a man, to save the terrified travellers relying on him. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #4",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 4 of 14. When another visit to Tom's memories reveals a horrifying truth, it's the blow that finally transforms Charlotte from Initiate to true Assassin as she puts aside her own safety for the good of the Brotherhood. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #5",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 5 of 14. Conclusion of the Trial by Fire arc. Charlotte must call on all that she has learned from her ancestor Tom Stoddard to save her cell from decimation at the hands of Abstergo. In doing so, she learns more about herself — and the Brotherhood — than she expected, and is forced to decide where her loyalties lie. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #6",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 6 of 14. Setting Sun arc begins. A brand new historical period and a brand new character kick off the second arc, as Charlotte de la Cruz leaps into her genetic memories of the Inca empire, searching for the secret hidden in her past that could lead the Assassins into the future. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #7",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 7 of 14. Charlotte, Galina and Kody are on a mission: to locate the enigmatic hacker collective, Erudito. Charlotte must delve into the memories of her Inca ancestor to figure out the key to finding the elusive group, but while the Assassins hunt for the clue they need, they themselves become the hunted. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #8",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 8 of 14. Tensions are running high in the Assassin cell, as Charlotte's investigation is plagued by the limitations of the portable Animus. When she turns on Kody, Galina leaps to defend him. With tempers at breaking point, can the team pull themselves back together before they are torn apart for good? Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #9",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 9 of 14. Escaping a surprise attack, the Assassins continue the hunt for Erudito, nursing their wounds as they do. Getting back into the Animus, Charlotte finds that the stakes are just as high for her ancestor Quila, who must find the strength, one more time, to do what she knows is right. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #10",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 10 of 14. Conclusion of the Setting Sun arc. Cuzco is under attack from the invading Conquistadors! Quila and Don Pardo Gonzales face a bitter fight to reach the Emperor-God before the city falls. For Charlotte, the clue she's been searching for is finally revealed — but it leads to a bigger surprise than she could ever have imagined. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #11",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 11 of 14. Homecoming arc begins. Charlotte is reeling from her meeting with the cartel, and it's time for the Assassin cell headed by Brotherhood stalwart Galina Voronina to pull together — but will Galina be able to do it alone, or is it time for reinforcements? A brand new arc and bold new direction begins here, featuring the return of fan-favourite Giovanni Borgia. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #12",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 12 of 14. While Charlotte is reeling from the meeting with Erudito, it is time for the Assassin cell headed by Brotherhood stalwart Galina Voronina to pull her team together — but will she be able to do it alone, or is it time for reinforcements? Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #13",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 13 of 14. Tensions are running high in the Erudito camp as it becomes clear that Charlotte's memories may hold the key to the code they've been trying to piece together. But it won't be easy to decipher, as Charlotte encounters the mysterious Consus once again, in the mind of Giovanni Borgia. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed: Assassins - Issue #14",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 14 of 14. Final issue. Charlotte's plan begins to unravel as she realises she may be completely out of her depth. It's time for her to sink or swim, but can she keep it together long enough to get what she needs from Consus — and Erudito? Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
+    "contents": "Single issue comic book",
+    "type": "Comic Book"
+  },
+  {
+    "name": "Assassin's Creed Vol. 1: Trial by Fire",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "The first story arc of the Assassin's Creed: Assassins comic series. Introduces Charlotte de la Cruz, a modern-day Assassin recruit who relives the memories of Tom Stoddard during the Salem witch trials. Published by Titan Comics. Collects issues #1-5.",
     "contents": "Trade paperback collecting issues #1-5",
     "type": "Comic Book"
   },
@@ -2236,7 +2362,7 @@ const AC_DATABASE = [
     "game": "General",
     "year": 2016,
     "category": "Comic Book",
-    "description": "Charlotte continues her Animus journeys, exploring the Inca Empire as the Templars close in. Published by Titan Comics. Collects issues #6-10.",
+    "description": "The second story arc of the Assassin's Creed: Assassins comic series. Charlotte continues her Animus journeys, exploring the Inca Empire as the Templars close in. Published by Titan Comics. Collects issues #6-10.",
     "contents": "Trade paperback collecting issues #6-10",
     "type": "Comic Book"
   },
@@ -2245,7 +2371,7 @@ const AC_DATABASE = [
     "game": "General",
     "year": 2017,
     "category": "Comic Book",
-    "description": "Charlotte goes deeper into the Brotherhood and uncovers conspiracies on both sides of the Assassin-Templar war. Published by Titan Comics. Collects issues #11-14.",
+    "description": "The third and final story arc of the Assassin's Creed: Assassins comic series. The Brotherhood of the Assassins is in trouble. Resources depleted by their long feud with the Templar Order, faced with a world where the goalposts are constantly shifting, they can only struggle to regain their footing. A mysterious collective offers an alliance, but is this third faction a golden opportunity? Or a Faustian bargain? Published by Titan Comics. Collects issues #11-14.",
     "contents": "Trade paperback collecting issues #11-14",
     "type": "Comic Book"
   },
