@@ -10,7 +10,6 @@ const AC_IMAGES = {
         "images/collectors-editions/ac1-limited-edition_01.jpg",
         "images/collectors-editions/ac1-limited-edition_02.jpg",
     ],
-    "Assassin's Creed Limited Edition (European)": ["images/collectors-editions/ac1-limited-edition-european.jpg"],
     "Assassin's Creed Limited Edition Statue": [
         "images/collectors-editions/ac1-limited-edition_statue.jpg",
         "images/collectors-editions/ac1-limited-edition_statue_01.jpg",
@@ -82,9 +81,10 @@ const AC_IMAGES = {
     ],
 
     // ── Steelbooks ──
-    "Assassin's Creed Steelbook (AC1, Xbox 360)": [
-        "images/steelbooks/ac1-steelbook-xbox-360.jpg",
-        "images/steelbooks/ac1-steelbook-xbox-360_01.jpg",
+    "Assassin's Creed Steelcase Limited Edition": [
+        "images/steelbooks/ac1-steelcase.jpg",
+        "images/steelbooks/ac1-steelcase_01.jpg",
+        "images/steelbooks/ac1-steelcase_02.jpg",
     ],
     "Assassin's Creed III Steelbook Edition": ["images/steelbooks/ac3-steelbook-edition.jpg"],
     "Assassin's Creed III Future Shop Steelbook Edition": ["images/steelbooks/ac3-future-shop-steelbook-edition.jpg"],

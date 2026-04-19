@@ -1746,7 +1746,7 @@ const AC_DATABASE = [
     "type": "Jewelry"
   },
   {
-    "name": "Assassin's Creed Steelbook (AC1, Xbox 360)",
+    "name": "Assassin's Creed Steelcase Limited Edition",
     "game": "Assassin's Creed",
     "year": 2007,
     "category": "Steelbook",
@@ -4147,15 +4147,6 @@ const AC_DATABASE = [
     "description": "Assassin's Creed: Valhalla is a short French webcomic created by Glénat Editions. The comic, written by Mathieu Gabella with art by Paolo Traisci and colors by Fabien Alquier, was released on 26 November 2020. It served as a tie-in to the video game of the same name, and followed the Viking shieldmaiden Eivor Varinsdottir of the Raven Clan as she raided a monastery.",
     "contents": "Eight pages comic",
     "type": "Comic Book"
-  },
-  {
-    "name": "Assassin's Creed Limited Edition (European)",
-    "game": "Assassin's Creed",
-    "year": 2007,
-    "category": "Collector's Edition",
-    "description": "European PAL release of the Limited Edition for the original Assassin's Creed. Comes in the same metal tin packaging as the North American edition and includes the 16-page Penny Arcade prequel comic, but does not include the 3-inch Altaïr figurine that shipped with the NTSC version.",
-    "contents": "Metal tin box, 16-page Penny Arcade prequel comic book, and the game disc",
-    "type": "Collector's Edition"
   },
   {
     "name": "Ubicollectibles Assassin's Creed Origins: Trial of the Gods Figurine",

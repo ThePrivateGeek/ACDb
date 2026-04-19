@@ -24,7 +24,14 @@ The script REWRITES each mapping entry to the "always array" form:
     ],
 
 It re-runs idempotently — reading an array-form file produces the same output.
-It warns (but does not crash) if a base image file isn't found on disk.
+
+It warns (but does not crash) about two kinds of drift between images.js and disk:
+    1. Missing: a base image referenced in images.js that doesn't exist on disk.
+    2. Orphan: an image file under images/<subdir>/ that isn't referenced by any
+       entry. Top-level images/ files (e.g. acdb-og.jpg, README screenshots) are
+       ignored — orphan scanning only recurses into subdirectories. The check is
+       case-sensitive, matching GitHub Pages, so a foo.JPG on disk that images.js
+       spells foo.jpg will be flagged.
 """
 
 import json
@@ -181,6 +188,29 @@ def build_gallery(base_rel):
     return gallery, base_exists
 
 
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
+
+
+def find_orphans(claimed):
+    """Return sorted list of image files under images/<subdir>/ that aren't
+    in the `claimed` set. Top-level files in images/ are skipped (they are
+    project assets like the OG image or README screenshots, not item images).
+    """
+    orphans = []
+    for sub in sorted(IMAGES_DIR.iterdir()):
+        if not sub.is_dir():
+            continue
+        for path in sorted(sub.rglob("*")):
+            if not path.is_file():
+                continue
+            if path.suffix.lower() not in IMAGE_EXTENSIONS:
+                continue
+            rel = path.relative_to(ROOT).as_posix()
+            if rel not in claimed:
+                orphans.append(rel)
+    return orphans
+
+
 def format_entry(indent, key, paths):
     key_json = json.dumps(key, ensure_ascii=False)
     if len(paths) == 1:
@@ -207,6 +237,7 @@ def main():
 
     out_lines = list(pre)
     missing = []
+    claimed = set()
     entry_count = 0
     multi_count = 0
 
@@ -222,6 +253,7 @@ def main():
                 missing.append(item["base"])
             if len(gallery) > 1:
                 multi_count += 1
+            claimed.update(gallery)
             out_lines.append(format_entry(item["indent"], item["key"], gallery))
 
     out_lines.extend(post)
@@ -243,6 +275,15 @@ def main():
             file=sys.stderr,
         )
         for p in missing:
+            print(f"  - {p}", file=sys.stderr)
+
+    orphans = find_orphans(claimed)
+    if orphans:
+        print(
+            f"\nWARNING: {len(orphans)} image file(s) on disk not referenced by any entry:",
+            file=sys.stderr,
+        )
+        for p in orphans:
             print(f"  - {p}", file=sys.stderr)
 
 
