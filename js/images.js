@@ -10,6 +10,7 @@ const AC_IMAGES = {
         "images/collectors-editions/ac1-limited-edition_01.jpg",
         "images/collectors-editions/ac1-limited-edition_02.jpg",
     ],
+    "Assassin's Creed Limited Edition (European)": ["images/collectors-editions/ac1-limited-edition-european.jpg"],
     "Assassin's Creed Limited Edition Statue": [
         "images/collectors-editions/ac1-limited-edition_statue.jpg",
         "images/collectors-editions/ac1-limited-edition_statue_01.jpg",
@@ -981,7 +982,6 @@ const AC_IMAGES = {
     "Unimax - Niccolo Machiavelli (Gamestars Collectibles)": ["images/statues/unimax-niccolo-machiavelli-gamestars-collectibles.jpg"],
     "Unimax - The Doctor (Gamestars Collectibles)": ["images/statues/unimax-the-doctor-gamestars-collectibles.jpg"],
     "Unimax - The Harlequin (Gamestars Collectibles)": ["images/statues/unimax-the-harlequin-gamestars-collectibles.jpg"],
-
 };
 
 // Apply images to database — only if the file actually exists (image onload handles missing files gracefully)

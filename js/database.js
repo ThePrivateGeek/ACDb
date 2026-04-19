@@ -4148,5 +4148,14 @@ const AC_DATABASE = [
     "contents": "Eight pages comic",
     "type": "Comic Book"
   },
+  {
+    "name": "Assassin's Creed Limited Edition (European)",
+    "game": "Assassin's Creed",
+    "year": 2007,
+    "category": "Collector's Edition",
+    "description": "European PAL release of the Limited Edition for the original Assassin's Creed. Comes in the same metal tin packaging as the North American edition and includes the 16-page Penny Arcade prequel comic, but does not include the 3-inch Altaïr figurine that shipped with the NTSC version.",
+    "contents": "Metal tin box, 16-page Penny Arcade prequel comic book, and the game disc",
+    "type": "Collector's Edition"
+  },
 
 ];
