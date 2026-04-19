@@ -2223,6 +2223,24 @@ const AC_DATABASE = [
     "type": "Graphic Novel"
   },
   {
+    "name": "Assassin's Creed: The Ankh of Isis Trilogy",
+    "game": "General",
+    "year": 2013,
+    "category": "Comic Book",
+    "description": "The first ever English collection of the three-volume graphic novel from Ubisoft, collecting together the exhilarating story of Desmond Miles' abduction by Abstergo. His subsequent flight from their grasp leads to Desmond joining the Assassins in their fight against the Templars. Betrayal leads to Desmond recovering the memories of his ancestor Aquilus as he searches for the power of the mystical Ankh and savage Barbarian tribes, led by the deadly Assassin Accipiter, prepare to attack. Collects Vol. 1 (Desmond), Vol. 2 (Aquilus), and Vol. 3 (Accipiter). Written by Eric Corbeyran. Art by Djillali Defali. Published by Titan Books (November 2013).",
+    "contents": "144-page hardcover collecting the first 3 French BD volumes in English",
+    "type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed: The Hawk Trilogy",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "English collection of the second French BD cycle. In HAWK, Desmond Miles entrusts fellow Assassin Jonathan Hawk with the search for the Scepter of Isis — a powerful ancient artifact, lost in time. In EL CAKR, Hawk fights through a terrible setback to unmask a traitor in the Order's ranks, whilst his ancestor El Cakr battles Templar agents for the Scepter of Aset in 13th-century Egypt. In LEILA, the seasoned Assassin El Cakr seeks to return the relic to the Brotherhood when it is stolen by a mysterious woman named Leila — leading to an ultimate showdown between Assassins and Templars centuries later. Collects Vol. 4 (Hawk), Vol. 5 (El Cakr), and Vol. 6 (Leila). Written by Eric Corbeyran. Art by Djillali Defali. Published by Titan Books (November 2016).",
+    "contents": "144-page hardcover collecting the last 3 French BD volumes in English",
+    "type": "Graphic Novel"
+  },
+  {
     "name": "Assassin's Creed: Assassins - Issue #1",
     "game": "General",
     "year": 2015,
@@ -4075,5 +4093,60 @@ const AC_DATABASE = [
     "description": "Metal collectible promotional coin/medal featuring the Spartan helmet design from AC Odyssey. Best Buy exclusive pre-order/purchase bonus.",
     "contents": "Metal coin/medal in protective case",
     "type": "Promotional"
-  }
+  },
+  {
+    "name": "Assassin's Creed (comic)",
+    "game": "Assassin's Creed",
+    "year": 2007,
+    "category": "Comic Book",
+    "description": "A non-canonical, sixteen-page graphic novel that was included as promotional material in the Limited Edition of Assassin's Creed and later distributed to EB Games store managers in 2007 to promote the game. The story served as a prelude to the game and introduced its protagonists by telling overlapping stories of the Levantine Assassin Altaïr Ibn-La'Ahad during the Third Crusade and Desmond Miles in 2012.",
+    "contents": "Sixteen-page graphic novel",
+    "type": "Graphic Novel"
+  },
+    {
+    "name": "Assassin's Creed (webcomic)",
+    "game": "Assassin's Creed",
+    "year": 2007,
+    "category": "Comic Book",
+    "description": "Assassin's Creed is a non-canonical eight-page comic by Michael \"Gabe\" Krahulik and Jerry \"Tycho Brahe\" Holkins of Penny Arcade, a website focused on video game culture. Originally published online on 1 August 2007, it was included as promotional material in pre-ordered Limited Edition steelboxes of the game Assassin's Creed and follows its protagonist, Altaïr Ibn-La'Ahad, on one of his missions in Acre.",
+    "contents": "Eight-page comic",
+    "type": "Comic Book"
+  },
+    {
+    "name": "Assassin's Creed FCBD 2016 Edition",
+    "game": "General",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "The Assassin's Creed FCBD 2016 Edition is an exclusive two-issue one-shot from Titan Comics that ties into both their Assassins and Templars ongoing series and was given away as part of the 2016 Free Comic Book Day on 7 May.\n\nThe book showcases two new stories from the series' protagonists: 21st century Assassin Charlotte de la Cruz and the early 20th century Templar Albert Bolden.\n\nThe modern-day events of \"The Chair\" are set in 2016 around issues seven and eight of the Assassins storyline while \"Great Wall\" takes place in March 1927 during the first issue of Templars.",
+    "contents": "26 pages comic",
+    "type": "Comic Book"
+  },
+    {
+    "name": "Assassin's Creed FCBD 2021 Edition",
+    "game": "General",
+    "year": 2021,
+    "category": "Comic Book",
+    "description": "The Assassin's Creed FCBD 2021 Edition is an exclusive two-issue one-shot from Tokyopop that ties into both their English publications of Valhalla: Blood Brothers and Dynasty series written by Feng Zisu and Xu Xianzhe, respectively. The book features sneak peeks from the comics, depicting each series' respective first chapters, \"An Invitation from England\" and \"The Flower Banquet (Part 1)\".",
+    "contents": "38 pages comic",
+    "type": "Comic Book"
+  },
+    {
+    "name": "Assassin's Creed Shadows: Tales of Iga, Vol. 1",
+    "game": "Assassin's Creed Shadows",
+    "year": 2026,
+    "category": "Comic Book",
+    "description": "Caught in a secret war between the Templar Order and the Assassin Brotherhood, feudal Japan becomes a battleground for Assassins and shinobi alike!\n\nThrough its devious machinations, the Templar Order has increased its influence all over Japan, but hope has come to Iga. An Assassin and his young apprentice have come to the birthplace of ninjutsu seeking aid from legendary shinobi like Hattori Hanzo and Momochi Sandayu in their fight for justice.\n\nThere is one way to stem the tide of the Templars: one must live in the darkness but serve the light. Assassin’s Creed Shadows: Tales of Iga is the story of the ninja who protect Japan.",
+    "contents": "192 pages manga",
+    "type": "Manga"
+  },
+    {
+    "name": "Assassin's Creed: Valhalla (webcomic)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Comic Book",
+    "description": "Assassin's Creed: Valhalla is a short French webcomic created by Glénat Editions. The comic, written by Mathieu Gabella with art by Paolo Traisci and colors by Fabien Alquier, was released on 26 November 2020. It served as a tie-in to the video game of the same name, and followed the Viking shieldmaiden Eivor Varinsdottir of the Raven Clan as she raided a monastery.",
+    "contents": "Eight pages comic",
+    "type": "Comic Book"
+  },
+
 ];

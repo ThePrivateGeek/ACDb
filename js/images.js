@@ -646,6 +646,8 @@ const AC_IMAGES = {
     "Assassin's Creed Vol. 4: Hawk": ["images/comics/ac-vol4-hawk.jpg"],
     "Assassin's Creed Vol. 5: El Cakr": ["images/comics/ac-vol5-el-cakr.jpg"],
     "Assassin's Creed Vol. 6: Leila": ["images/comics/ac-vol6-leila.jpg"],
+    "Assassin's Creed: The Ankh of Isis Trilogy": ["images/comics/ac-ankh-of-isis-trilogy.jpg"],
+    "Assassin's Creed: The Hawk Trilogy": ["images/comics/ac-hawk-trilogy.jpg"],
     "Assassin's Creed: Assassins - Issue #1": ["images/comics/ac-assassins-issue-1.jpg"],
     "Assassin's Creed: Assassins - Issue #2": ["images/comics/ac-assassins-issue-2.jpg"],
     "Assassin's Creed: Assassins - Issue #3": ["images/comics/ac-assassins-issue-3.jpg"],
@@ -725,6 +727,29 @@ const AC_IMAGES = {
         "images/art-books/guide-unity-chalice-initiate_02.jpg",
     ],
     "Assassin's Creed: Brahman": ["images/comics/ac-brahman.jpg"],
+    "Assassin's Creed (comic)": [
+        "images/comics/ac-comic.jpg",
+        "images/comics/ac-comic_01.jpg",
+        "images/comics/ac-comic_02.jpg",
+    ],
+    "Assassin's Creed (webcomic)": [
+        "images/comics/ac-webcomic.jpg",
+        "images/comics/ac-webcomic_01.jpg",
+        "images/comics/ac-webcomic_02.jpg",
+        "images/comics/ac-webcomic_03.jpg",
+    ],
+     "Assassin's Creed FCBD 2016 Edition": ["images/comics/ac-fcbd-2016.jpg"],
+     "Assassin's Creed FCBD 2021 Edition": ["images/comics/ac-fcbd-2021.jpg"],
+     "Assassin's Creed Shadows: Tales of Iga, Vol. 1": [
+         "images/comics/ac-tales-of-iga-vol1.jpg",
+         "images/comics/ac-tales-of-iga-vol1_01.jpg",
+     ],
+     "Assassin's Creed: Valhalla (webcomic)": [
+         "images/comics/ac-valhalla-webcomic.jpg",
+         "images/comics/ac-valhalla-webcomic_01.jpg",
+         "images/comics/ac-valhalla-webcomic_02.jpg",
+         "images/comics/ac-valhalla-webcomic_03.jpg",
+     ],
 
     // ── Other/Tankards and Goblets ──
     "Nemesis Now Assassin's Creed 'The Creed' Tankard": ["images/other/nemesis-the-creed-tankard.jpg"],
