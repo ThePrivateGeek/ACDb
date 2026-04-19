@@ -468,7 +468,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
-    "name": "Assassin's Creed Origins Dawn of the Creed Edition",
+    "name": "Assassin's Creed Origins: Dawn of the Creed Collector's Case",
     "game": "Assassin's Creed Origins",
     "year": 2017,
     "category": "Collector's Edition",
@@ -481,7 +481,7 @@ const AC_DATABASE = [
     "game": "Assassin's Creed Origins",
     "year": 2017,
     "category": "Collector's Edition",
-    "description": "Ultra-premium Ubisoft Store exclusive limited to 999 units, featuring a massive 28.7-inch resin statue of Bayek and Senu.",
+    "description": "Premium Ubisoft Store exclusive limited to 999 units, featuring a massive 28.7-inch resin statue of Bayek and Senu.",
     "contents": "Gold Edition of game (with Season Pass), 28.7-inch resin statue of Bayek and Senu, hand-drawn map, resin eagle skull amulet, 15x11-inch lithographs signed by Ubisoft Montreal artists, artbook, collector cards, soundtrack, two steelbook cases, certificate of authenticity (numbered 1-999)",
     "type": "Collector's Edition"
   },
@@ -4156,6 +4156,78 @@ const AC_DATABASE = [
     "description": "European PAL release of the Limited Edition for the original Assassin's Creed. Comes in the same metal tin packaging as the North American edition and includes the 16-page Penny Arcade prequel comic, but does not include the 3-inch Altaïr figurine that shipped with the NTSC version.",
     "contents": "Metal tin box, 16-page Penny Arcade prequel comic book, and the game disc",
     "type": "Collector's Edition"
+  },
+  {
+    "name": "Ubicollectibles Assassin's Creed Origins: Trial of the Gods Figurine",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Statue",
+    "description": "Ubisoft Store exclusive limited to just 100 units worldwide. Designed by Ubi Workshop and manufactured by Mixed Dimensions, this 22cm (8.75\") tall collectible features hand-painted busts of three Egyptian gods — Anubis (God of the Dead), Sekhmet (Warrior Goddess), and Sobek (Lord of the Waters) — mounted on a hieroglyphic display base via solid brass rods. Made of brass and resin with fine detailing including brass trim on Anubis' chest. Each unit ships with a numbered Certificate of Authenticity signed by Raphael Lacoste (Art Director) and Ashraf Ismail (Creative Director). Launched 15 March 2018 at $500.",
+    "contents": "22cm triple-bust figurine (Anubis, Sekhmet, Sobek) on hieroglyphic base, signed & numbered Certificate of Authenticity",
+    "type": "Ubicollectibles"
+  },
+  {
+    "name": "Connor - The Last Breath Premium Statue (Bronze Edition)",
+    "game": "Assassin's Creed III",
+    "year": 2014,
+    "category": "Statue",
+    "description": "Bronze-finish variant of the premium Connor diorama statue, depicting the moment Connor is about to execute a British general — based on a scene from the AC3 announcement trailer. Sculpted by Martel Hugues and manufactured by PureArts for Ubicollectibles. Limited to just 100 units (versus 250 for the standard colour edition), primarily distributed to Ubisoft staff and VIPs rather than sold at retail.",
+    "contents": "~70 cm tall resin diorama with bronze finish depicting Connor and a British general on a rocky base. Limited to 100 units.",
+    "type": "PureArts"
+  },
+  {
+    "name": "Connor - The Last Breath Premium Statue",
+    "game": "Assassin's Creed III",
+    "year": 2014,
+    "category": "Statue",
+    "description": "Fully painted colour edition of the premium Connor diorama, depicting the moment Connor is about to execute a red-coat British general — based on a scene from the AC3 announcement trailer. Sculpted by Martel Hugues and manufactured by PureArts for Ubicollectibles. Limited to 250 units, many distributed to Ubisoft staff and partners rather than broad retail.",
+    "contents": "~70 cm tall resin diorama in full colour finish depicting Connor and a British general on a rocky base. Limited to 250 units.",
+    "type": "PureArts"
+  },
+  {
+    "name": "Landstalker Props Flintlock Pistol (Edward Kenway)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Replica/Prop",
+    "description": "Officially commissioned by Ubisoft from UK prop house Landstalker Props, this is a one-of-one replica of Edward Kenway's flintlock pistol from AC IV: Black Flag. Revealed in October 2013 ahead of the game's launch, the piece was never produced in a run and was never sold — it was kept internally by Ubisoft and Landstalker as a promotional showcase.",
+    "contents": "Hand-crafted flintlock pistol prop replica (one-off, unique piece)",
+    "type": "Replica/Prop"
+  },
+  {
+    "name": "Altair Crouched Figure",
+    "game": "Assassin's Creed",
+    "year": 2013,
+    "category": "Statue",
+    "description": "Crouched Altair figure from the Assassin's Creed. Produced in 2007 by First 4 Figures, limited to 1,000 units worldwide and used as a gift for some Ubisoft employees.",
+    "contents": "Crouched Altair figure with display base",
+    "type": "Statue"
+  },
+  {
+    "name": "Edward Kenway Limited Developer's Bust",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Statue",
+    "description": "Edward Kenway's Bust, intended exclusively for the developers of Assassin's Creed IV Black Flag. This statue was carved by Mufizal Mokhtar and is limited to 475 units. The only way to see the serial number of the statue is via the NFC technology",
+    "contents": "Bust of Edward Kenway",
+    "type": "Ubicollectibles"
+  },
+  {
+    "name": "Assassin's Creed Revelations Ezio Limited Developer's Bust",
+    "game": "Assassin's Creed Revelations",
+    "year": 2011,
+    "category": "Statue",
+    "description": "Bust of Ezio reserved for AC Revelations programmers, limited to 220 pieces and never marketed. This statue was carved by Mufizal Mokhtar.",
+    "contents": "Bust of Ezio",
+    "type": "Statue"
+  },
+  {
+    "name": "Connor Tomahawk Developer Kit",
+    "game": "Assassin's Creed III",
+    "year": 2013,
+    "category": "Replica/Prop",
+    "description": "Replica of Connor's tomahawk from Assassin's Creed III, presented in a deluxe wooden chest as a developer/press-kit release. The blade is sculpted PU latex over a fibreglass core, and the haft is plastic wrapped in real leather. Approximately 19 inches in length. Produced in an undocumented but very small quantity and distributed to press and Ubisoft staff around 2012-2013. Never sold at retail.",
+    "contents": "tomahawk replica (PU-latex blade, fibreglass core, leather-wrapped haft) in a wooden presentation chest",
+    "type": "Replica/Prop"
   },
 
 ];

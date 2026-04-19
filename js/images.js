@@ -64,18 +64,22 @@ const AC_IMAGES = {
         "images/collectors-editions/origins-gods-edition.jpg",
         "images/collectors-editions/origins-gods-edition_01.jpg",
     ],
-    "Assassin's Creed Origins Dawn of the Creed Edition": [
-        "images/collectors-editions/origins-dawn-of-the-creed-edition.jpg",
-        "images/collectors-editions/origins-dawn-of-the-creed-edition_01.jpg",
-        "images/collectors-editions/origins-dawn-of-the-creed-edition_02.jpg",
+    "Assassin's Creed Origins Dawn of the Creed Legendary Edition": [
+        "images/collectors-editions/origins-dawn-of-the-creed-legendary-edition.jpg",
+        "images/collectors-editions/origins-dawn-of-the-creed-legendary-edition_01.jpg",
+        "images/collectors-editions/origins-dawn-of-the-creed-legendary-edition_02.jpg",
+        "images/collectors-editions/origins-dawn-of-the-creed-legendary-edition_03.jpg",
     ],
-    "Assassin's Creed Origins Dawn of the Creed Legendary Edition": ["images/collectors-editions/origins-dawn-of-the-creed-legendary-edition.jpg"],
     "Assassin's Creed Odyssey Pantheon Edition": ["images/collectors-editions/odyssey-pantheon-edition.jpg"],
     "Assassin's Creed Odyssey Spartan Edition": ["images/collectors-editions/odyssey-spartan-edition.jpg"],
     "Assassin's Creed Odyssey Medusa Edition": ["images/collectors-editions/odyssey-medusa-edition.jpg"],
     "Assassin's Creed Valhalla Collector's Edition": ["images/collectors-editions/valhalla-collectors-edition.jpg"],
     "Assassin's Creed Mirage Collector's Case": ["images/collectors-editions/mirage-collectors-case.jpg"],
     "Assassin's Creed Shadows Collector's Edition": ["images/collectors-editions/shadows-collectors-edition.jpg"],
+    "Assassin's Creed Origins: Dawn of the Creed Collector's Case": [
+        "images/collectors-editions/origins-dawn-of-the-creed-collectors-case.jpg",
+        "images/collectors-editions/origins-dawn-of-the-creed-collectors-case_01.jpg",
+    ],
 
     // ── Steelbooks ──
     "Assassin's Creed Steelbook (AC1, Xbox 360)": [
@@ -198,6 +202,25 @@ const AC_IMAGES = {
         "images/statues/ubicollectibles-rogue-the-renegade.jpg",
         "images/statues/ubicollectibles-rogue-the-renegade_01.jpg",
     ],
+    "Ubicollectibles Assassin's Creed Origins: Trial of the Gods Figurine": [
+        "images/statues/ubicollectibles-origins-trial-of-the-gods.jpg",
+        "images/statues/ubicollectibles-origins-trial-of-the-gods_01.jpg",
+        "images/statues/ubicollectibles-origins-trial-of-the-gods_02.jpg",
+    ],
+    "Connor - The Last Breath Premium Statue": ["images/statues/purearts-connor-last-breath.jpg"],
+    "Connor - The Last Breath Premium Statue (Bronze Edition)": ["images/statues/purearts-connor-last-breath-bronze.jpg"],
+    "Altair Crouched Figure": [
+        "images/statues/altair-crouched.jpg",
+        "images/statues/altair-crouched_01.jpg",
+    ],
+    "Edward Kenway Limited Developer's Bust": [
+        "images/statues/edward-kenway-developer-bust.jpg",
+        "images/statues/edward-kenway-developer-bust_01.jpg",
+    ],
+    "Assassin's Creed Revelations Ezio Limited Developer's Bust": [
+        "images/statues/ezio-revelations-developer-bust.jpg",
+        "images/statues/ezio-revelations-developer-bust_01.jpg",
+    ],
 
     // ── Replicas / Props ──
     "Ubicollectibles Apple of Eden Replica (Movie)": [
@@ -236,6 +259,11 @@ const AC_IMAGES = {
     "Assassins Creed Syndicate Official Press Promo Power Bank Cane Handle": [
         "images/other/syndicate-cane-handle-power-bank.jpg",
         "images/other/syndicate-cane-handle-power-bank_01.jpg",
+    ],
+    "Landstalker Props Flintlock Pistol (Edward Kenway)": ["images/other/landstalker-flintlock-pistol.jpg"],
+    "Connor Tomahawk Developer Kit": [
+        "images/other/connor-tomahawk-developer-kit.jpg",
+        "images/other/connor-tomahawk-developer-kit_01.jpg",
     ],
 
     // ── McFarlane Action Figures ──
