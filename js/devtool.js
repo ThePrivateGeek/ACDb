@@ -100,7 +100,7 @@
         // images.js entry
         if (imagePath) {
             code += '\n\n// images.js — add before the closing };\n';
-            code += `    ${JSON.stringify(name || 'Item Name')}: ${JSON.stringify(imagePath)},`;
+            code += `    ${JSON.stringify(name || 'Item Name')}: [${JSON.stringify(imagePath)}],`;
         }
 
         // New game code
