@@ -100,6 +100,7 @@ window.ACDB = window.ACDB || {};
         modalClose: document.getElementById('modalClose'),
         modalImage: document.getElementById('modalImage'),
         modalBadge: document.getElementById('modalBadge'),
+        modalBadgeType: document.getElementById('modalBadgeType'),
         modalTitle: document.getElementById('modalTitle'),
         modalGame: document.getElementById('modalGame'),
         modalYear: document.getElementById('modalYear'),
@@ -543,7 +544,11 @@ window.ACDB = window.ACDB || {};
             // Let Ctrl+click / middle-click open in new tab naturally
             if (e.ctrlKey || e.metaKey || e.button === 1) return;
             e.preventDefault();
-            openModal(item.id);
+            if (card.closest('#profileItemsGrid')) {
+                ACDB.openReadOnlyModal(item.id);
+            } else {
+                openModal(item.id);
+            }
         });
         return card;
     }
@@ -663,14 +668,10 @@ window.ACDB = window.ACDB || {};
     function handleHash() {
         const hash = window.location.hash.slice(1);
         if (!hash) {
-            // Hash cleared (back button) — close modal if open, show main content
+            // Hash cleared (back button) — close modal if open, show main content.
+            // Use skipClearHash so closeModal doesn't re-push history state.
             if (dom.modalOverlay.classList.contains('active')) {
-                dom.modalOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-                document.getElementById('itemModal').classList.remove('landscape');
-                ACDB.setCurrentItemId(null);
-                ACDB.setGalleryImages([]);
-                ACDB.setGalleryIndex(0);
+                closeModal({ skipClearHash: true });
             }
             showMainContent();
             return;

@@ -294,9 +294,6 @@
                 const item = AC_DATABASE.find(i => i.name === itemName);
                 if (item) {
                     const card = A.createCard(item);
-                    // Remove click handler for profile view cards
-                    card.style.pointerEvents = 'none';
-                    card.style.cursor = 'default';
                     fragment.appendChild(card);
                 }
             });

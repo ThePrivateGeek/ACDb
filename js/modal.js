@@ -12,35 +12,48 @@
     let galleryImages = [];
     let galleryIndex = 0;
     let currentItemId = null;
+    let isReadOnlyOpen = false;
 
-    function openModal(id, fromHash) {
-        const item = AC_DATABASE.find(i => i.id === id);
-        if (!item) return;
-
-        if (!fromHash) A.setHash(item);
-        currentItemId = id;
-        const data = A.getItemData(id);
+    function populateItemInfo(item) {
         const dom = A.dom;
-
-        // Build gallery images — item.image is always an array (produced by tools/build-images.py)
-        galleryIndex = 0;
-        galleryImages = Array.isArray(item.image) ? [...item.image] : [];
-
-        renderGalleryImage();
-
         dom.modalBadge.textContent = item.category;
-        const badgeType = document.getElementById('modalBadgeType');
         if (item.type && item.type !== item.category) {
-            badgeType.textContent = item.type;
-            badgeType.style.display = '';
+            dom.modalBadgeType.textContent = item.type;
+            dom.modalBadgeType.style.display = '';
         } else {
-            badgeType.style.display = 'none';
+            dom.modalBadgeType.style.display = 'none';
         }
         dom.modalTitle.textContent = item.name;
         dom.modalGame.textContent = item.game;
         dom.modalYear.textContent = item.year;
         dom.modalDescription.textContent = item.description;
         dom.modalContents.textContent = item.contents || 'N/A';
+    }
+
+    function populateGallery(item) {
+        // item.image is always an array (produced by tools/build-images.py)
+        galleryIndex = 0;
+        galleryImages = Array.isArray(item.image) ? [...item.image] : [];
+        renderGalleryImage();
+    }
+
+    function openModal(id, fromHash) {
+        const item = AC_DATABASE.find(i => i.id === id);
+        if (!item) return;
+
+        // Defensive: openModal always shows the full modal. Clear any stale
+        // read-only state so re-entry from any caller is safe.
+        isReadOnlyOpen = false;
+        const collectionSection = document.getElementById('modalCollectionSection');
+        if (collectionSection) collectionSection.style.display = '';
+
+        if (!fromHash) A.setHash(item);
+        currentItemId = id;
+        const data = A.getItemData(id);
+        const dom = A.dom;
+
+        populateGallery(item);
+        populateItemInfo(item);
 
         // Collection controls
         dom.modalOwned.checked = data.owned;
@@ -56,7 +69,28 @@
         document.body.style.overflow = 'hidden';
     }
 
-    function closeModal() {
+    function openReadOnlyModal(id) {
+        const item = AC_DATABASE.find(i => i.id === id);
+        if (!item) return;
+
+        const dom = A.dom;
+        currentItemId = id;
+        isReadOnlyOpen = true;
+
+        populateGallery(item);
+        populateItemInfo(item);
+
+        // Hide the collection section — no controls in read-only mode
+        const collectionSection = document.getElementById('modalCollectionSection');
+        if (collectionSection) collectionSection.style.display = 'none';
+
+        // Show modal WITHOUT pushing a hash (keep profile hash intact)
+        dom.modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(options) {
+        const skipClearHash = !!(options && options.skipClearHash);
         const dom = A.dom;
         dom.modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
@@ -64,7 +98,17 @@
         currentItemId = null;
         galleryImages = [];
         galleryIndex = 0;
-        A.clearHash();
+
+        // Restore the collection section for the next normal open
+        const collectionSection = document.getElementById('modalCollectionSection');
+        if (collectionSection) collectionSection.style.display = '';
+
+        // Skip clearHash when closing a read-only open (preserve profile hash)
+        // or when the caller already handled the hash (back-button flow in handleHash).
+        if (!isReadOnlyOpen && !skipClearHash) {
+            A.clearHash();
+        }
+        isReadOnlyOpen = false;
     }
 
     // ---- Gallery ----
@@ -203,6 +247,7 @@
 
     function saveModalData() {
         if (currentItemId === null) return;
+        if (isReadOnlyOpen) return;
         const dom = A.dom;
         const data = {
             owned: dom.modalOwned.checked,
@@ -222,6 +267,7 @@
 
     // Expose on namespace
     A.openModal = openModal;
+    A.openReadOnlyModal = openReadOnlyModal;
     A.closeModal = closeModal;
     A.renderGalleryImage = renderGalleryImage;
     A.galleryPrev = galleryPrev;
