@@ -528,6 +528,10 @@ const AC_IMAGES = {
         "images/other/king-ice-yasuke-kabuto-necklace.jpg",
         "images/other/king-ice-yasuke-kabuto-necklace_01.jpg",
     ],
+    "Assassin's Creed Odyssey Medallion Pendant (Medaglione)": [
+        "images/other/odyssey-promo-pendent.jpg",
+        "images/other/odyssey-promo-pendent_01.jpg",
+    ],
 
     // ── Compilations / Other ──
     "Assassin's Creed Heritage Collection": [

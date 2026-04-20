@@ -4229,5 +4229,13 @@ const AC_DATABASE = [
     "contents": "Medal, black 'Ubisoft Star Player' presentation box",
     "type": "Promotional"
   },
-
+  {
+    "name": "Assassin's Creed Odyssey Medallion Pendant (Medaglione)",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2018,
+    "category": "Other",
+    "description": "A pendant came as a pre-order bonus given out to the first 10,000 Gold Editions of Assassin's Creed Odyssey in Italy.",
+    "contents": "A silver pendant hung on a black leather cord",
+    "type": "Jewelry"
+  },
 ];
