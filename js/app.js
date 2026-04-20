@@ -654,6 +654,8 @@ window.ACDB = window.ACDB || {};
     let suppressHashChange = false;
     let readOnlyHashPushed = false;
     let readOnlyPushedHash = '';
+    let lightboxHashPushed = false;
+    let lightboxPushedHash = '';
     let suppressNextPopstate = false;
 
     function setHash(item) {
@@ -687,7 +689,31 @@ window.ACDB = window.ACDB || {};
         history.back();
     }
 
+    // Same pattern for the lightbox (one layer above the modal). Back button
+    // should close the lightbox without closing the modal underneath it.
+    function pushLightboxHistoryState() {
+        lightboxPushedHash = window.location.hash;
+        history.pushState(null, '', window.location.href);
+        lightboxHashPushed = true;
+    }
+
+    function popLightboxHistoryState() {
+        if (!lightboxHashPushed) return;
+        lightboxHashPushed = false;
+        suppressNextPopstate = true;
+        history.back();
+    }
+
     function handleHash() {
+        // Lightbox comes first — it sits on top of the modal and must close
+        // first on back-button (matching existing Esc-key priority order).
+        if (lightboxHashPushed && lightbox.overlay.classList.contains('active')) {
+            const hashUnchanged = window.location.hash === lightboxPushedHash;
+            lightboxHashPushed = false;
+            lightbox.close({ skipHistoryPop: true });
+            if (hashUnchanged) return;
+        }
+
         // If a read-only modal pushed a history entry and we just popped it
         // (back button or URL-bar change), close the modal. If the hash is
         // unchanged (back button), return early; otherwise fall through to
@@ -1288,6 +1314,8 @@ window.ACDB = window.ACDB || {};
     A.handleHash = handleHash;
     A.pushReadOnlyHistoryState = pushReadOnlyHistoryState;
     A.popReadOnlyHistoryState = popReadOnlyHistoryState;
+    A.pushLightboxHistoryState = pushLightboxHistoryState;
+    A.popLightboxHistoryState = popLightboxHistoryState;
 
     // Start
     if (document.readyState === 'loading') {

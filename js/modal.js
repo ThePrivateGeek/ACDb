@@ -230,9 +230,18 @@
         open() {
             this.render();
             this.overlay.classList.add('active');
+            // Push a history entry so browser back closes the lightbox
+            // without closing the modal underneath.
+            A.pushLightboxHistoryState();
         },
-        close() {
+        close(options) {
+            const skipHistoryPop = !!(options && options.skipHistoryPop);
             this.overlay.classList.remove('active');
+            // skipHistoryPop is set when close() is invoked from handleHash's
+            // back-button branch — the browser already popped the entry.
+            if (!skipHistoryPop) {
+                A.popLightboxHistoryState();
+            }
         },
         render() {
             this.image.src = galleryImages[galleryIndex];
