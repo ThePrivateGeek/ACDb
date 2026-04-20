@@ -4220,5 +4220,14 @@ const AC_DATABASE = [
     "contents": "tomahawk replica (PU-latex blade, fibreglass core, leather-wrapped haft) in a wooden presentation chest",
     "type": "Replica/Prop"
   },
+  {
+    "name": "Ubisoft Star Player Mentors Guild Medal",
+    "game": "General",
+    "year": 2017,
+    "category": "Other",
+    "description": "Rare collectible medal distributed to members of Ubisoft's Assassin's Creed Mentors Guild — an invite-only community ambassador program founded in 2017 and folded into the wider Ubisoft Star Player Program on 13 July 2022. Limited to 130 pieces, never sold at retail. Ships in a black presentation box labelled 'Ubisoft Star Player'. The medal's obverse bears the Assassin's Creed logo with an x/130 serial beneath it; the reverse is engraved 'MENTORS GUILD'.",
+    "contents": "Medal, black 'Ubisoft Star Player' presentation box",
+    "type": "Promotional"
+  },
 
 ];

@@ -604,12 +604,12 @@ window.ACDB = window.ACDB || {};
             }
             if (filters.categories && filters.categories.length > 0) {
                 selectedCategories = new Set(filters.categories);
-                setMultiSelectValues(dom.filterCategory, selectedCategories);
             }
+            populateCategoryFilter();
             if (filters.types && filters.types.length > 0) {
                 selectedTypes = new Set(filters.types);
-                setMultiSelectValues(dom.filterType, selectedTypes);
             }
+            populateTypeFilter();
             if (filters.owned) dom.filterOwned.value = filters.owned;
             if (filters.sort) dom.sortBy.value = filters.sort;
         } catch { /* ignore corrupt data */ }

@@ -1001,6 +1001,12 @@ const AC_IMAGES = {
         "images/other/lootcrate-unity-coin_01.jpg",
     ],
     "Assassin's Creed Odyssey Promo Coin (Best Buy Exclusive)": ["images/other/odyssey-promo-coin.jpg"],
+    "Ubisoft Star Player Mentors Guild Medal": [
+        "images/other/ubisoft-star-player-mentors-guild-medal.jpg",
+        "images/other/ubisoft-star-player-mentors-guild-medal_01.jpg",
+        "images/other/ubisoft-star-player-mentors-guild-medal_02.jpg",
+        "images/other/ubisoft-star-player-mentors-guild-medal_03.jpg",
+    ],
     "Assassin's Creed (Movie) Exclusive Limited Edition + Hidden Dagger Arm Sleeve": ["images/collectors-editions/ac-movie-limited-edition-arm-sleeve.jpg"],
 
     // ── Unimax ──
