@@ -14,7 +14,7 @@ const AC_DATABASE = [
     "year": 2007,
     "category": "Statue",
     "description": "Assassin's Creed Limited Collector's Edition Statue.",
-    "contents": "",
+    "contents": "Statue of Altair Ibn-La'Ahad",
     "type": "Statue"
   },
   {

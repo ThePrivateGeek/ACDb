@@ -84,13 +84,18 @@
         const collectionSection = document.getElementById('modalCollectionSection');
         if (collectionSection) collectionSection.style.display = 'none';
 
-        // Show modal WITHOUT pushing a hash (keep profile hash intact)
+        // Push a duplicate history entry so browser back closes this modal
+        // instead of navigating away from the current view (profile / leaderboard).
+        A.pushReadOnlyHistoryState();
+
+        // Show modal WITHOUT changing the visible hash (keep profile hash intact)
         dom.modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
     function closeModal(options) {
         const skipClearHash = !!(options && options.skipClearHash);
+        const skipHistoryPop = !!(options && options.skipHistoryPop);
         const dom = A.dom;
         dom.modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
@@ -102,6 +107,13 @@
         // Restore the collection section for the next normal open
         const collectionSection = document.getElementById('modalCollectionSection');
         if (collectionSection) collectionSection.style.display = '';
+
+        // Pop the duplicate history entry pushed by openReadOnlyModal (if any).
+        // skipHistoryPop is set when closeModal is invoked from handleHash's
+        // back-button branch — the browser already popped the entry for us.
+        if (!skipHistoryPop) {
+            A.popReadOnlyHistoryState();
+        }
 
         // Skip clearHash when closing a read-only open (preserve profile hash)
         // or when the caller already handled the hash (back-button flow in handleHash).

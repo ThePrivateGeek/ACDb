@@ -652,6 +652,9 @@ window.ACDB = window.ACDB || {};
     }
 
     let suppressHashChange = false;
+    let readOnlyHashPushed = false;
+    let readOnlyPushedHash = '';
+    let suppressNextPopstate = false;
 
     function setHash(item) {
         suppressHashChange = true;
@@ -665,7 +668,37 @@ window.ACDB = window.ACDB || {};
         suppressHashChange = false;
     }
 
+    // Push a duplicate history entry when the read-only modal opens, so that
+    // pressing the browser back button pops this duplicate (closing the modal)
+    // instead of navigating away from the current view.
+    function pushReadOnlyHistoryState() {
+        readOnlyPushedHash = window.location.hash;
+        history.pushState(null, '', window.location.href);
+        readOnlyHashPushed = true;
+    }
+
+    // Pop the duplicate history entry when the read-only modal closes via
+    // X/Esc/overlay, so the history stack stays clean and a subsequent back
+    // takes the user up a level as expected.
+    function popReadOnlyHistoryState() {
+        if (!readOnlyHashPushed) return;
+        readOnlyHashPushed = false;
+        suppressNextPopstate = true;
+        history.back();
+    }
+
     function handleHash() {
+        // If a read-only modal pushed a history entry and we just popped it
+        // (back button or URL-bar change), close the modal. If the hash is
+        // unchanged (back button), return early; otherwise fall through to
+        // route the new hash.
+        if (readOnlyHashPushed && dom.modalOverlay.classList.contains('active')) {
+            const hashUnchanged = window.location.hash === readOnlyPushedHash;
+            readOnlyHashPushed = false;
+            closeModal({ skipClearHash: true, skipHistoryPop: true });
+            if (hashUnchanged) return;
+        }
+
         const hash = window.location.hash.slice(1);
         if (!hash) {
             // Hash cleared (back button) — close modal if open, show main content.
@@ -719,6 +752,10 @@ window.ACDB = window.ACDB || {};
         // Filters
         // URL hash routing (back button support)
         window.addEventListener('popstate', () => {
+            if (suppressNextPopstate) {
+                suppressNextPopstate = false;
+                return;
+            }
             if (!suppressHashChange) handleHash();
         });
 
@@ -1249,6 +1286,8 @@ window.ACDB = window.ACDB || {};
     A.setHash = setHash;
     A.clearHash = clearHash;
     A.handleHash = handleHash;
+    A.pushReadOnlyHistoryState = pushReadOnlyHistoryState;
+    A.popReadOnlyHistoryState = popReadOnlyHistoryState;
 
     // Start
     if (document.readyState === 'loading') {
