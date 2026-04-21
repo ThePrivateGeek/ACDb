@@ -4238,4 +4238,724 @@ const AC_DATABASE = [
     "contents": "A silver pendant hung on a black leather cord",
     "type": "Jewelry"
   },
+  {
+    "name": "Hachette Issue #01 Altaïr Ibn-La'Ahad",
+    "game": "Assassin's Creed",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #01 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #01 and figurine of Altaïr Ibn-La'Ahad",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #02 Ezio Auditore",
+    "game": "Assassin's Creed II",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #02 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #02 and figurine of Ezio Auditore",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #03 Haytham Kenway",
+    "game": "Assassin's Creed III",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #03 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #03 and figurine of Haytham Kenway",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #04 Jacob Frye",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #04 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #04 and figurine of Jacob Frye",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #05 Cesare Borgia",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #05 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #05 and figurine of Cesare Borgia",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #06 Ratonhnhaké:ton",
+    "game": "Assassin's Creed III",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #06 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #06 and figurine of Ratonhnhaké:ton",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #07 Shay Cormac",
+    "game": "Assassin's Creed Rogue",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #07 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #07 and figurine of Shay Cormac",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #08 Evie Frye",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #08 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #08 and figurine of Evie Frye",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #09 Aveline de Grandpré",
+    "game": "Assassin's Creed III: Liberation",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #09 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #09 and figurine of Aveline de Grandpré",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #10 Edward Kenway",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #10 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #10 and figurine of Edward Kenway",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #11 Charlotte de la Cruz",
+    "game": "General",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #11 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #11 and figurine of Charlotte de la Cruz",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #12 Arno Dorian",
+    "game": "Assassin's Creed Unity",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #12 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #12 and figurine of Arno Dorian",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #13 Élise de la Serre",
+    "game": "Assassin's Creed Unity",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #13 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #13 and figurine of Élise de la Serre",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #14 Duncan Walpole",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #14 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #14 and figurine of Duncan Walpole",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #15 Arbaaz Mir",
+    "game": "Assassin's Creed Chronicles: India",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #15 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #15 and figurine of Arbaaz Mir",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #16 Juhani Otso Berg",
+    "game": "General",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #16 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #16 and figurine of Juhani Otso Berg",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #17 Juno",
+    "game": "General",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #17 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #17 and figurine of Juno",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #18 Nikolaï Orelov",
+    "game": "Assassin's Creed Chronicles: Russia",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #18 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #18 and figurine of Nikolaï Orelov",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #19 Rebecca Crane",
+    "game": "General",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #19 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #19 and figurine of Rebecca Crane",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #20 Desmond Miles",
+    "game": "General",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #20 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #20 and figurine of Desmond Miles",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #21 Bayek",
+    "game": "Assassin's Creed Origins",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #21 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #21 and figurine of Bayek",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #22 Adéwalé",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #22 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #22 and figurine of Adéwalé",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #23 Aya",
+    "game": "Assassin's Creed Origins",
+    "year": 2017,
+    "category": "Art & Reference",
+    "description": "Issue #23 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #23 and figurine of Aya",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #24 Daniel Cross",
+    "game": "Assassin's Creed Chronicles: Russia",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #24 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #24 and figurine of Daniel Cross",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #25 Julius Caesar",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #25 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #25 and figurine of Julius Caesar",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #26 Jupiter",
+    "game": "General",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #26 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #26 and figurine of Jupiter",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #27 Cleopatra",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #27 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #27 and figurine of Cleopatra",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #28 Rodrigo Borgia",
+    "game": "Assassin's Creed II",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #28 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #28 and figurine of Rodrigo Borgia",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #29 Layla Hassan",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #29 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #29 and figurine of Layla Hassan",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #30 Malik Al-Sayf",
+    "game": "Assassin's Creed",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #30 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #30 and figurine of Malik Al-Sayf",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #31 Aveline de Grandpré",
+    "game": "Assassin's Creed III: Liberation",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #31 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #31 and figurine of Aveline de Grandpré",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #32 Crawford Starrick",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #32 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #32 and figurine of Crawford Starrick",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #33 Mario Auditore",
+    "game": "Assassin's Creed II",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #33 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #33 and figurine of Mario Auditore",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #34 Edward Thatch",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #34 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #34 and figurine of Edward Thatch",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #35 Shao Jun",
+    "game": "Assassin's Creed Chronicles: China",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #35 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #35 and figurine of Shao Jun",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #36 Lydia Frye",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #36 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #36 and figurine of Lydia Frye",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #37 Leonardo da Vinci",
+    "game": "Assassin's Creed II",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #37 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #37 and figurine of Leonardo da Vinci",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #38 Mary Read/James Kidd",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #38 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #38 and figurine of Mary Read/James Kidd",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #39 François-Thomas Germain",
+    "game": "Assassin's Creed Unity",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #39 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #39 and figurine of François-Thomas Germain",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #40 Giovanni Borgia",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #40 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #40 and figurine of Giovanni Borgia",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #41 Amunet",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #41 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #41 and figurine of Amunet",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #42 Al Mualim",
+    "game": "Assassin's Creed",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #42 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #42 and figurine of Al Mualim",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #43 Kiyoshi Takakura",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #43 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #43 and figurine of Kiyoshi Takakura",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #44 William Miles",
+    "game": "Assassin's Creed III",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #44 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #44 and figurine of William Miles",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #45 Jack the Ripper",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #45 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #45 and figurine of Jack the Ripper",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #46 Frederick Abberline",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #46 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #46 and figurine of Frederick Abberline",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #47 Baron Jordane",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #47 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #47 and figurine of Baron Jordane",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #48 Pierre Bellec",
+    "game": "Assassin's Creed Unity",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #48 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #48 and figurine of Pierre Bellec",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #49 Galina Voronina",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2018,
+    "category": "Art & Reference",
+    "description": "Issue #49 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #49 and figurine of Galina Voronina",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #50 The Black Cross",
+    "game": "General",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #50 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #50 and figurine of The Black Cross",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #51 Henry Green (Jayadeep Mir)",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #51 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #51 and figurine of Henry Green (Jayadeep Mir)",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #52 Maestro Ezio Auditore",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #52 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #52 and figurine of Maestro Ezio Auditore",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #53 Bayek II",
+    "game": "Assassin's Creed Origins",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #53 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #53 and figurine of Bayek II",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #54 Connor Espíritu animal",
+    "game": "Assassin's Creed III",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #54 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #54 and figurine of Connor Espíritu animal",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #55 Arend Schut-Cunningham",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #55 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #55 and figurine of Arend Schut-Cunningham",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #56 Kassandra",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #56 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #56 and figurine of Kassandra",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #57 Agaté",
+    "game": "Assassin's Creed III: Liberation",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #57 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #57 and figurine of Agaté",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #58 Barnabas",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #58 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #58 and figurine of Barnabas",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #59 Yusuf Tazim",
+    "game": "Assassin's Creed Revelations",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #59 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #59 and figurine of Yusuf Tazim",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #60 Cultista de Kosmos",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #60 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #60 and figurine of Cultista de Kosmos",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #61 Herodotos",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #61 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #61 and figurine of Herodotos",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #62 Mentor Altaïr",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #62 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #62 and figurine of Mentor Altaïr",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #63 Aspasia",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #63 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #63 and figurine of Aspasia",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #64 Warren Vidic",
+    "game": "Assassin's Creed",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #64 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #64 and figurine of Warren Vidic",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #65 Ah Tabai",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #65 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #65 and figurine of Ah Tabai",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #66 Darius",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #66 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #66 and figurine of Darius",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #67 Shaun Hastings",
+    "game": "General",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #67 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #67 and figurine of Shaun Hastings",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #68 Gilberto La Volpe",
+    "game": "Assassin's Creed II",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #68 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #68 and figurine of Gilberto La Volpe",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #69 Mentor Ezio",
+    "game": "Assassin's Creed Revelations",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #69 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #69 and figurine of Mentor Ezio",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #70 Charles Lee",
+    "game": "Assassin's Creed III",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #70 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #70 and figurine of Charles Lee",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #71 Ignacio Cardona",
+    "game": "General",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #71 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #71 and figurine of Ignacio Cardona",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #72 Clay Kaczmarek",
+    "game": "Assassin's Creed Revelations",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #72 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #72 and figurine of Clay Kaczmarek",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #73 Claudia Auditore",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #73 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #73 and figurine of Claudia Auditore",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #74 Edward Kenway",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Issue #74 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #74 and figurine of Edward Kenway",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #75 Jacques de Molay",
+    "game": "Assassin's Creed Unity",
+    "year": 2020,
+    "category": "Art & Reference",
+    "description": "Issue #75 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #75 and figurine of Jacques de Molay",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #76 Evie Frye",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2020,
+    "category": "Art & Reference",
+    "description": "Issue #76 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #76 and figurine of Evie Frye",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #77 Achilles Davenport",
+    "game": "Assassin's Creed III",
+    "year": 2020,
+    "category": "Art & Reference",
+    "description": "Issue #77 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #77 and figurine of Achilles Davenport",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #78 Baptiste",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2020,
+    "category": "Art & Reference",
+    "description": "Issue #78 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #78 and figurine of Baptiste",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #79 Madeleine de L'Isle",
+    "game": "Assassin's Creed III: Liberation",
+    "year": 2020,
+    "category": "Art & Reference",
+    "description": "Issue #79 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #79 and figurine of Madeleine de L'Isle",
+    "type": "Magazine"
+  },
+  {
+    "name": "Hachette Issue #80 Darim Ibn-La'Ahad",
+    "game": "Assassin's Creed Revelations",
+    "year": 2020,
+    "category": "Art & Reference",
+    "description": "Issue #80 of Hachette Assassin's Creed: The Official Collection Magazine.",
+    "contents": "Issue #80 and figurine of Darim Ibn-La'Ahad",
+    "type": "Magazine"
+  }
 ];

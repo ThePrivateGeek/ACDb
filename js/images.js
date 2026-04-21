@@ -1020,6 +1020,300 @@ const AC_IMAGES = {
     "Unimax - Niccolo Machiavelli (Gamestars Collectibles)": ["images/statues/unimax-niccolo-machiavelli-gamestars-collectibles.jpg"],
     "Unimax - The Doctor (Gamestars Collectibles)": ["images/statues/unimax-the-doctor-gamestars-collectibles.jpg"],
     "Unimax - The Harlequin (Gamestars Collectibles)": ["images/statues/unimax-the-harlequin-gamestars-collectibles.jpg"],
+
+    // __ Hachette The Official Assassin's Creed Collection __
+    "Hachette Issue #01 Altaïr Ibn-La'Ahad": [
+        "images/hachette/hachette-issue-01-altair-ibn-laahad.jpg",
+        "images/hachette/hachette-issue-01-altair-ibn-laahad_01.jpg",
+        "images/hachette/hachette-issue-01-altair-ibn-laahad_02.jpg",
+    ],
+    "Hachette Issue #02 Ezio Auditore": [
+        "images/hachette/hachette-issue-02-ezio-auditore.jpg",
+        "images/hachette/hachette-issue-02-ezio-auditore_01.jpg",
+        "images/hachette/hachette-issue-02-ezio-auditore_02.jpg",
+    ],
+    "Hachette Issue #03 Haytham Kenway": [
+        "images/hachette/hachette-issue-03-haytham-kenway.jpg",
+        "images/hachette/hachette-issue-03-haytham-kenway_01.jpg",
+    ],
+    "Hachette Issue #04 Jacob Frye": [
+        "images/hachette/hachette-issue-04-jacob-frye.jpg",
+        "images/hachette/hachette-issue-04-jacob-frye_01.jpg",
+    ],
+    "Hachette Issue #05 Cesare Borgia": [
+        "images/hachette/hachette-issue-05-cesare-borgia.jpg",
+        "images/hachette/hachette-issue-05-cesare-borgia_01.jpg",
+    ],
+    "Hachette Issue #06 Ratonhnhaké:ton": [
+        "images/hachette/hachette-issue-06-ratonhnhaketon.jpg",
+        "images/hachette/hachette-issue-06-ratonhnhaketon_01.jpg",
+    ],
+    "Hachette Issue #07 Shay Cormac": [
+        "images/hachette/hachette-issue-07-shay-cormac.jpg",
+        "images/hachette/hachette-issue-07-shay-cormac_01.jpg",
+    ],
+    "Hachette Issue #08 Evie Frye": [
+        "images/hachette/hachette-issue-08-evie-frye.jpg",
+        "images/hachette/hachette-issue-08-evie-frye_01.jpg",
+    ],
+    "Hachette Issue #09 Aveline de Grandpré": [
+        "images/hachette/hachette-issue-09-aveline-de-grandpre.jpg",
+        "images/hachette/hachette-issue-09-aveline-de-grandpre_01.jpg",
+    ],
+    "Hachette Issue #10 Edward Kenway": [
+        "images/hachette/hachette-issue-10-edward-kenway.jpg",
+        "images/hachette/hachette-issue-10-edward-kenway_01.jpg",
+    ],
+    "Hachette Issue #11 Charlotte de la Cruz": [
+        "images/hachette/hachette-issue-11-charlotte-de-la-cruz.jpg",
+        "images/hachette/hachette-issue-11-charlotte-de-la-cruz_01.jpg",
+    ],
+    "Hachette Issue #12 Arno Dorian": [
+        "images/hachette/hachette-issue-12-arno-dorian.jpg",
+        "images/hachette/hachette-issue-12-arno-dorian_01.jpg",
+    ],
+    "Hachette Issue #13 Élise de la Serre": [
+        "images/hachette/hachette-issue-13-elise-de-la-serre.jpg",
+        "images/hachette/hachette-issue-13-elise-de-la-serre_01.jpg",
+    ],
+    "Hachette Issue #14 Duncan Walpole": [
+        "images/hachette/hachette-issue-14-duncan-walpole.jpg",
+        "images/hachette/hachette-issue-14-duncan-walpole_01.jpg",
+    ],
+    "Hachette Issue #15 Arbaaz Mir": [
+        "images/hachette/hachette-issue-15-arbaaz-mir.jpg",
+        "images/hachette/hachette-issue-15-arbaaz-mir_01.jpg",
+    ],
+    "Hachette Issue #16 Juhani Otso Berg": [
+        "images/hachette/hachette-issue-16-juhani-otso-berg.jpg",
+        "images/hachette/hachette-issue-16-juhani-otso-berg_01.jpg",
+    ],
+    "Hachette Issue #17 Juno": [
+        "images/hachette/hachette-issue-17-juno.jpg",
+        "images/hachette/hachette-issue-17-juno_01.jpg",
+    ],
+    "Hachette Issue #18 Nikolaï Orelov": [
+        "images/hachette/hachette-issue-18-nikolai-orelov.jpg",
+        "images/hachette/hachette-issue-18-nikolai-orelov_01.jpg",
+    ],
+    "Hachette Issue #19 Rebecca Crane": [
+        "images/hachette/hachette-issue-19-rebecca-crane.jpg",
+        "images/hachette/hachette-issue-19-rebecca-crane_01.jpg",
+    ],
+    "Hachette Issue #20 Desmond Miles": [
+        "images/hachette/hachette-issue-20-desmond-miles.jpg",
+        "images/hachette/hachette-issue-20-desmond-miles_01.jpg",
+    ],
+    "Hachette Issue #21 Bayek": [
+        "images/hachette/hachette-issue-21-bayek.jpg",
+        "images/hachette/hachette-issue-21-bayek_01.jpg",
+    ],
+    "Hachette Issue #22 Adéwalé": [
+        "images/hachette/hachette-issue-22-adewale.jpg",
+        "images/hachette/hachette-issue-22-adewale_01.jpg",
+    ],
+    "Hachette Issue #23 Aya": [
+        "images/hachette/hachette-issue-23-aya.jpg",
+        "images/hachette/hachette-issue-23-aya_01.jpg",
+    ],
+    "Hachette Issue #24 Daniel Cross": [
+        "images/hachette/hachette-issue-24-daniel-cross.jpg",
+        "images/hachette/hachette-issue-24-daniel-cross_01.jpg",
+    ],
+    "Hachette Issue #25 Julius Caesar": [
+        "images/hachette/hachette-issue-25-julius-caesar.jpg",
+        "images/hachette/hachette-issue-25-julius-caesar_01.jpg",
+    ],
+    "Hachette Issue #26 Jupiter": [
+        "images/hachette/hachette-issue-26-jupiter.jpg",
+        "images/hachette/hachette-issue-26-jupiter_01.jpg",
+    ],
+    "Hachette Issue #27 Cleopatra": [
+        "images/hachette/hachette-issue-27-cleopatra.jpg",
+        "images/hachette/hachette-issue-27-cleopatra_01.jpg",
+    ],
+    "Hachette Issue #28 Rodrigo Borgia": [
+        "images/hachette/hachette-issue-28-rodrigo-borgia.jpg",
+        "images/hachette/hachette-issue-28-rodrigo-borgia_01.jpg",
+    ],
+    "Hachette Issue #29 Layla Hassan": [
+        "images/hachette/hachette-issue-29-layla-hassan.jpg",
+        "images/hachette/hachette-issue-29-layla-hassan_01.jpg",
+    ],
+    "Hachette Issue #30 Malik Al-Sayf": [
+        "images/hachette/hachette-issue-30-malik-al-sayf.jpg",
+        "images/hachette/hachette-issue-30-malik-al-sayf_01.jpg",
+    ],
+    "Hachette Issue #31 Aveline de Grandpré": [
+        "images/hachette/hachette-issue-31-aveline-de-grandpre.jpg",
+        "images/hachette/hachette-issue-31-aveline-de-grandpre_01.jpg",
+    ],
+    "Hachette Issue #32 Crawford Starrick": [
+        "images/hachette/hachette-issue-32-crawford-starrick.jpg",
+        "images/hachette/hachette-issue-32-crawford-starrick_01.jpg",
+    ],
+    "Hachette Issue #33 Mario Auditore": [
+        "images/hachette/hachette-issue-33-mario-auditore.jpg",
+        "images/hachette/hachette-issue-33-mario-auditore_01.jpg",
+    ],
+    "Hachette Issue #34 Edward Thatch": [
+        "images/hachette/hachette-issue-34-edward-thatch.jpg",
+        "images/hachette/hachette-issue-34-edward-thatch_01.jpg",
+    ],
+    "Hachette Issue #35 Shao Jun": [
+        "images/hachette/hachette-issue-35-shao-jun.jpg",
+        "images/hachette/hachette-issue-35-shao-jun_01.jpg",
+    ],
+    "Hachette Issue #36 Lydia Frye": [
+        "images/hachette/hachette-issue-36-lydia-frye.jpg",
+        "images/hachette/hachette-issue-36-lydia-frye_01.jpg",
+    ],
+    "Hachette Issue #37 Leonardo da Vinci": [
+        "images/hachette/hachette-issue-37-leonardo-da-vinci.jpg",
+        "images/hachette/hachette-issue-37-leonardo-da-vinci_01.jpg",
+    ],
+    "Hachette Issue #38 Mary Read/James Kidd": [
+        "images/hachette/hachette-issue-38-mary-read-james-kidd.jpg",
+        "images/hachette/hachette-issue-38-mary-read-james-kidd_01.jpg",
+    ],
+    "Hachette Issue #39 François-Thomas Germain": [
+        "images/hachette/hachette-issue-39-francois-thomas-germain.jpg",
+        "images/hachette/hachette-issue-39-francois-thomas-germain_01.jpg",
+    ],
+    "Hachette Issue #40 Giovanni Borgia": [
+        "images/hachette/hachette-issue-40-giovanni-borgia.jpg",
+        "images/hachette/hachette-issue-40-giovanni-borgia_01.jpg",
+    ],
+    "Hachette Issue #41 Amunet": [
+        "images/hachette/hachette-issue-41-amunet.jpg",
+        "images/hachette/hachette-issue-41-amunet_01.jpg",
+    ],
+    "Hachette Issue #42 Al Mualim": [
+        "images/hachette/hachette-issue-42-al-mualim.jpg",
+        "images/hachette/hachette-issue-42-al-mualim_01.jpg",
+    ],
+    "Hachette Issue #43 Kiyoshi Takakura": [
+        "images/hachette/hachette-issue-43-kiyoshi-takakura.jpg",
+        "images/hachette/hachette-issue-43-kiyoshi-takakura_01.jpg",
+    ],
+    "Hachette Issue #44 William Miles": [
+        "images/hachette/hachette-issue-44-william-miles.jpg",
+        "images/hachette/hachette-issue-44-william-miles_01.jpg",
+    ],
+    "Hachette Issue #45 Jack the Ripper": [
+        "images/hachette/hachette-issue-45-jack-the-ripper.jpg",
+        "images/hachette/hachette-issue-45-jack-the-ripper_01.jpg",
+    ],
+    "Hachette Issue #46 Frederick Abberline": [
+        "images/hachette/hachette-issue-46-frederick-abberline.jpg",
+        "images/hachette/hachette-issue-46-frederick-abberline_01.jpg",
+    ],
+    "Hachette Issue #47 Baron Jordane": [
+        "images/hachette/hachette-issue-47-baron-jordane.jpg",
+        "images/hachette/hachette-issue-47-baron-jordane_01.jpg",
+    ],
+    "Hachette Issue #48 Pierre Bellec": [
+        "images/hachette/hachette-issue-48-pierre-bellec.jpg",
+        "images/hachette/hachette-issue-48-pierre-bellec_01.jpg",
+    ],
+    "Hachette Issue #49 Galina Voronina": [
+        "images/hachette/hachette-issue-49-galina-voronina.jpg",
+        "images/hachette/hachette-issue-49-galina-voronina_01.jpg",
+    ],
+    "Hachette Issue #50 The Black Cross": [
+        "images/hachette/hachette-issue-50-the-black-cross.jpg",
+        "images/hachette/hachette-issue-50-the-black-cross_01.jpg",
+    ],
+    "Hachette Issue #51 Henry Green (Jayadeep Mir)": [
+        "images/hachette/hachette-issue-51-henry-green-jayadeep-mir.jpg",
+        "images/hachette/hachette-issue-51-henry-green-jayadeep-mir_01.jpg",
+    ],
+    "Hachette Issue #52 Maestro Ezio Auditore": [
+        "images/hachette/hachette-issue-52-maestro-ezio-auditore.jpg",
+        "images/hachette/hachette-issue-52-maestro-ezio-auditore_01.jpg",
+    ],
+    "Hachette Issue #53 Bayek II": [
+        "images/hachette/hachette-issue-53-bayek-ii.jpg",
+        "images/hachette/hachette-issue-53-bayek-ii_01.jpg",
+    ],
+    "Hachette Issue #54 Connor Espíritu animal": [
+        "images/hachette/hachette-issue-54-connor-espiritu-animal.jpg",
+        "images/hachette/hachette-issue-54-connor-espiritu-animal_01.jpg",
+    ],
+    "Hachette Issue #55 Arend Schut-Cunningham": [
+        "images/hachette/hachette-issue-55-arend-schut-cunningham.jpg",
+        "images/hachette/hachette-issue-55-arend-schut-cunningham_01.jpg",
+    ],
+    "Hachette Issue #56 Kassandra": [
+        "images/hachette/hachette-issue-56-kassandra.jpg",
+        "images/hachette/hachette-issue-56-kassandra_01.jpg",
+    ],
+    "Hachette Issue #57 Agaté": [
+        "images/hachette/hachette-issue-57-agate.jpg",
+        "images/hachette/hachette-issue-57-agate_01.jpg",
+    ],
+    "Hachette Issue #58 Barnabas": [
+        "images/hachette/hachette-issue-58-barnabas.jpg",
+        "images/hachette/hachette-issue-58-barnabas_01.jpg",
+    ],
+    "Hachette Issue #59 Yusuf Tazim": [
+        "images/hachette/hachette-issue-59-yusuf-tazim.jpg",
+        "images/hachette/hachette-issue-59-yusuf-tazim_01.jpg",
+    ],
+    "Hachette Issue #60 Cultista de Kosmos": [
+        "images/hachette/hachette-issue-60-cultista-de-kosmos.jpg",
+        "images/hachette/hachette-issue-60-cultista-de-kosmos_01.jpg",
+    ],
+    "Hachette Issue #61 Herodotos": [
+        "images/hachette/hachette-issue-61-herodotos.jpg",
+        "images/hachette/hachette-issue-61-herodotos_01.jpg",
+    ],
+    "Hachette Issue #62 Mentor Altaïr": [
+        "images/hachette/hachette-issue-62-mentor-altair.jpg",
+        "images/hachette/hachette-issue-62-mentor-altair_01.jpg",
+    ],
+    "Hachette Issue #63 Aspasia": [
+        "images/hachette/hachette-issue-63-aspasia.jpg",
+        "images/hachette/hachette-issue-63-aspasia_01.jpg",
+    ],
+    "Hachette Issue #64 Warren Vidic": [
+        "images/hachette/hachette-issue-64-warren-vidic.jpg",
+        "images/hachette/hachette-issue-64-warren-vidic_01.jpg",
+    ],
+    "Hachette Issue #65 Ah Tabai": [
+        "images/hachette/hachette-issue-65-ah-tabai.jpg",
+        "images/hachette/hachette-issue-65-ah-tabai_01.jpg",
+    ],
+    "Hachette Issue #66 Darius": [
+        "images/hachette/hachette-issue-66-darius.jpg",
+        "images/hachette/hachette-issue-66-darius_01.jpg",
+    ],
+    "Hachette Issue #67 Shaun Hastings": [
+        "images/hachette/hachette-issue-67-shaun-hastings.jpg",
+        "images/hachette/hachette-issue-67-shaun-hastings_01.jpg",
+    ],
+    "Hachette Issue #68 Gilberto La Volpe": [
+        "images/hachette/hachette-issue-68-gilberto-la-volpe.jpg",
+        "images/hachette/hachette-issue-68-gilberto-la-volpe_01.jpg",
+    ],
+    "Hachette Issue #69 Mentor Ezio": [
+        "images/hachette/hachette-issue-69-mentor-ezio.jpg",
+        "images/hachette/hachette-issue-69-mentor-ezio_01.jpg",
+    ],
+    "Hachette Issue #70 Charles Lee": [
+        "images/hachette/hachette-issue-70-charles-lee.jpg",
+        "images/hachette/hachette-issue-70-charles-lee_01.jpg",
+    ],
+    "Hachette Issue #71 Ignacio Cardona": ["images/hachette/hachette-issue-71-ignacio-cardona.jpg"],
+    "Hachette Issue #72 Clay Kaczmarek": ["images/hachette/hachette-issue-72-clay-kaczmarek.jpg"],
+    "Hachette Issue #73 Claudia Auditore": ["images/hachette/hachette-issue-73-claudia-auditore.jpg"],
+    "Hachette Issue #74 Edward Kenway": ["images/hachette/hachette-issue-74-edward-kenway.jpg"],
+    "Hachette Issue #75 Jacques de Molay": ["images/hachette/hachette-issue-75-jacques-de-molay.jpg"],
+    "Hachette Issue #76 Evie Frye": ["images/hachette/hachette-issue-76-evie-frye.jpg"],
+    "Hachette Issue #77 Achilles Davenport": ["images/hachette/hachette-issue-77-achilles-davenport.jpg"],
+    "Hachette Issue #78 Baptiste": ["images/hachette/hachette-issue-78-baptiste.jpg"],
+    "Hachette Issue #79 Madeleine de L'Isle": ["images/hachette/hachette-issue-79-madeleine-de-lisle.jpg"],
+    "Hachette Issue #80 Darim Ibn-La'Ahad": ["images/hachette/hachette-issue-80-darim-ibn-laahad.jpg"],
 };
 
 // Apply images to database — only if the file actually exists (image onload handles missing files gracefully)
