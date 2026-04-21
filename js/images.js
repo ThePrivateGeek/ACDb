@@ -1304,16 +1304,38 @@ const AC_IMAGES = {
         "images/hachette/hachette-issue-70-charles-lee.jpg",
         "images/hachette/hachette-issue-70-charles-lee_01.jpg",
     ],
-    "Hachette Issue #71 Ignacio Cardona": ["images/hachette/hachette-issue-71-ignacio-cardona.jpg"],
-    "Hachette Issue #72 Clay Kaczmarek": ["images/hachette/hachette-issue-72-clay-kaczmarek.jpg"],
-    "Hachette Issue #73 Claudia Auditore": ["images/hachette/hachette-issue-73-claudia-auditore.jpg"],
+    "Hachette Issue #71 Ignacio Cardona": [
+        "images/hachette/hachette-issue-71-ignacio-cardona.jpg",
+        "images/hachette/hachette-issue-71-ignacio-cardona_01.jpg",
+    ],
+    "Hachette Issue #72 Clay Kaczmarek": [
+        "images/hachette/hachette-issue-72-clay-kaczmarek.jpg",
+        "images/hachette/hachette-issue-72-clay-kaczmarek_01.jpg",
+    ],
+    "Hachette Issue #73 Claudia Auditore": [
+        "images/hachette/hachette-issue-73-claudia-auditore.jpg",
+        "images/hachette/hachette-issue-73-claudia-auditore_01.jpg",
+        "images/hachette/hachette-issue-73-claudia-auditore_02.jpg",
+    ],
     "Hachette Issue #74 Edward Kenway": ["images/hachette/hachette-issue-74-edward-kenway.jpg"],
     "Hachette Issue #75 Jacques de Molay": ["images/hachette/hachette-issue-75-jacques-de-molay.jpg"],
     "Hachette Issue #76 Evie Frye": ["images/hachette/hachette-issue-76-evie-frye.jpg"],
-    "Hachette Issue #77 Achilles Davenport": ["images/hachette/hachette-issue-77-achilles-davenport.jpg"],
-    "Hachette Issue #78 Baptiste": ["images/hachette/hachette-issue-78-baptiste.jpg"],
-    "Hachette Issue #79 Madeleine de L'Isle": ["images/hachette/hachette-issue-79-madeleine-de-lisle.jpg"],
-    "Hachette Issue #80 Darim Ibn-La'Ahad": ["images/hachette/hachette-issue-80-darim-ibn-laahad.jpg"],
+    "Hachette Issue #77 Achilles Davenport": [
+        "images/hachette/hachette-issue-77-achilles-davenport.jpg",
+        "images/hachette/hachette-issue-77-achilles-davenport_01.jpg",
+    ],
+    "Hachette Issue #78 Baptiste": [
+        "images/hachette/hachette-issue-78-baptiste.jpg",
+        "images/hachette/hachette-issue-78-baptiste_01.jpg",
+    ],
+    "Hachette Issue #79 Madeleine de L'Isle": [
+        "images/hachette/hachette-issue-79-madeleine-de-lisle.jpg",
+        "images/hachette/hachette-issue-79-madeleine-de-lisle_01.jpg",
+    ],
+    "Hachette Issue #80 Darim Ibn-La'Ahad": [
+        "images/hachette/hachette-issue-80-darim-ibn-laahad.jpg",
+        "images/hachette/hachette-issue-80-darim-ibn-laahad_01.jpg",
+    ],
 };
 
 // Apply images to database — only if the file actually exists (image onload handles missing files gracefully)
