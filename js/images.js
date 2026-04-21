@@ -23,7 +23,10 @@ const AC_IMAGES = {
         "images/collectors-editions/ac2-white-edition_01.jpg",
     ],
     "Assassin's Creed II Master Assassin's Edition": ["images/collectors-editions/ac2-master-assassins-edition.jpg"],
-    "Assassin's Creed Brotherhood Collector's Edition": ["images/collectors-editions/brotherhood-collectors-edition.jpg"],
+    "Assassin's Creed Brotherhood Collector's Edition (Russian Exclusive)": [
+        "images/collectors-editions/brotherhood-collectors-edition.jpg",
+        "images/collectors-editions/brotherhood-collectors-edition_01.jpg",
+    ],
     "Assassin's Creed Brotherhood Collector's Edition (Doctor Variant)": ["images/collectors-editions/brotherhood-collectors-edition-doctor.jpg"],
     "Assassin's Creed Brotherhood Codex Edition": ["images/collectors-editions/brotherhood-codex-edition.jpg"],
     "Assassin's Creed Revelations Collector's Edition": ["images/collectors-editions/revelations-collectors-edition.jpg"],

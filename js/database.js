@@ -54,12 +54,12 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
-    "name": "Assassin's Creed Brotherhood Collector's Edition",
+    "name": "Assassin's Creed Brotherhood Collector's Edition (Russian Exclusive)",
     "game": "Assassin's Creed Brotherhood",
-    "year": 2010,
+    "year": 2011,
     "category": "Collector's Edition",
-    "description": "Collector's edition in a Renaissance-style chest with the Original Codex and a Harlequin Jack-in-the-Box.",
-    "contents": "Game, Renaissance Collector Chest, Original Codex (60-page book), multiplayer character collectible cards, Assassin's Creed Lineage DVD, bonus DVD with soundtrack and galleries, Harlequin Jack-in-the-Box, Harlequin multiplayer character, two bonus missions (Aqueducts and Trajan Market)",
+    "description": "Collector's edition designed exclusively for PC. This edition was released in 2011 only in Russia.",
+    "contents": "Game copy DVD with developer's diary Instructions for use. Codex of Altair. 6 metal figurines representing some multiplayer characters",
     "type": "Collector's Edition"
   },
   {
