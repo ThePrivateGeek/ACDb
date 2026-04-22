@@ -3,7 +3,7 @@
 build-images.py — regenerate js/images.js with gallery arrays.
 
 For every entry in js/images.js, scan the images/ folder for sibling files
-matching the base image's stem (foo.jpg, foo_01.jpg, foo_02.jpg, ...) and
+matching the base image's stem (foo.webp, foo_01.webp, foo_02.webp, ...) and
 emit an array containing the base plus any siblings that actually exist.
 
 Run from anywhere:
@@ -16,11 +16,11 @@ The script PRESERVES:
     - The trailing `};` and the `(function applyImages() { ... })();` IIFE
 
 The script REWRITES each mapping entry to the "always array" form:
-    "Some Item": ["images/folder/foo.jpg"],
+    "Some Item": ["images/folder/foo.webp"],
     "Gallery Item": [
-        "images/folder/bar.jpg",
-        "images/folder/bar_01.jpg",
-        "images/folder/bar_02.jpg",
+        "images/folder/bar.webp",
+        "images/folder/bar_01.webp",
+        "images/folder/bar_02.webp",
     ],
 
 It re-runs idempotently — reading an array-form file produces the same output.
@@ -30,8 +30,8 @@ It warns (but does not crash) about two kinds of drift between images.js and dis
     2. Orphan: an image file under images/<subdir>/ that isn't referenced by any
        entry. Top-level images/ files (e.g. acdb-og.jpg, README screenshots) are
        ignored — orphan scanning only recurses into subdirectories. The check is
-       case-sensitive, matching GitHub Pages, so a foo.JPG on disk that images.js
-       spells foo.jpg will be flagged.
+       case-sensitive, matching GitHub Pages, so a foo.WEBP on disk that images.js
+       spells foo.webp will be flagged.
 """
 
 import json
@@ -163,8 +163,8 @@ def parse(text):
 
 
 def build_gallery(base_rel):
-    """Given a relative path like 'images/foo/bar.jpg', return the gallery list:
-    the base followed by any bar_01.jpg, bar_02.jpg, ... siblings that exist
+    """Given a relative path like 'images/foo/bar.webp', return the gallery list:
+    the base followed by any bar_01.webp, bar_02.webp, ... siblings that exist
     (stops at the first missing index, matching the old probe behavior).
     Paths are returned with forward slashes, rooted at the repo.
     """
