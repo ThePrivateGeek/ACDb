@@ -5065,5 +5065,23 @@ const AC_DATABASE = [
     "description": "Officially licensed cooperative escape-room board game featuring Ezio Auditore and Leonardo da Vinci. Set in Amboise in 1519 and across nine Renaissance European cities, the game offers three replayable scenarios with nine possible endings. Originally released in French as 'Escape Game Assassin's Creed'. Designed by Nicolas Lozzi. 2+ players, ages 12+. Published by Hachette Heroes (ISBN 9782017094364).",
     "contents": "3 scenarios (9 possible endings), 9 European city cards, 200 gameplay cards, 2 booklets/guides",
     "type": "Board Game"
+  },
+  {
+    "name": "The World of Assassin's Creed Valhalla: Journey to the North - Logs and Files of a Hidden One",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2023,
+    "category": "Art & Reference",
+    "description": "Illustrated in-universe hardcover companion book presented as the journal of the Hidden One Hytham. Chronicles Viking culture, history, lore, and mythology from the world of Assassin's Creed Valhalla. Written by Rick Barba. Published by Dark Horse Books, July 11, 2023 (ISBN 9781506735214).",
+    "contents": "Hardcover in-universe journal with illustrations, maps, and lore entries",
+    "type": "Companion Book"
+  },
+  {
+    "name": "The World of Assassin's Creed Valhalla: Journey to the North - Logs and Files of a Hidden One (Deluxe Edition)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2023,
+    "category": "Art & Reference",
+    "description": "Deluxe edition of the in-universe Hidden One journal companion book. Adds a protective slipcase, an exclusive cover, and a folio containing two gallery-quality prints. Written by Rick Barba. Published by Dark Horse Books, July 11, 2023 (ISBN 9781506735221).",
+    "contents": "Hardcover in-universe journal, protective slipcase, exclusive cover, folio with 2 gallery-quality prints",
+    "type": "Companion Book"
   }
 ];

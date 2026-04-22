@@ -454,11 +454,24 @@ const AC_IMAGES = {
         "images/art-books/art-of-ac-origins_01.jpg",
     ],
     "The Art of Assassin's Creed Odyssey": ["images/art-books/art-of-ac-odyssey.jpg"],
-    "The Art of Assassin's Creed Valhalla": ["images/art-books/art-of-ac-valhalla.jpg"],
+    "The Art of Assassin's Creed Valhalla": [
+        "images/art-books/art-of-ac-valhalla.jpg",
+        "images/art-books/art-of-ac-valhalla_01.jpg",
+    ],
     "The Art of Assassin's Creed Valhalla (Deluxe Edition)": [
         "images/art-books/art-of-ac-valhalla-de.jpg",
         "images/art-books/art-of-ac-valhalla-de_01.jpg",
         "images/art-books/art-of-ac-valhalla-de_02.jpg",
+    ],
+    "The World of Assassin's Creed Valhalla: Journey to the North - Logs and Files of a Hidden One": [
+        "images/art-books/world-of-ac-valhalla-journey-north.jpg",
+        "images/art-books/world-of-ac-valhalla-journey-north_01.jpg",
+        "images/art-books/world-of-ac-valhalla-journey-north_02.jpg",
+    ],
+    "The World of Assassin's Creed Valhalla: Journey to the North - Logs and Files of a Hidden One (Deluxe Edition)": [
+        "images/art-books/world-of-ac-valhalla-journey-north-deluxe.jpg",
+        "images/art-books/world-of-ac-valhalla-journey-north-deluxe_01.jpg",
+        "images/art-books/world-of-ac-valhalla-journey-north-deluxe_02.jpg",
     ],
     "The Art of Assassin's Creed Mirage": ["images/art-books/art-of-ac-mirage.jpg"],
     "The Art of Assassin's Creed Mirage (Deluxe Edition)": [
@@ -1047,7 +1060,11 @@ const AC_IMAGES = {
         "images/other/ac-bov-apocalypse_01.jpg",
     ],
     "Assassin's Creed: Assassin or Templar? (300 Questions)": ["images/other/ac-assassin-or-templar.jpg"],
-    "Assassin's Creed: The Last Quest of Leonardo da Vinci (Escape Game)": ["images/other/ac-escape-game-leonardo.jpg"],
+    "Assassin's Creed: The Last Quest of Leonardo da Vinci (Escape Game)": [
+        "images/other/ac-escape-game-leonardo.jpg",
+        "images/other/ac-escape-game-leonardo_01.jpg",
+        "images/other/ac-escape-game-leonardo_02.jpg",
+    ],
     "Assassin's Creed Unity Collectible Coin": [
         "images/other/lootcrate-unity-coin.jpg",
         "images/other/lootcrate-unity-coin_01.jpg",
