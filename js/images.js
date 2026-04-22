@@ -990,6 +990,8 @@ const AC_IMAGES = {
         "images/statues/purearts-master-ezio.jpg",
         "images/statues/purearts-master-ezio_01.jpg",
     ],
+
+    // ── Board Games / Tabletop ──
     "PureArts Orlog Dice Game Retail Edition": [
         "images/other/purearts-orlog-retail.jpg",
         "images/other/purearts-orlog-retail_01.jpg",
@@ -1003,6 +1005,49 @@ const AC_IMAGES = {
         "images/other/ac-vendetta_01.jpg",
         "images/other/ac-vendetta_02.jpg",
     ],
+    "Assassin's Creed: Arena": [
+        "images/other/ac-arena.jpg",
+        "images/other/ac-arena_01.jpg",
+        "images/other/ac-arena_02.jpg",
+    ],
+    "Monopoly: Assassin's Creed": [
+        "images/other/monopoly-assassins-creed.jpg",
+        "images/other/monopoly-assassins-creed_01.jpg",
+        "images/other/monopoly-assassins-creed_02.jpg",
+    ],
+    "Monopoly: Assassin's Creed Syndicate": [
+        "images/other/monopoly-ac-syndicate.jpg",
+        "images/other/monopoly-ac-syndicate_01.jpg",
+        "images/other/monopoly-ac-syndicate_02.jpg",
+    ],
+    "Risk: Assassin's Creed": [
+        "images/other/risk-assassins-creed.jpg",
+        "images/other/risk-assassins-creed_01.jpg",
+        "images/other/risk-assassins-creed_02.jpg",
+    ],
+    "Stratego: Assassin's Creed": [
+        "images/other/stratego-assassins-creed.jpg",
+        "images/other/stratego-assassins-creed_01.jpg",
+        "images/other/stratego-assassins-creed_02.jpg",
+    ],
+    "Assassin's Creed: Brotherhood of Venice": [
+        "images/other/ac-brotherhood-of-venice.jpg",
+        "images/other/ac-brotherhood-of-venice_01.jpg",
+        "images/other/ac-brotherhood-of-venice_02.jpg",
+        "images/other/ac-brotherhood-of-venice_03.jpg",
+    ],
+    "Assassin's Creed: Brotherhood of Venice - Roma Expansion": [
+        "images/other/ac-bov-roma.jpg",
+        "images/other/ac-bov-roma_01.jpg",
+    ],
+    "Assassin's Creed: Brotherhood of Venice - Tokyo XXI Expansion": ["images/other/ac-bov-tokyo-xxi.jpg"],
+    "Assassin's Creed: Brotherhood of Venice - Creed vs Crows Expansion": ["images/other/ac-bov-creed-vs-crows.jpg"],
+    "Assassin's Creed: Brotherhood of Venice - Apocalypse Expansion": [
+        "images/other/ac-bov-apocalypse.jpg",
+        "images/other/ac-bov-apocalypse_01.jpg",
+    ],
+    "Assassin's Creed: Assassin or Templar? (300 Questions)": ["images/other/ac-assassin-or-templar.jpg"],
+    "Assassin's Creed: The Last Quest of Leonardo da Vinci (Escape Game)": ["images/other/ac-escape-game-leonardo.jpg"],
     "Assassin's Creed Unity Collectible Coin": [
         "images/other/lootcrate-unity-coin.jpg",
         "images/other/lootcrate-unity-coin_01.jpg",

@@ -4957,5 +4957,113 @@ const AC_DATABASE = [
     "description": "Issue #80 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #80 and figurine of Darim Ibn-La'Ahad",
     "type": "Magazine"
+  },
+  {
+    "name": "Assassin's Creed: Arena",
+    "game": "Assassin's Creed Revelations",
+    "year": 2014,
+    "category": "Other",
+    "description": "Officially licensed board game set in Constantinople during the events of Assassin's Creed Revelations. Players take on the role of Master Assassins competing in Templar-sponsored arena contests. Published by Cryptozoic Entertainment.",
+    "contents": "Game board, character cards, weapon cards, contract cards, guard tokens, one six-sided die, rulebook",
+    "type": "Board Game"
+  },
+  {
+    "name": "Monopoly: Assassin's Creed",
+    "game": "General",
+    "year": 2014,
+    "category": "Other",
+    "description": "Officially licensed Monopoly edition spanning the Assassin's Creed franchise. Abstergo Credits replace cash and historical AC locations replace properties. Tokens include Altair, Ezio, Connor, Edward, Aveline and Arno. Published by Winning Moves under Hasbro license.",
+    "contents": "Game board, 6 collectible tokens, property cards, Leap of Faith and Treasure Chest cards, Abstergo Credits money, houses, hotels, 2 dice, rulebook",
+    "type": "Board Game"
+  },
+  {
+    "name": "Monopoly: Assassin's Creed Syndicate",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2015,
+    "category": "Other",
+    "description": "Officially licensed Monopoly edition themed on Assassin's Creed Syndicate's Victorian London. Properties are replaced with iconic London landmarks from the game. Published by Winning Moves under Hasbro license.",
+    "contents": "Game board, 6 Syndicate-themed tokens (Big Ben, Steam Ship, Bowler Hat, Crown, Gun, Knuckle Duster), property cards, Chance and Community Chest cards, money, houses, hotels, 2 dice, rulebook",
+    "type": "Board Game"
+  },
+  {
+    "name": "Risk: Assassin's Creed",
+    "game": "General",
+    "year": 2018,
+    "category": "Other",
+    "description": "Officially licensed Risk edition themed around the centuries-long conflict between Assassins and Templars. Five Assassin factions battle for territorial control using custom Assassin and Templar Insignia pieces, Piece of Eden ability cards, and Memory Fragment cards. Published by Winning Moves under Hasbro license.",
+    "contents": "Game board, 5 sets of custom faction pieces (Assassin and Templar Insignias), Piece of Eden ability cards, Memory Fragment cards, dice, rulebook",
+    "type": "Board Game"
+  },
+  {
+    "name": "Stratego: Assassin's Creed",
+    "game": "General",
+    "year": 2020,
+    "category": "Other",
+    "description": "Officially licensed Stratego edition pitting Assassins against Templars. Includes three game variants: Classic, Duel, and a Special mode that introduces Pieces of Eden with unique powers. Published by Jumbo International (SKU 19815).",
+    "contents": "Game board, 30 red pieces, 30 blue pieces, 2 player screens, Piece of Eden sticker sheet, rulebook",
+    "type": "Board Game"
+  },
+  {
+    "name": "Assassin's Creed: Brotherhood of Venice",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2021,
+    "category": "Other",
+    "description": "Officially licensed cooperative miniatures board game bridging the events of Assassin's Creed Brotherhood and Revelations. Players control Italian Assassins on stealth, parkour and combat missions across a branching campaign of Memories. Kickstarter funded in 2018; retail released June 2021. Published by Triton Noir.",
+    "contents": "Game board, Assassin and enemy miniatures, Memory campaign cards, skill cards, dice, tokens, campaign book, rulebook",
+    "type": "Board Game"
+  },
+  {
+    "name": "Assassin's Creed: Brotherhood of Venice - Roma Expansion",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2021,
+    "category": "Other",
+    "description": "Expansion for Assassin's Creed: Brotherhood of Venice that takes the Assassins to Rome against the Papal Guards and the Followers of Romulus. Adds new Assassins, enemies and Memories. Published by Triton Noir.",
+    "contents": "New miniatures (Assassins, Papal Guards, Followers of Romulus), new Memory cards, new scenarios, rules supplement",
+    "type": "Board Game"
+  },
+  {
+    "name": "Assassin's Creed: Brotherhood of Venice - Tokyo XXI Expansion",
+    "game": "General",
+    "year": 2021,
+    "category": "Other",
+    "description": "Modern-day expansion for Assassin's Creed: Brotherhood of Venice set in 21st-century Tokyo. Adds playable characters Layla Hassan, Rebecca Crane, Shaun Hastings and Kiyoshi Takakura, along with modern enemies and equipment. Published by Triton Noir.",
+    "contents": "Modern-day Assassin miniatures (Layla, Rebecca, Shaun, Kiyoshi), modern enemy miniatures, new equipment cards, new Memory cards, rules supplement",
+    "type": "Board Game"
+  },
+  {
+    "name": "Assassin's Creed: Brotherhood of Venice - Creed vs Crows Expansion",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2021,
+    "category": "Other",
+    "description": "Competitive versus-mode expansion for Assassin's Creed: Brotherhood of Venice. 2-4 players face off inside a Borgia fortress, splitting into Assassin and Crow teams for asymmetric confrontations. Published by Triton Noir.",
+    "contents": "Borgia fortress board tiles, Crow miniatures, versus-mode cards, tokens, rules supplement",
+    "type": "Board Game"
+  },
+  {
+    "name": "Assassin's Creed: Brotherhood of Venice - Apocalypse Expansion",
+    "game": "General",
+    "year": 2024,
+    "category": "Other",
+    "description": "Fourth expansion for Assassin's Creed: Brotherhood of Venice, set in the post-Angkor Khmer Empire of Cambodia. Renaissance Assassins hunt a rogue Brotherhood member with the aid of Shao Jun through a dozen Memories in the jungle. Kickstarter funded 2023; retail released October 2024. Published by Triton Noir.",
+    "contents": "Shao Jun miniature, rogue Assassin miniature, Khmer Empire enemies, jungle environment tiles, new Memory cards, rules supplement",
+    "type": "Board Game"
+  },
+  {
+    "name": "Assassin's Creed: Assassin or Templar? (300 Questions)",
+    "game": "General",
+    "year": 2021,
+    "category": "Other",
+    "description": "Officially licensed Assassin's Creed trivia and party game. Players pick the Assassin or Templar path and race to become Master Assassin or Master Templar by answering questions spanning the AC universe, using skill and bonus cards along the way. Originally released in French as 'Boîte Assassin ou Templier'. Designed by Alain T. Puysségur. 2-4 players, ages 14+. Published by Hachette Heroes (ISBN 9782017134541).",
+    "contents": "Game board, 300 question cards, 14 special/bonus/skill cards, rulebook",
+    "type": "Board Game"
+  },
+  {
+    "name": "Assassin's Creed: The Last Quest of Leonardo da Vinci (Escape Game)",
+    "game": "Assassin's Creed II",
+    "year": 2022,
+    "category": "Other",
+    "description": "Officially licensed cooperative escape-room board game featuring Ezio Auditore and Leonardo da Vinci. Set in Amboise in 1519 and across nine Renaissance European cities, the game offers three replayable scenarios with nine possible endings. Originally released in French as 'Escape Game Assassin's Creed'. Designed by Nicolas Lozzi. 2+ players, ages 12+. Published by Hachette Heroes (ISBN 9782017094364).",
+    "contents": "3 scenarios (9 possible endings), 9 European city cards, 200 gameplay cards, 2 booklets/guides",
+    "type": "Board Game"
   }
 ];
