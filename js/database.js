@@ -5083,5 +5083,131 @@ const AC_DATABASE = [
     "description": "Deluxe edition of the in-universe Hidden One journal companion book. Adds a protective slipcase, an exclusive cover, and a folio containing two gallery-quality prints. Written by Rick Barba. Published by Dark Horse Books, July 11, 2023 (ISBN 9781506735221).",
     "contents": "Hardcover in-universe journal, protective slipcase, exclusive cover, folio with 2 gallery-quality prints",
     "type": "Companion Book"
+  },
+  {
+    "name": "Good Loot Gaming Puzzle: Assassin's Creed Legacy (1000 pieces)",
+    "game": "General",
+    "year": 2022,
+    "category": "Other",
+    "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features a franchise-spanning collage of Assassin Order members including Altair, Ezio, Eivor and more. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
+    "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Good Loot Gaming Puzzle: Assassin's Creed Syndicate - The Tavern (1000 pieces)",
+    "game": "Assassin's Creed Syndicate",
+    "year": 2022,
+    "category": "Other",
+    "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Depicts Jacob Frye rallying workers in a Victorian London tavern. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
+    "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Eivor Male (1000 pieces)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Other",
+    "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features the male Eivor portrait with axe and shield. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
+    "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Eivor Female (1500 pieces)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Other",
+    "description": "Officially licensed 1500-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features the female Eivor portrait. Finished size 85 x 58 cm. Includes a same-size poster and a printed cotton drawstring bag.",
+    "contents": "1500 puzzle pieces, matching 85 x 58 cm poster, cotton drawstring storage bag",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Vista of England (1000 pieces)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2021,
+    "category": "Other",
+    "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Depicts a panoramic Anglo-Saxon countryside featuring Stonehenge and hill castles. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag. Shares artwork with the 1500-piece edition.",
+    "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Vista of England (1500 pieces)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2021,
+    "category": "Other",
+    "description": "Officially licensed 1500-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Depicts a panoramic Anglo-Saxon countryside featuring Stonehenge and hill castles. Finished size 85 x 58 cm. Includes a same-size poster and a printed cotton drawstring bag. Shares artwork with the 1000-piece edition.",
+    "contents": "1500 puzzle pieces, matching 85 x 58 cm poster, cotton drawstring storage bag",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Dawn of Ragnarok (1000 pieces)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2022,
+    "category": "Other",
+    "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series, themed on the Dawn of Ragnarok expansion. Depicts a battle that changed the fate of Svartalfheim, the mythical kingdom of dwarves. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
+    "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Good Loot Gaming Puzzle: Assassin's Creed Mirage (1000 pieces)",
+    "game": "Assassin's Creed Mirage",
+    "year": 2023,
+    "category": "Other",
+    "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features Basim in 9th-century Baghdad. Finished size 68.3 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag. EAN 5908305243472.",
+    "contents": "1000 puzzle pieces, matching 68.3 x 48 cm poster, cotton drawstring storage bag",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Good Loot Gaming Puzzle: Assassin's Creed Shadows - Naoe & Yasuke (1000 pieces)",
+    "game": "Assassin's Creed Shadows",
+    "year": 2024,
+    "category": "Other",
+    "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features a dual portrait of Naoe and Yasuke. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
+    "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Good Loot Gaming Puzzle: Assassin's Creed Shadows - Vista of Japan (1000 pieces)",
+    "game": "Assassin's Creed Shadows",
+    "year": 2024,
+    "category": "Other",
+    "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Depicts a panoramic feudal Japan landscape. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
+    "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Dark Horse Deluxe Assassin's Creed Valhalla: Raid Planning Puzzle (1000 pieces)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Other",
+    "description": "Officially licensed 1000-piece jigsaw puzzle by Dark Horse Deluxe. Depicts Eivor and crew strategizing a Viking raid. Finished size 20\" x 27\" (approximately 51 x 69 cm). Dark Horse SKU 3007-692.",
+    "contents": "1000 puzzle pieces in collector box",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Dark Horse Deluxe Assassin's Creed Valhalla: Fortress Assault Puzzle (1000 pieces)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Other",
+    "description": "Officially licensed 1000-piece jigsaw puzzle by Dark Horse Deluxe. Depicts Eivor leading a longship raid on a fortified British coast. Finished size 20\" x 27\" (approximately 51 x 69 cm). Dark Horse SKU 3007-693.",
+    "contents": "1000 puzzle pieces in collector box",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Trefl Assassin's Creed (Movie) - Kolaż Puzzle (1500 pieces)",
+    "game": "Assassin's Creed (Movie)",
+    "year": 2018,
+    "category": "Other",
+    "description": "Officially licensed 1500-piece jigsaw puzzle by Trefl, tied to the 2016 Assassin's Creed film. Depicts a collage of the film cast including Michael Fassbender's Aguilar de Nerha. Finished size 85 x 58 cm. Marketed in Poland as 'Kolaż' and in the UK as 'Assassin's Creed The Movie'. Trefl reference 26142, EAN 5900511261424.",
+    "contents": "1500 puzzle pieces",
+    "type": "Puzzle"
+  },
+  {
+    "name": "Wrebbit3D Assassin's Creed Unity: Notre-Dame de Paris 3D Puzzle",
+    "game": "Assassin's Creed Unity",
+    "year": 2018,
+    "category": "Other",
+    "description": "Officially licensed 3D foam-backed architectural puzzle by Wrebbit3D. Builds the Notre-Dame de Paris cathedral as featured in AC Unity, with hidden Assassin easter eggs. Uses the same sculpt as Wrebbit's standalone Notre-Dame puzzle, rebranded under AC Unity license.",
+    "contents": "860 foam-backed 3D puzzle pieces, assembly instructions",
+    "type": "Puzzle"
   }
 ];

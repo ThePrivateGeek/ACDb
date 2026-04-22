@@ -1065,6 +1065,67 @@ const AC_IMAGES = {
         "images/other/ac-escape-game-leonardo_01.jpg",
         "images/other/ac-escape-game-leonardo_02.jpg",
     ],
+
+    // ── Puzzles ──
+    "Good Loot Gaming Puzzle: Assassin's Creed Legacy (1000 pieces)": [
+        "images/other/goodloot-ac-legacy.jpg",
+        "images/other/goodloot-ac-legacy_01.jpg",
+    ],
+    "Good Loot Gaming Puzzle: Assassin's Creed Syndicate - The Tavern (1000 pieces)": [
+        "images/other/goodloot-ac-syndicate-tavern.jpg",
+        "images/other/goodloot-ac-syndicate-tavern_01.jpg",
+    ],
+    "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Eivor Male (1000 pieces)": [
+        "images/other/goodloot-ac-valhalla-eivor-male.jpg",
+        "images/other/goodloot-ac-valhalla-eivor-male_01.jpg",
+    ],
+    "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Eivor Female (1500 pieces)": [
+        "images/other/goodloot-ac-valhalla-eivor-female.jpg",
+        "images/other/goodloot-ac-valhalla-eivor-female_01.jpg",
+    ],
+    "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Vista of England (1000 pieces)": [
+        "images/other/goodloot-ac-valhalla-vista-england-1000.jpg",
+        "images/other/goodloot-ac-valhalla-vista-england-1000_01.jpg",
+    ],
+    "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Vista of England (1500 pieces)": [
+        "images/other/goodloot-ac-valhalla-vista-england-1500.jpg",
+        "images/other/goodloot-ac-valhalla-vista-england-1500_01.jpg",
+    ],
+    "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Dawn of Ragnarok (1000 pieces)": [
+        "images/other/goodloot-ac-valhalla-dawn-of-ragnarok.jpg",
+        "images/other/goodloot-ac-valhalla-dawn-of-ragnarok_01.jpg",
+    ],
+    "Good Loot Gaming Puzzle: Assassin's Creed Mirage (1000 pieces)": [
+        "images/other/goodloot-ac-mirage.jpg",
+        "images/other/goodloot-ac-mirage_01.jpg",
+        "images/other/goodloot-ac-mirage_02.jpg",
+    ],
+    "Good Loot Gaming Puzzle: Assassin's Creed Shadows - Naoe & Yasuke (1000 pieces)": [
+        "images/other/goodloot-ac-shadows-naoe-yasuke.jpg",
+        "images/other/goodloot-ac-shadows-naoe-yasuke_01.jpg",
+    ],
+    "Good Loot Gaming Puzzle: Assassin's Creed Shadows - Vista of Japan (1000 pieces)": [
+        "images/other/goodloot-ac-shadows-vista-japan.jpg",
+        "images/other/goodloot-ac-shadows-vista-japan_01.jpg",
+    ],
+    "Dark Horse Deluxe Assassin's Creed Valhalla: Raid Planning Puzzle (1000 pieces)": [
+        "images/other/darkhorse-ac-valhalla-raid-planning.jpg",
+        "images/other/darkhorse-ac-valhalla-raid-planning_01.jpg",
+        "images/other/darkhorse-ac-valhalla-raid-planning_02.jpg",
+    ],
+    "Dark Horse Deluxe Assassin's Creed Valhalla: Fortress Assault Puzzle (1000 pieces)": [
+        "images/other/darkhorse-ac-valhalla-fortress-assault.jpg",
+        "images/other/darkhorse-ac-valhalla-fortress-assault_01.jpg",
+    ],
+    "Trefl Assassin's Creed (Movie) - Kolaż Puzzle (1500 pieces)": [
+        "images/other/trefl-ac-movie-kolaz.jpg",
+        "images/other/trefl-ac-movie-kolaz_01.jpg",
+    ],
+    "Wrebbit3D Assassin's Creed Unity: Notre-Dame de Paris 3D Puzzle": [
+        "images/other/wrebbit3d-ac-unity-notre-dame.jpg",
+        "images/other/wrebbit3d-ac-unity-notre-dame_01.jpg",
+    ],
+
     "Assassin's Creed Unity Collectible Coin": [
         "images/other/lootcrate-unity-coin.jpg",
         "images/other/lootcrate-unity-coin_01.jpg",
