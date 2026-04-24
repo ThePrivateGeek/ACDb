@@ -1017,7 +1017,7 @@ body {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    overflow: hidden;
+    overflow: visible;
     cursor: pointer;
     transition: var(--transition);
     position: relative;
@@ -1055,6 +1055,29 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+/* "NEW" sticker for the most-recently-added items — sits rotated
+   at the top-right, deliberately poking outside the card edge. */
+.badge-new {
+    position: absolute;
+    top: -9px;
+    right: -10px;
+    z-index: 3;
+    padding: 4px 12px;
+    background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transform: rotate(14deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35),
+                0 0 0 1px rgba(0, 0, 0, 0.25),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+    pointer-events: none;
 }
 
 .card-image::before {

@@ -22,6 +22,21 @@ window.ACDB = window.ACDB || {};
     let statsSortMode = 'percent'; // 'percent' or 'count'
     // currentItemId, galleryImages, galleryIndex — owned by modal.js
 
+    // The top N entries by year (highest first) get a "NEW" sticker, matching
+    // the default "Year (Newest First)" sort. Ties broken by DB position so
+    // more-recently-added items win when years match.
+    // Keyed by name because item.id is only assigned later (see forEach below
+    // that sets item.id = item.name) — names are unique and stable per the
+    // insertion rule.
+    const NEW_BADGE_COUNT = 4;
+    const NEW_ITEM_NAMES = new Set(
+        AC_DATABASE
+            .map((item, idx) => ({ item, idx }))
+            .sort((a, b) => (b.item.year - a.item.year) || (b.idx - a.idx))
+            .slice(0, NEW_BADGE_COUNT)
+            .map(x => x.item.name)
+    );
+
     // Short game names (shared between timeline and stats)
     const SHORT_GAME_NAMES = {
         "Assassin's Creed": "AC1",
@@ -438,7 +453,7 @@ window.ACDB = window.ACDB || {};
 
         // Sort
         if (sortValue === 'year-asc') results.sort((a, b) => a.year - b.year);
-        else if (sortValue === 'year-desc') results.sort((a, b) => b.year - a.year);
+        else if (sortValue === 'year-desc') results.sort((a, b) => (b.year - a.year) || (AC_DATABASE.indexOf(b) - AC_DATABASE.indexOf(a)));
         else if (sortValue === 'name-asc') results.sort((a, b) => a.name.localeCompare(b.name));
         else if (sortValue === 'name-desc') results.sort((a, b) => b.name.localeCompare(a.name));
         else if (sortValue === 'recent') results.sort((a, b) => AC_DATABASE.indexOf(b) - AC_DATABASE.indexOf(a));
@@ -506,7 +521,12 @@ window.ACDB = window.ACDB || {};
                    <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/>
                </svg>`;
 
+        const newBadgeHTML = NEW_ITEM_NAMES.has(item.name)
+            ? '<span class="badge-new">NEW</span>'
+            : '';
+
         card.innerHTML = `
+            ${newBadgeHTML}
             <div class="card-image">
                 ${imageHTML}
                 <div class="card-badges">
