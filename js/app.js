@@ -15,6 +15,11 @@ window.ACDB = window.ACDB || {};
     const SHARE_TOKEN_KEY = 'acdb_share_token';
     const SHARE_NAME_KEY = 'acdb_share_name';
     const isAdmin = localStorage.getItem('acdb_admin') === 'true';
+
+    // One-time cleanup of the flag set by the old numeric→name ID migration
+    // (removed 2026-04-24). Safe to delete this line after 2026-07-24.
+    localStorage.removeItem('acdb_migrated');
+
     let collection = loadCollection();
     let selectedGames = new Set();
     let selectedCategories = new Set();
@@ -60,34 +65,6 @@ window.ACDB = window.ACDB || {};
         "Assassin's Creed (Movie)": "Movie",
         "General": "General"
     };
-
-    // ---- TEMPORARY: Migration from numeric IDs to name-based keys ----
-    // Added: 2026-04-11 | Safe to remove after: 2026-04-18
-    // To remove: delete this entire IIFE block (from here to the closing })();)
-    // Also remove localStorage.getItem('acdb_migrated') check — no longer needed
-    // Must run BEFORE reassigning IDs, while array indices still match old numeric keys
-    (function migrateCollection() {
-        if (localStorage.getItem('acdb_migrated')) return;
-        const keys = Object.keys(collection);
-        if (keys.length === 0) { localStorage.setItem('acdb_migrated', '1'); return; }
-
-        // Check if keys are numeric (old format)
-        const isNumeric = keys.some(k => /^\d+$/.test(k));
-        if (!isNumeric) { localStorage.setItem('acdb_migrated', '1'); return; }
-
-        // Map numeric IDs to names using current array order
-        const migrated = {};
-        keys.forEach(k => {
-            const idx = parseInt(k);
-            if (idx >= 0 && idx < AC_DATABASE.length) {
-                migrated[AC_DATABASE[idx].name] = collection[k];
-            }
-        });
-
-        collection = migrated;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(collection));
-        localStorage.setItem('acdb_migrated', '1');
-    })();
 
     // ---- Assign stable IDs (name-based) to each database item ----
     AC_DATABASE.forEach((item) => {
