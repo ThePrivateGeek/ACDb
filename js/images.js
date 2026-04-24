@@ -82,6 +82,22 @@ const AC_IMAGES = {
         "images/collectors-editions/origins-dawn-of-the-creed-collectors-case.webp",
         "images/collectors-editions/origins-dawn-of-the-creed-collectors-case_01.webp",
     ],
+    "Assassin's Creed Black Flag Resynced Collectors Edition": [
+        "images/collectors-editions/ac-black-flag-resynced-ce.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_01.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_02.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_03.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_04.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_05.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_06.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_07.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_08.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_09.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_10.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_11.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_12.webp",
+        "images/collectors-editions/ac-black-flag-resynced-ce_13.webp",
+    ],
 
     // ── Steelbooks ──
     "Assassin's Creed Steelcase Limited Edition": [

@@ -5209,5 +5209,14 @@ const AC_DATABASE = [
     "description": "Officially licensed 3D foam-backed architectural puzzle by Wrebbit3D. Builds the Notre-Dame de Paris cathedral as featured in AC Unity, with hidden Assassin easter eggs. Uses the same sculpt as Wrebbit's standalone Notre-Dame puzzle, rebranded under AC Unity license.",
     "contents": "860 foam-backed 3D puzzle pieces, assembly instructions",
     "type": "Puzzle"
-  }
+  },
+  {
+    "name": "Assassin's Creed Black Flag Resynced Collectors Edition",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2026,
+    "category": "Collector's Edition",
+    "description": "Whether you're sailing the open seas or journeying across untamed lands, discover a seamless open world built with the latest Anvil engine. Take in sweeping vistas as you brave stormy waters, dive into underwater shipwrecks, or push through dense tropical jungles. Building on top of the original story, Assassin's Creed Black Flag Resynced introduces exclusive new content. Familiar faces will return, with new storylines dedicated to fan-favorite characters such as Blackbeard and Stede Bonnet.",
+    "contents": "Edward Kenway figurine (31cm/12in), Edward's leather logbook, Wearable Metal brooch, Exclusive Steelbook, Cloth World map & Sea shanty music sheet.",
+    "type": "Collector's Edition"
+  },
 ];
