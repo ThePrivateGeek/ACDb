@@ -62,6 +62,7 @@ window.ACDB = window.ACDB || {};
         "Assassin's Creed Valhalla": "Valhalla",
         "Assassin's Creed Mirage": "Mirage",
         "Assassin's Creed Shadows": "Shadows",
+        "Assassin's Creed Black Flag Resynced": "Resynced",
         "Assassin's Creed (Movie)": "Movie",
         "General": "General"
     };
@@ -342,6 +343,7 @@ window.ACDB = window.ACDB || {};
             "Assassin's Creed Valhalla",
             "Assassin's Creed Mirage",
             "Assassin's Creed Shadows",
+            "Assassin's Creed Black Flag Resynced",
             "Assassin's Creed (Movie)",
             "General"
         ];

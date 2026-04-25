@@ -17,7 +17,7 @@
             "Assassin's Creed Chronicles: Russia", "Assassin's Creed Syndicate",
             "Assassin's Creed Origins", "Assassin's Creed Odyssey",
             "Assassin's Creed Valhalla", "Assassin's Creed Mirage", "Assassin's Creed Shadows",
-            "Assassin's Creed (Movie)", "General"
+            "Assassin's Creed Black Flag Resynced", "Assassin's Creed (Movie)", "General"
         ];
         return gameOrder;
     }

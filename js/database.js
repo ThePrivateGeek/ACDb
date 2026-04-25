@@ -5212,7 +5212,7 @@ const AC_DATABASE = [
   },
   {
     "name": "Assassin's Creed Black Flag Resynced Collectors Edition",
-    "game": "Assassin's Creed IV: Black Flag",
+    "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
     "category": "Collector's Edition",
     "description": "Whether you're sailing the open seas or journeying across untamed lands, discover a seamless open world built with the latest Anvil engine. Take in sweeping vistas as you brave stormy waters, dive into underwater shipwrecks, or push through dense tropical jungles. Building on top of the original story, Assassin's Creed Black Flag Resynced introduces exclusive new content. Familiar faces will return, with new storylines dedicated to fan-favorite characters such as Blackbeard and Stede Bonnet.",
