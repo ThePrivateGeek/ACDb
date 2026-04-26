@@ -12,3 +12,6 @@ Thumbs.db
 # Editor
 .vscode/
 *.swp
+
+# Local-only notes (may contain account emails / personal info)
+SEO.md
