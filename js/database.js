@@ -5219,4 +5219,13 @@ const AC_DATABASE = [
     "contents": "Edward Kenway figurine (31cm/12in), Edward's leather logbook, Wearable Metal brooch, Exclusive Steelbook, Cloth World map & Sea shanty music sheet.",
     "type": "Collector's Edition"
   },
+  {
+    "name": "Assassin's Creed Black Flag Resynced Steelbook",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2026,
+    "category": "Steelbook",
+    "description": "Assassin's Creed Black Flag Resynced Steelbook is exclusive to Germany for now via MediaMarkt, with availability in other regions yet to be confirmed.",
+    "contents": "Game in exclusive steelbook",
+    "type": "Steelbook"
+  },
 ];

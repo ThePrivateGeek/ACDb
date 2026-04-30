@@ -111,6 +111,7 @@ const AC_IMAGES = {
     "Assassin's Creed Valhalla Gold Steelbook Edition": ["images/steelbooks/valhalla-gold-steelbook.webp"],
     "Assassin's Creed Valhalla Ultimate Steelbook Edition": ["images/steelbooks/valhalla-ultimate-steelbook.webp"],
     "Assassin's Creed (2016 Movie) SteelBook Edition": ["images/steelbooks/ac-movie-steelbook.webp"],
+    "Assassin's Creed Black Flag Resynced Steelbook": ["images/steelbooks/ac-bf-recynced-steelbook.webp"],
 
     // ── PureArts Statues and replicas ──
     "PureArts Animus Altair 1/4 Scale Statue": ["images/statues/purearts-animus-altair-1-4.webp"],
