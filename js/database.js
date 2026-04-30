@@ -5228,4 +5228,211 @@ const AC_DATABASE = [
     "contents": "Game in exclusive steelbook",
     "type": "Steelbook"
   },
+  {
+    "name": "Assassin's Creed Encyclopedia (E3 Collector Edition)",
+    "game": "General",
+    "year": 2012,
+    "category": "Art & Reference",
+    "description": "Press-only variant of the Second Edition Encyclopedia distributed at E3 2012. Features a unique silver cover and an additional 16-page section previewing Assassin's Creed III, with an exclusive foreword by Creative Director Alex Hutchinson. Handed out at E3 in a branded cloth bag alongside a promotional card for Assassin's Creed: Recollection. Extremely limited press giveaway.",
+    "contents": "Hardcover encyclopedia (silver cover) with exclusive 16-page AC III preview, branded cloth bag, AC: Recollection promo card",
+    "type": "Art Book"
+  },
+  {
+    "name": "Assassin's Creed: The Poster Collection",
+    "game": "General",
+    "year": 2013,
+    "category": "Art & Reference",
+    "description": "Officially licensed poster collection from Insight Editions featuring forty full-color, removable posters of iconic imagery and concept art from across the franchise, with significant focus on Assassin's Creed IV: Black Flag (Edward Kenway, Blackbeard, ships, environments). Released 22 October 2013. ISBN 9781608873005.",
+    "contents": "40 full-color removable posters in a softcover binder",
+    "type": "Art Book"
+  },
+  {
+    "name": "Assassin's Creed: 2500 ans d'Histoire",
+    "game": "General",
+    "year": 2019,
+    "category": "Art & Reference",
+    "description": "Hardcover history book pairing Assassin's Creed artwork with essays by around fifty historians from Historia magazine. Covers six historical periods featured in the games: the Peloponnesian Wars, Ptolemaic Egypt, Renaissance Italy, the Golden Age of Piracy, the French Revolution, and Victorian England. Edited by Victor Battaggion (Historia) and Aymar Azaïzia (Ubisoft Brand Director). Released 9 October 2019. French language only. Published by Les Arènes / Historia (ISBN 9782711201822).",
+    "contents": "Hardcover history book (French language only)",
+    "type": "Art Book"
+  },
+  {
+    "name": "Assassin's Creed: Atlas",
+    "game": "General",
+    "year": 2021,
+    "category": "Art & Reference",
+    "description": "Hardcover atlas of the Assassin's Creed universe by French gaming journalist Guillaume Delalande. Combines previously unpublished maps, diagrams, and drawings to chart every era featured in the series — from Crusade-era Jerusalem to Renaissance Italy, colonial America, Revolutionary Paris, Victorian London, and ancient Greece and Egypt. 192 pages. Published by Abrams Books (ISBN 9781419752759).",
+    "contents": "Hardcover atlas (192 pages)",
+    "type": "Art Book"
+  },
+  {
+    "name": "Assassin's Creed: Where's the Assassin?",
+    "game": "General",
+    "year": 2021,
+    "category": "Art & Reference",
+    "description": "Hardcover search-and-find book with original illustrations by Florent Llamas spanning over 2000 years of Assassin's Creed history. Readers must locate 13 iconic Assassins hidden across detailed period scenes from across the franchise. Released 7 September 2021. Published by Titan Books (ISBN 9781789096705).",
+    "contents": "Hardcover search-and-find book (40 pages)",
+    "type": "Gamebook"
+  },
+  {
+    "name": "Eivor Mystery Statuette (Qisahn Pre-Order Bonus)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Statue",
+    "description": "Singapore-exclusive pre-order bonus distributed by Singapore-based retailer Qisahn. A small Eivor mini-statuette bundled with copies of Assassin's Creed Valhalla purchased through Qisahn's pre-order campaign. Limited regional run.",
+    "contents": "Mini Eivor statuette (Singapore-exclusive Qisahn pre-order bonus)",
+    "type": "Promotional"
+  },
+  {
+    "name": "Nendoroid Ezio Auditore #1829",
+    "game": "Assassin's Creed II",
+    "year": 2022,
+    "category": "Action Figure",
+    "description": "Officially licensed Nendoroid figure of Ezio Auditore from Assassin's Creed II. Approximately 100mm tall, fully articulated. Includes three interchangeable face plates (hooded shadow, combat, smiling), the Hidden Blade, the Apple of Eden, the Sword of Altaïr, a feather (for Petruccio), and a haystack paper craft. Released November 2022 by Good Smile Company.",
+    "contents": "Articulated Nendoroid figure (~100mm), 3 face plates, Hidden Blade, Apple of Eden, Sword of Altaïr, feather, haystack paper craft, stand",
+    "type": "Nendoroid"
+  },
+  {
+    "name": "FiGPiN Assassin's Creed Deluxe Box Set",
+    "game": "General",
+    "year": 2022,
+    "category": "Action Figure",
+    "description": "Limited edition box set of five gold-plated FiGPiN enamel pins featuring the Assassins Altaïr, Ezio, Connor, Edward, and Aguilar, plus an exclusive FiGPiN logo pin. Limited to 1,000 units worldwide. Released 28 December 2022.",
+    "contents": "5 gold-plated FiGPiN enamel pins (Altaïr, Ezio, Connor, Edward, Aguilar) and 1 exclusive FiGPiN logo pin in deluxe display box",
+    "type": "FiGPiN"
+  },
+  {
+    "name": "MeoWorld Assassin's Creed Cat Figurines",
+    "game": "General",
+    "year": 2024,
+    "category": "Action Figure",
+    "description": "Officially licensed series of cat-themed Assassin's Creed figurines from Bona Fide Studio's MeoWorld line. Each ~140mm ABS & PVC figure reimagines an iconic Assassin as a cat (lineup includes Altaïr, Ezio, Edward, Bayek, and others). Originally Kickstarter-funded in late 2023 (HK$339,741 raised, 113% of goal); production fulfilled in August 2024. Manufactured by Shanghai WuLiu Cultural Company.",
+    "contents": "ABS & PVC cat figurines (~140mm) with display base — sold individually and in sets",
+    "type": "Figurine"
+  },
+  {
+    "name": "Assassin's Creed: The Official Light (Neamedia Icons)",
+    "game": "General",
+    "year": 2023,
+    "category": "Other",
+    "description": "Officially licensed LED logo lamp by Neamedia Icons. Features the 3D Assassin's Creed logo on a dark base, with DNA helix engravings on the underside referencing the Animus and the genetic-memory premise. Rechargeable battery providing up to 12 hours of autonomy. Dimensions: 22cm × 5cm × 8cm, 0.4kg. First available October 2023.",
+    "contents": "LED logo lamp (22cm × 5cm × 8cm), USB charging cable",
+    "type": "Lamp"
+  },
+  {
+    "name": "Assassin's Creed Mirage: Logo Light (Neamedia Icons)",
+    "game": "Assassin's Creed Mirage",
+    "year": 2023,
+    "category": "Other",
+    "description": "Officially licensed LED logo lamp by Neamedia Icons designed for Assassin's Creed Mirage. Features the 3D Mirage logo on a Baghdad-inspired base with mosaic-textured backdrop and a sandy-orange glow that evokes the game's setting. Rechargeable battery providing approximately 12 hours of autonomy. Dimensions: 20cm × 8cm. Released alongside the launch of AC Mirage.",
+    "contents": "LED logo lamp (20cm × 8cm), USB charging cable",
+    "type": "Lamp"
+  },
+  {
+    "name": "GravaStar Mars Pro Limited Edition - Apple of Eden",
+    "game": "General",
+    "year": 2024,
+    "category": "Other",
+    "description": "Officially licensed Bluetooth 5.0 speaker by GravaStar styled as the Apple of Eden. Hand-painted golden metal orb with customizable RGB lighting, attachable cloth hood (assassin's robe styling), and an individually numbered casing — no two units are identical. Limited to 1,000 units worldwide. Built-in DSP audio algorithms and passive bass radiator; up to 15 hours of battery life via USB-C.",
+    "contents": "Apple of Eden Bluetooth speaker, attachable cloth hood, USB-C cable, presentation packaging with serial number",
+    "type": "Audio"
+  },
+  {
+    "name": "Flydigi Apex 4 - Assassin's Creed Dynasty Edition",
+    "game": "Assassin's Creed Dynasty",
+    "year": 2024,
+    "category": "Other",
+    "description": "Officially licensed wireless gaming controller by Flydigi, themed around Assassin's Creed Dynasty. Features high-precision analog sticks, force-feedback triggers, full button remapping, and Bluetooth/USB-C connectivity. Compatible with PC, mobile, and Switch. Optional charging stand and carrying case sold separately.",
+    "contents": "Apex 4 wireless controller (AC Dynasty edition), USB-C cable, dongle",
+    "type": "Controller"
+  },
+  {
+    "name": "Blend Cota Studios - Assassin's Creed Fine Art Prints",
+    "game": "General",
+    "year": 2023,
+    "category": "Other",
+    "description": "Officially licensed fine art prints by painter Blend Cota in collaboration with Ubisoft. Reproduces Cota's museum-quality oil paintings of iconic Assassin's Creed characters and scenes (Ezio Auditore, Connor Kenway, Edward Kenway, Eivor, Kassandra, Naoe, and others) across the franchise. Available as paper prints, canvas prints, and limited-edition signed pieces. Sold via Blend Cota Studios.",
+    "contents": "Fine art prints (paper, canvas, or limited-edition signed) — sold individually",
+    "type": "Art Print"
+  },
+  {
+    "name": "Displate - Assassin's Creed Metal Posters",
+    "game": "General",
+    "year": 2023,
+    "category": "Other",
+    "description": "Officially licensed Assassin's Creed metal posters from Displate. Each piece is printed on metal with a magnetic mounting system (no drilling required), hand-signed by the Master of Production, and stamped with an official license emblem. The collection spans the franchise — character art, in-game vistas, and AC Legacy designs from Valhalla, Odyssey, Origins, Mirage, Shadows, and others. Available in multiple sizes.",
+    "contents": "Metal posters with magnetic mounting kit — sold individually in multiple sizes",
+    "type": "Art Print"
+  },
+  {
+    "name": "Art4Fans - Assassin's Creed Print Collection",
+    "game": "General",
+    "year": 2022,
+    "category": "Other",
+    "description": "Officially licensed Ubisoft × Art4Fans print collection. Features 'Essentials' poster sets (typically five prints per game) for Assassin's Creed I, III, IV: Black Flag, Liberation, Unity, Syndicate, Origins, Odyssey, Valhalla, and Shadows. Available as fine art prints, posters, metal prints, and canvases. Sold via Art4Fans.",
+    "contents": "Sets of 5 prints per game (Liberation has 3) — also available as canvases, metal prints, and posters",
+    "type": "Art Print"
+  },
+  {
+    "name": "Hidden Blade by Assassin's Creed (Ubisoft Brasil)",
+    "game": "General",
+    "year": 2015,
+    "category": "Other",
+    "description": "Officially licensed men's fragrance launched exclusively in Brazil by Ubisoft Brasil in partnership with Swiss perfumery Firmenich. Top notes of lavender, Sicilian lemon, absinthe, and Sichuan pepper; heart of jasmine, cinnamon, rose, and Indonesian ylang; base of coffee, leather, cumaru, agarwood, and gaiac. 50ml bottle in a Saverglass 'Jeans' flacon. Released 4 October 2015 at R$149. Brazil exclusive; production discontinued.",
+    "contents": "50ml fragrance bottle and packaging (Brazil exclusive, discontinued)",
+    "type": "Fragrance"
+  },
+  {
+    "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Beyond Booster Box",
+    "game": "General",
+    "year": 2024,
+    "category": "Other",
+    "description": "Display box of 24 Beyond Boosters from the Wizards of the Coast Universes Beyond crossover set. The set introduces the new 'Beyond Booster' product type — a mid-size 7-card pack with 1–4 rares or higher per pack. Released 5 July 2024.",
+    "contents": "24 Beyond Boosters (7 cards per pack)",
+    "type": "Card Game"
+  },
+  {
+    "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Beyond Booster Pack",
+    "game": "General",
+    "year": 2024,
+    "category": "Other",
+    "description": "Single Beyond Booster from the Wizards of the Coast Universes Beyond crossover set. The Beyond Booster is a new mid-size pack type debuted with this set. Released 5 July 2024.",
+    "contents": "1 Beyond Booster pack (7 cards, 1-4 rares or higher)",
+    "type": "Card Game"
+  },
+  {
+    "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Collector Booster Box",
+    "game": "General",
+    "year": 2024,
+    "category": "Other",
+    "description": "Display box of premium Collector Boosters from the Wizards of the Coast Universes Beyond crossover set. Collector Boosters carry the extended-art and foiled treatments — 1 mythic rare and 16 rares are exclusive to this product line — and are the only place to find the ultra-rare serialized double-rainbow foil cards printed in the historical figure's spoken language. Released 5 July 2024.",
+    "contents": "12 Collector Boosters (premium foil and extended-art cards)",
+    "type": "Card Game"
+  },
+  {
+    "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Collector Booster Pack",
+    "game": "General",
+    "year": 2024,
+    "category": "Other",
+    "description": "Single Collector Booster from the Wizards of the Coast Universes Beyond crossover set, containing the premium foiled and extended-art treatments — including the chance at one of the ultra-rare serialized double-rainbow foil cards printed in the historical figure's spoken language. Released 5 July 2024.",
+    "contents": "1 Collector Booster pack (premium foil and extended-art cards)",
+    "type": "Card Game"
+  },
+  {
+    "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Bundle",
+    "game": "General",
+    "year": 2024,
+    "category": "Other",
+    "description": "All-in-one product from the Wizards of the Coast Universes Beyond crossover set, packing 9 Beyond Boosters with the accessories typical of the MTG Bundle line: basic lands, a foil alt-art promo, a Spindown life counter, and a card storage box. Released 5 July 2024.",
+    "contents": "9 Beyond Boosters, 40 basic lands (20 foil + 20 non-foil), 1 alt-art foil promo card, 1 Spindown life counter, card storage box",
+    "type": "Card Game"
+  },
+  {
+    "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Starter Kit",
+    "game": "General",
+    "year": 2024,
+    "category": "Other",
+    "description": "Two-player learn-to-play product from the Wizards of the Coast Universes Beyond crossover set. The Blue-Black deck features Ezio as a master assassin; the White-Red deck features the Viking shieldmaiden Eivor. Each deck contains exclusive cards (a foil mythic rare, plus rares and uncommons with unique artwork) not found in boosters. Released 5 July 2024.",
+    "contents": "2 ready-to-play 60-card decks (Ezio Blue/Black, Eivor White/Red), 2 deck boxes, how-to-play guide, 2 double-sided reference cards",
+    "type": "Card Game"
+  },
 ];

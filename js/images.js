@@ -401,6 +401,7 @@ const AC_IMAGES = {
     "Assassin's Creed Encyclopedia (First Edition)": ["images/art-books/encyclopedia-first-edition.webp"],
     "Assassin's Creed Encyclopedia (Second Edition)": ["images/art-books/encyclopedia-second-edition.webp"],
     "Assassin's Creed Encyclopedia (Third Edition / Black Edition)": ["images/art-books/encyclopedia-third-edition.webp"],
+    "Assassin's Creed Encyclopedia (E3 Collector Edition)": ["images/art-books/encyclopedia-e3-collector-edition.webp"],
     "Assassin's Creed: The Complete Visual History": [
         "images/art-books/complete-visual-history.webp",
         "images/art-books/complete-visual-history_01.webp",
@@ -513,6 +514,23 @@ const AC_IMAGES = {
         "images/art-books/making-of-ac-15th-anniversary-ue_02.webp",
         "images/art-books/making-of-ac-15th-anniversary-ue_03.webp",
     ],
+    "Assassin's Creed: The Poster Collection": [
+        "images/art-books/ac-poster-collection.webp",
+        "images/art-books/ac-poster-collection_01.webp",
+    ],
+    "Assassin's Creed: 2500 ans d'Histoire": [
+        "images/art-books/ac-2500-ans-dhistoire.webp",
+        "images/art-books/ac-2500-ans-dhistoire_01.webp",
+    ],
+    "Assassin's Creed: Atlas": [
+        "images/art-books/ac-atlas.webp",
+        "images/art-books/ac-atlas_01.webp",
+        "images/art-books/ac-atlas_02.webp",
+    ],
+    "Assassin's Creed: Where's the Assassin?": [
+        "images/art-books/ac-wheres-the-assassin.webp",
+        "images/art-books/ac-wheres-the-assassin_01.webp",
+    ],
 
     // ── Funko Pop ──
     "Funko Pop! Games #20 - Altair": ["images/funko-pop/funko-pop-20-altair.webp"],
@@ -608,6 +626,7 @@ const AC_IMAGES = {
         "images/statues/youtooz-ac-3-naoe.webp",
         "images/statues/youtooz-ac-3-naoe_01.webp",
     ],
+    "Eivor Mystery Statuette (Qisahn Pre-Order Bonus)": ["images/statues/qisahn-eivor-mystery-statuette.webp"],
 
     // ── Novels ──
     "Assassin's Creed: Renaissance": ["images/novels/ac-renaissance.webp"],
@@ -1082,6 +1101,12 @@ const AC_IMAGES = {
         "images/other/ac-escape-game-leonardo_01.webp",
         "images/other/ac-escape-game-leonardo_02.webp",
     ],
+    "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Beyond Booster Box": ["images/other/mtg-ac-beyond-booster-box.webp"],
+    "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Beyond Booster Pack": ["images/other/mtg-ac-beyond-booster-pack.webp"],
+    "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Collector Booster Box": ["images/other/mtg-ac-collector-booster-box.webp"],
+    "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Collector Booster Pack": ["images/other/mtg-ac-collector-booster-pack.webp"],
+    "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Bundle": ["images/other/mtg-ac-bundle.webp"],
+    "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Starter Kit": ["images/other/mtg-ac-starter-kit.webp"],
 
     // ── Puzzles ──
     "Good Loot Gaming Puzzle: Assassin's Creed Legacy (1000 pieces)": [
@@ -1478,6 +1503,72 @@ const AC_IMAGES = {
     "Hachette Issue #80 Darim Ibn-La'Ahad": [
         "images/hachette/hachette-issue-80-darim-ibn-laahad.webp",
         "images/hachette/hachette-issue-80-darim-ibn-laahad_01.webp",
+    ],
+
+    // ── Nendoroid ──
+    "Nendoroid Ezio Auditore #1829": [
+        "images/statues/nendoroid-1829-ezio-auditore.webp",
+        "images/statues/nendoroid-1829-ezio-auditore_01.webp",
+        "images/statues/nendoroid-1829-ezio-auditore_02.webp",
+    ],
+
+    // ── FiGPiN ──
+    "FiGPiN Assassin's Creed Deluxe Box Set": [
+        "images/other/figpin-ac-deluxe-box-set.webp",
+        "images/other/figpin-ac-deluxe-box-set_01.webp",
+        "images/other/figpin-ac-deluxe-box-set_02.webp",
+        "images/other/figpin-ac-deluxe-box-set_03.webp",
+        "images/other/figpin-ac-deluxe-box-set_04.webp",
+    ],
+
+    // ── MeoWorld (BonaFide Studio) ──
+    "MeoWorld Assassin's Creed Cat Figurines": [
+        "images/statues/meoworld-ac-cat-figurines.webp",
+        "images/statues/meoworld-ac-cat-figurines_01.webp",
+        "images/statues/meoworld-ac-cat-figurines_02.webp",
+    ],
+
+    // ── Lamps / Decor (Neamedia Icons) ──
+    "Assassin's Creed: The Official Light (Neamedia Icons)": [
+        "images/other/neamedia-ac-official-light.webp",
+        "images/other/neamedia-ac-official-light_01.webp",
+    ],
+    "Assassin's Creed Mirage: Logo Light (Neamedia Icons)": [
+        "images/other/neamedia-ac-mirage-logo-light.webp",
+        "images/other/neamedia-ac-mirage-logo-light_01.webp",
+    ],
+
+    // ── Audio / Peripherals ──
+    "GravaStar Mars Pro Limited Edition - Apple of Eden": [
+        "images/other/gravastar-mars-pro-apple-of-eden.webp",
+        "images/other/gravastar-mars-pro-apple-of-eden_01.webp",
+    ],
+    "Flydigi Apex 4 - Assassin's Creed Dynasty Edition": ["images/other/flydigi-apex4-ac-dynasty.webp"],
+
+    // ── Art Prints / Posters ──
+    "Blend Cota Studios - Assassin's Creed Fine Art Prints": [
+        "images/other/blend-cota-ac-prints.webp",
+        "images/other/blend-cota-ac-prints_01.webp",
+        "images/other/blend-cota-ac-prints_02.webp",
+        "images/other/blend-cota-ac-prints_03.webp",
+        "images/other/blend-cota-ac-prints_04.webp",
+        "images/other/blend-cota-ac-prints_05.webp",
+    ],
+    "Displate - Assassin's Creed Metal Posters": [
+        "images/other/displate-ac-metal-posters.webp",
+        "images/other/displate-ac-metal-posters_01.webp",
+        "images/other/displate-ac-metal-posters_02.webp",
+        "images/other/displate-ac-metal-posters_03.webp",
+    ],
+    "Art4Fans - Assassin's Creed Print Collection": [
+        "images/other/art4fans-ac-prints.webp",
+        "images/other/art4fans-ac-prints_01.webp",
+    ],
+
+    // ── Fragrance ──
+    "Hidden Blade by Assassin's Creed (Ubisoft Brasil)": [
+        "images/other/hidden-blade-fragrance.webp",
+        "images/other/hidden-blade-fragrance_01.webp",
     ],
 };
 
