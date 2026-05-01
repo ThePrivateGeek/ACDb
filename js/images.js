@@ -98,6 +98,10 @@ const AC_IMAGES = {
         "images/collectors-editions/ac-black-flag-resynced-ce_12.webp",
         "images/collectors-editions/ac-black-flag-resynced-ce_13.webp",
     ],
+    "Assassin's Creed IV Black: Flag Resynced Flagship Edition": [
+        "images/collectors-editions/ac-black-flag-resynced-flagship.webp",
+        "images/collectors-editions/ac-black-flag-resynced-flagship_01.webp",
+    ],
 
     // ── Steelbooks ──
     "Assassin's Creed Steelcase Limited Edition": [
@@ -1107,6 +1111,12 @@ const AC_IMAGES = {
     "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Collector Booster Pack": ["images/other/mtg-ac-collector-booster-pack.webp"],
     "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Bundle": ["images/other/mtg-ac-bundle.webp"],
     "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Starter Kit": ["images/other/mtg-ac-starter-kit.webp"],
+    "PureArts Nine Men's Morris Assassin's Creed: Black Flag Resynced Board Game": [
+        "images/other/ac-bf-resynced-nine-men-morris.webp",
+        "images/other/ac-bf-resynced-nine-men-morris_01.webp",
+        "images/other/ac-bf-resynced-nine-men-morris_02.webp",
+        "images/other/ac-bf-resynced-nine-men-morris_03.webp",
+    ],
 
     // ── Puzzles ──
     "Good Loot Gaming Puzzle: Assassin's Creed Legacy (1000 pieces)": [

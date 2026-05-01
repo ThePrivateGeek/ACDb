@@ -5220,6 +5220,24 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "name": "Assassin's Creed IV Black: Flag Resynced Flagship Edition",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2026,
+    "category": "Collector's Edition",
+    "description": "Flag Resynced Flagship Edition available in Spain only for now.",
+    "contents": "Nine Men's Morris Board Game\nAnimus Edward 1/8 Statue of Pure Arts\nReplica Hidden Blade Edward\nDLC",
+    "type": "Collector's Edition"
+  },
+    {
+    "name": "PureArts Nine Men's Morris Assassin's Creed: Black Flag Resynced Board Game",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2026,
+    "category": "Other",
+    "description": "Immerse yourself in the Assassin's Creed: Black Flag Resynced universe with this elegant reinterpretation of the classic strategy game Nine Men's Morris. Inspired by the pirate aesthetics and legacy of the Assassins, this set combines tradition and atmosphere to offer a unique gaming experience, perfect for both collectors and table game lovers. A piece that combines history, strategy and design, ideal to enjoy in company or exhibit as part of a collection dedicated to the saga. This board game captures the essence of the Black Flag universe, bringing a distinctive touch to any gameplay session or themed showcase. Produced by PureArts.",
+    "contents": "• Classic Nine Men's Morris game with Assassin's Creed themed design\n• Parchment style board with aged leather effect finish\n• Custom chips with Assassin and pirate iconography",
+    "type": "Board Game"
+  },
+  {
     "name": "Assassin's Creed Black Flag Resynced Steelbook",
     "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
