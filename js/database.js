@@ -5453,4 +5453,13 @@ const AC_DATABASE = [
     "contents": "2 ready-to-play 60-card decks (Ezio Blue/Black, Eivor White/Red), 2 deck boxes, how-to-play guide, 2 double-sided reference cards",
     "type": "Card Game"
   },
+  {
+    "name": "PureArts Qlectors Assassin's Creed Black Flag Edward Kenway PVC Figure",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2026,
+    "category": "Figurine",
+    "description": "Edward Kenway joins the Qlector series with this 6-inch PVC figure capturing the fearless pirate Assassin from Assassin’s Creed IV Black Flag Resynced.\n\nIn a bold mid-action pose, Edward grips a rope from his ship’s mast in his right hand while brandishing his saber in his left, ready for battle.",
+    "contents": "6 Inch PVC figure",
+    "type": "PureArts"
+  },
 ];

@@ -6,13 +6,16 @@ For every JPG/PNG under images/<subdir>/, writes a sibling .webp file.
 Top-level images/ files (acdb-og.jpg, README screenshots) are deliberately
 skipped — see tools/flag-large-images.py and the audit notes.
 
-Originals are NOT deleted; verify the converted site first, then prune.
+By default originals are NOT deleted; verify the converted site first, then
+re-run with --delete-originals to prune the .jpg/.png sources.
 
 Run from anywhere:
     python3 tools/convert-to-webp.py
     python3 tools/convert-to-webp.py --quality 82
     python3 tools/convert-to-webp.py --dry-run
-    python3 tools/convert-to-webp.py --force        # re-encode existing .webp
+    python3 tools/convert-to-webp.py --force              # re-encode existing .webp
+    python3 tools/convert-to-webp.py --delete-originals   # remove .jpg/.png after .webp exists
+    python3 tools/convert-to-webp.py --cleanup            # ONLY delete originals; do not convert
 """
 
 from __future__ import annotations
@@ -69,6 +72,16 @@ def main() -> int:
     parser.add_argument("--quality", type=int, default=85, help="WebP quality 0-100 (default 85).")
     parser.add_argument("--dry-run", action="store_true", help="List targets without writing.")
     parser.add_argument("--force", action="store_true", help="Re-encode even if .webp is up-to-date.")
+    parser.add_argument(
+        "--delete-originals",
+        action="store_true",
+        help="Delete the source .jpg/.png after the .webp exists and is non-empty. Never deletes on error.",
+    )
+    parser.add_argument(
+        "--cleanup",
+        action="store_true",
+        help="Skip encoding entirely; only delete .jpg/.png sources whose .webp sibling already exists.",
+    )
     args = parser.parse_args()
 
     if not features.check("webp"):
@@ -90,15 +103,45 @@ def main() -> int:
         print("No source images found under images/<subdir>/.")
         return 0
 
+    if args.cleanup:
+        deletable = [s for s in targets
+                     if (d := s.with_suffix(".webp")).exists() and d.stat().st_size > 0]
+        orphans = len(targets) - len(deletable)
+
+        if args.dry_run:
+            total = sum(p.stat().st_size for p in deletable)
+            print(f"[dry-run] Would delete {len(deletable)} original(s), total {human_size(total)}:")
+            for p in deletable:
+                rel = p.relative_to(REPO_ROOT).as_posix()
+                print(f"  {human_size(p.stat().st_size):>9}  {rel}")
+            if orphans:
+                print(f"({orphans} source(s) have no .webp sibling — left alone.)")
+            return 0
+
+        deleted = 0
+        for i, src in enumerate(deletable, 1):
+            rel = src.relative_to(REPO_ROOT).as_posix()
+            try:
+                src.unlink()
+                deleted += 1
+                print(f"[{i}/{len(deletable)}] deleted {rel}")
+            except OSError as exc:
+                print(f"[{i}/{len(deletable)}] could not delete {rel}: {exc}", file=sys.stderr)
+
+        print()
+        print(f"Deleted: {deleted}   No .webp sibling (left alone): {orphans}")
+        return 0
+
     if args.dry_run:
         total = sum(p.stat().st_size for p in targets)
-        print(f"[dry-run] Would convert {len(targets)} file(s), total {human_size(total)}:")
+        suffix = " and delete originals after" if args.delete_originals else ""
+        print(f"[dry-run] Would convert {len(targets)} file(s){suffix}, total {human_size(total)}:")
         for p in targets:
             rel = p.relative_to(REPO_ROOT).as_posix()
             print(f"  {human_size(p.stat().st_size):>9}  {rel}")
         return 0
 
-    converted = skipped = errors = 0
+    converted = skipped = errors = deleted = 0
     src_total = dst_total = 0
     for i, src in enumerate(targets, 1):
         rel = src.relative_to(REPO_ROOT).as_posix()
@@ -115,8 +158,19 @@ def main() -> int:
             errors += 1
             print(f"[{i}/{len(targets)}] {rel}  ERROR: {status[6:]}", file=sys.stderr)
 
+        if args.delete_originals and status in ("converted", "skipped"):
+            dst = src.with_suffix(".webp")
+            if dst.exists() and dst.stat().st_size > 0:
+                try:
+                    src.unlink()
+                    deleted += 1
+                except OSError as exc:
+                    print(f"[{i}/{len(targets)}] {rel}  WARN: could not delete original: {exc}", file=sys.stderr)
+
     print()
     print(f"Converted: {converted}   Skipped: {skipped}   Errors: {errors}")
+    if args.delete_originals:
+        print(f"Deleted originals: {deleted}")
     if converted or skipped:
         saved = src_total - dst_total
         pct = (saved / src_total * 100) if src_total else 0

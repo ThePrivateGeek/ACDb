@@ -166,6 +166,10 @@ const AC_IMAGES = {
     "PureArts Assassin's Creed Shadows Shogi Board Game": ["images/other/purearts-shadows-shogi-board.webp"],
     "PureArts Assassin's Creed Valhalla Life-Size Hidden Blade Prop": ["images/other/valhalla-hidden-blade-replica.webp"],
     "PureArts Assassin's Creed Valhalla Bundle (Eivor Statue, Hidden Blade & Dice Game)": ["images/other/valhalla-bundle-eivor-blade-dice.webp"],
+    "PureArts Qlectors Assassin's Creed Black Flag Edward Kenway PVC Figure": [
+        "images/statues/purearts-qlectors-adward-resynced.webp",
+        "images/statues/purearts-qlectors-adward-resynced_01.webp",
+    ],
 
     // ── Ubicollectibles Figurines ──
     "Ubicollectibles Ezio Leap of Faith Figurine": ["images/statues/ubicollectibles-ezio-leap-of-faith.webp"],
@@ -521,6 +525,8 @@ const AC_IMAGES = {
     "Assassin's Creed: The Poster Collection": [
         "images/art-books/ac-poster-collection.webp",
         "images/art-books/ac-poster-collection_01.webp",
+        "images/art-books/ac-poster-collection_02.webp",
+        "images/art-books/ac-poster-collection_03.webp",
     ],
     "Assassin's Creed: 2500 ans d'Histoire": [
         "images/art-books/ac-2500-ans-dhistoire.webp",
