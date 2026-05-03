@@ -1559,7 +1559,7 @@ const AC_IMAGES = {
         "images/other/gravastar-mars-pro-apple-of-eden.webp",
         "images/other/gravastar-mars-pro-apple-of-eden_01.webp",
     ],
-    "Flydigi Apex 4 - Assassin's Creed Dynasty Edition": ["images/other/flydigi-apex4-ac-dynasty.webp"],
+    "Flydigi Apex 4 - Assassin's Creed Edition": ["images/other/flydigi-apex4-ac-edition.webp"],
 
     // ── Art Prints / Posters ──
     "Blend Cota Studios - Assassin's Creed Fine Art Prints": [

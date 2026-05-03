@@ -5355,12 +5355,12 @@ const AC_DATABASE = [
     "type": "Audio"
   },
   {
-    "name": "Flydigi Apex 4 - Assassin's Creed Dynasty Edition",
-    "game": "Assassin's Creed Dynasty",
+    "name": "Flydigi Apex 4 - Assassin's Creed Edition",
+    "game": "General",
     "year": 2024,
     "category": "Other",
-    "description": "Officially licensed wireless gaming controller by Flydigi, themed around Assassin's Creed Dynasty. Features high-precision analog sticks, force-feedback triggers, full button remapping, and Bluetooth/USB-C connectivity. Compatible with PC, mobile, and Switch. Optional charging stand and carrying case sold separately.",
-    "contents": "Apex 4 wireless controller (AC Dynasty edition), USB-C cable, dongle",
+    "description": "Officially licensed wireless gaming controller by Flydigi, themed around Assassin's Creed. Features high-precision analog sticks, force-feedback triggers, full button remapping, and Bluetooth/USB-C connectivity. Compatible with PC, mobile, and Switch. Optional charging stand and carrying case sold separately.",
+    "contents": "Apex 4 wireless controller (AC edition), USB-C cable, dongle",
     "type": "Controller"
   },
   {
