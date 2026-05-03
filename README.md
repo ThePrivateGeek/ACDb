@@ -16,7 +16,7 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 
 ## Features
 
-- **450+ officially licensed items** — statues, figurines, action figures, collector's editions, art books, novels, comic books, steelbooks, replicas, and more
+- **600+ officially licensed items** — statues, figurines, action figures, collector's editions, art books, novels, comic books, steelbooks, replicas, and more
 - **Collection tracking** — mark items as owned, wishlist, track condition, number of copies, original box status, purchase price, acquisition date, and personal notes
 - **Smart field logic** — setting condition or copies automatically marks as owned; clearing ownership resets all fields
 - **Collection sharing** — share your collection publicly with a unique profile URL and display name
