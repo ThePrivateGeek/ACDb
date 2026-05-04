@@ -150,6 +150,11 @@ const AC_IMAGES = {
         "images/statues/purearts-eivor-articulated_01.webp",
         "images/statues/purearts-eivor-articulated_02.webp",
     ],
+    "Assassin's Creed Edward Kenway Hidden Blade 1/1 Scale Replica": [
+        "images/other/purearts-ac-bf-resynced-edward-hidden-blade.webp",
+        "images/other/purearts-ac-bf-resynced-edward-hidden-blade_01.webp",
+        "images/other/purearts-ac-bf-resynced-edward-hidden-blade_02.webp",
+    ],
     // ── PureArts Other ──
     "PureArts Animus Eivor Statue": ["images/statues/purearts-animus-eivor-1-4.webp"],
     "PureArts Spartan Kick Diorama 1/6 Scale (Exclusive Edition)": ["images/statues/purearts-spartan-kick-diorama.webp"],

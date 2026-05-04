@@ -5458,8 +5458,17 @@ const AC_DATABASE = [
     "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
     "category": "Figurine",
-    "description": "Edward Kenway joins the Qlector series with this 6-inch PVC figure capturing the fearless pirate Assassin from Assassin’s Creed IV Black Flag Resynced.\n\nIn a bold mid-action pose, Edward grips a rope from his ship’s mast in his right hand while brandishing his saber in his left, ready for battle.",
+    "description": "Edward Kenway joins the Qlector series with this 6-inch PVC figure capturing the fearless pirate Assassin from Assassin's Creed IV Black Flag Resynced.\n\nIn a bold mid-action pose, Edward grips a rope from his ship's mast in his right hand while brandishing his saber in his left, ready for battle.",
     "contents": "6 Inch PVC figure",
+    "type": "PureArts"
+  },
+  {
+    "name": "Assassin's Creed Edward Kenway Hidden Blade 1/1 Scale Replica",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2026,
+    "category": "Replica/Prop",
+    "description": "This wearable and functional replica of Edward Kenway Hidden Blade is secured with adjustable laces on the gauntlet and reinforced straps holding the blade in place.  The spring-loaded mechanism activates with the press of a button, making the blade extend with a satisfying snap, while a built-in safety system ensures secure handling.Designed with an interchangeable top plate, it can be worn on either the left or right arm.  For the ultimate cosplay, equip two replicas complete Edward's iconic dual Hidden Blades.",
+    "contents": "Edward Kenway Hidden Blade 1/1 Scale Replica",
     "type": "PureArts"
   },
 ];
