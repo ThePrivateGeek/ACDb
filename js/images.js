@@ -1128,6 +1128,12 @@ const AC_IMAGES = {
         "images/other/ac-bf-resynced-nine-men-morris_02.webp",
         "images/other/ac-bf-resynced-nine-men-morris_03.webp",
     ],
+    "Assassin's Creed Revelations Playing Cards": [
+        "images/other/ac-revelations-playing-cards.webp",
+        "images/other/ac-revelations-playing-cards_01.webp",
+        "images/other/ac-revelations-playing-cards_02.webp",
+        "images/other/ac-revelations-playing-cards_03.webp",
+    ],
 
     // ── Puzzles ──
     "Good Loot Gaming Puzzle: Assassin's Creed Legacy (1000 pieces)": [

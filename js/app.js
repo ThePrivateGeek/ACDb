@@ -409,10 +409,11 @@ window.ACDB = window.ACDB || {};
         const sortValue = dom.sortBy.value;
 
         let results = AC_DATABASE.filter(item => {
-            // Search
+            // Search — AND-match each whitespace-separated token across all fields
             if (search) {
-                const haystack = `${item.name} ${item.game} ${item.description} ${item.contents} ${item.type}`.toLowerCase();
-                if (!haystack.includes(search)) return false;
+                const haystack = `${item.name} ${item.game} ${item.year} ${item.category} ${item.description} ${item.contents} ${item.type}`.toLowerCase();
+                const tokens = search.split(/\s+/);
+                if (!tokens.every(t => haystack.includes(t))) return false;
             }
             // Game (empty set = all)
             if (gameFilters.size > 0 && !gameFilters.has(item.game)) return false;

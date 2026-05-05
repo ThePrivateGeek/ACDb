@@ -5471,4 +5471,13 @@ const AC_DATABASE = [
     "contents": "Edward Kenway Hidden Blade 1/1 Scale Replica",
     "type": "PureArts"
   },
+  {
+    "name": "Assassin's Creed Revelations Playing Cards",
+    "game": "Assassin's Creed Revelations",
+    "year": 2011,
+    "category": "Other",
+    "description": "Assassin's Creed Revelations Playing Cards. Special promo. Featuring 12 different characters from Assassin's Creed Revelations.",
+    "contents": "One playing cards deck",
+    "type": "Card Game"
+  },
 ];
