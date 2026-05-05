@@ -1133,6 +1133,10 @@ const AC_IMAGES = {
         "images/other/ac-revelations-playing-cards_01.webp",
         "images/other/ac-revelations-playing-cards_02.webp",
         "images/other/ac-revelations-playing-cards_03.webp",
+        "images/other/ac-revelations-playing-cards_04.webp",
+        "images/other/ac-revelations-playing-cards_05.webp",
+        "images/other/ac-revelations-playing-cards_06.webp",
+        "images/other/ac-revelations-playing-cards_07.webp",
     ],
 
     // ── Puzzles ──
