@@ -28,7 +28,7 @@
 
         // Update dashboard if open
         if (dom.statsDashboard.classList.contains('open')) {
-            renderStatsDashboard(AC_DATABASE);
+            renderStatsDashboard();
         }
     }
 
@@ -36,9 +36,9 @@
         return A.SHORT_GAME_NAMES[name] || name;
     }
 
-    function renderStatsDashboard(filtered) {
+    function renderStatsDashboard() {
         const dom = A.dom;
-        const items = filtered || A.getFilteredItems();
+        const items = AC_DATABASE;
 
         // By Game
         const byGame = {};
@@ -48,7 +48,7 @@
             const data = A.getItemData(item.id);
             if (data.owned) ownedByGame[item.game] = (ownedByGame[item.game] || 0) + 1;
         });
-        renderBars(dom.statsByGame, byGame, ownedByGame, shortenGameName);
+        renderBars(dom.statsByGame, byGame, ownedByGame, shortenGameName, true, true);
 
         // By Category
         const byCat = {};
@@ -58,7 +58,7 @@
             const data = A.getItemData(item.id);
             if (data.owned) ownedByCat[item.category] = (ownedByCat[item.category] || 0) + 1;
         });
-        renderBars(dom.statsByCategory, byCat, ownedByCat);
+        renderBars(dom.statsByCategory, byCat, ownedByCat, null, true);
 
         // By Condition (owned items only) — simple count list + total copies
         const byCondition = {};
@@ -104,12 +104,24 @@
         }
     }
 
-    function renderBars(container, totals, owned, labelFn) {
+    function renderBars(container, totals, owned, labelFn, clickable, gameOrdered) {
         container.innerHTML = '';
         const statsSortMode = A.getStatsSortMode();
+        // Timeline only applies to game-ordered panels; others fall back to the last non-timeline mode.
+        const effectiveMode = (statsSortMode === 'timeline' && !gameOrdered)
+            ? A.getLastBarSortMode()
+            : statsSortMode;
         const sorted = Object.entries(totals).sort((a, b) => {
+            if (effectiveMode === 'timeline') {
+                const order = A.GAME_ORDER;
+                const ia = order.indexOf(a[0]);
+                const ib = order.indexOf(b[0]);
+                const safeA = ia === -1 ? Number.MAX_SAFE_INTEGER : ia;
+                const safeB = ib === -1 ? Number.MAX_SAFE_INTEGER : ib;
+                return safeA - safeB || b[1] - a[1];
+            }
             if (owned) {
-                if (statsSortMode === 'count') {
+                if (effectiveMode === 'count') {
                     const countA = owned[a[0]] || 0;
                     const countB = owned[b[0]] || 0;
                     return countB - countA || b[1] - a[1];
@@ -126,7 +138,8 @@
             const pct = owned ? Math.round((ownedCount / total) * 100) : 100;
 
             const row = document.createElement('div');
-            row.className = 'stats-bar-row';
+            row.className = 'stats-bar-row' + (clickable ? ' clickable' : '');
+            if (clickable) row.dataset.label = label;
             row.innerHTML = `
                 <span class="stats-bar-label" title="${label}">${labelFn ? labelFn(label) : label}</span>
                 <div class="stats-bar-track">

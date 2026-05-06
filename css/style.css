@@ -737,6 +737,22 @@ body {
     font-size: 0.78rem;
 }
 
+.stats-bar-row.clickable {
+    cursor: pointer;
+    padding: 0.15rem 0.35rem;
+    margin: 0 -0.35rem;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+}
+
+.stats-bar-row.clickable:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.stats-bar-row.clickable:hover .stats-bar-label {
+    color: var(--text);
+}
+
 .stats-bar-label {
     width: 140px;
     flex-shrink: 0;

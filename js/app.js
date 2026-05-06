@@ -24,7 +24,8 @@ window.ACDB = window.ACDB || {};
     let selectedGames = new Set();
     let selectedCategories = new Set();
     let selectedTypes = new Set();
-    let statsSortMode = 'percent'; // 'percent' or 'count'
+    let statsSortMode = 'percent'; // 'percent', 'count', or 'timeline'
+    let lastBarSortMode = 'percent'; // last non-timeline mode — used for non-game panels
     // currentItemId, galleryImages, galleryIndex — owned by modal.js
 
     // The top N entries by year (highest first) get a "NEW" sticker, matching
@@ -66,6 +67,9 @@ window.ACDB = window.ACDB || {};
         "Assassin's Creed (Movie)": "Movie",
         "General": "General"
     };
+
+    // Chronological order — derived from SHORT_GAME_NAMES key order
+    const GAME_ORDER = Object.keys(SHORT_GAME_NAMES);
 
     // ---- Assign stable IDs (name-based) to each database item ----
     AC_DATABASE.forEach((item) => {
@@ -324,33 +328,9 @@ window.ACDB = window.ACDB || {};
         timelineInner.innerHTML = '';
 
         // Games - sorted chronologically
-        const gameOrder = [
-            "Assassin's Creed",
-            "Assassin's Creed II",
-            "Assassin's Creed Brotherhood",
-            "Assassin's Creed Revelations",
-            "Assassin's Creed III",
-            "Assassin's Creed III: Liberation",
-            "Assassin's Creed IV: Black Flag",
-            "Assassin's Creed Rogue",
-            "Assassin's Creed Unity",
-            "Assassin's Creed Chronicles: China",
-            "Assassin's Creed Chronicles: India",
-            "Assassin's Creed Chronicles: Russia",
-            "Assassin's Creed Syndicate",
-            "Assassin's Creed Origins",
-            "Assassin's Creed Odyssey",
-            "Assassin's Creed Valhalla",
-            "Assassin's Creed Mirage",
-            "Assassin's Creed Shadows",
-            "Assassin's Creed Black Flag Resynced",
-            "Assassin's Creed (Movie)",
-            "General"
-        ];
-
         const games = [...new Set(AC_DATABASE.map(i => i.game))];
 
-        const sortedGames = gameOrder.filter(g => games.includes(g));
+        const sortedGames = GAME_ORDER.filter(g => games.includes(g));
         // Add any games not in our predefined order
         games.forEach(g => { if (!sortedGames.includes(g)) sortedGames.push(g); });
 
@@ -805,10 +785,37 @@ window.ACDB = window.ACDB || {};
             if (isOpen) renderStatsDashboard();
         });
 
+        // Dashboard click-to-filter — replaces all filters with the clicked game/category
+        function applyDashboardFilter(kind, value) {
+            dom.searchInput.value = '';
+            dom.clearSearch.classList.remove('visible');
+            selectedGames.clear();
+            selectedCategories.clear();
+            selectedTypes.clear();
+            dom.filterOwned.value = '';
+            if (kind === 'game') selectedGames.add(value);
+            else if (kind === 'category') selectedCategories.add(value);
+            setMultiSelectValues(dom.filterGame, selectedGames);
+            syncTimelineToSelectedGames();
+            populateCategoryFilter();
+            populateTypeFilter();
+            renderItems();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        dom.statsByGame.addEventListener('click', (e) => {
+            const row = e.target.closest('.stats-bar-row.clickable');
+            if (row) applyDashboardFilter('game', row.dataset.label);
+        });
+        dom.statsByCategory.addEventListener('click', (e) => {
+            const row = e.target.closest('.stats-bar-row.clickable');
+            if (row) applyDashboardFilter('category', row.dataset.label);
+        });
+
         // Stats sort toggle (% vs #)
         document.querySelectorAll('.stats-sort-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 statsSortMode = btn.dataset.sort;
+                if (statsSortMode !== 'timeline') lastBarSortMode = statsSortMode;
                 document.querySelectorAll('.stats-sort-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 renderStatsDashboard();
@@ -1276,6 +1283,7 @@ window.ACDB = window.ACDB || {};
     A.SHARE_TOKEN_KEY = SHARE_TOKEN_KEY;
     A.SHARE_NAME_KEY = SHARE_NAME_KEY;
     A.SHORT_GAME_NAMES = SHORT_GAME_NAMES;
+    A.GAME_ORDER = GAME_ORDER;
     A.isAdmin = isAdmin;
 
     // ---- Expose shared state & functions for other modules ----
@@ -1290,6 +1298,7 @@ window.ACDB = window.ACDB || {};
     A.setSelectedTypes = (s) => { selectedTypes = s; };
     A.getStatsSortMode = () => statsSortMode;
     A.setStatsSortMode = (m) => { statsSortMode = m; };
+    A.getLastBarSortMode = () => lastBarSortMode;
 
     // Functions still in app.js
     A.loadCollection = loadCollection;
