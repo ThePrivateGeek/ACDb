@@ -1601,6 +1601,22 @@ const AC_IMAGES = {
         "images/other/hidden-blade-fragrance.webp",
         "images/other/hidden-blade-fragrance_01.webp",
     ],
+    // ── Other ──
+    "Assassin's Creed III Axe USB Stick": [
+        "images/other/ac-3-promo-usb-stick.webp",
+        "images/other/ac-3-promo-usb-stick_01.webp",
+        "images/other/ac-3-promo-usb-stick_02.webp",
+        "images/other/ac-3-promo-usb-stick_03.webp",
+        "images/other/ac-3-promo-usb-stick_04.webp",
+        "images/other/ac-3-promo-usb-stick_05.webp",
+        "images/other/ac-3-promo-usb-stick_06.webp",
+    ],
+    "Assassin's Creed III Promo Bracelet": [
+        "images/other/ac-3-promo-bracelet.webp",
+        "images/other/ac-3-promo-bracelet_01.webp",
+        "images/other/ac-3-promo-bracelet_02.webp",
+        "images/other/ac-3-promo-bracelet_03.webp",
+    ],
 };
 
 // Apply images to database — only if the file actually exists (image onload handles missing files gracefully)

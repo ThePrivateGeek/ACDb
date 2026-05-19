@@ -5480,4 +5480,22 @@ const AC_DATABASE = [
     "contents": "One playing cards deck",
     "type": "Card Game"
   },
+  {
+    "name": "Assassin's Creed III Axe USB Stick",
+    "game": "Assassin's Creed III",
+    "year": 2013,
+    "category": "Other",
+    "description": "Promotional Assassin's Creed III Axe USB stick - 4GB",
+    "contents": "Promotional Assassin's Creed III Axe USB stick - 4GB",
+    "type": "Promotional"
+  },
+  {
+    "name": "Assassin's Creed III Promo Bracelet",
+    "game": "Assassin's Creed III",
+    "year": 2013,
+    "category": "Other",
+    "description": "Assassin's Creed III Promo Bracelet",
+    "contents": "Assassin's Creed III Promo Bracelet",
+    "type": "Promotional"
+  },
 ];
