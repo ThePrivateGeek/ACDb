@@ -1851,7 +1851,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Novelization of Ezio Auditore's origin story in Renaissance Italy, covering his transformation from a Florentine nobleman's son into a Master Assassin. By Oliver Bowden.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed: Brotherhood (Novel)",
@@ -1860,7 +1860,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Continues Ezio's story as he travels to Rome to confront Cesare Borgia and rebuilds the Assassin Brotherhood. By Oliver Bowden.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed: The Secret Crusade",
@@ -1869,7 +1869,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "The full life story of Altair Ibn-La'Ahad, framed as Niccolo Polo's account, covering events from the first game and beyond through Altair's later years. By Oliver Bowden.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed: Revelations (Novel)",
@@ -1878,7 +1878,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Novelization of an aging Ezio's journey to Constantinople to uncover Altair's secrets hidden beneath Masyaf, navigating Ottoman-era political intrigue. By Oliver Bowden.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed: Forsaken",
@@ -1887,7 +1887,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Told partly through Haytham Kenway's journal, this novel explores the Kenway family saga, offering a Templar perspective on the events of AC III. By Oliver Bowden.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed: Black Flag (Novel)",
@@ -1896,7 +1896,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Novelization of Edward Kenway's pirate adventures in the Caribbean during the Golden Age of Piracy. By Oliver Bowden.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed: Unity (Novel)",
@@ -1905,7 +1905,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Follows Arno Dorian during the French Revolution as he joins the Assassin Brotherhood and pursues those responsible for his adoptive father's murder. By Oliver Bowden.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed: Underworld",
@@ -1914,7 +1914,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "A prequel/companion to Syndicate set in Victorian London, following Assassin Henry Green and events leading up to the arrival of Jacob and Evie Frye. By Oliver Bowden.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed: Heresy",
@@ -1968,7 +1968,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "A prequel to AC Origins, following a young Bayek in ancient Egypt as he trains to become a Medjay and the events that shaped him before the game's story. By Oliver Bowden.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed: Odyssey (Novel)",
@@ -1977,7 +1977,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Novelization following the Eagle Bearer during the Peloponnesian War in ancient Greece, uncovering the Cult of Kosmos and her family's legacy. By Gordon Doherty.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed Valhalla: Geirmund's Saga",
@@ -1986,7 +1986,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Geirmund's Saga is a tie-in novel to Assassin's Creed Valhalla. Follows Norse warrior Geirmund Hel-hide during the Viking invasion of England, offering a parallel story to the game's events. By Matthew Kirby.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Assassin's Creed: The Ming Storm",
@@ -3705,7 +3705,7 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Official novelization of the 2016 Assassin's Creed film starring Michael Fassbender. Follows Callum Lynch as he relives the memories of his ancestor Aguilar during the Spanish Inquisition.",
     "contents": "Paperback novel",
-    "type": "Novelization"
+    "type": "Novel"
   },
   {
     "name": "Neca Altair (Basic Series)",
