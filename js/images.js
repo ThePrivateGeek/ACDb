@@ -170,6 +170,18 @@ const AC_IMAGES = {
         "images/statues/nemesis-shadows-naoe-bust.webp",
         "images/statues/nemesis-shadows-naoe-bust_01.webp",
     ],
+    "Nemesis Now Assassin's Creed Ezio Bust Box (Bronze)": [
+        "images/statues/nemesis-ezio-bust-box-bronze.webp",
+        "images/statues/nemesis-ezio-bust-box-bronze_01.webp",
+    ],
+    "Nemesis Now Assassin's Creed Valhalla Eivor Bust (Bronze)": [
+        "images/statues/nemesis-eivor-bust-bronze.webp",
+        "images/statues/nemesis-eivor-bust-bronze_01.webp",
+    ],
+    "Nemesis Now Assassin's Creed Valhalla Eivor Bust": [
+        "images/statues/nemesis-eivor-bust.webp",
+        "images/statues/nemesis-eivor-bust_01.webp",
+    ],
     "PureArts Qlectors Naoe & Yasuke PVC Figure Set": ["images/statues/purearts-qlectors-naoe-yasuke.webp"],
     "PureArts Qlectors Ezio Leap of Faith PVC Figure": ["images/statues/purearts-qlectors-ezio-leap-of-faith.webp"],
     "PureArts Assassin's Creed Shadows Shogi Board Game": ["images/other/purearts-shadows-shogi-board.webp"],

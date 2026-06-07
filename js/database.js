@@ -5534,4 +5534,31 @@ const AC_DATABASE = [
     "contents": "Hand-painted resin bust, ~30.7cm tall, in branded gift box",
     "type": "Nemesis Now"
   },
+  {
+    "name": "Nemesis Now Assassin's Creed Ezio Bust Box (Bronze)",
+    "game": "Assassin's Creed Revelations",
+    "year": 2023,
+    "category": "Statue",
+    "description": "Officially licensed bust of master assassin Ezio Auditore da Firenze in his Roman robes and hood, cape over the left shoulder, holding his throwing knives crossed against his chest. Cast in resin and expertly finished in bronze, 30cm tall. Base doubles as a storage compartment. By Nemesis Now.",
+    "contents": "Bronze-finish resin bust box with storage compartment, ~30cm tall",
+    "type": "Nemesis Now"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed Valhalla Eivor Bust (Bronze)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2023,
+    "category": "Statue",
+    "description": "Officially licensed bust of Eivor in signature Viking armour, holding his axe between his hands with his Raven Clan shield visible at the back. Cast in resin and expertly finished in bronze, 31cm tall. Base features a drawer compartment with the Valhalla logo. By Nemesis Now.",
+    "contents": "Bronze-finish resin bust box with Valhalla-branded drawer, ~31cm tall",
+    "type": "Nemesis Now"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed Valhalla Eivor Bust",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2022,
+    "category": "Statue",
+    "description": "Officially licensed bust of Eivor in signature Viking armour, holding his axe between his hands with his Raven Clan shield visible at the back. Cast in resin and masterfully hand-painted, 32cm tall. Base features a drawer compartment with the Valhalla logo. By Nemesis Now.",
+    "contents": "Hand-painted resin bust box with Valhalla-branded drawer, ~32cm tall",
+    "type": "Nemesis Now"
+  },
 ];
