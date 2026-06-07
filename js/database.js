@@ -5498,4 +5498,40 @@ const AC_DATABASE = [
     "contents": "Assassin's Creed III Promo Bracelet",
     "type": "Promotional"
   },
+  {
+    "name": "Nemesis Now Assassin's Creed Apple of Eden Bookends",
+    "game": "General",
+    "year": 2020,
+    "category": "Other",
+    "description": "Officially licensed Assassin's Creed bookends featuring the golden Apple of Eden held within the silver Assassin Brotherhood emblem, engraved with the maxim \"Nothing is true, everything is permitted\". The emblem and apple split into two pieces to bracket your books. Cast in resin, hand-painted, 18.5cm tall. By Nemesis Now.",
+    "contents": "Pair of cast resin bookends, ~18.5cm tall",
+    "type": "Bookends"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed Altaïr and Ezio Bookends",
+    "game": "General",
+    "year": 2021,
+    "category": "Other",
+    "description": "Officially licensed bookends featuring Altaïr Ibn-La'Ahad in front of a decorated stone archway, paired with his descendant Ezio Auditore da Firenze. Both have hidden blades extended. Cast in resin and hand-painted, 24cm tall. By Nemesis Now.",
+    "contents": "Pair of cast resin bookends, ~24cm tall",
+    "type": "Bookends"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed Valhalla Bookends",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2021,
+    "category": "Other",
+    "description": "Officially licensed Valhalla bookends celebrating the Viking raider Eivor, standing on both ends of a longship in signature armour, ready for battle. Cast in resin and hand-painted, 31cm tall. By Nemesis Now.",
+    "contents": "Pair of cast resin bookends, ~31cm tall",
+    "type": "Bookends"
+  },
+  {
+    "name": "Nemesis Now Assassin's Creed Shadows Naoe Bust",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Statue",
+    "description": "Officially licensed bust of Naoe, the shinobi Assassin from Iga Province, brandishing her katana above her head with hood drawn. Cast in resin, hand-painted, 30.7cm tall. Comes in a Nemesis Now / Assassin's Creed branded gift box. By Nemesis Now.",
+    "contents": "Hand-painted resin bust, ~30.7cm tall, in branded gift box",
+    "type": "Nemesis Now"
+  },
 ];

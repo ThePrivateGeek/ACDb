@@ -166,6 +166,10 @@ const AC_IMAGES = {
         "images/statues/purearts-yasuke-bust-1-4.webp",
         "images/statues/purearts-yasuke-bust-1-4_01.webp",
     ],
+    "Nemesis Now Assassin's Creed Shadows Naoe Bust": [
+        "images/statues/nemesis-shadows-naoe-bust.webp",
+        "images/statues/nemesis-shadows-naoe-bust_01.webp",
+    ],
     "PureArts Qlectors Naoe & Yasuke PVC Figure Set": ["images/statues/purearts-qlectors-naoe-yasuke.webp"],
     "PureArts Qlectors Ezio Leap of Faith PVC Figure": ["images/statues/purearts-qlectors-ezio-leap-of-faith.webp"],
     "PureArts Assassin's Creed Shadows Shogi Board Game": ["images/other/purearts-shadows-shogi-board.webp"],
@@ -861,6 +865,18 @@ const AC_IMAGES = {
     "Nemesis Now Assassin's Creed Brotherhood Goblet": ["images/other/nemesis-brotherhood-goblet.webp"],
     "Nemesis Now Assassin's Creed Valhalla Goblet": ["images/other/nemesis-valhalla-goblet.webp"],
     "Nemesis Now Assassin's Creed Shadows Goblet": ["images/other/nemesis-shadows-goblet.webp"],
+    "Nemesis Now Assassin's Creed Apple of Eden Bookends": [
+        "images/other/nemesis-apple-of-eden-bookends.webp",
+        "images/other/nemesis-apple-of-eden-bookends_01.webp",
+    ],
+    "Nemesis Now Assassin's Creed Altaïr and Ezio Bookends": [
+        "images/other/nemesis-altair-ezio-bookends.webp",
+        "images/other/nemesis-altair-ezio-bookends_01.webp",
+    ],
+    "Nemesis Now Assassin's Creed Valhalla Bookends": [
+        "images/other/nemesis-valhalla-bookends.webp",
+        "images/other/nemesis-valhalla-bookends_01.webp",
+    ],
     "Assassin's Creed: Leap Into History - Limited Edition 5xLP Boxset": [
         "images/other/leap-into-history-vinyl.webp",
         "images/other/leap-into-history-vinyl_01.webp",
