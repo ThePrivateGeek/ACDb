@@ -126,7 +126,11 @@ const AC_IMAGES = {
     "PureArts Animus Arno 1/4 Scale Statue (Exclusive Edition)": ["images/statues/purearts-animus-arno-1-4.webp"],
     "PureArts Animus Jacob & Evie 1/4 Scale Statue (Exclusive Edition)": ["images/statues/purearts-animus-jacob-evie-1-4.webp"],
     "PureArts Animus Basim 1/4 Scale Statue (Exclusive Edition)": ["images/statues/purearts-animus-basim-1-4.webp"],
-    "PureArts Animus Naoe & Yasuke 1/4 Scale Statue (Exclusive Edition)": ["images/statues/purearts-animus-naoe-yasuke-1-4.webp"],
+    "PureArts Animus Naoe & Yasuke 1/4 Scale Statue (Exclusive Edition)": [
+        "images/statues/purearts-animus-naoe-yasuke-1-4.webp",
+        "images/statues/purearts-animus-naoe-yasuke-1-4_01.webp",
+        "images/statues/purearts-animus-naoe-yasuke-1-4_02.webp",
+    ],
     "PureArts Animus Ezio 1/8 Scale Statue": ["images/statues/purearts-animus-ezio-1-8.webp"],
     "PureArts Animus Altair 1/8 Scale Statue": ["images/statues/purearts-animus-altair-1-8.webp"],
     "PureArts Animus Connor 1/8 Scale Statue": ["images/statues/purearts-animus-connor-1-8.webp"],
