@@ -170,6 +170,10 @@ const AC_IMAGES = {
         "images/statues/purearts-yasuke-bust-1-4.webp",
         "images/statues/purearts-yasuke-bust-1-4_01.webp",
     ],
+    "Assassin's Creed Black Flag Edward Kenway 1/4 Scale Bust": [
+        "images/statues/purearts-edward-bust-1-4.webp",
+        "images/statues/purearts-edward-bust-1-4_01.webp",
+    ],
     "Nemesis Now Assassin's Creed Shadows Naoe Bust": [
         "images/statues/nemesis-shadows-naoe-bust.webp",
         "images/statues/nemesis-shadows-naoe-bust_01.webp",

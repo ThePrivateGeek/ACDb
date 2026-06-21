@@ -5561,4 +5561,13 @@ const AC_DATABASE = [
     "contents": "Hand-painted resin bust box with Valhalla-branded drawer, ~32cm tall",
     "type": "Nemesis Now"
   },
+  {
+    "name": "Assassin's Creed Black Flag Edward Kenway 1/4 Scale Bust",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2026,
+    "category": "Statue",
+    "description": "Capture the daring spirit and roguish charm of Edward Kenway, the legendary pirate Assassin, with this exquisitely crafted bust.  Every detail brings the swashbuckling hero to life – from the determined set of his gaze to the intricate textures of his hood, leather straps and naval attire.\n\nHis Assassin robes are richly sculpted, adorned with the subtle yet iconic insignia of the Brotherhood, symbolizing his dual life as both a pirate and an Assassin. A striking tribute to one of the saga's most charismatic heroes, perfect for fans of Assassin's Creed IV Black Flag Resynced and the Golden Age of Piracy.",
+    "contents": "Detailed sculpt of Edward Kenway from Assassin's Creed IV Black Flag Resynced",
+    "type": "PureArts"
+  },
 ];
