@@ -1881,6 +1881,16 @@ body {
     margin-top: 0.5rem;
     letter-spacing: 0 !important;
 }
+.footer-disclaimer a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-disclaimer a:hover {
+    color: var(--accent-glow);
+    text-decoration: underline;
+}
 
 .footer-feedback {
     font-size: 0.8rem;
