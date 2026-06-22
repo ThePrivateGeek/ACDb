@@ -1865,6 +1865,24 @@ body {
 .footer-inner {
     max-width: 1600px;
     margin: 0 auto;
+    position: relative;
+    z-index: 0;
+}
+
+/* Faint Assassin's Creed emblem watermark behind the footer text.
+   Same path as the favicon/header logo (var(--accent) #c9a84c). */
+.footer-inner::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(180px, 22vw, 300px);
+    aspect-ratio: 1 / 1;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z' fill='%23c9a84c'/%3E%3C/svg%3E") center / contain no-repeat;
+    opacity: 0.05;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .main-footer p {
