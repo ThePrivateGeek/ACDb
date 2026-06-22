@@ -81,7 +81,7 @@ worker/
 
 ## Disclaimer
 
-This is a fan-made collection tracker, not affiliated with or endorsed by Ubisoft. Assassin's Creed and all related images and trademarks are property of Ubisoft Entertainment. No personal data is collected. Shared profiles are public and stored on Cloudflare.
+This is a fan-made collection tracker, not affiliated with or endorsed by Ubisoft. Assassin's Creed and all related names, logos, and trademarks are property of Ubisoft Entertainment. Product images are the property of their respective manufacturers and retailers (e.g. PureArts, Ravenforge). They are used for identification and reference only; no copyright or affiliation is claimed. Contact info@theprivategeek.com to request removal of any image. No personal data is collected. Shared profiles are public and stored on Cloudflare.
 
 ## Feedback
 
