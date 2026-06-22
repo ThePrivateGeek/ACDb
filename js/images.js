@@ -140,6 +140,10 @@ const AC_IMAGES = {
     "PureArts Animus Basim 1/8 Scale Statue": ["images/statues/purearts-animus-basim-1-8.webp"],
     "PureArts Animus Yasuke 1/8 Scale Statue": ["images/statues/purearts-animus-yasuke-1-8.webp"],
     "PureArts Animus Naoe 1/8 Scale Statue": ["images/statues/purearts-animus-naoe-1-8.webp"],
+    "Assassin's Creed Animus Edward Kenway 1/8 Scale Statue": [
+        "images/statues/purearts-animus-edward.webp",
+        "images/statues/purearts-animus-edward_01.webp",
+    ],
     "Assassin's Creed Shadows Yasuke Helmet 1/1 Scale Replica": [
         "images/other/purearts-yasuke-helmet-replica.webp",
         "images/other/purearts-yasuke-helmet-replica_01.webp",

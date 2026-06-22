@@ -5570,4 +5570,13 @@ const AC_DATABASE = [
     "contents": "Detailed sculpt of Edward Kenway from Assassin's Creed IV Black Flag Resynced",
     "type": "PureArts"
   },
+  {
+    "name": "Assassin's Creed Animus Edward Kenway 1/8 Scale Statue",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2026,
+    "category": "Statue",
+    "description": "Sail into the Golden Age of Piracy with this finely crafted 1/8 scale PVC statue of Edward Kenway, the fearless pirate Assassin from Assassin's Creed IV Black Flag. Striking a bold pose, Edward stands with one foot on the rear railing of the Jackdaw, ready for battle – his pistol aimed in his left hand and the Kenway family sword drawn in his right.\n\nThe base evokes the weathered wood of his ship, setting the scene for high-seas adventure.  On the left, the dynamic Animus effect rises, symbolizing the link between past and present. With a built-in LED light-up feature, it adds a dramatic glow to this legendary display.",
+    "contents": "Detailed PVC statue of Edward Kenway, Jackdaw-inspired base, LED-lit Animus effect, Animus Link cable",
+    "type": "PureArts"
+  },
 ];
