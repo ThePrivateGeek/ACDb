@@ -5579,4 +5579,13 @@ const AC_DATABASE = [
     "contents": "Detailed PVC statue of Edward Kenway, Jackdaw-inspired base, LED-lit Animus effect, Animus Link cable",
     "type": "PureArts"
   },
+  {
+    "name": "ABYstyle Assassin's Creed Premium Large Glass",
+    "game": "General",
+    "year": 2019,
+    "category": "Other",
+    "description": "Celebrate your victories against the Templars with this Assassin's Creed glass! Officially licensed premium large glass featuring the Assassin Brotherhood crest. Made of high quality glass, king size (40cl). Not suitable for microwave and dishwasher. By ABYstyle.",
+    "contents": "Large glass, 40cl",
+    "type": "Drinkware"
+  },
 ];
