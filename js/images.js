@@ -889,7 +889,11 @@ const AC_IMAGES = {
     "Nemesis Now Assassin's Creed Brotherhood Goblet": ["images/other/nemesis-brotherhood-goblet.webp"],
     "Nemesis Now Assassin's Creed Valhalla Goblet": ["images/other/nemesis-valhalla-goblet.webp"],
     "Nemesis Now Assassin's Creed Shadows Goblet": ["images/other/nemesis-shadows-goblet.webp"],
-    "ABYstyle Assassin's Creed Premium Large Glass": ["images/other/abystyle-premium-large-glass.webp"],
+    "ABYstyle Assassin's Creed Premium Large Glass": [
+        "images/other/abystyle-premium-large-glass.webp",
+        "images/other/abystyle-premium-large-glass_01.webp",
+        "images/other/abystyle-premium-large-glass_02.webp",
+    ],
     "Nemesis Now Assassin's Creed Apple of Eden Bookends": [
         "images/other/nemesis-apple-of-eden-bookends.webp",
         "images/other/nemesis-apple-of-eden-bookends_01.webp",
