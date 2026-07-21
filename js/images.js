@@ -1183,6 +1183,15 @@ const AC_IMAGES = {
         "images/other/ac-revelations-playing-cards_06.webp",
         "images/other/ac-revelations-playing-cards_07.webp",
     ],
+    "Assassin's Creed Revelations Playing Cards (Light)": [
+        "images/other/ac-revelations-playing-cards-light.webp",
+        "images/other/ac-revelations-playing-cards-light_01.webp",
+        "images/other/ac-revelations-playing-cards-light_02.webp",
+        "images/other/ac-revelations-playing-cards-light_03.webp",
+        "images/other/ac-revelations-playing-cards-light_04.webp",
+        "images/other/ac-revelations-playing-cards-light_05.webp",
+        "images/other/ac-revelations-playing-cards-light_06.webp",
+    ],
 
     // ── Puzzles ──
     "Good Loot Gaming Puzzle: Assassin's Creed Legacy (1000 pieces)": [

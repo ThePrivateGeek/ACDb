@@ -5588,4 +5588,13 @@ const AC_DATABASE = [
     "contents": "Large glass, 40cl",
     "type": "Drinkware"
   },
+  {
+    "name": "Assassin's Creed Revelations Playing Cards (Light)",
+    "game": "Assassin's Creed Revelations",
+    "year": 2011,
+    "category": "Other",
+    "description": "Assassin's Creed Revelations Playing Cards, light colour variant. Special promo. Featuring 12 different characters from Assassin's Creed Revelations.",
+    "contents": "One playing cards deck",
+    "type": "Card Game"
+  },
 ];
