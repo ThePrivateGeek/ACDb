@@ -5597,4 +5597,13 @@ const AC_DATABASE = [
     "contents": "One playing cards deck",
     "type": "Card Game"
   },
+  {
+    "name": "GB eye Assassin's Creed Logo Hip Flask Gift Set",
+    "game": "General",
+    "year": 2018,
+    "category": "Other",
+    "description": "Officially licensed Assassin's Creed hip flask gift set by GB eye. Contains a fully printed metal hip flask (6oz/170ml) featuring the Assassin's Creed logo, two 1oz metal cups and a funnel for easy refilling. Presented in a black gift box with fully branded sleeve. Hand wash only.",
+    "contents": "Metal hip flask (170ml), two 1oz metal cups, funnel, branded gift box",
+    "type": "Drinkware"
+  },
 ];

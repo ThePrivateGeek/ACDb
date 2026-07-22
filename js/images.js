@@ -1020,6 +1020,12 @@ const AC_IMAGES = {
     ],
     "Assassin's Creed Shot Glass Set": ["images/other/lootcrate-shot-glass-set.webp"],
     "Assassin's Creed IV Black Flag Flask": ["images/other/lootcrate-black-flag-flask.webp"],
+    "GB eye Assassin's Creed Logo Hip Flask Gift Set": [
+        "images/other/gbeye-flask-gift-set.webp",
+        "images/other/gbeye-flask-gift-set_01.webp",
+        "images/other/gbeye-flask-gift-set_02.webp",
+        "images/other/gbeye-flask-gift-set_03.webp",
+    ],
     "Ravenforge Altaïr's Sword Replica": [
         "images/other/ravenforge-altair-sword.webp",
         "images/other/ravenforge-altair-sword_01.webp",
