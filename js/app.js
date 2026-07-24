@@ -785,8 +785,9 @@ window.ACDB = window.ACDB || {};
             if (isOpen) renderStatsDashboard();
         });
 
-        // Dashboard click-to-filter — replaces all filters with the clicked game/category
-        function applyDashboardFilter(kind, value) {
+        // Click-to-filter (dashboard bars + modal badges) — replaces all
+        // filters with the clicked game/category/type
+        function applyExclusiveFilter(kind, value) {
             dom.searchInput.value = '';
             dom.clearSearch.classList.remove('visible');
             selectedGames.clear();
@@ -795,6 +796,7 @@ window.ACDB = window.ACDB || {};
             dom.filterOwned.value = '';
             if (kind === 'game') selectedGames.add(value);
             else if (kind === 'category') selectedCategories.add(value);
+            else if (kind === 'type') selectedTypes.add(value);
             setMultiSelectValues(dom.filterGame, selectedGames);
             syncTimelineToSelectedGames();
             populateCategoryFilter();
@@ -804,11 +806,11 @@ window.ACDB = window.ACDB || {};
         }
         dom.statsByGame.addEventListener('click', (e) => {
             const row = e.target.closest('.stats-bar-row.clickable');
-            if (row) applyDashboardFilter('game', row.dataset.label);
+            if (row) applyExclusiveFilter('game', row.dataset.label);
         });
         dom.statsByCategory.addEventListener('click', (e) => {
             const row = e.target.closest('.stats-bar-row.clickable');
-            if (row) applyDashboardFilter('category', row.dataset.label);
+            if (row) applyExclusiveFilter('category', row.dataset.label);
         });
 
         // Stats sort toggle (% vs #)
@@ -962,6 +964,18 @@ window.ACDB = window.ACDB || {};
         dom.modalOverlay.addEventListener('click', (e) => {
             if (e.target === dom.modalOverlay) closeModal();
         });
+
+        // Modal badge click-to-filter — close the card, then filter by the
+        // clicked value. The filter-link class is absent in read-only mode
+        // (profile/leaderboard), where the browse grid isn't visible.
+        function applyModalFilter(kind, el) {
+            if (!el.classList.contains('filter-link')) return;
+            closeModal();
+            applyExclusiveFilter(kind, el.textContent);
+        }
+        dom.modalBadge.addEventListener('click', () => applyModalFilter('category', dom.modalBadge));
+        dom.modalBadgeType.addEventListener('click', () => applyModalFilter('type', dom.modalBadgeType));
+        dom.modalGame.addEventListener('click', () => applyModalFilter('game', dom.modalGame));
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {

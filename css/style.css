@@ -1593,6 +1593,24 @@ body {
     font-weight: 500;
 }
 
+.modal-badge.filter-link,
+.modal-game.filter-link {
+    cursor: pointer;
+}
+
+.modal-badge.filter-link:hover {
+    background: rgba(201, 168, 76, 0.3);
+}
+
+.modal-badge-type.filter-link:hover {
+    background: rgba(201, 168, 76, 0.2);
+    color: var(--text-primary);
+}
+
+.modal-game.filter-link:hover {
+    text-decoration: underline;
+}
+
 .modal-title {
     font-family: var(--font-heading);
     font-size: 1.4rem;

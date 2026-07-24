@@ -67,6 +67,8 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Gallery navigation (arrows, dots) works for multi-image items
 - [ ] Swipe works on mobile / touch simulation
 - [ ] Clicking image opens lightbox
+- [ ] Clicking category badge / type badge / game closes the modal and filters the grid by that value (replaces existing filters)
+- [ ] Badges are NOT clickable in read-only modal (shared profile / leaderboard)
 
 ## 9. Lightbox
 - [ ] Image shows full-screen on dark background

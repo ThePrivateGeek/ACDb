@@ -28,6 +28,14 @@
         dom.modalYear.textContent = item.year;
         dom.modalDescription.textContent = item.description;
         dom.modalContents.textContent = item.contents || 'N/A';
+
+        // Category/type/game act as filter shortcuts, except in read-only
+        // mode where the browse grid is hidden behind the profile view.
+        [dom.modalBadge, dom.modalBadgeType, dom.modalGame].forEach(el => {
+            el.classList.toggle('filter-link', !isReadOnlyOpen);
+            if (isReadOnlyOpen) el.removeAttribute('title');
+            else el.title = 'Show all "' + el.textContent + '" items';
+        });
     }
 
     function populateGallery(item) {
