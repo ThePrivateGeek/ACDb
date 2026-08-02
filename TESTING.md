@@ -69,6 +69,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Clicking image opens lightbox
 - [ ] Clicking category badge / type badge / game closes the modal and filters the grid by that value (replaces existing filters)
 - [ ] Badges are NOT clickable in read-only modal (shared profile / leaderboard)
+- [ ] Share icon button (badges row): desktop copies `https://acdb.theprivategeek.com/s/<slug>` with toast; mobile/touch opens the native share sheet (also in read-only modal)
 
 ## 9. Lightbox
 - [ ] Image shows full-screen on dark background
@@ -114,6 +115,8 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Pasting a URL with hash opens directly to that item
 - [ ] Browser back button closes the modal
 - [ ] Closing modal clears the hash
+- [ ] Share page redirects into the app: `/s/<slug>.html` loads and lands on `/#<slug>` with the item modal open
+- [ ] After adding items, `python3 tools/build-share-pages.py` was re-run (623+ pages, no warnings)
 
 ## 14. Admin / Dev Tool
 - [ ] `localStorage.setItem('acdb_admin', 'true')` shows "Add Item" button

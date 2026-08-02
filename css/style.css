@@ -1611,6 +1611,37 @@ body {
     text-decoration: underline;
 }
 
+/* Share/copy-link button — circular sibling of .modal-close, sits to its left */
+.modal-copy-link {
+    position: absolute;
+    top: 1rem;
+    right: calc(1rem + 36px + 0.5rem);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.modal-copy-link svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.modal-copy-link:hover {
+    background: rgba(201, 168, 76, 0.2);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
 .modal-title {
     font-family: var(--font-heading);
     font-size: 1.4rem;
