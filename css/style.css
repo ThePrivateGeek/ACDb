@@ -2326,6 +2326,12 @@ body {
         min-height: 250px;
         border-radius: 16px 16px 0 0;
     }
+    /* Single-column layout puts the gallery under the floating share/close
+       buttons — move the image counter to the opposite corner. */
+    .gallery-counter {
+        right: auto;
+        left: 10px;
+    }
 }
 
 @media (max-width: 768px) {
