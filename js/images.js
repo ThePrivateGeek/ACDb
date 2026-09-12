@@ -29,6 +29,10 @@ const AC_IMAGES = {
     ],
     "Assassin's Creed Brotherhood Collector's Edition (Doctor Variant)": ["images/collectors-editions/brotherhood-collectors-edition-doctor.webp"],
     "Assassin's Creed Brotherhood Codex Edition": ["images/collectors-editions/brotherhood-codex-edition.webp"],
+    "Assassin's Creed Brotherhood Auditore Edition": [
+        "images/collectors-editions/brotherhood-auditore-edition.webp",
+        "images/collectors-editions/brotherhood-auditore-edition_01.webp",
+    ],
     "Assassin's Creed Revelations Collector's Edition": ["images/collectors-editions/revelations-collectors-edition.webp"],
     "Assassin's Creed Revelations Animus Edition": [
         "images/collectors-editions/revelations-animus-edition.webp",
@@ -1189,15 +1193,7 @@ const AC_IMAGES = {
         "images/other/ac-revelations-playing-cards_06.webp",
         "images/other/ac-revelations-playing-cards_07.webp",
     ],
-    "Assassin's Creed Revelations Playing Cards (Light)": [
-        "images/other/ac-revelations-playing-cards-light.webp",
-        "images/other/ac-revelations-playing-cards-light_01.webp",
-        "images/other/ac-revelations-playing-cards-light_02.webp",
-        "images/other/ac-revelations-playing-cards-light_03.webp",
-        "images/other/ac-revelations-playing-cards-light_04.webp",
-        "images/other/ac-revelations-playing-cards-light_05.webp",
-        "images/other/ac-revelations-playing-cards-light_06.webp",
-    ],
+    "Assassin's Creed Revelations Playing Cards (Light)": ["images/other/ac-revelations-playing-cards-light.webp"],
 
     // ── Puzzles ──
     "Good Loot Gaming Puzzle: Assassin's Creed Legacy (1000 pieces)": [

@@ -5606,4 +5606,13 @@ const AC_DATABASE = [
     "contents": "Metal hip flask (170ml), two 1oz metal cups, funnel, branded gift box",
     "type": "Drinkware"
   },
+  {
+    "name": "Assassin's Creed Brotherhood Auditore Edition",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2010,
+    "category": "Collector's Edition",
+    "description": "European/PAL exclusive edition featuring a transparency box with a 3D thermoformed portrait of Ezio Auditore and an 'Animus' glitch effect. Sold in limited quantities at select retailers on PS3 and Xbox 360, with a PC version following in 2011.",
+    "contents": "Game, transparency box with 3D thermoformed Ezio Auditore portrait, multiplayer character cards with kill moves and biographies, Assassin's Creed Lineage DVD, exclusive Aqueducts single-player map, Helmschmied Drachen Armor for Ezio",
+    "type": "Collector's Edition"
+  },
 ];
