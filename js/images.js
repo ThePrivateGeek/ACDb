@@ -764,6 +764,22 @@ const AC_IMAGES = {
         "images/comics/ac-awakening-vol1_01.webp",
     ],
     "Assassin's Creed: Awakening, Vol. 2": ["images/comics/ac-awakening-vol2.webp"],
+    "Assassin's Creed: Forgotten Temple, Vol. 1": [
+        "images/comics/ac-forgotten-temple-vol1.webp",
+        "images/comics/ac-forgotten-temple-vol1_01.webp",
+    ],
+    "Assassin's Creed: Forgotten Temple, Vol. 2": [
+        "images/comics/ac-forgotten-temple-vol2.webp",
+        "images/comics/ac-forgotten-temple-vol2_01.webp",
+    ],
+    "Assassin's Creed: Forgotten Temple, Vol. 3": [
+        "images/comics/ac-forgotten-temple-vol3.webp",
+        "images/comics/ac-forgotten-temple-vol3_01.webp",
+    ],
+    "Assassin's Creed: Forgotten Temple, Vol. 4": [
+        "images/comics/ac-forgotten-temple-vol4.webp",
+        "images/comics/ac-forgotten-temple-vol4_01.webp",
+    ],
     "Assassin's Creed: The Fall - Issue #1": ["images/comics/ac-the-fall-issue-1.webp"],
     "Assassin's Creed: The Fall - Issue #2": ["images/comics/ac-the-fall-issue-2.webp"],
     "Assassin's Creed: The Fall - Issue #3": ["images/comics/ac-the-fall-issue-3.webp"],

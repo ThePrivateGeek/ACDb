@@ -5615,4 +5615,40 @@ const AC_DATABASE = [
     "contents": "Game, transparency box with 3D thermoformed Ezio Auditore portrait, multiplayer character cards with kill moves and biographies, Assassin's Creed Lineage DVD, exclusive Aqueducts single-player map, Helmschmied Drachen Armor for Ezio",
     "type": "Collector's Edition"
   },
+  {
+    "name": "Assassin's Creed: Forgotten Temple, Vol. 1",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2025,
+    "category": "Comic Book",
+    "description": "Volume 1. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Noa Kim is kidnapped by Abstergo in Macau and forced to explore the memories of one of his ancestors through their Animus program. That ancestor turns out to be Edward Kenway, the legendary pirate and Assassin! Held under Abstergo's thumb, Kim finds himself thrust into an adventure that spans Southeast Asia as Kenway searches for vaults from the First Civilization. Collects episodes 1-7 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (November 2025).",
+    "contents": "Paperback graphic novel (224 pages)",
+    "type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed: Forgotten Temple, Vol. 2",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2026,
+    "category": "Comic Book",
+    "description": "Volume 2. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Abstergo Industries' plans to scavenge Edward Kenway's memories for details of the Lost City are in full swing, and kidnapped college student Noa Kim is... cooperating with their scheme? As Noa relives Kenway's memories, he follows the Assassin through an adventure across Southeast Asia, battling ninjas, warriors, and the Templar Order at every turn. Newly allied with the self-interested Madam Lee, Noa will soon discover that Kenway is in for the fight of his life! Collects episodes 8-14 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (February 2026).",
+    "contents": "Paperback graphic novel (224 pages)",
+    "type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed: Forgotten Temple, Vol. 3",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2026,
+    "category": "Comic Book",
+    "description": "Volume 3. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Conflict is a constant in Kenway's life, but he's never navigated one like this before! Madam Lee has proved a formidable ally, but nothing can last forever in a world as fraught with deception and violence as this one. Plus, Noa Kim's search bleeds into his real life, and he discovers some interesting changes in himself! Collects episodes 15-21 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (May 2026).",
+    "contents": "Paperback graphic novel (200 pages)",
+    "type": "Graphic Novel"
+  },
+  {
+    "name": "Assassin's Creed: Forgotten Temple, Vol. 4",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2026,
+    "category": "Comic Book",
+    "description": "Volume 4. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Exploring Kenway's memories is having a strange effect on Kim. He's suddenly capable of things he could never do before, like fearlessly leaping off a roof and landing on both feet, or fighting three men all alone and coming out unscathed. Could his ancestor's memories be changing Kim for the worse? Collects episodes 22-28 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (August 2026).",
+    "contents": "Paperback graphic novel (184 pages)",
+    "type": "Graphic Novel"
+  },
 ];
