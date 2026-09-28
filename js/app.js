@@ -24,9 +24,26 @@ window.ACDB = window.ACDB || {};
     let selectedGames = new Set();
     let selectedCategories = new Set();
     let selectedTypes = new Set();
+    let selectedSeries = new Set();
     let statsSortMode = 'percent'; // 'percent', 'count', or 'timeline'
     let lastBarSortMode = 'percent'; // last non-timeline mode — used for non-game panels
     // currentItemId, galleryImages, galleryIndex — owned by modal.js
+
+    // The selected-* Sets are reassigned (restoreFilters, change handlers),
+    // so look them up by kind on demand instead of caching references.
+    function selectionSetFor(kind) {
+        switch (kind) {
+            case 'game': return selectedGames;
+            case 'category': return selectedCategories;
+            case 'type': return selectedTypes;
+            case 'series': return selectedSeries;
+            default: throw new Error(`Unknown filter kind: ${kind}`);
+        }
+    }
+
+    function clearAllSelections() {
+        ['game', 'category', 'type', 'series'].forEach(kind => selectionSetFor(kind).clear());
+    }
 
     // The top N entries by year (highest first) get a "NEW" sticker, matching
     // the default "Year (Newest First)" sort. Ties broken by DB position so
@@ -86,6 +103,7 @@ window.ACDB = window.ACDB || {};
         filterGame: document.getElementById('filterGame'),
         filterCategory: document.getElementById('filterCategory'),
         filterType: document.getElementById('filterType'),
+        filterSeries: document.getElementById('filterSeries'),
         filterOwned: document.getElementById('filterOwned'),
         sortBy: document.getElementById('sortBy'),
         viewGrid: document.getElementById('viewGrid'),
@@ -103,6 +121,9 @@ window.ACDB = window.ACDB || {};
         modalYear: document.getElementById('modalYear'),
         modalDescription: document.getElementById('modalDescription'),
         modalContents: document.getElementById('modalContents'),
+        modalSeriesRow: document.getElementById('modalSeriesRow'),
+        modalSeries: document.getElementById('modalSeries'),
+        modalSeriesCount: document.getElementById('modalSeriesCount'),
         modalOwned: document.getElementById('modalOwned'),
         modalWishlist: document.getElementById('modalWishlist'),
         modalHasBox: document.getElementById('modalHasBox'),
@@ -188,6 +209,8 @@ window.ACDB = window.ACDB || {};
             label.textContent = `${selected.size} ${noun}`;
             multiSelectEl.classList.add('has-selection');
         }
+        // Full text on hover — the label may be ellipsised in the toolbar
+        label.title = label.textContent;
         sortMultiSelectOptions(multiSelectEl);
     }
 
@@ -236,75 +259,87 @@ window.ACDB = window.ACDB || {};
         updateMultiSelectLabel(multiSelectEl);
     }
 
-    function populateCategoryFilter() {
-        const catOptionsContainer = dom.filterCategory.querySelector('.multi-select-options');
-        catOptionsContainer.innerHTML = '';
+    // Build one "☐ Value (count)" row for a multi-select dropdown.
+    function createMultiSelectOption(value, count) {
+        const label = document.createElement('label');
+        label.className = 'multi-select-option';
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.value = value;
+        const check = document.createElement('span');
+        check.className = 'multi-select-check';
+        const text = document.createElement('span');
+        text.className = 'multi-select-text';
+        text.textContent = `${value} (${count})`;
+        label.appendChild(cb);
+        label.appendChild(check);
+        label.appendChild(text);
+        return label;
+    }
 
-        // Only show categories from items matching current game selection
-        const gameFilters = getSelectedValues(dom.filterGame);
-        const relevantItems = gameFilters.size > 0
-            ? AC_DATABASE.filter(i => gameFilters.has(i.game))
-            : AC_DATABASE;
+    // Filters cascade top-down: game → category → type → series. Each level
+    // only offers values present in the items matching the levels above it.
+    // `level` names the filter being populated; items are narrowed by every
+    // filter *before* it in CASCADE_ORDER.
+    const CASCADE_ORDER = ['game', 'category', 'type', 'series'];
+    const CASCADE_CONTROLS = {
+        game: dom.filterGame,
+        category: dom.filterCategory,
+        type: dom.filterType,
+        series: dom.filterSeries,
+    };
 
-        const categories = [...new Set(relevantItems.map(i => i.category))].sort();
+    function getItemsUpstreamOf(level) {
+        let items = AC_DATABASE;
+        for (const key of CASCADE_ORDER) {
+            if (key === level) break;
+            const selected = getSelectedValues(CASCADE_CONTROLS[key]);
+            if (selected.size > 0) items = items.filter(i => selected.has(i[key]));
+        }
+        return items;
+    }
 
-        // Remove selected categories that no longer exist in the filtered set
-        selectedCategories.forEach(c => { if (!categories.includes(c)) selectedCategories.delete(c); });
+    // Rebuild a cascading multi-select from the items upstream of it, prune
+    // selections that are no longer offered, and re-apply what remains.
+    function populateCascadeFilter(level, selectedSet) {
+        const multiSelectEl = CASCADE_CONTROLS[level];
+        const optionsContainer = multiSelectEl.querySelector('.multi-select-options');
+        optionsContainer.innerHTML = '';
 
-        categories.forEach(cat => {
-            const count = relevantItems.filter(i => i.category === cat).length;
-            const label = document.createElement('label');
-            label.className = 'multi-select-option';
-            const cb = document.createElement('input');
-            cb.type = 'checkbox';
-            cb.value = cat;
-            const check = document.createElement('span');
-            check.className = 'multi-select-check';
-            const text = document.createElement('span');
-            text.className = 'multi-select-text';
-            text.textContent = `${cat} (${count})`;
-            label.appendChild(cb);
-            label.appendChild(check);
-            label.appendChild(text);
-            catOptionsContainer.appendChild(label);
+        const relevantItems = getItemsUpstreamOf(level);
+        const values = [...new Set(relevantItems.map(i => i[level]).filter(Boolean))].sort();
+
+        selectedSet.forEach(v => { if (!values.includes(v)) selectedSet.delete(v); });
+
+        values.forEach(value => {
+            const count = relevantItems.filter(i => i[level] === value).length;
+            optionsContainer.appendChild(createMultiSelectOption(value, count));
         });
-        setMultiSelectValues(dom.filterCategory, selectedCategories);
+        setMultiSelectValues(multiSelectEl, selectedSet);
+        return values;
+    }
+
+    function populateCategoryFilter() {
+        populateCascadeFilter('category', selectedCategories);
     }
 
     function populateTypeFilter() {
-        const typeOptionsContainer = dom.filterType.querySelector('.multi-select-options');
-        typeOptionsContainer.innerHTML = '';
+        populateCascadeFilter('type', selectedTypes);
+    }
 
-        // Only show types from items matching current game + category selection
-        const gameFilters = getSelectedValues(dom.filterGame);
-        const catFilters = getSelectedValues(dom.filterCategory);
-        let relevantItems = AC_DATABASE;
-        if (gameFilters.size > 0) relevantItems = relevantItems.filter(i => gameFilters.has(i.game));
-        if (catFilters.size > 0) relevantItems = relevantItems.filter(i => catFilters.has(i.category));
+    // Only part of the catalogue belongs to a series (comics, graphic novels,
+    // manga). The control disappears when nothing upstream has one, so it
+    // never shows an empty dropdown for, say, statues.
+    function populateSeriesFilter() {
+        const seriesNames = populateCascadeFilter('series', selectedSeries);
+        dom.filterSeries.hidden = seriesNames.length === 0;
+    }
 
-        const types = [...new Set(relevantItems.map(i => i.type).filter(Boolean))].sort();
-
-        // Remove selected types that no longer exist in the filtered set
-        selectedTypes.forEach(t => { if (!types.includes(t)) selectedTypes.delete(t); });
-
-        types.forEach(type => {
-            const count = relevantItems.filter(i => i.type === type).length;
-            const label = document.createElement('label');
-            label.className = 'multi-select-option';
-            const cb = document.createElement('input');
-            cb.type = 'checkbox';
-            cb.value = type;
-            const check = document.createElement('span');
-            check.className = 'multi-select-check';
-            const text = document.createElement('span');
-            text.className = 'multi-select-text';
-            text.textContent = `${type} (${count})`;
-            label.appendChild(cb);
-            label.appendChild(check);
-            label.appendChild(text);
-            typeOptionsContainer.appendChild(label);
-        });
-        setMultiSelectValues(dom.filterType, selectedTypes);
+    // Re-run every cascading dropdown below the game filter.
+    function populateDependentFilters() {
+        populateCategoryFilter();
+        populateTypeFilter();
+        populateSeriesFilter();
     }
 
     function syncTimelineToSelectedGames() {
@@ -336,25 +371,11 @@ window.ACDB = window.ACDB || {};
 
         sortedGames.forEach(game => {
             const count = AC_DATABASE.filter(i => i.game === game).length;
-            const label = document.createElement('label');
-            label.className = 'multi-select-option';
-            const cb = document.createElement('input');
-            cb.type = 'checkbox';
-            cb.value = game;
-            const check = document.createElement('span');
-            check.className = 'multi-select-check';
-            const text = document.createElement('span');
-            text.className = 'multi-select-text';
-            text.textContent = `${game} (${count})`;
-            label.appendChild(cb);
-            label.appendChild(check);
-            label.appendChild(text);
-            gameOptionsContainer.appendChild(label);
+            gameOptionsContainer.appendChild(createMultiSelectOption(game, count));
         });
         setMultiSelectValues(dom.filterGame, selectedGames);
 
-        populateCategoryFilter();
-        populateTypeFilter();
+        populateDependentFilters();
 
         // Timeline buttons
         const allBtn = document.createElement('button');
@@ -384,6 +405,7 @@ window.ACDB = window.ACDB || {};
         const gameFilters = getSelectedValues(dom.filterGame);
         const categoryFilters = getSelectedValues(dom.filterCategory);
         const typeFilters = getSelectedValues(dom.filterType);
+        const seriesFilters = getSelectedValues(dom.filterSeries);
         const ownedFilter = dom.filterOwned.value;
 
         const sortValue = dom.sortBy.value;
@@ -391,7 +413,7 @@ window.ACDB = window.ACDB || {};
         let results = AC_DATABASE.filter(item => {
             // Search — AND-match each whitespace-separated token across all fields
             if (search) {
-                const haystack = `${item.name} ${item.game} ${item.year} ${item.category} ${item.description} ${item.contents} ${item.type}`.toLowerCase();
+                const haystack = `${item.name} ${item.game} ${item.year} ${item.category} ${item.description} ${item.contents} ${item.type} ${item.series || ''}`.toLowerCase();
                 const tokens = search.split(/\s+/);
                 if (!tokens.every(t => haystack.includes(t))) return false;
             }
@@ -401,6 +423,8 @@ window.ACDB = window.ACDB || {};
             if (categoryFilters.size > 0 && !categoryFilters.has(item.category)) return false;
             // Type (empty set = all)
             if (typeFilters.size > 0 && !typeFilters.has(item.type)) return false;
+            // Series (empty set = all; items without a series never match a selection)
+            if (seriesFilters.size > 0 && !seriesFilters.has(item.series)) return false;
             // Owned status
             if (ownedFilter) {
                 const data = getItemData(item.id);
@@ -561,6 +585,7 @@ window.ACDB = window.ACDB || {};
             games: [...selectedGames],
             categories: [...selectedCategories],
             types: [...selectedTypes],
+            series: [...selectedSeries],
             owned: dom.filterOwned.value,
             sort: dom.sortBy.value
         };
@@ -590,6 +615,10 @@ window.ACDB = window.ACDB || {};
                 selectedTypes = new Set(filters.types);
             }
             populateTypeFilter();
+            if (filters.series && filters.series.length > 0) {
+                selectedSeries = new Set(filters.series);
+            }
+            populateSeriesFilter();
             if (filters.owned) dom.filterOwned.value = filters.owned;
             if (filters.sort) dom.sortBy.value = filters.sort;
         } catch { /* ignore corrupt data */ }
@@ -785,22 +814,29 @@ window.ACDB = window.ACDB || {};
             if (isOpen) renderStatsDashboard();
         });
 
+        // Put every filter back to its default (search, dropdowns, owned, sort).
+        function resetAllFilters() {
+            dom.searchInput.value = '';
+            dom.clearSearch.classList.remove('visible');
+            clearAllSelections();
+            clearMultiSelect(dom.filterGame);
+            dom.filterOwned.value = '';
+            dom.sortBy.value = '';
+            syncTimelineToSelectedGames();
+            populateDependentFilters();
+        }
+
         // Click-to-filter (dashboard bars + modal badges) — replaces all
-        // filters with the clicked game/category/type
+        // filters with the clicked game/category/type/series
         function applyExclusiveFilter(kind, value) {
             dom.searchInput.value = '';
             dom.clearSearch.classList.remove('visible');
-            selectedGames.clear();
-            selectedCategories.clear();
-            selectedTypes.clear();
+            clearAllSelections();
             dom.filterOwned.value = '';
-            if (kind === 'game') selectedGames.add(value);
-            else if (kind === 'category') selectedCategories.add(value);
-            else if (kind === 'type') selectedTypes.add(value);
+            selectionSetFor(kind).add(value);
             setMultiSelectValues(dom.filterGame, selectedGames);
             syncTimelineToSelectedGames();
-            populateCategoryFilter();
-            populateTypeFilter();
+            populateDependentFilters();
             renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -830,8 +866,7 @@ window.ACDB = window.ACDB || {};
             selectedGames.clear();
             clearMultiSelect(dom.filterGame);
             syncTimelineToSelectedGames();
-            populateCategoryFilter();
-            populateTypeFilter();
+            populateDependentFilters();
             renderItems();
         });
         dom.filterCategory.querySelector('.multi-select-clear').addEventListener('click', (e) => {
@@ -839,12 +874,20 @@ window.ACDB = window.ACDB || {};
             selectedCategories.clear();
             clearMultiSelect(dom.filterCategory);
             populateTypeFilter();
+            populateSeriesFilter();
             renderItems();
         });
         dom.filterType.querySelector('.multi-select-clear').addEventListener('click', (e) => {
             e.stopPropagation();
             selectedTypes.clear();
             clearMultiSelect(dom.filterType);
+            populateSeriesFilter();
+            renderItems();
+        });
+        dom.filterSeries.querySelector('.multi-select-clear').addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedSeries.clear();
+            clearMultiSelect(dom.filterSeries);
             renderItems();
         });
 
@@ -889,8 +932,7 @@ window.ACDB = window.ACDB || {};
             selectedGames = getSelectedValues(dom.filterGame);
             updateMultiSelectLabel(dom.filterGame);
             syncTimelineToSelectedGames();
-            populateCategoryFilter();
-            populateTypeFilter();
+            populateDependentFilters();
             renderItems();
         });
 
@@ -898,26 +940,36 @@ window.ACDB = window.ACDB || {};
             selectedCategories = getSelectedValues(dom.filterCategory);
             updateMultiSelectLabel(dom.filterCategory);
             populateTypeFilter();
+            populateSeriesFilter();
             renderItems();
         });
 
         dom.filterType.querySelector('.multi-select-options').addEventListener('change', () => {
             selectedTypes = getSelectedValues(dom.filterType);
             updateMultiSelectLabel(dom.filterType);
+            populateSeriesFilter();
             renderItems();
         });
 
-        // Type search within dropdown
-        const typeSearch = document.getElementById('typeSearch');
-        typeSearch.addEventListener('input', () => {
-            const query = typeSearch.value.toLowerCase();
-            dom.filterType.querySelectorAll('.multi-select-option').forEach(opt => {
-                const text = opt.querySelector('.multi-select-text').textContent.toLowerCase();
-                opt.style.display = text.includes(query) ? '' : 'none';
-            });
+        dom.filterSeries.querySelector('.multi-select-options').addEventListener('change', () => {
+            selectedSeries = getSelectedValues(dom.filterSeries);
+            updateMultiSelectLabel(dom.filterSeries);
+            renderItems();
         });
-        // Prevent dropdown from closing when clicking search
-        typeSearch.addEventListener('click', (e) => e.stopPropagation());
+
+        // Search box inside a dropdown (types, series) — narrows the visible
+        // options as you type without closing the dropdown.
+        document.querySelectorAll('.multi-select-search').forEach(searchEl => {
+            const multiSelectEl = searchEl.closest('.multi-select');
+            searchEl.addEventListener('input', () => {
+                const query = searchEl.value.toLowerCase();
+                multiSelectEl.querySelectorAll('.multi-select-option').forEach(opt => {
+                    const text = opt.querySelector('.multi-select-text').textContent.toLowerCase();
+                    opt.style.display = text.includes(query) ? '' : 'none';
+                });
+            });
+            searchEl.addEventListener('click', (e) => e.stopPropagation());
+        });
 
         dom.filterOwned.addEventListener('change', renderItems);
         dom.sortBy.addEventListener('change', renderItems);
@@ -954,8 +1006,7 @@ window.ACDB = window.ACDB || {};
                 setMultiSelectValues(dom.filterGame, selectedGames);
             }
             syncTimelineToSelectedGames();
-            populateCategoryFilter();
-            populateTypeFilter();
+            populateDependentFilters();
             renderItems();
         });
 
@@ -976,6 +1027,7 @@ window.ACDB = window.ACDB || {};
         dom.modalBadge.addEventListener('click', () => applyModalFilter('category', dom.modalBadge));
         dom.modalBadgeType.addEventListener('click', () => applyModalFilter('type', dom.modalBadgeType));
         dom.modalGame.addEventListener('click', () => applyModalFilter('game', dom.modalGame));
+        dom.modalSeries.addEventListener('click', () => applyModalFilter('series', dom.modalSeries));
 
         // Share link — points at the static /s/<slug> page (generated by
         // tools/build-share-pages.py) so pasted links unfurl with item-specific
@@ -1094,19 +1146,7 @@ window.ACDB = window.ACDB || {};
         document.getElementById('statTotal').addEventListener('click', () => {
             showMainContent();
             clearHash();
-            dom.searchInput.value = '';
-            dom.clearSearch.classList.remove('visible');
-            selectedGames.clear();
-            selectedCategories.clear();
-            selectedTypes.clear();
-            clearMultiSelect(dom.filterGame);
-            clearMultiSelect(dom.filterCategory);
-            clearMultiSelect(dom.filterType);
-            dom.filterOwned.value = '';
-            dom.sortBy.value = '';
-            syncTimelineToSelectedGames();
-            populateCategoryFilter();
-            populateTypeFilter();
+            resetAllFilters();
             renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -1138,19 +1178,7 @@ window.ACDB = window.ACDB || {};
         // Logo — reset all filters
         document.getElementById('logoLink').addEventListener('click', (e) => {
             e.preventDefault();
-            dom.searchInput.value = '';
-            dom.clearSearch.classList.remove('visible');
-            selectedGames.clear();
-            selectedCategories.clear();
-            selectedTypes.clear();
-            clearMultiSelect(dom.filterGame);
-            clearMultiSelect(dom.filterCategory);
-            clearMultiSelect(dom.filterType);
-            dom.filterOwned.value = '';
-            dom.sortBy.value = '';
-            syncTimelineToSelectedGames();
-            populateCategoryFilter();
-            populateTypeFilter();
+            resetAllFilters();
             showMainContent();
             clearHash();
             renderItems();
@@ -1339,6 +1367,8 @@ window.ACDB = window.ACDB || {};
     A.setSelectedCategories = (s) => { selectedCategories = s; };
     A.getSelectedTypes = () => selectedTypes;
     A.setSelectedTypes = (s) => { selectedTypes = s; };
+    A.getSelectedSeries = () => selectedSeries;
+    A.setSelectedSeries = (s) => { selectedSeries = s; };
     A.getStatsSortMode = () => statsSortMode;
     A.setStatsSortMode = (m) => { statsSortMode = m; };
     A.getLastBarSortMode = () => lastBarSortMode;
@@ -1354,6 +1384,8 @@ window.ACDB = window.ACDB || {};
     A.initFilters = initFilters;
     A.populateCategoryFilter = populateCategoryFilter;
     A.populateTypeFilter = populateTypeFilter;
+    A.populateSeriesFilter = populateSeriesFilter;
+    A.populateDependentFilters = populateDependentFilters;
     A.getSelectedValues = getSelectedValues;
     A.updateMultiSelectLabel = updateMultiSelectLabel;
     A.setMultiSelectValues = setMultiSelectValues;

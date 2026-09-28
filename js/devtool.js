@@ -44,6 +44,16 @@
             typeSelect.appendChild(opt);
         });
 
+        // Series suggestions (free text — new series are typed in directly)
+        const seriesList = document.getElementById('devSeriesList');
+        seriesList.innerHTML = '';
+        const seriesNames = [...new Set(AC_DATABASE.map(i => i.series).filter(Boolean))].sort();
+        seriesNames.forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s;
+            seriesList.appendChild(opt);
+        });
+
         // Clear form
         document.getElementById('devName').value = '';
         document.getElementById('devGame').value = '';
@@ -51,6 +61,7 @@
         document.getElementById('devYear').value = '';
         document.getElementById('devCategory').value = '';
         document.getElementById('devType').value = '';
+        document.getElementById('devSeries').value = '';
         document.getElementById('devDescription').value = '';
         document.getElementById('devContents').value = '';
         document.getElementById('devImagePath').value = '';
@@ -79,6 +90,7 @@
         const year = document.getElementById('devYear').value;
         const category = document.getElementById('devCategory').value;
         const type = document.getElementById('devType').value;
+        const series = document.getElementById('devSeries').value.trim();
         const description = document.getElementById('devDescription').value.trim();
         const contents = document.getElementById('devContents').value.trim();
         const imagePath = document.getElementById('devImagePath').value.trim();
@@ -94,8 +106,9 @@
         code += `    "category": ${JSON.stringify(category || 'Category')},\n`;
         code += `    "description": ${JSON.stringify(description)},\n`;
         code += `    "contents": ${JSON.stringify(contents)},\n`;
-        code += `    "type": ${JSON.stringify(type || category || 'Type')}\n`;
-        code += '  },';
+        code += `    "type": ${JSON.stringify(type || category || 'Type')}`;
+        if (series) code += `,\n    "series": ${JSON.stringify(series)}`;
+        code += '\n  },';
 
         // images.js entry
         if (imagePath) {

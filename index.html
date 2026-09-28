@@ -125,6 +125,17 @@
                         <div class="multi-select-options"></div>
                     </div>
                 </div>
+                <div class="multi-select" id="filterSeries" data-placeholder="All Series" hidden>
+                    <button class="multi-select-toggle" type="button">
+                        <span class="multi-select-label">All Series</span>
+                        <span class="multi-select-clear" title="Clear selection">&times;</span>
+                        <svg class="multi-select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="multi-select-dropdown">
+                        <input type="text" class="multi-select-search" id="seriesSearch" placeholder="Search series..." autocomplete="off">
+                        <div class="multi-select-options"></div>
+                    </div>
+                </div>
                 <select id="filterOwned" class="filter-select">
                     <option value="">All Items</option>
                     <option value="owned">Owned Only</option>
@@ -244,6 +255,11 @@
                     <div class="modal-meta">
                         <span class="modal-game" id="modalGame"></span>
                         <span class="modal-year" id="modalYear"></span>
+                        <span class="modal-series-row" id="modalSeriesRow" hidden>
+                            <span class="modal-series-label">Series</span>
+                            <span class="modal-series" id="modalSeries"></span>
+                            <span class="modal-series-count" id="modalSeriesCount"></span>
+                        </span>
                     </div>
                     <p class="modal-description" id="modalDescription"></p>
                     <div class="modal-contents-section">
@@ -397,6 +413,11 @@
                                     <option value="">Select type...</option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="devSeries">Series</label>
+                            <input type="text" id="devSeries" list="devSeriesList" placeholder="Optional, e.g. Assassin's Creed: Assassins" autocomplete="off">
+                            <datalist id="devSeriesList"></datalist>
                         </div>
                         <div class="form-row">
                             <label for="devDescription">Description</label>

@@ -358,6 +358,22 @@ body {
 .multi-select {
     position: relative;
     min-width: 150px;
+    max-width: 250px;
+}
+
+/* Long selected values (e.g. a series title) are ellipsised so one dropdown
+   can't balloon across the toolbar; the full value is in the title tooltip. */
+.multi-select-label {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Cascading dropdowns with nothing to offer (e.g. Series when no comics
+   are upstream) are removed from the toolbar entirely. */
+.multi-select[hidden] {
+    display: none;
 }
 
 .multi-select-toggle {
@@ -1594,7 +1610,8 @@ body {
 }
 
 .modal-badge.filter-link,
-.modal-game.filter-link {
+.modal-game.filter-link,
+.modal-series.filter-link {
     cursor: pointer;
 }
 
@@ -1607,7 +1624,8 @@ body {
     color: var(--text-primary);
 }
 
-.modal-game.filter-link:hover {
+.modal-game.filter-link:hover,
+.modal-series.filter-link:hover {
     text-decoration: underline;
 }
 
@@ -1653,7 +1671,8 @@ body {
 
 .modal-meta {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
     margin-bottom: 1rem;
 }
 
@@ -1666,6 +1685,40 @@ body {
 .modal-year {
     font-family: var(--font-mono);
     font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Series line — full-width row under game/year, only present for items
+   that belong to a comic/manga series. */
+.modal-series-row {
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.modal-series-row[hidden] {
+    display: none;
+}
+
+.modal-series-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+}
+
+.modal-series {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.modal-series-count {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
     color: var(--text-muted);
 }
 
@@ -2382,6 +2435,7 @@ body {
 
     .multi-select {
         width: 100%;
+        max-width: none;
     }
 
     .multi-select-dropdown {

@@ -29,9 +29,19 @@
         dom.modalDescription.textContent = item.description;
         dom.modalContents.textContent = item.contents || 'N/A';
 
-        // Category/type/game act as filter shortcuts, except in read-only
-        // mode where the browse grid is hidden behind the profile view.
-        [dom.modalBadge, dom.modalBadgeType, dom.modalGame].forEach(el => {
+        // Series line (comics, graphic novels, manga) — shows how many
+        // entries the series has so the link doubles as a "collect them all"
+        // hint. Hidden entirely for items that aren't part of a series.
+        dom.modalSeriesRow.hidden = !item.series;
+        if (item.series) {
+            const total = AC_DATABASE.filter(i => i.series === item.series).length;
+            dom.modalSeries.textContent = item.series;
+            dom.modalSeriesCount.textContent = `${total} ${total === 1 ? 'entry' : 'entries'}`;
+        }
+
+        // Category/type/game/series act as filter shortcuts, except in
+        // read-only mode where the browse grid is hidden behind the profile view.
+        [dom.modalBadge, dom.modalBadgeType, dom.modalGame, dom.modalSeries].forEach(el => {
             el.classList.toggle('filter-link', !isReadOnlyOpen);
             if (isReadOnlyOpen) el.removeAttribute('title');
             else el.title = 'Show all "' + el.textContent + '" items';

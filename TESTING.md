@@ -24,11 +24,13 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Game multi-select — check a game, items filter
 - [ ] Category multi-select — check a category, items filter
 - [ ] Type multi-select — check a type, items filter
+- [ ] Series multi-select — check "Assassin's Creed: Assassins", exactly 17 items show (14 issues + 3 volumes)
+- [ ] Series dropdown is visible with no filters set, and disappears when a category with no series is selected (e.g. Statue)
 - [ ] Owned filter — "Owned Only", "Not Owned", "Wishlist" all work
 - [ ] Sort — Default, Year asc/desc, Name A-Z/Z-A, Recently Added
-- [ ] Filters cascade: selecting a game narrows Category options, selecting a category narrows Type options
+- [ ] Filters cascade: selecting a game narrows Category options, selecting a category narrows Type options, selecting a type narrows Series options
 - [ ] Clear (x) button on each multi-select resets that filter
-- [ ] Type search box filters options as you type
+- [ ] Type and Series search boxes filter options as you type
 
 ## 4. Filter Persistence
 - [ ] Set some filters, refresh the page — filters are restored
@@ -62,12 +64,13 @@ For simple item additions or image updates, skip to the "Data" section only.
 ## 8. Item Modal
 - [ ] Title, game, year, category badge, type badge display correctly
 - [ ] Type badge hidden when type equals category
+- [ ] Series line (name + entry count) shows for comic/manga items and is absent for items without a series
 - [ ] Description and contents show
 - [ ] Gallery image loads
 - [ ] Gallery navigation (arrows, dots) works for multi-image items
 - [ ] Swipe works on mobile / touch simulation
 - [ ] Clicking image opens lightbox
-- [ ] Clicking category badge / type badge / game closes the modal and filters the grid by that value (replaces existing filters)
+- [ ] Clicking category badge / type badge / game / series closes the modal and filters the grid by that value (replaces existing filters)
 - [ ] Badges are NOT clickable in read-only modal (shared profile / leaderboard)
 - [ ] Share icon button (badges row): desktop copies `https://acdb.theprivategeek.com/s/<slug>` with toast; mobile/touch opens the native share sheet (also in read-only modal)
 

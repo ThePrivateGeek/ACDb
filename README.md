@@ -21,12 +21,13 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 - **Smart field logic** — setting condition or copies automatically marks as owned; clearing ownership resets all fields
 - **Collection sharing** — share your collection publicly with a unique profile URL and display name
 - **Collector's Leaderboard** — see how your collection stacks up against other collectors, ranked by items owned
-- **Cascading filters** — multi-select by game, category, and type. Filters cascade: selecting a game narrows categories, selecting a category narrows types. Filters persist across page reloads
+- **Cascading filters** — multi-select by game, category, type, and series. Filters cascade: selecting a game narrows categories, selecting a category narrows types, selecting a type narrows series. Filters persist across page reloads
+- **Series browsing** — comics, graphic novels, and manga carry a `series` field (e.g. *Assassin's Creed: Assassins*) that groups single issues with the trade paperbacks that collect them. The Series dropdown only appears when the current selection contains series items, and the series line in an item's card is a one-click filter to the whole run
 - **Collection Insights** — collapsible stats dashboard showing completion progress by game and category (sorted by completion %), condition breakdown, and 100% completion celebration with confetti
 - **Multi-image gallery** — swipe or click through multiple photos per item with smooth directional slide transitions and full-screen lightbox zoom
 - **Shareable item links** — each item has a unique URL. Ctrl+click or right-click to open in a new tab. Browser back button closes the modal. The share button in the item modal opens the native share sheet on mobile (copies the link on desktop); shared links unfurl with the item's own image and description in Slack/Discord/social media
 - **Game timeline** — quick-access bar spanning every AC title from AC1 to Shadows
-- **Search** — instant search across item names, games, descriptions, and contents with result count
+- **Search** — instant search across item names, games, series, descriptions, and contents with result count
 - **Export / Import** — download your collection as JSON, import it on another device
 - **Fully static** — no backend needed for core features. All collection data stays in your browser (LocalStorage)
 - **Responsive** — works on desktop, tablet, and mobile with touch swipe support

@@ -2121,7 +2121,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 1 of 3. Introduces Daniel Cross, a troubled bartender haunted by visions of his ancestor Nikolai Orelov, an Assassin in Imperial Russia. Daniel is drawn into the modern-day Brotherhood while Nikolai's mission to recover a Piece of Eden from the Tsars begins to unfold. Written by Cameron Stewart and Karl Kerschl. Published by WildStorm/DC Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: The Fall"
   },
   {
     "name": "Assassin's Creed: The Fall - Issue #2",
@@ -2130,7 +2131,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 2 of 3. Daniel Cross ascends through the Assassin Brotherhood's ranks as the Mentor takes him under his wing. In the past, Nikolai Orelov infiltrates Tsar Alexander III's train in a desperate bid to seize the Staff of Eden. Written by Cameron Stewart and Karl Kerschl. Published by WildStorm/DC Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: The Fall"
   },
   {
     "name": "Assassin's Creed: The Fall - Issue #3",
@@ -2139,7 +2141,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 3 of 3. The devastating conclusion. Daniel Cross finally meets the Mentor of the Assassin Brotherhood, leading to a shocking betrayal that changes the course of the Assassin-Templar war forever. Nikolai Orelov's story reaches its violent climax. Written by Cameron Stewart and Karl Kerschl. Published by WildStorm/DC Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: The Fall"
   },
   {
     "name": "Assassin's Creed: The Fall (Deluxe Edition)",
@@ -2148,7 +2151,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Deluxe edition collecting Assassins The Fall (2010 DC/Wildstorm) #1-3. Story and art by Cameron Stewart and Karl Kerschl with bonus content, behind-the-scenes material, and additional artwork. The Fall follows 19th century Russian assassin Nikolai Orelov as he strives to claim an artifact of immense power from the hands of the Templars, leading to a climactic and violent showdown with the ruthless Tsar Alexander III aboard a speeding train! Published by UbiWorkshop.",
     "contents": "Deluxe edition collecting The Fall series (3 issues) with bonus material",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: The Fall"
   },
   {
     "name": "Assassin's Creed: The Chain",
@@ -2157,7 +2161,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Sequel to The Fall. Continues Daniel Cross's story as he infiltrates the Brotherhood, and follows Nikolai Orelov's final mission in Russia. Published by UbiWorkshop/DC Comics.",
     "contents": "3-issue collected trade paperback",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: The Fall"
   },
   {
     "name": "Assassin's Creed: The Fall & The Chain (Collected Edition)",
@@ -2166,7 +2171,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Collected edition combining both The Fall and The Chain series in a single volume. Follows Daniel Cross and his ancestor Nikolai Orelov, a Russian Assassin in the early 20th century. Reprinted by Titan Comics.",
     "contents": "Collected trade paperback containing The Fall (3 issues) and The Chain (3 issues)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: The Fall"
   },
   {
     "name": "Assassin's Creed Vol. 1: Desmond",
@@ -2175,7 +2181,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "French bande dessinée retelling and expanding upon Desmond Miles's story from the first game. Published by Les Deux Royaumes.",
     "contents": "Hardcover graphic novel (French language)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed (Les Deux Royaumes)"
   },
   {
     "name": "Assassin's Creed Vol. 2: Aquilus",
@@ -2184,7 +2191,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "French BD introducing Aquilus, a Gallo-Roman Assassin in 3rd-century Lugdunum (Lyon). An original story. Published by Les Deux Royaumes.",
     "contents": "Hardcover graphic novel (French language)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed (Les Deux Royaumes)"
   },
   {
     "name": "Assassin's Creed Vol. 3: Accipiter",
@@ -2193,7 +2201,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "French BD following Accipiter, an Egyptian Assassin ancestor of Aquilus operating in ancient Rome. Published by Les Deux Royaumes.",
     "contents": "Hardcover graphic novel (French language)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed (Les Deux Royaumes)"
   },
   {
     "name": "Assassin's Creed Vol. 4: Hawk",
@@ -2202,7 +2211,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Fourth volume in the French BD cycle, continuing the Aquilus/Accipiter saga set in late antiquity. Published by Les Deux Royaumes.",
     "contents": "Hardcover graphic novel (French language)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed (Les Deux Royaumes)"
   },
   {
     "name": "Assassin's Creed Vol. 5: El Cakr",
@@ -2211,7 +2221,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Fifth volume in the French BD cycle, introducing new historical settings. Published by Les Deux Royaumes.",
     "contents": "Hardcover graphic novel (French language)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed (Les Deux Royaumes)"
   },
   {
     "name": "Assassin's Creed Vol. 6: Leila",
@@ -2220,7 +2231,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Final volume concluding the original French BD cycle with the character Leila. Published by Les Deux Royaumes.",
     "contents": "Hardcover graphic novel (French language)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed (Les Deux Royaumes)"
   },
   {
     "name": "Assassin's Creed: The Ankh of Isis Trilogy",
@@ -2229,7 +2241,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "The first ever English collection of the three-volume graphic novel from Ubisoft, collecting together the exhilarating story of Desmond Miles' abduction by Abstergo. His subsequent flight from their grasp leads to Desmond joining the Assassins in their fight against the Templars. Betrayal leads to Desmond recovering the memories of his ancestor Aquilus as he searches for the power of the mystical Ankh and savage Barbarian tribes, led by the deadly Assassin Accipiter, prepare to attack. Collects Vol. 1 (Desmond), Vol. 2 (Aquilus), and Vol. 3 (Accipiter). Written by Eric Corbeyran. Art by Djillali Defali. Published by Titan Books (November 2013).",
     "contents": "144-page hardcover collecting the first 3 French BD volumes in English",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed (Les Deux Royaumes)"
   },
   {
     "name": "Assassin's Creed: The Hawk Trilogy",
@@ -2238,7 +2251,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "English collection of the second French BD cycle. In HAWK, Desmond Miles entrusts fellow Assassin Jonathan Hawk with the search for the Scepter of Isis — a powerful ancient artifact, lost in time. In EL CAKR, Hawk fights through a terrible setback to unmask a traitor in the Order's ranks, whilst his ancestor El Cakr battles Templar agents for the Scepter of Aset in 13th-century Egypt. In LEILA, the seasoned Assassin El Cakr seeks to return the relic to the Brotherhood when it is stolen by a mysterious woman named Leila — leading to an ultimate showdown between Assassins and Templars centuries later. Collects Vol. 4 (Hawk), Vol. 5 (El Cakr), and Vol. 6 (Leila). Written by Eric Corbeyran. Art by Djillali Defali. Published by Titan Books (November 2016).",
     "contents": "144-page hardcover collecting the last 3 French BD volumes in English",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed (Les Deux Royaumes)"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #1",
@@ -2247,7 +2261,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 1 of 14. Trial by Fire arc begins. Charlotte de la Cruz is over-educated and underemployed, wasting her time in a dead-end San Diego job and chasing conspiracy theories online. When a real-life conspiracy crashes into her life, she is pulled into the orbit of the Assassins — and the Animus reveals a secret in her blood: the genetic memory of an ancestor who witnessed a dark act at the Salem witch trials, Tom Stoddard. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #2",
@@ -2256,7 +2271,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 2 of 14. Events in Salem turn terrifying as Assassin Tom Stoddard faces the townspeople's rising hysteria while they bay for the blood of supposed witches. Viewing his memories, Charlotte witnesses how deep the feud with the Templars goes — and how brutal the choices to be made in her new life will be. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #3",
@@ -2265,7 +2281,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 3 of 14. Desperate to escape from the horrors of Salem, Tom must place his trust in the hands of a stranger, and go against every instinct he has as an Assassin, and a man, to save the terrified travellers relying on him. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #4",
@@ -2274,7 +2291,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 4 of 14. When another visit to Tom's memories reveals a horrifying truth, it's the blow that finally transforms Charlotte from Initiate to true Assassin as she puts aside her own safety for the good of the Brotherhood. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #5",
@@ -2283,7 +2301,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 5 of 14. Conclusion of the Trial by Fire arc. Charlotte must call on all that she has learned from her ancestor Tom Stoddard to save her cell from decimation at the hands of Abstergo. In doing so, she learns more about herself — and the Brotherhood — than she expected, and is forced to decide where her loyalties lie. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #6",
@@ -2292,7 +2311,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 6 of 14. Setting Sun arc begins. A brand new historical period and a brand new character kick off the second arc, as Charlotte de la Cruz leaps into her genetic memories of the Inca empire, searching for the secret hidden in her past that could lead the Assassins into the future. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #7",
@@ -2301,7 +2321,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 7 of 14. Charlotte, Galina and Kody are on a mission: to locate the enigmatic hacker collective, Erudito. Charlotte must delve into the memories of her Inca ancestor to figure out the key to finding the elusive group, but while the Assassins hunt for the clue they need, they themselves become the hunted. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #8",
@@ -2310,7 +2331,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 8 of 14. Tensions are running high in the Assassin cell, as Charlotte's investigation is plagued by the limitations of the portable Animus. When she turns on Kody, Galina leaps to defend him. With tempers at breaking point, can the team pull themselves back together before they are torn apart for good? Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #9",
@@ -2319,7 +2341,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 9 of 14. Escaping a surprise attack, the Assassins continue the hunt for Erudito, nursing their wounds as they do. Getting back into the Animus, Charlotte finds that the stakes are just as high for her ancestor Quila, who must find the strength, one more time, to do what she knows is right. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #10",
@@ -2328,7 +2351,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 10 of 14. Conclusion of the Setting Sun arc. Cuzco is under attack from the invading Conquistadors! Quila and Don Pardo Gonzales face a bitter fight to reach the Emperor-God before the city falls. For Charlotte, the clue she's been searching for is finally revealed — but it leads to a bigger surprise than she could ever have imagined. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #11",
@@ -2337,7 +2361,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 11 of 14. Homecoming arc begins. Charlotte is reeling from her meeting with the cartel, and it's time for the Assassin cell headed by Brotherhood stalwart Galina Voronina to pull together — but will Galina be able to do it alone, or is it time for reinforcements? A brand new arc and bold new direction begins here, featuring the return of fan-favourite Giovanni Borgia. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #12",
@@ -2346,7 +2371,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 12 of 14. While Charlotte is reeling from the meeting with Erudito, it is time for the Assassin cell headed by Brotherhood stalwart Galina Voronina to pull her team together — but will she be able to do it alone, or is it time for reinforcements? Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #13",
@@ -2355,7 +2381,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 13 of 14. Tensions are running high in the Erudito camp as it becomes clear that Charlotte's memories may hold the key to the code they've been trying to piece together. But it won't be easy to decipher, as Charlotte encounters the mysterious Consus once again, in the mind of Giovanni Borgia. Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Assassins - Issue #14",
@@ -2364,7 +2391,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 14 of 14. Final issue. Charlotte's plan begins to unravel as she realises she may be completely out of her depth. It's time for her to sink or swim, but can she keep it together long enough to get what she needs from Consus — and Erudito? Written by Anthony Del Col & Conor McCreery. Art by Neil Edwards. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed Vol. 1: Trial by Fire",
@@ -2373,7 +2401,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "The first story arc of the Assassin's Creed: Assassins comic series. Introduces Charlotte de la Cruz, a modern-day Assassin recruit who relives the memories of Tom Stoddard during the Salem witch trials. Published by Titan Comics. Collects issues #1-5.",
     "contents": "Trade paperback collecting issues #1-5",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed Vol. 2: Setting Sun",
@@ -2382,7 +2411,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "The second story arc of the Assassin's Creed: Assassins comic series. Charlotte continues her Animus journeys, exploring the Inca Empire as the Templars close in. Published by Titan Comics. Collects issues #6-10.",
     "contents": "Trade paperback collecting issues #6-10",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed Vol. 3: Homecoming",
@@ -2391,7 +2421,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "The third and final story arc of the Assassin's Creed: Assassins comic series. The Brotherhood of the Assassins is in trouble. Resources depleted by their long feud with the Templar Order, faced with a world where the goalposts are constantly shifting, they can only struggle to regain their footing. A mysterious collective offers an alliance, but is this third faction a golden opportunity? Or a Faustian bargain? Published by Titan Comics. Collects issues #11-14.",
     "contents": "Trade paperback collecting issues #11-14",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Assassins"
   },
   {
     "name": "Assassin's Creed: Templars - Issue #1",
@@ -2400,7 +2431,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 1 of 9. All-new adventures from the world of Assassin's Creed. In 1927 Darius Gift arrived in Shanghai on his first assignment for the Templar Order. A minor misstep means he soon finds himself mixed up in the shadowy underworld of the International Settlement, and mixed up with the mysterious, enigmatic, Black Cross. Written by Fred Van Lente. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Templars"
   },
   {
     "name": "Assassin's Creed: Templars - Issue #2",
@@ -2409,7 +2441,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 2 of 9. In the bustling streets of Shanghai, Darius Gift has come unstuck, his head turned by a pretty girl and a stunning smile. His tenuous position as a newly initiated member of the Templar Order is under threat, until he is rescued by the mysterious figure that is Black Cross. Written by Fred Van Lente. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Templars"
   },
   {
     "name": "Assassin's Creed: Templars - Issue #3",
@@ -2418,7 +2451,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 3 of 9. In the infamous pleasure tower that dominates the Shanghai nightlife, the Great World, Black Cross battles with the triads that have pursued him through the city night. With time running out, Black Cross has to find the missing information that will reveal what is about to happen in China. Written by Fred Van Lente. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Templars"
   },
   {
     "name": "Assassin's Creed: Templars - Issue #4",
@@ -2427,7 +2461,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 4 of 9. The streets of Shanghai have erupted into utter chaos as Black Cross finally evades the henchmen of Big-Eared Du and heads to the International Settlement to establish just how mush trouble the Shanghai Rite is in, and he learns that the corruption goes deeper than he ever could have imagined. Written by Fred Van Lente. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Templars"
   },
   {
     "name": "Assassin's Creed: Templars - Issue #5",
@@ -2436,7 +2471,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 5 of 9. With the revelation that the puppet master of the corruption in the Shanghai rite is a dangerous political figure, Black Cross is forced to take matters into his own hands as the honor of the Order is at stake. But a moment of distraction could destroy everything he's worked for! Written by Fred Van Lente. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Templars"
   },
   {
     "name": "Assassin's Creed: Templars - Issue #6",
@@ -2445,7 +2481,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 6 of 9. Brand new arc! New characters! In this explosive opener to the brand new arc, the events that happened in Shanghai take on a whole new meaning as the Templars call on Juhani Otso Berg, legendary Sigma Team leader, to try and discover the truth about the mysterious last-known Black Cross. Written by Fred Van Lente. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Templars"
   },
   {
     "name": "Assassin's Creed: Templars - Issue #7",
@@ -2454,7 +2491,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 7 of 9. Under the watchful eyes of Abstergo, Dre Bolden has been viewing the memories that Otso Berg hopes hide the missing piece in the puzzle threatening to dismantle the Templars. As Dre relives the experiences of his Barbary Coast based ancestor, he realizes how much he has to learn about the people who hold his life in their hands. Written by Fred Van Lente. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Templars"
   },
   {
     "name": "Assassin's Creed: Templars - Issue #8",
@@ -2463,7 +2501,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 8 of 9. Things are not all they seem in the Abstergo facility - not for Dre, and definitely not for Otso. When Dre realises he hasn't been told the whole truth, it's time for his survival instincts to kick in... only question is: who can he trust? Written by Fred Van Lente. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Templars"
   },
   {
     "name": "Assassin's Creed: Templars - Issue #9",
@@ -2472,7 +2511,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 9 of 9. With the reality of his situation now almost preternaturally clear to Dre, there is only one possible course of action... he needs to get away from Abstergo. With no clue how to do this, he lets his instincts take over, and finds that he has hidden depths he never knew of... and skills he couldn't have imagined! . Written by Fred Van Lente. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Templars"
   },
   {
     "name": "Assassin's Creed: Templars Vol. 1 - Black Cross",
@@ -2481,7 +2521,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Assassin's Creed: Templars - Volume 1: Black Cross is a trade paperback that collects the first five issues of the comic-book series Assassin's Creed: Templars by author Fred Van Lente. Published by Titan Comics on 9 November 2016. In 1927, Darius Gift, young, handsome, terribly entitled, is given his first mission for the ancient Templar Order, and the chance to clear his tarnished family name. All doesn't quite go to plan when he arrives in Shanghai, however, and his inexperience jeopardizes the whole operation. Thankfully, he isn't the only Templar new to the city, as the enigmatic Black Cross is stalking the shadows. And saving Darius from failure! Collecting the first arc of the brand new explosive Templars series, from the world of Assassin's Creed, Fred Van Lente and Dennis Calero offer a new perspective on the century-spanning feud between the Assassin Brotherhood and the Templar Order!",
     "contents": "Trade paperback collecting issues #1-5",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Templars"
   },
   {
     "name": "Assassin's Creed: Templars Vol. 2 - Cross of War",
@@ -2490,7 +2531,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Assassin's Creed: Templars - Volume 2: Cross of War is trade paperback that collects the last four issues of the comic-book series Assassin's Creed: Templars from author and artist Dennis Calero. It was published by Titan Comics on 19 April 2017. Collects the incredible second arc of the riveting Black Cross saga! In the dungeons of Tripoli, a man will have his fortunes changed forever as he becomes an agent of honor for the legendary Templar Order!",
     "contents": "Trade paperback collecting issues #4-9",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Templars"
   },
   {
     "name": "Assassin's Creed: Last Descendants - Locus - Issue #1",
@@ -2499,7 +2541,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 1 of 4. Brand new story set in the stunning world of Assassin's Creed Syndicate. Dive into the sordid underworld of Victorian London, and the memories of New Yorker Tommy Greyling, as he teams up with Evie Frye and Henry Green to search for a Piece of Eden that has the potential to change the world. Tie-in to the Last Descendants young adult novel series by Matthew J. Kirby. Written by Ian Edginton. Art by Caspar Wijngaard. Published by Titan Comics (September 2016).",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Last Descendants - Locus"
   },
   {
     "name": "Assassin's Creed: Last Descendants - Locus - Issue #2",
@@ -2508,7 +2551,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 2 of 4. Pinkerton agent Tommy Greyling continues his hunt through the underworld of Victorian London, pursuing a murderer with the aid of Inspector Abberline and members of the Assassin Brotherhood. Written by Ian Edginton. Art by Caspar Wijngaard. Published by Titan Comics (October 2016).",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Last Descendants - Locus"
   },
   {
     "name": "Assassin's Creed: Last Descendants - Locus - Issue #3",
@@ -2517,7 +2561,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 3 of 4. The streets of Victorian London grow darker as Tommy Greyling investigates a murder with implications far deeper than anyone anticipated, working alongside the Assassins to unravel the conspiracy. Written by Ian Edginton. Art by Caspar Wijngaard. Published by Titan Comics (December 2016).",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Last Descendants - Locus"
   },
   {
     "name": "Assassin's Creed: Last Descendants - Locus - Issue #4",
@@ -2526,7 +2571,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 4 of 4. Final issue. Pinkerton agent Tommy Greyling's hunt across Victorian London reaches a heady climax as the true identity of his target is revealed and a climactic confrontation unfolds. Written by Ian Edginton. Art by Caspar Wijngaard. Published by Titan Comics (January 2017).",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Last Descendants - Locus"
   },
   {
     "name": "Assassin's Creed: Last Descendants - Locus",
@@ -2535,7 +2581,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Collected edition of the 4-issue limited series. A return to the Victorian London of Assassin's Creed Syndicate and a tie-in to the Last Descendants young adult novel series by Matthew J. Kirby. Pinkerton agent Tommy Greyling teams up with Evie Frye and Henry Green to hunt a murderer — and a Piece of Eden that could change the world — while in the present day, teenager Sean relives Tommy's memories through the Animus. Written by Ian Edginton. Art by Caspar Wijngaard. Published by Titan Comics.",
     "contents": "Trade paperback collecting 4 issues",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Last Descendants - Locus"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #1",
@@ -2544,7 +2591,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 1 of 12. With the Phoenix Project nearing its completion, tensions are running high for both the Brotherhood and the Templar Order. A new world order is on the horizon and only Charlotte and her new allies have the knowledge and skill to save humanity from subjugation. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #2",
@@ -2553,7 +2601,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 2 of 12. The infamous Black Cross shows up to investigate recent happenings at the Project Phoenix labs causing unease amongst the Templar Order. Meanwhile, Charlotte begins to question her allegiances. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #3",
@@ -2562,7 +2611,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 3 of 12. While Charlotte encounters an unusual experience within the jury-rigged Animus, Arend and Kyoshi head to Abstergo HQ in search of answers... but find an ambush waiting for them! Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #4",
@@ -2571,7 +2621,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 4 of 12. End of Arc 1. Discovering a link dating back to the Spanish Civil War, Charlotte de la Cruz entered the Animus in the hopes of learning more about the mysterious enemies that have the Assassin Brotherhood on high alert, but now finds herself trapped in the limbo-like Memory Corridor. Worse of all, it seems an ally is not all they appear to be. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #5",
@@ -2580,7 +2631,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 5 of 12. While Charlotte tries to get traitor Guernica to spill the beans, My'Shell comes back to the Assassin HQ with a badly beaten Berg. That's senior Templar Master Otso Berg. The Assassins, especially Galina, are shall we say less than keen to see him. A very wary temporary truce of sorts is called, and both sides discuss what they know of the new group. Essentially both groups are now compromised, with Juno followers in place within both Assassins and Templars, and only one or two of them known at this point. A reluctant alliance is formed to find and secure the Koh-i-Noor jewel, a Piece of Eden Juno is after. So, off to the Animus again for Charlotte. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #6",
@@ -2589,7 +2641,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 6 of 12. Forced into an uneasy alliance with Master Templar Otso Berg, our Assassins now look to the past for answers. Hoping to discover the location of the Koh-I-Noor, a devastating Isu weapon that could turn the tide in the upcoming battle, Charlotte de la Cruz has entered the memories of her ancestor, the Spanish anarchist Assassin Ignacio Cardona. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #7",
@@ -2598,7 +2651,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 7 of 12. Through the memories of her ancestor Ignacio Cardona, Charlotte discovered the true location of the Koh-I-Noor before quickly succumbing to its power. Now it's Otso Berg's turn to take his own Animus trip — into the memories of Albert Bolden, the enigmatic former Black Cross. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #8",
@@ -2607,7 +2661,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 8 of 12. The final installment of the second story arc. The Phoenix Project saga continues as Charlotte's team, allied with Otso Berg, closes in on the Koh-i-Noor in Spain. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #9",
@@ -2616,7 +2671,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 9 of 12. The race for the Koh-I-Noor continues as Charlotte and her Assassin cell head to Spain in order to thwart the Isu deity Juno's rise to power! The Phoenix Project saga reaches its heady climax in this final arc of Assassin's Creed Uprising! Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #10",
@@ -2625,7 +2681,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 10 of 12. With a powerful artifact in their possession, the Instruments of the First Will step up their game — taking the fight directly to the Assassins! The Phoenix Project saga reaches its heady climax in this final arc of Assassin's Creed Uprising! Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #11",
@@ -2634,7 +2691,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 11 of 12. With Juno's new form nearing completion, our Assassins make a final all-out assault on the Phoenix Project labs. But are they already too late? The Phoenix Project saga reaches its heady climax in this final arc of Assassin's Creed Uprising! Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising - Issue #12",
@@ -2643,7 +2701,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 12 of 12. Time has run out for our modern-day Assassins! With a new world order on the horizon, Charlotte and her cell are faced with the biggest threat the Brotherhood has ever encountered as they race to halt the impending resurrection of the Isu deity Juno, her fanatical acolytes, and their plans for global domination! The final chapter of Assassin's Creed Uprising. Written by Dan Watters & Alex Paknadel. Art by Jose Holder. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising Vol. 1 - Common Ground",
@@ -2652,7 +2711,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "A game-changing new chapter in the ongoing Assassin's Creed saga! With the Phoenix Project nearing its completion, tensions are running high for both the Brotherhood and the Templar Order. A new world order is on the horizon and only Charlotte and her new allies have the knowledge and skill to save humanity from subjugation! A new world order is on the horizon and only Charlotte and her new allies have the knowledge and skill to save humanity from subjugation! Published by Titan Comics. Collects issues #1-4.",
     "contents": "Trade paperback collecting issues #1-4",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising Vol. 2 - Inflection Point",
@@ -2661,7 +2721,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "The Phoenix project saga begins to unravel in this second thrilling chapter of Assassin's Creed Uprising! Our modern day Assassins take the fight to the heart of the Spanish Civil War in order to secure a valuable artifact that could change the course of history. But when a brand new enemy rears its ugly head, both the Brotherhood and Templar Order are forced to form a shaky alliance. Published by Titan Comics. Collects issues #5-8.",
     "contents": "Trade paperback collecting issues #5-8",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Uprising Vol. 3 - Finale",
@@ -2670,7 +2731,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "The final chapter of Assassin's Creed: Uprising concludes the Phoenix Project Saga in epic fashion - the end of a ten-year storyline straight from the video games! Time has run out for our modern-day assassins! While fan-favorite characters Juno, Otso Berg and Black Cross face the advent of a new world order, Charlotte and her cell confront the biggest threat the brotherhood has ever encountered... and not all of them will survive!. Collects issues #9-12.",
     "contents": "Trade paperback collecting issues #9-12",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Uprising"
   },
   {
     "name": "Assassin's Creed: Reflections - Issue #1",
@@ -2679,7 +2741,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 1 of 4. Featuring Ezio Auditore. Templar agent Otso Berg's Animus research leads him to 15th Century Florence, and the memories of the legendary figure Ezio Auditore da Firenze. In a final meeting with his good friend Leonardo da Vinci, the Assassin shares a treasured moment from his past involving one of the Italian artist's most famous subjects. Written by Ian Edginton. Art by Valeria Favoccia. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Reflections"
   },
   {
     "name": "Assassin's Creed: Reflections - Issue #2",
@@ -2688,7 +2751,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 2 of 4. Featuring Altaïr Ibn-La'Ahad. Master Templar Juhani Otso Berg, now operating as the Black Cross to root out treachery from within the Order, uses Abstergo's Animus to search the past exploits of the Assassin Brotherhood. His search leads him to the Ibn-La'Ahad dynasty and the dusty plains of Western China during the rise of the Mongol Empire. Written by Ian Edginton. Art by Valeria Favoccia. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Reflections"
   },
   {
     "name": "Assassin's Creed: Reflections - Issue #3",
@@ -2697,7 +2761,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 3 of 4. Featuring Edward Kenway. Join everyone's favourite pirate Assassin Edward Kenway and his trusty quartermaster Adéwalé as the two come to blows with the notorious pirate captain Ned Low on their final swashbuckling skirmish together. Written by Ian Edginton. Art by Valeria Favoccia. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Reflections"
   },
   {
     "name": "Assassin's Creed: Reflections - Issue #4",
@@ -2706,7 +2771,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 4 of 4. Final issue. Featuring Ratonhnhaké:ton (Connor). Gaining new insight from the escapades of Ezio Auditore, Darim Ibn-La'Ahad, and Edward Kenway, Black Cross Otso Berg's search now leads him to colonial America and to the later life of Ratonhnhaké:ton, whose legendary skills and cunning helped shape the American Revolution. Written by Ian Edginton. Art by Valeria Favoccia. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Reflections"
   },
   {
     "name": "Assassin's Creed: Reflections",
@@ -2715,7 +2781,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Anthology series featuring short stories about fan-favourite protagonists: Ezio, Edward Kenway, Connor, and Altair. Each issue focuses on a different character. Published by Titan Comics.",
     "contents": "Trade paperback collecting 4 issues",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Reflections"
   },
   {
     "name": "Assassin's Creed: Origins - Issue #1",
@@ -2724,7 +2791,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 1 of 4. Go back to where it all began, in this brand-new series spinning out of the smash-hit Assassin's Creed game. Witness the birth of the Creed, from the mother of all Assassins. Written by Anthony Del Col & Anne Toole. Art by PJ Kaiowa. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Origins (Comic)"
   },
   {
     "name": "Assassin's Creed: Origins - Issue #2",
@@ -2733,7 +2801,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 2 of 4. Direct tie-in to the videogame Assassin's Creed Origins. Witness the very beginning of the Assassin's Creed, as Bayek and Aya continue their campaign against the Order of the Ancients in Ptolemaic Egypt. Written by Anthony Del Col & Anne Toole. Art by PJ Kaiowa. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Origins (Comic)"
   },
   {
     "name": "Assassin's Creed: Origins - Issue #3",
@@ -2742,7 +2811,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 3 of 4. Direct tie-in to the videogame Assassin's Creed Origins. Witness the very beginning of the Assassin's Creed. Now a prisoner of Caesar's ally Mark Antony, Aya prepares for what may be her final judgment. Written by Anthony Del Col & Anne Toole. Art by PJ Kaiowa. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Origins (Comic)"
   },
   {
     "name": "Assassin's Creed: Origins - Issue #4",
@@ -2751,7 +2821,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 4 of 4. Final issue. Direct tie-in to the smash-hit videogame Assassin's Creed: Origins. Witness the very beginning of the Assassin's Creed! The shocking climax to the birth of the Creed, as the first assassin faces her nemesis in a conflict that will have consequences for millennia to come. Written by Anthony Del Col & Anne Toole. Art by PJ Kaiowa. Published by Titan Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Origins (Comic)"
   },
   {
     "name": "Assassin's Creed: Origins (Comic)",
@@ -2760,7 +2831,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Bear witness to the inception of the Assassin Brotherhood in a brand new comic series spinning out of Ubisoft's Assassin's Creed Origins! Ancient Egypt, a land of majesty and intrigue, is disappearing in a ruthless fight for power. Unveil dark secrets and forgotten myths as we journey to the very beginnings of the Assassin Brotherhood and beyond. Written by Anthony Del Col & Anne Toole. Art by PJ Kaiowa. Published by Titan Comics (October 2018).",
     "contents": "112-page trade paperback collecting all 4 issues",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Origins (Comic)"
   },
   {
     "name": "Assassin's Creed: Conspiracies, Vol. 1 - Die Glocke",
@@ -2769,7 +2841,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 1 of 2 (French bande dessinée). Eddie Gorm is the boss of the docks, and his only obsession is running his small operation — diverting military rations, trafficking alcohol, and settling scores in London's East End. The war? The Nazis? That's someone else's problem. But when death knocks at his door, he has no choice: he becomes the only man who can save the world from atomic horror. Written by Guillaume Dorison. Art by Jean-Baptiste Hostache. Published in French by Les Deux Royaumes (October 2016).",
     "contents": "48-page hardcover bande dessinée (French language)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Conspiracies"
   },
   {
     "name": "Assassin's Creed: Conspiracies, Vol. 2 - Le Projet Rainbow",
@@ -2778,7 +2851,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 2 of 2 (French bande dessinée). In April 1939, Nazi Germany launches a race against the Allies to build the first nuclear bomb. Colonel Boris Pash of the Assassin Brotherhood discovers the Nazi mission is merely a decoy — Hitler is seeking a far superior weapon: Die Glocke. Pash sends English Assassin Eddie Gorm to neutralize its advancement. From Templar plans to Tesla's quantum teleportation, Eddie uncovers a secret war far beyond his reality playing out in 1943. Written by Guillaume Dorison. Art by Patrick Pion. Published in French by Les Deux Royaumes (December 2017).",
     "contents": "46-page hardcover bande dessinée (French language)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Conspiracies"
   },
   {
     "name": "Assassin's Creed: Conspiracies",
@@ -2787,7 +2861,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "A new era — a new adventure — a new Assassin! Europe, World War II. On the sidelines of the race for the atomic bomb, discover the story of Eddie Gorm and his integration into the Assassin Brotherhood while he infiltrates the Templars to foil their plan to create a devastating weapon. English collected edition combining both French volumes (Die Glocke and Le Projet Rainbow). Written by Guillaume Dorison. Art by Jean-Baptiste Hostache and Patrick Pion. Published by Titan Comics (December 2018).",
     "contents": "104-page paperback collecting both French volumes in English translation",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Conspiracies"
   },
   {
     "name": "Assassin's Creed: Bloodstone, Vol. 1",
@@ -2796,7 +2871,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 1 of 2. The world of Assassin's Creed visits a new era in the Vietnam War! Tomo, one of the youngest members of the Japanese Assassin cell, has uncovered a conspiracy. More of a man of science than a man of action, Tomo investigates further, leading him to follow the footsteps of Assassins that operated during the Vietnam War. But what secrets will he uncover? Written by Guillaume Dorison. Art by Ennio Bufi. Originally published in French by Les Deux Royaumes (March 2019); English edition by Titan Comics (February 2020).",
     "contents": "48-page hardcover graphic novel",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Bloodstone"
   },
   {
     "name": "Assassin's Creed: Bloodstone, Vol. 2",
@@ -2805,7 +2881,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 2 of 2. The second volume of the epic Assassin's Creed adventure set in the Vietnam War. Tomo, one of the youngest members of the Japanese Assassin cell, has uncovered a conspiracy. In this thrilling sequel, what secrets will Tomo uncover in his ancestor's memories? What horrific experiments took place secretly during the Vietnam War? Written by Guillaume Dorison. Art by Ennio Bufi. Originally published in French by Les Deux Royaumes (October 2019); English edition by Titan Comics (January 2021).",
     "contents": "48-page hardcover graphic novel",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Bloodstone"
   },
   {
     "name": "Assassin's Creed: Bloodstone Collection",
@@ -2814,7 +2891,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "The secret struggle between Assassins and Templars hits the Vietnam War in a special, complete edition of this exciting graphic novel. Collects both volumes of the Bloodstone series in a single hardcover. Written by Guillaume Dorison. Art by Ennio Bufi. Published by Titan Comics (January 2022).",
     "contents": "96-page hardcover collecting both Bloodstone volumes",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Bloodstone"
   },
   {
     "name": "Assassin's Creed Valhalla: Song of Glory - Issue #1",
@@ -2823,7 +2901,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 1 of 3. Blades clash in this prequel to Ubisoft's Assassin's Creed Valhalla. Norway. Mid-9th century CE. Eivor, a Viking warrior, observes a village raided by a neighboring kingdom. Bloodshed and mayhem erupt as she seizes the attack in her own favor — but will her victory be a blessing to her clan or a terrible curse? Elsewhere, another Viking searches for a different kind of prize, one of crucible steel. Written by Cavan Scott. Art by Martín Túnica. Published by Dark Horse Comics (October 2020).",
     "contents": "Single issue comic book (32 pages)",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed Valhalla: Song of Glory"
   },
   {
     "name": "Assassin's Creed Valhalla: Song of Glory - Issue #2",
@@ -2832,7 +2911,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 2 of 3. Eivor's prisoner makes her an offer she can't refuse, leading her to the merciless mountains in search of a mysterious treasure. But she's not alone in this hunt — danger lurks at every turn. Meanwhile, her brother tests out his new sword in a surprise attack. Written by Cavan Scott. Art by Martín Túnica. Published by Dark Horse Comics (November 2020).",
     "contents": "Single issue comic book (32 pages)",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed Valhalla: Song of Glory"
   },
   {
     "name": "Assassin's Creed Valhalla: Song of Glory - Issue #3",
@@ -2841,7 +2921,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 3 of 3. Final issue. As the rival Vikings retaliate, the King of Stavanger and his people are vulnerable with both of their champions seeking glory elsewhere. Eivor's prize is within her reach, but will she choose the power it could bring or does her destiny lie with her kingdom? And back at the merchant's castle, Sigurd faces off with the Assassin for a more personal treasure. Written by Cavan Scott. Art by Martín Túnica. Published by Dark Horse Comics (December 2020).",
     "contents": "Single issue comic book (32 pages)",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed Valhalla: Song of Glory"
   },
   {
     "name": "Assassin's Creed Valhalla: Song of Glory",
@@ -2850,7 +2931,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Fearless Vikings confront their destiny in this glory-seeking prequel to Ubisoft's Assassin's Creed Valhalla. Norway. Mid-9th Century CE. Eivor, a Viking warrior, observes a village raided by a neighboring kingdom. Bloodshed and mayhem erupt as she seizes the attack in her own favor — but will her victory be a blessing or a curse? Elsewhere in the east, another Viking searches for a different kind of prize, one of crucible steel. Written by Cavan Scott. Art by Martín Túnica. Published by Dark Horse Comics (April 2021).",
     "contents": "72-page hardcover collecting all 3 issues",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed Valhalla: Song of Glory"
   },
   {
     "name": "Assassin's Creed Valhalla: Blood Brothers",
@@ -2868,7 +2950,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Ties into the mythological realm segments of Valhalla. Follows Baldr in Asgard as he confronts a threat to the Norse gods. Published by Dark Horse Comics. 3-issue limited series.",
     "contents": "Trade paperback collecting 3 issues",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed Valhalla: Forgotten Myths"
   },
   {
     "name": "Assassin's Creed Valhalla: Forgotten Myths - Issue #1",
@@ -2877,7 +2960,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 1 of 3. A prequel tied to the Dawn of Ragnarök expansion. Thor, Baldr, and Heimdall discover a fire giant from Muspelheim threatening Asgard's borders. In the aftermath of the battle, Baldr learns that the Muspels are now massing at the gates of Svartalfheim and sets out on a journey to broker lasting peace among the realms. Written by Alexander M. Freed. Art by Martín Túnica, colors by Michael Atiyeh. Published by Dark Horse Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed Valhalla: Forgotten Myths"
   },
   {
     "name": "Assassin's Creed Valhalla: Forgotten Myths - Issue #2",
@@ -2886,7 +2970,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 2 of 3. Baldr and Loki brave immense peril to seek out rare items as gifts for the Muspel princess Eysa, hoping Baldr can win her heart and restore peace among the nine realms as the fire giants of Muspelheim continue to threaten war. Written by Alexander M. Freed. Art by Martín Túnica, colors by Michael Atiyeh. Published by Dark Horse Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed Valhalla: Forgotten Myths"
   },
   {
     "name": "Assassin's Creed Valhalla: Forgotten Myths - Issue #3",
@@ -2895,7 +2980,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 3 of 3. The explosive conclusion of the miniseries. Baldr commands the dwarves defending Svartalfheim against the fire giants massing at their gates, while a nighttime visit from a forbidden love complicates everything. Written by Alexander M. Freed. Art by Martín Túnica, colors by Michael Atiyeh. Published by Dark Horse Comics.",
     "contents": "Single issue comic book",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed Valhalla: Forgotten Myths"
   },
   {
     "name": "Assassin's Creed: Dynasty, Vol. 1",
@@ -2904,7 +2990,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 1 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
     "contents": "Paperback manhua",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Dynasty"
   },
   {
     "name": "Assassin's Creed: Dynasty, Vol. 2",
@@ -2913,7 +3000,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 2 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
     "contents": "Paperback manhua",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Dynasty"
   },
   {
     "name": "Assassin's Creed: Dynasty, Vol. 3",
@@ -2922,7 +3010,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 3 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
     "contents": "Paperback manhua",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Dynasty"
   },
   {
     "name": "Assassin's Creed: Dynasty, Vol. 4",
@@ -2931,7 +3020,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 4 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
     "contents": "Paperback manhua",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Dynasty"
   },
   {
     "name": "Assassin's Creed: Dynasty, Vol. 5",
@@ -2940,7 +3030,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 5 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
     "contents": "Paperback manhua",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Dynasty"
   },
   {
     "name": "Assassin's Creed: Dynasty, Vol. 6",
@@ -2949,7 +3040,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 6 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
     "contents": "Paperback manhua",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Dynasty"
   },
   {
     "name": "Assassin's Creed Dynasty (Box Set)",
@@ -2958,7 +3050,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan.",
     "contents": "Volumes 1-5 of the Assassin's Creed: Dynasty series collected in a box set",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Dynasty"
   },
   {
     "name": "Assassin's Creed: Blade of Shao Jun, Vol. 1",
@@ -2967,7 +3060,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 1 of 4. Set in 1526 AD during China's Ming Empire. Shao Jun, China's last Assassin, returns to her homeland after escaping to Europe. She seeks vengeance and to restore balance following the decimation of her fellow Assassins during the emperor's political purge. Story and art by Minoji Kurata. Published by VIZ Media.",
     "contents": "Paperback manga (160 pages)",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Blade of Shao Jun"
   },
   {
     "name": "Assassin's Creed: Blade of Shao Jun, Vol. 2",
@@ -2976,7 +3070,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 2 of 4. Shao Jun, the last Assassin in China, continues her mission of vengeance. As she systematically eliminates her enemies, the full scope of the Templar Order's conspiracy for the Great Ming Empire gradually comes to light. Story and art by Minoji Kurata. Published by VIZ Media.",
     "contents": "Paperback manga (160 pages)",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Blade of Shao Jun"
   },
   {
     "name": "Assassin's Creed: Blade of Shao Jun, Vol. 3",
@@ -2985,7 +3080,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 3 of 4. The tension escalates as enemies threaten the lives of Shao Jun's loved ones, forcing her to pursue and eliminate Lord Wei Bin — a confrontation that proves a true challenge for China's last Assassin. Story and art by Minoji Kurata. Published by VIZ Media.",
     "contents": "Paperback manga (160 pages)",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Blade of Shao Jun"
   },
   {
     "name": "Assassin's Creed: Blade of Shao Jun, Vol. 4",
@@ -2994,7 +3090,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 4 of 4. The final volume. Shao Jun's enemies have been defeated, her primary target lies ahead, and her closest companion is within reach. Trained by the greatest of the Assassins, she must draw upon all her combat skills to complete this final mission. Story and art by Minoji Kurata. Published by VIZ Media.",
     "contents": "Paperback manga (160 pages)",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Blade of Shao Jun"
   },
   {
     "name": "Assassin's Creed: Awakening, Vol. 1",
@@ -3003,7 +3100,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 1 of 2. Manga adaptation of Assassin's Creed IV: Black Flag. The title stars Edward Kenway in the 18th century and Yanao Seijin in the present as Seijin relives Edward's memories under the eye of Abstergo Industries. In 1715, pirates established a lawless republic in the Caribbean and ruled the land and seas. These outlaws paralyzed navies, halted international trade, and plundered vast fortunes. Into this world sails a young, cocky, and fearsome captain named Edward Kenway. Written by Takashi Yano. Art by Kenji Oiwa. Originally serialized in Shueisha's Jump X in 2013; English edition published by Titan Comics (August 2017).",
     "contents": "Paperback manga (224 pages)",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Awakening"
   },
   {
     "name": "Assassin's Creed: Awakening, Vol. 2",
@@ -3012,7 +3110,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 2 of 2. Final volume. The second half of the Assassin's Creed IV: Black Flag manga adaptation serialized in Shueisha's Jump X. Edward Kenway broke the law of the Assassins Brotherhood, but is offered a chance at redemption. Written by Takashi Yano. Art by Kenji Oiwa. English edition published by Titan Comics (October 2017).",
     "contents": "Paperback manga (192 pages)",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed: Awakening"
   },
   {
     "name": "Assassin's Creed: Visionaries - Issue #1",
@@ -3021,7 +3120,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 1 of 3. An anthology of two self-contained, non-canon stories. In the first tale, Rafael Albuquerque is joined by writer Ale Santos and colourist Marcelo Maiolo to tell a story set during the 1970s Brazilian Dictatorship, where a Revolutionary Fighter is captured and sent to a military basement, also known as Torture Rooms. In the second tale, European writer/artist Stéphane Louis and colourist Véra Daviet weave a tale set in a future where the Templars are on the verge, yet again, of eliminating the Assassin Brotherhood once and for all. Published by Massive Publishing (November 2023).",
     "contents": "Single issue comic book (32 pages, contains 2 short stories)",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Visionaries"
   },
   {
     "name": "Assassin's Creed: Visionaries - Issue #2",
@@ -3030,7 +3130,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 2 of 3. Cover-titled 'Visionaries Presents: Shinobi & Uncivil War.' In the first tale SHINOBI, writer Bray Dornback and artist Ryan Benjamin bring us to the Shogunate age of Feudal Japan — the target is a rival clan member and the kill has to be perfect; failure means certain death and instant dishonor. A true Shinobi must protect his clan, even at the cost of his own life, pride, and honor. Then in UNCIVIL WAR, writer Chuck Austen and artist Patrick Olliffe take us to the American Civil War, where a newly liberated slave, William Jones, uncovers a plot to assassinate leaders of the Union, including the President. Published by Massive Publishing (March 2024).",
     "contents": "Single issue comic book (32 pages, contains 2 short stories)",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Visionaries"
   },
   {
     "name": "Assassin's Creed: Visionaries - Issue #3",
@@ -3039,7 +3140,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Issue 3 of 3. Cover-titled 'Visionaries: Powder Decima.' In the first tale DECIMA, one bloody night, before recorded time, a young warrior watches as her family and the rest of their village are brutally slaughtered. The only hope of saving her tribe is to pick up an axe, steel her nerves, and join the fray — a tale of loss, respect, and valour, stepping into the far reaches of human history, further than previously ventured in the Assassin's Creed universe. Written by Ed Brisson, art by Chris Johnson. Then in POWDER, the Templars expand their influence around the globe while flooding China with opium during the Opium Wars, and a pair of Assassins from separate guilds sow chaos amid the Templar fleet. Written by Fred Kennedy, art by Nick Marinkovich. Published by Massive Publishing (October 2024).",
     "contents": "Single issue comic book (32 pages, contains 2 short stories)",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Visionaries"
   },
   {
     "name": "Assassin's Creed: Visionaries",
@@ -3048,7 +3150,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Anthology trade paperback collecting all 3 issues of the Visionaries series — six self-contained, non-canon short stories spanning prehistory, Feudal Japan, the 1970s Brazilian Dictatorship, the American Civil War, the Opium Wars, and a Templar-dominated future. Each tale is told by a different creative team. Published by Massive Publishing in partnership with Studio Lounak, licensed from Ubisoft.",
     "contents": "Trade paperback collecting issues #1-3",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Visionaries"
   },
   {
     "name": "Assassin's Creed Mirage: A Soar of Eagles",
@@ -4137,7 +4240,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Caught in a secret war between the Templar Order and the Assassin Brotherhood, feudal Japan becomes a battleground for Assassins and shinobi alike!\n\nThrough its devious machinations, the Templar Order has increased its influence all over Japan, but hope has come to Iga. An Assassin and his young apprentice have come to the birthplace of ninjutsu seeking aid from legendary shinobi like Hattori Hanzo and Momochi Sandayu in their fight for justice.\n\nThere is one way to stem the tide of the Templars: one must live in the darkness but serve the light. Assassin’s Creed Shadows: Tales of Iga is the story of the ninja who protect Japan.",
     "contents": "192 pages manga",
-    "type": "Manga"
+    "type": "Manga",
+    "series": "Assassin's Creed Shadows: Tales of Iga"
   },
     {
     "name": "Assassin's Creed: Valhalla (webcomic)",
@@ -5622,7 +5726,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 1. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Noa Kim is kidnapped by Abstergo in Macau and forced to explore the memories of one of his ancestors through their Animus program. That ancestor turns out to be Edward Kenway, the legendary pirate and Assassin! Held under Abstergo's thumb, Kim finds himself thrust into an adventure that spans Southeast Asia as Kenway searches for vaults from the First Civilization. Collects episodes 1-7 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (November 2025).",
     "contents": "Paperback graphic novel (224 pages)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Forgotten Temple"
   },
   {
     "name": "Assassin's Creed: Forgotten Temple, Vol. 2",
@@ -5631,7 +5736,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 2. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Abstergo Industries' plans to scavenge Edward Kenway's memories for details of the Lost City are in full swing, and kidnapped college student Noa Kim is... cooperating with their scheme? As Noa relives Kenway's memories, he follows the Assassin through an adventure across Southeast Asia, battling ninjas, warriors, and the Templar Order at every turn. Newly allied with the self-interested Madam Lee, Noa will soon discover that Kenway is in for the fight of his life! Collects episodes 8-14 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (February 2026).",
     "contents": "Paperback graphic novel (224 pages)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Forgotten Temple"
   },
   {
     "name": "Assassin's Creed: Forgotten Temple, Vol. 3",
@@ -5640,7 +5746,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 3. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Conflict is a constant in Kenway's life, but he's never navigated one like this before! Madam Lee has proved a formidable ally, but nothing can last forever in a world as fraught with deception and violence as this one. Plus, Noa Kim's search bleeds into his real life, and he discovers some interesting changes in himself! Collects episodes 15-21 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (May 2026).",
     "contents": "Paperback graphic novel (200 pages)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Forgotten Temple"
   },
   {
     "name": "Assassin's Creed: Forgotten Temple, Vol. 4",
@@ -5649,6 +5756,7 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Volume 4. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Exploring Kenway's memories is having a strange effect on Kim. He's suddenly capable of things he could never do before, like fearlessly leaping off a roof and landing on both feet, or fighting three men all alone and coming out unscathed. Could his ancestor's memories be changing Kim for the worse? Collects episodes 22-28 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (August 2026).",
     "contents": "Paperback graphic novel (184 pages)",
-    "type": "Graphic Novel"
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Forgotten Temple"
   },
 ];
