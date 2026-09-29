@@ -25,6 +25,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Category multi-select — check a category, items filter
 - [ ] Type multi-select — check a type, items filter
 - [ ] Series multi-select — check "Assassin's Creed: Assassins", exactly 17 items show (14 issues + 3 volumes)
+- [ ] Series can span types — "Assassin's Creed: Last Descendants" shows 3 novels + 5 Locus comics (8 items)
 - [ ] Series dropdown is visible with no filters set, and disappears when a category with no series is selected (e.g. Statue)
 - [ ] Owned filter — "Owned Only", "Not Owned", "Wishlist" all work
 - [ ] Sort — Default, Year asc/desc, Name A-Z/Z-A, Recently Added
