@@ -3174,9 +3174,9 @@ const AC_DATABASE = [
   {
     "name": "Assassin's Creed Mirage: A Soar of Eagles",
     "game": "Assassin's Creed Mirage",
-    "year": 2023,
+    "year": 2025,
     "category": "Comic Book",
-    "description": "Graphic novel set in the world of AC Mirage, expanding on the story of Basim and the Hidden Ones in 9th-century Baghdad.",
+    "description": "Graphic novel set in the world of AC Mirage. Years before the events of Assassin's Creed Mirage, a young Fuladh must return to his homeland to investigate political unrest that could point to a secret Order of the Ancients' stronghold. But in uncovering what's behind the chaos and violence in Adulis, Fuladh and Roshan discover a brutal cult oppressing the local peoples, and set out to defeat it.",
     "contents": "Standalone graphic novel",
     "type": "Graphic Novel"
   },
