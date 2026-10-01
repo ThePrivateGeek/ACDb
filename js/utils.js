@@ -41,6 +41,46 @@
             .replace(/^-|-$/g, '');
     }
 
+    // ---- "Read" links ----
+    // Most entries' `read` field is a book path inside one Internet Archive
+    // collection, stored unencoded exactly as the archive names the file
+    // (e.g. "07. AC Templars/AC Templars 2016 (3)"). A value starting with
+    // http(s):// is a complete link to some other source and is used as-is.
+    const ARCHIVE_ITEM_URL = 'https://archive.org/details/assassins-creed-graphic-novels-and-comics-anthology/';
+
+    function encodeArchivePath(path) {
+        // encodeURIComponent leaves ( ) unescaped, but archive.org shows an
+        // empty item page instead of the book unless they're %28 / %29.
+        return path.split('/')
+            .map(seg => encodeURIComponent(seg).replace(/\(/g, '%28').replace(/\)/g, '%29'))
+            .join('/');
+    }
+
+    function readUrl(read) {
+        if (!read) return null;
+        if (/^https?:\/\//i.test(read)) return read;
+        return ARCHIVE_ITEM_URL + encodeArchivePath(read) + '/mode/2up';
+    }
+
+    // Inverse of readUrl, for the dev tool: turns a reader URL copied from
+    // the address bar back into a book path. Other input is returned trimmed.
+    // While reading, the address grows a page and view mode
+    // (".../page/n4/mode/2up"), so both are dropped along with any query.
+    function readPathFromUrl(input) {
+        const value = input.trim();
+        if (!value.startsWith(ARCHIVE_ITEM_URL)) return value;
+        const path = value.slice(ARCHIVE_ITEM_URL.length)
+            .replace(/[?#].*$/, '')
+            .replace(/\/mode\/[^/]*$/, '')
+            .replace(/\/page\/[^/]*$/, '')
+            .replace(/\/$/, '');
+        try {
+            return decodeURIComponent(path);
+        } catch (e) {
+            return path;
+        }
+    }
+
     function showToast(message) {
         let toast = document.getElementById('acdb-toast');
         if (!toast) {
@@ -94,5 +134,7 @@
     A.showToast = showToast;
     A.showCelebration = showCelebration;
     A.launchConfetti = launchConfetti;
+    A.readUrl = readUrl;
+    A.readPathFromUrl = readPathFromUrl;
 
 })();

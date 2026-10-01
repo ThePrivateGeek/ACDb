@@ -124,6 +124,7 @@ window.ACDB = window.ACDB || {};
         modalSeriesRow: document.getElementById('modalSeriesRow'),
         modalSeries: document.getElementById('modalSeries'),
         modalSeriesCount: document.getElementById('modalSeriesCount'),
+        modalReadLink: document.getElementById('modalReadLink'),
         modalOwned: document.getElementById('modalOwned'),
         modalWishlist: document.getElementById('modalWishlist'),
         modalHasBox: document.getElementById('modalHasBox'),
@@ -1243,8 +1244,8 @@ window.ACDB = window.ACDB || {};
         });
 
         // Dev Tool — live code generation on any input change
-        const devFields = ['devName', 'devGame', 'devYear', 'devCategory', 'devType',
-            'devDescription', 'devContents', 'devImagePath', 'devNewGameName', 'devNewGameShort'];
+        const devFields = ['devName', 'devGame', 'devYear', 'devCategory', 'devType', 'devSeries',
+            'devDescription', 'devContents', 'devRead', 'devImagePath', 'devNewGameName', 'devNewGameShort'];
         devFields.forEach(id => {
             const el = document.getElementById(id);
             if (el) el.addEventListener('input', generateCode);

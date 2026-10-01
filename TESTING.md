@@ -67,6 +67,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Type badge hidden when type equals category
 - [ ] Series line (name + entry count) shows for comic/manga items and is absent for items without a series
 - [ ] Description and contents show
+- [ ] "Read on Internet Archive" button shows under Contents for linked comics (e.g. "Assassin's Creed Vol. 1: Desmond"), opens the book in a new tab, and is absent for items without a `read` URL (e.g. any statue). Also shows in the read-only modal
 - [ ] Gallery image loads
 - [ ] Gallery navigation (arrows, dots) works for multi-image items
 - [ ] Swipe works on mobile / touch simulation
@@ -129,6 +130,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Type dropdown populates with all types
 - [ ] "New" game toggle shows/hides game input fields
 - [ ] Code preview updates live as you type
+- [ ] Read Link field adds a `"read"` line after `"series"`. Pasting an archive.org reader URL from the anthology emits the plain book path, e.g. `07. AC Templars/AC Templars 2016 (3)`
 - [ ] New game generates app.js code entries
 - [ ] "Copy Code" copies to clipboard with toast
 - [ ] Escape closes the dev tool
@@ -146,6 +148,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] No duplicate item names: `grep '"name":' js/database.js | sort | uniq -d` (should be empty)
 - [ ] All image mappings match item names: run the check script in README or manually verify
 - [ ] Collection data keyed by item name (not numeric ID)
+- [ ] Read links still open a book: archive.org returns 200 even for a missing book, so open a few (especially ones with parentheses in the path) and check the reader shows a cover, not an empty item page
 
 ---
 

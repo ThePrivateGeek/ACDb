@@ -1748,6 +1748,47 @@ body {
     line-height: 1.6;
 }
 
+/* "Read on Internet Archive" — only shown for items with a `read` URL
+   (comics, graphic novels, manga that have a free scan on archive.org). */
+.modal-read-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.55rem 1rem;
+    background: rgba(201, 168, 76, 0.08);
+    border: 1px solid var(--accent-dark);
+    border-radius: 8px;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.modal-read-link[hidden] {
+    display: none;
+}
+
+.modal-read-link svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.modal-read-link .modal-read-external {
+    width: 12px;
+    height: 12px;
+    opacity: 0.7;
+}
+
+.modal-read-link:hover,
+.modal-read-link:focus-visible {
+    background: rgba(201, 168, 76, 0.2);
+    border-color: var(--accent);
+    color: var(--accent-glow);
+}
+
 .modal-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border-light), transparent);

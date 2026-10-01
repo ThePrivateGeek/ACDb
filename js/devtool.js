@@ -64,6 +64,7 @@
         document.getElementById('devSeries').value = '';
         document.getElementById('devDescription').value = '';
         document.getElementById('devContents').value = '';
+        document.getElementById('devRead').value = '';
         document.getElementById('devImagePath').value = '';
         document.getElementById('devNewGame').checked = false;
         document.getElementById('devNewGameFields').style.display = 'none';
@@ -93,6 +94,9 @@
         const series = document.getElementById('devSeries').value.trim();
         const description = document.getElementById('devDescription').value.trim();
         const contents = document.getElementById('devContents').value.trim();
+        // Accepts a book path or a reader URL pasted from archive.org; either
+        // way the entry stores the plain path (see readUrl in utils.js).
+        const read = A.readPathFromUrl(document.getElementById('devRead').value);
         const imagePath = document.getElementById('devImagePath').value.trim();
 
         let code = '';
@@ -108,6 +112,7 @@
         code += `    "contents": ${JSON.stringify(contents)},\n`;
         code += `    "type": ${JSON.stringify(type || category || 'Type')}`;
         if (series) code += `,\n    "series": ${JSON.stringify(series)}`;
+        if (read) code += `,\n    "read": ${JSON.stringify(read)}`;
         code += '\n  },';
 
         // images.js entry

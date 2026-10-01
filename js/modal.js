@@ -39,6 +39,14 @@
             dom.modalSeriesCount.textContent = `${total} ${total === 1 ? 'entry' : 'entries'}`;
         }
 
+        // Free scan on the Internet Archive, when one exists for this publication
+        // (or another edition/translation of the same story). Shown in read-only
+        // mode too — it's not a collection control.
+        const readUrl = A.readUrl(item.read);
+        dom.modalReadLink.hidden = !readUrl;
+        if (readUrl) dom.modalReadLink.href = readUrl;
+        else dom.modalReadLink.removeAttribute('href');
+
         // Category/type/game/series act as filter shortcuts, except in
         // read-only mode where the browse grid is hidden behind the profile view.
         [dom.modalBadge, dom.modalBadgeType, dom.modalGame, dom.modalSeries].forEach(el => {
