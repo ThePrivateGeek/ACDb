@@ -125,6 +125,7 @@ window.ACDB = window.ACDB || {};
         modalSeries: document.getElementById('modalSeries'),
         modalSeriesCount: document.getElementById('modalSeriesCount'),
         modalReadLink: document.getElementById('modalReadLink'),
+        modalReadLabel: document.getElementById('modalReadLabel'),
         modalOwned: document.getElementById('modalOwned'),
         modalWishlist: document.getElementById('modalWishlist'),
         modalHasBox: document.getElementById('modalHasBox'),

@@ -3155,7 +3155,8 @@ const AC_DATABASE = [
     "contents": "Paperback manga (160 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Blade of Shao Jun",
-    "read": "16/AC Blade of Shao Jun 01 2019"
+    "read": "16/AC Blade of Shao Jun 01 2019",
+    "readLang": "fr"
   },
   {
     "name": "Assassin's Creed: Blade of Shao Jun, Vol. 2",
@@ -3166,7 +3167,8 @@ const AC_DATABASE = [
     "contents": "Paperback manga (160 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Blade of Shao Jun",
-    "read": "16/AC Blade of Shao Jun 02 2020"
+    "read": "16/AC Blade of Shao Jun 02 2020",
+    "readLang": "fr"
   },
   {
     "name": "Assassin's Creed: Blade of Shao Jun, Vol. 3",
@@ -3177,7 +3179,8 @@ const AC_DATABASE = [
     "contents": "Paperback manga (160 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Blade of Shao Jun",
-    "read": "16/AC Blade of Shao Jun 03 2021"
+    "read": "16/AC Blade of Shao Jun 03 2021",
+    "readLang": "fr"
   },
   {
     "name": "Assassin's Creed: Blade of Shao Jun, Vol. 4",
@@ -3188,7 +3191,8 @@ const AC_DATABASE = [
     "contents": "Paperback manga (160 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Blade of Shao Jun",
-    "read": "16/AC Blade of Shao Jun 04 2022"
+    "read": "16/AC Blade of Shao Jun 04 2022",
+    "readLang": "fr"
   },
   {
     "name": "Assassin's Creed: Awakening, Vol. 1",

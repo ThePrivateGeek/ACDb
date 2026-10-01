@@ -46,6 +46,10 @@
         dom.modalReadLink.hidden = !readUrl;
         if (readUrl) dom.modalReadLink.href = readUrl;
         else dom.modalReadLink.removeAttribute('href');
+        // `readLang` flags a scan in another language than the entry itself
+        // (e.g. "fr" for the French Blade of Shao Jun scans).
+        dom.modalReadLabel.textContent = 'Read on Internet Archive' +
+            (item.readLang ? ` (${item.readLang.charAt(0).toUpperCase()}${item.readLang.slice(1)})` : '');
 
         // Category/type/game/series act as filter shortcuts, except in
         // read-only mode where the browse grid is hidden behind the profile view.
