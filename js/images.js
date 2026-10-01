@@ -759,6 +759,12 @@ const AC_IMAGES = {
     "Assassin's Creed: Blade of Shao Jun, Vol. 2": ["images/comics/ac-blade-shao-jun-vol2.webp"],
     "Assassin's Creed: Blade of Shao Jun, Vol. 3": ["images/comics/ac-blade-shao-jun-vol3.webp"],
     "Assassin's Creed: Blade of Shao Jun, Vol. 4": ["images/comics/ac-blade-shao-jun-vol4.webp"],
+    "Assassin's Creed: Awakening - Issue #1": ["images/comics/ac-awakening-issue-1.webp"],
+    "Assassin's Creed: Awakening - Issue #2": ["images/comics/ac-awakening-issue-2.webp"],
+    "Assassin's Creed: Awakening - Issue #3": ["images/comics/ac-awakening-issue-3.webp"],
+    "Assassin's Creed: Awakening - Issue #4": ["images/comics/ac-awakening-issue-4.webp"],
+    "Assassin's Creed: Awakening - Issue #5": ["images/comics/ac-awakening-issue-5.webp"],
+    "Assassin's Creed: Awakening - Issue #6": ["images/comics/ac-awakening-issue-6.webp"],
     "Assassin's Creed: Awakening, Vol. 1": [
         "images/comics/ac-awakening-vol1.webp",
         "images/comics/ac-awakening-vol1_01.webp",
@@ -859,6 +865,9 @@ const AC_IMAGES = {
     "Assassin's Creed: Visionaries - Issue #2": ["images/comics/ac-visionaries-issue-2.webp"],
     "Assassin's Creed: Visionaries - Issue #3": ["images/comics/ac-visionaries-issue-3.webp"],
     "Assassin's Creed: Visionaries": ["images/comics/ac-visionaries.webp"],
+    "Assassin's Creed Mirage: A Soar of Eagles - Issue #1": ["images/comics/ac-soar-of-eagles-issue-1.webp"],
+    "Assassin's Creed Mirage: A Soar of Eagles - Issue #2": ["images/comics/ac-soar-of-eagles-issue-2.webp"],
+    "Assassin's Creed Mirage: A Soar of Eagles - Issue #3": ["images/comics/ac-soar-of-eagles-issue-3.webp"],
     "Assassin's Creed Mirage: A Soar of Eagles": ["images/comics/ac-soar-of-eagles.webp"],
     "Assassin's Creed Valhalla: The Hidden Codex": [
         "images/comics/ac-valhalla-hidden-codex.webp",

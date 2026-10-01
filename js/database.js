@@ -3256,8 +3256,9 @@ const AC_DATABASE = [
     "year": 2025,
     "category": "Comic Book",
     "description": "Graphic novel set in the world of AC Mirage. Years before the events of Assassin's Creed Mirage, a young Fuladh must return to his homeland to investigate political unrest that could point to a secret Order of the Ancients' stronghold. But in uncovering what's behind the chaos and violence in Adulis, Fuladh and Roshan discover a brutal cult oppressing the local peoples, and set out to defeat it.",
-    "contents": "Standalone graphic novel",
-    "type": "Graphic Novel"
+    "contents": "72-page hardcover collecting all 3 issues",
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed Mirage: A Soar of Eagles"
   },
   {
     "name": "Assassin's Creed: Brahman",
@@ -5940,5 +5941,104 @@ const AC_DATABASE = [
     "contents": "Paperback graphic novel (184 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Forgotten Temple"
+  },
+  {
+    "name": "Assassin's Creed: Awakening - Issue #1",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 1 of 6. English single-issue release of the Assassin's Creed IV: Black Flag manga. Jump back into the world of Edward Kenway in this manga adaptation: return to the Golden Age of Pirates once more and relive the adventures of the brilliant young captain, while in the present day a young man named Masato experiences Edward's memories through Abstergo's Animus. Original story by Ubisoft, script by Takashi Yano, art by Kenji Oiwa, lettering by Amoona Saohin. Originally serialized in Japanese by Shueisha; black-and-white interior presented in its original right-to-left reading format. Cover A by Kenji Oiwa, with variant covers by Kenji Oiwa (B), Sonia Leong (C), Kate Brown (D), and Nana Lee & John Aggs (E), plus a blank sketch cover (F). Published by Titan Comics (November 2016).",
+    "contents": "Single issue manga (48 pages)",
+    "type": "Manga",
+    "series": "Assassin's Creed: Awakening",
+    "read": "09. AC - Awakening/AC Awakening 2016 (1)"
+  },
+  {
+    "name": "Assassin's Creed: Awakening - Issue #2",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2016,
+    "category": "Comic Book",
+    "description": "Issue 2 of 6. With his mother in a coma and her life in the Templars' hands, Masato keeps reliving Edward Kenway's life as an 18th-century pirate turned unwilling Assassin, hoping to find the answers he seeks. But this next voyage could kill them both. Original story by Ubisoft, script by Takashi Yano, art by Kenji Oiwa, lettering by Amoona Saohin. Originally serialized in Japanese by Shueisha; black-and-white interior presented in its original right-to-left reading format. Cover A by Kenji Oiwa, with variant covers by Kate Brown (B) and John Aggs (C). Published by Titan Comics (December 2016).",
+    "contents": "Single issue manga (32 pages)",
+    "type": "Manga",
+    "series": "Assassin's Creed: Awakening",
+    "read": "09. AC - Awakening/AC Awakening 2016 (2)"
+  },
+  {
+    "name": "Assassin's Creed: Awakening - Issue #3",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 3 of 6. The third chapter of the Assassin's Creed IV: Black Flag manga, published in English for the first time. Edward Kenway meets a new enemy. Original story by Ubisoft, script by Takashi Yano, art by Kenji Oiwa, lettering by Amoona Saohin. Originally serialized in Japanese by Shueisha; black-and-white interior presented in its original right-to-left reading format. Cover A by Kenji Oiwa, with variant covers by Andie Tong (B) and Yifeng Jiang (C). Published by Titan Comics (January 2017).",
+    "contents": "Single issue manga (36 pages)",
+    "type": "Manga",
+    "series": "Assassin's Creed: Awakening",
+    "read": "09. AC - Awakening/AC Awakening 2016 (3)"
+  },
+  {
+    "name": "Assassin's Creed: Awakening - Issue #4",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 4 of 6. Edward Kenway starts a new mission but faces trouble immediately, as a mysterious group of Assassins attacks! Plus, some old faces return, and the Animus suffers a glitch in the present day. Original story by Ubisoft, script by Takashi Yano, art by Kenji Oiwa, lettering by Amoona Saohin. Originally serialized in Japanese by Shueisha; black-and-white interior presented in its original right-to-left reading format. Cover A by Kenji Oiwa, with variant covers by Andie Tong (B) and Amrit Birdi (C). Published by Titan Comics (February 2017).",
+    "contents": "Single issue manga (40 pages)",
+    "type": "Manga",
+    "series": "Assassin's Creed: Awakening",
+    "read": "09. AC - Awakening/AC Awakening 2016 (4)"
+  },
+  {
+    "name": "Assassin's Creed: Awakening - Issue #5",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 5 of 6. After a vicious battle with a group of Assassins, Edward Kenway tries to get some downtime and bumps into some old sparring buddies. One of them takes Edward on a dangerous mission into the jungle, where he meets a deadly new foe. Meanwhile, the present day brings dangers of its own. Original story by Ubisoft, script by Takashi Yano, art by Kenji Oiwa, lettering by Amoona Saohin. Originally serialized in Japanese by Shueisha; black-and-white interior presented in its original right-to-left reading format. Cover A by Kenji Oiwa, with variant covers by Roy Allan Martinez (B) and Amrit Birdi (C). Published by Titan Comics (March 2017).",
+    "contents": "Single issue manga (40 pages)",
+    "type": "Manga",
+    "series": "Assassin's Creed: Awakening",
+    "read": "09. AC - Awakening/AC Awakening 2016 (5)"
+  },
+  {
+    "name": "Assassin's Creed: Awakening - Issue #6",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2017,
+    "category": "Comic Book",
+    "description": "Issue 6 of 6. Final issue. Edward must survive the attack of Ah Tabai, who claims to be the Mentor of the Assassin Brotherhood, while Masato, who suffered the same wound in the present day, learns Abstergo's secrets: the video game test was an act, he is a long-lost descendant of Edward Kenway, and he must return to his ancestor's memories to save his mother. Original story by Ubisoft, script by Takashi Yano, art by Kenji Oiwa, lettering by Amoona Saohin. Originally serialized in Japanese by Shueisha; black-and-white interior presented in its original right-to-left reading format. Cover A by Doubleleaf, with variant covers by Sonia Leong (B) and Mauro Mandalari (C). Published by Titan Comics (April 2017).",
+    "contents": "Single issue manga (40 pages)",
+    "type": "Manga",
+    "series": "Assassin's Creed: Awakening",
+    "read": "09. AC - Awakening/AC Awakening 2016 (6)"
+  },
+  {
+    "name": "Assassin's Creed Mirage: A Soar of Eagles - Issue #1",
+    "game": "Assassin's Creed Mirage",
+    "year": 2025,
+    "category": "Comic Book",
+    "description": "Issue 1 of 3. Years before the events of Assassin's Creed Mirage, a young Fuladh must return to his homeland to investigate political unrest that could point to a secret Order of the Ancients' stronghold. But in order to discover what's behind the chaos and violence in Adulis, Fuladh and Roshan will have to confront a more immediate danger. Script by Michael Avon Oeming, art by Mirko Colak, colors by Lauren Affe, letters by Mirko Colak, cover by Julie Dillon. Published by Dark Horse Comics (March 2025).",
+    "contents": "Single issue comic book (32 pages)",
+    "type": "Comic Book",
+    "series": "Assassin's Creed Mirage: A Soar of Eagles",
+    "read": "19/AC Mirage - A Soar of Eagles 001 2025"
+  },
+  {
+    "name": "Assassin's Creed Mirage: A Soar of Eagles - Issue #2",
+    "game": "Assassin's Creed Mirage",
+    "year": 2025,
+    "category": "Comic Book",
+    "description": "Issue 2 of 3. Fuladh and Roshan have returned to Fuladh's homeland to find it under the thumb of a cruel warlord. To save his community and escape with their lives, Fuladh and his allies will confront an enemy who will put their strength and skill to the ultimate test. Script by Michael Avon Oeming, art by Mirko Colak, colors by Lauren Affe, letters by Comicraft's Jimmy Betancourt, cover by Julie Dillon. Published by Dark Horse Comics (May 2025).",
+    "contents": "Single issue comic book (32 pages)",
+    "type": "Comic Book",
+    "series": "Assassin's Creed Mirage: A Soar of Eagles",
+    "read": "19/AC Mirage - A Soar of Eagles 002 2025"
+  },
+  {
+    "name": "Assassin's Creed Mirage: A Soar of Eagles - Issue #3",
+    "game": "Assassin's Creed Mirage",
+    "year": 2025,
+    "category": "Comic Book",
+    "description": "Issue 3 of 3. Final issue. Fuladh, Roshan, and their unlikely allies are put to the ultimate test to save Fuladh's homeland from the grip of a tyrant! Physical strength alone won't be enough when going head-to-head with a powerful man driven mad by delusions, so Fuladh and his allies will have to bring something more to the fight. Script by Michael Avon Oeming, art by Mirko Colak, colors by Lauren Affe, letters by Comicraft's Jimmy Betancourt, cover by Julie Dillon. Published by Dark Horse Comics (June 2025).",
+    "contents": "Single issue comic book (32 pages)",
+    "type": "Comic Book",
+    "series": "Assassin's Creed Mirage: A Soar of Eagles",
+    "read": "19/AC Mirage - A Soar of Eagles 003 2025 (Son of Ultron-Empire)"
   },
 ];
