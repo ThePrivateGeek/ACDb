@@ -794,11 +794,26 @@ const AC_IMAGES = {
         "images/comics/ac-the-fall-and-the-chain.webp",
         "images/comics/ac-the-fall-and-the-chain_01.webp",
     ],
-    "Assassin's Creed Vol. 1: Desmond": ["images/comics/ac-vol1-desmond.webp"],
-    "Assassin's Creed Vol. 2: Aquilus": ["images/comics/ac-vol2-aquilus.webp"],
-    "Assassin's Creed Vol. 3: Accipiter": ["images/comics/ac-vol3-accipiter.webp"],
-    "Assassin's Creed Vol. 4: Hawk": ["images/comics/ac-vol4-hawk.webp"],
-    "Assassin's Creed Vol. 5: El Cakr": ["images/comics/ac-vol5-el-cakr.webp"],
+    "Assassin's Creed Vol. 1: Desmond": [
+        "images/comics/ac-vol1-desmond.webp",
+        "images/comics/ac-vol1-desmond_01.webp",
+    ],
+    "Assassin's Creed Vol. 2: Aquilus": [
+        "images/comics/ac-vol2-aquilus.webp",
+        "images/comics/ac-vol2-aquilus_01.webp",
+    ],
+    "Assassin's Creed Vol. 3: Accipiter": [
+        "images/comics/ac-vol3-accipiter.webp",
+        "images/comics/ac-vol3-accipiter_01.webp",
+    ],
+    "Assassin's Creed Vol. 4: Hawk": [
+        "images/comics/ac-vol4-hawk.webp",
+        "images/comics/ac-vol4-hawk_01.webp",
+    ],
+    "Assassin's Creed Vol. 5: El Cakr": [
+        "images/comics/ac-vol5-el-cakr.webp",
+        "images/comics/ac-vol5-el-cakr_01.webp",
+    ],
     "Assassin's Creed Vol. 6: Leila": ["images/comics/ac-vol6-leila.webp"],
     "Assassin's Creed: The Ankh of Isis Trilogy": ["images/comics/ac-ankh-of-isis-trilogy.webp"],
     "Assassin's Creed: The Hawk Trilogy": ["images/comics/ac-hawk-trilogy.webp"],

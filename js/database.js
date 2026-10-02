@@ -2200,10 +2200,10 @@ const AC_DATABASE = [
   {
     "name": "Assassin's Creed Vol. 1: Desmond",
     "game": "Assassin's Creed",
-    "year": 2009,
+    "year": 2012,
     "category": "Comic Book",
-    "description": "French bande dessinée retelling and expanding upon Desmond Miles's story from the first game. Published by Les Deux Royaumes.",
-    "contents": "Hardcover graphic novel (French language)",
+    "description": "Volume 1 of 6. The first volume of the French comic trilogy from Ubisoft tells the story of Desmond Miles' abduction by Abstergo and their plans to rip the blood-steeped memories of Desmond's ancestors from his genetic code. Add to the mix the mysterious and violently terrified Subject 16 and a desperate flight from Abstergo, and this makes for a fast-paced and thrilling addition to the game's universe. Written by Eric Corbeyran and drawn by Djillali Defali. Published in English by Titan Books (October 2012); originally published in French by Les Deux Royaumes (November 2009).",
+    "contents": "Hardcover graphic novel (48 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol1 - Desmond 2009"
@@ -2211,10 +2211,10 @@ const AC_DATABASE = [
   {
     "name": "Assassin's Creed Vol. 2: Aquilus",
     "game": "General",
-    "year": 2010,
+    "year": 2012,
     "category": "Comic Book",
-    "description": "French BD introducing Aquilus, a Gallo-Roman Assassin in 3rd-century Lugdunum (Lyon). An original story. Published by Les Deux Royaumes.",
-    "contents": "Hardcover graphic novel (French language)",
+    "description": "Volume 2 of 6. The second in the trilogy. Aquilus unveils the terrible demands put upon Desmond as he plunges into his Ancient Roman ancestor's life of bloody murder. Written by Eric Corbeyran and drawn by Djillali Defali. Published in English by Titan Books (October 2012); originally published in French by Les Deux Royaumes (November 2010).",
+    "contents": "Hardcover graphic novel (48 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol2 - Aquilus 2010"
@@ -2222,10 +2222,10 @@ const AC_DATABASE = [
   {
     "name": "Assassin's Creed Vol. 3: Accipiter",
     "game": "General",
-    "year": 2011,
+    "year": 2012,
     "category": "Comic Book",
-    "description": "French BD following Accipiter, an Egyptian Assassin ancestor of Aquilus operating in ancient Rome. Published by Les Deux Royaumes.",
-    "contents": "Hardcover graphic novel (French language)",
+    "description": "Volume 3 of 6. The third in a trilogy of lavishly illustrated graphic novels set in the Assassin's Creed universe. Plunging into his genetic memory, Desmond acquires new skills. In the Animus he sees Aquilus seeking revenge for his father's murder, a thirst for revenge that will lead him to Rome and the quest for the stolen Ankh. Meanwhile, a horde of Barbarians led by the Assassin Accipiter attacks Lugdunum on their way to Italy. Written by Eric Corbeyran and drawn by Djillali Defali. Published in English by Titan Books (October 2012); originally published in French by Les Deux Royaumes (November 2011).",
+    "contents": "Hardcover graphic novel (48 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol3 - Accipiter 2012"
@@ -2233,10 +2233,10 @@ const AC_DATABASE = [
   {
     "name": "Assassin's Creed Vol. 4: Hawk",
     "game": "General",
-    "year": 2012,
+    "year": 2013,
     "category": "Comic Book",
-    "description": "Fourth volume in the French BD cycle, continuing the Aquilus/Accipiter saga set in late antiquity. Published by Les Deux Royaumes.",
-    "contents": "Hardcover graphic novel (French language)",
+    "description": "Volume 4 of 6. When Desmond Miles is called away on an urgent mission, he entrusts fellow Assassin Jonathan Hawk with File 24. Hawk sets out to search for the Scepter of Isis, a powerful ancient artifact lost in time. Through his Assassin ancestor, El Cakr, Hawk travels to Egypt in 1257, where the Scepter lies in the hands of the new Sultan. Pursued in the present by the formidable Templar agent Vernon Hest, Hawk finds himself in a race against time. The first album of the second cycle, featuring an all-new Assassin in an all-new era. Written by Eric Corbeyran and drawn by Djillali Defali. Published in English by Titan Books (November 2013); originally published in French by Les Deux Royaumes (November 2012).",
+    "contents": "Hardcover graphic novel (48 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "read": "01. AC Cycle 1/2 The Hawk Trilogy/AC vol4 - Hawk 2013"
@@ -2244,10 +2244,10 @@ const AC_DATABASE = [
   {
     "name": "Assassin's Creed Vol. 5: El Cakr",
     "game": "General",
-    "year": 2013,
+    "year": 2014,
     "category": "Comic Book",
-    "description": "Fifth volume in the French BD cycle, introducing new historical settings. Published by Les Deux Royaumes.",
-    "contents": "Hardcover graphic novel (French language)",
+    "description": "Volume 5 of 6. Continues the story of elite Assassin Jonathan Hawk, a brother-in-arms of Desmond Miles. In the present day, Hawk fights through a terrible setback to unmask a traitor in the Order's ranks, while his ancestor El Cakr battles Templar agents to gain possession of the powerful Scepter of Aset in 13th-century Egypt. As paths intertwine and hidden agendas are revealed, both Hawk and El Cakr take dangerous steps that lead them ever closer toward their destinies. Written by Eric Corbeyran and drawn by Djillali Defali. Published in English by Titan Books (November 2014); originally published in French by Les Deux Royaumes (October 2013).",
+    "contents": "Hardcover graphic novel (48 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "read": "01. AC Cycle 1/2 The Hawk Trilogy/AC vol5 - El Cakr 2013)"
@@ -2255,13 +2255,14 @@ const AC_DATABASE = [
   {
     "name": "Assassin's Creed Vol. 6: Leila",
     "game": "General",
-    "year": 2014,
+    "year": 2015,
     "category": "Comic Book",
-    "description": "Final volume concluding the original French BD cycle with the character Leila. Published by Les Deux Royaumes.",
-    "contents": "Hardcover graphic novel (French language)",
+    "description": "Volume 6 of 6. In medieval Egypt, the seasoned Assassin El Cakr seeks to return the mysterious Scepter of Aset to the Brotherhood, when it is stolen by a mysterious woman named Leila. Seven centuries later, El Cakr's descendant Jonathan Hawk desperately tries to get his hands on the relic, leading to an ultimate showdown between the Assassins and the Templars. The grand finale of Assassin's Creed's Egyptian saga. Written by Eric Corbeyran and drawn by Djillali Defali. Published in English by Titan Books (November 2015); originally published in French by Les Deux Royaumes (October 2014).",
+    "contents": "Hardcover graphic novel (48 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
-    "read": "01. AC Cycle 1/2 The Hawk Trilogy/AC vol6 - Leila 2014"
+    "read": "01. AC Cycle 1/2 The Hawk Trilogy/AC vol6 - Leila 2014",
+    "readLang": "fr"
   },
   {
     "name": "Assassin's Creed: The Ankh of Isis Trilogy",
@@ -2914,22 +2915,22 @@ const AC_DATABASE = [
   {
     "name": "Assassin's Creed: Conspiracies, Vol. 1 - Die Glocke",
     "game": "General",
-    "year": 2016,
+    "year": 2018,
     "category": "Comic Book",
-    "description": "Volume 1 of 2 (French bande dessinée). Eddie Gorm is the boss of the docks, and his only obsession is running his small operation — diverting military rations, trafficking alcohol, and settling scores in London's East End. The war? The Nazis? That's someone else's problem. But when death knocks at his door, he has no choice: he becomes the only man who can save the world from atomic horror. Written by Guillaume Dorison. Art by Jean-Baptiste Hostache. Published in French by Les Deux Royaumes (October 2016).",
-    "contents": "48-page hardcover bande dessinée (French language)",
-    "type": "Graphic Novel",
+    "description": "Issue 1 of 2, \"Chapter 1: Die Glocke.\" Eddie Gorm is the boss of the docks, and his only obsession is running his small operation — diverting military rations, trafficking alcohol, and settling scores in London's East End. The war? The Nazis? That's someone else's problem. But when death knocks at his door, he has no choice: he becomes the only man who can save the world from atomic horror. Written by Guillaume Dorison. Art by Jean-Baptiste Hostache. English translation by Jessica Burton. Published by Titan Comics (August 2018); originally published in French by Les Deux Royaumes (October 2016).",
+    "contents": "Single issue comic book",
+    "type": "Comic Book",
     "series": "Assassin's Creed: Conspiracies",
     "read": "13. AC - Conspiracies Cycle 2/AC Conspiracies 2018 (1)"
   },
   {
     "name": "Assassin's Creed: Conspiracies, Vol. 2 - Le Projet Rainbow",
     "game": "General",
-    "year": 2017,
+    "year": 2018,
     "category": "Comic Book",
-    "description": "Volume 2 of 2 (French bande dessinée). In April 1939, Nazi Germany launches a race against the Allies to build the first nuclear bomb. Colonel Boris Pash of the Assassin Brotherhood discovers the Nazi mission is merely a decoy — Hitler is seeking a far superior weapon: Die Glocke. Pash sends English Assassin Eddie Gorm to neutralize its advancement. From Templar plans to Tesla's quantum teleportation, Eddie uncovers a secret war far beyond his reality playing out in 1943. Written by Guillaume Dorison. Art by Patrick Pion. Published in French by Les Deux Royaumes (December 2017).",
-    "contents": "46-page hardcover bande dessinée (French language)",
-    "type": "Graphic Novel",
+    "description": "Issue 2 of 2, \"Chapter 2: Project Rainbow.\" In April 1939, Nazi Germany launches a race against the Allies to build the first nuclear bomb. Colonel Boris Pash of the Assassin Brotherhood discovers the Nazi mission is merely a decoy — Hitler is seeking a far superior weapon: Die Glocke. Pash sends English Assassin Eddie Gorm to neutralize its advancement. From Templar plans to Tesla's quantum teleportation, Eddie uncovers a secret war far beyond his reality playing out in 1943. Written by Guillaume Dorison. Art by Patrick Pion. English translation by Jessica Burton. Published by Titan Comics (September 2018); originally published in French by Les Deux Royaumes (December 2017).",
+    "contents": "Single issue comic book",
+    "type": "Comic Book",
     "series": "Assassin's Creed: Conspiracies",
     "read": "13. AC - Conspiracies Cycle 2/AC Conspiracies 2018 (2)"
   },
