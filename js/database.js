@@ -3129,10 +3129,10 @@ const AC_DATABASE = [
   {
     "name": "Assassin's Creed: Dynasty, Vol. 6",
     "game": "General",
-    "year": 2024,
+    "year": 2023,
     "category": "Comic Book",
-    "description": "Volume 6 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis.",
-    "contents": "Paperback manhua",
+    "description": "Volume 6 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis. This volume was published only in French, by Mana Books (April 2023); Tokyopop's English edition ended at Vol. 5.",
+    "contents": "Paperback manhua (French language, Mana Books)",
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty"
   },
