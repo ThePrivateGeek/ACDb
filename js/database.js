@@ -2190,7 +2190,7 @@ const AC_DATABASE = [
   {
     "name": "Assassin's Creed: The Fall & The Chain (Collected Edition)",
     "game": "Assassin's Creed Chronicles: Russia",
-    "year": 2014,
+    "year": 2019,
     "category": "Comic Book",
     "description": "Collected edition combining both The Fall and The Chain series in a single volume. Follows Daniel Cross and his ancestor Nikolai Orelov, a Russian Assassin in the early 20th century. Reprinted by Titan Comics.",
     "contents": "Collected trade paperback containing The Fall (3 issues) and The Chain (3 issues)",
@@ -2582,7 +2582,7 @@ const AC_DATABASE = [
     "year": 2017,
     "category": "Comic Book",
     "description": "Assassin's Creed: Templars - Volume 2: Cross of War is trade paperback that collects the last four issues of the comic-book series Assassin's Creed: Templars from author and artist Dennis Calero. It was published by Titan Comics on 19 April 2017. Collects the incredible second arc of the riveting Black Cross saga! In the dungeons of Tripoli, a man will have his fortunes changed forever as he becomes an agent of honor for the legendary Templar Order!",
-    "contents": "Trade paperback collecting issues #4-9",
+    "contents": "Trade paperback collecting issues #6-9",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars"
   },
