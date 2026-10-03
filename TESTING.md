@@ -146,9 +146,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 
 ## 16. Data Integrity
 - [ ] Total item count in footer matches database
-- [ ] No duplicate item names: `grep '"name":' js/database.js | sort | uniq -d` (should be empty)
-- [ ] All image mappings match item names: run the check script in README or manually verify
-- [ ] Every entry has a unique numeric `id` and none is duplicated (the browser console logs an error otherwise)
+- [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, and share pages
 - [ ] Collection data keyed by item id under `acdb_collection_v2`; a name-keyed `acdb_collection` from before ids is migrated once on load (unmatched keys are dropped) and kept as a backup until 2027-01-03, after which it is removed from browsers that have `acdb_collection_v2`
 - [ ] Export includes `id` and `name`; Import accepts both new exports (by id) and old ones (by name)
 - [ ] Shared profiles upload item ids; profiles uploaded before ids (item names) still display
@@ -158,6 +156,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 
 ## Quick Test (for item additions only)
 - [ ] Page loads without errors
+- [ ] `python3 tools/validate-catalog.py` reports OK
 - [ ] New item appears in grid
 - [ ] New item's image displays
 - [ ] Filters show updated counts
