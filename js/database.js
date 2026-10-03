@@ -1,5 +1,6 @@
 const AC_DATABASE = [
   {
+    "id": 1,
     "name": "Assassin's Creed Limited Edition",
     "game": "Assassin's Creed",
     "year": 2007,
@@ -9,6 +10,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 2,
     "name": "Assassin's Creed Limited Edition Statue",
     "game": "Assassin's Creed",
     "year": 2007,
@@ -18,6 +20,7 @@ const AC_DATABASE = [
     "type": "Statue"
   },
   {
+    "id": 3,
     "name": "Assassin's Creed Pre-Order Art Book",
     "game": "Assassin's Creed",
     "year": 2007,
@@ -27,6 +30,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 4,
     "name": "Assassin's Creed II Black Edition",
     "game": "Assassin's Creed II",
     "year": 2009,
@@ -36,6 +40,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 5,
     "name": "Assassin's Creed II White Edition",
     "game": "Assassin's Creed II",
     "year": 2009,
@@ -45,6 +50,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 6,
     "name": "Assassin's Creed II Master Assassin's Edition",
     "game": "Assassin's Creed II",
     "year": 2009,
@@ -54,6 +60,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 7,
     "name": "Assassin's Creed Brotherhood Collector's Edition (Russian Exclusive)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2011,
@@ -63,6 +70,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 8,
     "name": "Assassin's Creed Brotherhood Collector's Edition (Doctor Variant)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2010,
@@ -72,6 +80,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 9,
     "name": "Assassin's Creed Brotherhood Codex Edition",
     "game": "Assassin's Creed Brotherhood",
     "year": 2010,
@@ -81,6 +90,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 10,
     "name": "Assassin's Creed Revelations Collector's Edition",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
@@ -90,6 +100,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 11,
     "name": "Assassin's Creed Revelations Animus Edition",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
@@ -99,6 +110,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 12,
     "name": "Assassin's Creed Revelations Templar Collector Edition",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
@@ -108,6 +120,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 13,
     "name": "Assassin's Creed Revelations Signature Edition",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
@@ -117,6 +130,7 @@ const AC_DATABASE = [
     "type": "Special Edition"
   },
   {
+    "id": 14,
     "name": "Assassin's Creed III Freedom Edition",
     "game": "Assassin's Creed III",
     "year": 2012,
@@ -126,6 +140,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 15,
     "name": "Assassin's Creed III Join or Die Edition",
     "game": "Assassin's Creed III",
     "year": 2012,
@@ -135,6 +150,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 16,
     "name": "Assassin's Creed III Limited Edition",
     "game": "Assassin's Creed III",
     "year": 2012,
@@ -144,6 +160,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 17,
     "name": "Assassin's Creed IV: Black Flag Black Chest Edition",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -153,6 +170,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 18,
     "name": "Assassin's Creed IV: Black Flag Buccaneer Edition",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -162,6 +180,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 19,
     "name": "Assassin's Creed IV: Black Flag Skull Edition",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -171,6 +190,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 20,
     "name": "Assassin's Creed IV: Black Flag Limited Edition",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -180,6 +200,7 @@ const AC_DATABASE = [
     "type": "Special Edition"
   },
   {
+    "id": 21,
     "name": "Assassin's Creed Rogue Collector's Edition",
     "game": "Assassin's Creed Rogue",
     "year": 2014,
@@ -189,6 +210,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 22,
     "name": "Ubicollectibles Assassin's Creed Rogue: The Renegade",
     "game": "Assassin's Creed Rogue",
     "year": 2018,
@@ -198,6 +220,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 23,
     "name": "McFarlane Toys Shay Cormac Figure (Series 4)",
     "game": "Assassin's Creed Rogue",
     "year": 2015,
@@ -207,6 +230,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 24,
     "name": "McFarlane Toys Haytham Kenway Action Figure (Series 1)",
     "game": "Assassin's Creed III",
     "year": 2013,
@@ -216,6 +240,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 25,
     "name": "McFarlane Toys Ratonhnhake:ton Action Figure (Series 1)",
     "game": "Assassin's Creed III",
     "year": 2013,
@@ -225,6 +250,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 26,
     "name": "McFarlane Toys Benjamin Hornigold Action Figure (Series 1)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -234,6 +260,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 27,
     "name": "McFarlane Toys Blackbeard Action Figure (Series 1)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -243,6 +270,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 28,
     "name": "McFarlane Toys Black Bart Action Figure (Series 1)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -252,6 +280,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 29,
     "name": "McFarlane Toys Adewale Action Figure (Series 2)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2014,
@@ -261,6 +290,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 30,
     "name": "McFarlane Toys Arno Dorian Action Figure (Series 3)",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -270,6 +300,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 31,
     "name": "McFarlane Toys Ah Tabai Action Figure (Series 3)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2014,
@@ -279,6 +310,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 32,
     "name": "McFarlane Toys Edward Kenway Mayan Outfit Action Figure (Series 3)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2014,
@@ -288,6 +320,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 33,
     "name": "McFarlane Toys Connor with Mohawk Action Figure (Series 3)",
     "game": "Assassin's Creed III",
     "year": 2014,
@@ -297,6 +330,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 34,
     "name": "McFarlane Toys Arno Dorian Master Assassin Outfit Action Figure (Series 4)",
     "game": "Assassin's Creed Unity",
     "year": 2015,
@@ -306,6 +340,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 35,
     "name": "McFarlane Toys Eagle Vision Arno Dorian Action Figure (Series 4)",
     "game": "Assassin's Creed Unity",
     "year": 2015,
@@ -315,6 +350,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 36,
     "name": "McFarlane Toys Cane Sword Replica (Syndicate)",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -324,6 +360,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 37,
     "name": "McFarlane Toys Jacob Frye Action Figure (Series 4)",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -333,6 +370,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 38,
     "name": "McFarlane Toys Union Jacob Frye Action Figure (Series 5)",
     "game": "Assassin's Creed Syndicate",
     "year": 2016,
@@ -342,6 +380,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 39,
     "name": "McFarlane Toys Il Tricolore Ezio Auditore Action Figure (Series 5)",
     "game": "Assassin's Creed Revelations",
     "year": 2016,
@@ -351,6 +390,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 40,
     "name": "McFarlane Toys Revolutionary Connor Action Figure (Series 5)",
     "game": "Assassin's Creed III",
     "year": 2016,
@@ -360,6 +400,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 41,
     "name": "McFarlane Toys Connor Color Tops Collector Edition",
     "game": "Assassin's Creed III",
     "year": 2017,
@@ -369,6 +410,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 42,
     "name": "McFarlane Toys Phantom Blade Replica (Unity)",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -378,6 +420,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 43,
     "name": "Assassin's Creed Unity Guillotine Collector's Case",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -387,6 +430,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 44,
     "name": "Assassin's Creed Unity Notre Dame Edition",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -396,6 +440,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 45,
     "name": "Assassin's Creed Unity Collector's Edition",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -405,6 +450,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 46,
     "name": "Assassin's Creed Unity Bastille Edition",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -414,6 +460,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 47,
     "name": "Ubicollectibles Altair The Legendary Assassin",
     "game": "Assassin's Creed",
     "year": 2014,
@@ -423,6 +470,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 48,
     "name": "Assassin's Creed Syndicate Big Ben Collector's Case",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -432,6 +480,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 49,
     "name": "Assassin's Creed Syndicate Charing Cross Edition",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -441,6 +490,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 50,
     "name": "Assassin's Creed Syndicate The Rooks Edition",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -450,6 +500,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 51,
     "name": "Assassin's Creed Origins Deluxe Edition",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -459,6 +510,7 @@ const AC_DATABASE = [
     "type": "Special Edition"
   },
   {
+    "id": 52,
     "name": "Assassin's Creed Origins Gods Edition",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -468,6 +520,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 53,
     "name": "Assassin's Creed Origins: Dawn of the Creed Collector's Case",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -477,6 +530,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 54,
     "name": "Assassin's Creed Origins Dawn of the Creed Legendary Edition",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -486,6 +540,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 55,
     "name": "Assassin's Creed Origins Gold SteelBook Edition",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -495,6 +550,7 @@ const AC_DATABASE = [
     "type": "Steelbook"
   },
   {
+    "id": 56,
     "name": "Assassin's Creed Odyssey Pantheon Edition",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -504,6 +560,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 57,
     "name": "Assassin's Creed Odyssey Spartan Edition",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -513,6 +570,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 58,
     "name": "Assassin's Creed Odyssey Medusa Edition",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -522,6 +580,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 59,
     "name": "Assassin's Creed Valhalla Collector's Edition",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -531,6 +590,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 60,
     "name": "Assassin's Creed Valhalla Gold Steelbook Edition",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -540,6 +600,7 @@ const AC_DATABASE = [
     "type": "Steelbook"
   },
   {
+    "id": 61,
     "name": "Assassin's Creed Valhalla Ultimate Steelbook Edition",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -549,6 +610,7 @@ const AC_DATABASE = [
     "type": "Steelbook"
   },
   {
+    "id": 62,
     "name": "Assassin's Creed Mirage Collector's Case",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
@@ -558,6 +620,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 63,
     "name": "Assassin's Creed Shadows Collector's Edition",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -567,6 +630,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 64,
     "name": "PureArts Animus Altair 1/4 Scale Statue",
     "game": "Assassin's Creed",
     "year": 2021,
@@ -576,6 +640,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 65,
     "name": "PureArts Prestige Line Altair Ibn-La'Ahad 1/2 Scale Statue",
     "game": "Assassin's Creed",
     "year": 2024,
@@ -585,6 +650,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 66,
     "name": "PureArts Animus Ezio 1/4 Scale Statue",
     "game": "Assassin's Creed II",
     "year": 2021,
@@ -594,6 +660,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 67,
     "name": "PureArts Animus Ezio 1/8 Scale Statue",
     "game": "Assassin's Creed II",
     "year": 2023,
@@ -603,6 +670,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 68,
     "name": "PureArts Animus Connor 1/4 Scale Statue (Exclusive Edition)",
     "game": "Assassin's Creed III",
     "year": 2023,
@@ -612,6 +680,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 69,
     "name": "PureArts Animus Connor 1/8 Scale Statue",
     "game": "Assassin's Creed III",
     "year": 2024,
@@ -621,6 +690,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 70,
     "name": "PureArts Animus Edward Kenway 1/4 Scale Statue (Exclusive Edition)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2022,
@@ -630,6 +700,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 71,
     "name": "PureArts Animus Arno 1/4 Scale Statue (Exclusive Edition)",
     "game": "Assassin's Creed Unity",
     "year": 2024,
@@ -639,6 +710,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 72,
     "name": "PureArts Animus Jacob & Evie 1/4 Scale Statue (Exclusive Edition)",
     "game": "Assassin's Creed Syndicate",
     "year": 2025,
@@ -648,6 +720,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 73,
     "name": "PureArts Animus Bayek 1/8 Scale Statue",
     "game": "Assassin's Creed Origins",
     "year": 2024,
@@ -657,6 +730,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 74,
     "name": "PureArts Animus Kassandra 1/8 Scale Statue",
     "game": "Assassin's Creed Odyssey",
     "year": 2024,
@@ -666,6 +740,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 75,
     "name": "PureArts Spartan Kick Diorama 1/6 Scale (Exclusive Edition)",
     "game": "Assassin's Creed Odyssey",
     "year": 2024,
@@ -675,6 +750,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 76,
     "name": "PureArts Animus Eivor Statue",
     "game": "Assassin's Creed Valhalla",
     "year": 2022,
@@ -684,6 +760,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 77,
     "name": "PureArts Animus Eivor 1/8 Scale Statue",
     "game": "Assassin's Creed Valhalla",
     "year": 2024,
@@ -693,6 +770,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 78,
     "name": "PureArts Animus Basim 1/4 Scale Statue (Exclusive Edition)",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
@@ -702,6 +780,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 79,
     "name": "PureArts Animus Basim 1/8 Scale Statue",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
@@ -711,6 +790,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 80,
     "name": "PureArts Animus Altair 1/8 Scale Statue",
     "game": "Assassin's Creed",
     "year": 2024,
@@ -720,6 +800,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 81,
     "name": "PureArts Animus Naoe & Yasuke 1/4 Scale Statue (Exclusive Edition)",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -729,6 +810,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 82,
     "name": "PureArts Animus Yasuke 1/8 Scale Statue",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -738,6 +820,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 83,
     "name": "PureArts Animus Naoe 1/8 Scale Statue",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -747,6 +830,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 84,
     "name": "PureArts Naoe Bust 1/4 Scale",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -756,6 +840,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 85,
     "name": "PureArts Yasuke Bust 1/4 Scale",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -765,6 +850,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 86,
     "name": "PureArts Qlectors Naoe & Yasuke PVC Figure Set",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -774,6 +860,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 87,
     "name": "PureArts Qlectors Ezio Leap of Faith PVC Figure",
     "game": "Assassin's Creed II",
     "year": 2025,
@@ -783,6 +870,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 88,
     "name": "PureArts Assassin's Creed Shadows Shogi Board Game",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -792,6 +880,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 89,
     "name": "Ubicollectibles Ezio Leap of Faith Figurine",
     "game": "Assassin's Creed II",
     "year": 2016,
@@ -801,6 +890,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 90,
     "name": "Ubicollectibles Ezio's Fury Statue (Brotherhood)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2012,
@@ -810,6 +900,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 91,
     "name": "Ubicollectibles Legacy Collection - Altair Bust",
     "game": "Assassin's Creed",
     "year": 2016,
@@ -819,6 +910,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles Bust"
   },
   {
+    "id": 92,
     "name": "Ubicollectibles Legacy Collection - Ezio Bust",
     "game": "Assassin's Creed Revelations",
     "year": 2016,
@@ -828,6 +920,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles Bust"
   },
   {
+    "id": 93,
     "name": "Ubicollectibles Legacy Collection - Connor Bust",
     "game": "Assassin's Creed III",
     "year": 2016,
@@ -837,6 +930,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles Bust"
   },
   {
+    "id": 94,
     "name": "Ubicollectibles Legacy Collection - Edward Kenway Bust",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2016,
@@ -846,6 +940,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles Bust"
   },
   {
+    "id": 95,
     "name": "Ubicollectibles Legacy Collection - Aveline Bust",
     "game": "Assassin's Creed III: Liberation",
     "year": 2016,
@@ -855,6 +950,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles Bust"
   },
   {
+    "id": 96,
     "name": "Ubicollectibles Aveline de Grandpre PVC Statue",
     "game": "Assassin's Creed III: Liberation",
     "year": 2014,
@@ -864,6 +960,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 97,
     "name": "Ubicollectibles Altair Apple of Eden Keeper Figurine",
     "game": "Assassin's Creed",
     "year": 2017,
@@ -873,6 +970,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 98,
     "name": "Ubicollectibles Jacob Frye 'The Impetuous Brother' Statue",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -882,6 +980,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 99,
     "name": "Ubicollectibles Evie Frye 'The Intrepid Sister' Statue",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -891,6 +990,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 100,
     "name": "Ubicollectibles Jacob & Evie 'The Wise and Wild Twins' Diorama",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -900,6 +1000,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 101,
     "name": "Ubicollectibles Bayek Statue",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -909,6 +1010,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 102,
     "name": "Ubicollectibles Aya Statue",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -918,6 +1020,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 103,
     "name": "Ubicollectibles Alexios Statue",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -927,6 +1030,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 104,
     "name": "Ubicollectibles Kassandra Statue",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -936,6 +1040,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 105,
     "name": "Alexios Legendary Statue",
     "game": "Assassin's Creed Odyssey",
     "year": 2019,
@@ -945,6 +1050,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 106,
     "name": "Ubicollectibles Broken Spear of Leonidas Replica",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -954,6 +1060,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 107,
     "name": "Ubicollectibles Aguilar Statue (24cm)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -963,6 +1070,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 108,
     "name": "Ubicollectibles Maria Statue (24cm)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -972,6 +1080,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 109,
     "name": "Triforce Aguilar Collector's Edition Statue (35cm)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -981,6 +1090,7 @@ const AC_DATABASE = [
     "type": "Triforce"
   },
   {
+    "id": 110,
     "name": "Ubicollectibles Apple of Eden Replica (Movie)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -990,6 +1100,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 111,
     "name": "Ubicollectibles Apple of Eden Collector Chest (Movie)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -999,6 +1110,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 112,
     "name": "Ubicollectibles Hidden Blade Replica (Movie)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -1008,6 +1120,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 113,
     "name": "Ubicollectibles Apple of Eden Replica (Origins)",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -1017,6 +1130,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 114,
     "name": "Ubicollectibles The First Hidden Blade Replica (Origins)",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -1026,6 +1140,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 115,
     "name": "McFarlane Toys Hidden Blade & Gauntlet with Skull Buckle (Black Flag)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -1035,6 +1150,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 116,
     "name": "McFarlane Toys Gauntlet with Hidden Blade (Syndicate)",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -1044,6 +1160,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 117,
     "name": "McFarlane Toys Aguilar's Hidden Blade (Movie)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -1053,6 +1170,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 118,
     "name": "Assassin's Creed Encyclopedia (First Edition)",
     "game": "General",
     "year": 2011,
@@ -1062,6 +1180,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 119,
     "name": "Assassin's Creed Encyclopedia (Second Edition)",
     "game": "General",
     "year": 2012,
@@ -1071,6 +1190,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 120,
     "name": "Assassin's Creed Encyclopedia (Third Edition / Black Edition)",
     "game": "General",
     "year": 2013,
@@ -1080,6 +1200,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 121,
     "name": "Assassin's Creed: The Complete Visual History",
     "game": "General",
     "year": 2015,
@@ -1089,6 +1210,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 122,
     "name": "Assassin's Creed IV Black Flag: Blackbeard - The Lost Journal",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2014,
@@ -1098,6 +1220,7 @@ const AC_DATABASE = [
     "type": "Companion Book"
   },
   {
+    "id": 123,
     "name": "Assassin's Creed Unity: Abstergo Entertainment Employee Handbook",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -1107,6 +1230,7 @@ const AC_DATABASE = [
     "type": "Companion Book"
   },
   {
+    "id": 124,
     "name": "Assassin's Creed: Prima Official Game Guide",
     "game": "Assassin's Creed",
     "year": 2007,
@@ -1116,6 +1240,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 125,
     "name": "Assassin's Creed II: The Complete Official Guide",
     "game": "Assassin's Creed II",
     "year": 2009,
@@ -1125,6 +1250,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 126,
     "name": "Assassin's Creed II: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed II",
     "year": 2009,
@@ -1134,6 +1260,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 127,
     "name": "Assassin's Creed Brotherhood: The Complete Official Guide",
     "game": "Assassin's Creed Brotherhood",
     "year": 2010,
@@ -1143,6 +1270,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 128,
     "name": "Assassin's Creed Brotherhood: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed Brotherhood",
     "year": 2010,
@@ -1152,6 +1280,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 129,
     "name": "Assassin's Creed Revelations: The Complete Official Guide",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
@@ -1161,6 +1290,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 130,
     "name": "Assassin's Creed Revelations: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
@@ -1170,6 +1300,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 131,
     "name": "Assassin's Creed III: The Complete Official Guide",
     "game": "Assassin's Creed III",
     "year": 2012,
@@ -1179,6 +1310,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 132,
     "name": "Assassin's Creed III: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed III",
     "year": 2012,
@@ -1188,6 +1320,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 133,
     "name": "Assassin's Creed IV Black Flag: The Complete Official Guide",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -1197,6 +1330,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 134,
     "name": "Assassin's Creed IV Black Flag: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -1206,6 +1340,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 135,
     "name": "Assassin's Creed Unity: The Complete Official Guide",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -1215,6 +1350,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 136,
     "name": "Assassin's Creed Unity: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -1224,6 +1360,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 137,
     "name": "Assassin's Creed Syndicate: Official Strategy Guide",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -1233,6 +1370,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 138,
     "name": "Assassin's Creed Syndicate: Official Collector's Edition Guide",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -1242,6 +1380,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 139,
     "name": "Assassin's Creed Origins: Official Guide",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -1251,6 +1390,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 140,
     "name": "Assassin's Creed Origins: Official Collector's Edition Guide",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -1260,6 +1400,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 141,
     "name": "Assassin's Creed Odyssey: Official Collector's Edition Guide",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -1269,6 +1410,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 142,
     "name": "Assassin's Creed Odyssey: Official Platinum Edition Guide",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -1278,6 +1420,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 143,
     "name": "Assassin's Creed Shadows: The Complete Official Guide",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -1287,6 +1430,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 144,
     "name": "Assassin's Creed Shadows: The Complete Official Guide - Collector's Edition",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -1296,6 +1440,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 145,
     "name": "Assassin's Creed: The Culinary Codex",
     "game": "General",
     "year": 2022,
@@ -1305,6 +1450,7 @@ const AC_DATABASE = [
     "type": "Companion Book"
   },
   {
+    "id": 146,
     "name": "Assassin's Creed Limited Edition Art Book (Prima Games)",
     "game": "Assassin's Creed",
     "year": 2007,
@@ -1314,6 +1460,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 147,
     "name": "The Art of Assassin's Creed III",
     "game": "Assassin's Creed III",
     "year": 2012,
@@ -1323,6 +1470,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 148,
     "name": "The Art of Assassin's Creed IV: Black Flag",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -1332,6 +1480,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 149,
     "name": "The Art of Assassin's Creed Unity",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -1341,6 +1490,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 150,
     "name": "The Art of Assassin's Creed Unity (Limited Edition)",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -1350,6 +1500,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 151,
     "name": "The Art of Assassin's Creed Syndicate",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -1359,6 +1510,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 152,
     "name": "The Art of Assassin's Creed Origins",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -1368,6 +1520,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 153,
     "name": "The Art of Assassin's Creed Odyssey",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -1377,6 +1530,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 154,
     "name": "The Art of Assassin's Creed Valhalla",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -1386,6 +1540,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 155,
     "name": "The Art of Assassin's Creed Valhalla (Deluxe Edition)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -1395,6 +1550,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 156,
     "name": "The Art of Assassin's Creed Mirage",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
@@ -1404,6 +1560,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 157,
     "name": "The Art of Assassin's Creed Mirage (Deluxe Edition)",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
@@ -1413,6 +1570,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 158,
     "name": "The Art of Assassin's Creed Shadows",
     "game": "Assassin's Creed Shadows",
     "year": 2024,
@@ -1422,6 +1580,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 159,
     "name": "The Art of Assassin's Creed Shadows (Deluxe Edition)",
     "game": "Assassin's Creed Shadows",
     "year": 2024,
@@ -1431,6 +1590,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 160,
     "name": "Funko Pop! Games #20 - Altair",
     "game": "Assassin's Creed",
     "year": 2013,
@@ -1440,6 +1600,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 161,
     "name": "Funko Pop Assassin's Creed Game Cover #901 Altair",
     "game": "Assassin's Creed",
     "year": 2023,
@@ -1449,6 +1610,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 162,
     "name": "Funko Pop! Games #21 - Ezio (Standard White)",
     "game": "Assassin's Creed II",
     "year": 2013,
@@ -1458,6 +1620,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 163,
     "name": "Funko Pop! Games #21 - Ezio (Eagle Vision Blue) (GameStop Exclusive)",
     "game": "Assassin's Creed II",
     "year": 2013,
@@ -1467,6 +1630,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 164,
     "name": "Funko Pop! Games #21 - Ezio (Black)",
     "game": "Assassin's Creed II",
     "year": 2013,
@@ -1476,6 +1640,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 165,
     "name": "Funko Pop! Games #22 - Connor",
     "game": "Assassin's Creed III",
     "year": 2013,
@@ -1485,6 +1650,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 166,
     "name": "Funko Pop! Games #23 - Edward",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -1494,6 +1660,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 167,
     "name": "Funko Pop! Games #24 - Plague Doctor (Multiplayer)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2013,
@@ -1503,6 +1670,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 168,
     "name": "Funko Pop! Games #28 - Aveline de Grandpre",
     "game": "Assassin's Creed III: Liberation",
     "year": 2014,
@@ -1512,6 +1680,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 169,
     "name": "Funko Pop! Games #35 - Arno",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -1521,6 +1690,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 170,
     "name": "Funko Pop! Games #36 - Elise",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -1530,6 +1700,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 171,
     "name": "Funko Pop! Games #73 - Jacob Frye",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -1539,6 +1710,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 172,
     "name": "Funko Pop! Games #74 - Evie Frye",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -1548,6 +1720,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 173,
     "name": "Funko Pop! Games #80 - Jacob Frye (Uncloaked) (Underground Toys Exclusive)",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -1557,6 +1730,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 174,
     "name": "Funko Pop! Games #776 - Eivor",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -1566,6 +1740,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 175,
     "name": "Funko Pop! Games #778 - Eivor with Double Axe (GameStop Exclusive)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -1575,6 +1750,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 176,
     "name": "Funko Pop! Movies #375 - Aguilar",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -1584,6 +1760,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 177,
     "name": "Funko Pop! Movies #376 - Maria",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -1593,6 +1770,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 178,
     "name": "Funko Pop! Movies #377 - Ojeda",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -1602,6 +1780,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 179,
     "name": "Funko Pop! Movies #378 - Callum Lynch",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -1611,6 +1790,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 180,
     "name": "Funko Pop! Movies #379 - Aguilar (Crouching) (Loot Crate Exclusive)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -1620,6 +1800,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 181,
     "name": "McFarlane Toys Altair Action Figure (Series 3)",
     "game": "Assassin's Creed",
     "year": 2014,
@@ -1629,6 +1810,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 182,
     "name": "McFarlane Toys Ezio Action Figure (Series 3)",
     "game": "Assassin's Creed II",
     "year": 2014,
@@ -1638,6 +1820,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 183,
     "name": "McFarlane Toys Connor Action Figure (Series 1)",
     "game": "Assassin's Creed III",
     "year": 2013,
@@ -1647,6 +1830,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 184,
     "name": "McFarlane Toys Edward Kenway Action Figure (Series 1)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -1656,6 +1840,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 185,
     "name": "McFarlane Toys Aveline de Grandpre Action Figure (Series 2)",
     "game": "Assassin's Creed III: Liberation",
     "year": 2014,
@@ -1665,6 +1850,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 186,
     "name": "McFarlane Toys Aguilar Action Figure (Movie Series)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -1674,6 +1860,7 @@ const AC_DATABASE = [
     "type": "McFarlane"
   },
   {
+    "id": 187,
     "name": "Ubi Workshop Master Assassin Ring",
     "game": "General",
     "year": 2017,
@@ -1683,6 +1870,7 @@ const AC_DATABASE = [
     "type": "Jewelry"
   },
   {
+    "id": 188,
     "name": "Ubi Workshop Templar Ring",
     "game": "General",
     "year": 2013,
@@ -1692,6 +1880,7 @@ const AC_DATABASE = [
     "type": "Jewelry"
   },
   {
+    "id": 189,
     "name": "Ubi Workshop Connor Amulet Necklace (Silver)",
     "game": "Assassin's Creed III",
     "year": 2017,
@@ -1701,6 +1890,7 @@ const AC_DATABASE = [
     "type": "Jewelry"
   },
   {
+    "id": 190,
     "name": "Ubi Workshop Syndicate Rooks Necklace",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
@@ -1710,6 +1900,7 @@ const AC_DATABASE = [
     "type": "Jewelry"
   },
   {
+    "id": 191,
     "name": "Ubi Workshop Syndicate Starrick Templar Necklace",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
@@ -1719,6 +1910,7 @@ const AC_DATABASE = [
     "type": "Jewelry"
   },
   {
+    "id": 192,
     "name": "Ubi Workshop Syndicate Templar Amulet Necklace",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
@@ -1728,6 +1920,7 @@ const AC_DATABASE = [
     "type": "Jewelry"
   },
   {
+    "id": 193,
     "name": "BIXLER x Assassin's Creed Odyssey Jewelry Collection",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -1737,6 +1930,7 @@ const AC_DATABASE = [
     "type": "Jewelry"
   },
   {
+    "id": 194,
     "name": "King Ice x Assassin's Creed Shadows Necklace (Yasuke Kabuto 14K Gold)",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -1746,6 +1940,7 @@ const AC_DATABASE = [
     "type": "Jewelry"
   },
   {
+    "id": 195,
     "name": "Assassin's Creed Steelcase Limited Edition",
     "game": "Assassin's Creed",
     "year": 2007,
@@ -1755,6 +1950,7 @@ const AC_DATABASE = [
     "type": "Steelbook"
   },
   {
+    "id": 196,
     "name": "Assassin's Creed III Steelbook Edition",
     "game": "Assassin's Creed III",
     "year": 2012,
@@ -1764,6 +1960,7 @@ const AC_DATABASE = [
     "type": "Steelbook"
   },
   {
+    "id": 197,
     "name": "Assassin's Creed III Future Shop Steelbook Edition",
     "game": "Assassin's Creed III",
     "year": 2012,
@@ -1773,6 +1970,7 @@ const AC_DATABASE = [
     "type": "Steelbook"
   },
   {
+    "id": 198,
     "name": "Assassin's Creed (2016 Movie) SteelBook Edition",
     "game": "Assassin's Creed (Movie)",
     "year": 2017,
@@ -1782,6 +1980,7 @@ const AC_DATABASE = [
     "type": "Steelbook"
   },
   {
+    "id": 199,
     "name": "Assassin's Creed Heritage Collection",
     "game": "General",
     "year": 2013,
@@ -1791,6 +1990,7 @@ const AC_DATABASE = [
     "type": "Compilation"
   },
   {
+    "id": 200,
     "name": "PureArts Assassin's Creed Valhalla Life-Size Hidden Blade Prop",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -1800,6 +2000,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 201,
     "name": "PureArts Assassin's Creed Valhalla Bundle (Eivor Statue, Hidden Blade & Dice Game)",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -1809,6 +2010,7 @@ const AC_DATABASE = [
     "type": "Bundle"
   },
   {
+    "id": 202,
     "name": "Assassin's Creed: The Official Collection (Hachette Partworks)",
     "game": "General",
     "year": 2020,
@@ -1819,6 +2021,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 203,
     "name": "Assassin's Creed Anthology Edition",
     "game": "General",
     "year": 2012,
@@ -1828,6 +2031,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 204,
     "name": "Ubicollectibles Connor 'The Last Breath' Statue",
     "game": "Assassin's Creed III",
     "year": 2016,
@@ -1837,6 +2041,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 205,
     "name": "Ubicollectibles Connor 'The Hunter' Statue",
     "game": "Assassin's Creed III",
     "year": 2012,
@@ -1846,6 +2051,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 206,
     "name": "Assassin's Creed: Renaissance",
     "game": "Assassin's Creed II",
     "year": 2009,
@@ -1856,6 +2062,7 @@ const AC_DATABASE = [
     "series": "Oliver Bowden Novels"
   },
   {
+    "id": 207,
     "name": "Assassin's Creed: Brotherhood (Novel)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2010,
@@ -1866,6 +2073,7 @@ const AC_DATABASE = [
     "series": "Oliver Bowden Novels"
   },
   {
+    "id": 208,
     "name": "Assassin's Creed: The Secret Crusade",
     "game": "Assassin's Creed",
     "year": 2011,
@@ -1876,6 +2084,7 @@ const AC_DATABASE = [
     "series": "Oliver Bowden Novels"
   },
   {
+    "id": 209,
     "name": "Assassin's Creed: Revelations (Novel)",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
@@ -1886,6 +2095,7 @@ const AC_DATABASE = [
     "series": "Oliver Bowden Novels"
   },
   {
+    "id": 210,
     "name": "Assassin's Creed: Forsaken",
     "game": "Assassin's Creed III",
     "year": 2012,
@@ -1896,6 +2106,7 @@ const AC_DATABASE = [
     "series": "Oliver Bowden Novels"
   },
   {
+    "id": 211,
     "name": "Assassin's Creed: Black Flag (Novel)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -1906,6 +2117,7 @@ const AC_DATABASE = [
     "series": "Oliver Bowden Novels"
   },
   {
+    "id": 212,
     "name": "Assassin's Creed: Unity (Novel)",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -1916,6 +2128,7 @@ const AC_DATABASE = [
     "series": "Oliver Bowden Novels"
   },
   {
+    "id": 213,
     "name": "Assassin's Creed: Underworld",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -1926,6 +2139,7 @@ const AC_DATABASE = [
     "series": "Oliver Bowden Novels"
   },
   {
+    "id": 214,
     "name": "Assassin's Creed: Heresy",
     "game": "General",
     "year": 2016,
@@ -1935,6 +2149,7 @@ const AC_DATABASE = [
     "type": "Novel"
   },
   {
+    "id": 215,
     "name": "Assassin's Creed: Heresy - Special Edition",
     "game": "General",
     "year": 2016,
@@ -1944,6 +2159,7 @@ const AC_DATABASE = [
     "type": "Novel"
   },
   {
+    "id": 216,
     "name": "Assassin's Creed: Last Descendants",
     "game": "General",
     "year": 2016,
@@ -1954,6 +2170,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Last Descendants"
   },
   {
+    "id": 217,
     "name": "Assassin's Creed: Last Descendants - Tomb of the Khan",
     "game": "General",
     "year": 2017,
@@ -1964,6 +2181,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Last Descendants"
   },
   {
+    "id": 218,
     "name": "Assassin's Creed: Last Descendants - Fate of the Gods",
     "game": "General",
     "year": 2018,
@@ -1974,6 +2192,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Last Descendants"
   },
   {
+    "id": 219,
     "name": "Assassin's Creed Origins: Desert Oath",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -1984,6 +2203,7 @@ const AC_DATABASE = [
     "series": "Oliver Bowden Novels"
   },
   {
+    "id": 220,
     "name": "Assassin's Creed: Odyssey (Novel)",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -1993,6 +2213,7 @@ const AC_DATABASE = [
     "type": "Novel"
   },
   {
+    "id": 221,
     "name": "Assassin's Creed Valhalla: Geirmund's Saga",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -2002,6 +2223,7 @@ const AC_DATABASE = [
     "type": "Novel"
   },
   {
+    "id": 222,
     "name": "Assassin's Creed: The Ming Storm",
     "game": "Assassin's Creed Chronicles: China",
     "year": 2021,
@@ -2012,6 +2234,7 @@ const AC_DATABASE = [
     "series": "Yan Leisheng Shao Jun Trilogy"
   },
   {
+    "id": 223,
     "name": "Assassin's Creed: The Desert Threat",
     "game": "Assassin's Creed Chronicles: China",
     "year": 2022,
@@ -2022,6 +2245,7 @@ const AC_DATABASE = [
     "series": "Yan Leisheng Shao Jun Trilogy"
   },
   {
+    "id": 224,
     "name": "Assassin's Creed: The Jade Seal",
     "game": "Assassin's Creed Chronicles: China",
     "year": 2023,
@@ -2032,6 +2256,7 @@ const AC_DATABASE = [
     "series": "Yan Leisheng Shao Jun Trilogy"
   },
   {
+    "id": 225,
     "name": "Assassin's Creed: The Magus Conspiracy",
     "game": "General",
     "year": 2022,
@@ -2041,6 +2266,7 @@ const AC_DATABASE = [
     "type": "Novel"
   },
   {
+    "id": 226,
     "name": "Assassin's Creed Valhalla: Sword of the White Horse",
     "game": "Assassin's Creed Valhalla",
     "year": 2022,
@@ -2050,6 +2276,7 @@ const AC_DATABASE = [
     "type": "Novel"
   },
   {
+    "id": 227,
     "name": "Assassin's Creed: The Golden City",
     "game": "Assassin's Creed Valhalla",
     "year": 2023,
@@ -2059,6 +2286,7 @@ const AC_DATABASE = [
     "type": "Novel"
   },
   {
+    "id": 228,
     "name": "Assassin's Creed Mirage: Daughter of No One",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
@@ -2068,6 +2296,7 @@ const AC_DATABASE = [
     "type": "Novel"
   },
   {
+    "id": 229,
     "name": "Assassin's Creed: Fragments - The Blade of Aizu",
     "game": "General",
     "year": 2023,
@@ -2078,6 +2307,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Fragments"
   },
   {
+    "id": 230,
     "name": "Assassin's Creed: Fragments - The Highlands Children",
     "game": "General",
     "year": 2023,
@@ -2088,6 +2318,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Fragments"
   },
   {
+    "id": 231,
     "name": "Assassin's Creed: La Route de la Soie (The Silk Road)",
     "game": "General",
     "year": 2022,
@@ -2097,6 +2328,7 @@ const AC_DATABASE = [
     "type": "Gamebook"
   },
   {
+    "id": 232,
     "name": "Assassin's Creed - Escape Room Puzzle Book",
     "game": "General",
     "year": 2023,
@@ -2106,6 +2338,7 @@ const AC_DATABASE = [
     "type": "Gamebook"
   },
   {
+    "id": 233,
     "name": "The Making of Assassin's Creed: 15th Anniversary",
     "game": "General",
     "year": 2023,
@@ -2115,6 +2348,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 234,
     "name": "The Making of Assassin's Creed: 15th Anniversary (Deluxe Edition)",
     "game": "General",
     "year": 2023,
@@ -2124,6 +2358,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 235,
     "name": "The Making of Assassin's Creed: 15th Anniversary Ultimate Edition HC",
     "game": "General",
     "year": 2023,
@@ -2133,6 +2368,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 236,
     "name": "Assassin's Creed: The Fall - Issue #1",
     "game": "Assassin's Creed Chronicles: Russia",
     "year": 2010,
@@ -2144,6 +2380,7 @@ const AC_DATABASE = [
     "read": "02. AC - The Fall/AC The Fall 1st 2010"
   },
   {
+    "id": 237,
     "name": "Assassin's Creed: The Fall - Issue #2",
     "game": "Assassin's Creed Chronicles: Russia",
     "year": 2010,
@@ -2155,6 +2392,7 @@ const AC_DATABASE = [
     "read": "02. AC - The Fall/AC The Fall 2nd 2011"
   },
   {
+    "id": 238,
     "name": "Assassin's Creed: The Fall - Issue #3",
     "game": "Assassin's Creed Chronicles: Russia",
     "year": 2011,
@@ -2166,6 +2404,7 @@ const AC_DATABASE = [
     "read": "02. AC - The Fall/AC The Fall 3rd 2011"
   },
   {
+    "id": 239,
     "name": "Assassin's Creed: The Fall (Deluxe Edition)",
     "game": "Assassin's Creed Chronicles: Russia",
     "year": 2012,
@@ -2177,6 +2416,7 @@ const AC_DATABASE = [
     "read": "02. AC - The Fall/AC - The Fall (Deluxe Edition) 2012"
   },
   {
+    "id": 240,
     "name": "Assassin's Creed: The Chain",
     "game": "Assassin's Creed Chronicles: Russia",
     "year": 2012,
@@ -2188,6 +2428,7 @@ const AC_DATABASE = [
     "read": "03. 04/03 AC The Chain 2012"
   },
   {
+    "id": 241,
     "name": "Assassin's Creed: The Fall & The Chain (Collected Edition)",
     "game": "Assassin's Creed Chronicles: Russia",
     "year": 2019,
@@ -2198,6 +2439,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Fall"
   },
   {
+    "id": 242,
     "name": "Assassin's Creed Vol. 1: Desmond",
     "game": "Assassin's Creed",
     "year": 2012,
@@ -2209,6 +2451,7 @@ const AC_DATABASE = [
     "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol1 - Desmond 2009"
   },
   {
+    "id": 243,
     "name": "Assassin's Creed Vol. 2: Aquilus",
     "game": "General",
     "year": 2012,
@@ -2220,6 +2463,7 @@ const AC_DATABASE = [
     "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol2 - Aquilus 2010"
   },
   {
+    "id": 244,
     "name": "Assassin's Creed Vol. 3: Accipiter",
     "game": "General",
     "year": 2012,
@@ -2231,6 +2475,7 @@ const AC_DATABASE = [
     "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol3 - Accipiter 2012"
   },
   {
+    "id": 245,
     "name": "Assassin's Creed Vol. 4: Hawk",
     "game": "General",
     "year": 2013,
@@ -2242,6 +2487,7 @@ const AC_DATABASE = [
     "read": "01. AC Cycle 1/2 The Hawk Trilogy/AC vol4 - Hawk 2013"
   },
   {
+    "id": 246,
     "name": "Assassin's Creed Vol. 5: El Cakr",
     "game": "General",
     "year": 2014,
@@ -2253,6 +2499,7 @@ const AC_DATABASE = [
     "read": "01. AC Cycle 1/2 The Hawk Trilogy/AC vol5 - El Cakr 2013)"
   },
   {
+    "id": 247,
     "name": "Assassin's Creed Vol. 6: Leila",
     "game": "General",
     "year": 2015,
@@ -2265,6 +2512,7 @@ const AC_DATABASE = [
     "readLang": "fr"
   },
   {
+    "id": 248,
     "name": "Assassin's Creed: The Ankh of Isis Trilogy",
     "game": "General",
     "year": 2013,
@@ -2275,6 +2523,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed (Les Deux Royaumes)"
   },
   {
+    "id": 249,
     "name": "Assassin's Creed: The Hawk Trilogy",
     "game": "General",
     "year": 2016,
@@ -2285,6 +2534,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed (Les Deux Royaumes)"
   },
   {
+    "id": 250,
     "name": "Assassin's Creed: Assassins - Issue #1",
     "game": "General",
     "year": 2015,
@@ -2296,6 +2546,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (1st)"
   },
   {
+    "id": 251,
     "name": "Assassin's Creed: Assassins - Issue #2",
     "game": "General",
     "year": 2015,
@@ -2307,6 +2558,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (2nd)"
   },
   {
+    "id": 252,
     "name": "Assassin's Creed: Assassins - Issue #3",
     "game": "General",
     "year": 2015,
@@ -2318,6 +2570,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (3rd)"
   },
   {
+    "id": 253,
     "name": "Assassin's Creed: Assassins - Issue #4",
     "game": "General",
     "year": 2016,
@@ -2329,6 +2582,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (4th)"
   },
   {
+    "id": 254,
     "name": "Assassin's Creed: Assassins - Issue #5",
     "game": "General",
     "year": 2016,
@@ -2340,6 +2594,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (5th)"
   },
   {
+    "id": 255,
     "name": "Assassin's Creed: Assassins - Issue #6",
     "game": "General",
     "year": 2016,
@@ -2351,6 +2606,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (6th)"
   },
   {
+    "id": 256,
     "name": "Assassin's Creed: Assassins - Issue #7",
     "game": "General",
     "year": 2016,
@@ -2362,6 +2618,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (7th)"
   },
   {
+    "id": 257,
     "name": "Assassin's Creed: Assassins - Issue #8",
     "game": "General",
     "year": 2016,
@@ -2373,6 +2630,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (8th)"
   },
   {
+    "id": 258,
     "name": "Assassin's Creed: Assassins - Issue #9",
     "game": "General",
     "year": 2016,
@@ -2384,6 +2642,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (9th)"
   },
   {
+    "id": 259,
     "name": "Assassin's Creed: Assassins - Issue #10",
     "game": "General",
     "year": 2016,
@@ -2395,6 +2654,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (_10th)"
   },
   {
+    "id": 260,
     "name": "Assassin's Creed: Assassins - Issue #11",
     "game": "General",
     "year": 2016,
@@ -2406,6 +2666,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (11th)"
   },
   {
+    "id": 261,
     "name": "Assassin's Creed: Assassins - Issue #12",
     "game": "General",
     "year": 2016,
@@ -2417,6 +2678,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (12th)"
   },
   {
+    "id": 262,
     "name": "Assassin's Creed: Assassins - Issue #13",
     "game": "General",
     "year": 2016,
@@ -2428,6 +2690,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (13th)"
   },
   {
+    "id": 263,
     "name": "Assassin's Creed: Assassins - Issue #14",
     "game": "General",
     "year": 2016,
@@ -2439,6 +2702,7 @@ const AC_DATABASE = [
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (14th)"
   },
   {
+    "id": 264,
     "name": "Assassin's Creed Vol. 1: Trial by Fire",
     "game": "General",
     "year": 2016,
@@ -2449,6 +2713,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Assassins"
   },
   {
+    "id": 265,
     "name": "Assassin's Creed Vol. 2: Setting Sun",
     "game": "General",
     "year": 2016,
@@ -2459,6 +2724,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Assassins"
   },
   {
+    "id": 266,
     "name": "Assassin's Creed Vol. 3: Homecoming",
     "game": "General",
     "year": 2017,
@@ -2469,6 +2735,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Assassins"
   },
   {
+    "id": 267,
     "name": "Assassin's Creed: Templars - Issue #1",
     "game": "General",
     "year": 2016,
@@ -2480,6 +2747,7 @@ const AC_DATABASE = [
     "read": "07. AC Templars/AC Templars 2016 (1)"
   },
   {
+    "id": 268,
     "name": "Assassin's Creed: Templars - Issue #2",
     "game": "General",
     "year": 2016,
@@ -2491,6 +2759,7 @@ const AC_DATABASE = [
     "read": "07. AC Templars/AC Templars 2016 (2)"
   },
   {
+    "id": 269,
     "name": "Assassin's Creed: Templars - Issue #3",
     "game": "General",
     "year": 2016,
@@ -2502,6 +2771,7 @@ const AC_DATABASE = [
     "read": "07. AC Templars/AC Templars 2016 (3)"
   },
   {
+    "id": 270,
     "name": "Assassin's Creed: Templars - Issue #4",
     "game": "General",
     "year": 2016,
@@ -2513,6 +2783,7 @@ const AC_DATABASE = [
     "read": "07. AC Templars/AC Templars 2016 (4)"
   },
   {
+    "id": 271,
     "name": "Assassin's Creed: Templars - Issue #5",
     "game": "General",
     "year": 2016,
@@ -2524,6 +2795,7 @@ const AC_DATABASE = [
     "read": "07. AC Templars/AC Templars 2016 (5)"
   },
   {
+    "id": 272,
     "name": "Assassin's Creed: Templars - Issue #6",
     "game": "General",
     "year": 2016,
@@ -2535,6 +2807,7 @@ const AC_DATABASE = [
     "read": "07. AC Templars/AC Templars 2016 (6)"
   },
   {
+    "id": 273,
     "name": "Assassin's Creed: Templars - Issue #7",
     "game": "General",
     "year": 2016,
@@ -2546,6 +2819,7 @@ const AC_DATABASE = [
     "read": "07. AC Templars/AC Templars 2016 (7)"
   },
   {
+    "id": 274,
     "name": "Assassin's Creed: Templars - Issue #8",
     "game": "General",
     "year": 2016,
@@ -2557,6 +2831,7 @@ const AC_DATABASE = [
     "read": "07. AC Templars/AC Templars 2016 (8)"
   },
   {
+    "id": 275,
     "name": "Assassin's Creed: Templars - Issue #9",
     "game": "General",
     "year": 2017,
@@ -2568,6 +2843,7 @@ const AC_DATABASE = [
     "read": "07. AC Templars/AC Templars 2016 (9)"
   },
   {
+    "id": 276,
     "name": "Assassin's Creed: Templars Vol. 1 - Black Cross",
     "game": "General",
     "year": 2016,
@@ -2578,6 +2854,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Templars"
   },
   {
+    "id": 277,
     "name": "Assassin's Creed: Templars Vol. 2 - Cross of War",
     "game": "General",
     "year": 2017,
@@ -2588,6 +2865,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Templars"
   },
   {
+    "id": 278,
     "name": "Assassin's Creed: Last Descendants - Locus - Issue #1",
     "game": "Assassin's Creed Syndicate",
     "year": 2016,
@@ -2599,6 +2877,7 @@ const AC_DATABASE = [
     "read": "08. AC - Locus/AC Locus 01 Case In Point 2016"
   },
   {
+    "id": 279,
     "name": "Assassin's Creed: Last Descendants - Locus - Issue #2",
     "game": "Assassin's Creed Syndicate",
     "year": 2016,
@@ -2610,6 +2889,7 @@ const AC_DATABASE = [
     "read": "08. AC - Locus/AC Locus 02 Last Descendants 2016"
   },
   {
+    "id": 280,
     "name": "Assassin's Creed: Last Descendants - Locus - Issue #3",
     "game": "Assassin's Creed Syndicate",
     "year": 2016,
@@ -2621,6 +2901,7 @@ const AC_DATABASE = [
     "read": "08. AC - Locus/AC Locus 03 Last Descendants 2016"
   },
   {
+    "id": 281,
     "name": "Assassin's Creed: Last Descendants - Locus - Issue #4",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
@@ -2632,6 +2913,7 @@ const AC_DATABASE = [
     "read": "08. AC - Locus/AC Locus 04 Last Descendants 2016"
   },
   {
+    "id": 282,
     "name": "Assassin's Creed: Last Descendants - Locus",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
@@ -2642,6 +2924,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Last Descendants"
   },
   {
+    "id": 283,
     "name": "Assassin's Creed: Uprising - Issue #1",
     "game": "General",
     "year": 2017,
@@ -2653,6 +2936,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (1)"
   },
   {
+    "id": 284,
     "name": "Assassin's Creed: Uprising - Issue #2",
     "game": "General",
     "year": 2017,
@@ -2664,6 +2948,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (2)"
   },
   {
+    "id": 285,
     "name": "Assassin's Creed: Uprising - Issue #3",
     "game": "General",
     "year": 2017,
@@ -2675,6 +2960,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (3)"
   },
   {
+    "id": 286,
     "name": "Assassin's Creed: Uprising - Issue #4",
     "game": "General",
     "year": 2017,
@@ -2686,6 +2972,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (4)"
   },
   {
+    "id": 287,
     "name": "Assassin's Creed: Uprising - Issue #5",
     "game": "General",
     "year": 2017,
@@ -2697,6 +2984,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (5)"
   },
   {
+    "id": 288,
     "name": "Assassin's Creed: Uprising - Issue #6",
     "game": "General",
     "year": 2017,
@@ -2708,6 +2996,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (6)"
   },
   {
+    "id": 289,
     "name": "Assassin's Creed: Uprising - Issue #7",
     "game": "General",
     "year": 2017,
@@ -2719,6 +3008,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (7)"
   },
   {
+    "id": 290,
     "name": "Assassin's Creed: Uprising - Issue #8",
     "game": "General",
     "year": 2017,
@@ -2730,6 +3020,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (8)"
   },
   {
+    "id": 291,
     "name": "Assassin's Creed: Uprising - Issue #9",
     "game": "General",
     "year": 2018,
@@ -2741,6 +3032,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (9)"
   },
   {
+    "id": 292,
     "name": "Assassin's Creed: Uprising - Issue #10",
     "game": "General",
     "year": 2018,
@@ -2752,6 +3044,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (10)"
   },
   {
+    "id": 293,
     "name": "Assassin's Creed: Uprising - Issue #11",
     "game": "General",
     "year": 2018,
@@ -2763,6 +3056,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (11)"
   },
   {
+    "id": 294,
     "name": "Assassin's Creed: Uprising - Issue #12",
     "game": "General",
     "year": 2018,
@@ -2774,6 +3068,7 @@ const AC_DATABASE = [
     "read": "10. AC - Uprising/AC Uprising 2016 (12)"
   },
   {
+    "id": 295,
     "name": "Assassin's Creed: Uprising Vol. 1 - Common Ground",
     "game": "General",
     "year": 2017,
@@ -2784,6 +3079,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Uprising"
   },
   {
+    "id": 296,
     "name": "Assassin's Creed: Uprising Vol. 2 - Inflection Point",
     "game": "General",
     "year": 2017,
@@ -2794,6 +3090,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Uprising"
   },
   {
+    "id": 297,
     "name": "Assassin's Creed: Uprising Vol. 3 - Finale",
     "game": "General",
     "year": 2018,
@@ -2804,6 +3101,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Uprising"
   },
   {
+    "id": 298,
     "name": "Assassin's Creed: Reflections - Issue #1",
     "game": "Assassin's Creed II",
     "year": 2017,
@@ -2815,6 +3113,7 @@ const AC_DATABASE = [
     "read": "11/AC Reflections 2017 (1)"
   },
   {
+    "id": 299,
     "name": "Assassin's Creed: Reflections - Issue #2",
     "game": "Assassin's Creed",
     "year": 2017,
@@ -2826,6 +3125,7 @@ const AC_DATABASE = [
     "read": "11/AC Reflections 2017 (2)"
   },
   {
+    "id": 300,
     "name": "Assassin's Creed: Reflections - Issue #3",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
@@ -2837,6 +3137,7 @@ const AC_DATABASE = [
     "read": "11/AC Reflections 2017 (3)"
   },
   {
+    "id": 301,
     "name": "Assassin's Creed: Reflections - Issue #4",
     "game": "Assassin's Creed III",
     "year": 2017,
@@ -2848,6 +3149,7 @@ const AC_DATABASE = [
     "read": "11/AC Reflections 2017 (4)"
   },
   {
+    "id": 302,
     "name": "Assassin's Creed: Reflections",
     "game": "General",
     "year": 2017,
@@ -2858,6 +3160,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Reflections"
   },
   {
+    "id": 303,
     "name": "Assassin's Creed: Origins - Issue #1",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -2869,6 +3172,7 @@ const AC_DATABASE = [
     "read": "12. AC - Origins/AC Origins 2018 (1)"
   },
   {
+    "id": 304,
     "name": "Assassin's Creed: Origins - Issue #2",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -2880,6 +3184,7 @@ const AC_DATABASE = [
     "read": "12. AC - Origins/AC Origins 2018 (2)"
   },
   {
+    "id": 305,
     "name": "Assassin's Creed: Origins - Issue #3",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -2891,6 +3196,7 @@ const AC_DATABASE = [
     "read": "12. AC - Origins/AC Origins 2018 (3)"
   },
   {
+    "id": 306,
     "name": "Assassin's Creed: Origins - Issue #4",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -2902,6 +3208,7 @@ const AC_DATABASE = [
     "read": "12. AC - Origins/AC Origins 2018 (4)"
   },
   {
+    "id": 307,
     "name": "Assassin's Creed: Origins (Comic)",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -2913,6 +3220,7 @@ const AC_DATABASE = [
     "read": "12. AC - Origins/AC Origins - Special Edition 2021"
   },
   {
+    "id": 308,
     "name": "Assassin's Creed: Conspiracies, Vol. 1 - Die Glocke",
     "game": "General",
     "year": 2018,
@@ -2924,6 +3232,7 @@ const AC_DATABASE = [
     "read": "13. AC - Conspiracies Cycle 2/AC Conspiracies 2018 (1)"
   },
   {
+    "id": 309,
     "name": "Assassin's Creed: Conspiracies, Vol. 2 - Le Projet Rainbow",
     "game": "General",
     "year": 2018,
@@ -2935,6 +3244,7 @@ const AC_DATABASE = [
     "read": "13. AC - Conspiracies Cycle 2/AC Conspiracies 2018 (2)"
   },
   {
+    "id": 310,
     "name": "Assassin's Creed: Conspiracies",
     "game": "General",
     "year": 2018,
@@ -2945,6 +3255,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Conspiracies"
   },
   {
+    "id": 311,
     "name": "Assassin's Creed: Bloodstone, Vol. 1",
     "game": "General",
     "year": 2020,
@@ -2955,6 +3266,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Bloodstone"
   },
   {
+    "id": 312,
     "name": "Assassin's Creed: Bloodstone, Vol. 2",
     "game": "General",
     "year": 2021,
@@ -2965,6 +3277,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Bloodstone"
   },
   {
+    "id": 313,
     "name": "Assassin's Creed: Bloodstone Collection",
     "game": "General",
     "year": 2022,
@@ -2976,6 +3289,7 @@ const AC_DATABASE = [
     "read": "17/AC - Bloodstone - Complete Collection 2022"
   },
   {
+    "id": 314,
     "name": "Assassin's Creed Valhalla: Song of Glory - Issue #1",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -2987,6 +3301,7 @@ const AC_DATABASE = [
     "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (1)"
   },
   {
+    "id": 315,
     "name": "Assassin's Creed Valhalla: Song of Glory - Issue #2",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -2998,6 +3313,7 @@ const AC_DATABASE = [
     "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (2)"
   },
   {
+    "id": 316,
     "name": "Assassin's Creed Valhalla: Song of Glory - Issue #3",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -3009,6 +3325,7 @@ const AC_DATABASE = [
     "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (3)"
   },
   {
+    "id": 317,
     "name": "Assassin's Creed Valhalla: Song of Glory",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -3019,6 +3336,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed Valhalla: Song of Glory"
   },
   {
+    "id": 318,
     "name": "Assassin's Creed Valhalla: Blood Brothers",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -3029,6 +3347,7 @@ const AC_DATABASE = [
     "read": "14. AC Valhalla/AC Valhalla_ Blood Brothers 2021"
   },
   {
+    "id": 319,
     "name": "Assassin's Creed Valhalla: Forgotten Myths",
     "game": "Assassin's Creed Valhalla",
     "year": 2022,
@@ -3040,6 +3359,7 @@ const AC_DATABASE = [
     "read": "15/AC_Valhalla Forgotten Myths 3 chpt. edition 2022"
   },
   {
+    "id": 320,
     "name": "Assassin's Creed Valhalla: Forgotten Myths - Issue #1",
     "game": "Assassin's Creed Valhalla",
     "year": 2022,
@@ -3051,6 +3371,7 @@ const AC_DATABASE = [
     "read": "15/ACV Forgotten Myths 2022 (1)"
   },
   {
+    "id": 321,
     "name": "Assassin's Creed Valhalla: Forgotten Myths - Issue #2",
     "game": "Assassin's Creed Valhalla",
     "year": 2022,
@@ -3062,6 +3383,7 @@ const AC_DATABASE = [
     "read": "15/ACV Forgotten Myths 2022 (2)"
   },
   {
+    "id": 322,
     "name": "Assassin's Creed Valhalla: Forgotten Myths - Issue #3",
     "game": "Assassin's Creed Valhalla",
     "year": 2022,
@@ -3073,6 +3395,7 @@ const AC_DATABASE = [
     "read": "15/ACV Forgotten Myths 2022 (3)"
   },
   {
+    "id": 323,
     "name": "Assassin's Creed: Dynasty, Vol. 1",
     "game": "General",
     "year": 2022,
@@ -3084,6 +3407,7 @@ const AC_DATABASE = [
     "read": "18/AC Dynasty (1) 2022"
   },
   {
+    "id": 324,
     "name": "Assassin's Creed: Dynasty, Vol. 2",
     "game": "General",
     "year": 2022,
@@ -3095,6 +3419,7 @@ const AC_DATABASE = [
     "read": "18/AC Dynasty (2) 2022"
   },
   {
+    "id": 325,
     "name": "Assassin's Creed: Dynasty, Vol. 3",
     "game": "General",
     "year": 2022,
@@ -3106,6 +3431,7 @@ const AC_DATABASE = [
     "read": "18/AC Dynasty (3) 2022"
   },
   {
+    "id": 326,
     "name": "Assassin's Creed: Dynasty, Vol. 4",
     "game": "General",
     "year": 2022,
@@ -3117,6 +3443,7 @@ const AC_DATABASE = [
     "read": "18/AC Dynasty (4) 2022"
   },
   {
+    "id": 327,
     "name": "Assassin's Creed: Dynasty, Vol. 5",
     "game": "General",
     "year": 2023,
@@ -3128,6 +3455,7 @@ const AC_DATABASE = [
     "read": "18/AC Dynasty (5) 2022"
   },
   {
+    "id": 328,
     "name": "Assassin's Creed: Dynasty, Vol. 6",
     "game": "General",
     "year": 2023,
@@ -3138,6 +3466,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Dynasty"
   },
   {
+    "id": 329,
     "name": "Assassin's Creed Dynasty (Box Set)",
     "game": "General",
     "year": 2025,
@@ -3148,6 +3477,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Dynasty"
   },
   {
+    "id": 330,
     "name": "Assassin's Creed: Blade of Shao Jun, Vol. 1",
     "game": "Assassin's Creed Chronicles: China",
     "year": 2021,
@@ -3160,6 +3490,7 @@ const AC_DATABASE = [
     "readLang": "fr"
   },
   {
+    "id": 331,
     "name": "Assassin's Creed: Blade of Shao Jun, Vol. 2",
     "game": "Assassin's Creed Chronicles: China",
     "year": 2021,
@@ -3172,6 +3503,7 @@ const AC_DATABASE = [
     "readLang": "fr"
   },
   {
+    "id": 332,
     "name": "Assassin's Creed: Blade of Shao Jun, Vol. 3",
     "game": "Assassin's Creed Chronicles: China",
     "year": 2022,
@@ -3184,6 +3516,7 @@ const AC_DATABASE = [
     "readLang": "fr"
   },
   {
+    "id": 333,
     "name": "Assassin's Creed: Blade of Shao Jun, Vol. 4",
     "game": "Assassin's Creed Chronicles: China",
     "year": 2022,
@@ -3196,6 +3529,7 @@ const AC_DATABASE = [
     "readLang": "fr"
   },
   {
+    "id": 334,
     "name": "Assassin's Creed: Awakening, Vol. 1",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
@@ -3206,6 +3540,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Awakening"
   },
   {
+    "id": 335,
     "name": "Assassin's Creed: Awakening, Vol. 2",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
@@ -3216,6 +3551,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Awakening"
   },
   {
+    "id": 336,
     "name": "Assassin's Creed: Visionaries - Issue #1",
     "game": "General",
     "year": 2023,
@@ -3226,6 +3562,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Visionaries"
   },
   {
+    "id": 337,
     "name": "Assassin's Creed: Visionaries - Issue #2",
     "game": "General",
     "year": 2024,
@@ -3236,6 +3573,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Visionaries"
   },
   {
+    "id": 338,
     "name": "Assassin's Creed: Visionaries - Issue #3",
     "game": "General",
     "year": 2024,
@@ -3246,6 +3584,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Visionaries"
   },
   {
+    "id": 339,
     "name": "Assassin's Creed: Visionaries",
     "game": "General",
     "year": 2024,
@@ -3256,6 +3595,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Visionaries"
   },
   {
+    "id": 340,
     "name": "Assassin's Creed Mirage: A Soar of Eagles",
     "game": "Assassin's Creed Mirage",
     "year": 2025,
@@ -3266,6 +3606,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed Mirage: A Soar of Eagles"
   },
   {
+    "id": 341,
     "name": "Assassin's Creed: Brahman",
     "game": "Assassin's Creed Chronicles: India",
     "year": 2013,
@@ -3276,6 +3617,7 @@ const AC_DATABASE = [
     "read": "03. 04/04 AC Brahman 2013"
   },
   {
+    "id": 342,
     "name": "Ubicollectibles Edward Kenway 'The Assassin Pirate' Statue",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -3285,6 +3627,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 343,
     "name": "Ubicollectibles Blackbeard 'The Legendary Pirate' Statue",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -3294,6 +3637,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 344,
     "name": "Loot Crate Assassin's Creed IV: Black Flag Edward Kenway Figure",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2014,
@@ -3303,6 +3647,7 @@ const AC_DATABASE = [
     "type": "Loot Crate"
   },
   {
+    "id": 345,
     "name": "Loot Crate Assassin's Creed Origins Bayek Figure",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -3312,6 +3657,7 @@ const AC_DATABASE = [
     "type": "Loot Crate"
   },
   {
+    "id": 346,
     "name": "Ubisoft Heroes Collection Chibi Figure - Shao Jun",
     "game": "Assassin's Creed Chronicles: China",
     "year": 2020,
@@ -3321,6 +3667,7 @@ const AC_DATABASE = [
     "type": "Ubisoft Heroes"
   },
   {
+    "id": 347,
     "name": "Ubisoft Heroes Collection Chibi Figure - Ezio",
     "game": "Assassin's Creed II",
     "year": 2020,
@@ -3330,6 +3677,7 @@ const AC_DATABASE = [
     "type": "Ubisoft Heroes"
   },
   {
+    "id": 348,
     "name": "Ubisoft Heroes Collection - Eivor Male",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -3339,6 +3687,7 @@ const AC_DATABASE = [
     "type": "Ubisoft Heroes"
   },
   {
+    "id": 349,
     "name": "Ubisoft Heroes Collection - Eivor Female",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -3348,6 +3697,7 @@ const AC_DATABASE = [
     "type": "Ubisoft Heroes"
   },
   {
+    "id": 350,
     "name": "YouTooz Assassin's Creed #0 - Ezio",
     "game": "Assassin's Creed II",
     "year": 2024,
@@ -3357,6 +3707,7 @@ const AC_DATABASE = [
     "type": "YouTooz"
   },
   {
+    "id": 351,
     "name": "YouTooz Assassin's Creed #1 - Eivor",
     "game": "Assassin's Creed Valhalla",
     "year": 2024,
@@ -3366,6 +3717,7 @@ const AC_DATABASE = [
     "type": "YouTooz"
   },
   {
+    "id": 352,
     "name": "YouTooz Assassin's Creed #2 - Yasuke",
     "game": "Assassin's Creed Shadows",
     "year": 2024,
@@ -3375,6 +3727,7 @@ const AC_DATABASE = [
     "type": "YouTooz"
   },
   {
+    "id": 353,
     "name": "YouTooz Assassin's Creed #3 - Naoe",
     "game": "Assassin's Creed Shadows",
     "year": 2024,
@@ -3384,6 +3737,7 @@ const AC_DATABASE = [
     "type": "YouTooz"
   },
   {
+    "id": 354,
     "name": "Nemesis Now Assassin's Creed 'The Creed' Tankard",
     "game": "Assassin's Creed",
     "year": 2021,
@@ -3393,6 +3747,7 @@ const AC_DATABASE = [
     "type": "Tankard"
   },
   {
+    "id": 355,
     "name": "Nemesis Now Assassin's Creed Brotherhood Tankard",
     "game": "Assassin's Creed Brotherhood",
     "year": 2021,
@@ -3402,6 +3757,7 @@ const AC_DATABASE = [
     "type": "Tankard"
   },
   {
+    "id": 356,
     "name": "Nemesis Now Assassin's Creed 'Through the Ages' Tankard",
     "game": "General",
     "year": 2022,
@@ -3411,6 +3767,7 @@ const AC_DATABASE = [
     "type": "Tankard"
   },
   {
+    "id": 357,
     "name": "Nemesis Now Assassin's Creed Valhalla Tankard",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -3420,6 +3777,7 @@ const AC_DATABASE = [
     "type": "Tankard"
   },
   {
+    "id": 358,
     "name": "Nemesis Now Assassin's Creed Shadows Tankard",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -3429,6 +3787,7 @@ const AC_DATABASE = [
     "type": "Tankard"
   },
   {
+    "id": 359,
     "name": "Nemesis Now Assassin's Creed 'The Creed' Goblet",
     "game": "Assassin's Creed",
     "year": 2021,
@@ -3438,6 +3797,7 @@ const AC_DATABASE = [
     "type": "Goblet"
   },
   {
+    "id": 360,
     "name": "Nemesis Now Assassin's Creed Brotherhood Goblet",
     "game": "Assassin's Creed Brotherhood",
     "year": 2021,
@@ -3447,6 +3807,7 @@ const AC_DATABASE = [
     "type": "Goblet"
   },
   {
+    "id": 361,
     "name": "Nemesis Now Assassin's Creed Valhalla Goblet",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -3456,6 +3817,7 @@ const AC_DATABASE = [
     "type": "Goblet"
   },
   {
+    "id": 362,
     "name": "Nemesis Now Assassin's Creed Shadows Goblet",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -3465,6 +3827,7 @@ const AC_DATABASE = [
     "type": "Goblet"
   },
   {
+    "id": 363,
     "name": "Assassins Creed Syndicate Official Press Promo Power Bank Cane Handle",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -3474,6 +3837,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 364,
     "name": "Jazwares - Altair Ibn-La'Ahad (Basic Series)",
     "game": "Assassin's Creed",
     "year": 2017,
@@ -3483,6 +3847,7 @@ const AC_DATABASE = [
     "type": "Jazwares"
   },
   {
+    "id": 365,
     "name": "Jazwares - Evie Frye (Basic Series)",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
@@ -3492,6 +3857,7 @@ const AC_DATABASE = [
     "type": "Jazwares"
   },
   {
+    "id": 366,
     "name": "Jazwares - Jacob Frye (Basic Series)",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
@@ -3501,6 +3867,7 @@ const AC_DATABASE = [
     "type": "Jazwares"
   },
   {
+    "id": 367,
     "name": "Jazwares - Altair Ibn-La'Ahad (Mystery Figures)",
     "game": "Assassin's Creed",
     "year": 2018,
@@ -3510,6 +3877,7 @@ const AC_DATABASE = [
     "type": "Jazwares"
   },
   {
+    "id": 368,
     "name": "Jazwares - Aya (Mystery Figures)",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -3519,6 +3887,7 @@ const AC_DATABASE = [
     "type": "Jazwares"
   },
   {
+    "id": 369,
     "name": "Jazwares - Bayek (Mystery Figures)",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -3528,6 +3897,7 @@ const AC_DATABASE = [
     "type": "Jazwares"
   },
   {
+    "id": 370,
     "name": "Jazwares - Ezio Auditore (Mystery Figures)",
     "game": "Assassin's Creed II",
     "year": 2018,
@@ -3537,6 +3907,7 @@ const AC_DATABASE = [
     "type": "Jazwares"
   },
   {
+    "id": 371,
     "name": "Jazwares - Thomas de Carneillon (Chase) (Mystery Figures)",
     "game": "Assassin's Creed Unity",
     "year": 2018,
@@ -3546,6 +3917,7 @@ const AC_DATABASE = [
     "type": "Jazwares"
   },
   {
+    "id": 372,
     "name": "Xtreme Play - Alexios (Basic Series)",
     "game": "Assassin's Creed Odyssey",
     "year": 2019,
@@ -3555,6 +3927,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 373,
     "name": "Xtreme Play - Altair (Basic Series)",
     "game": "Assassin's Creed",
     "year": 2019,
@@ -3564,6 +3937,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 374,
     "name": "Xtreme Play - Arno (Basic Series)",
     "game": "Assassin's Creed Unity",
     "year": 2019,
@@ -3573,6 +3947,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 375,
     "name": "Xtreme Play - Bayek (Basic Series)",
     "game": "Assassin's Creed Origins",
     "year": 2019,
@@ -3582,6 +3957,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 376,
     "name": "Xtreme Play - Connor (Basic Series)",
     "game": "Assassin's Creed III",
     "year": 2019,
@@ -3591,6 +3967,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 377,
     "name": "Xtreme Play - Edward (Basic Series)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2019,
@@ -3600,6 +3977,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 378,
     "name": "Xtreme Play - Evie (Basic Series)",
     "game": "Assassin's Creed Syndicate",
     "year": 2019,
@@ -3609,6 +3987,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 379,
     "name": "Xtreme Play - Ezio (Basic Series)",
     "game": "Assassin's Creed II",
     "year": 2019,
@@ -3618,6 +3997,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 380,
     "name": "Xtreme Play - Jacob (Basic Series)",
     "game": "Assassin's Creed Syndicate",
     "year": 2019,
@@ -3627,6 +4007,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 381,
     "name": "Xtreme Play - Kassandra (Basic Series)",
     "game": "Assassin's Creed Odyssey",
     "year": 2019,
@@ -3636,6 +4017,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 382,
     "name": "Xtreme Play - Altair (Plush)",
     "game": "Assassin's Creed",
     "year": 2019,
@@ -3645,6 +4027,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 383,
     "name": "Xtreme Play - Connor (Plush)",
     "game": "Assassin's Creed III",
     "year": 2019,
@@ -3654,6 +4037,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 384,
     "name": "Xtreme Play - Evie (Plush)",
     "game": "Assassin's Creed Syndicate",
     "year": 2019,
@@ -3663,6 +4047,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 385,
     "name": "Xtreme Play - Kassandra (Plush)",
     "game": "Assassin's Creed Odyssey",
     "year": 2019,
@@ -3672,6 +4057,7 @@ const AC_DATABASE = [
     "type": "Xtreme Play"
   },
   {
+    "id": 386,
     "name": "Neca - Ezio (Auditore da Firenze) (Basic Series)",
     "game": "Assassin's Creed II",
     "year": 2010,
@@ -3681,6 +4067,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 387,
     "name": "Neca - Ezio (Master Assassin) (Basic Series)",
     "game": "Assassin's Creed II",
     "year": 2010,
@@ -3690,6 +4077,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 388,
     "name": "Unimax - Cesare Borgia (Gamestars Collectibles)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2011,
@@ -3699,6 +4087,7 @@ const AC_DATABASE = [
     "type": "Unimax"
   },
   {
+    "id": 389,
     "name": "Unimax - Ezio Auditore da Firenze (Gamestars Collectibles)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2011,
@@ -3708,6 +4097,7 @@ const AC_DATABASE = [
     "type": "Unimax"
   },
   {
+    "id": 390,
     "name": "Unimax - Leonardo da Vinci (Gamestars Collectibles)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2011,
@@ -3717,6 +4107,7 @@ const AC_DATABASE = [
     "type": "Unimax"
   },
   {
+    "id": 391,
     "name": "Unimax - Niccolo Machiavelli (Gamestars Collectibles)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2011,
@@ -3726,6 +4117,7 @@ const AC_DATABASE = [
     "type": "Unimax"
   },
   {
+    "id": 392,
     "name": "Unimax - The Doctor (Gamestars Collectibles)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2011,
@@ -3735,6 +4127,7 @@ const AC_DATABASE = [
     "type": "Unimax"
   },
   {
+    "id": 393,
     "name": "Unimax - The Harlequin (Gamestars Collectibles)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2011,
@@ -3744,6 +4137,7 @@ const AC_DATABASE = [
     "type": "Unimax"
   },
   {
+    "id": 394,
     "name": "Funko Pop! Altair #080 (Dorbz)",
     "game": "Assassin's Creed",
     "year": 2015,
@@ -3753,6 +4147,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 395,
     "name": "Funko Pop! Arno #081 (Dorbz)",
     "game": "Assassin's Creed Unity",
     "year": 2015,
@@ -3762,6 +4157,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 396,
     "name": "Funko Pop! Elise #082 (Dorbz)",
     "game": "Assassin's Creed Unity",
     "year": 2015,
@@ -3771,6 +4167,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 397,
     "name": "Funko Pop! Edward #083 (Dorbz)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2015,
@@ -3780,6 +4177,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 398,
     "name": "Funko Pop! Ezio #084 (Dorbz)",
     "game": "Assassin's Creed II",
     "year": 2015,
@@ -3789,6 +4187,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 399,
     "name": "Funko Pop! Jacob #085 (Dorbz)",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -3798,6 +4197,7 @@ const AC_DATABASE = [
     "type": "Funko Pop"
   },
   {
+    "id": 400,
     "name": "Assassin's Creed: Leap Into History - Limited Edition 5xLP Boxset",
     "game": "General",
     "year": 2022,
@@ -3807,6 +4207,7 @@ const AC_DATABASE = [
     "type": "Vinyl Soundtrack"
   },
   {
+    "id": 401,
     "name": "Assassin's Creed Shadows: Soundtrack Collection Limited Edition 4LP Box Set",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -3816,6 +4217,7 @@ const AC_DATABASE = [
     "type": "Vinyl Soundtrack"
   },
   {
+    "id": 402,
     "name": "Assassin's Creed Shadows: Original Score - Deluxe 2xLP",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -3825,6 +4227,7 @@ const AC_DATABASE = [
     "type": "Vinyl Soundtrack"
   },
   {
+    "id": 403,
     "name": "Assassin's Creed Shadows: Kage No Iro - Deluxe Vinyl",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -3834,6 +4237,7 @@ const AC_DATABASE = [
     "type": "Vinyl Soundtrack"
   },
   {
+    "id": 404,
     "name": "Assassin's Creed Shadows: UKOMBOZI - Deluxe Vinyl",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -3843,6 +4247,7 @@ const AC_DATABASE = [
     "type": "Vinyl Soundtrack"
   },
   {
+    "id": 405,
     "name": "Assassin's Creed: The Piano Collection Vinyl",
     "game": "General",
     "year": 2026,
@@ -3852,6 +4257,7 @@ const AC_DATABASE = [
     "type": "Vinyl Soundtrack"
   },
   {
+    "id": 406,
     "name": "Assassin's Creed Mirage: Original Soundtrack Vinyl",
     "game": "Assassin's Creed Mirage",
     "year": 2024,
@@ -3861,6 +4267,7 @@ const AC_DATABASE = [
     "type": "Vinyl Soundtrack"
   },
   {
+    "id": 407,
     "name": "Assassin's Creed Valhalla: Dawn of Ragnarok - Original Soundtrack Vinyl",
     "game": "Assassin's Creed Valhalla",
     "year": 2023,
@@ -3870,6 +4277,7 @@ const AC_DATABASE = [
     "type": "Vinyl Soundtrack"
   },
   {
+    "id": 408,
     "name": "Lofi Girl x Assassin's Creed: Shadows Vinyl",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -3879,6 +4287,7 @@ const AC_DATABASE = [
     "type": "Vinyl Soundtrack"
   },
   {
+    "id": 409,
     "name": "Assassin's Creed Valhalla: The Hidden Codex",
     "game": "Assassin's Creed Valhalla",
     "year": 2024,
@@ -3889,6 +4298,7 @@ const AC_DATABASE = [
     "read": "14. AC Valhalla/AC Valhalla - The Hidden Codex 2024"
   },
   {
+    "id": 410,
     "name": "Assassin's Creed: The Essential Guide",
     "game": "General",
     "year": 2020,
@@ -3898,6 +4308,7 @@ const AC_DATABASE = [
     "type": "Companion Book"
   },
   {
+    "id": 411,
     "name": "Assassin's Creed Unity: Chalice Initiate Edition (Prima Games)",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -3907,6 +4318,7 @@ const AC_DATABASE = [
     "type": "Official Guide"
   },
   {
+    "id": 412,
     "name": "Assassin's Creed: The Official Film Tie-In",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -3916,6 +4328,7 @@ const AC_DATABASE = [
     "type": "Novel"
   },
   {
+    "id": 413,
     "name": "Neca Altair (Basic Series)",
     "game": "Assassin's Creed",
     "year": 2009,
@@ -3925,6 +4338,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 414,
     "name": "Neca Ezio 2-Pack (Basic Series)",
     "game": "Assassin's Creed II",
     "year": 2012,
@@ -3934,6 +4348,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 415,
     "name": "Neca Da Vinci's Flying Machine Model",
     "game": "Assassin's Creed Brotherhood",
     "year": 2011,
@@ -3943,6 +4358,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 416,
     "name": "Neca Ezio (Eagle Vision)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2012,
@@ -3952,6 +4368,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 417,
     "name": "Neca Ezio (Ebony Assassin) (Hooded)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2012,
@@ -3961,6 +4378,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 418,
     "name": "Neca Ezio (Ebony Assassin) (Unhooded)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2012,
@@ -3970,6 +4388,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 419,
     "name": "Neca Ezio (Legendary Assassin) (Hooded)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2012,
@@ -3979,6 +4398,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 420,
     "name": "Neca Ezio (Legendary Assassin) (Unhooded)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2012,
@@ -3988,6 +4408,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 421,
     "name": "Neca Ezio (Onyx Assassin) (Hooded)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2012,
@@ -3997,6 +4418,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 422,
     "name": "Neca Ezio (Onyx Assassin) (Unhooded)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2012,
@@ -4006,6 +4428,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 423,
     "name": "Neca Ezio Auditore (Brotherhood) (Head Knockers)",
     "game": "Assassin's Creed Brotherhood",
     "year": 2024,
@@ -4015,6 +4438,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 424,
     "name": "Neca Ezio Auditore (Revelations) (Head Knockers)",
     "game": "Assassin's Creed Revelations",
     "year": 2024,
@@ -4024,6 +4448,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 425,
     "name": "Neca Ezio Auditore (The Mentor) version 1",
     "game": "Assassin's Creed Revelations",
     "year": 2012,
@@ -4033,6 +4458,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 426,
     "name": "Neca Ezio Auditore (The Mentor) version 2",
     "game": "Assassin's Creed Revelations",
     "year": 2023,
@@ -4042,6 +4468,7 @@ const AC_DATABASE = [
     "type": "Neca"
   },
   {
+    "id": 427,
     "name": "Assassin's Creed Shot Glass Set",
     "game": "General",
     "year": 2016,
@@ -4051,6 +4478,7 @@ const AC_DATABASE = [
     "type": "Drinkware"
   },
   {
+    "id": 428,
     "name": "Assassin's Creed IV Black Flag Flask",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2016,
@@ -4060,6 +4488,7 @@ const AC_DATABASE = [
     "type": "Drinkware"
   },
   {
+    "id": 429,
     "name": "Ravenforge Altaïr's Sword Replica",
     "game": "Assassin's Creed",
     "year": 2024,
@@ -4069,6 +4498,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 430,
     "name": "Ravenforge Naoe's Tantō Replica",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -4078,6 +4508,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 431,
     "name": "Ravenforge Yasuke's Wakizashi Replica",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -4087,6 +4518,7 @@ const AC_DATABASE = [
     "type": "Replica"
   },
   {
+    "id": 432,
     "name": "Ravenforge Assassin's Creed Black Flag Hip Flask",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2024,
@@ -4096,6 +4528,7 @@ const AC_DATABASE = [
     "type": "Drinkware"
   },
   {
+    "id": 433,
     "name": "Ravenforge Assassin's Creed Hip Flask Gift Set",
     "game": "General",
     "year": 2024,
@@ -4105,6 +4538,7 @@ const AC_DATABASE = [
     "type": "Drinkware"
   },
   {
+    "id": 434,
     "name": "Ravenforge Assassin's Creed Shadows Hip Flask",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -4114,6 +4548,7 @@ const AC_DATABASE = [
     "type": "Drinkware"
   },
   {
+    "id": 435,
     "name": "Ravenforge Assassin's Creed Odyssey Hip Flask",
     "game": "Assassin's Creed Odyssey",
     "year": 2024,
@@ -4123,6 +4558,7 @@ const AC_DATABASE = [
     "type": "Drinkware"
   },
   {
+    "id": 436,
     "name": "Assassin's Creed: Into the Animus",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -4132,6 +4568,7 @@ const AC_DATABASE = [
     "type": "Companion Book"
   },
   {
+    "id": 437,
     "name": "Assassin's Creed: Infographics",
     "game": "General",
     "year": 2018,
@@ -4141,6 +4578,7 @@ const AC_DATABASE = [
     "type": "Companion Book"
   },
   {
+    "id": 438,
     "name": "PureArts Assassin's Creed Shadows Naoe Hidden Blade 1/1 Scale Replica",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -4150,6 +4588,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 439,
     "name": "PureArts Amunet The Hidden One 1/8 Scale PVC Statue",
     "game": "Assassin's Creed Origins",
     "year": 2024,
@@ -4159,6 +4598,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 440,
     "name": "PureArts Qlectors Altair Bell Tower PVC Figure",
     "game": "Assassin's Creed",
     "year": 2024,
@@ -4168,6 +4608,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 441,
     "name": "PureArts Desmond 1/6 Scale Premium Articulated Figure",
     "game": "General",
     "year": 2022,
@@ -4177,6 +4618,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 442,
     "name": "Assassin's Creed Shadows Yasuke Helmet 1/1 Scale Replica",
     "game": "Assassin's Creed Shadows",
     "year": 2024,
@@ -4186,6 +4628,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 443,
     "name": "Assassin's Creed Animus Kassandra Exclusive Edition",
     "game": "Assassin's Creed Odyssey",
     "year": 2022,
@@ -4195,6 +4638,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 444,
     "name": "Assassin's Creed: Valhalla Eivor 1/6 Scale Articulated Figure",
     "game": "Assassin's Creed Valhalla",
     "year": 2022,
@@ -4204,6 +4648,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 445,
     "name": "PureArts Qlectors Connor The Last Breath PVC Figure",
     "game": "Assassin's Creed III",
     "year": 2024,
@@ -4213,6 +4658,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 446,
     "name": "PureArts Prestige Line Ezio Auditore 1/2 Scale Statue",
     "game": "Assassin's Creed II",
     "year": 2024,
@@ -4222,6 +4668,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 447,
     "name": "PureArts Hunt for the Nine 1/6 Scale Diorama",
     "game": "Assassin's Creed",
     "year": 2024,
@@ -4231,6 +4678,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 448,
     "name": "PureArts RIP Altair 1/6 Scale Diorama",
     "game": "Assassin's Creed Revelations",
     "year": 2023,
@@ -4240,6 +4688,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 449,
     "name": "PureArts Master Ezio 1/8 Scale PVC Statue",
     "game": "Assassin's Creed Brotherhood",
     "year": 2021,
@@ -4249,6 +4698,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 450,
     "name": "PureArts Orlog Dice Game Retail Edition",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -4258,6 +4708,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 451,
     "name": "PureArts Orlog Dice Game Deluxe Edition",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -4267,6 +4718,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 452,
     "name": "Assassin's Creed: Vendetta",
     "game": "General",
     "year": 2017,
@@ -4276,6 +4728,7 @@ const AC_DATABASE = [
     "type": "Card Game"
   },
   {
+    "id": 453,
     "name": "Assassin's Creed (Movie) Exclusive Limited Edition + Hidden Dagger Arm Sleeve",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
@@ -4285,6 +4738,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 454,
     "name": "Assassin's Creed Unity Collectible Coin",
     "game": "Assassin's Creed Unity",
     "year": 2014,
@@ -4294,6 +4748,7 @@ const AC_DATABASE = [
     "type": "Loot Crate"
   },
   {
+    "id": 455,
     "name": "Assassin's Creed Odyssey Promo Coin (Best Buy Exclusive)",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -4303,6 +4758,7 @@ const AC_DATABASE = [
     "type": "Promotional"
   },
   {
+    "id": 456,
     "name": "Assassin's Creed (comic)",
     "game": "Assassin's Creed",
     "year": 2007,
@@ -4313,6 +4769,7 @@ const AC_DATABASE = [
     "read": "00/AC1 2007"
   },
     {
+    "id": 457,
     "name": "Assassin's Creed (webcomic)",
     "game": "Assassin's Creed",
     "year": 2007,
@@ -4323,6 +4780,7 @@ const AC_DATABASE = [
     "read": "00/AC1 webcomic 2007"
   },
     {
+    "id": 458,
     "name": "Assassin's Creed FCBD 2016 Edition",
     "game": "General",
     "year": 2016,
@@ -4333,6 +4791,7 @@ const AC_DATABASE = [
     "read": "06/AC Free Comic Book Day 2016"
   },
     {
+    "id": 459,
     "name": "Assassin's Creed FCBD 2021 Edition",
     "game": "General",
     "year": 2021,
@@ -4342,6 +4801,7 @@ const AC_DATABASE = [
     "type": "Comic Book"
   },
     {
+    "id": 460,
     "name": "Assassin's Creed Shadows: Tales of Iga, Vol. 1",
     "game": "Assassin's Creed Shadows",
     "year": 2026,
@@ -4352,6 +4812,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed Shadows: Tales of Iga"
   },
     {
+    "id": 461,
     "name": "Assassin's Creed: Valhalla (webcomic)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -4361,6 +4822,7 @@ const AC_DATABASE = [
     "type": "Comic Book"
   },
   {
+    "id": 462,
     "name": "Ubicollectibles Assassin's Creed Origins: Trial of the Gods Figurine",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -4370,6 +4832,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 463,
     "name": "Connor - The Last Breath Premium Statue (Bronze Edition)",
     "game": "Assassin's Creed III",
     "year": 2014,
@@ -4379,6 +4842,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 464,
     "name": "Connor - The Last Breath Premium Statue",
     "game": "Assassin's Creed III",
     "year": 2014,
@@ -4388,6 +4852,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 465,
     "name": "Landstalker Props Flintlock Pistol (Edward Kenway)",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -4397,6 +4862,7 @@ const AC_DATABASE = [
     "type": "Replica/Prop"
   },
   {
+    "id": 466,
     "name": "Altair Crouched Figure",
     "game": "Assassin's Creed",
     "year": 2013,
@@ -4406,6 +4872,7 @@ const AC_DATABASE = [
     "type": "Statue"
   },
   {
+    "id": 467,
     "name": "Edward Kenway Limited Developer's Bust",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2013,
@@ -4415,6 +4882,7 @@ const AC_DATABASE = [
     "type": "Ubicollectibles"
   },
   {
+    "id": 468,
     "name": "Assassin's Creed Revelations Ezio Limited Developer's Bust",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
@@ -4424,6 +4892,7 @@ const AC_DATABASE = [
     "type": "Statue"
   },
   {
+    "id": 469,
     "name": "Connor Tomahawk Developer Kit",
     "game": "Assassin's Creed III",
     "year": 2013,
@@ -4433,6 +4902,7 @@ const AC_DATABASE = [
     "type": "Replica/Prop"
   },
   {
+    "id": 470,
     "name": "Ubisoft Star Player Mentors Guild Medal",
     "game": "General",
     "year": 2017,
@@ -4442,6 +4912,7 @@ const AC_DATABASE = [
     "type": "Promotional"
   },
   {
+    "id": 471,
     "name": "Assassin's Creed Odyssey Medallion Pendant (Medaglione)",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -4451,6 +4922,7 @@ const AC_DATABASE = [
     "type": "Jewelry"
   },
   {
+    "id": 472,
     "name": "Hachette Issue #01 Altaïr Ibn-La'Ahad",
     "game": "Assassin's Creed",
     "year": 2017,
@@ -4461,6 +4933,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 473,
     "name": "Hachette Issue #02 Ezio Auditore",
     "game": "Assassin's Creed II",
     "year": 2017,
@@ -4471,6 +4944,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 474,
     "name": "Hachette Issue #03 Haytham Kenway",
     "game": "Assassin's Creed III",
     "year": 2017,
@@ -4481,6 +4955,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 475,
     "name": "Hachette Issue #04 Jacob Frye",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
@@ -4491,6 +4966,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 476,
     "name": "Hachette Issue #05 Cesare Borgia",
     "game": "Assassin's Creed Brotherhood",
     "year": 2017,
@@ -4501,6 +4977,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 477,
     "name": "Hachette Issue #06 Ratonhnhaké:ton",
     "game": "Assassin's Creed III",
     "year": 2017,
@@ -4511,6 +4988,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 478,
     "name": "Hachette Issue #07 Shay Cormac",
     "game": "Assassin's Creed Rogue",
     "year": 2017,
@@ -4521,6 +4999,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 479,
     "name": "Hachette Issue #08 Evie Frye",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
@@ -4531,6 +5010,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 480,
     "name": "Hachette Issue #09 Aveline de Grandpré",
     "game": "Assassin's Creed III: Liberation",
     "year": 2017,
@@ -4541,6 +5021,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 481,
     "name": "Hachette Issue #10 Edward Kenway",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
@@ -4551,6 +5032,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 482,
     "name": "Hachette Issue #11 Charlotte de la Cruz",
     "game": "General",
     "year": 2017,
@@ -4561,6 +5043,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 483,
     "name": "Hachette Issue #12 Arno Dorian",
     "game": "Assassin's Creed Unity",
     "year": 2017,
@@ -4571,6 +5054,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 484,
     "name": "Hachette Issue #13 Élise de la Serre",
     "game": "Assassin's Creed Unity",
     "year": 2017,
@@ -4581,6 +5065,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 485,
     "name": "Hachette Issue #14 Duncan Walpole",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
@@ -4591,6 +5076,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 486,
     "name": "Hachette Issue #15 Arbaaz Mir",
     "game": "Assassin's Creed Chronicles: India",
     "year": 2017,
@@ -4601,6 +5087,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 487,
     "name": "Hachette Issue #16 Juhani Otso Berg",
     "game": "General",
     "year": 2017,
@@ -4611,6 +5098,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 488,
     "name": "Hachette Issue #17 Juno",
     "game": "General",
     "year": 2017,
@@ -4621,6 +5109,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 489,
     "name": "Hachette Issue #18 Nikolaï Orelov",
     "game": "Assassin's Creed Chronicles: Russia",
     "year": 2017,
@@ -4631,6 +5120,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 490,
     "name": "Hachette Issue #19 Rebecca Crane",
     "game": "General",
     "year": 2017,
@@ -4641,6 +5131,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 491,
     "name": "Hachette Issue #20 Desmond Miles",
     "game": "General",
     "year": 2017,
@@ -4651,6 +5142,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 492,
     "name": "Hachette Issue #21 Bayek",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -4661,6 +5153,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 493,
     "name": "Hachette Issue #22 Adéwalé",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
@@ -4671,6 +5164,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 494,
     "name": "Hachette Issue #23 Aya",
     "game": "Assassin's Creed Origins",
     "year": 2017,
@@ -4681,6 +5175,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 495,
     "name": "Hachette Issue #24 Daniel Cross",
     "game": "Assassin's Creed Chronicles: Russia",
     "year": 2018,
@@ -4691,6 +5186,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 496,
     "name": "Hachette Issue #25 Julius Caesar",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -4701,6 +5197,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 497,
     "name": "Hachette Issue #26 Jupiter",
     "game": "General",
     "year": 2018,
@@ -4711,6 +5208,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 498,
     "name": "Hachette Issue #27 Cleopatra",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -4721,6 +5219,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 499,
     "name": "Hachette Issue #28 Rodrigo Borgia",
     "game": "Assassin's Creed II",
     "year": 2018,
@@ -4731,6 +5230,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 500,
     "name": "Hachette Issue #29 Layla Hassan",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -4741,6 +5241,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 501,
     "name": "Hachette Issue #30 Malik Al-Sayf",
     "game": "Assassin's Creed",
     "year": 2018,
@@ -4751,6 +5252,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 502,
     "name": "Hachette Issue #31 Aveline de Grandpré",
     "game": "Assassin's Creed III: Liberation",
     "year": 2018,
@@ -4761,6 +5263,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 503,
     "name": "Hachette Issue #32 Crawford Starrick",
     "game": "Assassin's Creed Syndicate",
     "year": 2018,
@@ -4771,6 +5274,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 504,
     "name": "Hachette Issue #33 Mario Auditore",
     "game": "Assassin's Creed II",
     "year": 2018,
@@ -4781,6 +5285,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 505,
     "name": "Hachette Issue #34 Edward Thatch",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2018,
@@ -4791,6 +5296,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 506,
     "name": "Hachette Issue #35 Shao Jun",
     "game": "Assassin's Creed Chronicles: China",
     "year": 2018,
@@ -4801,6 +5307,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 507,
     "name": "Hachette Issue #36 Lydia Frye",
     "game": "Assassin's Creed Syndicate",
     "year": 2018,
@@ -4811,6 +5318,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 508,
     "name": "Hachette Issue #37 Leonardo da Vinci",
     "game": "Assassin's Creed II",
     "year": 2018,
@@ -4821,6 +5329,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 509,
     "name": "Hachette Issue #38 Mary Read/James Kidd",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2018,
@@ -4831,6 +5340,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 510,
     "name": "Hachette Issue #39 François-Thomas Germain",
     "game": "Assassin's Creed Unity",
     "year": 2018,
@@ -4841,6 +5351,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 511,
     "name": "Hachette Issue #40 Giovanni Borgia",
     "game": "Assassin's Creed Brotherhood",
     "year": 2018,
@@ -4851,6 +5362,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 512,
     "name": "Hachette Issue #41 Amunet",
     "game": "Assassin's Creed Origins",
     "year": 2018,
@@ -4861,6 +5373,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 513,
     "name": "Hachette Issue #42 Al Mualim",
     "game": "Assassin's Creed",
     "year": 2018,
@@ -4871,6 +5384,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 514,
     "name": "Hachette Issue #43 Kiyoshi Takakura",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
@@ -4881,6 +5395,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 515,
     "name": "Hachette Issue #44 William Miles",
     "game": "Assassin's Creed III",
     "year": 2018,
@@ -4891,6 +5406,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 516,
     "name": "Hachette Issue #45 Jack the Ripper",
     "game": "Assassin's Creed Syndicate",
     "year": 2018,
@@ -4901,6 +5417,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 517,
     "name": "Hachette Issue #46 Frederick Abberline",
     "game": "Assassin's Creed Syndicate",
     "year": 2018,
@@ -4911,6 +5428,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 518,
     "name": "Hachette Issue #47 Baron Jordane",
     "game": "Assassin's Creed Syndicate",
     "year": 2018,
@@ -4921,6 +5439,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 519,
     "name": "Hachette Issue #48 Pierre Bellec",
     "game": "Assassin's Creed Unity",
     "year": 2018,
@@ -4931,6 +5450,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 520,
     "name": "Hachette Issue #49 Galina Voronina",
     "game": "Assassin's Creed Syndicate",
     "year": 2018,
@@ -4941,6 +5461,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 521,
     "name": "Hachette Issue #50 The Black Cross",
     "game": "General",
     "year": 2019,
@@ -4951,6 +5472,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 522,
     "name": "Hachette Issue #51 Henry Green (Jayadeep Mir)",
     "game": "Assassin's Creed Syndicate",
     "year": 2019,
@@ -4961,6 +5483,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 523,
     "name": "Hachette Issue #52 Maestro Ezio Auditore",
     "game": "Assassin's Creed Brotherhood",
     "year": 2019,
@@ -4971,6 +5494,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 524,
     "name": "Hachette Issue #53 Bayek II",
     "game": "Assassin's Creed Origins",
     "year": 2019,
@@ -4981,6 +5505,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 525,
     "name": "Hachette Issue #54 Connor Espíritu animal",
     "game": "Assassin's Creed III",
     "year": 2019,
@@ -4991,6 +5516,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 526,
     "name": "Hachette Issue #55 Arend Schut-Cunningham",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2019,
@@ -5001,6 +5527,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 527,
     "name": "Hachette Issue #56 Kassandra",
     "game": "Assassin's Creed Odyssey",
     "year": 2019,
@@ -5011,6 +5538,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 528,
     "name": "Hachette Issue #57 Agaté",
     "game": "Assassin's Creed III: Liberation",
     "year": 2019,
@@ -5021,6 +5549,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 529,
     "name": "Hachette Issue #58 Barnabas",
     "game": "Assassin's Creed Odyssey",
     "year": 2019,
@@ -5031,6 +5560,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 530,
     "name": "Hachette Issue #59 Yusuf Tazim",
     "game": "Assassin's Creed Revelations",
     "year": 2019,
@@ -5041,6 +5571,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 531,
     "name": "Hachette Issue #60 Cultista de Kosmos",
     "game": "Assassin's Creed Odyssey",
     "year": 2019,
@@ -5051,6 +5582,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 532,
     "name": "Hachette Issue #61 Herodotos",
     "game": "Assassin's Creed Odyssey",
     "year": 2019,
@@ -5061,6 +5593,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 533,
     "name": "Hachette Issue #62 Mentor Altaïr",
     "game": "Assassin's Creed Brotherhood",
     "year": 2019,
@@ -5071,6 +5604,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 534,
     "name": "Hachette Issue #63 Aspasia",
     "game": "Assassin's Creed Odyssey",
     "year": 2019,
@@ -5081,6 +5615,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 535,
     "name": "Hachette Issue #64 Warren Vidic",
     "game": "Assassin's Creed",
     "year": 2019,
@@ -5091,6 +5626,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 536,
     "name": "Hachette Issue #65 Ah Tabai",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2019,
@@ -5101,6 +5637,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 537,
     "name": "Hachette Issue #66 Darius",
     "game": "Assassin's Creed Odyssey",
     "year": 2019,
@@ -5111,6 +5648,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 538,
     "name": "Hachette Issue #67 Shaun Hastings",
     "game": "General",
     "year": 2019,
@@ -5121,6 +5659,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 539,
     "name": "Hachette Issue #68 Gilberto La Volpe",
     "game": "Assassin's Creed II",
     "year": 2019,
@@ -5131,6 +5670,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 540,
     "name": "Hachette Issue #69 Mentor Ezio",
     "game": "Assassin's Creed Revelations",
     "year": 2019,
@@ -5141,6 +5681,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 541,
     "name": "Hachette Issue #70 Charles Lee",
     "game": "Assassin's Creed III",
     "year": 2019,
@@ -5151,6 +5692,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 542,
     "name": "Hachette Issue #71 Ignacio Cardona",
     "game": "General",
     "year": 2019,
@@ -5161,6 +5703,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 543,
     "name": "Hachette Issue #72 Clay Kaczmarek",
     "game": "Assassin's Creed Revelations",
     "year": 2019,
@@ -5171,6 +5714,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 544,
     "name": "Hachette Issue #73 Claudia Auditore",
     "game": "Assassin's Creed Brotherhood",
     "year": 2019,
@@ -5181,6 +5725,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 545,
     "name": "Hachette Issue #74 Edward Kenway",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2019,
@@ -5191,6 +5736,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 546,
     "name": "Hachette Issue #75 Jacques de Molay",
     "game": "Assassin's Creed Unity",
     "year": 2020,
@@ -5201,6 +5747,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 547,
     "name": "Hachette Issue #76 Evie Frye",
     "game": "Assassin's Creed Syndicate",
     "year": 2020,
@@ -5211,6 +5758,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 548,
     "name": "Hachette Issue #77 Achilles Davenport",
     "game": "Assassin's Creed III",
     "year": 2020,
@@ -5221,6 +5769,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 549,
     "name": "Hachette Issue #78 Baptiste",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2020,
@@ -5231,6 +5780,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 550,
     "name": "Hachette Issue #79 Madeleine de L'Isle",
     "game": "Assassin's Creed III: Liberation",
     "year": 2020,
@@ -5241,6 +5791,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 551,
     "name": "Hachette Issue #80 Darim Ibn-La'Ahad",
     "game": "Assassin's Creed Revelations",
     "year": 2020,
@@ -5251,6 +5802,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Official Collection (Hachette)"
   },
   {
+    "id": 552,
     "name": "Assassin's Creed: Arena",
     "game": "Assassin's Creed Revelations",
     "year": 2014,
@@ -5260,6 +5812,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 553,
     "name": "Monopoly: Assassin's Creed",
     "game": "General",
     "year": 2014,
@@ -5269,6 +5822,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 554,
     "name": "Monopoly: Assassin's Creed Syndicate",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
@@ -5278,6 +5832,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 555,
     "name": "Risk: Assassin's Creed",
     "game": "General",
     "year": 2018,
@@ -5287,6 +5842,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 556,
     "name": "Stratego: Assassin's Creed",
     "game": "General",
     "year": 2020,
@@ -5296,6 +5852,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 557,
     "name": "Assassin's Creed: Brotherhood of Venice",
     "game": "Assassin's Creed Brotherhood",
     "year": 2021,
@@ -5305,6 +5862,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 558,
     "name": "Assassin's Creed: Brotherhood of Venice - Roma Expansion",
     "game": "Assassin's Creed Brotherhood",
     "year": 2021,
@@ -5314,6 +5872,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 559,
     "name": "Assassin's Creed: Brotherhood of Venice - Tokyo XXI Expansion",
     "game": "General",
     "year": 2021,
@@ -5323,6 +5882,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 560,
     "name": "Assassin's Creed: Brotherhood of Venice - Creed vs Crows Expansion",
     "game": "Assassin's Creed Brotherhood",
     "year": 2021,
@@ -5332,6 +5892,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 561,
     "name": "Assassin's Creed: Brotherhood of Venice - Apocalypse Expansion",
     "game": "General",
     "year": 2024,
@@ -5341,6 +5902,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 562,
     "name": "Assassin's Creed: Assassin or Templar? (300 Questions)",
     "game": "General",
     "year": 2021,
@@ -5350,6 +5912,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 563,
     "name": "Assassin's Creed: The Last Quest of Leonardo da Vinci (Escape Game)",
     "game": "Assassin's Creed II",
     "year": 2022,
@@ -5359,6 +5922,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 564,
     "name": "The World of Assassin's Creed Valhalla: Journey to the North - Logs and Files of a Hidden One",
     "game": "Assassin's Creed Valhalla",
     "year": 2023,
@@ -5368,6 +5932,7 @@ const AC_DATABASE = [
     "type": "Companion Book"
   },
   {
+    "id": 565,
     "name": "The World of Assassin's Creed Valhalla: Journey to the North - Logs and Files of a Hidden One (Deluxe Edition)",
     "game": "Assassin's Creed Valhalla",
     "year": 2023,
@@ -5377,6 +5942,7 @@ const AC_DATABASE = [
     "type": "Companion Book"
   },
   {
+    "id": 566,
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Legacy (1000 pieces)",
     "game": "General",
     "year": 2022,
@@ -5386,6 +5952,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 567,
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Syndicate - The Tavern (1000 pieces)",
     "game": "Assassin's Creed Syndicate",
     "year": 2022,
@@ -5395,6 +5962,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 568,
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Eivor Male (1000 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -5404,6 +5972,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 569,
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Eivor Female (1500 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -5413,6 +5982,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 570,
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Vista of England (1000 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -5422,6 +5992,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 571,
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Vista of England (1500 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -5431,6 +6002,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 572,
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Dawn of Ragnarok (1000 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2022,
@@ -5440,6 +6012,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 573,
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Mirage (1000 pieces)",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
@@ -5449,6 +6022,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 574,
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Shadows - Naoe & Yasuke (1000 pieces)",
     "game": "Assassin's Creed Shadows",
     "year": 2024,
@@ -5458,6 +6032,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 575,
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Shadows - Vista of Japan (1000 pieces)",
     "game": "Assassin's Creed Shadows",
     "year": 2024,
@@ -5467,6 +6042,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 576,
     "name": "Dark Horse Deluxe Assassin's Creed Valhalla: Raid Planning Puzzle (1000 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -5476,6 +6052,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 577,
     "name": "Dark Horse Deluxe Assassin's Creed Valhalla: Fortress Assault Puzzle (1000 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -5485,6 +6062,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 578,
     "name": "Trefl Assassin's Creed (Movie) - Kolaż Puzzle (1500 pieces)",
     "game": "Assassin's Creed (Movie)",
     "year": 2018,
@@ -5494,6 +6072,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 579,
     "name": "Wrebbit3D Assassin's Creed Unity: Notre-Dame de Paris 3D Puzzle",
     "game": "Assassin's Creed Unity",
     "year": 2018,
@@ -5503,6 +6082,7 @@ const AC_DATABASE = [
     "type": "Puzzle"
   },
   {
+    "id": 580,
     "name": "Assassin's Creed Black Flag Resynced Collectors Edition",
     "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
@@ -5512,6 +6092,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 581,
     "name": "Assassin's Creed IV Black: Flag Resynced Flagship Edition",
     "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
@@ -5521,6 +6102,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
     {
+    "id": 582,
     "name": "PureArts Nine Men's Morris Assassin's Creed: Black Flag Resynced Board Game",
     "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
@@ -5530,6 +6112,7 @@ const AC_DATABASE = [
     "type": "Board Game"
   },
   {
+    "id": 583,
     "name": "Assassin's Creed Black Flag Resynced Steelbook",
     "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
@@ -5539,6 +6122,7 @@ const AC_DATABASE = [
     "type": "Steelbook"
   },
   {
+    "id": 584,
     "name": "Assassin's Creed Encyclopedia (E3 Collector Edition)",
     "game": "General",
     "year": 2012,
@@ -5548,6 +6132,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 585,
     "name": "Assassin's Creed: The Poster Collection",
     "game": "General",
     "year": 2013,
@@ -5557,6 +6142,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 586,
     "name": "Assassin's Creed: 2500 ans d'Histoire",
     "game": "General",
     "year": 2019,
@@ -5566,6 +6152,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 587,
     "name": "Assassin's Creed: Atlas",
     "game": "General",
     "year": 2021,
@@ -5575,6 +6162,7 @@ const AC_DATABASE = [
     "type": "Art Book"
   },
   {
+    "id": 588,
     "name": "Assassin's Creed: Where's the Assassin?",
     "game": "General",
     "year": 2021,
@@ -5584,6 +6172,7 @@ const AC_DATABASE = [
     "type": "Gamebook"
   },
   {
+    "id": 589,
     "name": "Eivor Mystery Statuette (Qisahn Pre-Order Bonus)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
@@ -5593,6 +6182,7 @@ const AC_DATABASE = [
     "type": "Promotional"
   },
   {
+    "id": 590,
     "name": "Nendoroid Ezio Auditore #1829",
     "game": "Assassin's Creed II",
     "year": 2022,
@@ -5602,6 +6192,7 @@ const AC_DATABASE = [
     "type": "Nendoroid"
   },
   {
+    "id": 591,
     "name": "FiGPiN Assassin's Creed Deluxe Box Set",
     "game": "General",
     "year": 2022,
@@ -5611,6 +6202,7 @@ const AC_DATABASE = [
     "type": "FiGPiN"
   },
   {
+    "id": 592,
     "name": "MeoWorld Assassin's Creed Cat Figurines",
     "game": "General",
     "year": 2024,
@@ -5620,6 +6212,7 @@ const AC_DATABASE = [
     "type": "Figurine"
   },
   {
+    "id": 593,
     "name": "Assassin's Creed: The Official Light (Neamedia Icons)",
     "game": "General",
     "year": 2023,
@@ -5629,6 +6222,7 @@ const AC_DATABASE = [
     "type": "Lamp"
   },
   {
+    "id": 594,
     "name": "Assassin's Creed Mirage: Logo Light (Neamedia Icons)",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
@@ -5638,6 +6232,7 @@ const AC_DATABASE = [
     "type": "Lamp"
   },
   {
+    "id": 595,
     "name": "GravaStar Mars Pro Limited Edition - Apple of Eden",
     "game": "General",
     "year": 2024,
@@ -5647,6 +6242,7 @@ const AC_DATABASE = [
     "type": "Audio"
   },
   {
+    "id": 596,
     "name": "Flydigi Apex 4 - Assassin's Creed Edition",
     "game": "General",
     "year": 2024,
@@ -5656,6 +6252,7 @@ const AC_DATABASE = [
     "type": "Controller"
   },
   {
+    "id": 597,
     "name": "Blend Cota Studios - Assassin's Creed Fine Art Prints",
     "game": "General",
     "year": 2023,
@@ -5665,6 +6262,7 @@ const AC_DATABASE = [
     "type": "Art Print"
   },
   {
+    "id": 598,
     "name": "Displate - Assassin's Creed Metal Posters",
     "game": "General",
     "year": 2023,
@@ -5674,6 +6272,7 @@ const AC_DATABASE = [
     "type": "Art Print"
   },
   {
+    "id": 599,
     "name": "Art4Fans - Assassin's Creed Print Collection",
     "game": "General",
     "year": 2022,
@@ -5683,6 +6282,7 @@ const AC_DATABASE = [
     "type": "Art Print"
   },
   {
+    "id": 600,
     "name": "Hidden Blade by Assassin's Creed (Ubisoft Brasil)",
     "game": "General",
     "year": 2015,
@@ -5692,6 +6292,7 @@ const AC_DATABASE = [
     "type": "Fragrance"
   },
   {
+    "id": 601,
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Beyond Booster Box",
     "game": "General",
     "year": 2024,
@@ -5701,6 +6302,7 @@ const AC_DATABASE = [
     "type": "Card Game"
   },
   {
+    "id": 602,
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Beyond Booster Pack",
     "game": "General",
     "year": 2024,
@@ -5710,6 +6312,7 @@ const AC_DATABASE = [
     "type": "Card Game"
   },
   {
+    "id": 603,
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Collector Booster Box",
     "game": "General",
     "year": 2024,
@@ -5719,6 +6322,7 @@ const AC_DATABASE = [
     "type": "Card Game"
   },
   {
+    "id": 604,
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Collector Booster Pack",
     "game": "General",
     "year": 2024,
@@ -5728,6 +6332,7 @@ const AC_DATABASE = [
     "type": "Card Game"
   },
   {
+    "id": 605,
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Bundle",
     "game": "General",
     "year": 2024,
@@ -5737,6 +6342,7 @@ const AC_DATABASE = [
     "type": "Card Game"
   },
   {
+    "id": 606,
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Starter Kit",
     "game": "General",
     "year": 2024,
@@ -5746,6 +6352,7 @@ const AC_DATABASE = [
     "type": "Card Game"
   },
   {
+    "id": 607,
     "name": "PureArts Qlectors Assassin's Creed Black Flag Edward Kenway PVC Figure",
     "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
@@ -5755,6 +6362,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 608,
     "name": "Assassin's Creed Edward Kenway Hidden Blade 1/1 Scale Replica",
     "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
@@ -5764,6 +6372,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 609,
     "name": "Assassin's Creed Revelations Playing Cards",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
@@ -5773,6 +6382,7 @@ const AC_DATABASE = [
     "type": "Card Game"
   },
   {
+    "id": 610,
     "name": "Assassin's Creed III Axe USB Stick",
     "game": "Assassin's Creed III",
     "year": 2013,
@@ -5782,6 +6392,7 @@ const AC_DATABASE = [
     "type": "Promotional"
   },
   {
+    "id": 611,
     "name": "Assassin's Creed III Promo Bracelet",
     "game": "Assassin's Creed III",
     "year": 2013,
@@ -5791,6 +6402,7 @@ const AC_DATABASE = [
     "type": "Promotional"
   },
   {
+    "id": 612,
     "name": "Nemesis Now Assassin's Creed Apple of Eden Bookends",
     "game": "General",
     "year": 2020,
@@ -5800,6 +6412,7 @@ const AC_DATABASE = [
     "type": "Bookends"
   },
   {
+    "id": 613,
     "name": "Nemesis Now Assassin's Creed Altaïr and Ezio Bookends",
     "game": "General",
     "year": 2021,
@@ -5809,6 +6422,7 @@ const AC_DATABASE = [
     "type": "Bookends"
   },
   {
+    "id": 614,
     "name": "Nemesis Now Assassin's Creed Valhalla Bookends",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
@@ -5818,6 +6432,7 @@ const AC_DATABASE = [
     "type": "Bookends"
   },
   {
+    "id": 615,
     "name": "Nemesis Now Assassin's Creed Shadows Naoe Bust",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
@@ -5827,6 +6442,7 @@ const AC_DATABASE = [
     "type": "Nemesis Now"
   },
   {
+    "id": 616,
     "name": "Nemesis Now Assassin's Creed Ezio Bust Box (Bronze)",
     "game": "Assassin's Creed Revelations",
     "year": 2023,
@@ -5836,6 +6452,7 @@ const AC_DATABASE = [
     "type": "Nemesis Now"
   },
   {
+    "id": 617,
     "name": "Nemesis Now Assassin's Creed Valhalla Eivor Bust (Bronze)",
     "game": "Assassin's Creed Valhalla",
     "year": 2023,
@@ -5845,6 +6462,7 @@ const AC_DATABASE = [
     "type": "Nemesis Now"
   },
   {
+    "id": 618,
     "name": "Nemesis Now Assassin's Creed Valhalla Eivor Bust",
     "game": "Assassin's Creed Valhalla",
     "year": 2022,
@@ -5854,6 +6472,7 @@ const AC_DATABASE = [
     "type": "Nemesis Now"
   },
   {
+    "id": 619,
     "name": "Assassin's Creed Black Flag Edward Kenway 1/4 Scale Bust",
     "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
@@ -5863,6 +6482,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 620,
     "name": "Assassin's Creed Animus Edward Kenway 1/8 Scale Statue",
     "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
@@ -5872,6 +6492,7 @@ const AC_DATABASE = [
     "type": "PureArts"
   },
   {
+    "id": 621,
     "name": "ABYstyle Assassin's Creed Premium Large Glass",
     "game": "General",
     "year": 2019,
@@ -5881,6 +6502,7 @@ const AC_DATABASE = [
     "type": "Drinkware"
   },
   {
+    "id": 622,
     "name": "Assassin's Creed Revelations Playing Cards (Light)",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
@@ -5890,6 +6512,7 @@ const AC_DATABASE = [
     "type": "Card Game"
   },
   {
+    "id": 623,
     "name": "GB eye Assassin's Creed Logo Hip Flask Gift Set",
     "game": "General",
     "year": 2018,
@@ -5899,6 +6522,7 @@ const AC_DATABASE = [
     "type": "Drinkware"
   },
   {
+    "id": 624,
     "name": "Assassin's Creed Brotherhood Auditore Edition",
     "game": "Assassin's Creed Brotherhood",
     "year": 2010,
@@ -5908,6 +6532,7 @@ const AC_DATABASE = [
     "type": "Collector's Edition"
   },
   {
+    "id": 625,
     "name": "Assassin's Creed: Forgotten Temple, Vol. 1",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2025,
@@ -5918,6 +6543,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Forgotten Temple"
   },
   {
+    "id": 626,
     "name": "Assassin's Creed: Forgotten Temple, Vol. 2",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2026,
@@ -5928,6 +6554,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Forgotten Temple"
   },
   {
+    "id": 627,
     "name": "Assassin's Creed: Forgotten Temple, Vol. 3",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2026,
@@ -5938,6 +6565,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Forgotten Temple"
   },
   {
+    "id": 628,
     "name": "Assassin's Creed: Forgotten Temple, Vol. 4",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2026,
@@ -5948,6 +6576,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Forgotten Temple"
   },
   {
+    "id": 629,
     "name": "Assassin's Creed: Awakening - Issue #1",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2016,
@@ -5959,6 +6588,7 @@ const AC_DATABASE = [
     "read": "09. AC - Awakening/AC Awakening 2016 (1)"
   },
   {
+    "id": 630,
     "name": "Assassin's Creed: Awakening - Issue #2",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2016,
@@ -5970,6 +6600,7 @@ const AC_DATABASE = [
     "read": "09. AC - Awakening/AC Awakening 2016 (2)"
   },
   {
+    "id": 631,
     "name": "Assassin's Creed: Awakening - Issue #3",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
@@ -5981,6 +6612,7 @@ const AC_DATABASE = [
     "read": "09. AC - Awakening/AC Awakening 2016 (3)"
   },
   {
+    "id": 632,
     "name": "Assassin's Creed: Awakening - Issue #4",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
@@ -5992,6 +6624,7 @@ const AC_DATABASE = [
     "read": "09. AC - Awakening/AC Awakening 2016 (4)"
   },
   {
+    "id": 633,
     "name": "Assassin's Creed: Awakening - Issue #5",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
@@ -6003,6 +6636,7 @@ const AC_DATABASE = [
     "read": "09. AC - Awakening/AC Awakening 2016 (5)"
   },
   {
+    "id": 634,
     "name": "Assassin's Creed: Awakening - Issue #6",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
@@ -6014,6 +6648,7 @@ const AC_DATABASE = [
     "read": "09. AC - Awakening/AC Awakening 2016 (6)"
   },
   {
+    "id": 635,
     "name": "Assassin's Creed Mirage: A Soar of Eagles - Issue #1",
     "game": "Assassin's Creed Mirage",
     "year": 2025,
@@ -6025,6 +6660,7 @@ const AC_DATABASE = [
     "read": "19/AC Mirage - A Soar of Eagles 001 2025"
   },
   {
+    "id": 636,
     "name": "Assassin's Creed Mirage: A Soar of Eagles - Issue #2",
     "game": "Assassin's Creed Mirage",
     "year": 2025,
@@ -6036,6 +6672,7 @@ const AC_DATABASE = [
     "read": "19/AC Mirage - A Soar of Eagles 002 2025"
   },
   {
+    "id": 637,
     "name": "Assassin's Creed Mirage: A Soar of Eagles - Issue #3",
     "game": "Assassin's Creed Mirage",
     "year": 2025,

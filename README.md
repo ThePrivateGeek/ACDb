@@ -39,6 +39,8 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 
 Your collection data is stored entirely in your browser's LocalStorage. Nothing is sent to any server. You can back up your data anytime using the Export button in the header, and restore it with Import. Filters are remembered between visits.
 
+Every entry in `js/database.js` carries a permanent numeric `id`, and collections, exports, and shared profiles are keyed by it, so item names can be corrected without affecting anyone's data. New entries take the next unused number (the dev tool fills it in); an id is never changed or reused, even if its item is removed. Collections saved before ids existed are migrated once on load; entries whose name no longer matches an item are dropped. The old name-keyed copy stays in LocalStorage as a backup until January 2027, when it is deleted automatically.
+
 Just open the site, browse the database, and click any item to track it in your collection.
 
 ### Sharing & Leaderboard
@@ -66,7 +68,7 @@ Sharing is entirely optional. Your local collection works independently — shar
 
 ```
 js/
-  database.js    — item database (390+ entries)
+  database.js    — item database (630+ entries, each with a permanent numeric id)
   images.js      — image path mappings
   utils.js       — shared utilities (toast, escapeHTML, slugify, etc.)
   modal.js       — item modal, gallery, lightbox

@@ -11,11 +11,14 @@
     let nameCheckTimer = null;
     let profileFromLeaderboard = false;
 
-    function getOwnedItemNames() {
+    // Shared profiles store owned items as permanent ids (sent as strings, which
+    // the Worker accepts unchanged). Profiles uploaded before ids existed hold
+    // item names; showProfile resolves both via A.findItemByRef.
+    function getOwnedItemIds() {
         return AC_DATABASE.filter(item => {
             const data = A.getItemData(item.id);
             return data.owned;
-        }).map(item => item.name);
+        }).map(item => String(item.id));
     }
 
     function isShared() {
@@ -42,7 +45,7 @@
         const submitBtn = document.getElementById('shareSubmit');
 
         // Calculate preview stats
-        const owned = getOwnedItemNames();
+        const owned = getOwnedItemIds();
         const pct = Math.round((owned.length / AC_DATABASE.length) * 100) + '%';
 
         if (!isShared() && owned.length === 0) {
@@ -139,7 +142,7 @@
             return;
         }
 
-        const owned = getOwnedItemNames();
+        const owned = getOwnedItemIds();
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sharing...';
@@ -290,8 +293,8 @@
             // Render owned items as cards
             const grid = document.getElementById('profileItemsGrid');
             const fragment = document.createDocumentFragment();
-            data.ownedItems.forEach(itemName => {
-                const item = AC_DATABASE.find(i => i.name === itemName);
+            data.ownedItems.forEach(ref => {
+                const item = A.findItemByRef(ref);
                 if (item) {
                     const card = A.createCard(item);
                     fragment.appendChild(card);
@@ -359,7 +362,7 @@
     }
 
     // Expose on namespace
-    A.getOwnedItemNames = getOwnedItemNames;
+    A.getOwnedItemIds = getOwnedItemIds;
     A.isShared = isShared;
     A.updateShareButton = updateShareButton;
     A.openShareModal = openShareModal;

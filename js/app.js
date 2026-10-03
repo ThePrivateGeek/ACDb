@@ -9,18 +9,30 @@ window.ACDB = window.ACDB || {};
     'use strict';
 
     // ---- State ----
-    const STORAGE_KEY = 'acdb_collection';
+    // Collections are keyed by each item's permanent numeric `id` (database.js).
+    // The previous name-keyed collection under LEGACY_STORAGE_KEY is migrated
+    // once (see migrateLegacyCollection) and kept as a backup until
+    // LEGACY_BACKUP_EXPIRES, after which it is deleted from browsers that have
+    // already migrated. Keep the migration itself until at least 2027-10-03 so
+    // visitors returning after a long absence still get their collection.
+    const STORAGE_KEY = 'acdb_collection_v2';
+    const LEGACY_STORAGE_KEY = 'acdb_collection';
+    const LEGACY_BACKUP_EXPIRES = Date.parse('2027-01-03');
     const FILTERS_KEY = 'acdb_filters';
     const API_URL = 'https://api.acdb.workers.dev';
     const SHARE_TOKEN_KEY = 'acdb_share_token';
     const SHARE_NAME_KEY = 'acdb_share_name';
     const isAdmin = localStorage.getItem('acdb_admin') === 'true';
 
-    // One-time cleanup of the flag set by the old numeric→name ID migration
-    // (removed 2026-04-24). Safe to delete this line after 2026-07-24.
-    localStorage.removeItem('acdb_migrated');
-
     let collection = loadCollection();
+
+    // Drop the name-keyed backup once its grace period is over, but only where
+    // the id-keyed collection already exists (i.e. the migration has run).
+    try {
+        if (Date.now() >= LEGACY_BACKUP_EXPIRES && localStorage.getItem(STORAGE_KEY) !== null) {
+            localStorage.removeItem(LEGACY_STORAGE_KEY);
+        }
+    } catch { /* storage unavailable */ }
     let selectedGames = new Set();
     let selectedCategories = new Set();
     let selectedTypes = new Set();
@@ -47,17 +59,14 @@ window.ACDB = window.ACDB || {};
 
     // The top N entries by year (highest first) get a "NEW" sticker, matching
     // the default "Year (Newest First)" sort. Ties broken by DB position so
-    // more-recently-added items win when years match.
-    // Keyed by name because item.id is only assigned later (see forEach below
-    // that sets item.id = item.name) — names are unique and stable per the
-    // insertion rule.
+    // more-recently-added items win when years match (ids grow with each
+    // addition, so a higher id means added later).
     const NEW_BADGE_COUNT = 4;
-    const NEW_ITEM_NAMES = new Set(
-        AC_DATABASE
-            .map((item, idx) => ({ item, idx }))
-            .sort((a, b) => (b.item.year - a.item.year) || (b.idx - a.idx))
+    const NEW_ITEM_IDS = new Set(
+        [...AC_DATABASE]
+            .sort((a, b) => (b.year - a.year) || (b.id - a.id))
             .slice(0, NEW_BADGE_COUNT)
-            .map(x => x.item.name)
+            .map(item => item.id)
     );
 
     // Short game names (shared between timeline and stats)
@@ -88,10 +97,50 @@ window.ACDB = window.ACDB || {};
     // Chronological order — derived from SHORT_GAME_NAMES key order
     const GAME_ORDER = Object.keys(SHORT_GAME_NAMES);
 
-    // ---- Assign stable IDs (name-based) to each database item ----
-    AC_DATABASE.forEach((item) => {
-        item.id = item.name;
-    });
+    // ---- Item IDs ----
+    // Every entry carries a permanent numeric `id` in database.js: never
+    // changed, never reused. Names can now be edited freely without touching
+    // anyone's collection. Flag a broken catalog loudly instead of silently
+    // mixing up collection data.
+    (function checkItemIds() {
+        const seen = new Set();
+        AC_DATABASE.forEach(item => {
+            if (!Number.isInteger(item.id) || item.id <= 0) console.error('ACDb: item without a valid id:', item.name);
+            else if (seen.has(item.id)) console.error('ACDb: duplicate item id', item.id, item.name);
+            seen.add(item.id);
+        });
+    })();
+
+    const ITEMS_BY_ID = new Map(AC_DATABASE.map(item => [item.id, item]));
+
+    // Resolve a stored reference to an item. Accepts a numeric id (number or
+    // numeric string) or, for data saved before ids existed, an item name.
+    function findItemByRef(ref) {
+        if (typeof ref === 'number' || (typeof ref === 'string' && /^\d+$/.test(ref))) {
+            return ITEMS_BY_ID.get(Number(ref)) || null;
+        }
+        return AC_DATABASE.find(i => i.name === ref) || null;
+    }
+
+    // One-time migration of the name-keyed collection to id keys. Runs only
+    // while the v2 key doesn't exist yet. Entries that don't match a current
+    // item name are dropped, including numeric keys left from before the
+    // April 2026 name migration: their positions have shifted since, so
+    // mapping them would attach data to the wrong items.
+    function migrateLegacyCollection() {
+        let legacy;
+        try {
+            legacy = JSON.parse(localStorage.getItem(LEGACY_STORAGE_KEY) || '{}');
+        } catch {
+            return {};
+        }
+        const migrated = {};
+        Object.entries(legacy).forEach(([key, data]) => {
+            const item = /^\d+$/.test(key) ? null : AC_DATABASE.find(i => i.name === key);
+            if (item) migrated[item.id] = data;
+        });
+        return migrated;
+    }
 
     // ---- DOM References ----
     const dom = {
@@ -159,12 +208,25 @@ window.ACDB = window.ACDB || {};
 
     // ---- Collection Persistence ----
     function loadCollection() {
+        let data;
         try {
-            const data = localStorage.getItem(STORAGE_KEY);
-            return data ? JSON.parse(data) : {};
+            data = localStorage.getItem(STORAGE_KEY);
         } catch {
             return {};
         }
+        if (data !== null) {
+            try {
+                return JSON.parse(data);
+            } catch {
+                return {};
+            }
+        }
+        // First load with id keys: migrate the name-keyed collection once.
+        const migrated = migrateLegacyCollection();
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+        } catch { /* storage unavailable: keep working in memory */ }
+        return migrated;
     }
 
     function saveCollection() {
@@ -507,7 +569,7 @@ window.ACDB = window.ACDB || {};
                    <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/>
                </svg>`;
 
-        const newBadgeHTML = NEW_ITEM_NAMES.has(item.name)
+        const newBadgeHTML = NEW_ITEM_IDS.has(item.id)
             ? '<span class="badge-new">NEW</span>'
             : '';
 
@@ -640,7 +702,7 @@ window.ACDB = window.ACDB || {};
     const showToast = ACDB.showToast;
 
     // ---- Sharing, Profile, Leaderboard — moved to sharing.js ----
-    const getOwnedItemNames = ACDB.getOwnedItemNames;
+    const getOwnedItemIds = ACDB.getOwnedItemIds;
     const isShared = ACDB.isShared;
     const updateShareButton = ACDB.updateShareButton;
     const openShareModal = ACDB.openShareModal;
@@ -1207,7 +1269,7 @@ window.ACDB = window.ACDB || {};
             navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!'));
         });
         document.getElementById('shareUpdateBtn').addEventListener('click', () => {
-            const owned = getOwnedItemNames();
+            const owned = getOwnedItemIds();
             ACDB.performUpdate(owned);
         });
         document.getElementById('shareDeleteBtn').addEventListener('click', () => {
@@ -1380,6 +1442,7 @@ window.ACDB = window.ACDB || {};
     A.saveCollection = saveCollection;
     A.getItemData = getItemData;
     A.setItemData = setItemData;
+    A.findItemByRef = findItemByRef;
     A.renderItems = renderItems;
     A.createCard = createCard;
     A.getFilteredItems = getFilteredItems;

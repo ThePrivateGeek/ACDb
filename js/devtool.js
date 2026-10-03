@@ -102,8 +102,11 @@
         let code = '';
 
         // database.js entry
+        // Permanent id: next after the highest in use. Never reuse or change one.
+        const nextId = Math.max(0, ...AC_DATABASE.map(i => i.id)) + 1;
         code += '// database.js — add before the closing ];\n';
         code += '  {\n';
+        code += `    "id": ${nextId},\n`;
         code += `    "name": ${JSON.stringify(name || 'Item Name')},\n`;
         code += `    "game": ${JSON.stringify(game || 'Game Name')},\n`;
         code += `    "year": ${year || 2025},\n`;

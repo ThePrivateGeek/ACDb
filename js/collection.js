@@ -14,6 +14,7 @@
             const data = A.getItemData(item.id);
             if (data.owned || data.wishlist || data.hasBox || data.condition || data.copies > 0 || data.notes || data.pricePaid || data.acquiredDate) {
                 exportData.push({
+                    id: item.id,
                     name: item.name,
                     game: item.game,
                     owned: data.owned || false,
@@ -48,7 +49,9 @@
 
                 let matched = 0;
                 importData.forEach(entry => {
-                    const item = AC_DATABASE.find(i => i.name === entry.name);
+                    // Match by permanent id; exports made before ids existed
+                    // only carry the name, so fall back to that.
+                    const item = (entry.id !== undefined && A.findItemByRef(entry.id)) || A.findItemByRef(entry.name);
                     if (item) {
                         const data = {
                             owned: entry.owned || false,

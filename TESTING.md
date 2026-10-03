@@ -130,6 +130,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Type dropdown populates with all types
 - [ ] "New" game toggle shows/hides game input fields
 - [ ] Code preview updates live as you type
+- [ ] Generated entry starts with `"id"`, set to one more than the highest id in use
 - [ ] Read Link field adds a `"read"` line after `"series"`. Pasting an archive.org reader URL from the anthology emits the plain book path, e.g. `07. AC Templars/AC Templars 2016 (3)`
 - [ ] New game generates app.js code entries
 - [ ] "Copy Code" copies to clipboard with toast
@@ -147,7 +148,10 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Total item count in footer matches database
 - [ ] No duplicate item names: `grep '"name":' js/database.js | sort | uniq -d` (should be empty)
 - [ ] All image mappings match item names: run the check script in README or manually verify
-- [ ] Collection data keyed by item name (not numeric ID)
+- [ ] Every entry has a unique numeric `id` and none is duplicated (the browser console logs an error otherwise)
+- [ ] Collection data keyed by item id under `acdb_collection_v2`; a name-keyed `acdb_collection` from before ids is migrated once on load (unmatched keys are dropped) and kept as a backup until 2027-01-03, after which it is removed from browsers that have `acdb_collection_v2`
+- [ ] Export includes `id` and `name`; Import accepts both new exports (by id) and old ones (by name)
+- [ ] Shared profiles upload item ids; profiles uploaded before ids (item names) still display
 - [ ] Read links still open a book: archive.org returns 200 even for a missing book, so open a few (especially ones with parentheses in the path) and check the reader shows a cover, not an empty item page
 
 ---
