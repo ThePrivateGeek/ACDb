@@ -184,14 +184,18 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Fresh private window: no requests to `accounts.google.com` until Sign in is clicked (Network tab; `fonts.googleapis.com` is the site's fonts and was always there)
 
 ## 18. Reading Order
-- [ ] Book button in the header opens `#reading`: grid, toolbar and stats are hidden; "Oliver Bowden Novels" lists 9 books, Desert Oath first
-- [ ] Release toggle reorders the list (Renaissance first, Desert Oath last); the choice survives a reload
+- [ ] Book button in the header opens `#reading`: grid, toolbar and stats are hidden; tabs read Complete Lore (active), Oliver Bowden Novels, Non-canon Stories
+- [ ] Complete Lore: 114 entries under 9 era headings (Ancient World … Modern Day), each with a read count; numbering runs on across headings; Forgotten Myths #1 first, Escape Room Puzzle Book last; Trial by Fire #1–5 sit together at 1692
+- [ ] Release mode on Complete Lore groups by release year; dates known only to the month show as "Nov 2009"
+- [ ] After marking something read, "Up next: …" appears and jumps to (and briefly highlights) the first unread book
+- [ ] Oliver Bowden Novels (`#reading/bowden`) lists 9 books, Desert Oath first, with no headings; Release puts Renaissance first and Desert Oath last; the mode choice survives a reload
+- [ ] Non-canon Stories (`#reading/non-canon`) lists 13 entries
 - [ ] Read toggle on a row marks the book read: purple border, "X / 9 read" and the bar update; the item's own modal shows Read too
 - [ ] Clicking a cover or title opens the full modal on top of the view; the address stays `#reading`; category/type/game/series aren't filter links there
 - [ ] In that modal: "Next: …" swaps to the next book in place; marking Read updates the list underneath; Esc, ✕ and browser back all close it and leave the view
-- [ ] Item modal from the grid: novels in an order show "Reading order · Oliver Bowden Novels · N of 9 · Next: …" (position follows the chosen mode; the last book says "Last book"); clicking the order name opens the view
+- [ ] Item modal from the grid: books in an order show "Reading order · <order> · N of M · Next: …" (position follows the chosen mode; the last book says "Last book"); Bowden novels show two lines (Complete Lore and Oliver Bowden Novels); clicking an order name opens that tab
 - [ ] No reading order line for items outside an order, or in read-only (profile/leaderboard) modals
-- [ ] **Back to Database** returns to the grid with no hash; pasting `/#reading/bowden` opens the view directly
+- [ ] **Back to Database** returns to the grid with no hash; pasting `/#reading/bowden` opens that tab directly
 - [ ] Phone width: rows fit without horizontal scroll, the Read label hides and the switch stays
 - [ ] `validate-catalog.py` covers `js/reading-orders.js` (unknown item, non-readable type, duplicate, missing setting, bad date are errors)
 

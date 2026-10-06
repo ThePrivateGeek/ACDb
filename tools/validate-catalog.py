@@ -26,7 +26,8 @@ Checks:
   share      every item has its s/<slug>.html share page
   reading    js/reading-orders.js: every entry points at an existing item of
              a readable type (READABLE_TYPES in js/utils.js), at most once
-             per order, with a setting and a valid release date
+             per order, with a setting and a valid release date; years
+             (needed for era headings) never go backwards
 """
 from __future__ import annotations
 
@@ -122,7 +123,7 @@ def load_reading_orders():
         raise SystemExit(f"validate-catalog: js/reading-orders.js did not parse as JSON: {e}")
 
 
-def check_reading_orders(items, errors):
+def check_reading_orders(items, errors, warnings):
     by_id = {item.get("id"): item for item in items}
     readable = load_readable_types()
     seen_orders = set()
@@ -142,6 +143,7 @@ def check_reading_orders(items, errors):
             errors.append(f"{label}: no entries")
             continue
         seen_items = set()
+        previous_year = None
         for entry in entries:
             iid = entry.get("item")
             item = by_id.get(iid)
@@ -156,6 +158,16 @@ def check_reading_orders(items, errors):
             seen_items.add(iid)
             if not isinstance(entry.get("setting"), str) or not entry["setting"].strip():
                 errors.append(f"{elabel}: missing \"setting\"")
+            year = entry.get("year")
+            if year is None:
+                if order.get("eras"):
+                    errors.append(f"{elabel}: missing \"year\" (the order has era headings)")
+            elif not isinstance(year, int) or isinstance(year, bool):
+                errors.append(f"{elabel}: \"year\" should be a whole number, got {year!r}")
+            else:
+                if previous_year is not None and year < previous_year:
+                    warnings.append(f"{elabel}: year {year} comes after {previous_year}; check the order")
+                previous_year = year
             released = entry.get("released")
             try:
                 date = datetime.date.fromisoformat(released)
@@ -163,6 +175,9 @@ def check_reading_orders(items, errors):
                     raise ValueError
             except (TypeError, ValueError):
                 errors.append(f"{elabel}: \"released\" should be a past date like \"2009-11-26\", got {released!r}")
+            precision = entry.get("releasedPrecision")
+            if precision is not None and precision not in ("month", "year"):
+                errors.append(f"{elabel}: \"releasedPrecision\" should be \"month\" or \"year\", got {precision!r}")
 
 
 def series_key(name):
@@ -271,7 +286,7 @@ def main():
         if len(spellings) > 1:
             warnings.append("series spelled more than one way: " + " / ".join(f'"{s}"' for s in sorted(spellings)))
 
-    check_reading_orders(items, errors)
+    check_reading_orders(items, errors, warnings)
 
     for w in warnings:
         print(f"warning: {w}")

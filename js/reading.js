@@ -44,16 +44,27 @@
     }
 
     // "Assassin's Creed: Brotherhood (Novel)" -> "Brotherhood"
+    // Names that only make sense with the franchise prefix ("Assassin's
+    // Creed Vol. 1: Desmond", "Assassin's Creed (comic)") stay whole.
     function shortTitle(item) {
-        return item.name
-            .replace(/^Assassin's Creed:?\s+/, '')
+        const short = item.name
+            .replace(/^Assassin's Creed(:| -)?\s+/, '')
             .replace(/\s+\((Novel|Comic)\)$/, '');
+        return /^(Vol\.|\()/.test(short) ? item.name : short;
     }
 
-    function formatReleased(date) {
-        return new Date(date + 'T00:00:00Z').toLocaleDateString('en-GB', {
-            day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'
-        });
+    function eraOf(year) {
+        const era = READING_ERAS.find(e => e.until === null || year < e.until);
+        return era ? era.name : '';
+    }
+
+    // Shows only what's known: "26 Nov 2009", "Nov 2009" or "2009".
+    function formatReleased(entry) {
+        if (entry.releasedPrecision === 'year') return entry.released.slice(0, 4);
+        const parts = entry.releasedPrecision === 'month'
+            ? { month: 'short', year: 'numeric' }
+            : { day: 'numeric', month: 'short', year: 'numeric' };
+        return new Date(entry.released + 'T00:00:00Z').toLocaleDateString('en-GB', { ...parts, timeZone: 'UTC' });
     }
 
     // ---- View ----
@@ -89,13 +100,13 @@
                 `<a href="#reading/${o.id}" class="reading-tab${o.id === order.id ? ' active' : ''}">${esc(o.name)}</a>`).join('')}</nav>`
             : '';
 
-        const rows = entries.map((entry, idx) => {
+        const rowHTML = (entry, idx) => {
             const item = A.findItemByRef(entry.item);
             if (!item) return '';
             const data = A.getItemData(item.id);
             const thumb = Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : null;
             return `
-                <li class="reading-entry${data.hasRead ? ' read' : ''}">
+                <li class="reading-entry${data.hasRead ? ' read' : ''}" data-entry="${item.id}">
                     <span class="reading-num">${idx + 1}</span>
                     <button class="reading-cover" data-open="${item.id}" aria-label="Open ${esc(item.name)}">
                         ${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy">` : ''}
@@ -104,7 +115,7 @@
                         <button class="reading-title" data-open="${item.id}" title="${esc(item.name)}">${esc(shortTitle(item))}</button>
                         <div class="reading-meta">
                             <span class="reading-setting${mode === 'chronological' ? ' primary' : ''}">Set ${esc(entry.setting)}</span>
-                            <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${formatReleased(entry.released)}</span>
+                            <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${formatReleased(entry)}</span>
                             ${data.owned ? '<span class="reading-owned">Owned</span>' : ''}
                         </div>
                     </div>
@@ -116,7 +127,32 @@
                         </div>
                     </label>
                 </li>`;
-        }).join('');
+        };
+
+        // Long orders get headings: eras in chronological mode, release
+        // years in release mode. Numbering runs on across sections.
+        const sections = [];
+        entries.forEach((entry, idx) => {
+            const heading = !order.eras ? ''
+                : mode === 'chronological' ? eraOf(entry.year) : entry.released.slice(0, 4);
+            let section = sections[sections.length - 1];
+            if (!section || section.heading !== heading) {
+                section = { heading, start: idx + 1, rows: [], read: 0 };
+                sections.push(section);
+            }
+            section.rows.push(rowHTML(entry, idx));
+            if (A.getItemData(entry.item).hasRead) section.read++;
+        });
+        const list = sections.map(sec => `
+            ${sec.heading ? `<h4 class="reading-section"><span>${esc(sec.heading)}</span><span class="reading-section-count">${sec.read}/${sec.rows.length}</span></h4>` : ''}
+            <ol class="reading-list" start="${sec.start}">${sec.rows.join('')}</ol>`).join('');
+
+        // Shortcut to the first unread book in the current mode.
+        const nextEntry = entries.find(e => !A.getItemData(e.item).hasRead);
+        const nextItem = nextEntry && A.findItemByRef(nextEntry.item);
+        const upNext = nextItem && readCount > 0
+            ? `<button class="reading-up-next" data-jump="${nextItem.id}">Up next: ${esc(shortTitle(nextItem))}</button>`
+            : '';
 
         content.innerHTML = `
             ${tabs}
@@ -133,7 +169,8 @@
                     <div class="stats-bar-track"><div class="stats-bar-fill" style="width:${pct}%"></div></div>
                 </div>
             </div>
-            <ol class="reading-list">${rows}</ol>
+            ${upNext}
+            ${list}
             <p class="reading-sources">Chronology from the <a href="https://assassinscreed.fandom.com/wiki/User_blog:Kulurak/Chronological_order_of_Assassin%27s_Creed_franchise" target="_blank" rel="noopener noreferrer">Assassin's Creed Wiki</a>, checked against each book's article. Books are placed by their main story; frame stories are left out.</p>
         `;
     }
@@ -143,6 +180,17 @@
         if (modeBtn) {
             setMode(modeBtn.dataset.mode);
             render();
+            return;
+        }
+        const jumpBtn = e.target.closest('[data-jump]');
+        if (jumpBtn) {
+            const row = content.querySelector(`[data-entry="${jumpBtn.dataset.jump}"]`);
+            if (row) {
+                row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                row.classList.remove('flash');
+                void row.offsetWidth;   // restart the highlight animation
+                row.classList.add('flash');
+            }
             return;
         }
         const openBtn = e.target.closest('[data-open]');

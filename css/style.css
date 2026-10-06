@@ -2388,7 +2388,7 @@ a.collection-action-btn {
 
 .reading-entry {
     display: grid;
-    grid-template-columns: 2rem 48px 1fr auto;
+    grid-template-columns: 2.5rem 48px 1fr auto;
     align-items: center;
     gap: 1rem;
     padding: 0.75rem 1rem;
@@ -2486,15 +2486,68 @@ a.collection-action-btn {
     color: var(--text-secondary);
 }
 
+.reading-section {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 1.75rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.reading-section-count {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0;
+    color: var(--text-muted);
+}
+
+.reading-up-next {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    padding: 0.45rem 0.9rem;
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid var(--accent-dark);
+    border-radius: 8px;
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.reading-up-next:hover {
+    border-color: var(--accent);
+}
+
+.reading-entry.flash {
+    animation: reading-flash 1.6s ease;
+}
+
+@keyframes reading-flash {
+    0%, 40% { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.35); }
+    100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
+}
+
 @media (max-width: 768px) {
     #readingView {
         padding: 1rem 1rem 3rem;
     }
 
     .reading-entry {
-        grid-template-columns: 1.5rem 40px 1fr auto;
-        gap: 0.75rem;
+        grid-template-columns: 2rem 40px 1fr auto;
+        gap: 0.6rem;
         padding: 0.6rem 0.75rem;
+    }
+
+    .reading-num {
+        font-size: 0.95rem;
     }
 
     .reading-cover {
