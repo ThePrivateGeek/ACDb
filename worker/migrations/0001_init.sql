@@ -22,7 +22,7 @@ CREATE INDEX IF NOT EXISTS sessions_sub ON sessions(sub);
 CREATE TABLE IF NOT EXISTS items (
   sub         TEXT NOT NULL,
   item_id     INTEGER NOT NULL,            -- permanent id from database.js
-  data        TEXT NOT NULL,               -- JSON: the 8 collection fields
+  data        TEXT NOT NULL,               -- JSON: the collection fields
   owned       INTEGER NOT NULL DEFAULT 0,  -- denormalised for profile/leaderboard
   updated_at  INTEGER NOT NULL,            -- client edit time (skew-corrected)
   seq         INTEGER NOT NULL,            -- users.seq at time of write

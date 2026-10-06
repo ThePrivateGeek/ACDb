@@ -101,6 +101,12 @@
         dom.modalPricePaid.value = data.pricePaid || '';
         dom.modalAcquiredDate.value = data.acquiredDate || '';
         dom.modalNotes.value = data.notes || '';
+        // Reading is tracked separately from ownership and only for story
+        // publications (A.isReadable).
+        const item = AC_DATABASE.find(i => i.id === id);
+        dom.modalReadingSection.hidden = !(item && A.isReadable(item));
+        dom.modalHasRead.checked = !!data.hasRead;
+        dom.modalReadDate.value = data.readDate || '';
     }
 
     // Cloud sync pulled new values: update the open item's controls if it
@@ -320,7 +326,9 @@
             copies: parseInt(dom.modalCopies.value) || 0,
             pricePaid: dom.modalPricePaid.value,
             acquiredDate: dom.modalAcquiredDate.value,
-            notes: dom.modalNotes.value
+            notes: dom.modalNotes.value,
+            hasRead: dom.modalHasRead.checked,
+            readDate: dom.modalHasRead.checked ? dom.modalReadDate.value : ''
         };
         const wasOwned = A.getItemData(currentItemId).owned;
         A.setItemData(currentItemId, data);

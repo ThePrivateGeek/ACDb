@@ -75,6 +75,8 @@
                 }
             }
         });
+        renderReadingProgress(dom.statsReading);
+
         dom.statsByCondition.innerHTML = '';
 
         // Total copies summary
@@ -102,6 +104,46 @@
                 dom.statsByCondition.appendChild(row);
             });
         }
+    }
+
+    // Nearly every series starts with the franchise name, which leaves no
+    // room for the part that tells them apart. The row's title keeps it.
+    function shortenSeriesName(name) {
+        return name.replace(/^Assassin's Creed:?\s+/, '').replace(/^\((.+)\)$/, '$1') || name;
+    }
+
+    // Read progress per series, plus one row for the stories outside any
+    // series. Only story publications count (A.isReadable).
+    const STANDALONE_LABEL = 'Standalone';
+
+    function renderReadingProgress(container) {
+        const totals = {};
+        const read = {};
+        let readCount = 0;
+        let readableCount = 0;
+        AC_DATABASE.forEach(item => {
+            if (!A.isReadable(item)) return;
+            const key = item.series || STANDALONE_LABEL;
+            totals[key] = (totals[key] || 0) + 1;
+            readableCount++;
+            if (A.getItemData(item.id).hasRead) {
+                read[key] = (read[key] || 0) + 1;
+                readCount++;
+            }
+        });
+        renderBars(container, totals, read, shortenSeriesName, true);
+
+        // Standalone isn't a series, so there's nothing to filter by.
+        const standaloneRow = [...container.children].find(r => r.dataset.label === STANDALONE_LABEL);
+        if (standaloneRow) standaloneRow.classList.remove('clickable');
+
+        const summary = document.createElement('div');
+        summary.className = 'stats-bar-row';
+        summary.innerHTML = `
+            <span class="stats-bar-label" style="color:var(--accent)">Stories Read</span>
+            <span class="stats-bar-value" style="color:var(--accent)">${readCount}/${readableCount}</span>
+        `;
+        container.prepend(summary);
     }
 
     function renderBars(container, totals, owned, labelFn, clickable, gameOrdered) {

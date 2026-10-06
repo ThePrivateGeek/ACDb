@@ -193,6 +193,9 @@ window.ACDB = window.ACDB || {};
         importFile: document.getElementById('importFile'),
         modalPricePaid: document.getElementById('modalPricePaid'),
         modalAcquiredDate: document.getElementById('modalAcquiredDate'),
+        modalReadingSection: document.getElementById('modalReadingSection'),
+        modalHasRead: document.getElementById('modalHasRead'),
+        modalReadDate: document.getElementById('modalReadDate'),
         resultsCount: document.getElementById('resultsCount'),
         statsDashboard: document.getElementById('statsDashboard'),
         statsToggle: document.getElementById('statsToggle'),
@@ -200,6 +203,7 @@ window.ACDB = window.ACDB || {};
         statsByGame: document.getElementById('statsByGame'),
         statsByCategory: document.getElementById('statsByCategory'),
         statsByCondition: document.getElementById('statsByCondition'),
+        statsReading: document.getElementById('statsReading'),
         // Dev Tool
         addItemBtn: document.getElementById('addItemBtn'),
         devToolOverlay: document.getElementById('devToolOverlay'),
@@ -242,7 +246,9 @@ window.ACDB = window.ACDB || {};
             copies: 0,
             pricePaid: '',
             acquiredDate: '',
-            notes: ''
+            notes: '',
+            hasRead: false,
+            readDate: ''
         };
     }
 
@@ -493,12 +499,15 @@ window.ACDB = window.ACDB || {};
             if (typeFilters.size > 0 && !typeFilters.has(item.type)) return false;
             // Series (empty set = all; items without a series never match a selection)
             if (seriesFilters.size > 0 && !seriesFilters.has(item.series)) return false;
-            // Owned status
+            // Owned / read status. Both read filters only ever show story
+            // publications, the only items with a read status.
             if (ownedFilter) {
                 const data = getItemData(item.id);
                 if (ownedFilter === 'owned' && !data.owned) return false;
                 if (ownedFilter === 'unowned' && data.owned) return false;
                 if (ownedFilter === 'wishlist' && !data.wishlist) return false;
+                if (ownedFilter === 'read' && !(ACDB.isReadable(item) && data.hasRead)) return false;
+                if (ownedFilter === 'unread' && !(ACDB.isReadable(item) && !data.hasRead)) return false;
             }
             return true;
         });
@@ -532,6 +541,10 @@ window.ACDB = window.ACDB || {};
                     dom.resultsCount.textContent = `Showing ${items.length} owned items`;
                 } else if (ownedFilter === 'unowned') {
                     dom.resultsCount.textContent = `Showing ${items.length} unowned items`;
+                } else if (ownedFilter === 'read') {
+                    dom.resultsCount.textContent = `Showing ${items.length} read items`;
+                } else if (ownedFilter === 'unread') {
+                    dom.resultsCount.textContent = `Showing ${items.length} unread items`;
                 } else {
                     dom.resultsCount.textContent = filteredOwned > 0
                         ? `Showing ${items.length} of ${total} items · ${filteredOwned} owned`
@@ -585,6 +598,7 @@ window.ACDB = window.ACDB || {};
                 <div class="card-badges">
                     ${data.owned ? '<span class="badge badge-owned">Owned</span>' : ''}
                     ${data.wishlist && !data.owned ? '<span class="badge badge-wishlist">Wishlist</span>' : ''}
+                    ${data.hasRead && ACDB.isReadable(item) ? '<span class="badge badge-read">Read</span>' : ''}
                 </div>
                 <div class="card-owned-indicator">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
@@ -940,6 +954,10 @@ window.ACDB = window.ACDB || {};
             const row = e.target.closest('.stats-bar-row.clickable');
             if (row) applyExclusiveFilter('category', row.dataset.label);
         });
+        dom.statsReading.addEventListener('click', (e) => {
+            const row = e.target.closest('.stats-bar-row.clickable');
+            if (row) applyExclusiveFilter('series', row.dataset.label);
+        });
 
         // Stats sort toggle (% vs #)
         document.querySelectorAll('.stats-sort-btn').forEach(btn => {
@@ -1211,6 +1229,18 @@ window.ACDB = window.ACDB || {};
         dom.modalCopies.addEventListener('input', saveModalData);
 
         dom.modalNotes.addEventListener('input', debounce(saveModalData, 500));
+
+        // Reading status: a finished date implies "read", and un-marking an
+        // item as read clears its date. Independent of ownership on purpose,
+        // so un-owning an item never touches it.
+        dom.modalHasRead.addEventListener('change', () => {
+            if (!dom.modalHasRead.checked) dom.modalReadDate.value = '';
+            saveModalData();
+        });
+        dom.modalReadDate.addEventListener('change', () => {
+            if (dom.modalReadDate.value) dom.modalHasRead.checked = true;
+            saveModalData();
+        });
 
         // Copies +/- buttons
         dom.copiesMinus.addEventListener('click', () => {

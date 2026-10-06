@@ -126,6 +126,15 @@
         setTimeout(() => container.remove(), 3500);
     }
 
+    // Story publications whose read status can be tracked. Art books, guides
+    // and magazines are reference material, not lore to read through, so they
+    // are left out on purpose.
+    const READABLE_TYPES = new Set(['Novel', 'Comic Book', 'Graphic Novel', 'Manga', 'Gamebook']);
+
+    function isReadable(item) {
+        return READABLE_TYPES.has(item.type);
+    }
+
     // Expose on namespace
     A.escapeHTML = escapeHTML;
     A.debounce = debounce;
@@ -136,5 +145,6 @@
     A.launchConfetti = launchConfetti;
     A.readUrl = readUrl;
     A.readPathFromUrl = readPathFromUrl;
+    A.isReadable = isReadable;
 
 })();

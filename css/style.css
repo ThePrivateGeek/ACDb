@@ -716,7 +716,7 @@ a.collection-action-btn {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr auto 1fr;
     gap: 1.5rem;
 }
 
@@ -1179,6 +1179,11 @@ a.collection-action-btn {
 
 .badge-wishlist {
     background: rgba(52, 152, 219, 0.9);
+    color: #fff;
+}
+
+.badge-read {
+    background: rgba(142, 68, 173, 0.9);
     color: #fff;
 }
 

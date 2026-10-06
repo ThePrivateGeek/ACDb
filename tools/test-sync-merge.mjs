@@ -49,6 +49,18 @@ check(S.sameData({ pricePaid: 12.5 }, { pricePaid: '12.5' }), 'sameData coerces 
 check(!S.sameData(owned(), blank()), 'sameData detects difference');
 check(S.sameData(owned(5), owned(9)), 'sameData ignores updatedAt');
 check(S.isEmpty(blank()) && S.isEmpty({}) && !S.isEmpty({ wishlist: true }), 'isEmpty');
+check(!S.sameData(blank(), { ...blank(), hasRead: true }), 'sameData detects read status');
+check(!S.sameData({ hasRead: true }, { hasRead: true, readDate: '2026-10-06' }), 'sameData detects read date');
+check(!S.isEmpty({ hasRead: true }), 'read-only item is not empty');
+{
+    const n = S.normalize({ hasRead: 1, readDate: '2026-10-06' });
+    check(n.hasRead === true && n.readDate === '2026-10-06', 'normalize keeps read fields', n);
+}
+{
+    // Read but not owned (e.g. read on the Internet Archive) still syncs up.
+    const r = S.mergeFirstSync({ 9: { ...blank(50), hasRead: true } }, [], 'newest', NOW);
+    check(r.toPush.includes('9') && r.merged[9].hasRead, 'read-only device item pushed', r.merged[9]);
+}
 
 // ---- mergeFirstSync ----
 {

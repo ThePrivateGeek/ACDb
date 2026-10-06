@@ -165,6 +165,8 @@
                     <option value="owned">Owned Only</option>
                     <option value="unowned">Not Owned</option>
                     <option value="wishlist">Wishlist</option>
+                    <option value="read">Read</option>
+                    <option value="unread">Not Read</option>
                 </select>
                 <select id="sortBy" class="filter-select">
                     <option value="year-desc" selected>Year (Newest First)</option>
@@ -226,6 +228,10 @@
                 <div class="stats-section">
                     <h4>Condition Breakdown</h4>
                     <div class="stats-bars" id="statsByCondition"></div>
+                </div>
+                <div class="stats-section">
+                    <h4>Reading Progress</h4>
+                    <div class="stats-bars" id="statsReading"></div>
                 </div>
             </div>
         </div>
@@ -359,6 +365,26 @@
                             <div class="control-row">
                                 <label for="modalNotes">Notes</label>
                                 <textarea id="modalNotes" placeholder="Add personal notes..." rows="3" maxlength="5000"></textarea>
+                            </div>
+                        </div>
+
+                        <div id="modalReadingSection" hidden>
+                            <div class="modal-divider"></div>
+                            <h3 class="collection-heading">Reading</h3>
+                            <div class="collection-controls">
+                                <div class="control-row">
+                                    <label class="toggle-label">
+                                        <span>Read</span>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="modalHasRead">
+                                            <span class="toggle-slider"></span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="control-row">
+                                    <label for="modalReadDate">Finished</label>
+                                    <input type="date" id="modalReadDate" class="modal-date-input">
+                                </div>
                             </div>
                         </div>
                     </div>

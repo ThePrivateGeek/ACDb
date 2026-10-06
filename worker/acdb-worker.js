@@ -516,7 +516,7 @@ const MAX_NOTES_LENGTH = 5000;
 const MAX_FUTURE_SKEW = 5 * 60 * 1000;
 const CONDITIONS = new Set(['', 'mint', 'near-mint', 'excellent', 'good', 'fair', 'poor']);
 
-// Coerce to the 8 known fields; unknown keys are dropped. Structural problems
+// Coerce to the 10 known fields; unknown keys are dropped. Structural problems
 // reject the whole request, field-level junk is coerced, so a client is never
 // stuck retrying a batch it cannot fix.
 function sanitizeItemData(d) {
@@ -529,7 +529,9 @@ function sanitizeItemData(d) {
     copies: Number.isInteger(d.copies) ? Math.min(Math.max(d.copies, 0), 999) : 0,
     pricePaid: str(d.pricePaid, 20),
     acquiredDate: /^\d{4}-\d{2}-\d{2}$/.test(d.acquiredDate) ? d.acquiredDate : '',
-    notes: str(d.notes, MAX_NOTES_LENGTH)
+    notes: str(d.notes, MAX_NOTES_LENGTH),
+    hasRead: d.hasRead === true,
+    readDate: /^\d{4}-\d{2}-\d{2}$/.test(d.readDate) ? d.readDate : ''
   };
 }
 

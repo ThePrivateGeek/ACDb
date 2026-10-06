@@ -28,6 +28,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Series can span types — "Assassin's Creed: Last Descendants" shows 3 novels + 5 Locus comics (8 items)
 - [ ] Series dropdown is visible with no filters set, and disappears when a category with no series is selected (e.g. Statue)
 - [ ] Owned filter — "Owned Only", "Not Owned", "Wishlist" all work
+- [ ] Read filters — "Read" shows only items marked read; "Not Read" shows only unread story publications (155 total with nothing read), never statues or art books
 - [ ] Sort — Default, Year asc/desc, Name A-Z/Z-A, Recently Added
 - [ ] Filters cascade: selecting a game narrows Category options, selecting a category narrows Type options, selecting a type narrows Series options
 - [ ] Clear (x) button on each multi-select resets that filter
@@ -96,6 +97,10 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Acquired date field saves
 - [ ] Notes field saves (with debounce)
 - [ ] All changes persist after closing modal and reopening
+- [ ] Reading section shows for novels, comic books, graphic novels, manga, gamebooks; hidden for everything else (statues, art books, magazines)
+- [ ] Setting a Finished date auto-toggles Read on; toggling Read off clears the date
+- [ ] Toggling Owned off leaves Read and Finished untouched
+- [ ] Card shows a purple "Read" badge for read items
 
 ## 11. Collection Insights Dashboard
 - [ ] "Collection Insights" toggle opens/closes the panel
@@ -103,13 +108,15 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] By Game — bars show owned/total with percentage, sorted correctly
 - [ ] By Category — same as above
 - [ ] Condition Breakdown — shows counts, Total Physical Items at top
+- [ ] Reading Progress — "Stories Read X/155" at top, then one bar per series plus "Standalone"; clicking a series filters to it (Standalone is not clickable)
 - [ ] 100% completion — percentage turns green, checkmark appears
 - [ ] Confetti fires when completing a game/category (mark last unowned item)
 - [ ] Celebration toast appears center-screen
 
 ## 12. Export / Import
 - [ ] Export downloads a JSON file with today's date in filename
-- [ ] Export includes all collection fields (owned, wishlist, condition, copies, price, date, notes)
+- [ ] Export includes all collection fields (owned, wishlist, condition, copies, price, date, notes, hasRead, readDate)
+- [ ] An item that is only marked read (not owned) is included in the export and restores on import
 - [ ] Toast shows "Exported X items"
 - [ ] Import — select the exported file, data restores
 - [ ] Toast shows "Imported X of Y items"
@@ -164,6 +171,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Mark an item owned: the dot pulses, then turns green within ~3 seconds
 - [ ] Second browser/device signed in to the same account shows the change after switching to its tab (or reloading)
 - [ ] Same item edited on two devices: the later edit ends up on both
+- [ ] Mark a novel read (with a Finished date) without owning it: it syncs to the second device with both read fields intact
 - [ ] First sign-in on a browser whose items differ from the account: the "Combine your collections" dialog shows the counts; each choice behaves as described; "Download a backup" saves an export; Esc doesn't close it
 - [ ] Offline (DevTools → Network → Offline): edits still save, the dot turns amber; back online they sync
 - [ ] Two tabs open: an edit in one appears in the other; edits made in both at once all survive

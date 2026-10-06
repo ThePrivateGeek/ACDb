@@ -33,7 +33,7 @@
     // (very old) time, so any real edit beats them, and two of them tie.
     const LEGACY_STAMP = 1;
 
-    const FIELDS = ['owned', 'wishlist', 'hasBox', 'condition', 'copies', 'pricePaid', 'acquiredDate', 'notes'];
+    const FIELDS = ['owned', 'wishlist', 'hasBox', 'condition', 'copies', 'pricePaid', 'acquiredDate', 'notes', 'hasRead', 'readDate'];
 
     // ---- Pure helpers (exercised by tools/test-sync-merge.mjs) ----
 
@@ -47,7 +47,9 @@
             copies: parseInt(d.copies, 10) || 0,
             pricePaid: d.pricePaid == null ? '' : String(d.pricePaid),
             acquiredDate: d.acquiredDate || '',
-            notes: d.notes || ''
+            notes: d.notes || '',
+            hasRead: !!d.hasRead,
+            readDate: d.readDate || ''
         };
     }
 

@@ -12,7 +12,7 @@
         const exportData = [];
         AC_DATABASE.forEach(item => {
             const data = A.getItemData(item.id);
-            if (data.owned || data.wishlist || data.hasBox || data.condition || data.copies > 0 || data.notes || data.pricePaid || data.acquiredDate) {
+            if (data.owned || data.wishlist || data.hasBox || data.condition || data.copies > 0 || data.notes || data.pricePaid || data.acquiredDate || data.hasRead) {
                 exportData.push({
                     id: item.id,
                     name: item.name,
@@ -24,7 +24,9 @@
                     copies: data.copies || 0,
                     pricePaid: data.pricePaid || '',
                     acquiredDate: data.acquiredDate || '',
-                    notes: data.notes || ''
+                    notes: data.notes || '',
+                    hasRead: data.hasRead || false,
+                    readDate: data.readDate || ''
                 });
             }
         });
@@ -61,7 +63,9 @@
                             copies: entry.copies || 0,
                             pricePaid: entry.pricePaid || '',
                             acquiredDate: entry.acquiredDate || '',
-                            notes: entry.notes || ''
+                            notes: entry.notes || '',
+                            hasRead: entry.hasRead || false,
+                            readDate: entry.readDate || ''
                         };
                         A.setItemData(item.id, data);
                         matched++;
