@@ -2829,3 +2829,259 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* ---- Accounts & Sync (auth.js, sync.js) ---- */
+.account-control {
+    position: relative;
+}
+
+.account-control[hidden],
+.account-menu[hidden],
+.sync-banner[hidden],
+.sync-banner-close[hidden] {
+    display: none;
+}
+
+.account-btn .google-g {
+    width: 14px;
+    height: 14px;
+}
+
+.account-btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+.account-avatar {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent-dark);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.sync-dot {
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-primary);
+    background: var(--text-muted);
+}
+
+.sync-dot.is-synced { background: var(--owned-green); }
+.sync-dot.is-syncing { background: var(--accent); animation: sync-pulse 1s ease-in-out infinite; }
+.sync-dot.is-pending { background: var(--good); }
+.sync-dot.is-error { background: var(--red-glow); }
+
+@keyframes sync-pulse {
+    50% { opacity: 0.3; }
+}
+
+.account-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.4rem 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    z-index: 200;
+}
+
+.account-menu-email {
+    padding: 0.5rem 0.9rem 0.15rem;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.account-menu-status {
+    padding: 0 0.9rem 0.5rem;
+    margin-bottom: 0.3rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.account-menu-item {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.9rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.account-menu-item:hover {
+    background: var(--bg-card-hover);
+    color: var(--accent);
+}
+
+.account-menu-item.danger {
+    margin-top: 0.3rem;
+    border-top: 1px solid var(--border);
+    color: var(--red-glow);
+}
+
+.account-menu-item.danger:hover {
+    background: var(--red);
+    color: #fff;
+}
+
+.sync-banner {
+    padding: 0.6rem 2rem;
+    background: linear-gradient(90deg, rgba(201, 168, 76, 0.12), rgba(201, 168, 76, 0.04));
+    border-bottom: 1px solid var(--accent-dark);
+}
+
+.sync-banner-inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.sync-banner-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    color: var(--accent);
+}
+
+.sync-banner p {
+    flex: 1;
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+/* Google's dark-theme "Sign in with Google" button (branding guidelines) */
+.google-signin-btn {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    padding: 0 12px;
+    background: #131314;
+    border: 1px solid #8E918F;
+    border-radius: 20px;
+    color: #E3E3E3;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.google-signin-btn:hover {
+    background: #1f1f20;
+}
+
+.google-signin-btn .google-g {
+    width: 20px;
+    height: 20px;
+}
+
+.sync-banner-close {
+    padding: 0 0.25rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.sync-banner-close:hover {
+    color: var(--text-primary);
+}
+
+.merge-question {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.merge-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.merge-options button {
+    width: 100%;
+}
+
+.merge-backup {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.merge-backup a {
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .sync-banner {
+        padding: 0.6rem 1rem;
+    }
+
+    .sync-banner-inner {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+
+    .sync-banner p {
+        flex: 1 1 calc(100% - 70px);
+        font-size: 0.85rem;
+    }
+
+    .sync-banner-close {
+        order: 2;
+    }
+
+    .google-signin-btn {
+        order: 3;
+        margin-left: calc(22px + 0.6rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .google-signin-btn {
+        flex: 1;
+        justify-content: center;
+        margin-left: 0;
+    }
+}
+
+.share-auto-note,
+.share-signin-hint {
+    margin: 0.25rem 0 0.5rem;
+    text-align: center;
+}
+
+.share-signin-hint a {
+    color: var(--accent);
+}

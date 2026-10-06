@@ -77,11 +77,35 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
                         <span id="shareBtnText">Share</span>
                     </button>
+                    <div class="account-control" id="accountControl" hidden>
+                        <button id="accountBtn" class="collection-action-btn account-btn" aria-expanded="false" aria-controls="accountMenu"></button>
+                        <div class="account-menu" id="accountMenu" role="menu" hidden>
+                            <div class="account-menu-email" id="accountMenuEmail"></div>
+                            <div class="account-menu-status" id="accountMenuStatus"></div>
+                            <button role="menuitem" class="account-menu-item" id="accountExport">Download my data</button>
+                            <a role="menuitem" class="account-menu-item" href="privacy.html">Privacy</a>
+                            <button role="menuitem" class="account-menu-item" id="accountSignOut">Sign out</button>
+                            <button role="menuitem" class="account-menu-item danger" id="accountDelete">Delete account</button>
+                        </div>
+                    </div>
                     <input type="file" id="importFile" accept=".json" style="display:none;">
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Sign-in banner (signed-out visitors who own something; auth.js) -->
+    <div class="sync-banner" id="syncBanner" hidden>
+        <div class="sync-banner-inner">
+            <svg class="sync-banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+            <p id="syncBannerText"></p>
+            <button class="google-signin-btn" id="syncBannerSignIn">
+                <svg class="google-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                <span>Sign in with Google</span>
+            </button>
+            <button class="sync-banner-close" id="syncBannerClose" aria-label="Dismiss">&times;</button>
+        </div>
+    </div>
 
     <!-- Toolbar -->
     <div class="toolbar">
@@ -334,7 +358,7 @@
                             </div>
                             <div class="control-row">
                                 <label for="modalNotes">Notes</label>
-                                <textarea id="modalNotes" placeholder="Add personal notes..." rows="3"></textarea>
+                                <textarea id="modalNotes" placeholder="Add personal notes..." rows="3" maxlength="5000"></textarea>
                             </div>
                         </div>
                     </div>
@@ -459,7 +483,7 @@
             <button class="modal-close" id="shareModalClose">&times;</button>
             <div class="share-modal-content">
                 <h2 class="add-modal-title">Share Your Collection</h2>
-                <p class="add-modal-subtitle">Let the community see what you've collected</p>
+                <p class="add-modal-subtitle" id="shareModalSubtitle">Let the community see what you've collected</p>
                 <div id="shareFormSection">
                     <div class="form-row">
                         <label for="shareDisplayName">Display Name *</label>
@@ -497,6 +521,8 @@
                         <input type="text" id="shareManageUrl" readonly>
                         <button id="shareManageCopyUrl" class="btn-save">Copy</button>
                     </div>
+                    <p class="form-hint share-auto-note" id="shareAutoNote" hidden>Updates automatically with your collection</p>
+                    <p class="form-hint share-signin-hint" id="shareSignInHint" hidden><a href="#" id="shareSignInLink">Sign in with Google</a> to keep your profile up to date automatically.</p>
                     <div class="form-actions">
                         <button id="shareDeleteBtn" class="btn-delete">Delete Profile</button>
                         <button id="shareManageCancel" class="btn-cancel">Cancel</button>
@@ -514,6 +540,38 @@
                         <button id="shareDone" class="btn-save" style="margin-top:1rem;">Done</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- First sign-in merge dialog (sync.js). A choice is required, so it has
+         no close button and ignores Esc / overlay clicks. -->
+    <div class="modal-overlay" id="mergeModalOverlay">
+        <div class="modal share-modal" role="dialog" aria-modal="true" aria-labelledby="mergeTitle">
+            <div class="share-modal-content">
+                <h2 class="add-modal-title" id="mergeTitle">Combine your collections</h2>
+                <p class="add-modal-subtitle">Items found in only one place are always kept.</p>
+                <div class="share-preview">
+                    <div class="share-preview-stat">
+                        <span class="stat-number" id="mergeLocalCount">0</span>
+                        <span class="stat-label">This browser</span>
+                    </div>
+                    <div class="share-preview-stat">
+                        <span class="stat-number" id="mergeRemoteCount">0</span>
+                        <span class="stat-label">Your account</span>
+                    </div>
+                    <div class="share-preview-stat">
+                        <span class="stat-number" id="mergeConflictCount">0</span>
+                        <span class="stat-label">Different</span>
+                    </div>
+                </div>
+                <p class="merge-question">When the same item differs, keep:</p>
+                <div class="merge-options">
+                    <button class="btn-save" data-strategy="newest">The most recent change (recommended)</button>
+                    <button class="btn-cancel" data-strategy="device">This browser's version</button>
+                    <button class="btn-cancel" data-strategy="account">My account's version</button>
+                </div>
+                <p class="form-hint merge-backup"><a href="#" id="mergeBackupLink">Download a backup of this browser's collection first</a></p>
             </div>
         </div>
     </div>
@@ -586,6 +644,8 @@
     <script src="js/stats.js"></script>
     <script src="js/collection.js"></script>
     <script src="js/devtool.js"></script>
+    <script src="js/sync.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/sharing.js"></script>
     <script src="js/app.js"></script>
     <!-- Cloudflare Web Analytics -->

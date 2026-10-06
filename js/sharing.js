@@ -21,18 +21,35 @@
         }).map(item => String(item.id));
     }
 
+    // Two kinds of public profile: one linked to the signed-in account (it
+    // follows the synced collection on its own), or the older kind owned by
+    // an edit token in this browser and updated by hand.
+    function hasLinkedProfile() {
+        const account = A.isSignedIn() ? A.getAccount() : null;
+        return !!(account && account.shareName);
+    }
+
+    function getShareName() {
+        if (A.isSignedIn()) return (A.getAccount() || {}).shareName || null;
+        return localStorage.getItem(A.SHARE_TOKEN_KEY) ? localStorage.getItem(A.SHARE_NAME_KEY) : null;
+    }
+
     function isShared() {
-        return !!localStorage.getItem(A.SHARE_TOKEN_KEY);
+        return !!getShareName();
     }
 
     function updateShareButton() {
         const text = document.getElementById('shareBtnText');
-        if (isShared()) {
+        const btn = document.getElementById('shareBtn');
+        if (hasLinkedProfile()) {
+            text.textContent = 'Profile';
+            btn.title = 'Manage your public profile';
+        } else if (isShared()) {
             text.textContent = 'Update';
-            document.getElementById('shareBtn').title = 'Update your shared collection';
+            btn.title = 'Update your shared collection';
         } else {
             text.textContent = 'Share';
-            document.getElementById('shareBtn').title = 'Share your collection with the community';
+            btn.title = 'Share your collection with the community';
         }
     }
 
@@ -53,12 +70,20 @@
             return;
         }
 
+        const linked = hasLinkedProfile();
+        document.getElementById('shareModalSubtitle').textContent = A.isSignedIn()
+            ? 'Your profile updates automatically as your collection changes'
+            : "Let the community see what you've collected";
+
         if (isShared()) {
             // Manage mode — show update + delete options
             formSection.style.display = 'none';
             successSection.style.display = 'none';
             manageSection.style.display = '';
-            const name = localStorage.getItem(A.SHARE_NAME_KEY);
+            const name = getShareName();
+            document.getElementById('shareUpdateBtn').hidden = linked;
+            document.getElementById('shareAutoNote').hidden = !linked;
+            document.getElementById('shareSignInHint').hidden = linked || !A.isSyncEnabled();
             document.getElementById('shareManageName').textContent = name;
             document.getElementById('shareManageOwned').textContent = owned.length;
             document.getElementById('shareManagePct').textContent = pct;
@@ -148,16 +173,24 @@
         submitBtn.textContent = 'Sharing...';
 
         try {
-            const res = await fetch(`${A.API_URL}/share`, {
+            // Signed in: the profile is linked to the account and the Worker
+            // reads its items from the synced collection.
+            const signedIn = A.isSignedIn();
+            const request = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ displayName, ownedItems: owned })
-            });
+                body: JSON.stringify(signedIn ? { displayName } : { displayName, ownedItems: owned })
+            };
+            const res = signedIn ? await A.authFetch('/share', request) : await fetch(`${A.API_URL}/share`, request);
             const data = await res.json();
 
             if (data.success) {
-                localStorage.setItem(A.SHARE_TOKEN_KEY, data.token);
-                localStorage.setItem(A.SHARE_NAME_KEY, data.displayName);
+                if (signedIn) {
+                    A.setShareName(data.displayName);
+                } else {
+                    localStorage.setItem(A.SHARE_TOKEN_KEY, data.token);
+                    localStorage.setItem(A.SHARE_NAME_KEY, data.displayName);
+                }
 
                 // Show success
                 document.getElementById('shareFormSection').style.display = 'none';
@@ -212,23 +245,27 @@
     }
 
     async function deleteProfile() {
+        const linked = hasLinkedProfile();
         const token = localStorage.getItem(A.SHARE_TOKEN_KEY);
-        if (!token) return;
+        if (!linked && !token) return;
 
         const deleteBtn = document.getElementById('shareDeleteBtn');
         deleteBtn.disabled = true;
         deleteBtn.textContent = 'Deleting...';
 
         try {
-            const res = await fetch(`${A.API_URL}/profile`, {
-                method: 'DELETE',
-                headers: { 'Authorization': token }
-            });
+            const res = linked
+                ? await A.authFetch('/profile', { method: 'DELETE' })
+                : await fetch(`${A.API_URL}/profile`, { method: 'DELETE', headers: { 'Authorization': token } });
             const data = await res.json();
 
             if (data.success) {
-                localStorage.removeItem(A.SHARE_TOKEN_KEY);
-                localStorage.removeItem(A.SHARE_NAME_KEY);
+                if (linked) {
+                    A.setShareName(null);
+                } else {
+                    localStorage.removeItem(A.SHARE_TOKEN_KEY);
+                    localStorage.removeItem(A.SHARE_NAME_KEY);
+                }
                 updateShareButton();
                 closeShareModal();
                 A.showToast('Profile deleted.');
@@ -252,6 +289,7 @@
         document.querySelector('.main-content').style.display = '';
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('leaderboardView').style.display = 'none';
+        A.renderSyncBanner();
     }
 
     function hideMainContent() {
@@ -259,6 +297,7 @@
         document.querySelector('.game-timeline').style.display = 'none';
         document.querySelector('.stats-dashboard').style.display = 'none';
         document.querySelector('.main-content').style.display = 'none';
+        A.renderSyncBanner();
     }
 
     async function showProfile(name, fromLeaderboard = false) {
@@ -316,8 +355,8 @@
 
         const ctaEl = document.getElementById('leaderboardCta');
         if (isShared()) {
-            const name = localStorage.getItem(A.SHARE_NAME_KEY);
-            ctaEl.innerHTML = `You're on the board as <a href="#profile/${name.toLowerCase()}">${name}</a>`;
+            const name = getShareName();
+            ctaEl.innerHTML = `You're on the board as <a href="#profile/${name.toLowerCase()}">${A.escapeHTML(name)}</a>`;
         } else {
             ctaEl.innerHTML = 'Want to join? <a href="#" id="leaderboardShareLink">Share your collection</a> to appear on the leaderboard!';
             document.getElementById('leaderboardShareLink').addEventListener('click', (e) => {
@@ -361,7 +400,40 @@
         }
     }
 
+    // After signing in: link this browser's token-owned profile (if any) to
+    // the account, so it follows the synced collection from now on.
+    async function claimLegacyProfile() {
+        const legacyToken = localStorage.getItem(A.SHARE_TOKEN_KEY);
+        if (!legacyToken || !A.isSignedIn()) return;
+        const legacyName = localStorage.getItem(A.SHARE_NAME_KEY);
+        try {
+            const res = await A.authFetch('/profile/claim', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ legacyToken })
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success) {
+                localStorage.removeItem(A.SHARE_TOKEN_KEY);
+                localStorage.removeItem(A.SHARE_NAME_KEY);
+                A.setShareName(data.displayName);
+                A.showToast(`Your public profile ${data.displayName} now updates automatically.`);
+            } else if (res.status === 404) {
+                // The profile was deleted elsewhere; the token is useless now.
+                localStorage.removeItem(A.SHARE_TOKEN_KEY);
+                localStorage.removeItem(A.SHARE_NAME_KEY);
+            } else if (data.code === 'has_profile') {
+                // Keep the token so that profile can still be managed when signed out.
+                A.setShareName(data.displayName);
+                A.showToast(`This account already shares as ${data.displayName}. ${legacyName} wasn't changed.`);
+            }
+        } catch { /* try again on the next sign-in */ }
+        updateShareButton();
+    }
+
     // Expose on namespace
+    A.claimLegacyProfile = claimLegacyProfile;
+    A.getShareName = getShareName;
     A.getOwnedItemIds = getOwnedItemIds;
     A.isShared = isShared;
     A.updateShareButton = updateShareButton;

@@ -79,13 +79,20 @@
 
         if (!fromHash) A.setHash(item);
         currentItemId = id;
-        const data = A.getItemData(id);
         const dom = A.dom;
 
         populateGallery(item);
         populateItemInfo(item);
+        populateCollectionControls(id);
 
-        // Collection controls
+        dom.modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Fill the "My Collection" controls from the saved data (no save).
+    function populateCollectionControls(id) {
+        const data = A.getItemData(id);
+        const dom = A.dom;
         dom.modalOwned.checked = data.owned;
         dom.modalWishlist.checked = data.wishlist;
         dom.modalHasBox.checked = data.hasBox;
@@ -94,9 +101,14 @@
         dom.modalPricePaid.value = data.pricePaid || '';
         dom.modalAcquiredDate.value = data.acquiredDate || '';
         dom.modalNotes.value = data.notes || '';
+    }
 
-        dom.modalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+    // Cloud sync pulled new values: update the open item's controls if it
+    // was one of them.
+    function refreshModalControls(changedIds) {
+        if (currentItemId === null || isReadOnlyOpen) return;
+        if (!A.dom.modalOverlay.classList.contains('active')) return;
+        if (changedIds.includes(currentItemId)) populateCollectionControls(currentItemId);
     }
 
     function openReadOnlyModal(id) {
@@ -326,6 +338,7 @@
     A.galleryGoTo = galleryGoTo;
     A.lightbox = lightbox;
     A.saveModalData = saveModalData;
+    A.refreshModalControls = refreshModalControls;
     A.getCurrentItemId = () => currentItemId;
     A.setCurrentItemId = (id) => { currentItemId = id; };
     A.getGalleryImages = () => galleryImages;

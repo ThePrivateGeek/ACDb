@@ -246,9 +246,13 @@ window.ACDB = window.ACDB || {};
         };
     }
 
+    // Every edit goes through here. `updatedAt` lets cloud sync (sync.js)
+    // keep the newest edit per item; export lists its fields explicitly, so
+    // the timestamp never ends up in export files.
     function setItemData(id, data) {
-        collection[id] = data;
+        collection[id] = { ...data, updatedAt: ACDB.syncNow() };
         saveCollection();
+        ACDB.onLocalChange(id);
     }
 
     // ---- Multi-Select Helpers ----
@@ -544,6 +548,7 @@ window.ACDB = window.ACDB || {};
 
         updateStats();
         saveFilters();
+        ACDB.renderSyncBanner();
     }
 
     function createCard(item) {
@@ -848,6 +853,29 @@ window.ACDB = window.ACDB || {};
             dom.searchInput.focus();
         });
 
+        // Another tab saved the collection. Both tabs save the whole object,
+        // so two saves close together can each miss the other's latest edit:
+        // merge per item, keeping the newer `updatedAt`, and save again if this
+        // tab held something newer. An empty collection is a deliberate reset
+        // (signing out), so it is taken as is.
+        window.addEventListener('storage', (e) => {
+            if (e.key !== STORAGE_KEY) return;
+            const stored = loadCollection();
+            let keptOwn = false;
+            if (Object.keys(stored).length > 0) {
+                Object.entries(collection).forEach(([id, mine]) => {
+                    const theirs = stored[id];
+                    if (!theirs || (mine.updatedAt || 0) > (theirs.updatedAt || 0)) {
+                        stored[id] = mine;
+                        keptOwn = true;
+                    }
+                });
+            }
+            collection = stored;
+            if (keptOwn) saveCollection();
+            renderItems();
+        });
+
         // Filters
         // URL hash routing (back button support)
         window.addEventListener('popstate', () => {
@@ -1124,6 +1152,12 @@ window.ACDB = window.ACDB || {};
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
+                // The merge dialog needs an answer; leave everything as is.
+                if (document.getElementById('mergeModalOverlay').classList.contains('active')) return;
+                if (ACDB.isAccountMenuOpen()) {
+                    ACDB.closeAccountMenu();
+                    return;
+                }
                 if (lightbox.overlay.classList.contains('active')) {
                     lightbox.close();
                     return;
@@ -1387,6 +1421,10 @@ window.ACDB = window.ACDB || {};
 
     // ---- Initialize ----
     function init() {
+        // Coming back from Google's sign-in page: restore the address before
+        // anything reads the hash.
+        ACDB.consumeAuthRedirect();
+
         // Hide admin-only buttons for public visitors
         if (!isAdmin) {
             dom.addItemBtn.style.display = 'none';
@@ -1406,6 +1444,9 @@ window.ACDB = window.ACDB || {};
 
         // Open item from URL hash if present
         handleHash();
+
+        // Account button, sign-in banner, and cloud sync when signed in
+        ACDB.initAuth();
     }
 
     // ---- Expose shared API for multi-file modules ----
