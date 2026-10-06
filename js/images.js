@@ -695,7 +695,7 @@ const AC_IMAGES = {
     "Assassin's Creed: The Ming Storm": ["images/novels/ac-ming-storm.webp"],
     "Assassin's Creed: Fragments - The Blade of Aizu": ["images/novels/ac-fragments-blade-of-aizu.webp"],
     "Assassin's Creed: The Desert Threat": ["images/novels/ac-desert-threat.webp"],
-    "Assassin's Creed: Chang'an Wang (Prophecy of the Emperor)": ["images/novels/ac-jade-seal.webp"],
+    "Assassin's Creed: Chang'an Wang (Prophecy of the Emperor)": ["images/novels/ac-changan-wang.webp"],
     "Assassin's Creed: The Magus Conspiracy": ["images/novels/ac-magus-conspiracy.webp"],
     "Assassin's Creed Valhalla: Sword of the White Horse": ["images/novels/ac-sword-white-horse.webp"],
     "Assassin's Creed: The Golden City": ["images/novels/ac-golden-city.webp"],

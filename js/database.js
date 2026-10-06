@@ -2250,7 +2250,7 @@ const AC_DATABASE = [
     "game": "General",
     "year": 2022,
     "category": "Novel",
-    "description": "First novel in The Imperial Jade Seal series, following Zhangsun Qi in Tang dynasty China around 659. Announced as 'Prophecy of the Emperor' (Da Tang Qin Wang Chen) and released as Chang'an Wang. By Sui Shi. Published by Starfish. Chinese language only.",
+    "description": "First novel in The Imperial Jade Seal series, following Zhangsun Qi in Tang dynasty China around 659. Announced as 'Prophecy of the Emperor' (Da Tang Qin Wang Chen) and released as Chang'an Wang. By Sui Shi. Published by CITIC Press Group. Chinese language only.",
     "contents": "Novel (Simplified Chinese, 512 pages)",
     "type": "Novel",
     "series": "Assassin's Creed: The Imperial Jade Seal"
