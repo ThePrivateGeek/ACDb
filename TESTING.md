@@ -114,6 +114,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Import — select the exported file, data restores
 - [ ] Toast shows "Imported X of Y items"
 - [ ] Import with invalid file shows error toast
+- [ ] Export never contains `updatedAt` (sync bookkeeping stays out of export files)
 
 ## 13. URL Hash Routing
 - [ ] Opening a card updates the URL hash (e.g., #assassins-creed-ii-black-edition)
@@ -147,10 +148,32 @@ For simple item additions or image updates, skip to the "Data" section only.
 ## 16. Data Integrity
 - [ ] Total item count in footer matches database
 - [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, and share pages
-- [ ] Collection data keyed by item id under `acdb_collection_v2`; a name-keyed `acdb_collection` from before ids is migrated once on load (unmatched keys are dropped) and kept as a backup until 2027-01-03, after which it is removed from browsers that have `acdb_collection_v2`
+- [ ] Collection data keyed by item id under `acdb_collection_v2`, each entry with an `updatedAt` edit time once edited; a name-keyed `acdb_collection` from before ids is migrated once on load (unmatched keys are dropped) and kept as a backup until 2027-01-03, after which it is removed from browsers that have `acdb_collection_v2`
 - [ ] Export includes `id` and `name`; Import accepts both new exports (by id) and old ones (by name)
-- [ ] Shared profiles upload item ids; profiles uploaded before ids (item names) still display
+- [ ] Shared profiles upload item ids; profiles uploaded before ids (item names) still display. Profiles and the leaderboard are served from D1
+- [ ] `node tools/test-sync-merge.mjs` passes (cloud-sync merge rules)
 - [ ] Read links still open a book: archive.org returns 200 even for a missing book, so open a few (especially ones with parentheses in the path) and check the reader shows a cover, not an empty item page
+
+## 17. Account & Cloud Sync
+Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000` (it talks to the live API; `http://127.0.0.1:8000` has separate storage, so it works as a second device). Only Google accounts listed as test users can sign in while the Google app is in Testing.
+- [ ] Signed out: header shows **Sign in** with the Google "G"; after owning an item, the banner appears; ✕ hides it for good (survives reload)
+- [ ] Banner is hidden on profile and leaderboard views
+- [ ] Sign in from an open item: Google account chooser → back on the same item, signed in; no `?code=` left in the address bar
+- [ ] Cancelling on Google's page shows "Sign-in cancelled"
+- [ ] Account button shows the initial with a sync dot (green when synced); menu shows the email; Esc and clicking outside close it
+- [ ] Mark an item owned: the dot pulses, then turns green within ~3 seconds
+- [ ] Second browser/device signed in to the same account shows the change after switching to its tab (or reloading)
+- [ ] Same item edited on two devices: the later edit ends up on both
+- [ ] First sign-in on a browser whose items differ from the account: the "Combine your collections" dialog shows the counts; each choice behaves as described; "Download a backup" saves an export; Esc doesn't close it
+- [ ] Offline (DevTools → Network → Offline): edits still save, the dot turns amber; back online they sync
+- [ ] Two tabs open: an edit in one appears in the other; edits made in both at once all survive
+- [ ] Share while signed in: the profile is created without a token; the Share button reads **Profile**; the manage window has no Update button and says it updates automatically; owning more items updates the profile and leaderboard
+- [ ] Signing in on a browser that shared a profile before sign-in existed links that profile (toast) and it starts updating automatically
+- [ ] **Download my data** downloads `acdb-account-<date>.json`
+- [ ] **Sign out**: the grid shows nothing owned; signing in again brings everything back
+- [ ] **Delete account**: confirm dialog; afterwards signed out, the collection is still in the browser, and the public profile is gone
+- [ ] `privacy.html` opens from the footer and the account menu, and looks right on mobile
+- [ ] Fresh private window: no requests to `accounts.google.com` until Sign in is clicked (Network tab; `fonts.googleapis.com` is the site's fonts and was always there)
 
 ---
 

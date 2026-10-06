@@ -111,3 +111,20 @@ Ignore any "Start free trial" / "Activate" banner: that is the only part that as
    The leaderboard and profiles should look exactly as before.
 
 The full sign-in round trip is tested from the site itself once the client code (Phase 4) is in.
+
+## Launch (Phase 7)
+
+1. Google Auth Platform → **Audience** → **Publish app** → confirm. Status becomes "In production", so any
+   Google account can sign in (no verification needed: the app only asks for `openid` and email).
+2. Merge `feature/cloud-sync` into `main` and push. GitHub Pages publishes the site within a minute or two.
+3. Check on the live site: sign in with an account that is **not** a test user; `privacy.html` loads.
+
+## Cleanup (from about 2026-10-13, one week after the switch to D1)
+
+Once profiles have been served from D1 for a week without problems:
+
+1. In `acdb-worker.js`, delete `kvProfiles`, `profileStore()` (use `d1Profiles` directly), the
+   `/admin/migrate-kv` route and handler, and the KV/`PROFILES_BACKEND`/`ADMIN_KEY` notes in the header. Deploy.
+2. Worker → Settings: remove the `PROFILES_BACKEND` variable and the `ADMIN_KEY` secret.
+3. Keep the `ACDB` KV binding and namespace a while longer as a read-only backup; deleting them is optional
+   and can wait months (KV storage is free at this size).

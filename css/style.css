@@ -204,6 +204,10 @@ body {
     height: 14px;
 }
 
+a.collection-action-btn {
+    text-decoration: none;
+}
+
 .collection-action-btn:hover {
     border-color: var(--accent);
     color: var(--accent);
@@ -3084,4 +3088,75 @@ body {
 
 .share-signin-hint a {
     color: var(--accent);
+}
+
+/* ---- Privacy page ---- */
+.logo-text .logo-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.legal-page {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 3rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.legal-page h1 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+}
+
+.legal-page h2 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    margin: 2rem 0 0.5rem;
+}
+
+.legal-page p,
+.legal-page li {
+    font-size: 0.95rem;
+}
+
+.legal-page p {
+    margin-bottom: 0.75rem;
+}
+
+.legal-page ul {
+    margin: 0 0 0.75rem 1.25rem;
+}
+
+.legal-page li {
+    margin-bottom: 0.35rem;
+}
+
+.legal-page strong {
+    color: var(--text-primary);
+}
+
+.legal-page a {
+    color: var(--accent);
+}
+
+.legal-updated {
+    color: var(--text-muted);
+    font-size: 0.8rem !important;
+}
+
+@media (max-width: 768px) {
+    .legal-page {
+        padding: 1.5rem 1rem 2rem;
+    }
 }
