@@ -26,6 +26,7 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 - **Series browsing** — comics, graphic novels, manga, novel lines, and the Hachette partwork carry a `series` field (e.g. *Assassin's Creed: Assassins*) that groups single issues with the trade paperbacks that collect them, and can span types (the *Last Descendants* novels and the *Locus* comic share one series). The Series dropdown only appears when the current selection contains series items, and the series line in an item's card is a one-click filter to the whole run
 - **Read online** — comics, graphic novels, and manga with a free scan in the [Internet Archive's Assassin's Creed anthology](https://archive.org/details/assassins-creed-graphic-novels-and-comics-anthology) show a "Read on Internet Archive" button in their item card. The entry's optional `read` field holds the book's path inside that collection, unencoded as the archive names it (e.g. `07. AC Templars/AC Templars 2016 (3)`), and `readUrl` in `js/utils.js` builds the link; a full `https://` URL is used as-is for books hosted elsewhere. An optional `readLang` (e.g. `"fr"`) marks a scan in a different language and adds a tag such as "(Fr)" to the button. collected editions only get one when the archive holds a scan of the collection itself, not just its single issues
 - **Reading tracker** — novels, comic books, graphic novels, manga, and gamebooks get a Reading section in their item card: mark them as read (with an optional finished date), whether or not you own them. Read items get a badge, the status filter has "Read" / "Not Read" options, and Collection Insights shows your progress per series. Which types count is `READABLE_TYPES` in `js/utils.js`
+- **Reading order** — a "Reading Order" view (book icon in the header, `#reading`) lists curated orders with a Chronological / Release toggle and read switches; first up are the nine Oliver Bowden novels. Books in an order show their position and the next book in their item card. Orders live in `js/reading-orders.js`: each entry is an item id, the in-universe setting (display text; books are placed by their main story) and the earliest release date, and the list order is the chronological order
 - **Collection Insights** — collapsible stats dashboard showing completion progress by game and category (sorted by completion %), condition breakdown, reading progress by series, and 100% completion celebration with confetti
 - **Multi-image gallery** — swipe or click through multiple photos per item with smooth directional slide transitions and full-screen lightbox zoom
 - **Shareable item links** — each item has a unique URL. Ctrl+click or right-click to open in a new tab. Browser back button closes the modal. The share button in the item modal opens the native share sheet on mobile (copies the link on desktop); shared links unfurl with the item's own image and description in Slack/Discord/social media
@@ -84,6 +85,7 @@ Sharing is entirely optional. Your local collection works independently — shar
 js/
   database.js    — item database (630+ entries, each with a permanent numeric id)
   images.js      — image path mappings
+  reading-orders.js — curated reading orders (chronological list + release dates)
   utils.js       — shared utilities (toast, escapeHTML, slugify, etc.)
   modal.js       — item modal, gallery, lightbox
   stats.js       — stats dashboard, completion celebration
@@ -91,6 +93,7 @@ js/
   sync.js        — cloud sync: merge rules, push/pull
   auth.js        — Google sign-in, account menu, sign-in banner
   sharing.js     — sharing, profile view, leaderboard
+  reading.js     — reading order view and the item modal's reading order line
   devtool.js     — admin code generator
   app.js         — filters, rendering, routing, events, init
 css/
@@ -104,8 +107,9 @@ worker/
   migrations/    — D1 schema (applied in the D1 console)
   README.md      — deploy runbook
 tools/
-  validate-catalog.py — checks database.js and images.js (ids, names, fields,
-                   games, categories, images, read links, share pages)
+  validate-catalog.py — checks database.js, images.js and reading-orders.js (ids,
+                   names, fields, games, categories, images, read links, share
+                   pages, reading order entries)
   test-sync-merge.mjs — tests for the sync merge rules (node tools/test-sync-merge.mjs)
 .githooks/
   pre-commit     — runs validate-catalog.py before every commit

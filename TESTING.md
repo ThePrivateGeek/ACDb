@@ -183,6 +183,18 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] `privacy.html` opens from the footer and the account menu, and looks right on mobile
 - [ ] Fresh private window: no requests to `accounts.google.com` until Sign in is clicked (Network tab; `fonts.googleapis.com` is the site's fonts and was always there)
 
+## 18. Reading Order
+- [ ] Book button in the header opens `#reading`: grid, toolbar and stats are hidden; "Oliver Bowden Novels" lists 9 books, Desert Oath first
+- [ ] Release toggle reorders the list (Renaissance first, Desert Oath last); the choice survives a reload
+- [ ] Read toggle on a row marks the book read: purple border, "X / 9 read" and the bar update; the item's own modal shows Read too
+- [ ] Clicking a cover or title opens the full modal on top of the view; the address stays `#reading`; category/type/game/series aren't filter links there
+- [ ] In that modal: "Next: …" swaps to the next book in place; marking Read updates the list underneath; Esc, ✕ and browser back all close it and leave the view
+- [ ] Item modal from the grid: novels in an order show "Reading order · Oliver Bowden Novels · N of 9 · Next: …" (position follows the chosen mode; the last book says "Last book"); clicking the order name opens the view
+- [ ] No reading order line for items outside an order, or in read-only (profile/leaderboard) modals
+- [ ] **Back to Database** returns to the grid with no hash; pasting `/#reading/bowden` opens the view directly
+- [ ] Phone width: rows fit without horizontal scroll, the Read label hides and the switch stays
+- [ ] `validate-catalog.py` covers `js/reading-orders.js` (unknown item, non-readable type, duplicate, missing setting, bad date are errors)
+
 ---
 
 ## Quick Test (for item additions only)

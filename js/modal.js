@@ -13,6 +13,9 @@
     let galleryIndex = 0;
     let currentItemId = null;
     let isReadOnlyOpen = false;
+    // Full modal opened on top of a view (the reading order): collection
+    // controls work as usual, but the view and its hash stay underneath.
+    let isOverView = false;
 
     function populateItemInfo(item) {
         const dom = A.dom;
@@ -51,13 +54,16 @@
         dom.modalReadLabel.textContent = 'Read on Internet Archive' +
             (item.readLang ? ` (${item.readLang.charAt(0).toUpperCase()}${item.readLang.slice(1)})` : '');
 
-        // Category/type/game/series act as filter shortcuts, except in
-        // read-only mode where the browse grid is hidden behind the profile view.
+        // Category/type/game/series act as filter shortcuts, except when the
+        // browse grid is hidden behind another view (profile, reading order).
+        const gridHidden = isReadOnlyOpen || isOverView;
         [dom.modalBadge, dom.modalBadgeType, dom.modalGame, dom.modalSeries].forEach(el => {
-            el.classList.toggle('filter-link', !isReadOnlyOpen);
-            if (isReadOnlyOpen) el.removeAttribute('title');
+            el.classList.toggle('filter-link', !gridHidden);
+            if (gridHidden) el.removeAttribute('title');
             else el.title = 'Show all "' + el.textContent + '" items';
         });
+
+        A.fillModalReadingOrder(item, isReadOnlyOpen);
     }
 
     function populateGallery(item) {
@@ -74,6 +80,7 @@
         // Defensive: openModal always shows the full modal. Clear any stale
         // read-only state so re-entry from any caller is safe.
         isReadOnlyOpen = false;
+        isOverView = false;
         const collectionSection = document.getElementById('modalCollectionSection');
         if (collectionSection) collectionSection.style.display = '';
 
@@ -115,6 +122,40 @@
         if (currentItemId === null || isReadOnlyOpen) return;
         if (!A.dom.modalOverlay.classList.contains('active')) return;
         if (changedIds.includes(currentItemId)) populateCollectionControls(currentItemId);
+    }
+
+    // Full modal on top of the current view, without touching its hash. Same
+    // history handling as the read-only modal: back closes it.
+    function openModalOverView(id) {
+        const item = AC_DATABASE.find(i => i.id === id);
+        if (!item) return;
+
+        isReadOnlyOpen = false;
+        isOverView = true;
+        const collectionSection = document.getElementById('modalCollectionSection');
+        if (collectionSection) collectionSection.style.display = '';
+
+        currentItemId = id;
+        populateGallery(item);
+        populateItemInfo(item);
+        populateCollectionControls(id);
+
+        A.pushReadOnlyHistoryState();
+        A.dom.modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Show another item in the open over-view modal (reading order "Next").
+    function switchModalItem(id) {
+        const item = AC_DATABASE.find(i => i.id === id);
+        if (!item || !isOverView) return;
+        currentItemId = id;
+        populateGallery(item);
+        populateItemInfo(item);
+        populateCollectionControls(id);
+        // Desktop scrolls the details pane, phones the whole modal.
+        document.querySelector('#itemModal .modal-details').scrollTop = 0;
+        document.getElementById('itemModal').scrollTop = 0;
     }
 
     function openReadOnlyModal(id) {
@@ -165,10 +206,11 @@
 
         // Skip clearHash when closing a read-only open (preserve profile hash)
         // or when the caller already handled the hash (back-button flow in handleHash).
-        if (!isReadOnlyOpen && !skipClearHash) {
+        if (!isReadOnlyOpen && !isOverView && !skipClearHash) {
             A.clearHash();
         }
         isReadOnlyOpen = false;
+        isOverView = false;
     }
 
     // ---- Gallery ----
@@ -339,6 +381,9 @@
     // Expose on namespace
     A.openModal = openModal;
     A.openReadOnlyModal = openReadOnlyModal;
+    A.openModalOverView = openModalOverView;
+    A.switchModalItem = switchModalItem;
+    A.isModalOverView = () => isOverView;
     A.closeModal = closeModal;
     A.renderGalleryImage = renderGalleryImage;
     A.galleryPrev = galleryPrev;

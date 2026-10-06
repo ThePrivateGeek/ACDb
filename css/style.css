@@ -1731,6 +1731,51 @@ a.collection-action-btn {
     color: var(--text-muted);
 }
 
+/* Reading order line(s), under the series line (js/reading.js) */
+.modal-reading-order {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.modal-reading-order[hidden] {
+    display: none;
+}
+
+.modal-reading-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.modal-reading-name {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.modal-reading-next {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.modal-reading-name:hover,
+.modal-reading-next:hover {
+    text-decoration: underline;
+}
+
+.modal-reading-next::after {
+    content: ' \2192';
+}
+
+.modal-reading-last {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
 .modal-description {
     font-size: 0.9rem;
     color: var(--text-secondary);
@@ -2099,6 +2144,17 @@ a.collection-action-btn {
     background: rgba(201, 168, 76, 0.1);
 }
 
+.reading-btn {
+    text-decoration: none;
+    color: var(--accent);
+    border-color: var(--accent-dark);
+}
+
+.reading-btn:hover {
+    border-color: var(--accent);
+    background: rgba(201, 168, 76, 0.1);
+}
+
 /* ---- Share Button ---- */
 .share-btn {
     border-color: var(--owned-green);
@@ -2214,6 +2270,245 @@ a.collection-action-btn {
     max-width: 1600px;
     margin: 0 auto;
     padding: 1.5rem 2rem 4rem;
+}
+
+/* ---- Reading Order View ---- */
+#readingView {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 4rem;
+}
+
+.reading-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.reading-tab {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.reading-tab:hover {
+    border-color: var(--accent-dark);
+    color: var(--text-primary);
+}
+
+.reading-tab.active {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.reading-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+
+.reading-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+.reading-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.reading-modes {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.reading-mode {
+    padding: 0.45rem 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.reading-mode + .reading-mode {
+    border-left: 1px solid var(--border);
+}
+
+.reading-mode:hover {
+    color: var(--text-primary);
+}
+
+.reading-mode.active {
+    background: rgba(201, 168, 76, 0.15);
+    color: var(--accent);
+}
+
+.reading-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 200px;
+    flex: 0 1 280px;
+}
+
+.reading-progress-text {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.reading-progress .stats-bar-track {
+    flex: 1;
+}
+
+.reading-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.reading-entry {
+    display: grid;
+    grid-template-columns: 2rem 48px 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.reading-entry.read {
+    border-color: rgba(142, 68, 173, 0.6);
+}
+
+.reading-num {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--accent);
+    text-align: center;
+}
+
+.reading-cover {
+    width: 48px;
+    height: 72px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    cursor: pointer;
+}
+
+.reading-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.reading-info {
+    min-width: 0;
+}
+
+.reading-title {
+    display: block;
+    max-width: 100%;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.reading-title:hover {
+    color: var(--accent);
+}
+
+.reading-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.reading-meta .primary {
+    color: var(--text-secondary);
+}
+
+.reading-owned {
+    color: var(--owned-green);
+}
+
+.reading-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.reading-sources {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.reading-sources a {
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    #readingView {
+        padding: 1rem 1rem 3rem;
+    }
+
+    .reading-entry {
+        grid-template-columns: 1.5rem 40px 1fr auto;
+        gap: 0.75rem;
+        padding: 0.6rem 0.75rem;
+    }
+
+    .reading-cover {
+        width: 40px;
+        height: 60px;
+    }
+
+    .reading-toggle-text {
+        display: none;
+    }
+
+    .reading-progress {
+        flex: 1 1 100%;
+    }
 }
 
 .profile-header {

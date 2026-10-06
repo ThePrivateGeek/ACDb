@@ -289,6 +289,7 @@
         document.querySelector('.main-content').style.display = '';
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('leaderboardView').style.display = 'none';
+        document.getElementById('readingView').style.display = 'none';
         A.renderSyncBanner();
     }
 
@@ -303,6 +304,7 @@
     async function showProfile(name, fromLeaderboard = false) {
         hideMainContent();
         document.getElementById('leaderboardView').style.display = 'none';
+        document.getElementById('readingView').style.display = 'none';
         profileFromLeaderboard = fromLeaderboard;
         const backBtn = document.getElementById('profileBackBtn');
         backBtn.textContent = fromLeaderboard ? 'Back to Leaderboard' : 'Back to Database';
@@ -349,6 +351,7 @@
     async function showLeaderboard() {
         hideMainContent();
         document.getElementById('profileView').style.display = 'none';
+        document.getElementById('readingView').style.display = 'none';
         const leaderboardView = document.getElementById('leaderboardView');
         leaderboardView.style.display = '';
         document.getElementById('leaderboardBody').innerHTML = '<tr><td colspan="5" class="leaderboard-loading">Loading leaderboard...</td></tr>';

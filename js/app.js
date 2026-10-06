@@ -562,6 +562,7 @@ window.ACDB = window.ACDB || {};
         updateStats();
         saveFilters();
         ACDB.renderSyncBanner();
+        ACDB.refreshReadingView();
     }
 
     function createCard(item) {
@@ -839,6 +840,13 @@ window.ACDB = window.ACDB || {};
         // Leaderboard view
         if (hash === 'leaderboard') {
             showLeaderboard();
+            return;
+        }
+
+        // Reading order view (#reading shows the first order)
+        if (hash === 'reading' || hash.startsWith('reading/')) {
+            if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true });
+            ACDB.showReadingOrder(hash.slice('reading/'.length) || null);
             return;
         }
 

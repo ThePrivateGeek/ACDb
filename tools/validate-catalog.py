@@ -24,11 +24,15 @@ Checks:
              with read
   series     no two series names that differ only in case or punctuation
   share      every item has its s/<slug>.html share page
+  reading    js/reading-orders.js: every entry points at an existing item of
+             a readable type (READABLE_TYPES in js/utils.js), at most once
+             per order, with a setting and a valid release date
 """
 from __future__ import annotations
 
 import datetime
 import importlib.util
+import json
 import re
 import sys
 from pathlib import Path
@@ -38,6 +42,8 @@ APP_JS = ROOT / "js" / "app.js"
 IMAGES_JS = ROOT / "js" / "images.js"
 INDEX_HTML = ROOT / "index.html"
 SHARE_DIR = ROOT / "s"
+UTILS_JS = ROOT / "js" / "utils.js"
+READING_ORDERS_JS = ROOT / "js" / "reading-orders.js"
 
 # Reuse the share-page builder's database parser and slug logic so all the
 # tools agree on how database.js is read and how slugs are made.
@@ -95,6 +101,68 @@ def load_image_mappings():
             if "]" in line:
                 key = None
     return mappings
+
+
+def load_readable_types():
+    text = UTILS_JS.read_text(encoding="utf-8")
+    m = re.search(r"const READABLE_TYPES = new Set\(\[(.*?)\]\)", text, re.S)
+    if not m:
+        raise SystemExit("validate-catalog: could not find READABLE_TYPES in js/utils.js")
+    return set(re.findall(r"'([^']+)'", m.group(1)))
+
+
+def load_reading_orders():
+    """The READING_ORDERS array; its body is written as plain JSON."""
+    text = READING_ORDERS_JS.read_text(encoding="utf-8")
+    start = text.find("[", text.find("const READING_ORDERS ="))
+    end = text.rfind("]")
+    try:
+        return json.loads(text[start:end + 1])
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"validate-catalog: js/reading-orders.js did not parse as JSON: {e}")
+
+
+def check_reading_orders(items, errors):
+    by_id = {item.get("id"): item for item in items}
+    readable = load_readable_types()
+    seen_orders = set()
+    for n, order in enumerate(load_reading_orders(), 1):
+        oid = order.get("id")
+        label = f"reading order {oid or '#' + str(n)}"
+        if not isinstance(oid, str) or not re.fullmatch(r"[a-z0-9-]+", oid):
+            errors.append(f"{label}: id should be lowercase letters, digits and hyphens")
+        elif oid in seen_orders:
+            errors.append(f"{label}: id is used by another order")
+        seen_orders.add(oid)
+        for field in ("name", "description"):
+            if not isinstance(order.get(field), str) or not order[field].strip():
+                errors.append(f"{label}: missing \"{field}\"")
+        entries = order.get("entries")
+        if not isinstance(entries, list) or not entries:
+            errors.append(f"{label}: no entries")
+            continue
+        seen_items = set()
+        for entry in entries:
+            iid = entry.get("item")
+            item = by_id.get(iid)
+            if item is None:
+                errors.append(f"{label}: item {iid!r} does not exist")
+                continue
+            elabel = f"{label}, item {iid} \"{item['name']}\""
+            if item.get("type") not in readable:
+                errors.append(f"{elabel}: type \"{item.get('type')}\" is not in READABLE_TYPES")
+            if iid in seen_items:
+                errors.append(f"{elabel}: listed twice")
+            seen_items.add(iid)
+            if not isinstance(entry.get("setting"), str) or not entry["setting"].strip():
+                errors.append(f"{elabel}: missing \"setting\"")
+            released = entry.get("released")
+            try:
+                date = datetime.date.fromisoformat(released)
+                if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", released) or date.year < FIRST_YEAR or date > datetime.date.today():
+                    raise ValueError
+            except (TypeError, ValueError):
+                errors.append(f"{elabel}: \"released\" should be a past date like \"2009-11-26\", got {released!r}")
 
 
 def series_key(name):
@@ -202,6 +270,8 @@ def main():
     for spellings in series_spellings.values():
         if len(spellings) > 1:
             warnings.append("series spelled more than one way: " + " / ".join(f'"{s}"' for s in sorted(spellings)))
+
+    check_reading_orders(items, errors)
 
     for w in warnings:
         print(f"warning: {w}")
