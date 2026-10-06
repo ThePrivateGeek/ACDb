@@ -2306,6 +2306,54 @@ a.collection-action-btn {
     color: var(--accent);
 }
 
+/* Game filter: one scrollable row, like the game timeline */
+.reading-games {
+    position: relative;   /* chips' offsetLeft is measured from the row */
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    padding-bottom: 0.35rem;
+}
+
+/* Thin bar in the site's scrollbar style (a standard scrollbar-width
+   would switch Chrome back to its default light scrollbar) */
+.reading-games::-webkit-scrollbar {
+    height: 6px;
+}
+
+.reading-game {
+    flex-shrink: 0;
+    padding: 0.3rem 0.7rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.reading-game span {
+    margin-left: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.reading-game:hover {
+    border-color: var(--accent-dark);
+    color: var(--text-primary);
+}
+
+.reading-game.active {
+    border-color: var(--accent);
+    background: rgba(201, 168, 76, 0.15);
+    color: var(--accent);
+}
+
 .reading-name {
     font-family: var(--font-heading);
     font-size: 1.1rem;

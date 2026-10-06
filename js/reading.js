@@ -18,6 +18,7 @@
     const modalRow = document.getElementById('modalReadingOrder');
 
     let currentOrderId = null;
+    let currentGame = null;   // game filter (orders with "games": true), or null for all
 
     function getMode() {
         try {
@@ -67,13 +68,43 @@
         return new Date(entry.released + 'T00:00:00Z').toLocaleDateString('en-GB', { ...parts, timeZone: 'UTC' });
     }
 
+    // ---- Game filter ----
+    // "General" items aren't tied to one game: they're the original stories.
+    function gameLabel(game) {
+        return game === 'General' ? 'Original stories' : (A.SHORT_GAME_NAMES[game] || game);
+    }
+
+    function gameSlug(game) {
+        return A.slugify(gameLabel(game));
+    }
+
+    // Games present in an order, in timeline order with General last.
+    function gamesIn(order) {
+        const counts = new Map();
+        order.entries.forEach(e => {
+            const item = A.findItemByRef(e.item);
+            if (item) counts.set(item.game, (counts.get(item.game) || 0) + 1);
+        });
+        const rank = g => g === 'General' ? Infinity : (A.GAME_ORDER.indexOf(g) + 1 || A.GAME_ORDER.length);
+        return [...counts.keys()].sort((a, b) => rank(a) - rank(b)).map(game => ({ game, count: counts.get(game) }));
+    }
+
+    function readingHash() {
+        return '#reading/' + currentOrderId + (currentGame ? '/' + gameSlug(currentGame) : '');
+    }
+
     // ---- View ----
-    function showReadingOrder(orderId) {
+    // `param` is the hash after "reading/": "<order>" or "<order>/<game>".
+    function showReadingOrder(param) {
         A.hideMainContent();
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('leaderboardView').style.display = 'none';
         view.style.display = '';
-        currentOrderId = getOrder(orderId).id;
+        const [orderId, slug] = (param || '').split('/');
+        const order = getOrder(orderId);
+        currentOrderId = order.id;
+        const match = order.games && slug ? gamesIn(order).find(g => gameSlug(g.game) === slug) : null;
+        currentGame = match ? match.game : null;
         render();
         window.scrollTo(0, 0);
     }
@@ -88,9 +119,11 @@
     }
 
     function render() {
+        const chipScroll = content.querySelector('.reading-games')?.scrollLeft || 0;
         const order = getOrder(currentOrderId);
         const mode = getMode();
-        const entries = sortedEntries(order, mode);
+        const entries = sortedEntries(order, mode)
+            .filter(e => !currentGame || A.findItemByRef(e.item)?.game === currentGame);
         const esc = A.escapeHTML;
         const readCount = entries.filter(e => A.getItemData(e.item).hasRead).length;
         const pct = Math.round((readCount / entries.length) * 100);
@@ -98,6 +131,13 @@
         const tabs = READING_ORDERS.length > 1
             ? `<nav class="reading-tabs">${READING_ORDERS.map(o =>
                 `<a href="#reading/${o.id}" class="reading-tab${o.id === order.id ? ' active' : ''}">${esc(o.name)}</a>`).join('')}</nav>`
+            : '';
+
+        const gameChips = order.games
+            ? `<div class="reading-games" role="group" aria-label="Read with a game">
+                <button class="reading-game${!currentGame ? ' active' : ''}" data-game="" aria-pressed="${!currentGame}">All <span>${order.entries.length}</span></button>
+                ${gamesIn(order).map(g => `<button class="reading-game${g.game === currentGame ? ' active' : ''}" data-game="${esc(g.game)}" aria-pressed="${g.game === currentGame}" title="${esc(g.game === 'General' ? 'Original stories not tied to one game' : g.game)}">${esc(gameLabel(g.game))} <span>${g.count}</span></button>`).join('')}
+            </div>`
             : '';
 
         const rowHTML = (entry, idx) => {
@@ -160,6 +200,7 @@
                 <h3 class="reading-name">${esc(order.name)}</h3>
                 <p class="reading-description">${esc(order.description)}</p>
             </div>
+            ${gameChips}
             <div class="reading-bar">
                 <div class="reading-modes" role="group" aria-label="Reading order">
                     ${MODES.map(m => `<button class="reading-mode${m === mode ? ' active' : ''}" data-mode="${m}" aria-pressed="${m === mode}">${m === 'chronological' ? 'Chronological' : 'Release'}</button>`).join('')}
@@ -173,12 +214,33 @@
             ${list}
             <p class="reading-sources">Chronology from the <a href="https://assassinscreed.fandom.com/wiki/User_blog:Kulurak/Chronological_order_of_Assassin%27s_Creed_franchise" target="_blank" rel="noopener noreferrer">Assassin's Creed Wiki</a>, checked against each book's article. Books are placed by their main story; frame stories are left out.</p>
         `;
+
+        // Re-rendering resets the chip row's scroll: restore it, then make
+        // sure the active chip is visible (e.g. after a deep link).
+        const chipRow = content.querySelector('.reading-games');
+        if (chipRow) {
+            chipRow.scrollLeft = chipScroll;
+            const active = chipRow.querySelector('.reading-game.active');
+            if (active.offsetLeft < chipRow.scrollLeft) {
+                chipRow.scrollLeft = active.offsetLeft;
+            } else if (active.offsetLeft + active.offsetWidth > chipRow.scrollLeft + chipRow.clientWidth) {
+                chipRow.scrollLeft = active.offsetLeft + active.offsetWidth - chipRow.clientWidth;
+            }
+        }
     }
 
     content.addEventListener('click', (e) => {
         const modeBtn = e.target.closest('[data-mode]');
         if (modeBtn) {
             setMode(modeBtn.dataset.mode);
+            render();
+            return;
+        }
+        const gameBtn = e.target.closest('[data-game]');
+        if (gameBtn) {
+            currentGame = gameBtn.dataset.game || null;
+            // Replace, not push: switching filters shouldn't fill the back button.
+            history.replaceState(null, '', readingHash());
             render();
             return;
         }
