@@ -2273,8 +2273,9 @@ a.collection-action-btn {
 }
 
 /* ---- Reading Order View ---- */
+/* Same width as the main grid (.main-content) */
 #readingView {
-    max-width: 900px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 1.5rem 2rem 4rem;
 }
@@ -2306,14 +2307,14 @@ a.collection-action-btn {
     color: var(--accent);
 }
 
-/* Game filter: one scrollable row, like the game timeline */
+/* Game filter: chips wrap on wide screens; on phones they become one
+   sideways-scrolling row, like the game timeline (see the media query) */
 .reading-games {
     position: relative;   /* chips' offsetLeft is measured from the row */
     display: flex;
+    flex-wrap: wrap;
     gap: 0.4rem;
-    overflow-x: auto;
     margin-bottom: 1rem;
-    padding-bottom: 0.35rem;
 }
 
 /* Thin bar in the site's scrollbar style (a standard scrollbar-width
@@ -2362,6 +2363,7 @@ a.collection-action-btn {
 }
 
 .reading-description {
+    max-width: 75ch;
     color: var(--text-secondary);
     font-size: 0.9rem;
     line-height: 1.6;
@@ -2427,11 +2429,12 @@ a.collection-action-btn {
     flex: 1;
 }
 
+/* Two columns where there's room, read left to right like the main grid */
 .reading-list {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(520px, 100%), 1fr));
+    gap: 0.5rem 1rem;
 }
 
 .reading-entry {
@@ -2609,6 +2612,12 @@ a.collection-action-btn {
 
     .reading-progress {
         flex: 1 1 100%;
+    }
+
+    .reading-games {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 0.35rem;
     }
 }
 

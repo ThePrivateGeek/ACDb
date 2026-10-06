@@ -190,6 +190,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] After marking something read, "Up next: …" appears and jumps to (and briefly highlights) the first unread book
 - [ ] Game filter on Complete Lore: chips "All 114", then games in timeline order (AC1 first), "Original stories 60" last. Picking Valhalla shows its 12 entries numbered 1–12 with "x / 12 read"; the address becomes `#reading/complete/valhalla` without adding a back-button step; All resets to `#reading/complete`
 - [ ] Pasting `/#reading/complete/black-flag` opens the filter directly; an unknown game shows everything; opening a book and pressing back keeps the filter; other tabs have no chips
+- [ ] Desktop: the page is as wide as the main grid; the chips wrap (no sideways scrolling) and the list shows two numbered columns from about 1150px wide, one below
 - [ ] Phone width: the chip row scrolls sideways, the active chip is scrolled into view, and toggling a Read switch doesn't reset the row
 - [ ] Oliver Bowden Novels (`#reading/bowden`) lists 9 books, Desert Oath first, with no headings; Release puts Renaissance first and Desert Oath last; the mode choice survives a reload
 - [ ] Non-canon Stories (`#reading/non-canon`) lists 13 entries
