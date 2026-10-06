@@ -27,7 +27,10 @@
    ISBN records settled disagreements. Series the blog doesn't cover
    (Yan Leisheng novels, Awakening, Visionaries, webcomics) come from
    their wiki articles and publishers. Every entry was researched and then
-   independently re-checked. Verified 2026-10-06.
+   independently re-checked. Verified 2026-10-06. Added the same day:
+   The Resurrection Plot, Les Sorcières des Landes, Forgotten Temple
+   Vols. 5-7 (webtoon release dates) and Tales of Iga Vol. 2 (Japanese
+   release date), each checked against two sources.
 
    Placement rules: a unit sits where its main historical story happens;
    frame stories don't count unless the unit is mostly modern day. Story
@@ -117,6 +120,8 @@ const READING_ORDERS = [
       { "item": 258, "year": 1536, "setting": "1536", "released": "2016-06-15" },
       { "item": 259, "year": 1536, "setting": "1536", "released": "2016-07-20" },
       { "item": 460, "year": 1560, "setting": "1560", "released": "2025-08-20" },
+      { "item": 643, "year": 1561, "setting": "1561", "released": "2026-03-18" },
+      { "item": 639, "year": 1609, "setting": "1609", "released": "2022-01-20" },
       { "item": 250, "year": 1692, "setting": "1692", "released": "2015-10-08" },
       { "item": 251, "year": 1692, "setting": "1692", "released": "2015-11-11" },
       { "item": 252, "year": 1692, "setting": "1692", "released": "2015-12-09" },
@@ -128,6 +133,9 @@ const READING_ORDERS = [
       { "item": 626, "year": 1725, "setting": "1725", "released": "2023-06-13" },
       { "item": 627, "year": 1725, "setting": "1725", "released": "2023-08-01" },
       { "item": 628, "year": 1725, "setting": "1725", "released": "2023-09-19" },
+      { "item": 640, "year": 1725, "setting": "1725", "released": "2023-11-07" },
+      { "item": 641, "year": 1725, "setting": "1725", "released": "2023-12-26" },
+      { "item": 642, "year": 1725, "setting": "1725", "released": "2024-02-13" },
       { "item": 210, "year": 1735, "setting": "1735–1783", "released": "2012-12-04" },
       { "item": 212, "year": 1778, "setting": "1778–1794", "released": "2014-11-20" },
       { "item": 458, "year": 1791, "setting": "1791", "released": "2016-05-07" },
@@ -141,6 +149,7 @@ const READING_ORDERS = [
       { "item": 225, "year": 1851, "setting": "1851–1862", "released": "2022-08-02" },
       { "item": 216, "year": 1863, "setting": "1863", "released": "2016-08-30" },
       { "item": 229, "year": 1867, "setting": "1867–1868", "released": "2021-04-15" },
+      { "item": 638, "year": 1869, "setting": "1869–1889", "released": "2023-07-04" },
       { "item": 278, "year": 1872, "setting": "1872", "released": "2016-09-28" },
       { "item": 279, "year": 1872, "setting": "1872", "released": "2016-10-19" },
       { "item": 280, "year": 1872, "setting": "1872", "released": "2016-11-16" },

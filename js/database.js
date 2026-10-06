@@ -2264,7 +2264,8 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Follows acrobat Pierrette Arnaud and Assassin Simeon Price from London to Paris between 1851 and 1862, as they protect Ada Lovelace's Engine of History from the Templar-allied Magus. First book of The Engine of History. By Kate Heartfield.",
     "contents": "Paperback novel",
-    "type": "Novel"
+    "type": "Novel",
+    "series": "Assassin's Creed: The Engine of History"
   },
   {
     "id": 226,
@@ -6706,5 +6707,71 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed Mirage: A Soar of Eagles",
     "read": "19/AC Mirage - A Soar of Eagles 003 2025 (Son of Ultron-Empire)"
+  },
+  {
+    "id": 638,
+    "name": "Assassin's Creed: The Resurrection Plot",
+    "game": "General",
+    "year": 2023,
+    "category": "Novel",
+    "description": "Sequel to The Magus Conspiracy, seven years on. Pierrette Arnaud and Simeon Price are drawn from the 1869 opening of the Suez Canal through the Siege of Paris to the unfinished Eiffel Tower in 1889, against the Templar Countess Konstanze von Visler. Second book of The Engine of History. By Kate Heartfield. Published by Aconyte Books.",
+    "contents": "Paperback novel",
+    "type": "Novel",
+    "series": "Assassin's Creed: The Engine of History"
+  },
+  {
+    "id": 639,
+    "name": "Assassin's Creed: Fragments - Les Sorcières des Landes (The Witches of the Moors)",
+    "game": "General",
+    "year": 2022,
+    "category": "Novel",
+    "description": "Set during the 1609 witch-hunt in the Basque country of south-west France: sisters Margaux and Ermeline are pulled apart by the Assassins and the Templars when the Templar judge Pierre de Lancre arrives. Third Fragments novel. By Adrien Tomas. Published by 404 Editions. French language only: Titan's English edition was cancelled in 2025.",
+    "contents": "Novel (French language, 311 pages)",
+    "type": "Novel",
+    "series": "Assassin's Creed: Fragments"
+  },
+  {
+    "id": 640,
+    "name": "Assassin's Creed: Forgotten Temple, Vol. 5",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2025,
+    "category": "Comic Book",
+    "description": "Volume 5 of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag. In 1725, Edward escapes the Paracel Islands and returns to Macau, where a deal with the Dutch East India Company leads him to Sun's floating gambling hall. Collects episodes 29-35 of the webtoon. Story by ARC. Art by Tabii. This volume is published in French by Mana Books (October 2025); VIZ Media's English edition has reached Vol. 4.",
+    "contents": "Paperback graphic novel (French language, Mana Books, 192 pages)",
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Forgotten Temple"
+  },
+  {
+    "id": 641,
+    "name": "Assassin's Creed: Forgotten Temple, Vol. 6",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2026,
+    "category": "Comic Book",
+    "description": "Volume 6 of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag. The battle on Sun's ship decides the fight for Macau in 1725 and Madam Lee allies with the Chinese Assassins, while in the present day Noa Kim is pulled out of the Animus. Collects episodes 36-42 of the webtoon. Story by ARC. Art by Tabii. This volume is published in French by Mana Books (January 2026); VIZ Media's English edition has reached Vol. 4.",
+    "contents": "Paperback graphic novel (French language, Mana Books, 192 pages)",
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Forgotten Temple"
+  },
+  {
+    "id": 642,
+    "name": "Assassin's Creed: Forgotten Temple, Vol. 7",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2026,
+    "category": "Comic Book",
+    "description": "Volume 7 of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag. Noa Kim's present-day fight in Cebu takes up half the volume, while in 1725 Edward is ambushed at sea on the way to Manila. Continues from episode 43 of the webtoon. Story by ARC. Art by Tabii. This volume is published in French by Mana Books (April 2026); VIZ Media's English edition has reached Vol. 4.",
+    "contents": "Paperback graphic novel (French language, Mana Books, 224 pages)",
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: Forgotten Temple"
+  },
+  {
+    "id": 643,
+    "name": "Assassin's Creed Shadows: Tales of Iga, Vol. 2",
+    "game": "Assassin's Creed Shadows",
+    "year": 2026,
+    "category": "Comic Book",
+    "description": "Volume 2 (chapters 9-20). The shinobi war for Iga continues in 1561, from the Imagawa mansion in Mikawa to the mountains of Iga, and a flashback to 1541 shows how Tsuyu met Alvaro. Story and art by regujic. English edition by VIZ Media, scheduled for November 17, 2026; first published in Japanese by Kodansha (March 2026).",
+    "contents": "208 pages manga",
+    "type": "Manga",
+    "series": "Assassin's Creed Shadows: Tales of Iga"
   },
 ];

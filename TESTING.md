@@ -28,7 +28,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Series can span types — "Assassin's Creed: Last Descendants" shows 3 novels + 5 Locus comics (8 items)
 - [ ] Series dropdown is visible with no filters set, and disappears when a category with no series is selected (e.g. Statue)
 - [ ] Owned filter — "Owned Only", "Not Owned", "Wishlist" all work
-- [ ] Read filters — "Read" shows only items marked read; "Not Read" shows only unread story publications (155 total with nothing read), never statues or art books
+- [ ] Read filters — "Read" shows only items marked read; "Not Read" shows only unread story publications (161 total with nothing read), never statues or art books
 - [ ] Sort — Default, Year asc/desc, Name A-Z/Z-A, Recently Added
 - [ ] Filters cascade: selecting a game narrows Category options, selecting a category narrows Type options, selecting a type narrows Series options
 - [ ] Clear (x) button on each multi-select resets that filter
@@ -110,7 +110,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] By Game — bars show owned/total with percentage, sorted correctly
 - [ ] By Category — same as above
 - [ ] Condition Breakdown — shows counts, Total Physical Items at top
-- [ ] Reading Progress — "Stories Read X/155" at top, then one bar per series plus "Standalone"; clicking a series filters to it (Standalone is not clickable)
+- [ ] Reading Progress — "Stories Read X/161" at top, then one bar per series plus "Standalone"; clicking a series filters to it (Standalone is not clickable)
 - [ ] 100% completion — percentage turns green, checkmark appears
 - [ ] Confetti fires when completing a game/category (mark last unowned item)
 - [ ] Celebration toast appears center-screen
@@ -187,10 +187,10 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 
 ## 18. Reading Order
 - [ ] Book button in the header opens `#reading`: grid, toolbar and stats are hidden; tabs read Complete Lore (active), Oliver Bowden Novels, Non-canon Stories
-- [ ] Complete Lore: 114 entries under 9 era headings (Ancient World … Modern Day), each with a read count; numbering runs on across headings; Forgotten Myths #1 first, Escape Room Puzzle Book last; Trial by Fire #1–5 sit together at 1692
+- [ ] Complete Lore: 120 entries under 9 era headings (Ancient World … Modern Day), each with a read count; numbering runs on across headings; Forgotten Myths #1 first, Escape Room Puzzle Book last; Trial by Fire #1–5 sit together at 1692
 - [ ] Release mode on Complete Lore groups by release year; dates known only to the month show as "Nov 2009"
 - [ ] After marking something read, "Up next: …" appears and jumps to (and briefly highlights) the first unread book
-- [ ] Game filter on Complete Lore: chips "All 114", then games in timeline order (AC1 first), "Original stories 60" last. Picking Valhalla shows its 12 entries numbered 1–12 with "x / 12 read"; the address becomes `#reading/complete/valhalla` without adding a back-button step; All resets to `#reading/complete`
+- [ ] Game filter on Complete Lore: chips "All 120", then games in timeline order (AC1 first), "Original stories 62" last. Picking Valhalla shows its 12 entries numbered 1–12 with "x / 12 read"; the address becomes `#reading/complete/valhalla` without adding a back-button step; All resets to `#reading/complete`
 - [ ] Pasting `/#reading/complete/black-flag` opens the filter directly; an unknown game shows everything; opening a book and pressing back keeps the filter; other tabs have no chips
 - [ ] Desktop: the page is as wide as the main grid; the chips wrap (no sideways scrolling) and the list shows two numbered columns from about 1150px wide, one below
 - [ ] Phone width: the chip row scrolls sideways, the active chip is scrolled into view, and toggling a Read switch doesn't reset the row
