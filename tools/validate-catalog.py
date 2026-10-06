@@ -24,6 +24,8 @@ Checks:
              with read
   series     no two series names that differ only in case or punctuation
   share      every item has its s/<slug>.html share page
+  collects   collected editions point at existing readable items that are
+             not collections themselves
   reading    js/reading-orders.js: every entry points at an existing item of
              a readable type (READABLE_TYPES in js/utils.js), at most once
              per order, with a setting and a valid release date; years
@@ -180,6 +182,36 @@ def check_reading_orders(items, errors, warnings):
                 errors.append(f"{elabel}: \"releasedPrecision\" should be \"month\" or \"year\", got {precision!r}")
 
 
+def check_collects(items, errors):
+    """"collects" lists the items a collected edition reprints, so marking it
+    read can mark them read too. Collections and their parts must be
+    readable, exist, and not nest (a part is never a collection itself)."""
+    by_id = {item.get("id"): item for item in items}
+    readable = load_readable_types()
+    for item in items:
+        if "collects" not in item:
+            continue
+        label = f"item {item.get('id')} \"{item.get('name')}\""
+        parts = item["collects"]
+        if not isinstance(parts, list) or not parts or not all(isinstance(p, int) and not isinstance(p, bool) for p in parts):
+            errors.append(f"{label}: \"collects\" should be a non-empty list of item ids")
+            continue
+        if item.get("type") not in readable:
+            errors.append(f"{label}: only readable types can collect others, got \"{item.get('type')}\"")
+        if len(set(parts)) != len(parts):
+            errors.append(f"{label}: \"collects\" lists an id twice")
+        for pid in parts:
+            part = by_id.get(pid)
+            if pid == item.get("id"):
+                errors.append(f"{label}: collects itself")
+            elif part is None:
+                errors.append(f"{label}: collects {pid}, which does not exist")
+            elif part.get("type") not in readable:
+                errors.append(f"{label}: collects {pid} \"{part.get('name')}\", which is not a readable type")
+            elif "collects" in part:
+                errors.append(f"{label}: collects {pid} \"{part.get('name')}\", which is itself a collection")
+
+
 def series_key(name):
     return re.sub(r"[^a-z0-9]+", "", name.lower())
 
@@ -210,7 +242,7 @@ def main():
             if field in item and (not isinstance(item[field], kind) or not item[field].strip()):
                 errors.append(f"{label}: \"{field}\" should be a non-empty {kind.__name__}")
         for field in item:
-            if field not in REQUIRED and field not in OPTIONAL:
+            if field not in REQUIRED and field not in OPTIONAL and field != "collects":
                 warnings.append(f"{label}: unknown field \"{field}\"")
 
         # ids
@@ -287,6 +319,7 @@ def main():
             warnings.append("series spelled more than one way: " + " / ".join(f'"{s}"' for s in sorted(spellings)))
 
     check_reading_orders(items, errors, warnings)
+    check_collects(items, errors)
 
     for w in warnings:
         print(f"warning: {w}")

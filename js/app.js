@@ -196,6 +196,7 @@ window.ACDB = window.ACDB || {};
         modalReadingSection: document.getElementById('modalReadingSection'),
         modalHasRead: document.getElementById('modalHasRead'),
         modalReadDate: document.getElementById('modalReadDate'),
+        modalReadingCollects: document.getElementById('modalReadingCollects'),
         resultsCount: document.getElementById('resultsCount'),
         statsDashboard: document.getElementById('statsDashboard'),
         statsToggle: document.getElementById('statsToggle'),

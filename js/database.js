@@ -2156,7 +2156,8 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Abstergo employee Simon Hathaway relives the memories of Joan of Arc's companion-at-arms, exploring the role of a Sword of Eden in the Hundred Years' War. By Christie Golden.",
     "contents": "Premium hardcover edition features exclusive art sketches and behind the scenes interviews, as well as a special code to unlock Assassin's Creed rewards through Ubisoft Club's loyalty program.",
-    "type": "Novel"
+    "type": "Novel",
+    "collects": [214]
   },
   {
     "id": 216,
@@ -2413,7 +2414,8 @@ const AC_DATABASE = [
     "contents": "Deluxe edition collecting The Fall series (3 issues) with bonus material",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: The Fall",
-    "read": "02. AC - The Fall/AC - The Fall (Deluxe Edition) 2012"
+    "read": "02. AC - The Fall/AC - The Fall (Deluxe Edition) 2012",
+    "collects": [236, 237, 238]
   },
   {
     "id": 240,
@@ -2434,9 +2436,10 @@ const AC_DATABASE = [
     "year": 2019,
     "category": "Comic Book",
     "description": "Collected edition combining both The Fall and The Chain series in a single volume. Follows Daniel Cross and his ancestor Nikolai Orelov, a Russian Assassin in the early 20th century. Reprinted by Titan Comics.",
-    "contents": "Collected trade paperback containing The Fall (3 issues) and The Chain (3 issues)",
+    "contents": "Collected trade paperback containing The Fall (3 issues) and The Chain graphic novel",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: The Fall"
+    "series": "Assassin's Creed: The Fall",
+    "collects": [236, 237, 238, 240]
   },
   {
     "id": 242,
@@ -2520,7 +2523,8 @@ const AC_DATABASE = [
     "description": "The first ever English collection of the three-volume graphic novel from Ubisoft, collecting together the exhilarating story of Desmond Miles' abduction by Abstergo. His subsequent flight from their grasp leads to Desmond joining the Assassins in their fight against the Templars. Betrayal leads to Desmond recovering the memories of his ancestor Aquilus as he searches for the power of the mystical Ankh and savage Barbarian tribes, led by the deadly Assassin Accipiter, prepare to attack. Collects Vol. 1 (Desmond), Vol. 2 (Aquilus), and Vol. 3 (Accipiter). Written by Eric Corbeyran. Art by Djillali Defali. Published by Titan Books (November 2013).",
     "contents": "144-page hardcover collecting the first 3 French BD volumes in English",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed (Les Deux Royaumes)"
+    "series": "Assassin's Creed (Les Deux Royaumes)",
+    "collects": [242, 243, 244]
   },
   {
     "id": 249,
@@ -2531,7 +2535,8 @@ const AC_DATABASE = [
     "description": "English collection of the second French BD cycle. In HAWK, Desmond Miles entrusts fellow Assassin Jonathan Hawk with the search for the Scepter of Isis — a powerful ancient artifact, lost in time. In EL CAKR, Hawk fights through a terrible setback to unmask a traitor in the Order's ranks, whilst his ancestor El Cakr battles Templar agents for the Scepter of Aset in 13th-century Egypt. In LEILA, the seasoned Assassin El Cakr seeks to return the relic to the Brotherhood when it is stolen by a mysterious woman named Leila — leading to an ultimate showdown between Assassins and Templars centuries later. Collects Vol. 4 (Hawk), Vol. 5 (El Cakr), and Vol. 6 (Leila). Written by Eric Corbeyran. Art by Djillali Defali. Published by Titan Books (November 2016).",
     "contents": "144-page hardcover collecting the last 3 French BD volumes in English",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed (Les Deux Royaumes)"
+    "series": "Assassin's Creed (Les Deux Royaumes)",
+    "collects": [245, 246, 247]
   },
   {
     "id": 250,
@@ -2710,7 +2715,8 @@ const AC_DATABASE = [
     "description": "The first story arc of the Assassin's Creed: Assassins comic series. Introduces Charlotte de la Cruz, a modern-day Assassin recruit who relives the memories of Tom Stoddard during the Salem witch trials. Published by Titan Comics. Collects issues #1-5.",
     "contents": "Trade paperback collecting issues #1-5",
     "type": "Comic Book",
-    "series": "Assassin's Creed: Assassins"
+    "series": "Assassin's Creed: Assassins",
+    "collects": [250, 251, 252, 253, 254]
   },
   {
     "id": 265,
@@ -2721,7 +2727,8 @@ const AC_DATABASE = [
     "description": "The second story arc of the Assassin's Creed: Assassins comic series. Charlotte continues her Animus journeys, exploring the Inca Empire as the Templars close in. Published by Titan Comics. Collects issues #6-10.",
     "contents": "Trade paperback collecting issues #6-10",
     "type": "Comic Book",
-    "series": "Assassin's Creed: Assassins"
+    "series": "Assassin's Creed: Assassins",
+    "collects": [255, 256, 257, 258, 259]
   },
   {
     "id": 266,
@@ -2732,7 +2739,8 @@ const AC_DATABASE = [
     "description": "The third and final story arc of the Assassin's Creed: Assassins comic series. The Brotherhood of the Assassins is in trouble. Resources depleted by their long feud with the Templar Order, faced with a world where the goalposts are constantly shifting, they can only struggle to regain their footing. A mysterious collective offers an alliance, but is this third faction a golden opportunity? Or a Faustian bargain? Published by Titan Comics. Collects issues #11-14.",
     "contents": "Trade paperback collecting issues #11-14",
     "type": "Comic Book",
-    "series": "Assassin's Creed: Assassins"
+    "series": "Assassin's Creed: Assassins",
+    "collects": [260, 261, 262, 263]
   },
   {
     "id": 267,
@@ -2851,7 +2859,8 @@ const AC_DATABASE = [
     "description": "Assassin's Creed: Templars - Volume 1: Black Cross is a trade paperback that collects the first five issues of the comic-book series Assassin's Creed: Templars by author Fred Van Lente. Published by Titan Comics on 9 November 2016. In 1927, Darius Gift, young, handsome, terribly entitled, is given his first mission for the ancient Templar Order, and the chance to clear his tarnished family name. All doesn't quite go to plan when he arrives in Shanghai, however, and his inexperience jeopardizes the whole operation. Thankfully, he isn't the only Templar new to the city, as the enigmatic Black Cross is stalking the shadows. And saving Darius from failure! Collecting the first arc of the brand new explosive Templars series, from the world of Assassin's Creed, Fred Van Lente and Dennis Calero offer a new perspective on the century-spanning feud between the Assassin Brotherhood and the Templar Order!",
     "contents": "Trade paperback collecting issues #1-5",
     "type": "Comic Book",
-    "series": "Assassin's Creed: Templars"
+    "series": "Assassin's Creed: Templars",
+    "collects": [267, 268, 269, 270, 271]
   },
   {
     "id": 277,
@@ -2862,7 +2871,8 @@ const AC_DATABASE = [
     "description": "Assassin's Creed: Templars - Volume 2: Cross of War is trade paperback that collects the last four issues of the comic-book series Assassin's Creed: Templars from author and artist Dennis Calero. It was published by Titan Comics on 19 April 2017. Collects the incredible second arc of the riveting Black Cross saga! In the dungeons of Tripoli, a man will have his fortunes changed forever as he becomes an agent of honor for the legendary Templar Order!",
     "contents": "Trade paperback collecting issues #6-9",
     "type": "Comic Book",
-    "series": "Assassin's Creed: Templars"
+    "series": "Assassin's Creed: Templars",
+    "collects": [272, 273, 274, 275]
   },
   {
     "id": 278,
@@ -2921,7 +2931,8 @@ const AC_DATABASE = [
     "description": "Collected edition of the 4-issue limited series. A return to the Victorian London of Assassin's Creed Syndicate and a tie-in to the Last Descendants young adult novel series by Matthew J. Kirby. Pinkerton agent Tommy Greyling teams up with Evie Frye and Henry Green to hunt a murderer — and a Piece of Eden that could change the world — while in the present day, teenager Sean relives Tommy's memories through the Animus. Written by Ian Edginton. Art by Caspar Wijngaard. Published by Titan Comics.",
     "contents": "Trade paperback collecting 4 issues",
     "type": "Comic Book",
-    "series": "Assassin's Creed: Last Descendants"
+    "series": "Assassin's Creed: Last Descendants",
+    "collects": [278, 279, 280, 281]
   },
   {
     "id": 283,
@@ -3076,7 +3087,8 @@ const AC_DATABASE = [
     "description": "A game-changing new chapter in the ongoing Assassin's Creed saga! With the Phoenix Project nearing its completion, tensions are running high for both the Brotherhood and the Templar Order. A new world order is on the horizon and only Charlotte and her new allies have the knowledge and skill to save humanity from subjugation! A new world order is on the horizon and only Charlotte and her new allies have the knowledge and skill to save humanity from subjugation! Published by Titan Comics. Collects issues #1-4.",
     "contents": "Trade paperback collecting issues #1-4",
     "type": "Comic Book",
-    "series": "Assassin's Creed: Uprising"
+    "series": "Assassin's Creed: Uprising",
+    "collects": [283, 284, 285, 286]
   },
   {
     "id": 296,
@@ -3087,7 +3099,8 @@ const AC_DATABASE = [
     "description": "The Phoenix project saga begins to unravel in this second thrilling chapter of Assassin's Creed Uprising! Our modern day Assassins take the fight to the heart of the Spanish Civil War in order to secure a valuable artifact that could change the course of history. But when a brand new enemy rears its ugly head, both the Brotherhood and Templar Order are forced to form a shaky alliance. Published by Titan Comics. Collects issues #5-8.",
     "contents": "Trade paperback collecting issues #5-8",
     "type": "Comic Book",
-    "series": "Assassin's Creed: Uprising"
+    "series": "Assassin's Creed: Uprising",
+    "collects": [287, 288, 289, 290]
   },
   {
     "id": 297,
@@ -3098,7 +3111,8 @@ const AC_DATABASE = [
     "description": "The final chapter of Assassin's Creed: Uprising concludes the Phoenix Project Saga in epic fashion - the end of a ten-year storyline straight from the video games! Time has run out for our modern-day assassins! While fan-favorite characters Juno, Otso Berg and Black Cross face the advent of a new world order, Charlotte and her cell confront the biggest threat the brotherhood has ever encountered... and not all of them will survive!. Collects issues #9-12.",
     "contents": "Trade paperback collecting issues #9-12",
     "type": "Comic Book",
-    "series": "Assassin's Creed: Uprising"
+    "series": "Assassin's Creed: Uprising",
+    "collects": [291, 292, 293, 294]
   },
   {
     "id": 298,
@@ -3157,7 +3171,8 @@ const AC_DATABASE = [
     "description": "Anthology series featuring short stories about fan-favourite protagonists: Ezio, Edward Kenway, Connor, and Altair. Each issue focuses on a different character. Published by Titan Comics.",
     "contents": "Trade paperback collecting 4 issues",
     "type": "Comic Book",
-    "series": "Assassin's Creed: Reflections"
+    "series": "Assassin's Creed: Reflections",
+    "collects": [298, 299, 300, 301]
   },
   {
     "id": 303,
@@ -3217,7 +3232,8 @@ const AC_DATABASE = [
     "contents": "112-page trade paperback collecting all 4 issues",
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
-    "read": "12. AC - Origins/AC Origins - Special Edition 2021"
+    "read": "12. AC - Origins/AC Origins - Special Edition 2021",
+    "collects": [303, 304, 305, 306]
   },
   {
     "id": 308,
@@ -3252,7 +3268,8 @@ const AC_DATABASE = [
     "description": "A new era — a new adventure — a new Assassin! Europe, World War II. On the sidelines of the race for the atomic bomb, discover the story of Eddie Gorm and his integration into the Assassin Brotherhood while he infiltrates the Templars to foil their plan to create a devastating weapon. English collected edition combining both French volumes (Die Glocke and Le Projet Rainbow). Written by Guillaume Dorison. Art by Jean-Baptiste Hostache and Patrick Pion. Published by Titan Comics (December 2018).",
     "contents": "104-page paperback collecting both French volumes in English translation",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: Conspiracies"
+    "series": "Assassin's Creed: Conspiracies",
+    "collects": [308, 309]
   },
   {
     "id": 311,
@@ -3286,7 +3303,8 @@ const AC_DATABASE = [
     "contents": "96-page hardcover collecting both Bloodstone volumes",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Bloodstone",
-    "read": "17/AC - Bloodstone - Complete Collection 2022"
+    "read": "17/AC - Bloodstone - Complete Collection 2022",
+    "collects": [311, 312]
   },
   {
     "id": 314,
@@ -3333,7 +3351,8 @@ const AC_DATABASE = [
     "description": "Fearless Vikings confront their destiny in this glory-seeking prequel to Ubisoft's Assassin's Creed Valhalla. Norway. Mid-9th Century CE. Eivor, a Viking warrior, observes a village raided by a neighboring kingdom. Bloodshed and mayhem erupt as she seizes the attack in her own favor — but will her victory be a blessing or a curse? Elsewhere in the east, another Viking searches for a different kind of prize, one of crucible steel. Written by Cavan Scott. Art by Martín Túnica. Published by Dark Horse Comics (April 2021).",
     "contents": "72-page hardcover collecting all 3 issues",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed Valhalla: Song of Glory"
+    "series": "Assassin's Creed Valhalla: Song of Glory",
+    "collects": [314, 315, 316]
   },
   {
     "id": 318,
@@ -3356,7 +3375,8 @@ const AC_DATABASE = [
     "contents": "Trade paperback collecting 3 issues",
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Forgotten Myths",
-    "read": "15/AC_Valhalla Forgotten Myths 3 chpt. edition 2022"
+    "read": "15/AC_Valhalla Forgotten Myths 3 chpt. edition 2022",
+    "collects": [320, 321, 322]
   },
   {
     "id": 320,
@@ -3474,7 +3494,8 @@ const AC_DATABASE = [
     "description": "In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan.",
     "contents": "Volumes 1-5 of the Assassin's Creed: Dynasty series collected in a box set",
     "type": "Manga",
-    "series": "Assassin's Creed: Dynasty"
+    "series": "Assassin's Creed: Dynasty",
+    "collects": [323, 324, 325, 326, 327]
   },
   {
     "id": 330,
@@ -3537,7 +3558,8 @@ const AC_DATABASE = [
     "description": "Volume 1 of 2. Manga adaptation of Assassin's Creed IV: Black Flag. The title stars Edward Kenway in the 18th century and Yanao Seijin in the present as Seijin relives Edward's memories under the eye of Abstergo Industries. In 1715, pirates established a lawless republic in the Caribbean and ruled the land and seas. These outlaws paralyzed navies, halted international trade, and plundered vast fortunes. Into this world sails a young, cocky, and fearsome captain named Edward Kenway. Written by Takashi Yano. Art by Kenji Oiwa. Originally serialized in Shueisha's Jump X in 2013; English edition published by Titan Comics (August 2017).",
     "contents": "Paperback manga (224 pages)",
     "type": "Manga",
-    "series": "Assassin's Creed: Awakening"
+    "series": "Assassin's Creed: Awakening",
+    "collects": [629, 630, 631, 632, 633, 634]
   },
   {
     "id": 335,
@@ -3592,7 +3614,8 @@ const AC_DATABASE = [
     "description": "Anthology trade paperback collecting all 3 issues of the Visionaries series — six self-contained, non-canon short stories spanning prehistory, Feudal Japan, the 1970s Brazilian Dictatorship, the American Civil War, the Opium Wars, and a Templar-dominated future. Each tale is told by a different creative team. Published by Massive Publishing in partnership with Studio Lounak, licensed from Ubisoft.",
     "contents": "Trade paperback collecting issues #1-3",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: Visionaries"
+    "series": "Assassin's Creed: Visionaries",
+    "collects": [336, 337, 338]
   },
   {
     "id": 340,
@@ -3603,7 +3626,8 @@ const AC_DATABASE = [
     "description": "Graphic novel set in the world of AC Mirage. Years before the events of Assassin's Creed Mirage, a young Fuladh must return to his homeland to investigate political unrest that could point to a secret Order of the Ancients' stronghold. But in uncovering what's behind the chaos and violence in Adulis, Fuladh and Roshan discover a brutal cult oppressing the local peoples, and set out to defeat it.",
     "contents": "72-page hardcover collecting all 3 issues",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed Mirage: A Soar of Eagles"
+    "series": "Assassin's Creed Mirage: A Soar of Eagles",
+    "collects": [635, 636, 637]
   },
   {
     "id": 341,

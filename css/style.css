@@ -1771,6 +1771,13 @@ a.collection-action-btn {
     content: ' \2192';
 }
 
+/* Hint under a collected edition's Read switch */
+.modal-reading-collects {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
 .modal-reading-last {
     color: var(--text-muted);
     font-size: 0.8rem;

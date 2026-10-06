@@ -114,6 +114,12 @@
         dom.modalReadingSection.hidden = !(item && A.isReadable(item));
         dom.modalHasRead.checked = !!data.hasRead;
         dom.modalReadDate.value = data.readDate || '';
+        // Collected editions say up front that they credit their parts.
+        const collects = item && item.collects ? item.collects.length : 0;
+        dom.modalReadingCollects.hidden = collects === 0;
+        if (collects) {
+            dom.modalReadingCollects.textContent = `Marking this as read also marks the ${collects} ${collectedNoun(item)} it collects as read.`;
+        }
     }
 
     // Cloud sync pulled new values: update the open item's controls if it
@@ -372,10 +378,37 @@
             hasRead: dom.modalHasRead.checked,
             readDate: dom.modalHasRead.checked ? dom.modalReadDate.value : ''
         };
-        const wasOwned = A.getItemData(currentItemId).owned;
+        const before = A.getItemData(currentItemId);
         A.setItemData(currentItemId, data);
+        // Reading a collected edition means reading what it collects.
+        if (data.hasRead && !before.hasRead) creditCollectedParts(currentItemId, data.readDate);
         A.renderItems();
-        if (data.owned && !wasOwned) A.checkCompletionCelebration();
+        if (data.owned && !before.owned) A.checkCompletionCelebration();
+    }
+
+    // Marks the parts of a collected edition (its "collects" list) as read.
+    // Only ever adds: parts already read keep their own date, and unmarking
+    // the collection leaves the parts alone.
+    function creditCollectedParts(id, readDate) {
+        const item = AC_DATABASE.find(i => i.id === id);
+        if (!item || !item.collects) return;
+        let marked = 0;
+        item.collects.forEach(partId => {
+            const part = A.getItemData(partId);
+            if (part.hasRead) return;
+            A.setItemData(partId, { ...part, hasRead: true, readDate: part.readDate || readDate || '' });
+            marked++;
+        });
+        if (marked > 0) A.showToast(`Also marked ${marked} of the ${collectedNoun(item)} it collects as read`);
+    }
+
+    // "issues", "volumes", "novel" or "comics", for the hint and the toast.
+    function collectedNoun(item) {
+        const parts = item.collects.map(id => AC_DATABASE.find(i => i.id === id)).filter(Boolean);
+        if (parts.every(p => /Issue #\d/.test(p.name))) return 'issues';
+        if (parts.every(p => p.type === 'Novel')) return parts.length === 1 ? 'novel' : 'novels';
+        if (parts.every(p => !/Issue #\d/.test(p.name))) return 'volumes';
+        return 'comics';
     }
 
     // Expose on namespace

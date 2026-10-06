@@ -101,6 +101,8 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Setting a Finished date auto-toggles Read on; toggling Read off clears the date
 - [ ] Toggling Owned off leaves Read and Finished untouched
 - [ ] Card shows a purple "Read" badge for read items
+- [ ] Collected editions (e.g. Trial by Fire TPB) show "Marking this as read also marks the 5 issues it collects as read." under the Read switch; single issues show no hint
+- [ ] Marking a collected edition read marks its unread parts read (with the collection's Finished date, if any) and toasts how many; parts already read keep their own date; unmarking the collection leaves the parts read
 
 ## 11. Collection Insights Dashboard
 - [ ] "Collection Insights" toggle opens/closes the panel
