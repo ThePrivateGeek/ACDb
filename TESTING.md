@@ -7,7 +7,9 @@ For simple item additions or image updates, skip to the "Data" section only.
 
 ## 1. Page Load
 - [ ] Page loads without console errors (F12 > Console)
-- [ ] All stats show in header (Total, Owned, Complete %)
+- [ ] Header shows the Collection / Reading Order / Leaderboard tabs (Collection active) and the progress meter (owned / total, %, bar)
+- [ ] Click the progress meter — grid filters to owned items
+- [ ] Header layout: tabs inline above 1180px; own full-width row below it; on a phone the rows are logo + meter, action buttons, tabs; no sideways scroll at 360px
 - [ ] Item count matches footer count
 - [ ] Timeline bar shows all games
 - [ ] Cards render in the grid
@@ -37,7 +39,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 ## 4. Filter Persistence
 - [ ] Set some filters, refresh the page — filters are restored
 - [ ] Click logo — all filters reset, page scrolls to top
-- [ ] Click "Total Items" stat — all filters reset
+- [ ] Open Reading Order, then the Collection tab — back on the grid with filters kept
 
 ## 5. Multi-Select Behaviour
 - [ ] Selected items float to the top of dropdown
@@ -186,7 +188,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Fresh private window: no requests to `accounts.google.com` until Sign in is clicked (Network tab; `fonts.googleapis.com` is the site's fonts and was always there)
 
 ## 18. Reading Order
-- [ ] Book button in the header opens `#reading`: grid, toolbar and stats are hidden; tabs read Complete Lore (active), Oliver Bowden Novels, Non-canon Stories
+- [ ] Reading Order tab in the header opens `#reading` and turns active (Leaderboard likewise for `#leaderboard`; a profile leaves no tab active): grid, toolbar and stats are hidden; tabs read Complete Lore (active), Oliver Bowden Novels, Non-canon Stories
 - [ ] Complete Lore: 120 entries under 9 era headings (Ancient World … Modern Day), each with a read count; numbering runs on across headings; Forgotten Myths #1 first, Escape Room Puzzle Book last; Trial by Fire #1–5 sit together at 1692
 - [ ] Release mode on Complete Lore groups by release year; dates known only to the month show as "Nov 2009"
 - [ ] After marking something read, "Up next: …" appears and jumps to (and briefly highlights) the first unread book

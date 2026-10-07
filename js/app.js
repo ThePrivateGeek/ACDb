@@ -147,6 +147,7 @@ window.ACDB = window.ACDB || {};
         totalItems: document.getElementById('totalItems'),
         ownedItems: document.getElementById('ownedItems'),
         completionPercent: document.getElementById('completionPercent'),
+        progressFill: document.getElementById('progressFill'),
         searchInput: document.getElementById('searchInput'),
         clearSearch: document.getElementById('clearSearch'),
         filterGame: document.getElementById('filterGame'),
@@ -1279,14 +1280,7 @@ window.ACDB = window.ACDB || {};
             }
         });
 
-        // Stat block clicks
-        document.getElementById('statTotal').addEventListener('click', () => {
-            showMainContent();
-            clearHash();
-            resetAllFilters();
-            renderItems();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        // Progress meter — show owned items
         document.getElementById('statOwned').addEventListener('click', () => {
             showMainContent();
             clearHash();
@@ -1294,11 +1288,12 @@ window.ACDB = window.ACDB || {};
             renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        document.getElementById('statCompletion').addEventListener('click', () => {
+
+        // Collection tab — back to the grid with filters kept (the logo resets them)
+        document.getElementById('navCollection').addEventListener('click', (e) => {
+            e.preventDefault();
             showMainContent();
             clearHash();
-            dom.filterOwned.value = 'owned';
-            renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
@@ -1468,6 +1463,13 @@ window.ACDB = window.ACDB || {};
         if (!isAdmin) {
             dom.addItemBtn.style.display = 'none';
         }
+
+        // The toolbar sticks just under the header, whose height changes with
+        // the layout (tabs wrap to their own row on narrower screens).
+        const header = document.querySelector('.main-header');
+        new ResizeObserver(() => {
+            document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+        }).observe(header);
 
         initFilters();
         initEvents();

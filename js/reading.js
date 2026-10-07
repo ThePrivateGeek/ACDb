@@ -96,7 +96,7 @@
     // ---- View ----
     // `param` is the hash after "reading/": "<order>" or "<order>/<game>".
     function showReadingOrder(param) {
-        A.hideMainContent();
+        A.hideMainContent('reading');
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('leaderboardView').style.display = 'none';
         view.style.display = '';

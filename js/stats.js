@@ -25,6 +25,7 @@
         dom.totalItems.textContent = total;
         dom.ownedItems.textContent = owned;
         dom.completionPercent.textContent = percent + '%';
+        dom.progressFill.style.width = (total > 0 ? (owned / total) * 100 : 0) + '%';
 
         // Update dashboard if open
         if (dom.statsDashboard.classList.contains('open')) {

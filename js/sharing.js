@@ -282,7 +282,18 @@
     }
 
     // ---- Profile View ----
+    // Highlight the header tab for the visible view (null: none, e.g. a profile).
+    function setActiveNav(view) {
+        document.querySelectorAll('.main-nav-link').forEach(link => {
+            const active = link.dataset.view === view;
+            link.classList.toggle('active', active);
+            if (active) link.setAttribute('aria-current', 'page');
+            else link.removeAttribute('aria-current');
+        });
+    }
+
     function showMainContent() {
+        setActiveNav('collection');
         document.querySelector('.toolbar').style.display = '';
         document.querySelector('.game-timeline').style.display = '';
         document.querySelector('.stats-dashboard').style.display = '';
@@ -293,7 +304,8 @@
         A.renderSyncBanner();
     }
 
-    function hideMainContent() {
+    function hideMainContent(view = null) {
+        setActiveNav(view);
         document.querySelector('.toolbar').style.display = 'none';
         document.querySelector('.game-timeline').style.display = 'none';
         document.querySelector('.stats-dashboard').style.display = 'none';
@@ -349,7 +361,7 @@
 
     // ---- Leaderboard View ----
     async function showLeaderboard() {
-        hideMainContent();
+        hideMainContent('leaderboard');
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('readingView').style.display = 'none';
         const leaderboardView = document.getElementById('leaderboardView');
