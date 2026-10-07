@@ -3610,7 +3610,7 @@ const AC_DATABASE = [
     "id": 339,
     "name": "Assassin's Creed: Visionaries",
     "game": "General",
-    "year": 2024,
+    "year": 2025,
     "category": "Comic Book",
     "description": "Anthology trade paperback collecting all 3 issues of the Visionaries series — six self-contained, non-canon short stories spanning prehistory, Feudal Japan, the 1970s Brazilian Dictatorship, the American Civil War, the Opium Wars, and a Templar-dominated future. Each tale is told by a different creative team. Published by Massive Publishing in partnership with Studio Lounak, licensed from Ubisoft.",
     "contents": "Trade paperback collecting issues #1-3",
@@ -6773,5 +6773,41 @@ const AC_DATABASE = [
     "contents": "208 pages manga",
     "type": "Manga",
     "series": "Assassin's Creed Shadows: Tales of Iga"
+  },
+  {
+    "id": 644,
+    "name": "Assassin's Creed: Subject 4",
+    "game": "Assassin's Creed Chronicles: Russia",
+    "year": 2012,
+    "category": "Comic Book",
+    "description": "Collects The Fall and its sequel The Chain in one softcover volume: Daniel Cross's story in the present day and his ancestor Nikolai Orelov's in Tsarist Russia and the United States. Written and drawn by Karl Kerschl and Cameron Stewart. Published by UbiWorkshop as part of the Assassin's Creed III UbiWorkshop Edition (2012), and sold on its own from late 2013.",
+    "contents": "Softcover graphic novel (208 pages)",
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: The Fall",
+    "collects": [236, 237, 238, 240]
+  },
+  {
+    "id": 645,
+    "name": "Assassin's Creed: The Fall (2024 Prestige Edition)",
+    "game": "Assassin's Creed Chronicles: Russia",
+    "year": 2024,
+    "category": "Comic Book",
+    "description": "Prestige-format one-shot reissue of The Fall (#1-3) with all-new covers and revised dialogue and colours. Written and drawn by Karl Kerschl and Cameron Stewart. Published by Massive Publishing with Lounak Comics (April 2024). Released with five covers; cover A is by Moy R.",
+    "contents": "Prestige-format one-shot (80 pages)",
+    "type": "Graphic Novel",
+    "series": "Assassin's Creed: The Fall",
+    "collects": [236, 237, 238]
+  },
+  {
+    "id": 646,
+    "name": "Assassin's Creed: Origins Special Edition",
+    "game": "Assassin's Creed Origins",
+    "year": 2020,
+    "category": "Comic Book",
+    "description": "Special edition of the Origins comic (#1-4), Aya's story in Egypt and Rome from 44 to 30 BCE, with behind-the-scenes process pages, a cover gallery, creator interviews and concept art from the game. Written by Anne Toole and Anthony Del Col. Art by PJ Kaiowa. Colours by Dijjo Lima. Published by Titan Comics (November 2020).",
+    "contents": "Paperback graphic novel (128 pages)",
+    "type": "Comic Book",
+    "series": "Assassin's Creed: Origins (Comic)",
+    "collects": [303, 304, 305, 306]
   },
 ];

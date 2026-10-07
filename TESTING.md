@@ -28,7 +28,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Series can span types — "Assassin's Creed: Last Descendants" shows 3 novels + 5 Locus comics (8 items)
 - [ ] Series dropdown is visible with no filters set, and disappears when a category with no series is selected (e.g. Statue)
 - [ ] Owned filter — "Owned Only", "Not Owned", "Wishlist" all work
-- [ ] Read filters — "Read" shows only items marked read; "Not Read" shows only unread story publications (161 total with nothing read), never statues or art books
+- [ ] Read filters — "Read" shows only items marked read; "Not Read" shows only unread story publications (164 total with nothing read), never statues or art books
 - [ ] Sort — Default, Year asc/desc, Name A-Z/Z-A, Recently Added
 - [ ] Filters cascade: selecting a game narrows Category options, selecting a category narrows Type options, selecting a type narrows Series options
 - [ ] Clear (x) button on each multi-select resets that filter
@@ -110,7 +110,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] By Game — bars show owned/total with percentage, sorted correctly
 - [ ] By Category — same as above
 - [ ] Condition Breakdown — shows counts, Total Physical Items at top
-- [ ] Reading Progress — "Stories Read X/161" at top, then one bar per series plus "Standalone"; clicking a series filters to it (Standalone is not clickable)
+- [ ] Reading Progress — "Stories Read X/164" at top, then one bar per series plus "Standalone"; clicking a series filters to it (Standalone is not clickable)
 - [ ] 100% completion — percentage turns green, checkmark appears
 - [ ] Confetti fires when completing a game/category (mark last unowned item)
 - [ ] Celebration toast appears center-screen

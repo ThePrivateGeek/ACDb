@@ -795,6 +795,8 @@ const AC_IMAGES = {
     "Assassin's Creed: The Fall - Issue #2": ["images/comics/ac-the-fall-issue-2.webp"],
     "Assassin's Creed: The Fall - Issue #3": ["images/comics/ac-the-fall-issue-3.webp"],
     "Assassin's Creed: The Fall (Deluxe Edition)": ["images/comics/ac-the-fall-deluxe.webp"],
+    "Assassin's Creed: Subject 4": ["images/comics/ac-subject-4.webp"],
+    "Assassin's Creed: The Fall (2024 Prestige Edition)": ["images/comics/ac-the-fall-2024.webp"],
     "Assassin's Creed: The Fall & The Chain (Collected Edition)": [
         "images/comics/ac-the-fall-and-the-chain.webp",
         "images/comics/ac-the-fall-and-the-chain_01.webp",
@@ -869,6 +871,7 @@ const AC_IMAGES = {
     ],
     "Assassin's Creed: Origins - Issue #4": ["images/comics/ac-origins-issue-4.webp"],
     "Assassin's Creed: Origins (Comic)": ["images/comics/ac-origins-comic.webp"],
+    "Assassin's Creed: Origins Special Edition": ["images/comics/ac-origins-special-edition.webp"],
     "Assassin's Creed: Dynasty, Vol. 1": ["images/comics/ac-dynasty-vol1.webp"],
     "Assassin's Creed: Dynasty, Vol. 2": ["images/comics/ac-dynasty-vol2.webp"],
     "Assassin's Creed: Dynasty, Vol. 3": ["images/comics/ac-dynasty-vol3.webp"],
