@@ -268,11 +268,6 @@
         A.renderItems();   // also re-renders this view
     });
 
-    document.getElementById('readingBackBtn').addEventListener('click', () => {
-        A.showMainContent();
-        A.clearHash();
-    });
-
     // ---- Item modal: "Reading order" line ----
     // One line per order containing the item, with its position in the
     // viewer's chosen mode and a link to the next book. Hidden in read-only

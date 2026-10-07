@@ -2808,10 +2808,18 @@ a.collection-action-btn {
 }
 
 .leaderboard-cta {
-    text-align: center;
-    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: -0.5rem 0 1.25rem;
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+}
+
+.leaderboard-cta .share-btn {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.8rem;
 }
 
 .leaderboard-cta a {
@@ -2901,16 +2909,32 @@ a.collection-action-btn {
 .item-card:nth-child(12) { animation-delay: 0.24s; }
 
 /* ---- Responsive ---- */
-/* Mid-width: make room for the nav tabs by dropping the logo subtitle and
-   the action-button labels (their titles still explain them). */
-@media (max-width: 1280px) {
-    .logo-subtitle,
-    .collection-action-btn span {
+/* Mid-width: make room for the nav tabs by dropping the logo subtitle */
+@media (max-width: 1520px) {
+    .logo-subtitle {
         display: none;
     }
 
     .main-nav {
-        margin-left: 1.5rem;
+        margin-left: 1rem;
+    }
+
+    .main-nav-link {
+        padding: 0.5rem 0.65rem;
+        letter-spacing: 1px;
+    }
+
+    .main-nav-link.active::after {
+        left: 0.65rem;
+        right: 0.65rem;
+    }
+
+    .header-stats {
+        gap: 1rem;
+    }
+
+    .collection-actions {
+        padding-left: 1rem;
     }
 }
 
@@ -2979,12 +3003,25 @@ a.collection-action-btn {
 
     .collection-actions {
         order: 2;
+        position: relative;
         width: 100%;
         justify-content: center;
         border-left: none;
         padding-left: 0;
         margin-left: 0;
         gap: 0.3rem;
+    }
+
+    /* Menu centred under the button row, so it never runs off-screen */
+    .account-control {
+        position: static;
+    }
+
+    .account-menu {
+        left: 50%;
+        right: auto;
+        width: min(280px, calc(100vw - 2rem));
+        transform: translateX(-50%);
     }
 
     .main-nav-link {
@@ -3410,14 +3447,22 @@ a.collection-action-btn {
 
 .account-control[hidden],
 .account-menu[hidden],
+.account-menu [hidden],
+.collection-action-btn[hidden],
 .sync-banner[hidden],
 .sync-banner-close[hidden] {
     display: none;
 }
 
-.account-btn .google-g {
-    width: 14px;
-    height: 14px;
+.collection-action-btn .account-chevron {
+    width: 12px;
+    height: 12px;
+    margin-left: -0.1rem;
+    opacity: 0.7;
+}
+
+.account-btn[aria-expanded="true"] .account-chevron {
+    transform: rotate(180deg);
 }
 
 .account-btn:disabled {
@@ -3508,6 +3553,30 @@ a.collection-action-btn {
 .account-menu-item:hover {
     background: var(--bg-card-hover);
     color: var(--accent);
+}
+
+.account-menu-signin {
+    padding: 0.5rem 0.9rem 0.6rem;
+    margin-bottom: 0.3rem;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+}
+
+.account-menu-signin .google-signin-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+.account-menu-hint {
+    margin-top: 0.4rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.account-menu-sep {
+    height: 1px;
+    margin: 0.3rem 0;
+    background: var(--border);
 }
 
 .account-menu-item.danger {

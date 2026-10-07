@@ -1352,7 +1352,7 @@ window.ACDB = window.ACDB || {};
             ACDB.nameCheckTimer = setTimeout(() => ACDB.checkNameAvailability(e.target.value.trim()), 400);
         });
 
-        // Profile & Leaderboard back buttons
+        // Profile back button
         document.getElementById('profileBackBtn').addEventListener('click', () => {
             if (ACDB.getProfileFromLeaderboard()) {
                 document.getElementById('profileView').style.display = 'none';
@@ -1362,11 +1362,6 @@ window.ACDB = window.ACDB || {};
                 clearHash();
             }
         });
-        document.getElementById('leaderboardBackBtn').addEventListener('click', () => {
-            showMainContent();
-            clearHash();
-        });
-
         // Dev Tool
         dom.addItemBtn.addEventListener('click', openDevTool);
         dom.devToolClose.addEventListener('click', closeDevTool);

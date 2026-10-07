@@ -117,12 +117,12 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Confetti fires when completing a game/category (mark last unowned item)
 - [ ] Celebration toast appears center-screen
 
-## 12. Export / Import
-- [ ] Export downloads a JSON file with today's date in filename
+## 12. Back up / Restore (account menu)
+- [ ] **Back up to file** downloads a JSON file with today's date in filename
 - [ ] Export includes all collection fields (owned, wishlist, condition, copies, price, date, notes, hasRead, readDate)
 - [ ] An item that is only marked read (not owned) is included in the export and restores on import
 - [ ] Toast shows "Exported X items"
-- [ ] Import — select the exported file, data restores
+- [ ] **Restore from file** — select the exported file, data restores
 - [ ] Toast shows "Imported X of Y items"
 - [ ] Import with invalid file shows error toast
 - [ ] Export never contains `updatedAt` (sync bookkeeping stays out of export files)
@@ -153,7 +153,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Cards switch to single column on small screens
 - [ ] Modal switches to single column layout below 1024px
 - [ ] Timeline scrolls horizontally
-- [ ] Export/Import buttons show icons only on mobile
+- [ ] On phones the account menu opens centred under the button row and stays on screen at 360px
 - [ ] Back to Top button appears on scroll, works on tap
 
 ## 16. Data Integrity
@@ -167,11 +167,11 @@ For simple item additions or image updates, skip to the "Data" section only.
 
 ## 17. Account & Cloud Sync
 Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000` (it talks to the live API; `http://127.0.0.1:8000` has separate storage, so it works as a second device). Only Google accounts listed as test users can sign in while the Google app is in Testing.
-- [ ] Signed out: header shows **Sign in** with the Google "G"; after owning an item, the banner appears; ✕ hides it for good (survives reload)
+- [ ] Signed out: header shows **Sign in ▾** (person icon); its menu leads with **Sign in with Google**, then Back up to file, Restore from file, Privacy; after owning an item, the banner appears; ✕ hides it for good (survives reload)
 - [ ] Banner is hidden on profile and leaderboard views
 - [ ] Sign in from an open item: Google account chooser → back on the same item, signed in; no `?code=` left in the address bar
 - [ ] Cancelling on Google's page shows "Sign-in cancelled"
-- [ ] Account button shows the initial with a sync dot (green when synced); menu shows the email; Esc and clicking outside close it
+- [ ] Account button shows the initial with a sync dot (green when synced); menu shows the email and sync status, then Back up to file, Restore from file, Download all account data, Privacy, Sign out, Delete account; Esc, clicking outside, and choosing an item close it
 - [ ] Mark an item owned: the dot pulses, then turns green within ~3 seconds
 - [ ] Second browser/device signed in to the same account shows the change after switching to its tab (or reloading)
 - [ ] Same item edited on two devices: the later edit ends up on both
@@ -179,9 +179,11 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] First sign-in on a browser whose items differ from the account: the "Combine your collections" dialog shows the counts; each choice behaves as described; "Download a backup" saves an export; Esc doesn't close it
 - [ ] Offline (DevTools → Network → Offline): edits still save, the dot turns amber; back online they sync
 - [ ] Two tabs open: an edit in one appears in the other; edits made in both at once all survive
-- [ ] Share while signed in: the profile is created without a token; the Share button reads **Profile**; the manage window has no Update button and says it updates automatically; owning more items updates the profile and leaderboard
+- [ ] Not published: header shows **Publish collection**; its window reads "Publish Your Collection" / "Get a public page to show friends, and a spot on the Leaderboard"; after publishing the button leaves the header and **My public profile** appears in the account menu, opening "Your Public Profile"
+- [ ] Leaderboard, not published: "Want to be on here? **Join the Leaderboard**" sits above the table and opens the publish window without leaving the leaderboard, which refreshes after publishing ("You're on the board as …")
+- [ ] Publish while signed in: the profile is created without a token; the manage window has no Update button and says it updates automatically; owning more items updates the profile and leaderboard
 - [ ] Signing in on a browser that shared a profile before sign-in existed links that profile (toast) and it starts updating automatically
-- [ ] **Download my data** downloads `acdb-account-<date>.json`
+- [ ] **Download all account data** downloads `acdb-account-<date>.json`
 - [ ] **Sign out**: the grid shows nothing owned; signing in again brings everything back
 - [ ] **Delete account**: confirm dialog; afterwards signed out, the collection is still in the browser, and the public profile is gone
 - [ ] `privacy.html` opens from the footer and the account menu, and looks right on mobile
@@ -203,7 +205,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] In that modal: "Next: …" swaps to the next book in place; marking Read updates the list underneath; Esc, ✕ and browser back all close it and leave the view
 - [ ] Item modal from the grid: books in an order show "Reading order · <order> · N of M · Next: …" (position follows the chosen mode; the last book says "Last book"); Bowden novels show two lines (Complete Lore and Oliver Bowden Novels); clicking an order name opens that tab
 - [ ] No reading order line for items outside an order, or in read-only (profile/leaderboard) modals
-- [ ] **Back to Database** returns to the grid with no hash; pasting `/#reading/bowden` opens that tab directly
+- [ ] The **Collection** tab returns to the grid with no hash; pasting `/#reading/bowden` opens that tab directly
 - [ ] Phone width: rows fit without horizontal scroll, the Read label hides and the switch stays
 - [ ] `validate-catalog.py` covers `js/reading-orders.js` (unknown item, non-readable type, duplicate, missing setting, bad date are errors)
 

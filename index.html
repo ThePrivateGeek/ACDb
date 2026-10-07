@@ -63,27 +63,33 @@
                     <span class="progress-meter-bar"><span class="progress-meter-fill" id="progressFill"></span></span>
                 </button>
                 <div class="collection-actions">
-                    <button id="exportBtn" class="collection-action-btn" title="Download your collection data as a JSON file for backup or transfer">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        <span>Export</span>
+                    <!-- Shown until the collection is published; then "My public profile" in the menu -->
+                    <button id="shareBtn" class="collection-action-btn share-btn" title="Get a public page to show friends, and a spot on the Leaderboard" hidden>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span>Publish collection</span>
                     </button>
-                    <button id="importBtn" class="collection-action-btn" title="Restore your collection from a previously exported JSON file">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                        <span>Import</span>
-                    </button>
-                    <button id="shareBtn" class="collection-action-btn share-btn" title="Share your collection with the community">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-                        <span id="shareBtnText">Share</span>
-                    </button>
-                    <div class="account-control" id="accountControl" hidden>
-                        <button id="accountBtn" class="collection-action-btn account-btn" aria-expanded="false" aria-controls="accountMenu"></button>
+                    <div class="account-control" id="accountControl">
+                        <button id="accountBtn" class="collection-action-btn account-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="accountMenu"></button>
                         <div class="account-menu" id="accountMenu" role="menu" hidden>
-                            <div class="account-menu-email" id="accountMenuEmail"></div>
-                            <div class="account-menu-status" id="accountMenuStatus"></div>
-                            <button role="menuitem" class="account-menu-item" id="accountExport">Download my data</button>
+                            <div class="account-menu-header" id="accountMenuHeader" hidden>
+                                <div class="account-menu-email" id="accountMenuEmail"></div>
+                                <div class="account-menu-status" id="accountMenuStatus"></div>
+                            </div>
+                            <div class="account-menu-signin" id="accountSignInRow" hidden>
+                                <button role="menuitem" class="google-signin-btn" id="accountSignIn">
+                                    <svg class="google-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.710 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.980 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.180 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                                    <span>Sign in with Google</span>
+                                </button>
+                                <p class="account-menu-hint">See your collection on any device</p>
+                            </div>
+                            <button role="menuitem" class="account-menu-item" id="accountProfile" hidden>My public profile</button>
+                            <button role="menuitem" class="account-menu-item" id="exportBtn" title="Save your collection as a JSON file">Back up to file</button>
+                            <button role="menuitem" class="account-menu-item" id="importBtn" title="Load a collection from a backup file">Restore from file</button>
+                            <div class="account-menu-sep" role="separator"></div>
+                            <button role="menuitem" class="account-menu-item" id="accountExport" hidden>Download all account data</button>
                             <a role="menuitem" class="account-menu-item" href="privacy.html">Privacy</a>
-                            <button role="menuitem" class="account-menu-item" id="accountSignOut">Sign out</button>
-                            <button role="menuitem" class="account-menu-item danger" id="accountDelete">Delete account</button>
+                            <button role="menuitem" class="account-menu-item" id="accountSignOut" hidden>Sign out</button>
+                            <button role="menuitem" class="account-menu-item danger" id="accountDelete" hidden>Delete account</button>
                         </div>
                     </div>
                     <input type="file" id="importFile" accept=".json" style="display:none;">
@@ -98,7 +104,7 @@
             <svg class="sync-banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
             <p id="syncBannerText"></p>
             <button class="google-signin-btn" id="syncBannerSignIn">
-                <svg class="google-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                <svg class="google-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.710 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.980 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.180 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
                 <span>Sign in with Google</span>
             </button>
             <button class="sync-banner-close" id="syncBannerClose" aria-label="Dismiss">&times;</button>
@@ -508,8 +514,8 @@
         <div class="modal share-modal">
             <button class="modal-close" id="shareModalClose">&times;</button>
             <div class="share-modal-content">
-                <h2 class="add-modal-title">Share Your Collection</h2>
-                <p class="add-modal-subtitle" id="shareModalSubtitle">Let the community see what you've collected</p>
+                <h2 class="add-modal-title" id="shareModalTitle">Publish Your Collection</h2>
+                <p class="add-modal-subtitle" id="shareModalSubtitle">Get a public page to show friends, and a spot on the Leaderboard</p>
                 <div id="shareFormSection">
                     <div class="form-row">
                         <label for="shareDisplayName">Display Name *</label>
@@ -519,7 +525,7 @@
                     <div class="share-preview">
                         <div class="share-preview-stat">
                             <span class="stat-number" id="sharePreviewOwned">0</span>
-                            <span class="stat-label">Items to Share</span>
+                            <span class="stat-label">Items Owned</span>
                         </div>
                         <div class="share-preview-stat">
                             <span class="stat-number" id="sharePreviewPct">0%</span>
@@ -528,15 +534,15 @@
                     </div>
                     <div class="form-actions">
                         <button id="shareCancel" class="btn-cancel">Cancel</button>
-                        <button id="shareSubmit" class="btn-save" disabled>Share Collection</button>
+                        <button id="shareSubmit" class="btn-save" disabled>Publish</button>
                     </div>
                 </div>
                 <div id="shareManageSection" style="display:none;">
-                    <p class="share-manage-name">Sharing as <strong id="shareManageName"></strong></p>
+                    <p class="share-manage-name">Published as <strong id="shareManageName"></strong></p>
                     <div class="share-preview">
                         <div class="share-preview-stat">
                             <span class="stat-number" id="shareManageOwned">0</span>
-                            <span class="stat-label">Items to Share</span>
+                            <span class="stat-label">Items Owned</span>
                         </div>
                         <div class="share-preview-stat">
                             <span class="stat-number" id="shareManagePct">0%</span>
@@ -552,7 +558,7 @@
                     <div class="form-actions">
                         <button id="shareDeleteBtn" class="btn-delete">Delete Profile</button>
                         <button id="shareManageCancel" class="btn-cancel">Cancel</button>
-                        <button id="shareUpdateBtn" class="btn-save">Update Collection</button>
+                        <button id="shareUpdateBtn" class="btn-save">Update Profile</button>
                     </div>
                 </div>
                 <div id="shareSuccessSection" style="display:none;">
@@ -613,7 +619,7 @@
                     <span id="profileUpdated"></span>
                 </div>
             </div>
-            <button id="profileBackBtn" class="btn-cancel">Back to Database</button>
+            <button id="profileBackBtn" class="btn-cancel">Back to Collection</button>
         </div>
         <div class="items-grid" id="profileItemsGrid"></div>
     </div>
@@ -622,8 +628,8 @@
     <div id="leaderboardView" style="display:none;">
         <div class="leaderboard-header">
             <h2>Collector's Leaderboard</h2>
-            <button id="leaderboardBackBtn" class="btn-cancel">Back to Database</button>
         </div>
+        <p class="leaderboard-cta" id="leaderboardCta"></p>
         <div class="leaderboard-table-wrap">
             <table class="leaderboard-table" id="leaderboardTable">
                 <thead>
@@ -638,14 +644,12 @@
                 <tbody id="leaderboardBody"></tbody>
             </table>
         </div>
-        <p class="leaderboard-cta" id="leaderboardCta"></p>
     </div>
 
     <!-- Reading Order View (rendered by js/reading.js) -->
     <div id="readingView" style="display:none;">
         <div class="leaderboard-header">
             <h2>Reading Order</h2>
-            <button id="readingBackBtn" class="btn-cancel">Back to Database</button>
         </div>
         <div id="readingContent"></div>
     </div>

@@ -38,19 +38,14 @@
         return !!getShareName();
     }
 
+    // "Publish collection" sits in the header until the collection is
+    // published; after that the profile is managed from the account menu.
+    // An open leaderboard is redrawn so its invitation and rows stay current.
     function updateShareButton() {
-        const text = document.getElementById('shareBtnText');
-        const btn = document.getElementById('shareBtn');
-        if (hasLinkedProfile()) {
-            text.textContent = 'Profile';
-            btn.title = 'Manage your public profile';
-        } else if (isShared()) {
-            text.textContent = 'Update';
-            btn.title = 'Update your shared collection';
-        } else {
-            text.textContent = 'Share';
-            btn.title = 'Share your collection with the community';
-        }
+        const shared = isShared();
+        document.getElementById('shareBtn').hidden = shared;
+        document.getElementById('accountProfile').hidden = !shared;
+        if (document.getElementById('leaderboardView').style.display !== 'none') showLeaderboard();
     }
 
     function openShareModal() {
@@ -66,17 +61,20 @@
         const pct = Math.round((owned.length / AC_DATABASE.length) * 100) + '%';
 
         if (!isShared() && owned.length === 0) {
-            A.showToast('Mark some items as owned before sharing!');
+            A.showToast('Mark some items as owned before publishing!');
             return;
         }
 
         const linked = hasLinkedProfile();
-        document.getElementById('shareModalSubtitle').textContent = A.isSignedIn()
-            ? 'Your profile updates automatically as your collection changes'
-            : "Let the community see what you've collected";
+        const title = document.getElementById('shareModalTitle');
+        const subtitle = document.getElementById('shareModalSubtitle');
 
         if (isShared()) {
             // Manage mode — show update + delete options
+            title.textContent = 'Your Public Profile';
+            subtitle.textContent = linked
+                ? 'Your profile updates automatically as your collection changes'
+                : 'Your public page and your spot on the Leaderboard';
             formSection.style.display = 'none';
             successSection.style.display = 'none';
             manageSection.style.display = '';
@@ -89,7 +87,7 @@
             document.getElementById('shareManagePct').textContent = pct;
             document.getElementById('shareManageUrl').value = `https://acdb.theprivategeek.com/#profile/${name.toLowerCase()}`;
             document.getElementById('shareUpdateBtn').disabled = false;
-            document.getElementById('shareUpdateBtn').textContent = 'Update Collection';
+            document.getElementById('shareUpdateBtn').textContent = 'Update Profile';
             document.getElementById('shareDeleteBtn').disabled = false;
             document.getElementById('shareDeleteBtn').textContent = 'Delete Profile';
             overlay.classList.add('active');
@@ -97,7 +95,11 @@
             return;
         }
 
-        // Share mode — show form
+        // Publish mode — show form
+        title.textContent = 'Publish Your Collection';
+        subtitle.textContent = A.isSignedIn()
+            ? 'Get a public page to show friends, and a spot on the Leaderboard. It updates automatically as your collection changes.'
+            : 'Get a public page to show friends, and a spot on the Leaderboard';
         document.getElementById('sharePreviewOwned').textContent = owned.length;
         document.getElementById('sharePreviewPct').textContent = pct;
         formSection.style.display = '';
@@ -105,7 +107,7 @@
         successSection.style.display = 'none';
         nameInput.value = '';
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Share Collection';
+        submitBtn.textContent = 'Publish';
         document.getElementById('shareNameStatus').textContent = '';
 
         overlay.classList.add('active');
@@ -170,7 +172,7 @@
         const owned = getOwnedItemIds();
 
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Sharing...';
+        submitBtn.textContent = 'Publishing...';
 
         try {
             // Signed in: the profile is linked to the account and the Worker
@@ -197,16 +199,16 @@
                 document.getElementById('shareSuccessSection').style.display = '';
                 document.getElementById('shareUrl').value = data.shareUrl;
                 updateShareButton();
-                A.showToast('Collection shared successfully!');
+                A.showToast('Collection published!');
             } else {
-                A.showToast(data.error || 'Share failed');
+                A.showToast(data.error || 'Publishing failed');
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Share Collection';
+                submitBtn.textContent = 'Publish';
             }
         } catch (err) {
             A.showToast('Error: ' + (err.message || 'Network error'));
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Share Collection';
+            submitBtn.textContent = 'Publish';
         }
     }
 
@@ -231,16 +233,16 @@
 
             if (data.success) {
                 closeShareModal();
-                A.showToast(`Collection updated! ${data.ownedCount} items shared.`);
+                A.showToast(`Profile updated: ${data.ownedCount} items.`);
             } else {
                 A.showToast(data.error || 'Update failed');
                 updateBtn.disabled = false;
-                updateBtn.textContent = 'Update Collection';
+                updateBtn.textContent = 'Update Profile';
             }
         } catch {
             A.showToast('Network error. Try again.');
             updateBtn.disabled = false;
-            updateBtn.textContent = 'Update Collection';
+            updateBtn.textContent = 'Update Profile';
         }
     }
 
@@ -319,7 +321,7 @@
         document.getElementById('readingView').style.display = 'none';
         profileFromLeaderboard = fromLeaderboard;
         const backBtn = document.getElementById('profileBackBtn');
-        backBtn.textContent = fromLeaderboard ? 'Back to Leaderboard' : 'Back to Database';
+        backBtn.textContent = fromLeaderboard ? 'Back to Leaderboard' : 'Back to Collection';
         const profileView = document.getElementById('profileView');
         profileView.style.display = '';
         document.getElementById('profileName').textContent = 'Loading...';
@@ -373,13 +375,8 @@
             const name = getShareName();
             ctaEl.innerHTML = `You're on the board as <a href="#profile/${name.toLowerCase()}">${A.escapeHTML(name)}</a>`;
         } else {
-            ctaEl.innerHTML = 'Want to join? <a href="#" id="leaderboardShareLink">Share your collection</a> to appear on the leaderboard!';
-            document.getElementById('leaderboardShareLink').addEventListener('click', (e) => {
-                e.preventDefault();
-                showMainContent();
-                A.clearHash();
-                openShareModal();
-            });
+            ctaEl.innerHTML = '<span>Want to be on here?</span><button class="collection-action-btn share-btn" id="leaderboardShareLink">Join the Leaderboard</button>';
+            document.getElementById('leaderboardShareLink').addEventListener('click', openShareModal);
         }
 
         try {
