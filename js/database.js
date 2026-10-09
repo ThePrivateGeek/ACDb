@@ -6810,4 +6810,14 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Origins (Comic)",
     "collects": [303, 304, 305, 306]
   },
+  {
+    "id": 647,
+    "name": "The Art of Assassin's Creed Black Flag Resynced",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2026,
+    "category": "Art & Reference",
+    "description": "Showcase of selected artwork from the world of Edward Kenway, remade with modern art technology for Black Flag Resynced: concept art, high-fidelity characters, photorealistic textures, ships and environment art, with each piece accompanied by the artist's own commentary. Sections cover the locations, characters, creatures and naval battles, with some comparisons to the original game. Written by Paul Davies, who also wrote The Art of Assassin's Creed IV: Black Flag. Published by Titan Books (14 July 2026).",
+    "contents": "Hardcover art book (192 pages, 301 x 228 mm)",
+    "type": "Art Book"
+  },
 ];

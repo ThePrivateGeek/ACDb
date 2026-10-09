@@ -544,6 +544,13 @@ const AC_IMAGES = {
     ],
     "The Art of Assassin's Creed Shadows": ["images/art-books/art-of-ac-shadows.webp"],
     "The Art of Assassin's Creed Shadows (Deluxe Edition)": ["images/art-books/art-of-ac-shadows-deluxe.webp"],
+    "The Art of Assassin's Creed Black Flag Resynced": [
+        "images/art-books/art-of-ac-black-flag-resynced.webp",
+        "images/art-books/art-of-ac-black-flag-resynced_01.webp",
+        "images/art-books/art-of-ac-black-flag-resynced_02.webp",
+        "images/art-books/art-of-ac-black-flag-resynced_03.webp",
+        "images/art-books/art-of-ac-black-flag-resynced_04.webp",
+    ],
     "The Making of Assassin's Creed: 15th Anniversary": [
         "images/art-books/making-of-ac-15th-anniversary.webp",
         "images/art-books/making-of-ac-15th-anniversary_01.webp",
