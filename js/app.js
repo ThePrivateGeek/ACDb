@@ -1164,7 +1164,7 @@ window.ACDB = window.ACDB || {};
             const item = AC_DATABASE.find(i => i.id === ACDB.getCurrentItemId());
             if (!item) return;
             const url = 'https://acdb.theprivategeek.com/s/' + slugify(item.name);
-            const copyLink = () => navigator.clipboard.writeText(url).then(() => showToast('Link copied!'));
+            const copyLink = () => navigator.clipboard.writeText(url).then(() => showToast('Link copied!', 'success'));
             if (canWebShare) {
                 navigator.share({ title: item.name, text: item.description, url })
                     .catch(err => {
@@ -1327,13 +1327,13 @@ window.ACDB = window.ACDB || {};
         document.getElementById('shareDone').addEventListener('click', closeShareModal);
         document.getElementById('shareCopyUrl').addEventListener('click', () => {
             const urlInput = document.getElementById('shareUrl');
-            navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!'));
+            navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!', 'success'));
         });
 
         document.getElementById('shareManageCancel').addEventListener('click', closeShareModal);
         document.getElementById('shareManageCopyUrl').addEventListener('click', () => {
             const urlInput = document.getElementById('shareManageUrl');
-            navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!'));
+            navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!', 'success'));
         });
         document.getElementById('shareUpdateBtn').addEventListener('click', () => {
             const owned = getOwnedItemIds();
@@ -1390,7 +1390,7 @@ window.ACDB = window.ACDB || {};
         document.getElementById('devCopyCode').addEventListener('click', () => {
             const code = document.getElementById('devCodeOutput').value;
             if (!code) return;
-            navigator.clipboard.writeText(code).then(() => showToast('Code copied to clipboard!'));
+            navigator.clipboard.writeText(code).then(() => showToast('Code copied to clipboard!', 'success'));
         });
 
         // Collection field interdependencies

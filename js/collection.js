@@ -39,7 +39,7 @@
         a.download = 'acdb-collection-' + new Date().toISOString().slice(0, 10) + '.json';
         a.click();
         URL.revokeObjectURL(url);
-        A.showToast(`Exported ${exportData.length} items`);
+        A.showToast(`Exported ${exportData.length} items`, 'success');
     }
 
     function importCollection(file) {
@@ -73,9 +73,9 @@
                 });
 
                 A.renderItems();
-                A.showToast(`Imported ${matched} of ${importData.length} items`);
+                A.showToast(`Imported ${matched} of ${importData.length} items`, 'success');
             } catch (err) {
-                A.showToast('Import failed — invalid file');
+                A.showToast('Import failed — invalid file', 'error');
             }
         };
         reader.readAsText(file);

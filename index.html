@@ -245,10 +245,11 @@
             <!-- Items populated by JS -->
         </div>
         <div class="no-results" id="noResults" style="display:none;">
-            <svg viewBox="0 0 100 100" class="no-results-icon">
+            <svg viewBox="0 0 100 100" class="no-results-icon" aria-hidden="true">
                 <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor" opacity="0.2"/>
             </svg>
-            <p>Nothing is true, everything is permitted... but no items match your search.</p>
+            <h3 class="no-results-title">No items match</h3>
+            <p>Nothing is true, everything is permitted… but nothing in the catalog matches your search and filters.</p>
         </div>
     </main>
 
@@ -657,19 +658,22 @@
     <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-inner">
-            <p>ACDb - Assassin's Creed Collector's Database</p>
-            <p class="footer-disclaimer">This is a fan-made collection tracker, not affiliated with or endorsed by Ubisoft.</p>
-            <p class="footer-disclaimer">Assassin's Creed and all related names, logos, and trademarks are property of Ubisoft Entertainment.</p>
-            <p class="footer-disclaimer">Product images are the property of their respective manufacturers and retailers (e.g. PureArts, Ravenforge).</p>
-            <p class="footer-disclaimer">Used for identification and reference only; no copyright or affiliation is claimed. <a href="mailto:info@theprivategeek.com">Contact us</a> to request removal of any image.</p>
-            <p class="footer-disclaimer">Your collection is saved in your browser. Sign in with Google to also keep it in your account and see it on any device. Shared profiles are public. <a href="privacy.html">Privacy</a></p>
-            <p class="footer-disclaimer">Anonymous visitor analytics by Cloudflare (no cookies).</p>
-            <p class="footer-feedback">Found a bug, missing item, or have a suggestion? <a href="https://github.com/ThePrivateGeek/ACDb/issues" target="_blank" rel="noopener">Leave feedback on GitHub</a></p>
-            <p class="footer-feedback">Get in touch: <a href="mailto:info@theprivategeek.com">info@theprivategeek.com</a></p>
-            <p class="footer-feedback"><a href="#leaderboard">View the Collector's Leaderboard</a></p>
+            <p class="footer-brand">ACDb · Assassin's Creed Collector's Database</p>
+            <nav class="footer-links" aria-label="Footer">
+                <a class="link" href="#leaderboard">Collector's Leaderboard</a>
+                <a class="link" href="https://github.com/ThePrivateGeek/ACDb/issues" target="_blank" rel="noopener" title="Found a bug, a missing item, or have a suggestion?">Feedback on GitHub</a>
+                <a class="link" href="mailto:info@theprivategeek.com">info@theprivategeek.com</a>
+                <a class="link" href="privacy.html">Privacy</a>
+            </nav>
+            <p class="footer-legal">This is a fan-made collection tracker, not affiliated with or endorsed by Ubisoft. Assassin's Creed and all related names, logos, and trademarks are property of Ubisoft Entertainment. Product images are the property of their respective manufacturers and retailers (e.g. PureArts, Ravenforge), used for identification and reference only; no copyright or affiliation is claimed. <a href="mailto:info@theprivategeek.com">Contact us</a> to request removal of any image.</p>
+            <p class="footer-legal">Your collection is saved in your browser. Sign in with Google to also keep it in your account and see it on any device. Shared profiles are public. Anonymous visitor analytics by Cloudflare (no cookies).</p>
             <p class="footer-meta">&copy; 2026 ACDb &middot; v2.8 &middot; <span id="footerItemCount">0</span> items</p>
         </div>
     </footer>
+
+    <!-- Toast and completion message (utils.js); polite live regions -->
+    <div id="acdb-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <div id="acdb-celebration" role="status" aria-live="polite"></div>
 
     <!-- Back to Top -->
     <button class="icon-btn back-to-top" id="backToTop" title="Back to top" aria-label="Back to top">

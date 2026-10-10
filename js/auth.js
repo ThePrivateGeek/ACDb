@@ -129,7 +129,7 @@
         try {
             sessionStorage.setItem(OAUTH_KEY, JSON.stringify({ state, verifier, returnHash: location.hash }));
         } catch {
-            A.showToast('Sign-in needs browser storage, which is blocked here.');
+            A.showToast('Sign-in needs browser storage, which is blocked here.', 'error');
             return;
         }
         const params = new URLSearchParams({
@@ -185,14 +185,14 @@
             });
             const data = await res.json().catch(() => ({}));
             if (!res.ok || !data.session) {
-                A.showToast(data.error || 'Sign-in failed. Please try again.');
+                A.showToast(data.error || 'Sign-in failed. Please try again.', 'error');
                 return;
             }
             store.set(SESSION_KEY, data.session);
             saveAccount({ id: data.account.id, email: data.account.email, shareName: data.share ? data.share.displayName : null });
             store.remove(REASON_KEY);
         } catch {
-            A.showToast('Network error. Sign-in failed.');
+            A.showToast('Network error. Sign-in failed.', 'error');
             return;
         } finally {
             setButtonBusy(false);
@@ -203,9 +203,9 @@
         const stats = await A.startSync();
         const email = getAccount() ? getAccount().email : '';
         if (stats && stats.replacedOtherAccount) {
-            A.showToast(`Loaded ${email}'s collection.`);
+            A.showToast(`Loaded ${email}'s collection.`, 'success');
         } else {
-            A.showToast(`Signed in as ${email}. Your collection is synced.`);
+            A.showToast(`Signed in as ${email}. Your collection is synced.`, 'success');
         }
         if (A.claimLegacyProfile) A.claimLegacyProfile();
     }
@@ -263,14 +263,14 @@
             const res = await authFetch('/account', { method: 'DELETE' });
             if (!res.ok) throw new Error('HTTP ' + res.status);
         } catch {
-            A.showToast("Couldn't delete the account. Try again.");
+            A.showToast("Couldn't delete the account. Try again.", 'error');
             return;
         }
         clearSignedInState();
         A.resetSync();
         A.updateShareButton();
         renderAccountUI();
-        A.showToast('Account deleted. Your collection is still in this browser.');
+        A.showToast('Account deleted. Your collection is still in this browser.', 'success');
     }
 
     async function downloadAccountData() {
@@ -287,7 +287,7 @@
             a.click();
             URL.revokeObjectURL(url);
         } catch {
-            A.showToast("Couldn't download your data. Try again.");
+            A.showToast("Couldn't download your data. Try again.", 'error');
         }
     }
 

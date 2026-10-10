@@ -399,7 +399,7 @@
             A.setItemData(partId, { ...part, hasRead: true, readDate: part.readDate || readDate || '' });
             marked++;
         });
-        if (marked > 0) A.showToast(`Also marked ${marked} of the ${collectedNoun(item)} it collects as read`);
+        if (marked > 0) A.showToast(`Also marked ${marked} of the ${collectedNoun(item)} it collects as read`, 'success');
     }
 
     // "issues", "volumes", "novel" or "comics", for the hint and the toast.

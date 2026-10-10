@@ -1135,12 +1135,12 @@ textarea:focus-visible {
     left: 0;
     min-width: 100%;
     width: max-content;
+    padding: var(--s1) 0;
     background: var(--surface-bar);
     border: 1px solid var(--line-strong);
-    border-radius: 8px;
-    box-shadow: var(--shadow-modal);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-pop);
     z-index: 200;
-    padding: 0.25rem 0;
 }
 
 .multi-select-options {
@@ -1282,22 +1282,22 @@ textarea:focus-visible {
 .stats-toggle {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 0;
+    gap: var(--s2);
+    padding: var(--s3) 0;
     background: none;
     border: none;
-    color: var(--text-3);
-    font-family: var(--font-body);
+    color: var(--gold);
+    font-family: var(--font-display);
     font-size: 0.8rem;
     font-weight: 600;
+    letter-spacing: var(--tracking-label);
     text-transform: uppercase;
-    letter-spacing: 1px;
     cursor: pointer;
     transition: var(--transition);
 }
 
 .stats-toggle:hover {
-    color: var(--gold);
+    color: var(--gold-strong);
 }
 
 .stats-chevron {
@@ -1429,20 +1429,24 @@ textarea:focus-visible {
     position: fixed;
     bottom: 2rem;
     left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    background: var(--surface-bar);
-    border: 2px solid var(--cond-mint);
-    color: var(--cond-mint);
-    padding: 0.75rem 1.75rem;
-    border-radius: 8px;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 600;
     z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: var(--s3);
+    max-width: min(520px, calc(100vw - 2rem));
+    padding: var(--s3) var(--s5) var(--s3) var(--s4);
+    background: var(--surface-bar);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-pop);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    font-weight: 600;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transform: translateX(-50%) translateY(20px);
+    transition: opacity var(--t-slow) ease, transform var(--t-slow) var(--ease);
 }
 
 #acdb-toast.visible {
@@ -1450,27 +1454,46 @@ textarea:focus-visible {
     transform: translateX(-50%) translateY(0);
 }
 
+#acdb-toast svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+}
+
+#acdb-toast.toast-success svg {
+    color: var(--owned-text);
+}
+
+#acdb-toast.toast-error {
+    border-color: var(--danger-solid);
+}
+
+#acdb-toast.toast-error svg {
+    color: var(--danger-text);
+}
+
 /* ---- Celebration Toast ---- */
 #acdb-celebration {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    background: var(--surface-card);
-    border: 2px solid var(--owned);
-    color: var(--owned);
-    padding: 1.25rem 2.5rem;
-    border-radius: 12px;
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 1px;
     z-index: 10000;
+    max-width: calc(100vw - 2rem);
+    padding: var(--s5) var(--s6);
+    background: var(--surface-card);
+    border: 1px solid var(--owned);
+    border-radius: var(--r-lg);
+    box-shadow: 0 0 40px rgba(39, 174, 96, 0.3), var(--shadow-modal);
+    color: var(--owned-text);
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-align: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    box-shadow: 0 0 40px rgba(39, 174, 96, 0.3);
-    text-align: center;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: opacity var(--t-slow) ease, transform var(--t-slow) var(--ease);
 }
 
 #acdb-celebration.visible {
@@ -1903,21 +1926,30 @@ textarea:focus-visible {
 
 /* ---- No Results ---- */
 .no-results {
+    display: grid;
+    justify-items: center;
+    gap: var(--s3);
+    padding: var(--s7) var(--s4);
     text-align: center;
-    padding: 4rem 2rem;
-    color: var(--text-3);
 }
 
 .no-results-icon {
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
     color: var(--line-strong);
-    margin-bottom: 1.5rem;
+}
+
+.no-results-title {
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: var(--fs-lg);
+    font-weight: 600;
 }
 
 .no-results p {
-    font-size: 1.1rem;
-    font-style: italic;
+    max-width: 48ch;
+    color: var(--text-2);
+    font-size: var(--fs-md);
 }
 
 /* ---- Modal ---- */
@@ -1946,14 +1978,14 @@ textarea:focus-visible {
 .modal {
     background: var(--surface-overlay);
     border: 1px solid var(--line);
-    border-radius: 16px;
+    border-radius: var(--r-xl);
     max-width: 900px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: var(--shadow-modal);
-    transform: scale(0.95);
-    transition: transform 0.3s ease, max-width 0.35s ease;
+    transform: scale(0.97);
+    transition: transform var(--t-slow) var(--ease), max-width 0.35s ease;
     position: relative;
 }
 
@@ -2552,6 +2584,9 @@ textarea:focus-visible {
     margin: 0 auto;
     position: relative;
     z-index: 0;
+    display: grid;
+    justify-items: center;
+    gap: var(--s4);
 }
 
 /* Faint Assassin's Creed emblem watermark behind the footer text.
@@ -2570,54 +2605,38 @@ textarea:focus-visible {
     pointer-events: none;
 }
 
-.main-footer p {
+.footer-brand {
+    color: var(--text-2);
     font-family: var(--font-display);
-    color: var(--text-2);
-    font-size: 0.9rem;
-    letter-spacing: 2px;
+    font-size: var(--fs-md);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
 }
 
-.footer-disclaimer {
-    font-family: var(--font-body) !important;
-    font-size: 0.75rem !important;
-    color: var(--text-3) !important;
-    margin-top: 0.5rem;
-    letter-spacing: 0 !important;
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--s2) var(--s5);
+    font-size: var(--fs-md);
 }
-.footer-disclaimer a {
+
+.footer-legal {
+    max-width: 90ch;
+    color: var(--text-3);
+    font-size: var(--fs-xs);
+    line-height: 1.7;
+}
+
+.footer-legal a {
     color: var(--gold);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.footer-disclaimer a:hover {
-    color: var(--gold-strong);
-    text-decoration: underline;
-}
-
-.footer-feedback {
-    font-size: 0.8rem;
-    color: var(--text-2);
-    margin-top: 1rem;
-}
-
-.footer-feedback a {
-    color: var(--gold);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.footer-feedback a:hover {
-    color: var(--gold-strong);
-    text-decoration: underline;
 }
 
 .footer-meta {
-    font-family: var(--font-data);
-    font-size: 0.7rem;
     color: var(--text-3);
-    margin-top: 1rem;
-    opacity: 0.6;
+    font-family: var(--font-data);
+    font-size: var(--fs-label);
 }
 
 /* ---- Share Button ---- */
@@ -2632,13 +2651,13 @@ textarea:focus-visible {
 
 .share-preview {
     display: flex;
-    gap: 2rem;
+    gap: var(--s6);
     justify-content: center;
-    padding: 1.25rem;
-    margin: 1rem 0;
+    padding: var(--s4);
+    margin: var(--s4) 0;
     background: var(--surface-page);
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: var(--r-md);
 }
 
 .share-preview-stat {
@@ -2655,10 +2674,10 @@ textarea:focus-visible {
 }
 
 .share-success p {
-    color: var(--owned);
+    margin-bottom: var(--s4);
+    color: var(--owned-text);
     font-family: var(--font-display);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+    font-size: var(--fs-lg);
 }
 
 .share-done {
@@ -2673,13 +2692,15 @@ textarea:focus-visible {
 
 .share-url-box input {
     flex: 1;
-    padding: 0.6rem 0.75rem;
+    min-width: 0;
+    height: var(--h-md);
+    padding: 0 var(--s3);
     background: var(--surface-page);
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: var(--r-md);
     color: var(--gold);
     font-family: var(--font-data);
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
 }
 
 
@@ -3209,9 +3230,9 @@ textarea:focus-visible {
 }
 
 .leaderboard-loading {
+    padding: var(--s7) var(--s4);
+    color: var(--text-2);
     text-align: center;
-    padding: 3rem;
-    color: var(--text-3);
 }
 
 /* Phones: each collector becomes a row (rank, name and date, items and %)
@@ -3538,10 +3559,6 @@ textarea:focus-visible {
 
 /* ---- Add Item Button ---- */
 /* ---- Add Item Modal ---- */
-.add-item-modal {
-    max-width: 640px;
-}
-
 .dev-tool-modal {
     max-width: 1100px;
 }
@@ -3598,11 +3615,11 @@ textarea:focus-visible {
 }
 
 .dev-preview-header span {
-    font-size: 0.8rem;
+    color: var(--text-3);
+    font-size: var(--fs-label);
     font-weight: 600;
-    color: var(--text-2);
+    letter-spacing: var(--tracking-label);
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 #devCodeOutput {
@@ -3639,22 +3656,19 @@ textarea:focus-visible {
 }
 
 .add-modal-title {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
+    margin-bottom: var(--s1);
+    padding-right: 2.5rem;   /* clear of the close button */
     color: var(--gold);
-    margin-bottom: 0.25rem;
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    line-height: 1.25;
 }
 
 .add-modal-subtitle {
-    font-size: 0.85rem;
-    color: var(--text-3);
-    margin-bottom: 1.5rem;
-}
-
-.add-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    margin-bottom: var(--s5);
+    color: var(--text-2);
+    font-size: var(--fs-sm);
 }
 
 .form-row {
@@ -3664,24 +3678,25 @@ textarea:focus-visible {
 }
 
 .form-row label {
-    font-size: 0.8rem;
+    color: var(--text-3);
+    font-size: var(--fs-label);
     font-weight: 600;
-    color: var(--text-2);
+    letter-spacing: var(--tracking-label);
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .form-row input[type="text"],
 .form-row input[type="number"],
 .form-row textarea,
 .form-row select {
-    padding: 0.6rem 0.75rem;
-    background: var(--surface-bar);
+    min-height: var(--h-md);
+    padding: 0.5rem var(--s3);
+    background: var(--surface-page);
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: var(--r-md);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: var(--fs-md);
     transition: var(--transition);
 }
 
@@ -3711,22 +3726,24 @@ textarea:focus-visible {
 }
 
 .form-hint {
-    font-size: 0.75rem;
     color: var(--text-3);
-    font-style: italic;
+    font-size: var(--fs-xs);
 }
 
 
 .form-actions {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-end;
-    gap: 0.75rem;
-    margin-top: 0.5rem;
-    padding-top: 1rem;
+    gap: var(--s3);
+    margin-top: var(--s2);
+    padding-top: var(--s4);
     border-top: 1px solid var(--line);
 }
 
-/* ---- Manage Button ---- */
+.form-actions .btn-danger {
+    margin-right: auto;
+}
 
 @media (max-width: 480px) {
     .logo-text h1 {
@@ -3841,11 +3858,11 @@ textarea:focus-visible {
     min-width: 240px;
     display: flex;
     flex-direction: column;
-    padding: 0.4rem 0;
+    padding: var(--s1) 0;
     background: var(--surface-bar);
     border: 1px solid var(--line-strong);
-    border-radius: 8px;
-    box-shadow: var(--shadow-modal);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-pop);
     z-index: 200;
 }
 
@@ -3866,14 +3883,17 @@ textarea:focus-visible {
 }
 
 .account-menu-item {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 100%;
-    padding: 0.5rem 0.9rem;
+    min-height: 36px;
+    padding: 0 var(--s4);
     background: none;
     border: none;
     color: var(--text-2);
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
+    font-weight: 500;
     text-align: left;
     text-decoration: none;
     cursor: pointer;
@@ -3882,6 +3902,10 @@ textarea:focus-visible {
 .account-menu-item:hover {
     background: var(--surface-card-hover);
     color: var(--gold);
+}
+
+.account-menu-item:focus-visible {
+    outline-offset: -2px;
 }
 
 .account-menu-signin {
@@ -3909,9 +3933,9 @@ textarea:focus-visible {
 }
 
 .account-menu-item.danger {
-    margin-top: 0.3rem;
+    margin-top: var(--s1);
     border-top: 1px solid var(--line);
-    color: var(--danger);
+    color: var(--danger-text);
 }
 
 .account-menu-item.danger:hover {
@@ -3920,8 +3944,8 @@ textarea:focus-visible {
 }
 
 .sync-banner {
-    padding: 0.6rem 2rem;
-    background: linear-gradient(90deg, rgba(201, 168, 76, 0.12), rgba(201, 168, 76, 0.04));
+    padding: var(--s3) 2rem;
+    background: linear-gradient(90deg, var(--gold-tint-2), rgba(201, 168, 76, 0.04));
     border-bottom: 1px solid var(--gold-deep);
 }
 
@@ -3944,7 +3968,7 @@ textarea:focus-visible {
     flex: 1;
     margin: 0;
     color: var(--text);
-    font-size: 0.9rem;
+    font-size: var(--fs-md);
 }
 
 /* Google's dark-theme "Sign in with Google" button (branding guidelines) */

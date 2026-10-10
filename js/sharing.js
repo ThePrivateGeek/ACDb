@@ -165,7 +165,7 @@
         const displayName = nameInput.value.trim();
 
         if (!displayName || displayName.length < 5) {
-            A.showToast('Please enter a valid display name');
+            A.showToast('Please enter a valid display name', 'error');
             return;
         }
 
@@ -199,14 +199,14 @@
                 document.getElementById('shareSuccessSection').style.display = '';
                 document.getElementById('shareUrl').value = data.shareUrl;
                 updateShareButton();
-                A.showToast('Collection published!');
+                A.showToast('Collection published!', 'success');
             } else {
-                A.showToast(data.error || 'Publishing failed');
+                A.showToast(data.error || 'Publishing failed', 'error');
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Publish';
             }
         } catch (err) {
-            A.showToast('Error: ' + (err.message || 'Network error'));
+            A.showToast('Error: ' + (err.message || 'Network error'), 'error');
             submitBtn.disabled = false;
             submitBtn.textContent = 'Publish';
         }
@@ -233,14 +233,14 @@
 
             if (data.success) {
                 closeShareModal();
-                A.showToast(`Profile updated: ${data.ownedCount} items.`);
+                A.showToast(`Profile updated: ${data.ownedCount} items.`, 'success');
             } else {
-                A.showToast(data.error || 'Update failed');
+                A.showToast(data.error || 'Update failed', 'error');
                 updateBtn.disabled = false;
                 updateBtn.textContent = 'Update Profile';
             }
         } catch {
-            A.showToast('Network error. Try again.');
+            A.showToast('Network error. Try again.', 'error');
             updateBtn.disabled = false;
             updateBtn.textContent = 'Update Profile';
         }
@@ -270,14 +270,14 @@
                 }
                 updateShareButton();
                 closeShareModal();
-                A.showToast('Profile deleted.');
+                A.showToast('Profile deleted.', 'success');
             } else {
-                A.showToast(data.error || 'Delete failed');
+                A.showToast(data.error || 'Delete failed', 'error');
                 deleteBtn.disabled = false;
                 deleteBtn.textContent = 'Delete Profile';
             }
         } catch {
-            A.showToast('Network error. Try again.');
+            A.showToast('Network error. Try again.', 'error');
             deleteBtn.disabled = false;
             deleteBtn.textContent = 'Delete Profile';
         }
@@ -433,7 +433,7 @@
                 localStorage.removeItem(A.SHARE_TOKEN_KEY);
                 localStorage.removeItem(A.SHARE_NAME_KEY);
                 A.setShareName(data.displayName);
-                A.showToast(`Your public profile ${data.displayName} now updates automatically.`);
+                A.showToast(`Your public profile ${data.displayName} now updates automatically.`, 'success');
             } else if (res.status === 404) {
                 // The profile was deleted elsewhere; the token is useless now.
                 localStorage.removeItem(A.SHARE_TOKEN_KEY);
