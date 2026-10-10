@@ -227,7 +227,8 @@ Tokens live at the top of `css/style.css`; component rules use only them. Check 
 - [ ] The filter dropdowns work from the keyboard: Tab into the options, Space ticks one
 - [ ] Numbers use lining figures everywhere ("AC1", "Issue #1" and years sit on the baseline)
 - [ ] With reduced motion on (Windows: Settings > Accessibility > Visual effects > Animation effects off): no logo pulse, no card lift or slide-in, no gallery slide, no confetti, and Back to Top / "Up next" jump instead of scrolling smoothly
-- [ ] Muted text (meta lines, release dates, footer) is readable; nothing uses the old `#666`
+- [ ] Muted text (meta lines, release dates, footer) is readable; only the "no items match" line keeps the original `#666` (on purpose)
+- [ ] Fonts: after a hard refresh (Ctrl+F5) headings are still Cinzel and text Raleway once the page settles (fonts load with `display=swap`, so a brief fallback flash is expected)
 - [ ] Colour meanings: every progress bar is gold (header meter, Insights, reading view, series rows); a finished row shows a green (owned) or purple (read) check and count; the Owned switch turns green, Wishlist blue, Read purple (modal and reading list), Has Original Box gold
 - [ ] Buttons: Publish is green in the header, on the leaderboard and in its dialog; dialogs put Cancel and the main action on the right and Delete on the left; header buttons are 32px with readable text
 - [ ] One "pick one" style per job: underline tabs (header, reading orders), segmented controls (Chronological/Release, Insights sort, grid/list), chips (game timeline, reading game filter)

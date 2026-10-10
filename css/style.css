@@ -1958,7 +1958,7 @@ textarea:focus-visible {
 }
 
 .no-results p {
-    color: var(--text-3);
+    color: #666;   /* the original grey, kept at the owner's request (3.4:1) */
     font-size: 1.1rem;   /* the original size */
     font-style: italic;
 }
