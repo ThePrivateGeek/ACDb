@@ -480,7 +480,7 @@
             if (row) {
                 const fold = row.closest('.reading-fold');
                 if (fold) fold.open = true;
-                row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                row.scrollIntoView({ behavior: ACDB.scrollBehavior(), block: 'center' });
                 row.classList.remove('flash');
                 void row.offsetWidth;   // restart the highlight animation
                 row.classList.add('flash');

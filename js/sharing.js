@@ -126,35 +126,35 @@
 
         if (name.length < 5) {
             status.textContent = name.length > 0 ? 'Minimum 5 characters' : '';
-            status.style.color = 'var(--text-muted)';
+            status.style.color = 'var(--text-3)';
             submitBtn.disabled = true;
             return;
         }
         if (!/^[a-zA-Z0-9_-]{5,25}$/.test(name)) {
             status.textContent = 'Only letters, numbers, hyphens, underscores';
-            status.style.color = 'var(--red)';
+            status.style.color = 'var(--danger-solid)';
             submitBtn.disabled = true;
             return;
         }
 
         status.textContent = 'Checking...';
-        status.style.color = 'var(--text-muted)';
+        status.style.color = 'var(--text-3)';
 
         try {
             const res = await fetch(`${A.API_URL}/check-name/${encodeURIComponent(name)}`);
             const data = await res.json();
             if (data.available) {
                 status.textContent = 'Available!';
-                status.style.color = 'var(--owned-green)';
+                status.style.color = 'var(--owned)';
                 submitBtn.disabled = false;
             } else {
                 status.textContent = 'Already taken';
-                status.style.color = 'var(--red)';
+                status.style.color = 'var(--danger-solid)';
                 submitBtn.disabled = true;
             }
         } catch {
             status.textContent = 'Could not check. Try again.';
-            status.style.color = 'var(--red)';
+            status.style.color = 'var(--danger-solid)';
             submitBtn.disabled = true;
         }
     }

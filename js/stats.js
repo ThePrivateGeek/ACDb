@@ -85,8 +85,8 @@
             const summary = document.createElement('div');
             summary.className = 'stats-bar-row';
             summary.innerHTML = `
-                <span class="stats-bar-label" style="color:var(--accent)">Total Physical Items</span>
-                <span class="stats-bar-value" style="color:var(--accent)">${totalCopies}</span>
+                <span class="stats-bar-label" style="color:var(--gold)">Total Physical Items</span>
+                <span class="stats-bar-value" style="color:var(--gold)">${totalCopies}</span>
             `;
             dom.statsByCondition.appendChild(summary);
         }
@@ -141,8 +141,8 @@
         const summary = document.createElement('div');
         summary.className = 'stats-bar-row';
         summary.innerHTML = `
-            <span class="stats-bar-label" style="color:var(--accent)">Stories Read</span>
-            <span class="stats-bar-value" style="color:var(--accent)">${readCount}/${readableCount}</span>
+            <span class="stats-bar-label" style="color:var(--gold)">Stories Read</span>
+            <span class="stats-bar-value" style="color:var(--gold)">${readCount}/${readableCount}</span>
         `;
         container.prepend(summary);
     }

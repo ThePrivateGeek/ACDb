@@ -916,7 +916,7 @@ window.ACDB = window.ACDB || {};
             backToTop.classList.toggle('visible', window.scrollY > 400);
         });
         backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: ACDB.scrollBehavior() });
         });
 
         // Lightbox
@@ -954,7 +954,7 @@ window.ACDB = window.ACDB || {};
             syncTimelineToSelectedGames();
             populateDependentFilters();
             renderItems();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: ACDB.scrollBehavior() });
         }
         ACDB.applyExclusiveFilter = applyExclusiveFilter;   // series pages in the reading view
         dom.statsByGame.addEventListener('click', (e) => {
@@ -1287,7 +1287,7 @@ window.ACDB = window.ACDB || {};
             clearHash();
             dom.filterOwned.value = 'owned';
             renderItems();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: ACDB.scrollBehavior() });
         });
 
         // Collection tab — back to the grid with filters kept (the logo resets them)
@@ -1295,7 +1295,7 @@ window.ACDB = window.ACDB || {};
             e.preventDefault();
             showMainContent();
             clearHash();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: ACDB.scrollBehavior() });
         });
 
         // Export / Import
@@ -1315,7 +1315,7 @@ window.ACDB = window.ACDB || {};
             showMainContent();
             clearHash();
             renderItems();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: ACDB.scrollBehavior() });
         });
 
         // Share Collection

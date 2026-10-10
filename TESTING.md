@@ -215,6 +215,15 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Phone width: rows fit without horizontal scroll, the Read label hides and the switch stays
 - [ ] `validate-catalog.py` covers `js/reading-orders.js` (unknown item, non-readable type, duplicate, missing setting, bad date are errors)
 
+## 19. Design System
+Tokens live at the top of `css/style.css`; component rules use only them. Check at 1600, 1200, 1000, 390 and 360px, signed in and out.
+- [ ] No page scrolls sideways at any of those widths (collection, every reading tab, a series page, leaderboard, a profile, privacy)
+- [ ] Tab through the collection, the reading view and an open item modal: every control (links, buttons, chips, dropdown options, Read/Owned switches, fold headings) shows the same 2px gold focus ring; fields also turn their border gold
+- [ ] The filter dropdowns work from the keyboard: Tab into the options, Space ticks one
+- [ ] Numbers use lining figures everywhere ("AC1", "Issue #1" and years sit on the baseline)
+- [ ] With reduced motion on (Windows: Settings > Accessibility > Visual effects > Animation effects off): no logo pulse, no card lift or slide-in, no gallery slide, no confetti, and Back to Top / "Up next" jump instead of scrolling smoothly
+- [ ] Muted text (meta lines, release dates, footer) is readable; nothing uses the old `#666`
+
 ---
 
 ## Quick Test (for item additions only)

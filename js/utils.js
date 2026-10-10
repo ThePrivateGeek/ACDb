@@ -81,6 +81,12 @@
         }
     }
 
+    // 'smooth', or 'auto' for visitors who asked for reduced motion (CSS
+    // can't reach scrolls started from script).
+    function scrollBehavior() {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    }
+
     function showToast(message) {
         let toast = document.getElementById('acdb-toast');
         if (!toast) {
@@ -140,6 +146,7 @@
     A.debounce = debounce;
     A.formatCondition = formatCondition;
     A.slugify = slugify;
+    A.scrollBehavior = scrollBehavior;
     A.showToast = showToast;
     A.showCelebration = showCelebration;
     A.launchConfetti = launchConfetti;

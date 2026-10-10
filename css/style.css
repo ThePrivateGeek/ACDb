@@ -3,38 +3,107 @@
    Dark theme inspired by the Animus interface
    ============================================ */
 
+/* ---- Design tokens ----
+   Component rules use only these. Gold is for interaction, selection and
+   progress; green / purple / blue mark the state of one item (owned / read
+   / wishlist); red is for danger only (and the NEW sticker). */
 :root {
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #12121a;
-    --bg-card: #161622;
-    --bg-card-hover: #1c1c2e;
-    --bg-modal: #13131f;
-    --border: #2a2a3a;
-    --border-light: #3a3a4a;
-    --accent: #c9a84c;
-    --accent-glow: #d4b85a;
-    --accent-dark: #8a6d2b;
-    --red: #c0392b;
-    --red-glow: #e74c3c;
-    --text-primary: #e8e6e3;
-    --text-secondary: #9a9a9a;
-    --text-muted: #666;
-    --owned-green: #27ae60;
-    --owned-glow: #2ecc71;
-    --wishlist-blue: #3498db;
-    --mint: #1abc9c;
-    --near-mint: #2ecc71;
-    --excellent: #27ae60;
-    --good: #f39c12;
-    --fair: #e67e22;
-    --poor: #e74c3c;
-    --shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 8px 60px rgba(0, 0, 0, 0.7);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --font-heading: 'Cinzel', serif;
-    --font-body: 'Raleway', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    /* Surfaces */
+    --surface-page: #0a0a0f;
+    --surface-bar: #12121a;          /* header, toolbar, menus, footer */
+    --surface-card: #161622;
+    --surface-card-hover: #1c1c2e;
+    --surface-overlay: #13131f;      /* dialogs */
+    --line: #2a2a3a;
+    --line-strong: #3a3a4a;
+    --line-control: #5a5a70;         /* switch track edge */
+
+    /* Text (on cards: --text-2 7.2:1, --text-3 5.3:1) */
+    --text: #e8e6e3;
+    --text-2: #a3a3ad;
+    --text-3: #8b8b98;
+
+    /* Accent */
+    --gold: #c9a84c;
+    --gold-strong: #d4b85a;
+    --gold-deep: #8a6d2b;
+    --gold-tint: rgba(201, 168, 76, 0.08);
+    --gold-tint-2: rgba(201, 168, 76, 0.16);
+    --gold-glow: rgba(201, 168, 76, 0.35);
+
+    /* Status. -solid takes white text (4.5:1+), -text reads on cards */
+    --owned: #27ae60;
+    --owned-text: #2ecc71;
+    --owned-solid: #1d7a43;
+    --owned-tint: rgba(39, 174, 96, 0.08);
+    --owned-edge: rgba(39, 174, 96, 0.45);
+    --read: #9b59b6;
+    --read-text: #bb8fce;
+    --read-solid: #7d3c98;
+    --read-edge: rgba(155, 89, 182, 0.55);
+    --wish: #3498db;
+    --wish-text: #5dade2;
+    --wish-solid: #2471a3;
+    --wish-edge: rgba(52, 152, 219, 0.4);
+    --danger: #e74c3c;
+    --danger-text: #ef6b5e;
+    --danger-solid: #c0392b;
+
+    /* Item condition scale */
+    --cond-mint: #1abc9c;
+    --cond-near-mint: #2ecc71;
+    --cond-excellent: #27ae60;
+    --cond-good: #f39c12;
+    --cond-fair: #e67e22;
+    --cond-poor: #e74c3c;
+
+    /* Type */
+    --font-display: 'Cinzel', Georgia, serif;
+    --font-body: 'Raleway', 'Segoe UI', system-ui, sans-serif;
+    --font-data: 'JetBrains Mono', ui-monospace, Consolas, monospace;   /* counts and fractions */
+    --fs-label: 0.6875rem;
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.8125rem;
+    --fs-md: 0.875rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.125rem;
+    --fs-xl: 1.375rem;
+    --fs-2xl: 1.75rem;
+    --tracking-label: 0.12em;        /* uppercase labels and section headings */
+
+    /* Space and shape */
+    --s1: 4px;
+    --s2: 8px;
+    --s3: 12px;
+    --s4: 16px;
+    --s5: 24px;
+    --s6: 32px;
+    --s7: 48px;
+    --r-sm: 4px;
+    --r-md: 8px;
+    --r-lg: 12px;
+    --r-xl: 16px;
+    --r-pill: 999px;
+    --h-sm: 32px;
+    --h-md: 38px;
+
+    /* Depth */
+    --shadow-pop: 0 12px 40px rgba(0, 0, 0, 0.55);
+    --shadow-modal: 0 24px 80px rgba(0, 0, 0, 0.7);
+    --glow-card: 0 8px 32px rgba(201, 168, 76, 0.12);
+
+    /* Motion (named properties, never "all") */
+    --t-fast: 120ms;
+    --t: 200ms;
+    --t-slow: 320ms;
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+    --transition: color var(--t-fast), background-color var(--t-fast), border-color var(--t-fast),
+        box-shadow var(--t), opacity var(--t), transform var(--t) var(--ease);
+
+    /* Keyboard focus */
+    --focus: 2px solid var(--gold);
 }
+
 
 * {
     margin: 0;
@@ -48,11 +117,73 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: var(--bg-primary);
-    color: var(--text-primary);
+    background: var(--surface-page);
+    color: var(--text);
     min-height: 100vh;
     overflow-x: hidden;
     line-height: 1.6;
+    /* Raleway defaults to old-style figures ("AC1" looked like a subscript) */
+    font-variant-numeric: lining-nums;
+}
+
+/* Form controls don't inherit font settings by default */
+button,
+input,
+select,
+textarea {
+    font-variant-numeric: inherit;
+}
+
+/* One focus ring for every control; fields add a gold border */
+:focus-visible {
+    outline: var(--focus);
+    outline-offset: 2px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline-offset: 0;
+    border-color: var(--gold);
+}
+
+/* Visually hidden, still read by screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Reduced motion: no pulsing, sliding, lifting, falling or smooth scrolling */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        animation-delay: 0s !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .item-card:hover,
+    .items-grid.list-view .item-card:hover,
+    .item-card:hover .card-image img {
+        transform: none;
+    }
+
+    .confetti-container {
+        display: none;
+    }
 }
 
 /* ---- Ambient Background ---- */
@@ -67,7 +198,7 @@ body {
         radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.03) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.02) 0%, transparent 50%),
         radial-gradient(ellipse at 50% 80%, rgba(192, 57, 43, 0.02) 0%, transparent 50%),
-        var(--bg-primary);
+        var(--surface-page);
 }
 
 .scanlines {
@@ -92,14 +223,14 @@ body {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
+    background: var(--surface-bar);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--border-light);
+    background: var(--line-strong);
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-dark);
+    background: var(--gold-deep);
 }
 
 /* ---- Header ---- */
@@ -109,14 +240,13 @@ body {
     z-index: 100;
     background: linear-gradient(180deg, rgba(10, 10, 15, 0.98) 0%, rgba(10, 10, 15, 0.95) 100%);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
     padding: 0.75rem 2rem;
 }
 
 .header-inner {
     max-width: 1600px;
     margin: 0 auto;
-    padding-right: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -134,7 +264,7 @@ body {
 .ac-symbol {
     width: 48px;
     height: 48px;
-    color: var(--accent);
+    color: var(--gold);
     filter: drop-shadow(0 0 10px rgba(201, 168, 76, 0.3));
     animation: symbolPulse 4s ease-in-out infinite;
 }
@@ -150,10 +280,10 @@ body {
 }
 
 .logo-text h1 {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--gold);
     letter-spacing: 4px;
     text-transform: uppercase;
     line-height: 1;
@@ -161,7 +291,7 @@ body {
 
 .logo-subtitle {
     font-size: 0.65rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 500;
@@ -180,7 +310,7 @@ body {
     gap: 0.4rem;
     margin-left: 0.5rem;
     padding-left: 1.5rem;
-    border-left: 1px solid var(--border);
+    border-left: 1px solid var(--line);
 }
 
 .collection-action-btn {
@@ -189,9 +319,9 @@ body {
     gap: 0.3rem;
     padding: 0.35rem 0.6rem;
     background: transparent;
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
     border-radius: 6px;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-family: var(--font-body);
     font-size: 0.7rem;
     cursor: pointer;
@@ -209,8 +339,8 @@ a.collection-action-btn {
 }
 
 .collection-action-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--gold);
+    color: var(--gold);
 }
 
 /* ---- Main navigation (Collection / Reading Order / Leaderboard) ---- */
@@ -226,25 +356,25 @@ a.collection-action-btn {
     display: flex;
     align-items: center;
     padding: 0.5rem 0.9rem;
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
-    color: var(--text-secondary);
+    color: var(--text-2);
     border-radius: 6px;
     transition: var(--transition);
 }
 
 .main-nav-link:hover {
-    color: var(--text-primary);
+    color: var(--text);
     background: rgba(201, 168, 76, 0.08);
 }
 
 .main-nav-link.active {
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .main-nav-link.active::after {
@@ -255,7 +385,7 @@ a.collection-action-btn {
     bottom: 0;
     height: 2px;
     border-radius: 1px;
-    background: var(--accent);
+    background: var(--gold);
 }
 
 /* ---- Progress meter (owned / total) ---- */
@@ -268,7 +398,7 @@ a.collection-action-btn {
     background: transparent;
     border: none;
     border-radius: 8px;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-family: var(--font-body);
     cursor: pointer;
     transition: var(--transition);
@@ -286,10 +416,10 @@ a.collection-action-btn {
 }
 
 .progress-meter-count {
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .progress-meter-label {
@@ -300,16 +430,16 @@ a.collection-action-btn {
 
 .progress-meter-pct {
     margin-left: auto;
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 0.85rem;
-    color: var(--text-primary);
+    color: var(--text);
 }
 
 .progress-meter-bar {
     display: block;
     height: 4px;
     border-radius: 2px;
-    background: var(--border);
+    background: var(--line);
     overflow: hidden;
 }
 
@@ -318,23 +448,23 @@ a.collection-action-btn {
     width: 0;
     height: 100%;
     border-radius: 2px;
-    background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold));
     transition: width 0.6s ease;
 }
 
 .stat-number {
     display: block;
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--gold);
     line-height: 1.2;
     min-height: 1.8rem;
 }
 
 .stat-label {
     font-size: 0.65rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -343,7 +473,7 @@ a.collection-action-btn {
 .toolbar {
     background: rgba(18, 18, 26, 0.9);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
     padding: 0.75rem 2rem;
     position: sticky;
     top: var(--header-height, 76px);
@@ -372,30 +502,29 @@ a.collection-action-btn {
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
-    color: var(--text-muted);
+    color: var(--text-3);
     pointer-events: none;
 }
 
 #searchInput {
     width: 100%;
     padding: 0.6rem 2.5rem 0.6rem 2.5rem;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
+    background: var(--surface-page);
+    border: 1px solid var(--line);
     border-radius: 8px;
-    color: var(--text-primary);
+    color: var(--text);
     font-family: var(--font-body);
     font-size: 0.9rem;
     transition: var(--transition);
 }
 
 #searchInput:focus {
-    outline: none;
-    border-color: var(--accent);
+    border-color: var(--gold);
     box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
 }
 
 #searchInput::placeholder {
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 .clear-search {
@@ -405,7 +534,7 @@ a.collection-action-btn {
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: var(--text-muted);
+    color: var(--text-3);
     font-size: 1.2rem;
     cursor: pointer;
     display: none;
@@ -415,7 +544,7 @@ a.collection-action-btn {
 }
 
 .clear-search:hover {
-    color: var(--red);
+    color: var(--danger-solid);
     background: rgba(192, 57, 43, 0.15);
 }
 
@@ -433,10 +562,10 @@ a.collection-action-btn {
 
 .filter-select {
     padding: 0.6rem 2rem 0.6rem 0.75rem;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
+    background: var(--surface-page);
+    border: 1px solid var(--line);
     border-radius: 8px;
-    color: var(--text-primary);
+    color: var(--text);
     font-family: var(--font-body);
     font-size: 0.85rem;
     cursor: pointer;
@@ -448,8 +577,7 @@ a.collection-action-btn {
 }
 
 .filter-select:focus {
-    outline: none;
-    border-color: var(--accent);
+    border-color: var(--gold);
 }
 
 /* ---- Multi-Select Dropdown ---- */
@@ -481,10 +609,10 @@ a.collection-action-btn {
     gap: 0.5rem;
     width: 100%;
     padding: 0.6rem 0.75rem;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
+    background: var(--surface-page);
+    border: 1px solid var(--line);
     border-radius: 8px;
-    color: var(--text-primary);
+    color: var(--text);
     font-family: var(--font-body);
     font-size: 0.85rem;
     cursor: pointer;
@@ -495,12 +623,11 @@ a.collection-action-btn {
 }
 
 .multi-select-toggle:focus {
-    outline: none;
-    border-color: var(--accent);
+    border-color: var(--gold);
 }
 
 .multi-select.open .multi-select-toggle {
-    border-color: var(--accent);
+    border-color: var(--gold);
 }
 
 .multi-select-clear {
@@ -510,7 +637,7 @@ a.collection-action-btn {
     line-height: 16px;
     text-align: center;
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--text-3);
     border-radius: 50%;
     flex-shrink: 0;
     transition: var(--transition);
@@ -521,14 +648,14 @@ a.collection-action-btn {
 }
 
 .multi-select-clear:hover {
-    color: var(--red);
+    color: var(--danger-solid);
     background: rgba(192, 57, 43, 0.15);
 }
 
 .multi-select-chevron {
     width: 12px;
     height: 12px;
-    color: var(--text-muted);
+    color: var(--text-3);
     flex-shrink: 0;
     transition: transform 0.2s ease;
 }
@@ -544,10 +671,10 @@ a.collection-action-btn {
     left: 0;
     min-width: 100%;
     width: max-content;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-light);
+    background: var(--surface-bar);
+    border: 1px solid var(--line-strong);
     border-radius: 8px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-modal);
     z-index: 200;
     padding: 0.25rem 0;
 }
@@ -566,32 +693,32 @@ a.collection-action-btn {
     width: calc(100% - 1rem);
     margin: 0.4rem 0.5rem;
     padding: 0.4rem 0.6rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
+    background: var(--surface-bar);
+    border: 1px solid var(--line);
     border-radius: 5px;
-    color: var(--text-primary);
+    color: var(--text);
     font-family: var(--font-body);
     font-size: 0.8rem;
-    outline: none;
     transition: border-color 0.2s ease;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
 }
 
 .multi-select-search:focus {
-    border-color: var(--accent);
+    border-color: var(--gold);
 }
 
 .multi-select-search::placeholder {
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 .multi-select-separator {
     height: 1px;
-    background: var(--border);
+    background: var(--line);
     margin: 0.25rem 0.75rem;
 }
 
 .multi-select-option {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -599,22 +726,33 @@ a.collection-action-btn {
     cursor: pointer;
     transition: background 0.15s ease;
     font-size: 0.85rem;
-    color: var(--text-primary);
+    color: var(--text);
     white-space: nowrap;
 }
 
 .multi-select-option:hover {
-    background: var(--bg-card-hover);
+    background: var(--surface-card-hover);
 }
 
+/* Hidden but focusable, so the options work from the keyboard (Tab, Space) */
 .multi-select-option input[type="checkbox"] {
-    display: none;
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+}
+
+.multi-select-option:has(input:focus-visible) {
+    outline: var(--focus);
+    outline-offset: -2px;
+    background: var(--surface-card-hover);
 }
 
 .multi-select-check {
     width: 16px;
     height: 16px;
-    border: 1.5px solid var(--border-light);
+    border: 1.5px solid var(--line-strong);
     border-radius: 3px;
     flex-shrink: 0;
     display: flex;
@@ -624,15 +762,15 @@ a.collection-action-btn {
 }
 
 .multi-select-option input:checked + .multi-select-check {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--gold);
+    border-color: var(--gold);
 }
 
 .multi-select-option input:checked + .multi-select-check::after {
     content: '';
     width: 4px;
     height: 8px;
-    border: solid var(--bg-primary);
+    border: solid var(--surface-page);
     border-width: 0 2px 2px 0;
     transform: rotate(45deg) translateY(-1px);
 }
@@ -640,10 +778,10 @@ a.collection-action-btn {
 .view-controls {
     display: flex;
     gap: 4px;
-    background: var(--bg-primary);
+    background: var(--surface-page);
     padding: 4px;
     border-radius: 8px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
 }
 
 .view-btn {
@@ -652,7 +790,7 @@ a.collection-action-btn {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    color: var(--text-muted);
+    color: var(--text-3);
     transition: var(--transition);
     display: flex;
     align-items: center;
@@ -664,12 +802,12 @@ a.collection-action-btn {
 }
 
 .view-btn:hover {
-    color: var(--text-secondary);
+    color: var(--text-2);
 }
 
 .view-btn.active {
-    background: var(--accent-dark);
-    color: var(--accent);
+    background: var(--gold-deep);
+    color: var(--gold);
 }
 
 /* ---- Game Timeline ---- */
@@ -677,7 +815,7 @@ a.collection-action-btn {
    row, like the Reading Order game filter (see the media query) */
 .game-timeline {
     background: rgba(18, 18, 26, 0.6);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
     overflow-x: auto;
     min-height: 44px;
 }
@@ -703,7 +841,7 @@ a.collection-action-btn {
     background: transparent;
     border: 1px solid transparent;
     border-radius: 20px;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 500;
@@ -714,14 +852,14 @@ a.collection-action-btn {
 }
 
 .timeline-btn:hover {
-    color: var(--accent);
-    border-color: var(--border);
+    color: var(--gold);
+    border-color: var(--line);
     background: rgba(201, 168, 76, 0.05);
 }
 
 .timeline-btn.active {
-    color: var(--accent);
-    border-color: var(--accent-dark);
+    color: var(--gold);
+    border-color: var(--gold-deep);
     background: rgba(201, 168, 76, 0.1);
 }
 
@@ -739,7 +877,7 @@ a.collection-action-btn {
     padding: 0.6rem 0;
     background: none;
     border: none;
-    color: var(--text-muted);
+    color: var(--text-3);
     font-family: var(--font-body);
     font-size: 0.8rem;
     font-weight: 600;
@@ -750,7 +888,7 @@ a.collection-action-btn {
 }
 
 .stats-toggle:hover {
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .stats-chevron {
@@ -783,14 +921,14 @@ a.collection-action-btn {
     align-items: center;
     gap: 0.3rem;
     font-size: 0.72rem;
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 .stats-sort-btn {
     background: none;
     border: none;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
+    color: var(--text-3);
+    font-family: var(--font-data);
     font-size: 0.75rem;
     font-weight: 700;
     cursor: pointer;
@@ -800,16 +938,16 @@ a.collection-action-btn {
 }
 
 .stats-sort-btn:hover {
-    color: var(--text-primary);
+    color: var(--text);
 }
 
 .stats-sort-btn.active {
-    color: var(--accent);
+    color: var(--gold);
     background: rgba(201, 168, 76, 0.15);
 }
 
 .stats-sort-divider {
-    color: var(--border);
+    color: var(--line);
 }
 
 .stats-grid {
@@ -831,9 +969,9 @@ a.collection-action-btn {
 }
 
 .stats-section h4 {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 0.75rem;
-    color: var(--accent);
+    color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-bottom: 0.75rem;
@@ -874,7 +1012,7 @@ a.collection-action-btn {
 .stats-bar-label {
     width: 140px;
     flex-shrink: 0;
-    color: var(--text-secondary);
+    color: var(--text-2);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -883,42 +1021,42 @@ a.collection-action-btn {
 .stats-bar-track {
     flex: 1;
     height: 6px;
-    background: var(--border);
+    background: var(--line);
     border-radius: 3px;
     overflow: hidden;
 }
 
 .stats-bar-fill {
     height: 100%;
-    background: var(--accent);
+    background: var(--gold);
     border-radius: 3px;
     transition: width 0.4s ease;
 }
 
 .stats-bar-fill.green {
-    background: var(--owned-green);
+    background: var(--owned);
 }
 
 .stats-bar-value {
     min-width: 70px;
     text-align: right;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
+    color: var(--text-3);
+    font-family: var(--font-data);
     font-size: 0.72rem;
     white-space: nowrap;
 }
 
 .stats-bar-pct {
-    color: var(--accent);
+    color: var(--gold);
     margin-left: 0.25rem;
 }
 
 .stats-bar-pct.complete {
-    color: var(--owned-green);
+    color: var(--owned);
 }
 
 .stats-complete-badge {
-    color: var(--owned-green);
+    color: var(--owned);
     font-size: 0.75rem;
     margin-left: 0.25rem;
 }
@@ -929,9 +1067,9 @@ a.collection-action-btn {
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%) translateY(20px);
-    background: var(--bg-secondary);
-    border: 2px solid var(--mint);
-    color: var(--mint);
+    background: var(--surface-bar);
+    border: 2px solid var(--cond-mint);
+    color: var(--cond-mint);
     padding: 0.75rem 1.75rem;
     border-radius: 8px;
     font-family: var(--font-body);
@@ -955,12 +1093,12 @@ a.collection-action-btn {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
-    background: var(--bg-card);
-    border: 2px solid var(--owned-green);
-    color: var(--owned-green);
+    background: var(--surface-card);
+    border: 2px solid var(--owned);
+    color: var(--owned);
     padding: 1.25rem 2.5rem;
     border-radius: 12px;
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 1px;
@@ -1112,16 +1250,16 @@ a.collection-action-btn {
     left: 50%;
     transform: translateX(-50%);
     color: rgba(255, 255, 255, 0.6);
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 0.8rem;
 }
 
 /* ---- Results Count ---- */
 .results-count {
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     margin-bottom: 0.75rem;
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     min-height: 1.2em;
     letter-spacing: 0.5px;
 }
@@ -1148,8 +1286,8 @@ a.collection-action-btn {
 
 /* ---- Item Card (Grid View) ---- */
 .item-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--surface-card);
+    border: 1px solid var(--line);
     border-radius: 12px;
     overflow: visible;
     cursor: pointer;
@@ -1162,9 +1300,9 @@ a.collection-action-btn {
 
 .item-card:hover {
     transform: translateY(-4px);
-    border-color: var(--accent-dark);
+    border-color: var(--gold-deep);
     box-shadow: 0 8px 40px rgba(201, 168, 76, 0.1);
-    background: var(--bg-card-hover);
+    background: var(--surface-card-hover);
 }
 
 .item-card.owned {
@@ -1172,7 +1310,7 @@ a.collection-action-btn {
 }
 
 .item-card.owned:hover {
-    border-color: var(--owned-green);
+    border-color: var(--owned);
     box-shadow: 0 8px 40px rgba(39, 174, 96, 0.15);
 }
 
@@ -1183,7 +1321,7 @@ a.collection-action-btn {
 .card-image {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    background: linear-gradient(135deg, var(--surface-bar) 0%, var(--surface-page) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1242,14 +1380,14 @@ a.collection-action-btn {
 .card-image .placeholder-icon {
     width: 60px;
     height: 60px;
-    color: var(--border-light);
+    color: var(--line-strong);
     opacity: 0.5;
     transition: var(--transition);
 }
 
 .item-card:hover .card-image .placeholder-icon {
     opacity: 0.7;
-    color: var(--accent-dark);
+    color: var(--gold-deep);
 }
 
 .card-badges {
@@ -1297,7 +1435,7 @@ a.collection-action-btn {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: var(--owned-green);
+    background: var(--owned);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1321,7 +1459,7 @@ a.collection-action-btn {
 
 .card-game {
     font-size: 0.7rem;
-    color: var(--accent);
+    color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-weight: 600;
@@ -1329,10 +1467,10 @@ a.collection-action-btn {
 }
 
 .card-title {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--text);
     margin-bottom: 0.5rem;
     line-height: 1.3;
     display: -webkit-box;
@@ -1343,7 +1481,7 @@ a.collection-action-btn {
 
 .card-description {
     font-size: 0.8rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -1359,16 +1497,16 @@ a.collection-action-btn {
 }
 
 .card-year {
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 0.75rem;
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 .card-type {
     font-size: 0.7rem;
-    color: var(--text-muted);
+    color: var(--text-3);
     padding: 2px 8px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
     border-radius: 4px;
 }
 
@@ -1381,12 +1519,12 @@ a.collection-action-btn {
     letter-spacing: 0.5px;
 }
 
-.condition-mint { background: rgba(26, 188, 156, 0.15); color: var(--mint); }
-.condition-near-mint { background: rgba(46, 204, 113, 0.15); color: var(--near-mint); }
-.condition-excellent { background: rgba(39, 174, 96, 0.15); color: var(--excellent); }
-.condition-good { background: rgba(243, 156, 18, 0.15); color: var(--good); }
-.condition-fair { background: rgba(230, 126, 34, 0.15); color: var(--fair); }
-.condition-poor { background: rgba(231, 76, 60, 0.15); color: var(--poor); }
+.condition-mint { background: rgba(26, 188, 156, 0.15); color: var(--cond-mint); }
+.condition-near-mint { background: rgba(46, 204, 113, 0.15); color: var(--cond-near-mint); }
+.condition-excellent { background: rgba(39, 174, 96, 0.15); color: var(--cond-excellent); }
+.condition-good { background: rgba(243, 156, 18, 0.15); color: var(--cond-good); }
+.condition-fair { background: rgba(230, 126, 34, 0.15); color: var(--cond-fair); }
+.condition-poor { background: rgba(231, 76, 60, 0.15); color: var(--cond-poor); }
 
 /* ---- List View Cards ---- */
 .items-grid.list-view .item-card {
@@ -1447,13 +1585,13 @@ a.collection-action-btn {
 .no-results {
     text-align: center;
     padding: 4rem 2rem;
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 .no-results-icon {
     width: 80px;
     height: 80px;
-    color: var(--border-light);
+    color: var(--line-strong);
     margin-bottom: 1.5rem;
 }
 
@@ -1486,14 +1624,14 @@ a.collection-action-btn {
 }
 
 .modal {
-    background: var(--bg-modal);
-    border: 1px solid var(--border);
+    background: var(--surface-overlay);
+    border: 1px solid var(--line);
     border-radius: 16px;
     max-width: 900px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-modal);
     transform: scale(0.95);
     transition: transform 0.3s ease, max-width 0.35s ease;
     position: relative;
@@ -1511,9 +1649,9 @@ a.collection-action-btn {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
+    background: var(--surface-bar);
+    border: 1px solid var(--line);
+    color: var(--text-2);
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -1527,9 +1665,9 @@ a.collection-action-btn {
 }
 
 .modal-close:hover {
-    background: var(--red);
+    background: var(--danger-solid);
     color: #fff;
-    border-color: var(--red);
+    border-color: var(--danger-solid);
 }
 
 .modal-content {
@@ -1542,7 +1680,7 @@ a.collection-action-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    background: linear-gradient(135deg, var(--surface-bar) 0%, var(--surface-page) 100%);
     border-radius: 16px 0 0 16px;
     min-height: 450px;
 }
@@ -1593,7 +1731,7 @@ a.collection-action-btn {
 .gallery-image-wrapper .placeholder-icon {
     width: 120px;
     height: 120px;
-    color: var(--border-light);
+    color: var(--line-strong);
     opacity: 0.4;
 }
 
@@ -1605,8 +1743,8 @@ a.collection-action-btn {
     height: 40px;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.6);
-    border: 1px solid var(--border);
-    color: var(--text-primary);
+    border: 1px solid var(--line);
+    color: var(--text);
     cursor: pointer;
     display: none;
     align-items: center;
@@ -1622,9 +1760,9 @@ a.collection-action-btn {
 }
 
 .gallery-nav:hover {
-    background: var(--accent-dark);
-    border-color: var(--accent);
-    color: var(--accent);
+    background: var(--gold-deep);
+    border-color: var(--gold);
+    color: var(--gold);
 }
 
 .gallery-prev { left: 10px; }
@@ -1639,8 +1777,8 @@ a.collection-action-btn {
     top: 10px;
     right: 10px;
     background: rgba(0, 0, 0, 0.65);
-    color: var(--text-secondary);
-    font-family: var(--font-mono);
+    color: var(--text-2);
+    font-family: var(--font-data);
     font-size: 0.7rem;
     padding: 3px 8px;
     border-radius: 10px;
@@ -1682,7 +1820,7 @@ a.collection-action-btn {
 }
 
 .gallery-dot.active {
-    background: var(--accent);
+    background: var(--gold);
     box-shadow: 0 0 6px rgba(201, 168, 76, 0.5);
 }
 
@@ -1702,7 +1840,7 @@ a.collection-action-btn {
     display: inline-block;
     padding: 4px 10px;
     background: rgba(201, 168, 76, 0.15);
-    color: var(--accent);
+    color: var(--gold);
     border-radius: 4px;
     font-size: 0.7rem;
     font-weight: 600;
@@ -1712,7 +1850,7 @@ a.collection-action-btn {
 
 .modal-badge-type {
     background: rgba(201, 168, 76, 0.08);
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-weight: 500;
 }
 
@@ -1728,7 +1866,7 @@ a.collection-action-btn {
 
 .modal-badge-type.filter-link:hover {
     background: rgba(201, 168, 76, 0.2);
-    color: var(--text-primary);
+    color: var(--text);
 }
 
 .modal-game.filter-link:hover,
@@ -1746,10 +1884,10 @@ a.collection-action-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
+    background: var(--surface-bar);
+    border: 1px solid var(--line);
     border-radius: 50%;
-    color: var(--text-secondary);
+    color: var(--text-2);
     cursor: pointer;
     transition: var(--transition);
     z-index: 10;
@@ -1763,15 +1901,15 @@ a.collection-action-btn {
 
 .modal-copy-link:hover {
     background: rgba(201, 168, 76, 0.2);
-    color: var(--accent);
-    border-color: var(--accent);
+    color: var(--gold);
+    border-color: var(--gold);
 }
 
 .modal-title {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--text);
     margin-bottom: 0.5rem;
     line-height: 1.3;
 }
@@ -1785,14 +1923,14 @@ a.collection-action-btn {
 
 .modal-game {
     font-size: 0.85rem;
-    color: var(--accent);
+    color: var(--gold);
     font-weight: 600;
 }
 
 .modal-year {
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 /* Series line — full-width row under game/year, only present for items
@@ -1815,18 +1953,18 @@ a.collection-action-btn {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 .modal-series {
-    color: var(--accent);
+    color: var(--gold);
     font-weight: 600;
 }
 
 .modal-series-count {
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 /* Reading order line(s), under the series line (js/reading.js) */
@@ -1850,13 +1988,13 @@ a.collection-action-btn {
 }
 
 .modal-reading-name {
-    color: var(--accent);
+    color: var(--gold);
     font-weight: 600;
     text-decoration: none;
 }
 
 .modal-reading-next {
-    color: var(--text-secondary);
+    color: var(--text-2);
     text-decoration: none;
 }
 
@@ -1873,17 +2011,17 @@ a.collection-action-btn {
 .modal-reading-collects {
     font-size: 0.8rem;
     line-height: 1.5;
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 .modal-reading-last {
-    color: var(--text-muted);
+    color: var(--text-3);
     font-size: 0.8rem;
 }
 
 .modal-description {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     line-height: 1.7;
     margin-bottom: 1rem;
 }
@@ -1893,9 +2031,9 @@ a.collection-action-btn {
 }
 
 .modal-contents-section h3 {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 0.85rem;
-    color: var(--accent);
+    color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 0.5rem;
@@ -1903,7 +2041,7 @@ a.collection-action-btn {
 
 .modal-contents-section p {
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     line-height: 1.6;
 }
 
@@ -1916,9 +2054,9 @@ a.collection-action-btn {
     margin-bottom: 1rem;
     padding: 0.55rem 1rem;
     background: rgba(201, 168, 76, 0.08);
-    border: 1px solid var(--accent-dark);
+    border: 1px solid var(--gold-deep);
     border-radius: 8px;
-    color: var(--accent);
+    color: var(--gold);
     font-size: 0.85rem;
     font-weight: 600;
     text-decoration: none;
@@ -1944,20 +2082,20 @@ a.collection-action-btn {
 .modal-read-link:hover,
 .modal-read-link:focus-visible {
     background: rgba(201, 168, 76, 0.2);
-    border-color: var(--accent);
-    color: var(--accent-glow);
+    border-color: var(--gold);
+    color: var(--gold-strong);
 }
 
 .modal-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+    background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
     margin: 1.5rem 0;
 }
 
 .collection-heading {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 0.9rem;
-    color: var(--accent);
+    color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1rem;
@@ -1978,7 +2116,7 @@ a.collection-action-btn {
 
 .control-row label {
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-weight: 500;
 }
 
@@ -1998,10 +2136,21 @@ a.collection-action-btn {
     flex-shrink: 0;
 }
 
+/* The checkbox covers the whole switch: clickable, and its focus shows */
 .toggle-switch input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
     opacity: 0;
-    width: 0;
-    height: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.toggle-switch input:focus-visible + .toggle-slider {
+    outline: var(--focus);
+    outline-offset: 2px;
 }
 
 .toggle-slider {
@@ -2010,7 +2159,7 @@ a.collection-action-btn {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--border);
+    background: var(--line);
     border-radius: 24px;
     transition: var(--transition);
     cursor: pointer;
@@ -2023,26 +2172,26 @@ a.collection-action-btn {
     height: 18px;
     left: 3px;
     bottom: 3px;
-    background: var(--text-secondary);
+    background: var(--text-2);
     border-radius: 50%;
     transition: var(--transition);
 }
 
 .toggle-switch input:checked + .toggle-slider {
-    background: var(--accent);
+    background: var(--gold);
 }
 
 .toggle-switch input:checked + .toggle-slider::before {
     transform: translateX(20px);
-    background: var(--bg-primary);
+    background: var(--surface-page);
 }
 
 .modal-select {
     padding: 0.5rem 2rem 0.5rem 0.75rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
+    background: var(--surface-bar);
+    border: 1px solid var(--line);
     border-radius: 6px;
-    color: var(--text-primary);
+    color: var(--text);
     font-family: var(--font-body);
     font-size: 0.85rem;
     cursor: pointer;
@@ -2054,8 +2203,7 @@ a.collection-action-btn {
 }
 
 .modal-select:focus {
-    outline: none;
-    border-color: var(--accent);
+    border-color: var(--gold);
 }
 
 /* Copies Control */
@@ -2063,7 +2211,7 @@ a.collection-action-btn {
     display: flex;
     align-items: center;
     gap: 0;
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
     border-radius: 6px;
     overflow: hidden;
 }
@@ -2071,9 +2219,9 @@ a.collection-action-btn {
 .copies-btn {
     width: 32px;
     height: 32px;
-    background: var(--bg-secondary);
+    background: var(--surface-bar);
     border: none;
-    color: var(--text-primary);
+    color: var(--text);
     font-size: 1rem;
     cursor: pointer;
     transition: var(--transition);
@@ -2083,19 +2231,19 @@ a.collection-action-btn {
 }
 
 .copies-btn:hover {
-    background: var(--accent-dark);
-    color: var(--accent);
+    background: var(--gold-deep);
+    color: var(--gold);
 }
 
 #modalCopies {
     width: 50px;
     text-align: center;
-    background: var(--bg-primary);
+    background: var(--surface-page);
     border: none;
-    border-left: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    color: var(--text-primary);
-    font-family: var(--font-mono);
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    color: var(--text);
+    font-family: var(--font-data);
     font-size: 0.9rem;
     padding: 0.35rem 0;
     -moz-appearance: textfield;
@@ -2106,17 +2254,14 @@ a.collection-action-btn {
     -webkit-appearance: none;
 }
 
-#modalCopies:focus {
-    outline: none;
-}
 
 #modalNotes {
     width: 100%;
     padding: 0.6rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
+    background: var(--surface-bar);
+    border: 1px solid var(--line);
     border-radius: 6px;
-    color: var(--text-primary);
+    color: var(--text);
     font-family: var(--font-body);
     font-size: 0.85rem;
     resize: vertical;
@@ -2124,22 +2269,21 @@ a.collection-action-btn {
 }
 
 #modalNotes:focus {
-    outline: none;
-    border-color: var(--accent);
+    border-color: var(--gold);
 }
 
 #modalNotes::placeholder {
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 .modal-price-input,
 .modal-date-input {
     padding: 0.5rem 0.75rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
+    background: var(--surface-bar);
+    border: 1px solid var(--line);
     border-radius: 6px;
-    color: var(--text-primary);
-    font-family: var(--font-mono);
+    color: var(--text);
+    font-family: var(--font-data);
     font-size: 0.85rem;
     transition: var(--transition);
     width: 140px;
@@ -2147,8 +2291,7 @@ a.collection-action-btn {
 
 .modal-price-input:focus,
 .modal-date-input:focus {
-    outline: none;
-    border-color: var(--accent);
+    border-color: var(--gold);
 }
 
 .modal-date-input::-webkit-calendar-picker-indicator {
@@ -2158,8 +2301,8 @@ a.collection-action-btn {
 
 /* ---- Footer ---- */
 .main-footer {
-    background: var(--bg-secondary);
-    border-top: 1px solid var(--border);
+    background: var(--surface-bar);
+    border-top: 1px solid var(--line);
     padding: 2rem;
     text-align: center;
 }
@@ -2172,7 +2315,7 @@ a.collection-action-btn {
 }
 
 /* Faint Assassin's Creed emblem watermark behind the footer text.
-   Same path as the favicon/header logo (var(--accent) #c9a84c). */
+   Same path as the favicon/header logo (var(--gold) #c9a84c). */
 .footer-inner::before {
     content: "";
     position: absolute;
@@ -2188,8 +2331,8 @@ a.collection-action-btn {
 }
 
 .main-footer p {
-    font-family: var(--font-heading);
-    color: var(--text-secondary);
+    font-family: var(--font-display);
+    color: var(--text-2);
     font-size: 0.9rem;
     letter-spacing: 2px;
 }
@@ -2197,55 +2340,55 @@ a.collection-action-btn {
 .footer-disclaimer {
     font-family: var(--font-body) !important;
     font-size: 0.75rem !important;
-    color: var(--text-muted) !important;
+    color: var(--text-3) !important;
     margin-top: 0.5rem;
     letter-spacing: 0 !important;
 }
 .footer-disclaimer a {
-    color: var(--accent);
+    color: var(--gold);
     text-decoration: none;
     transition: var(--transition);
 }
 
 .footer-disclaimer a:hover {
-    color: var(--accent-glow);
+    color: var(--gold-strong);
     text-decoration: underline;
 }
 
 .footer-feedback {
     font-size: 0.8rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     margin-top: 1rem;
 }
 
 .footer-feedback a {
-    color: var(--accent);
+    color: var(--gold);
     text-decoration: none;
     transition: var(--transition);
 }
 
 .footer-feedback a:hover {
-    color: var(--accent-glow);
+    color: var(--gold-strong);
     text-decoration: underline;
 }
 
 .footer-meta {
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 0.7rem;
-    color: var(--text-muted);
+    color: var(--text-3);
     margin-top: 1rem;
     opacity: 0.6;
 }
 
 /* ---- Share Button ---- */
 .share-btn {
-    border-color: var(--owned-green);
-    color: var(--owned-green);
+    border-color: var(--owned);
+    color: var(--owned);
 }
 
 .share-btn:hover {
-    border-color: var(--owned-glow);
-    color: var(--owned-glow);
+    border-color: var(--owned-text);
+    color: var(--owned-text);
 }
 
 /* ---- Share Modal ---- */
@@ -2263,8 +2406,8 @@ a.collection-action-btn {
     justify-content: center;
     padding: 1.25rem;
     margin: 1rem 0;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
+    background: var(--surface-page);
+    border: 1px solid var(--line);
     border-radius: 8px;
 }
 
@@ -2282,8 +2425,8 @@ a.collection-action-btn {
 }
 
 .share-success p {
-    color: var(--owned-green);
-    font-family: var(--font-heading);
+    color: var(--owned);
+    font-family: var(--font-display);
     font-size: 1.1rem;
     margin-bottom: 1rem;
 }
@@ -2297,17 +2440,14 @@ a.collection-action-btn {
 .share-url-box input {
     flex: 1;
     padding: 0.6rem 0.75rem;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
+    background: var(--surface-page);
+    border: 1px solid var(--line);
     border-radius: 6px;
-    color: var(--accent);
-    font-family: var(--font-mono);
+    color: var(--gold);
+    font-family: var(--font-data);
     font-size: 0.8rem;
 }
 
-.share-url-box input:focus {
-    outline: none;
-}
 
 #shareNameStatus {
     min-height: 1.2em;
@@ -2316,20 +2456,20 @@ a.collection-action-btn {
 .share-manage-name {
     text-align: center;
     font-size: 1rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     margin-bottom: 0.5rem;
 }
 
 .share-manage-name strong {
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .btn-delete {
     padding: 0.5rem 1rem;
     background: transparent;
-    border: 1px solid var(--red);
+    border: 1px solid var(--danger-solid);
     border-radius: 6px;
-    color: var(--red);
+    color: var(--danger-solid);
     font-family: var(--font-body);
     font-size: 0.85rem;
     cursor: pointer;
@@ -2337,8 +2477,8 @@ a.collection-action-btn {
 }
 
 .btn-delete:hover {
-    background: var(--red);
-    color: var(--bg-primary);
+    background: var(--danger-solid);
+    color: var(--surface-page);
 }
 
 .btn-delete:disabled {
@@ -2371,22 +2511,22 @@ a.collection-action-btn {
 
 .reading-tab {
     padding: 0.35rem 0.8rem;
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
     border-radius: 999px;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-size: 0.8rem;
     text-decoration: none;
     transition: var(--transition);
 }
 
 .reading-tab:hover {
-    border-color: var(--accent-dark);
-    color: var(--text-primary);
+    border-color: var(--gold-deep);
+    color: var(--text);
 }
 
 .reading-tab.active {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--gold);
+    color: var(--gold);
 }
 
 /* Game filter: chips wrap on wide screens; on phones they become one
@@ -2409,9 +2549,9 @@ a.collection-action-btn {
     flex-shrink: 0;
     padding: 0.3rem 0.7rem;
     background: transparent;
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
     border-radius: 6px;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-family: var(--font-body);
     font-size: 0.8rem;
     white-space: nowrap;
@@ -2421,32 +2561,32 @@ a.collection-action-btn {
 
 .reading-game span {
     margin-left: 0.25rem;
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 0.7rem;
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 .reading-game:hover {
-    border-color: var(--accent-dark);
-    color: var(--text-primary);
+    border-color: var(--gold-deep);
+    color: var(--text);
 }
 
 .reading-game.active {
-    border-color: var(--accent);
+    border-color: var(--gold);
     background: rgba(201, 168, 76, 0.15);
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .reading-name {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.1rem;
-    color: var(--text-primary);
+    color: var(--text);
     margin-bottom: 0.35rem;
 }
 
 .reading-description {
     max-width: 75ch;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1.25rem;
@@ -2463,7 +2603,7 @@ a.collection-action-btn {
 
 .reading-modes {
     display: inline-flex;
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
     border-radius: 8px;
     overflow: hidden;
 }
@@ -2472,7 +2612,7 @@ a.collection-action-btn {
     padding: 0.45rem 1rem;
     background: transparent;
     border: none;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-family: var(--font-body);
     font-size: 0.85rem;
     cursor: pointer;
@@ -2480,16 +2620,16 @@ a.collection-action-btn {
 }
 
 .reading-mode + .reading-mode {
-    border-left: 1px solid var(--border);
+    border-left: 1px solid var(--line);
 }
 
 .reading-mode:hover {
-    color: var(--text-primary);
+    color: var(--text);
 }
 
 .reading-mode.active {
     background: rgba(201, 168, 76, 0.15);
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .reading-progress {
@@ -2501,9 +2641,9 @@ a.collection-action-btn {
 }
 
 .reading-progress-text {
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 0.8rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     white-space: nowrap;
 }
 
@@ -2525,8 +2665,8 @@ a.collection-action-btn {
     align-items: center;
     gap: 1rem;
     padding: 0.75rem 1rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--surface-card);
+    border: 1px solid var(--line);
     border-radius: 10px;
     transition: var(--transition);
 }
@@ -2536,9 +2676,9 @@ a.collection-action-btn {
 }
 
 .reading-num {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.1rem;
-    color: var(--accent);
+    color: var(--gold);
     text-align: center;
 }
 
@@ -2549,7 +2689,7 @@ a.collection-action-btn {
     border: none;
     border-radius: 4px;
     overflow: hidden;
-    background: var(--bg-secondary);
+    background: var(--surface-bar);
     cursor: pointer;
 }
 
@@ -2570,7 +2710,7 @@ a.collection-action-btn {
     padding: 0;
     background: none;
     border: none;
-    color: var(--text-primary);
+    color: var(--text);
     font-family: var(--font-body);
     font-size: 1rem;
     font-weight: 600;
@@ -2579,7 +2719,7 @@ a.collection-action-btn {
 }
 
 .reading-title:hover {
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .reading-meta {
@@ -2588,15 +2728,15 @@ a.collection-action-btn {
     gap: 0.25rem 1rem;
     margin-top: 0.3rem;
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 .reading-meta .primary {
-    color: var(--text-secondary);
+    color: var(--text-2);
 }
 
 .reading-owned {
-    color: var(--owned-green);
+    color: var(--owned);
 }
 
 .reading-toggle {
@@ -2605,18 +2745,18 @@ a.collection-action-btn {
     gap: 0.6rem;
     cursor: pointer;
     font-size: 0.8rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
 }
 
 .reading-sources {
     margin-top: 1.5rem;
     font-size: 0.75rem;
-    color: var(--text-muted);
+    color: var(--text-3);
     line-height: 1.6;
 }
 
 .reading-sources a {
-    color: var(--text-secondary);
+    color: var(--text-2);
 }
 
 .reading-section {
@@ -2626,10 +2766,10 @@ a.collection-action-btn {
     gap: 1rem;
     margin: 1.75rem 0 0.75rem;
     padding-bottom: 0.4rem;
-    border-bottom: 1px solid var(--border);
-    font-family: var(--font-heading);
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-display);
     font-size: 0.8rem;
-    color: var(--accent);
+    color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 1.5px;
 }
@@ -2645,7 +2785,7 @@ a.collection-action-btn {
 }
 
 .reading-fold > summary:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--gold);
     outline-offset: 2px;
     border-radius: 4px;
 }
@@ -2676,7 +2816,7 @@ a.collection-action-btn {
 }
 
 .reading-fold > summary:hover .reading-section {
-    border-bottom-color: var(--accent-dark);
+    border-bottom-color: var(--gold-deep);
 }
 
 .reading-list-tools {
@@ -2691,21 +2831,21 @@ a.collection-action-btn {
     padding: 0.3rem 0;
     background: none;
     border: none;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-family: var(--font-body);
     font-size: 0.85rem;
     cursor: pointer;
 }
 
 .reading-fold-all:hover {
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .reading-section-count {
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 0.75rem;
     letter-spacing: 0;
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 .reading-up-next {
@@ -2713,9 +2853,9 @@ a.collection-action-btn {
     margin-bottom: 0.5rem;
     padding: 0.45rem 0.9rem;
     background: rgba(201, 168, 76, 0.1);
-    border: 1px solid var(--accent-dark);
+    border: 1px solid var(--gold-deep);
     border-radius: 8px;
-    color: var(--accent);
+    color: var(--gold);
     font-family: var(--font-body);
     font-size: 0.85rem;
     cursor: pointer;
@@ -2723,7 +2863,7 @@ a.collection-action-btn {
 }
 
 .reading-up-next:hover {
-    border-color: var(--accent);
+    border-color: var(--gold);
 }
 
 .reading-entry.flash {
@@ -2731,7 +2871,7 @@ a.collection-action-btn {
 }
 
 @keyframes reading-flash {
-    0%, 40% { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.35); }
+    0%, 40% { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.35); }
     100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
 }
 
@@ -2739,20 +2879,20 @@ a.collection-action-btn {
 .reading-back {
     display: inline-block;
     margin-bottom: 0.75rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-size: 0.85rem;
     text-decoration: none;
 }
 
 .reading-back:hover {
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .reading-series-link {
     padding: 0;
     background: none;
     border: none;
-    color: var(--accent);
+    color: var(--gold);
     font-family: var(--font-body);
     font-size: inherit;
     cursor: pointer;
@@ -2775,8 +2915,8 @@ a.collection-action-btn {
     align-items: center;
     gap: 1rem;
     padding: 0.6rem 1rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--surface-card);
+    border: 1px solid var(--line);
     border-radius: 10px;
     color: inherit;
     text-decoration: none;
@@ -2784,8 +2924,8 @@ a.collection-action-btn {
 }
 
 .series-row:hover {
-    border-color: var(--accent-dark);
-    background: var(--bg-card-hover);
+    border-color: var(--gold-deep);
+    background: var(--surface-card-hover);
 }
 
 .series-row.done {
@@ -2798,7 +2938,7 @@ a.collection-action-btn {
     height: 60px;
     border-radius: 4px;
     overflow: hidden;
-    background: var(--bg-secondary);
+    background: var(--surface-bar);
 }
 
 .series-cover img {
@@ -2817,18 +2957,18 @@ a.collection-action-btn {
 
 .series-name {
     overflow: hidden;
-    color: var(--text-primary);
+    color: var(--text);
     font-weight: 600;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .series-row:hover .series-name {
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .series-meta {
-    color: var(--text-muted);
+    color: var(--text-3);
     font-size: 0.8rem;
 }
 
@@ -2849,9 +2989,9 @@ a.collection-action-btn {
 }
 
 .series-count {
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-size: 0.8rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     white-space: nowrap;
 }
 
@@ -2915,13 +3055,13 @@ a.collection-action-btn {
     align-items: flex-start;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
 }
 
 .profile-info h2 {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.6rem;
-    color: var(--accent);
+    color: var(--gold);
     margin-bottom: 0.5rem;
 }
 
@@ -2929,7 +3069,7 @@ a.collection-action-btn {
     display: flex;
     gap: 1.5rem;
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
 }
 
 .profile-stats span::before {
@@ -2945,9 +3085,9 @@ a.collection-action-btn {
 }
 
 .leaderboard-header h2 {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.4rem;
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .leaderboard-table-wrap {
@@ -2964,28 +3104,28 @@ a.collection-action-btn {
 .leaderboard-table th {
     text-align: left;
     padding: 0.75rem 1rem;
-    background: var(--bg-secondary);
-    color: var(--accent);
+    background: var(--surface-bar);
+    color: var(--gold);
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 2px solid var(--border);
+    border-bottom: 2px solid var(--line);
 }
 
 .leaderboard-table td {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-primary);
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
 }
 
 .leaderboard-table tr:hover td {
-    background: var(--bg-card-hover);
+    background: var(--surface-card-hover);
 }
 
 .leaderboard-table .rank-col {
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
     font-weight: 700;
-    color: var(--text-muted);
+    color: var(--text-3);
     width: 50px;
 }
 
@@ -2994,7 +3134,7 @@ a.collection-action-btn {
 .leaderboard-table .rank-col.bronze { color: #cd7f32; }
 
 .leaderboard-table .name-col a {
-    color: var(--accent);
+    color: var(--gold);
     text-decoration: none;
     font-weight: 600;
 }
@@ -3004,16 +3144,16 @@ a.collection-action-btn {
 }
 
 .leaderboard-table .count-col {
-    font-family: var(--font-mono);
+    font-family: var(--font-data);
 }
 
 .leaderboard-table .pct-col {
-    font-family: var(--font-mono);
-    color: var(--owned-green);
+    font-family: var(--font-data);
+    color: var(--owned);
 }
 
 .leaderboard-table .date-col {
-    color: var(--text-muted);
+    color: var(--text-3);
     font-size: 0.8rem;
 }
 
@@ -3023,7 +3163,7 @@ a.collection-action-btn {
     flex-wrap: wrap;
     gap: 0.75rem;
     margin: -0.5rem 0 1.25rem;
-    color: var(--text-muted);
+    color: var(--text-3);
     font-size: 0.9rem;
 }
 
@@ -3033,7 +3173,7 @@ a.collection-action-btn {
 }
 
 .leaderboard-cta a {
-    color: var(--accent);
+    color: var(--gold);
     text-decoration: none;
     cursor: pointer;
 }
@@ -3045,7 +3185,7 @@ a.collection-action-btn {
 .leaderboard-loading {
     text-align: center;
     padding: 3rem;
-    color: var(--text-muted);
+    color: var(--text-3);
 }
 
 /* ---- Back to Top ---- */
@@ -3055,10 +3195,10 @@ a.collection-action-btn {
     right: 2rem;
     width: 42px;
     height: 42px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--surface-card);
+    border: 1px solid var(--line);
     border-radius: 50%;
-    color: var(--text-secondary);
+    color: var(--text-2);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -3068,7 +3208,7 @@ a.collection-action-btn {
     transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
     transform: translateY(10px);
     z-index: 100;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-pop);
 }
 
 .back-to-top.visible {
@@ -3078,9 +3218,9 @@ a.collection-action-btn {
 }
 
 .back-to-top:hover {
-    background: var(--accent-dark);
-    border-color: var(--accent);
-    color: var(--accent);
+    background: var(--gold-deep);
+    border-color: var(--gold);
+    color: var(--gold);
 }
 
 .back-to-top svg {
@@ -3161,7 +3301,7 @@ a.collection-action-btn {
         width: 100%;
         margin: 0;
         gap: 0;
-        border-top: 1px solid var(--border);
+        border-top: 1px solid var(--line);
         padding-top: 0.25rem;
     }
 
@@ -3327,10 +3467,10 @@ a.collection-action-btn {
     align-items: center;
     gap: 0.4rem;
     padding: 0.5rem 1rem;
-    background: var(--accent-dark);
-    border: 1px solid var(--accent);
+    background: var(--gold-deep);
+    border: 1px solid var(--gold);
     border-radius: 8px;
-    color: var(--accent);
+    color: var(--gold);
     font-family: var(--font-body);
     font-size: 0.8rem;
     font-weight: 600;
@@ -3345,8 +3485,8 @@ a.collection-action-btn {
 }
 
 .add-item-btn:hover {
-    background: var(--accent);
-    color: var(--bg-primary);
+    background: var(--gold);
+    color: var(--surface-page);
 }
 
 /* ---- Add Item Modal ---- */
@@ -3374,7 +3514,7 @@ a.collection-action-btn {
     align-items: center;
     gap: 0.4rem;
     font-size: 0.7rem;
-    color: var(--text-muted);
+    color: var(--text-3);
     cursor: pointer;
 }
 
@@ -3412,7 +3552,7 @@ a.collection-action-btn {
 .dev-preview-header span {
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--text-secondary);
+    color: var(--text-2);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -3421,11 +3561,11 @@ a.collection-action-btn {
     flex: 1;
     width: 100%;
     padding: 0.75rem;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
+    background: var(--surface-page);
+    border: 1px solid var(--line);
     border-radius: 6px;
-    color: var(--mint);
-    font-family: var(--font-mono);
+    color: var(--cond-mint);
+    font-family: var(--font-data);
     font-size: 0.78rem;
     line-height: 1.5;
     resize: none;
@@ -3434,8 +3574,7 @@ a.collection-action-btn {
 }
 
 #devCodeOutput:focus {
-    outline: none;
-    border-color: var(--accent);
+    border-color: var(--gold);
 }
 
 @media (max-width: 768px) {
@@ -3452,15 +3591,15 @@ a.collection-action-btn {
 }
 
 .add-modal-title {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.4rem;
-    color: var(--accent);
+    color: var(--gold);
     margin-bottom: 0.25rem;
 }
 
 .add-modal-subtitle {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--text-3);
     margin-bottom: 1.5rem;
 }
 
@@ -3479,7 +3618,7 @@ a.collection-action-btn {
 .form-row label {
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--text-secondary);
+    color: var(--text-2);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -3489,10 +3628,10 @@ a.collection-action-btn {
 .form-row textarea,
 .form-row select {
     padding: 0.6rem 0.75rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
+    background: var(--surface-bar);
+    border: 1px solid var(--line);
     border-radius: 6px;
-    color: var(--text-primary);
+    color: var(--text);
     font-family: var(--font-body);
     font-size: 0.9rem;
     transition: var(--transition);
@@ -3501,8 +3640,7 @@ a.collection-action-btn {
 .form-row input:focus,
 .form-row textarea:focus,
 .form-row select:focus {
-    outline: none;
-    border-color: var(--accent);
+    border-color: var(--gold);
 }
 
 .form-row textarea {
@@ -3526,7 +3664,7 @@ a.collection-action-btn {
 
 .form-hint {
     font-size: 0.75rem;
-    color: var(--text-muted);
+    color: var(--text-3);
     font-style: italic;
 }
 
@@ -3537,15 +3675,15 @@ a.collection-action-btn {
     gap: 0.75rem;
     margin-top: 0.5rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--line);
 }
 
 .btn-cancel {
     padding: 0.6rem 1.5rem;
     background: transparent;
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
     border-radius: 8px;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-family: var(--font-body);
     font-size: 0.85rem;
     cursor: pointer;
@@ -3553,16 +3691,16 @@ a.collection-action-btn {
 }
 
 .btn-cancel:hover {
-    border-color: var(--text-secondary);
-    color: var(--text-primary);
+    border-color: var(--text-2);
+    color: var(--text);
 }
 
 .btn-save {
     padding: 0.6rem 1.5rem;
-    background: var(--accent);
-    border: 1px solid var(--accent);
+    background: var(--gold);
+    border: 1px solid var(--gold);
     border-radius: 8px;
-    color: var(--bg-primary);
+    color: var(--surface-page);
     font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 700;
@@ -3571,8 +3709,8 @@ a.collection-action-btn {
 }
 
 .btn-save:hover {
-    background: var(--accent-glow);
-    border-color: var(--accent-glow);
+    background: var(--gold-strong);
+    border-color: var(--gold-strong);
 }
 
 .btn-save:disabled {
@@ -3582,8 +3720,8 @@ a.collection-action-btn {
 
 .btn-danger {
     padding: 0.6rem 1.5rem;
-    background: var(--red);
-    border: 1px solid var(--red);
+    background: var(--danger-solid);
+    border: 1px solid var(--danger-solid);
     border-radius: 8px;
     color: #fff;
     font-family: var(--font-body);
@@ -3594,8 +3732,8 @@ a.collection-action-btn {
 }
 
 .btn-danger:hover {
-    background: var(--red-glow);
-    border-color: var(--red-glow);
+    background: var(--danger);
+    border-color: var(--danger);
 }
 
 /* ---- Manage Button ---- */
@@ -3688,9 +3826,9 @@ a.collection-action-btn {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: var(--accent-dark);
-    color: var(--accent);
-    font-family: var(--font-mono);
+    background: var(--gold-deep);
+    color: var(--gold);
+    font-family: var(--font-data);
     font-size: 0.65rem;
     font-weight: 700;
 }
@@ -3702,14 +3840,14 @@ a.collection-action-btn {
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    border: 2px solid var(--bg-primary);
-    background: var(--text-muted);
+    border: 2px solid var(--surface-page);
+    background: var(--text-3);
 }
 
-.sync-dot.is-synced { background: var(--owned-green); }
-.sync-dot.is-syncing { background: var(--accent); animation: sync-pulse 1s ease-in-out infinite; }
-.sync-dot.is-pending { background: var(--good); }
-.sync-dot.is-error { background: var(--red-glow); }
+.sync-dot.is-synced { background: var(--owned); }
+.sync-dot.is-syncing { background: var(--gold); animation: sync-pulse 1s ease-in-out infinite; }
+.sync-dot.is-pending { background: var(--cond-good); }
+.sync-dot.is-error { background: var(--danger); }
 
 @keyframes sync-pulse {
     50% { opacity: 0.3; }
@@ -3723,16 +3861,16 @@ a.collection-action-btn {
     display: flex;
     flex-direction: column;
     padding: 0.4rem 0;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-light);
+    background: var(--surface-bar);
+    border: 1px solid var(--line-strong);
     border-radius: 8px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-modal);
     z-index: 200;
 }
 
 .account-menu-email {
     padding: 0.5rem 0.9rem 0.15rem;
-    color: var(--text-primary);
+    color: var(--text);
     font-size: 0.85rem;
     font-weight: 600;
     word-break: break-all;
@@ -3741,8 +3879,8 @@ a.collection-action-btn {
 .account-menu-status {
     padding: 0 0.9rem 0.5rem;
     margin-bottom: 0.3rem;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-muted);
+    border-bottom: 1px solid var(--line);
+    color: var(--text-3);
     font-size: 0.75rem;
 }
 
@@ -3752,7 +3890,7 @@ a.collection-action-btn {
     padding: 0.5rem 0.9rem;
     background: none;
     border: none;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-family: var(--font-body);
     font-size: 0.85rem;
     text-align: left;
@@ -3761,14 +3899,14 @@ a.collection-action-btn {
 }
 
 .account-menu-item:hover {
-    background: var(--bg-card-hover);
-    color: var(--accent);
+    background: var(--surface-card-hover);
+    color: var(--gold);
 }
 
 .account-menu-signin {
     padding: 0.5rem 0.9rem 0.6rem;
     margin-bottom: 0.3rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
     text-align: center;
 }
 
@@ -3779,31 +3917,31 @@ a.collection-action-btn {
 
 .account-menu-hint {
     margin-top: 0.4rem;
-    color: var(--text-muted);
+    color: var(--text-3);
     font-size: 0.75rem;
 }
 
 .account-menu-sep {
     height: 1px;
     margin: 0.3rem 0;
-    background: var(--border);
+    background: var(--line);
 }
 
 .account-menu-item.danger {
     margin-top: 0.3rem;
-    border-top: 1px solid var(--border);
-    color: var(--red-glow);
+    border-top: 1px solid var(--line);
+    color: var(--danger);
 }
 
 .account-menu-item.danger:hover {
-    background: var(--red);
+    background: var(--danger-solid);
     color: #fff;
 }
 
 .sync-banner {
     padding: 0.6rem 2rem;
     background: linear-gradient(90deg, rgba(201, 168, 76, 0.12), rgba(201, 168, 76, 0.04));
-    border-bottom: 1px solid var(--accent-dark);
+    border-bottom: 1px solid var(--gold-deep);
 }
 
 .sync-banner-inner {
@@ -3818,13 +3956,13 @@ a.collection-action-btn {
     flex-shrink: 0;
     width: 22px;
     height: 22px;
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .sync-banner p {
     flex: 1;
     margin: 0;
-    color: var(--text-primary);
+    color: var(--text);
     font-size: 0.9rem;
 }
 
@@ -3860,19 +3998,19 @@ a.collection-action-btn {
     padding: 0 0.25rem;
     background: none;
     border: none;
-    color: var(--text-muted);
+    color: var(--text-3);
     font-size: 1.4rem;
     line-height: 1;
     cursor: pointer;
 }
 
 .sync-banner-close:hover {
-    color: var(--text-primary);
+    color: var(--text);
 }
 
 .merge-question {
     margin-bottom: 0.75rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     font-size: 0.85rem;
 }
 
@@ -3892,7 +4030,7 @@ a.collection-action-btn {
 }
 
 .merge-backup a {
-    color: var(--accent);
+    color: var(--gold);
 }
 
 @media (max-width: 768px) {
@@ -3935,16 +4073,16 @@ a.collection-action-btn {
 }
 
 .share-signin-hint a {
-    color: var(--accent);
+    color: var(--gold);
 }
 
 /* ---- Privacy page ---- */
 .logo-text .logo-title {
     display: block;
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--gold);
     letter-spacing: 4px;
     text-transform: uppercase;
     line-height: 1;
@@ -3955,21 +4093,21 @@ a.collection-action-btn {
     max-width: 760px;
     margin: 0 auto;
     padding: 2.5rem 2rem 3rem;
-    color: var(--text-secondary);
+    color: var(--text-2);
     line-height: 1.7;
 }
 
 .legal-page h1 {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 2rem;
-    color: var(--accent);
+    color: var(--gold);
     margin-bottom: 0.25rem;
 }
 
 .legal-page h2 {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.15rem;
-    color: var(--text-primary);
+    color: var(--text);
     margin: 2rem 0 0.5rem;
 }
 
@@ -3991,15 +4129,15 @@ a.collection-action-btn {
 }
 
 .legal-page strong {
-    color: var(--text-primary);
+    color: var(--text);
 }
 
 .legal-page a {
-    color: var(--accent);
+    color: var(--gold);
 }
 
 .legal-updated {
-    color: var(--text-muted);
+    color: var(--text-3);
     font-size: 0.8rem !important;
 }
 
