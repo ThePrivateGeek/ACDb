@@ -83,17 +83,17 @@
         // Total copies summary
         if (ownedCount > 0) {
             const summary = document.createElement('div');
-            summary.className = 'stats-bar-row';
+            summary.className = 'stats-bar-row stats-summary';
             summary.innerHTML = `
-                <span class="stats-bar-label" style="color:var(--accent)">Total Physical Items</span>
-                <span class="stats-bar-value" style="color:var(--accent)">${totalCopies}</span>
+                <span class="stats-bar-label">Total Physical Items</span>
+                <span class="stats-bar-value">${totalCopies}</span>
             `;
             dom.statsByCondition.appendChild(summary);
         }
 
         const conditionEntries = Object.entries(byCondition).sort((a, b) => b[1] - a[1]);
         if (conditionEntries.length === 0 && ownedCount === 0) {
-            dom.statsByCondition.innerHTML = '<span class="stats-bar-value" style="text-align:left">No condition data yet</span>';
+            dom.statsByCondition.innerHTML = '<p class="stats-empty">No condition data yet</p>';
         } else {
             conditionEntries.forEach(([label, count]) => {
                 const row = document.createElement('div');
@@ -132,22 +132,24 @@
                 readCount++;
             }
         });
-        renderBars(container, totals, read, shortenSeriesName, true);
+        renderBars(container, totals, read, shortenSeriesName, true, false, 'read');
 
         // Standalone isn't a series, so there's nothing to filter by.
         const standaloneRow = [...container.children].find(r => r.dataset.label === STANDALONE_LABEL);
         if (standaloneRow) standaloneRow.classList.remove('clickable');
 
         const summary = document.createElement('div');
-        summary.className = 'stats-bar-row';
+        summary.className = 'stats-bar-row stats-summary';
         summary.innerHTML = `
-            <span class="stats-bar-label" style="color:var(--accent)">Stories Read</span>
-            <span class="stats-bar-value" style="color:var(--accent)">${readCount}/${readableCount}</span>
+            <span class="stats-bar-label">Stories Read</span>
+            <span class="stats-bar-value">${readCount}/${readableCount}</span>
         `;
         container.prepend(summary);
     }
 
-    function renderBars(container, totals, owned, labelFn, clickable, gameOrdered) {
+    // Bars are gold (progress); a finished row gets the status colour of
+    // what it counts: `done` is 'owned' or 'read'.
+    function renderBars(container, totals, owned, labelFn, clickable, gameOrdered, done = 'owned') {
         container.innerHTML = '';
         const statsSortMode = A.getStatsSortMode();
         // Timeline only applies to game-ordered panels; others fall back to the last non-timeline mode.
@@ -185,11 +187,8 @@
             if (clickable) row.dataset.label = label;
             row.innerHTML = `
                 <span class="stats-bar-label" title="${label}">${labelFn ? labelFn(label) : label}</span>
-                <div class="stats-bar-track">
-                    <div class="stats-bar-fill green" style="width:${pct}%"></div>
-                </div>
-                <span class="stats-bar-value">${owned ? ownedCount + '/' + total + ' <span class="stats-bar-pct' + (pct === 100 ? ' complete' : '') + '">' + pct + '%</span>' : total}</span>
-                ${owned && pct === 100 ? '<span class="stats-complete-badge">&#10003;</span>' : ''}
+                <span class="progress stats-bar-track"><span class="progress-fill" style="width:${pct}%"></span></span>
+                <span class="stats-bar-value">${owned ? ownedCount + '/' + total + ' <span class="stats-bar-pct' + (pct === 100 ? ' done-' + done : '') + '">' + (pct === 100 ? '&#10003; ' : '') + pct + '%</span>' : total}</span>
             `;
             container.appendChild(row);
         });

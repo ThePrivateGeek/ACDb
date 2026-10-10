@@ -126,35 +126,35 @@
 
         if (name.length < 5) {
             status.textContent = name.length > 0 ? 'Minimum 5 characters' : '';
-            status.style.color = 'var(--text-muted)';
+            status.style.color = 'var(--text-3)';
             submitBtn.disabled = true;
             return;
         }
         if (!/^[a-zA-Z0-9_-]{5,25}$/.test(name)) {
             status.textContent = 'Only letters, numbers, hyphens, underscores';
-            status.style.color = 'var(--red)';
+            status.style.color = 'var(--danger-solid)';
             submitBtn.disabled = true;
             return;
         }
 
         status.textContent = 'Checking...';
-        status.style.color = 'var(--text-muted)';
+        status.style.color = 'var(--text-3)';
 
         try {
             const res = await fetch(`${A.API_URL}/check-name/${encodeURIComponent(name)}`);
             const data = await res.json();
             if (data.available) {
                 status.textContent = 'Available!';
-                status.style.color = 'var(--owned-green)';
+                status.style.color = 'var(--owned)';
                 submitBtn.disabled = false;
             } else {
                 status.textContent = 'Already taken';
-                status.style.color = 'var(--red)';
+                status.style.color = 'var(--danger-solid)';
                 submitBtn.disabled = true;
             }
         } catch {
             status.textContent = 'Could not check. Try again.';
-            status.style.color = 'var(--red)';
+            status.style.color = 'var(--danger-solid)';
             submitBtn.disabled = true;
         }
     }
@@ -165,7 +165,7 @@
         const displayName = nameInput.value.trim();
 
         if (!displayName || displayName.length < 5) {
-            A.showToast('Please enter a valid display name');
+            A.showToast('Please enter a valid display name', 'error');
             return;
         }
 
@@ -199,14 +199,14 @@
                 document.getElementById('shareSuccessSection').style.display = '';
                 document.getElementById('shareUrl').value = data.shareUrl;
                 updateShareButton();
-                A.showToast('Collection published!');
+                A.showToast('Collection published!', 'success');
             } else {
-                A.showToast(data.error || 'Publishing failed');
+                A.showToast(data.error || 'Publishing failed', 'error');
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Publish';
             }
         } catch (err) {
-            A.showToast('Error: ' + (err.message || 'Network error'));
+            A.showToast('Error: ' + (err.message || 'Network error'), 'error');
             submitBtn.disabled = false;
             submitBtn.textContent = 'Publish';
         }
@@ -233,14 +233,14 @@
 
             if (data.success) {
                 closeShareModal();
-                A.showToast(`Profile updated: ${data.ownedCount} items.`);
+                A.showToast(`Profile updated: ${data.ownedCount} items.`, 'success');
             } else {
-                A.showToast(data.error || 'Update failed');
+                A.showToast(data.error || 'Update failed', 'error');
                 updateBtn.disabled = false;
                 updateBtn.textContent = 'Update Profile';
             }
         } catch {
-            A.showToast('Network error. Try again.');
+            A.showToast('Network error. Try again.', 'error');
             updateBtn.disabled = false;
             updateBtn.textContent = 'Update Profile';
         }
@@ -270,14 +270,14 @@
                 }
                 updateShareButton();
                 closeShareModal();
-                A.showToast('Profile deleted.');
+                A.showToast('Profile deleted.', 'success');
             } else {
-                A.showToast(data.error || 'Delete failed');
+                A.showToast(data.error || 'Delete failed', 'error');
                 deleteBtn.disabled = false;
                 deleteBtn.textContent = 'Delete Profile';
             }
         } catch {
-            A.showToast('Network error. Try again.');
+            A.showToast('Network error. Try again.', 'error');
             deleteBtn.disabled = false;
             deleteBtn.textContent = 'Delete Profile';
         }
@@ -320,11 +320,14 @@
         document.getElementById('leaderboardView').style.display = 'none';
         document.getElementById('readingView').style.display = 'none';
         profileFromLeaderboard = fromLeaderboard;
-        const backBtn = document.getElementById('profileBackBtn');
-        backBtn.textContent = fromLeaderboard ? 'Back to Leaderboard' : 'Back to Collection';
+        // The breadcrumb names where the visitor came from, like the old back button
+        const backLink = document.getElementById('profileBackBtn');
+        backLink.textContent = fromLeaderboard ? 'Leaderboard' : 'Collection';
+        backLink.href = fromLeaderboard ? '#leaderboard' : './';
         const profileView = document.getElementById('profileView');
         profileView.style.display = '';
         document.getElementById('profileName').textContent = 'Loading...';
+        document.getElementById('profileCrumbName').textContent = name;
         document.getElementById('profileOwned').textContent = '';
         document.getElementById('profilePct').textContent = '';
         document.getElementById('profileUpdated').textContent = '';
@@ -338,11 +341,13 @@
             }
             const data = await res.json();
             const pct = Math.round((data.ownedCount / AC_DATABASE.length) * 100);
-            const updated = new Date(data.lastUpdated).toLocaleDateString();
+            const updated = A.formatDate(data.lastUpdated);
 
             document.getElementById('profileName').textContent = data.displayName;
-            document.getElementById('profileOwned').textContent = `${data.ownedCount} items owned`;
-            document.getElementById('profilePct').textContent = `${pct}% complete`;
+            document.getElementById('profileCrumbName').textContent = data.displayName;
+            // The figures in gold mono, like other counts (both are numbers, so no escaping)
+            document.getElementById('profileOwned').innerHTML = `<span class="profile-stat">${Number(data.ownedCount)}</span> items owned`;
+            document.getElementById('profilePct').innerHTML = `<span class="profile-stat">${pct}%</span> complete`;
             document.getElementById('profileUpdated').textContent = `Updated ${updated}`;
 
             // Render owned items as cards
@@ -373,9 +378,9 @@
         const ctaEl = document.getElementById('leaderboardCta');
         if (isShared()) {
             const name = getShareName();
-            ctaEl.innerHTML = `You're on the board as <a href="#profile/${name.toLowerCase()}">${A.escapeHTML(name)}</a>`;
+            ctaEl.innerHTML = `You're on the board as <a class="link" href="#profile/${name.toLowerCase()}">${A.escapeHTML(name)}</a>`;
         } else {
-            ctaEl.innerHTML = '<span>Want to be on here?</span><button class="collection-action-btn share-btn" id="leaderboardShareLink">Join the Leaderboard</button>';
+            ctaEl.innerHTML = '<span>Want to be on here?</span><button class="btn btn-sm btn-publish" id="leaderboardShareLink">Join the Leaderboard</button>';
             document.getElementById('leaderboardShareLink').addEventListener('click', openShareModal);
         }
 
@@ -393,16 +398,16 @@
             data.profiles.forEach((profile, idx) => {
                 const rank = idx + 1;
                 const pct = Math.round((profile.ownedCount / AC_DATABASE.length) * 100);
-                const updated = new Date(profile.lastUpdated).toLocaleDateString();
+                const updated = A.formatDate(profile.lastUpdated);
                 const rankClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
 
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td class="rank-col ${rankClass}">${rank}</td>
+                    <td class="rank-col"><span class="medal ${rankClass}">${rank}</span></td>
                     <td class="name-col"><a href="#profile/${profile.displayName.toLowerCase()}">${A.escapeHTML(profile.displayName)}</a></td>
-                    <td class="count-col">${profile.ownedCount}</td>
+                    <td class="count-col">${profile.ownedCount}<span class="lb-unit"> items</span></td>
                     <td class="pct-col">${pct}%</td>
-                    <td class="date-col">${updated}</td>
+                    <td class="date-col"><span class="lb-unit">Updated </span>${updated}</td>
                 `;
                 tbody.appendChild(tr);
             });
@@ -429,7 +434,7 @@
                 localStorage.removeItem(A.SHARE_TOKEN_KEY);
                 localStorage.removeItem(A.SHARE_NAME_KEY);
                 A.setShareName(data.displayName);
-                A.showToast(`Your public profile ${data.displayName} now updates automatically.`);
+                A.showToast(`Your public profile ${data.displayName} now updates automatically.`, 'success');
             } else if (res.status === 404) {
                 // The profile was deleted elsewhere; the token is useless now.
                 localStorage.removeItem(A.SHARE_TOKEN_KEY);

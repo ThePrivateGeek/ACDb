@@ -425,6 +425,7 @@ window.ACDB = window.ACDB || {};
             } else {
                 btn.classList.toggle('active', selectedGames.has(btn.dataset.game));
             }
+            btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
         });
     }
 
@@ -455,14 +456,16 @@ window.ACDB = window.ACDB || {};
 
         // Timeline buttons
         const allBtn = document.createElement('button');
-        allBtn.className = 'timeline-btn active';
+        allBtn.className = 'chip timeline-btn active';
+        allBtn.setAttribute('aria-pressed', 'true');
         allBtn.textContent = 'All';
         allBtn.dataset.game = '';
         timelineInner.appendChild(allBtn);
 
         sortedGames.forEach(game => {
             const btn = document.createElement('button');
-            btn.className = 'timeline-btn';
+            btn.className = 'chip timeline-btn';
+            btn.setAttribute('aria-pressed', 'false');
             // Short display names
             btn.textContent = SHORT_GAME_NAMES[game] || game;
             btn.dataset.game = game;
@@ -529,7 +532,7 @@ window.ACDB = window.ACDB || {};
         dom.itemsContainer.innerHTML = '';
 
         if (items.length === 0) {
-            dom.noResults.style.display = 'block';
+            dom.noResults.style.display = '';   // the stylesheet's centred grid
             dom.resultsCount.textContent = '';
         } else {
             dom.noResults.style.display = 'none';
@@ -562,6 +565,7 @@ window.ACDB = window.ACDB || {};
         dom.itemsContainer.appendChild(fragment);
 
         updateStats();
+        updateFilterCount();
         saveFilters();
         ACDB.renderSyncBanner();
         ACDB.refreshReadingView();
@@ -577,7 +581,7 @@ window.ACDB = window.ACDB || {};
         card.dataset.id = item.id;
 
         const conditionHTML = data.condition
-            ? `<span class="card-condition condition-${data.condition}">${formatCondition(data.condition)}</span>`
+            ? `<span class="badge card-condition condition-${data.condition}">${formatCondition(data.condition)}</span>`
             : '';
 
         const thumbPath = Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : null;
@@ -603,11 +607,6 @@ window.ACDB = window.ACDB || {};
                     ${data.wishlist && !data.owned ? '<span class="badge badge-wishlist">Wishlist</span>' : ''}
                     ${data.hasRead && ACDB.isReadable(item) ? '<span class="badge badge-read">Read</span>' : ''}
                 </div>
-                <div class="card-owned-indicator">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                        <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                </div>
             </div>
             <div class="card-body">
                 <div class="card-game">${escapeHTML(item.game)}</div>
@@ -615,7 +614,7 @@ window.ACDB = window.ACDB || {};
                 <div class="card-description">${escapeHTML(item.description)}</div>
                 <div class="card-footer">
                     <span class="card-year">${item.year}</span>
-                    <span class="card-type">${escapeHTML(item.type)}</span>
+                    <span class="badge badge-plain card-type">${escapeHTML(item.type)}</span>
                     ${conditionHTML}
                 </div>
             </div>
@@ -663,6 +662,16 @@ window.ACDB = window.ACDB || {};
     const closeDevTool = ACDB.closeDevTool;
     const generateCode = ACDB.generateCode;
 
+
+    // Number of active filter values, on the phone "Filters" button
+    function updateFilterCount() {
+        const count = selectedGames.size + selectedCategories.size + selectedTypes.size
+            + selectedSeries.size + (dom.filterOwned.value ? 1 : 0);
+        const badge = document.getElementById('filtersCount');
+        badge.textContent = count;
+        badge.hidden = count === 0;
+        document.getElementById('filtersToggle').setAttribute('aria-label', count ? `Filters, ${count} active` : 'Filters');
+    }
 
     // ---- Filter Persistence ----
     function saveFilters() {
@@ -916,7 +925,7 @@ window.ACDB = window.ACDB || {};
             backToTop.classList.toggle('visible', window.scrollY > 400);
         });
         backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: ACDB.scrollBehavior() });
         });
 
         // Lightbox
@@ -930,17 +939,36 @@ window.ACDB = window.ACDB || {};
             if (isOpen) renderStatsDashboard();
         });
 
-        // Put every filter back to its default (search, dropdowns, owned, sort).
-        function resetAllFilters() {
+        // Clear the search and every filter; the sort stays.
+        function clearFilters() {
             dom.searchInput.value = '';
             dom.clearSearch.classList.remove('visible');
             clearAllSelections();
             clearMultiSelect(dom.filterGame);
             dom.filterOwned.value = '';
-            dom.sortBy.value = '';
             syncTimelineToSelectedGames();
             populateDependentFilters();
         }
+
+        // Put every filter back to its default, sort included (the logo).
+        function resetAllFilters() {
+            clearFilters();
+            dom.sortBy.value = '';
+        }
+
+        // Empty result: one click back to everything
+        document.getElementById('clearFilters').addEventListener('click', () => {
+            clearFilters();
+            renderItems();
+            dom.searchInput.focus();
+        });
+
+        // Phones: the filters fold away behind one button
+        const filtersToggle = document.getElementById('filtersToggle');
+        filtersToggle.addEventListener('click', () => {
+            const open = document.querySelector('.toolbar').classList.toggle('filters-open');
+            filtersToggle.setAttribute('aria-expanded', String(open));
+        });
 
         // Click-to-filter (dashboard bars + modal badges) — replaces all
         // filters with the clicked game/category/type/series
@@ -954,7 +982,7 @@ window.ACDB = window.ACDB || {};
             syncTimelineToSelectedGames();
             populateDependentFilters();
             renderItems();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: ACDB.scrollBehavior() });
         }
         ACDB.applyExclusiveFilter = applyExclusiveFilter;   // series pages in the reading view
         dom.statsByGame.addEventListener('click', (e) => {
@@ -975,8 +1003,10 @@ window.ACDB = window.ACDB || {};
             btn.addEventListener('click', () => {
                 statsSortMode = btn.dataset.sort;
                 if (statsSortMode !== 'timeline') lastBarSortMode = statsSortMode;
-                document.querySelectorAll('.stats-sort-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+                document.querySelectorAll('.stats-sort-btn').forEach(b => {
+                    b.classList.toggle('active', b === btn);
+                    b.setAttribute('aria-pressed', String(b === btn));
+                });
                 renderStatsDashboard();
             });
         });
@@ -1096,17 +1126,15 @@ window.ACDB = window.ACDB || {};
         dom.sortBy.addEventListener('change', renderItems);
 
         // View toggle
-        dom.viewGrid.addEventListener('click', () => {
-            dom.viewGrid.classList.add('active');
-            dom.viewList.classList.remove('active');
-            dom.itemsContainer.classList.remove('list-view');
-        });
-
-        dom.viewList.addEventListener('click', () => {
-            dom.viewList.classList.add('active');
-            dom.viewGrid.classList.remove('active');
-            dom.itemsContainer.classList.add('list-view');
-        });
+        function setLayout(list) {
+            dom.viewList.classList.toggle('active', list);
+            dom.viewGrid.classList.toggle('active', !list);
+            dom.viewList.setAttribute('aria-pressed', String(list));
+            dom.viewGrid.setAttribute('aria-pressed', String(!list));
+            dom.itemsContainer.classList.toggle('list-view', list);
+        }
+        dom.viewGrid.addEventListener('click', () => setLayout(false));
+        dom.viewList.addEventListener('click', () => setLayout(true));
 
         // Timeline — toggle game in multi-select
         dom.gameTimeline.addEventListener('click', (e) => {
@@ -1166,7 +1194,7 @@ window.ACDB = window.ACDB || {};
             const item = AC_DATABASE.find(i => i.id === ACDB.getCurrentItemId());
             if (!item) return;
             const url = 'https://acdb.theprivategeek.com/s/' + slugify(item.name);
-            const copyLink = () => navigator.clipboard.writeText(url).then(() => showToast('Link copied!'));
+            const copyLink = () => navigator.clipboard.writeText(url).then(() => showToast('Link copied!', 'success'));
             if (canWebShare) {
                 navigator.share({ title: item.name, text: item.description, url })
                     .catch(err => {
@@ -1287,7 +1315,7 @@ window.ACDB = window.ACDB || {};
             clearHash();
             dom.filterOwned.value = 'owned';
             renderItems();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: ACDB.scrollBehavior() });
         });
 
         // Collection tab — back to the grid with filters kept (the logo resets them)
@@ -1295,7 +1323,7 @@ window.ACDB = window.ACDB || {};
             e.preventDefault();
             showMainContent();
             clearHash();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: ACDB.scrollBehavior() });
         });
 
         // Export / Import
@@ -1315,7 +1343,7 @@ window.ACDB = window.ACDB || {};
             showMainContent();
             clearHash();
             renderItems();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: ACDB.scrollBehavior() });
         });
 
         // Share Collection
@@ -1329,13 +1357,13 @@ window.ACDB = window.ACDB || {};
         document.getElementById('shareDone').addEventListener('click', closeShareModal);
         document.getElementById('shareCopyUrl').addEventListener('click', () => {
             const urlInput = document.getElementById('shareUrl');
-            navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!'));
+            navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!', 'success'));
         });
 
         document.getElementById('shareManageCancel').addEventListener('click', closeShareModal);
         document.getElementById('shareManageCopyUrl').addEventListener('click', () => {
             const urlInput = document.getElementById('shareManageUrl');
-            navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!'));
+            navigator.clipboard.writeText(urlInput.value).then(() => showToast('Link copied!', 'success'));
         });
         document.getElementById('shareUpdateBtn').addEventListener('click', () => {
             const owned = getOwnedItemIds();
@@ -1354,7 +1382,8 @@ window.ACDB = window.ACDB || {};
         });
 
         // Profile back button
-        document.getElementById('profileBackBtn').addEventListener('click', () => {
+        document.getElementById('profileBackBtn').addEventListener('click', (e) => {
+            e.preventDefault();
             if (ACDB.getProfileFromLeaderboard()) {
                 document.getElementById('profileView').style.display = 'none';
                 window.location.hash = 'leaderboard';
@@ -1391,7 +1420,7 @@ window.ACDB = window.ACDB || {};
         document.getElementById('devCopyCode').addEventListener('click', () => {
             const code = document.getElementById('devCodeOutput').value;
             if (!code) return;
-            navigator.clipboard.writeText(code).then(() => showToast('Code copied to clipboard!'));
+            navigator.clipboard.writeText(code).then(() => showToast('Code copied to clipboard!', 'success'));
         });
 
         // Collection field interdependencies

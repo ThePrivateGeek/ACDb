@@ -34,6 +34,11 @@
         return map[condition] || condition;
     }
 
+    // "9 Oct 2026", the format the reading view uses
+    function formatDate(value) {
+        return new Date(value).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
     function slugify(str) {
         return str.toLowerCase()
             .replace(/['']/g, '')
@@ -81,16 +86,36 @@
         }
     }
 
-    function showToast(message) {
+    // 'smooth', or 'auto' for visitors who asked for reduced motion (CSS
+    // can't reach scrolls started from script).
+    function scrollBehavior() {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    }
+
+    // kind: 'success' (green check), 'error' (red alert) or omitted (no icon).
+    // The element is a polite live region in index.html, so screen readers
+    // read the message.
+    const TOAST_ICONS = {
+        success: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>',
+        error: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16.5h.01"/></svg>'
+    };
+    let toastTimer = null;
+
+    function showToast(message, kind) {
         let toast = document.getElementById('acdb-toast');
         if (!toast) {
             toast = document.createElement('div');
             toast.id = 'acdb-toast';
+            toast.setAttribute('role', 'status');
             document.body.appendChild(toast);
         }
-        toast.textContent = message;
-        toast.classList.add('visible');
-        setTimeout(() => { toast.classList.remove('visible'); }, 2000);
+        const text = document.createElement('span');
+        text.textContent = message;
+        toast.innerHTML = TOAST_ICONS[kind] || '';
+        toast.appendChild(text);
+        toast.className = 'visible' + (kind ? ' toast-' + kind : '');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => { toast.classList.remove('visible'); }, kind === 'error' ? 4000 : 2500);
     }
 
     function showCelebration(message) {
@@ -140,6 +165,8 @@
     A.debounce = debounce;
     A.formatCondition = formatCondition;
     A.slugify = slugify;
+    A.formatDate = formatDate;
+    A.scrollBehavior = scrollBehavior;
     A.showToast = showToast;
     A.showCelebration = showCelebration;
     A.launchConfetti = launchConfetti;

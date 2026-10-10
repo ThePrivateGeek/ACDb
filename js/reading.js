@@ -183,12 +183,11 @@
         return `${count} ${list}`;
     }
 
-    // A series page is drawn like an order: same list, modes and progress.
+    // A series page is drawn like an order: same list, modes and progress,
+    // under its own header card (seriesHeaderHTML).
     function seriesAsOrder(series) {
         return {
             name: series.label,
-            description: `${countPhrase(series.entries.length, series.types)} in story order`
-                + (series.nonCanon ? ', outside the main continuity.' : ', placed as in Complete Lore.'),
             entries: series.entries,
             series
         };
@@ -221,7 +220,7 @@
             const match = order.games && slug ? gamesIn(order).find(g => gameSlug(g.game) === slug) : null;
             currentGame = match ? match.game : null;
         }
-        render();
+        render(currentOrderId === SERIES_TAB.id);
         window.scrollTo(0, 0);
     }
 
@@ -234,10 +233,13 @@
         if (isVisible()) render();
     }
 
-    function render() {
+    // `enter` fades the page in: moving between the series list and series
+    // pages. Re-renders (Read switches, sync, filters) don't animate.
+    function render(enter = false) {
         const chipScroll = content.querySelector('.reading-games')?.scrollLeft || 0;
         const showList = currentOrderId === SERIES_TAB.id && !currentSeries;
-        content.innerHTML = tabsHTML() + (showList ? seriesListHTML() : orderHTML(currentOrder()));
+        const page = showList ? seriesListHTML() : orderHTML(currentOrder());
+        content.innerHTML = tabsHTML() + `<div class="reading-page${enter ? ' reading-page-enter' : ''}">${page}</div>`;
         restoreChipRow(chipScroll);
         updateFoldAll();
     }
@@ -251,8 +253,8 @@
     // Complete Lore, By Series, then the other curated orders.
     function tabsHTML() {
         const tabs = [READING_ORDERS[0], SERIES_TAB, ...READING_ORDERS.slice(1)];
-        return `<nav class="reading-tabs">${tabs.map(t =>
-            `<a href="#reading/${t.id}" class="reading-tab${t.id === currentOrderId ? ' active' : ''}">${A.escapeHTML(t.name)}</a>`).join('')}</nav>`;
+        return `<nav class="tabs reading-tabs" aria-label="Reading orders">${tabs.map(t =>
+            `<a href="#reading/${t.id}" class="tab${t.id === currentOrderId ? ' active" aria-current="page' : ''}">${A.escapeHTML(t.name)}</a>`).join('')}</nav>`;
     }
 
     function readCountOf(entries) {
@@ -275,8 +277,8 @@
 
         const gameChips = order.games
             ? `<div class="reading-games" role="group" aria-label="Read with a game">
-                <button class="reading-game${!currentGame ? ' active' : ''}" data-game="" aria-pressed="${!currentGame}">All <span>${order.entries.length}</span></button>
-                ${gamesIn(order).map(g => `<button class="reading-game${g.game === currentGame ? ' active' : ''}" data-game="${esc(g.game)}" aria-pressed="${g.game === currentGame}" title="${esc(g.game === 'General' ? 'Original stories not tied to one game' : g.game)}">${esc(gameLabel(g.game))} <span>${g.count}</span></button>`).join('')}
+                <button class="chip reading-game${!currentGame ? ' active' : ''}" data-game="" aria-pressed="${!currentGame}">All <span class="chip-count">${order.entries.length}</span></button>
+                ${gamesIn(order).map(g => `<button class="chip reading-game${g.game === currentGame ? ' active' : ''}" data-game="${esc(g.game)}" aria-pressed="${g.game === currentGame}" title="${esc(g.game === 'General' ? 'Original stories not tied to one game' : g.game)}">${esc(gameLabel(g.game))} <span class="chip-count">${g.count}</span></button>`).join('')}
             </div>`
             : '';
 
@@ -301,7 +303,7 @@
                     </div>
                     <label class="reading-toggle">
                         <span class="reading-toggle-text">Read</span>
-                        <div class="toggle-switch">
+                        <div class="toggle-switch toggle-read">
                             <input type="checkbox" data-read="${item.id}"${data.hasRead ? ' checked' : ''}>
                             <span class="toggle-slider"></span>
                         </div>
@@ -327,8 +329,13 @@
         const nextIndex = entries.findIndex(e => !A.getItemData(e.item).hasRead);
         const nextItem = nextIndex >= 0 && A.findItemByRef(entries[nextIndex].item);
         const upNext = nextItem && readCount > 0
-            ? `<button class="reading-up-next" data-jump="${nextItem.id}">Up next: ${esc(shortTitle(nextItem))}</button>`
+            ? `<button class="btn btn-sm btn-secondary reading-up-next" data-jump="${nextItem.id}">Up next: ${esc(shortTitle(nextItem))}</button>`
             : '';
+        const progress = `
+                <div class="reading-progress">
+                    <span class="progress-count reading-progress-text">${readCount} / ${entries.length} read</span>
+                    <span class="progress"><span class="progress-fill" style="width:${pct}%"></span></span>
+                </div>`;
 
         // Headed sections fold; see openSections.
         const foldable = sections.length > 0 && sections[0].heading !== '';
@@ -342,40 +349,82 @@
             if (!foldable) return ol;
             return `
                 <details class="reading-fold" data-section="${esc(sec.heading)}"${open.has(sec.heading) ? ' open' : ''}>
-                    <summary><h4 class="reading-section"><span>${esc(sec.heading)}</span><span class="reading-section-count">${sec.read}/${sec.rows.length}</span></h4></summary>
+                    <summary><h4 class="section-head reading-section"><span>${esc(sec.heading)}</span><span class="section-head-count">${sec.read}/${sec.rows.length}</span></h4></summary>
                     ${ol}
                 </details>`;
         }).join('');
-        const foldAll = foldable && sections.length > 1 ? '<button class="reading-fold-all" data-fold-all></button>' : '';
+        const foldAll = foldable && sections.length > 1 ? '<button class="link link-quiet reading-fold-all" data-fold-all></button>' : '';
 
-        // A series page links back to the list, and out to the whole series
-        // in the collection (collected editions included).
-        const series = order.series;
-        const back = series ? '<a href="#reading/series" class="reading-back">&larr; All series</a>' : '';
-        const inCollection = series
-            ? `<button class="reading-series-link" data-series-filter="${esc(series.name)}">See the whole series in the collection &rarr;</button>`
-            : '';
+        const modes = `
+                <div class="seg reading-modes" role="group" aria-label="Reading order">
+                    ${MODES.map(m => `<button class="seg-btn reading-mode${m === mode ? ' active' : ''}" data-mode="${m}" aria-pressed="${m === mode}">${m === 'chronological' ? 'Chronological' : 'Release'}</button>`).join('')}
+                </div>`;
+
+        // A series page opens under a breadcrumb, with a header card (first
+        // cover, what it is, progress, Up next, the whole series in the
+        // collection) and links to the series before and after it.
+        if (order.series) {
+            return `
+                ${seriesHeaderHTML(order.series, progress, upNext)}
+                <div class="reading-bar">${modes}</div>
+                ${list}
+                ${seriesPagerHTML(order.series)}
+                ${SOURCES_HTML}
+            `;
+        }
 
         return `
-            ${back}
             <div class="reading-intro">
-                <h3 class="reading-name">${esc(order.name)}</h3>
-                <p class="reading-description">${esc(order.description)} ${inCollection}</p>
+                <h3 class="reading-name sr-only">${esc(order.name)}</h3>
+                <p class="reading-description">${esc(order.description)}</p>
             </div>
             ${gameChips}
-            <div class="reading-bar">
-                <div class="reading-modes" role="group" aria-label="Reading order">
-                    ${MODES.map(m => `<button class="reading-mode${m === mode ? ' active' : ''}" data-mode="${m}" aria-pressed="${m === mode}">${m === 'chronological' ? 'Chronological' : 'Release'}</button>`).join('')}
-                </div>
-                <div class="reading-progress">
-                    <span class="reading-progress-text">${readCount} / ${entries.length} read</span>
-                    <div class="stats-bar-track"><div class="stats-bar-fill" style="width:${pct}%"></div></div>
-                </div>
-            </div>
+            <div class="reading-bar">${modes}${progress}</div>
             ${upNext || foldAll ? `<div class="reading-list-tools">${upNext}${foldAll}</div>` : ''}
             ${list}
             ${SOURCES_HTML}
         `;
+    }
+
+    function seriesHeaderHTML(series, progress, upNext) {
+        const esc = A.escapeHTML;
+        const thumb = coverOf(A.findItemByRef(series.entries[0].item));
+        const where = series.nonCanon ? 'outside the main continuity' : 'placed as in Complete Lore';
+        const meta = [countPhrase(series.entries.length, series.types), series.nonCanon ? 'Non-canon' : series.eras, where]
+            .filter(Boolean).map(esc).join(' · ');
+        return `
+            <nav aria-label="Breadcrumb">
+                <ol class="crumbs reading-crumbs">
+                    <li><a href="#reading/series">By Series</a></li>
+                    <li aria-current="page">${esc(series.label)}</li>
+                </ol>
+            </nav>
+            <div class="series-head">
+                <span class="series-head-cover">${thumb ? `<img src="${esc(thumb)}" alt="">` : ''}</span>
+                <div class="series-head-body">
+                    <h3 class="series-head-title">${esc(series.label)}</h3>
+                    <p class="series-head-meta">${meta}</p>
+                    ${progress}
+                    <div class="series-head-actions">
+                        ${upNext}
+                        <button class="link reading-series-link" data-series-filter="${esc(series.name)}">See the whole series in the collection &rarr;</button>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    // The series before and after this one, in the list's story order
+    function seriesPagerHTML(series) {
+        const esc = A.escapeHTML;
+        const all = allSeries();
+        const at = all.findIndex(s => s.slug === series.slug);
+        const prev = all[at - 1];
+        const next = all[at + 1];
+        return `
+            <nav class="series-pager" aria-label="Other series">
+                ${prev ? `<a class="link link-quiet" href="${seriesHash(prev)}"><span aria-hidden="true">&larr;</span> ${esc(prev.label)}</a>` : '<span></span>'}
+                ${next ? `<a class="link link-quiet" href="${seriesHash(next)}">${esc(next.label)} <span aria-hidden="true">&rarr;</span></a>` : ''}
+            </nav>`;
     }
 
     // "Collapse all" once every section is open, "Expand all" otherwise.
@@ -408,8 +457,8 @@
                             <span class="series-meta">${esc(kinds.charAt(0).toUpperCase() + kinds.slice(1))}${when ? ` · ${esc(when)}` : ''}</span>
                         </span>
                         <span class="series-progress">
-                            <span class="series-count">${done ? '<span class="series-done" aria-label="Finished">&#10003;</span> ' : ''}${read} / ${total}</span>
-                            <span class="stats-bar-track"><span class="stats-bar-fill" style="width:${Math.round((read / total) * 100)}%"></span></span>
+                            <span class="progress-count${done ? ' done-read' : ''}">${done ? '<span aria-label="Finished">&#10003;</span> ' : ''}${read} / ${total}</span>
+                            <span class="progress"><span class="progress-fill" style="width:${Math.round((read / total) * 100)}%"></span></span>
                         </span>
                     </a>
                 </li>`;
@@ -419,11 +468,11 @@
             return read > 0 && read < s.entries.length;
         });
         const section = (title, list) => `
-            <h4 class="reading-section"><span>${title}</span><span class="reading-section-count">${list.length}</span></h4>
+            <h4 class="section-head reading-section"><span>${title}</span><span class="section-head-count">${list.length}</span></h4>
             <ul class="series-list">${list.map(rowHTML).join('')}</ul>`;
         return `
             <div class="reading-intro">
-                <h3 class="reading-name">${esc(SERIES_TAB.name)}</h3>
+                <h3 class="reading-name sr-only">${esc(SERIES_TAB.name)}</h3>
                 <p class="reading-description">Read one series at a time. Every series in the reading orders, in story order, with its books placed as in Complete Lore.</p>
             </div>
             ${underway.length ? section('Continue reading', underway) : ''}
@@ -480,7 +529,7 @@
             if (row) {
                 const fold = row.closest('.reading-fold');
                 if (fold) fold.open = true;
-                row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                row.scrollIntoView({ behavior: ACDB.scrollBehavior(), block: 'center' });
                 row.classList.remove('flash');
                 void row.offsetWidth;   // restart the highlight animation
                 row.classList.add('flash');
