@@ -1946,29 +1946,21 @@ textarea:focus-visible {
 .no-results {
     display: grid;
     justify-items: center;
-    gap: var(--s3);
-    padding: var(--s7) var(--s4);
+    gap: var(--s5);
+    padding: 4rem var(--s4);
     text-align: center;
 }
 
 .no-results-icon {
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
     color: var(--line-strong);
 }
 
-.no-results-title {
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: var(--fs-lg);
-    font-weight: 600;
-}
-
 .no-results p {
-    max-width: 48ch;
-    margin-inline: auto;
-    color: var(--text-2);
-    font-size: var(--fs-md);
+    color: var(--text-3);
+    font-size: var(--fs-lg);
+    font-style: italic;
 }
 
 .no-results .btn {

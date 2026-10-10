@@ -160,7 +160,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 
 ## 16. Data Integrity
 - [ ] Total item count in footer matches database
-- [ ] Search for "zzzz": "No items match" with a **Clear search and filters** button that clears the search, dropdowns, timeline and status filter (the sort stays) and shows everything again
+- [ ] Search for "zzzz": the emblem, "Nothing is true, everything is permitted... but no items match your search." (italic, centred) and a **Clear search and filters** button that clears the search, dropdowns, timeline and status filter (the sort stays) and shows everything again
 - [ ] Leaderboard and profile dates read like "9 Oct 2026", as in the reading view
 - [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, and share pages
 - [ ] Collection data keyed by item id under `acdb_collection_v2`, each entry with an `updatedAt` edit time once edited; a name-keyed `acdb_collection` from before ids is migrated once on load (unmatched keys are dropped) and kept as a backup until 2027-01-03, after which it is removed from browsers that have `acdb_collection_v2`
