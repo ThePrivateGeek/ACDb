@@ -34,6 +34,11 @@
         return map[condition] || condition;
     }
 
+    // "9 Oct 2026", the format the reading view uses
+    function formatDate(value) {
+        return new Date(value).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
     function slugify(str) {
         return str.toLowerCase()
             .replace(/['']/g, '')
@@ -160,6 +165,7 @@
     A.debounce = debounce;
     A.formatCondition = formatCondition;
     A.slugify = slugify;
+    A.formatDate = formatDate;
     A.scrollBehavior = scrollBehavior;
     A.showToast = showToast;
     A.showCelebration = showCelebration;

@@ -121,7 +121,13 @@
                 <input type="text" id="searchInput" placeholder="Search items..." autocomplete="off">
                 <button id="clearSearch" class="icon-btn icon-btn-sm icon-btn-bare clear-search" title="Clear search" aria-label="Clear search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
             </div>
-            <div class="filter-group">
+            <!-- Phones: the filters fold away behind this button -->
+            <button class="btn btn-quiet filters-toggle" id="filtersToggle" type="button" aria-expanded="false" aria-controls="filterGroup">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+                <span>Filters</span>
+                <span class="filters-count" id="filtersCount" hidden></span>
+            </button>
+            <div class="filter-group" id="filterGroup">
                 <div class="multi-select" id="filterGame" data-placeholder="All Games">
                     <button class="multi-select-toggle" type="button">
                         <span class="multi-select-label">All Games</span>
@@ -250,16 +256,20 @@
             </svg>
             <h3 class="no-results-title">No items match</h3>
             <p>Nothing is true, everything is permitted… but nothing in the catalog matches your search and filters.</p>
+            <button class="btn btn-sm btn-quiet" id="clearFilters" type="button">Clear search and filters</button>
         </div>
     </main>
 
     <!-- Item Detail Modal -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal" id="itemModal">
+            <!-- Sticks to the top of the scrolling modal, so share and close stay in reach -->
+            <div class="modal-actions">
             <button class="icon-btn modal-close" id="modalClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
             <button class="icon-btn modal-copy-link" id="modalCopyLink" title="Copy a shareable link to this item" aria-label="Copy a shareable link to this item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
             </button>
+            </div>
             <div class="modal-content">
                 <div class="modal-image-section">
                     <div class="modal-gallery" id="modalGallery">

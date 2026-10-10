@@ -1243,6 +1243,24 @@ textarea:focus-visible {
     flex-shrink: 0;
 }
 
+/* Phones only (see the 768px query): the filters fold behind this */
+.filters-toggle {
+    display: none;
+}
+
+.filters-count {
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: var(--r-pill);
+    background: var(--gold);
+    color: var(--surface-page);
+    font-family: var(--font-data);
+    font-size: var(--fs-label);
+    line-height: 20px;
+    text-align: center;
+}
+
 /* ---- Game Timeline ---- */
 /* Buttons wrap on wide screens; on phones they become one sideways-scrolling
    row, like the Reading Order game filter (see the media query) */
@@ -1952,6 +1970,10 @@ textarea:focus-visible {
     font-size: var(--fs-md);
 }
 
+.no-results .btn {
+    margin-top: var(--s2);
+}
+
 /* ---- Modal ---- */
 .modal-overlay {
     position: fixed;
@@ -1995,6 +2017,14 @@ textarea:focus-visible {
 
 .modal-overlay.active .modal {
     transform: scale(1);
+}
+
+/* Zero-height bar that sticks to the top of the scrolling item modal */
+.modal-actions {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 0;
 }
 
 .modal-close {
@@ -2983,14 +3013,97 @@ textarea:focus-visible {
 }
 
 /* ---- By Series (list of series, and a series page's extra links) ---- */
-.reading-back {
-    display: inline-block;
-    margin-bottom: 0.75rem;
+.series-progress .progress {
+    width: 100%;
+}
+
+/* Series page: breadcrumb, header card, pager */
+.reading-crumbs {
+    margin-bottom: var(--s4);
+}
+
+.series-head {
+    display: grid;
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: var(--s5);
+    padding: var(--s5);
+    margin-bottom: var(--s5);
+    background: var(--surface-card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+}
+
+.series-head-cover {
+    display: block;
+    aspect-ratio: 2 / 3;
+    border-radius: var(--r-sm);
+    overflow: hidden;
+    background: var(--surface-bar);
+}
+
+.series-head-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.series-head-body {
+    display: grid;
+    align-content: start;
+    gap: var(--s2);
+    min-width: 0;
+}
+
+.series-head-title {
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.series-head-meta {
+    color: var(--text-2);
+    font-size: var(--fs-sm);
+}
+
+.series-head .reading-progress {
+    max-width: 340px;
+    margin-top: var(--s1);
+}
+
+.series-head-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s2) var(--s4);
+    margin-top: var(--s2);
+    font-size: var(--fs-sm);
+}
+
+.series-head-actions .reading-up-next {
+    margin-bottom: 0;
+}
+
+.series-pager {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s4);
+    margin-top: var(--s5);
+    padding-top: var(--s4);
+    border-top: 1px solid var(--line);
     font-size: var(--fs-md);
 }
 
-.series-progress .progress {
-    width: 100%;
+/* Moving between the series list and a series page */
+.reading-page-enter {
+    animation: readingPageEnter var(--t) ease-out;
+}
+
+@keyframes readingPageEnter {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
 }
 
 .series-list {
@@ -3466,8 +3579,24 @@ textarea:focus-visible {
         position: relative;
     }
 
+    /* Search on top, then Filters + layout; the filters open below */
     .toolbar-inner {
-        flex-direction: column;
+        flex-wrap: wrap;
+        gap: var(--s2);
+    }
+
+    .filters-toggle {
+        display: inline-flex;
+        flex: 1;
+    }
+
+    .toolbar:not(.filters-open) .filter-group {
+        display: none;
+    }
+
+    .toolbar.filters-open .filters-toggle {
+        border-color: var(--gold-deep);
+        color: var(--gold);
     }
 
     .search-container {
@@ -3475,6 +3604,7 @@ textarea:focus-visible {
     }
 
     .filter-group {
+        order: 5;
         width: 100%;
         flex-direction: column;
     }
@@ -3554,6 +3684,14 @@ textarea:focus-visible {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--s1);
+    }
+}
+
+@media (max-width: 768px) {
+    .series-head {
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: var(--s4);
+        padding: var(--s4);
     }
 }
 

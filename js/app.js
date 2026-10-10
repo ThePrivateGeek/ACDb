@@ -565,6 +565,7 @@ window.ACDB = window.ACDB || {};
         dom.itemsContainer.appendChild(fragment);
 
         updateStats();
+        updateFilterCount();
         saveFilters();
         ACDB.renderSyncBanner();
         ACDB.refreshReadingView();
@@ -661,6 +662,16 @@ window.ACDB = window.ACDB || {};
     const closeDevTool = ACDB.closeDevTool;
     const generateCode = ACDB.generateCode;
 
+
+    // Number of active filter values, on the phone "Filters" button
+    function updateFilterCount() {
+        const count = selectedGames.size + selectedCategories.size + selectedTypes.size
+            + selectedSeries.size + (dom.filterOwned.value ? 1 : 0);
+        const badge = document.getElementById('filtersCount');
+        badge.textContent = count;
+        badge.hidden = count === 0;
+        document.getElementById('filtersToggle').setAttribute('aria-label', count ? `Filters, ${count} active` : 'Filters');
+    }
 
     // ---- Filter Persistence ----
     function saveFilters() {
@@ -928,17 +939,36 @@ window.ACDB = window.ACDB || {};
             if (isOpen) renderStatsDashboard();
         });
 
-        // Put every filter back to its default (search, dropdowns, owned, sort).
-        function resetAllFilters() {
+        // Clear the search and every filter; the sort stays.
+        function clearFilters() {
             dom.searchInput.value = '';
             dom.clearSearch.classList.remove('visible');
             clearAllSelections();
             clearMultiSelect(dom.filterGame);
             dom.filterOwned.value = '';
-            dom.sortBy.value = '';
             syncTimelineToSelectedGames();
             populateDependentFilters();
         }
+
+        // Put every filter back to its default, sort included (the logo).
+        function resetAllFilters() {
+            clearFilters();
+            dom.sortBy.value = '';
+        }
+
+        // Empty result: one click back to everything
+        document.getElementById('clearFilters').addEventListener('click', () => {
+            clearFilters();
+            renderItems();
+            dom.searchInput.focus();
+        });
+
+        // Phones: the filters fold away behind one button
+        const filtersToggle = document.getElementById('filtersToggle');
+        filtersToggle.addEventListener('click', () => {
+            const open = document.querySelector('.toolbar').classList.toggle('filters-open');
+            filtersToggle.setAttribute('aria-expanded', String(open));
+        });
 
         // Click-to-filter (dashboard bars + modal badges) — replaces all
         // filters with the clicked game/category/type/series

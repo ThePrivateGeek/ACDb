@@ -341,7 +341,7 @@
             }
             const data = await res.json();
             const pct = Math.round((data.ownedCount / AC_DATABASE.length) * 100);
-            const updated = new Date(data.lastUpdated).toLocaleDateString();
+            const updated = A.formatDate(data.lastUpdated);
 
             document.getElementById('profileName').textContent = data.displayName;
             document.getElementById('profileCrumbName').textContent = data.displayName;
@@ -397,7 +397,7 @@
             data.profiles.forEach((profile, idx) => {
                 const rank = idx + 1;
                 const pct = Math.round((profile.ownedCount / AC_DATABASE.length) * 100);
-                const updated = new Date(profile.lastUpdated).toLocaleDateString();
+                const updated = A.formatDate(profile.lastUpdated);
                 const rankClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
 
                 const tr = document.createElement('tr');

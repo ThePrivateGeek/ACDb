@@ -183,12 +183,11 @@
         return `${count} ${list}`;
     }
 
-    // A series page is drawn like an order: same list, modes and progress.
+    // A series page is drawn like an order: same list, modes and progress,
+    // under its own header card (seriesHeaderHTML).
     function seriesAsOrder(series) {
         return {
             name: series.label,
-            description: `${countPhrase(series.entries.length, series.types)} in story order`
-                + (series.nonCanon ? ', outside the main continuity.' : ', placed as in Complete Lore.'),
             entries: series.entries,
             series
         };
@@ -221,7 +220,7 @@
             const match = order.games && slug ? gamesIn(order).find(g => gameSlug(g.game) === slug) : null;
             currentGame = match ? match.game : null;
         }
-        render();
+        render(currentOrderId === SERIES_TAB.id);
         window.scrollTo(0, 0);
     }
 
@@ -234,10 +233,13 @@
         if (isVisible()) render();
     }
 
-    function render() {
+    // `enter` fades the page in: moving between the series list and series
+    // pages. Re-renders (Read switches, sync, filters) don't animate.
+    function render(enter = false) {
         const chipScroll = content.querySelector('.reading-games')?.scrollLeft || 0;
         const showList = currentOrderId === SERIES_TAB.id && !currentSeries;
-        content.innerHTML = tabsHTML() + (showList ? seriesListHTML() : orderHTML(currentOrder()));
+        const page = showList ? seriesListHTML() : orderHTML(currentOrder());
+        content.innerHTML = tabsHTML() + `<div class="reading-page${enter ? ' reading-page-enter' : ''}">${page}</div>`;
         restoreChipRow(chipScroll);
         updateFoldAll();
     }
@@ -329,6 +331,11 @@
         const upNext = nextItem && readCount > 0
             ? `<button class="btn btn-sm btn-secondary reading-up-next" data-jump="${nextItem.id}">Up next: ${esc(shortTitle(nextItem))}</button>`
             : '';
+        const progress = `
+                <div class="reading-progress">
+                    <span class="progress-count reading-progress-text">${readCount} / ${entries.length} read</span>
+                    <span class="progress"><span class="progress-fill" style="width:${pct}%"></span></span>
+                </div>`;
 
         // Headed sections fold; see openSections.
         const foldable = sections.length > 0 && sections[0].heading !== '';
@@ -348,34 +355,76 @@
         }).join('');
         const foldAll = foldable && sections.length > 1 ? '<button class="link link-quiet reading-fold-all" data-fold-all></button>' : '';
 
-        // A series page links back to the list, and out to the whole series
-        // in the collection (collected editions included).
-        const series = order.series;
-        const back = series ? '<a href="#reading/series" class="link link-quiet reading-back">&larr; All series</a>' : '';
-        const inCollection = series
-            ? `<button class="link reading-series-link" data-series-filter="${esc(series.name)}">See the whole series in the collection &rarr;</button>`
-            : '';
-
-        return `
-            ${back}
-            <div class="reading-intro">
-                <h3 class="reading-name${order.series ? '' : ' sr-only'}">${esc(order.name)}</h3>
-                <p class="reading-description">${esc(order.description)} ${inCollection}</p>
-            </div>
-            ${gameChips}
-            <div class="reading-bar">
+        const modes = `
                 <div class="seg reading-modes" role="group" aria-label="Reading order">
                     ${MODES.map(m => `<button class="seg-btn reading-mode${m === mode ? ' active' : ''}" data-mode="${m}" aria-pressed="${m === mode}">${m === 'chronological' ? 'Chronological' : 'Release'}</button>`).join('')}
-                </div>
-                <div class="reading-progress">
-                    <span class="progress-count reading-progress-text">${readCount} / ${entries.length} read</span>
-                    <span class="progress"><span class="progress-fill" style="width:${pct}%"></span></span>
-                </div>
+                </div>`;
+
+        // A series page opens under a breadcrumb, with a header card (first
+        // cover, what it is, progress, Up next, the whole series in the
+        // collection) and links to the series before and after it.
+        if (order.series) {
+            return `
+                ${seriesHeaderHTML(order.series, progress, upNext)}
+                <div class="reading-bar">${modes}</div>
+                ${list}
+                ${seriesPagerHTML(order.series)}
+                ${SOURCES_HTML}
+            `;
+        }
+
+        return `
+            <div class="reading-intro">
+                <h3 class="reading-name sr-only">${esc(order.name)}</h3>
+                <p class="reading-description">${esc(order.description)}</p>
             </div>
+            ${gameChips}
+            <div class="reading-bar">${modes}${progress}</div>
             ${upNext || foldAll ? `<div class="reading-list-tools">${upNext}${foldAll}</div>` : ''}
             ${list}
             ${SOURCES_HTML}
         `;
+    }
+
+    function seriesHeaderHTML(series, progress, upNext) {
+        const esc = A.escapeHTML;
+        const thumb = coverOf(A.findItemByRef(series.entries[0].item));
+        const where = series.nonCanon ? 'outside the main continuity' : 'placed as in Complete Lore';
+        const meta = [countPhrase(series.entries.length, series.types), series.nonCanon ? 'Non-canon' : series.eras, where]
+            .filter(Boolean).map(esc).join(' · ');
+        return `
+            <nav aria-label="Breadcrumb">
+                <ol class="crumbs reading-crumbs">
+                    <li><a href="#reading/series">By Series</a></li>
+                    <li aria-current="page">${esc(series.label)}</li>
+                </ol>
+            </nav>
+            <div class="series-head">
+                <span class="series-head-cover">${thumb ? `<img src="${esc(thumb)}" alt="">` : ''}</span>
+                <div class="series-head-body">
+                    <h3 class="series-head-title">${esc(series.label)}</h3>
+                    <p class="series-head-meta">${meta}</p>
+                    ${progress}
+                    <div class="series-head-actions">
+                        ${upNext}
+                        <button class="link reading-series-link" data-series-filter="${esc(series.name)}">See the whole series in the collection &rarr;</button>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    // The series before and after this one, in the list's story order
+    function seriesPagerHTML(series) {
+        const esc = A.escapeHTML;
+        const all = allSeries();
+        const at = all.findIndex(s => s.slug === series.slug);
+        const prev = all[at - 1];
+        const next = all[at + 1];
+        return `
+            <nav class="series-pager" aria-label="Other series">
+                ${prev ? `<a class="link link-quiet" href="${seriesHash(prev)}"><span aria-hidden="true">&larr;</span> ${esc(prev.label)}</a>` : '<span></span>'}
+                ${next ? `<a class="link link-quiet" href="${seriesHash(next)}">${esc(next.label)} <span aria-hidden="true">&rarr;</span></a>` : ''}
+            </nav>`;
     }
 
     // "Collapse all" once every section is open, "Expand all" otherwise.
