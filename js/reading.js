@@ -359,7 +359,7 @@
         return `
             ${back}
             <div class="reading-intro">
-                <h3 class="reading-name">${esc(order.name)}</h3>
+                <h3 class="reading-name${order.series ? '' : ' sr-only'}">${esc(order.name)}</h3>
                 <p class="reading-description">${esc(order.description)} ${inCollection}</p>
             </div>
             ${gameChips}
@@ -423,7 +423,7 @@
             <ul class="series-list">${list.map(rowHTML).join('')}</ul>`;
         return `
             <div class="reading-intro">
-                <h3 class="reading-name">${esc(SERIES_TAB.name)}</h3>
+                <h3 class="reading-name sr-only">${esc(SERIES_TAB.name)}</h3>
                 <p class="reading-description">Read one series at a time. Every series in the reading orders, in story order, with its books placed as in Complete Lore.</p>
             </div>
             ${underway.length ? section('Continue reading', underway) : ''}

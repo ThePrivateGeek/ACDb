@@ -320,11 +320,14 @@
         document.getElementById('leaderboardView').style.display = 'none';
         document.getElementById('readingView').style.display = 'none';
         profileFromLeaderboard = fromLeaderboard;
-        const backBtn = document.getElementById('profileBackBtn');
-        backBtn.textContent = fromLeaderboard ? 'Back to Leaderboard' : 'Back to Collection';
+        // The breadcrumb names where the visitor came from, like the old back button
+        const backLink = document.getElementById('profileBackBtn');
+        backLink.textContent = fromLeaderboard ? 'Leaderboard' : 'Collection';
+        backLink.href = fromLeaderboard ? '#leaderboard' : './';
         const profileView = document.getElementById('profileView');
         profileView.style.display = '';
         document.getElementById('profileName').textContent = 'Loading...';
+        document.getElementById('profileCrumbName').textContent = name;
         document.getElementById('profileOwned').textContent = '';
         document.getElementById('profilePct').textContent = '';
         document.getElementById('profileUpdated').textContent = '';
@@ -341,6 +344,7 @@
             const updated = new Date(data.lastUpdated).toLocaleDateString();
 
             document.getElementById('profileName').textContent = data.displayName;
+            document.getElementById('profileCrumbName').textContent = data.displayName;
             document.getElementById('profileOwned').textContent = `${data.ownedCount} items owned`;
             document.getElementById('profilePct').textContent = `${pct}% complete`;
             document.getElementById('profileUpdated').textContent = `Updated ${updated}`;
@@ -398,11 +402,11 @@
 
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td class="rank-col ${rankClass}">${rank}</td>
+                    <td class="rank-col"><span class="medal ${rankClass}">${rank}</span></td>
                     <td class="name-col"><a href="#profile/${profile.displayName.toLowerCase()}">${A.escapeHTML(profile.displayName)}</a></td>
-                    <td class="count-col">${profile.ownedCount}</td>
+                    <td class="count-col">${profile.ownedCount}<span class="lb-unit"> items</span></td>
                     <td class="pct-col">${pct}%</td>
-                    <td class="date-col">${updated}</td>
+                    <td class="date-col"><span class="lb-unit">Updated </span>${updated}</td>
                 `;
                 tbody.appendChild(tr);
             });

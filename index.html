@@ -607,24 +607,27 @@
 
     <!-- Profile View (rendered by JS) -->
     <div id="profileView" style="display:none;">
-        <div class="profile-header">
-            <div class="profile-info">
-                <h2 id="profileName"></h2>
-                <div class="profile-stats">
-                    <span id="profileOwned"></span>
-                    <span id="profilePct"></span>
-                    <span id="profileUpdated"></span>
-                </div>
+        <div class="page-head profile-header">
+            <nav aria-label="Breadcrumb">
+                <ol class="crumbs">
+                    <li><a href="./" id="profileBackBtn">Collection</a></li>
+                    <li aria-current="page" id="profileCrumbName"></li>
+                </ol>
+            </nav>
+            <h2 class="page-title" id="profileName"></h2>
+            <div class="profile-stats">
+                <span id="profileOwned"></span>
+                <span id="profilePct"></span>
+                <span id="profileUpdated"></span>
             </div>
-            <button id="profileBackBtn" class="btn btn-quiet">Back to Collection</button>
         </div>
         <div class="items-grid" id="profileItemsGrid"></div>
     </div>
 
     <!-- Leaderboard View (rendered by JS) -->
     <div id="leaderboardView" style="display:none;">
-        <div class="leaderboard-header">
-            <h2>Collector's Leaderboard</h2>
+        <div class="page-head">
+            <h2 class="page-title">Collector's Leaderboard</h2>
         </div>
         <p class="leaderboard-cta" id="leaderboardCta"></p>
         <div class="leaderboard-table-wrap">
@@ -645,8 +648,8 @@
 
     <!-- Reading Order View (rendered by js/reading.js) -->
     <div id="readingView" style="display:none;">
-        <div class="leaderboard-header">
-            <h2>Reading Order</h2>
+        <div class="page-head page-head-tight">
+            <h2 class="page-title">Reading Order</h2>
         </div>
         <div id="readingContent"></div>
     </div>

@@ -1352,7 +1352,8 @@ window.ACDB = window.ACDB || {};
         });
 
         // Profile back button
-        document.getElementById('profileBackBtn').addEventListener('click', () => {
+        document.getElementById('profileBackBtn').addEventListener('click', (e) => {
+            e.preventDefault();
             if (ACDB.getProfileFromLeaderboard()) {
                 document.getElementById('profileView').style.display = 'none';
                 window.location.hash = 'leaderboard';
