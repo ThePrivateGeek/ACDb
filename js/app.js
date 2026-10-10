@@ -532,7 +532,7 @@ window.ACDB = window.ACDB || {};
         dom.itemsContainer.innerHTML = '';
 
         if (items.length === 0) {
-            dom.noResults.style.display = 'block';
+            dom.noResults.style.display = '';   // the stylesheet's centred grid
             dom.resultsCount.textContent = '';
         } else {
             dom.noResults.style.display = 'none';

@@ -1966,6 +1966,7 @@ textarea:focus-visible {
 
 .no-results p {
     max-width: 48ch;
+    margin-inline: auto;
     color: var(--text-2);
     font-size: var(--fs-md);
 }
