@@ -35,7 +35,7 @@ IMAGES_JS = ROOT / "js" / "images.js"
 OUT_DIR = ROOT / "s"
 
 SITE = "https://acdb.theprivategeek.com"
-FALLBACK_IMAGE = "images/acdb-og-v2.jpg"
+FALLBACK_IMAGE = "images/acdb-og-v3.jpg"
 
 STR = r'"((?:[^"\\]|\\.)*)"'
 RE_IMG_ENTRY_INLINE = re.compile(r'^\s*' + STR + r'\s*:\s*\[(.*)\]\s*,?\s*$')

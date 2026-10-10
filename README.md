@@ -5,13 +5,7 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 **Live site:** [acdb.theprivategeek.com](https://acdb.theprivategeek.com)
 
 <p>
-  <img src="images/acdb.png" alt="ACDb Grid View" width="100%">
-</p>
-<p>
-  <img src="images/acdb_00.png" alt="ACDb Filters" width="100%">
-</p>
-<p>
-  <img src="images/acdb_01.png" alt="ACDb Item Detail" width="100%">
+  <img src="images/readme/collection.webp" alt="ACDb collection grid with the header, filters and game timeline" width="100%">
 </p>
 
 ## Features
@@ -40,6 +34,28 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 - **Responsive** — works on desktop, tablet, and mobile with touch swipe support. On phones the filters fold behind a **Filters** button that shows how many are active
 - **One design language** — the dark Animus-inspired look with gold for actions and progress, green for owned, purple for read and blue for wishlist, the same on every screen (see [Design system](#design-system))
 - **Accessible** — every control works from the keyboard with one visible focus ring, text meets WCAG AA contrast, toasts are announced to screen readers, and animations stop when the system asks for reduced motion
+
+## Screenshots
+
+**Filters and Collection Insights**: three games picked on the timeline, with completion by game and category, condition breakdown and reading progress.
+
+<p><img src="images/readme/filters.webp" alt="Collection filtered to three games with Collection Insights open" width="100%"></p>
+
+**Item card**: details, your collection fields and, for books, the reading order position and the Read switch.
+
+<p><img src="images/readme/item.webp" alt="Item card for Blade of Shao Jun, Vol. 1" width="100%"></p>
+
+**Reading Order**: Complete Lore in story order, with a filter by game, era sections and Up next.
+
+<p><img src="images/readme/reading.webp" alt="Complete Lore reading order" width="100%"></p>
+
+**A series page**: opened from By Series, with its header card, read progress and links to the series around it.
+
+<p><img src="images/readme/series.webp" alt="Blade of Shao Jun series page" width="100%"></p>
+
+**On a phone**: the collection with filters folded away, Complete Lore, a series page and an item card.
+
+<p><img src="images/readme/phone.webp" alt="Four phone screens: collection, reading order, series page, item card" width="100%"></p>
 
 ## How It Works
 
