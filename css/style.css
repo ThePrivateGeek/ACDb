@@ -1959,7 +1959,7 @@ textarea:focus-visible {
 
 .no-results p {
     color: var(--text-3);
-    font-size: var(--fs-lg);
+    font-size: 1.1rem;   /* the original size */
     font-style: italic;
 }
 
