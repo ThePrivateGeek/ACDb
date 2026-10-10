@@ -2634,6 +2634,73 @@ a.collection-action-btn {
     letter-spacing: 1.5px;
 }
 
+/* Era / release-year sections fold under their heading */
+.reading-fold > summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.reading-fold > summary::-webkit-details-marker {
+    display: none;
+}
+
+.reading-fold > summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.reading-fold .reading-section > span:first-child::before {
+    content: '';
+    display: inline-block;
+    width: 0.45em;
+    height: 0.45em;
+    margin: 0 0.75em 0.15em 0.1em;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.2s ease;
+}
+
+.reading-fold[open] .reading-section > span:first-child::before {
+    transform: rotate(45deg);
+}
+
+/* Folded sections stack closer, as a compact list of eras */
+.reading-fold > summary .reading-section {
+    margin-top: 1.25rem;
+}
+
+.reading-fold:not([open]) > summary .reading-section {
+    margin-bottom: 0;
+}
+
+.reading-fold > summary:hover .reading-section {
+    border-bottom-color: var(--accent-dark);
+}
+
+.reading-list-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+}
+
+.reading-fold-all {
+    margin: 0 0 0.5rem auto;
+    padding: 0.3rem 0;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.reading-fold-all:hover {
+    color: var(--accent);
+}
+
 .reading-section-count {
     font-family: var(--font-mono);
     font-size: 0.75rem;

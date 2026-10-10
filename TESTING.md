@@ -192,6 +192,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 ## 18. Reading Order
 - [ ] Reading Order tab in the header opens `#reading` and turns active (Leaderboard likewise for `#leaderboard`; a profile leaves no tab active): grid, toolbar and stats are hidden; tabs read Complete Lore (active), By Series, Oliver Bowden Novels, Non-canon Stories
 - [ ] Complete Lore: 120 entries under 9 era headings (Ancient World … Modern Day), each with a read count; numbering runs on across headings; Forgotten Myths #1 first, Escape Room Puzzle Book last; Trial by Fire #1–5 sit together at 1692
+- [ ] Era headings fold: all start open with a chevron and "Collapse all"; clicking a heading folds it (count stays visible) and the button turns to "Expand all"; folding survives marking books read and leaving/returning to the tab (until reload); "Up next" opens a folded section and lands on the book; release-year headings fold the same way; series and Bowden pages have no sections
 - [ ] Release mode on Complete Lore groups by release year; dates known only to the month show as "Nov 2009"
 - [ ] After marking something read, "Up next: …" appears and jumps to (and briefly highlights) the first unread book
 - [ ] Game filter on Complete Lore: chips "All 120", then games in timeline order (AC1 first), "Original stories 62" last. Picking Valhalla shows its 12 entries numbered 1–12 with "x / 12 read"; the address becomes `#reading/complete/valhalla` without adding a back-button step; All resets to `#reading/complete`

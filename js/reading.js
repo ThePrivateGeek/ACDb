@@ -25,6 +25,12 @@
     let currentGame = null;      // game filter (orders with "games": true), or null for all
     let currentSeries = null;    // slug of the open series page; null shows the list
 
+    // Open era/year sections per view (order, mode and game filter). All
+    // start open; folding is kept while the page is open so re-renders
+    // (Read switches, sync) don't undo it.
+    const openSections = new Map();
+    let sectionKey = null;       // the rendered view's key into openSections
+
     function getMode() {
         try {
             const mode = localStorage.getItem(MODE_KEY);
@@ -233,6 +239,7 @@
         const showList = currentOrderId === SERIES_TAB.id && !currentSeries;
         content.innerHTML = tabsHTML() + (showList ? seriesListHTML() : orderHTML(currentOrder()));
         restoreChipRow(chipScroll);
+        updateFoldAll();
     }
 
     function currentOrder() {
@@ -316,16 +323,30 @@
             section.rows.push(rowHTML(entry, idx));
             if (A.getItemData(entry.item).hasRead) section.read++;
         });
-        const list = sections.map(sec => `
-            ${sec.heading ? `<h4 class="reading-section"><span>${esc(sec.heading)}</span><span class="reading-section-count">${sec.read}/${sec.rows.length}</span></h4>` : ''}
-            <ol class="reading-list" start="${sec.start}">${sec.rows.join('')}</ol>`).join('');
-
         // Shortcut to the first unread book in the current mode.
-        const nextEntry = entries.find(e => !A.getItemData(e.item).hasRead);
-        const nextItem = nextEntry && A.findItemByRef(nextEntry.item);
+        const nextIndex = entries.findIndex(e => !A.getItemData(e.item).hasRead);
+        const nextItem = nextIndex >= 0 && A.findItemByRef(entries[nextIndex].item);
         const upNext = nextItem && readCount > 0
             ? `<button class="reading-up-next" data-jump="${nextItem.id}">Up next: ${esc(shortTitle(nextItem))}</button>`
             : '';
+
+        // Headed sections fold; see openSections.
+        const foldable = sections.length > 0 && sections[0].heading !== '';
+        sectionKey = foldable ? `${order.id}/${mode}/${currentGame || ''}` : null;
+        if (foldable && !openSections.has(sectionKey)) {
+            openSections.set(sectionKey, new Set(sections.map(sec => sec.heading)));
+        }
+        const open = foldable ? openSections.get(sectionKey) : null;
+        const list = sections.map(sec => {
+            const ol = `<ol class="reading-list" start="${sec.start}">${sec.rows.join('')}</ol>`;
+            if (!foldable) return ol;
+            return `
+                <details class="reading-fold" data-section="${esc(sec.heading)}"${open.has(sec.heading) ? ' open' : ''}>
+                    <summary><h4 class="reading-section"><span>${esc(sec.heading)}</span><span class="reading-section-count">${sec.read}/${sec.rows.length}</span></h4></summary>
+                    ${ol}
+                </details>`;
+        }).join('');
+        const foldAll = foldable && sections.length > 1 ? '<button class="reading-fold-all" data-fold-all></button>' : '';
 
         // A series page links back to the list, and out to the whole series
         // in the collection (collected editions included).
@@ -351,10 +372,19 @@
                     <div class="stats-bar-track"><div class="stats-bar-fill" style="width:${pct}%"></div></div>
                 </div>
             </div>
-            ${upNext}
+            ${upNext || foldAll ? `<div class="reading-list-tools">${upNext}${foldAll}</div>` : ''}
             ${list}
             ${SOURCES_HTML}
         `;
+    }
+
+    // "Collapse all" once every section is open, "Expand all" otherwise.
+    function updateFoldAll() {
+        const button = content.querySelector('[data-fold-all]');
+        if (!button) return;
+        const allOpen = [...content.querySelectorAll('.reading-fold')].every(fold => fold.open);
+        button.textContent = allOpen ? 'Collapse all' : 'Expand all';
+        button.dataset.foldAll = allOpen ? 'collapse' : 'expand';
     }
 
     // Series in story order (by where each one starts), non-canon last.
@@ -438,10 +468,18 @@
             A.applyExclusiveFilter('series', seriesLink.dataset.seriesFilter);
             return;
         }
+        const foldAllBtn = e.target.closest('[data-fold-all]');
+        if (foldAllBtn) {
+            const expand = foldAllBtn.dataset.foldAll === 'expand';
+            content.querySelectorAll('.reading-fold').forEach(fold => { fold.open = expand; });
+            return;   // each fold's toggle event updates openSections and the label
+        }
         const jumpBtn = e.target.closest('[data-jump]');
         if (jumpBtn) {
             const row = content.querySelector(`[data-entry="${jumpBtn.dataset.jump}"]`);
             if (row) {
+                const fold = row.closest('.reading-fold');
+                if (fold) fold.open = true;
                 row.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 row.classList.remove('flash');
                 void row.offsetWidth;   // restart the highlight animation
@@ -452,6 +490,17 @@
         const openBtn = e.target.closest('[data-open]');
         if (openBtn) A.openModalOverView(Number(openBtn.dataset.open));
     });
+
+    // A section opened or closed (by its heading, "Collapse all" or a jump).
+    // Toggle events don't bubble, so this listens in the capture phase.
+    content.addEventListener('toggle', (e) => {
+        const fold = e.target;
+        if (!fold.classList || !fold.classList.contains('reading-fold') || !sectionKey) return;
+        const open = openSections.get(sectionKey);
+        if (fold.open) open.add(fold.dataset.section);
+        else open.delete(fold.dataset.section);
+        updateFoldAll();
+    }, true);
 
     content.addEventListener('change', (e) => {
         const toggle = e.target.closest('[data-read]');
