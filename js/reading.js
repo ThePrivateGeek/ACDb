@@ -251,8 +251,8 @@
     // Complete Lore, By Series, then the other curated orders.
     function tabsHTML() {
         const tabs = [READING_ORDERS[0], SERIES_TAB, ...READING_ORDERS.slice(1)];
-        return `<nav class="reading-tabs">${tabs.map(t =>
-            `<a href="#reading/${t.id}" class="reading-tab${t.id === currentOrderId ? ' active' : ''}">${A.escapeHTML(t.name)}</a>`).join('')}</nav>`;
+        return `<nav class="tabs reading-tabs" aria-label="Reading orders">${tabs.map(t =>
+            `<a href="#reading/${t.id}" class="tab${t.id === currentOrderId ? ' active" aria-current="page' : ''}">${A.escapeHTML(t.name)}</a>`).join('')}</nav>`;
     }
 
     function readCountOf(entries) {
@@ -275,8 +275,8 @@
 
         const gameChips = order.games
             ? `<div class="reading-games" role="group" aria-label="Read with a game">
-                <button class="reading-game${!currentGame ? ' active' : ''}" data-game="" aria-pressed="${!currentGame}">All <span>${order.entries.length}</span></button>
-                ${gamesIn(order).map(g => `<button class="reading-game${g.game === currentGame ? ' active' : ''}" data-game="${esc(g.game)}" aria-pressed="${g.game === currentGame}" title="${esc(g.game === 'General' ? 'Original stories not tied to one game' : g.game)}">${esc(gameLabel(g.game))} <span>${g.count}</span></button>`).join('')}
+                <button class="chip reading-game${!currentGame ? ' active' : ''}" data-game="" aria-pressed="${!currentGame}">All <span class="chip-count">${order.entries.length}</span></button>
+                ${gamesIn(order).map(g => `<button class="chip reading-game${g.game === currentGame ? ' active' : ''}" data-game="${esc(g.game)}" aria-pressed="${g.game === currentGame}" title="${esc(g.game === 'General' ? 'Original stories not tied to one game' : g.game)}">${esc(gameLabel(g.game))} <span class="chip-count">${g.count}</span></button>`).join('')}
             </div>`
             : '';
 
@@ -364,8 +364,8 @@
             </div>
             ${gameChips}
             <div class="reading-bar">
-                <div class="reading-modes" role="group" aria-label="Reading order">
-                    ${MODES.map(m => `<button class="reading-mode${m === mode ? ' active' : ''}" data-mode="${m}" aria-pressed="${m === mode}">${m === 'chronological' ? 'Chronological' : 'Release'}</button>`).join('')}
+                <div class="seg reading-modes" role="group" aria-label="Reading order">
+                    ${MODES.map(m => `<button class="seg-btn reading-mode${m === mode ? ' active' : ''}" data-mode="${m}" aria-pressed="${m === mode}">${m === 'chronological' ? 'Chronological' : 'Release'}</button>`).join('')}
                 </div>
                 <div class="reading-progress">
                     <span class="reading-progress-text">${readCount} / ${entries.length} read</span>

@@ -181,11 +181,11 @@
                     <option value="">Default Order</option>
                 </select>
             </div>
-            <div class="view-controls">
-                <button id="viewGrid" class="view-btn active" title="Grid View">
+            <div class="seg view-controls" role="group" aria-label="Layout">
+                <button id="viewGrid" class="seg-btn view-btn active" title="Grid View" aria-label="Grid view" aria-pressed="true">
                     <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
                 </button>
-                <button id="viewList" class="view-btn" title="List View">
+                <button id="viewList" class="seg-btn view-btn" title="List View" aria-label="List view" aria-pressed="false">
                     <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="17" width="18" height="3" rx="1"/></svg>
                 </button>
                 <button id="addItemBtn" class="btn btn-secondary add-item-btn" title="Add Custom Item">
@@ -210,13 +210,10 @@
                 <span>Collection Insights</span>
                 <svg class="stats-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
             </button>
-            <div class="stats-sort-toggle" id="statsSortToggle" style="display:none;">
-                <span>Sort:</span>
-                <button class="stats-sort-btn active" data-sort="percent">%</button>
-                <span class="stats-sort-divider">|</span>
-                <button class="stats-sort-btn" data-sort="count">#</button>
-                <span class="stats-sort-divider">|</span>
-                <button class="stats-sort-btn" data-sort="timeline">Timeline</button>
+            <div class="seg stats-sort-toggle" id="statsSortToggle" role="group" aria-label="Sort insights" style="display:none;">
+                <button class="seg-btn stats-sort-btn active" data-sort="percent" aria-pressed="true" title="Sort by percentage">%</button>
+                <button class="seg-btn stats-sort-btn" data-sort="count" aria-pressed="false" title="Sort by count">#</button>
+                <button class="seg-btn stats-sort-btn" data-sort="timeline" aria-pressed="false" title="Sort by game release">Timeline</button>
             </div>
         </div>
         <div class="stats-panel" id="statsPanel">

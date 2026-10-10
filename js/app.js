@@ -425,6 +425,7 @@ window.ACDB = window.ACDB || {};
             } else {
                 btn.classList.toggle('active', selectedGames.has(btn.dataset.game));
             }
+            btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
         });
     }
 
@@ -455,14 +456,16 @@ window.ACDB = window.ACDB || {};
 
         // Timeline buttons
         const allBtn = document.createElement('button');
-        allBtn.className = 'timeline-btn active';
+        allBtn.className = 'chip timeline-btn active';
+        allBtn.setAttribute('aria-pressed', 'true');
         allBtn.textContent = 'All';
         allBtn.dataset.game = '';
         timelineInner.appendChild(allBtn);
 
         sortedGames.forEach(game => {
             const btn = document.createElement('button');
-            btn.className = 'timeline-btn';
+            btn.className = 'chip timeline-btn';
+            btn.setAttribute('aria-pressed', 'false');
             // Short display names
             btn.textContent = SHORT_GAME_NAMES[game] || game;
             btn.dataset.game = game;
@@ -975,8 +978,10 @@ window.ACDB = window.ACDB || {};
             btn.addEventListener('click', () => {
                 statsSortMode = btn.dataset.sort;
                 if (statsSortMode !== 'timeline') lastBarSortMode = statsSortMode;
-                document.querySelectorAll('.stats-sort-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+                document.querySelectorAll('.stats-sort-btn').forEach(b => {
+                    b.classList.toggle('active', b === btn);
+                    b.setAttribute('aria-pressed', String(b === btn));
+                });
                 renderStatsDashboard();
             });
         });
@@ -1096,17 +1101,15 @@ window.ACDB = window.ACDB || {};
         dom.sortBy.addEventListener('change', renderItems);
 
         // View toggle
-        dom.viewGrid.addEventListener('click', () => {
-            dom.viewGrid.classList.add('active');
-            dom.viewList.classList.remove('active');
-            dom.itemsContainer.classList.remove('list-view');
-        });
-
-        dom.viewList.addEventListener('click', () => {
-            dom.viewList.classList.add('active');
-            dom.viewGrid.classList.remove('active');
-            dom.itemsContainer.classList.add('list-view');
-        });
+        function setLayout(list) {
+            dom.viewList.classList.toggle('active', list);
+            dom.viewGrid.classList.toggle('active', !list);
+            dom.viewList.setAttribute('aria-pressed', String(list));
+            dom.viewGrid.setAttribute('aria-pressed', String(!list));
+            dom.itemsContainer.classList.toggle('list-view', list);
+        }
+        dom.viewGrid.addEventListener('click', () => setLayout(false));
+        dom.viewList.addEventListener('click', () => setLayout(true));
 
         // Timeline — toggle game in multi-select
         dom.gameTimeline.addEventListener('click', (e) => {
