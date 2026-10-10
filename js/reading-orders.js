@@ -30,7 +30,11 @@
    independently re-checked. Verified 2026-10-06. Added the same day:
    The Resurrection Plot, Les Sorcières des Landes, Forgotten Temple
    Vols. 5-7 (webtoon release dates) and Tales of Iga Vol. 2 (Japanese
-   release date), each checked against two sources.
+   release date), each checked against two sources. Added 2026-10-10:
+   Awakening Vol. 2, which holds chapters 7-12 (the six English single
+   issues stop at chapter 6), dated by chapter 7's Jump Kai ("Jump X")
+   on-sale date; no source prints years in the story, so its setting
+   follows its Nassau and King's Pardon plot (1717-1718).
 
    Placement rules: a unit sits where its main historical story happens;
    frame stories don't count unless the unit is mostly modern day. Story
@@ -216,6 +220,7 @@ const READING_ORDERS = [
       { "item": 632, "year": 1715, "setting": "c. 1715–1716", "released": "2013-11-09" },
       { "item": 633, "year": 1716, "setting": "c. 1716", "released": "2013-12-10" },
       { "item": 634, "year": 1716, "setting": "c. 1716", "released": "2014-01-10" },
+      { "item": 335, "year": 1716, "setting": "c. 1716–1718", "released": "2014-02-10" },
       { "item": 336, "year": 1971, "setting": "1971", "released": "2023-11-29" }
     ]
   }

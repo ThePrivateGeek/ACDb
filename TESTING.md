@@ -199,7 +199,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Desktop: the page is as wide as the main grid; the chips wrap (no sideways scrolling) and the list shows two numbered columns from about 1150px wide, one below
 - [ ] Phone width: the chip row scrolls sideways, the active chip is scrolled into view, and toggling a Read switch doesn't reset the row
 - [ ] Oliver Bowden Novels (`#reading/bowden`) lists 9 books, Desert Oath first, with no headings; Release puts Renaissance first and Desert Oath last; the mode choice survives a reload
-- [ ] Non-canon Stories (`#reading/non-canon`) lists 13 entries
+- [ ] Non-canon Stories (`#reading/non-canon`) lists 14 entries; Awakening Vol. 2 follows Awakening #6
 - [ ] By Series (`#reading/series`): "All series 24" in story order (Forgotten Myths first; Visionaries, Yan Leisheng, Awakening last as "Non-canon"); each row has a cover, types, era or era range ("Ancient World – Industrial Age" for Bowden), "read / total" and a bar; finished series get a purple border and ✓
 - [ ] Read a book in a series without finishing it: the series also appears under "Continue reading" at the top
 - [ ] A series row opens `#reading/series/<slug>` (Uprising: 12 issues starting at #5, as in Complete Lore) with "← All series", the count and types, and the usual modes, Read switches and "Up next"; browser back returns to the list

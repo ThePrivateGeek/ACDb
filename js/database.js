@@ -3556,7 +3556,7 @@ const AC_DATABASE = [
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2017,
     "category": "Comic Book",
-    "description": "Volume 1 of 2. Manga adaptation of Assassin's Creed IV: Black Flag. The title stars Edward Kenway in the 18th century and Yanao Seijin in the present as Seijin relives Edward's memories under the eye of Abstergo Industries. In 1715, pirates established a lawless republic in the Caribbean and ruled the land and seas. These outlaws paralyzed navies, halted international trade, and plundered vast fortunes. Into this world sails a young, cocky, and fearsome captain named Edward Kenway. Written by Takashi Yano. Art by Kenji Oiwa. Originally serialized in Shueisha's Jump X in 2013; English edition published by Titan Comics (August 2017).",
+    "description": "Volume 1 of 2. Manga adaptation of Assassin's Creed IV: Black Flag. The title stars Edward Kenway in the 18th century and Masato Yagyu in the present as Masato relives Edward's memories under the eye of Abstergo Industries. In 1715, pirates established a lawless republic in the Caribbean and ruled the land and seas. These outlaws paralyzed navies, halted international trade, and plundered vast fortunes. Into this world sails a young, cocky, and fearsome captain named Edward Kenway. Written by Takashi Yano. Art by Kenji Oiwa. Originally serialized in Shueisha's Jump X in 2013; English edition published by Titan Comics (August 2017).",
     "contents": "Paperback manga (224 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
