@@ -613,7 +613,7 @@ textarea:focus-visible {
     border-bottom: 1px solid var(--line);
     color: var(--gold);
     font-family: var(--font-display);
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
     font-weight: 600;
     line-height: 1.3;
     letter-spacing: var(--tracking-label);
@@ -734,7 +734,7 @@ textarea:focus-visible {
 }
 ::-webkit-scrollbar-thumb {
     background: var(--line-strong);
-    border-radius: 4px;
+    border-radius: var(--r-sm);
 }
 ::-webkit-scrollbar-thumb:hover {
     background: var(--gold-deep);
@@ -834,20 +834,20 @@ textarea:focus-visible {
     align-items: center;
     padding: 0.5rem 0.9rem;
     font-family: var(--font-display);
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
     color: var(--text-2);
-    border-radius: 6px;
+    border-radius: var(--r-md);
     transition: var(--transition);
 }
 
 .main-nav-link:hover {
     color: var(--text);
-    background: rgba(201, 168, 76, 0.08);
+    background: var(--gold-tint);
 }
 
 .main-nav-link.active {
@@ -874,7 +874,7 @@ textarea:focus-visible {
     padding: 0.35rem 0.6rem;
     background: transparent;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--r-md);
     color: var(--text-2);
     font-family: var(--font-body);
     cursor: pointer;
@@ -882,7 +882,7 @@ textarea:focus-visible {
 }
 
 .progress-meter:hover {
-    background: rgba(201, 168, 76, 0.1);
+    background: var(--gold-tint);
 }
 
 .progress-meter-text {
@@ -900,7 +900,7 @@ textarea:focus-visible {
 }
 
 .progress-meter-label {
-    font-size: 0.65rem;
+    font-size: var(--fs-label);
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -908,7 +908,7 @@ textarea:focus-visible {
 .progress-meter-pct {
     margin-left: auto;
     font-family: var(--font-data);
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     color: var(--text);
 }
 
@@ -932,7 +932,7 @@ textarea:focus-visible {
 .stat-number {
     display: block;
     font-family: var(--font-data);
-    font-size: 1.5rem;
+    font-size: var(--fs-xl);
     font-weight: 700;
     color: var(--gold);
     line-height: 1.2;
@@ -940,7 +940,7 @@ textarea:focus-visible {
 }
 
 .stat-label {
-    font-size: 0.65rem;
+    font-size: var(--fs-label);
     color: var(--text-2);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -988,16 +988,16 @@ textarea:focus-visible {
     padding: 0.6rem 2.5rem 0.6rem 2.5rem;
     background: var(--surface-page);
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: var(--r-md);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: var(--fs-md);
     transition: var(--transition);
 }
 
 #searchInput:focus {
     border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+    box-shadow: 0 0 0 3px var(--gold-tint);
 }
 
 #searchInput::placeholder {
@@ -1028,10 +1028,10 @@ textarea:focus-visible {
     padding: 0.6rem 2rem 0.6rem 0.75rem;
     background: var(--surface-page);
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: var(--r-md);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     cursor: pointer;
     transition: var(--transition);
     appearance: none;
@@ -1075,10 +1075,10 @@ textarea:focus-visible {
     padding: 0.6rem 0.75rem;
     background: var(--surface-page);
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: var(--r-md);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     cursor: pointer;
     transition: var(--transition);
     text-align: left;
@@ -1100,7 +1100,7 @@ textarea:focus-visible {
     height: 18px;
     line-height: 16px;
     text-align: center;
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     color: var(--text-3);
     border-radius: 50%;
     flex-shrink: 0;
@@ -1159,10 +1159,10 @@ textarea:focus-visible {
     padding: 0.4rem 0.6rem;
     background: var(--surface-bar);
     border: 1px solid var(--line);
-    border-radius: 5px;
+    border-radius: var(--r-sm);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
     transition: border-color 0.2s ease;
     border-bottom: 1px solid var(--line);
 }
@@ -1189,7 +1189,7 @@ textarea:focus-visible {
     padding: 0.45rem 0.75rem;
     cursor: pointer;
     transition: background 0.15s ease;
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     color: var(--text);
     white-space: nowrap;
 }
@@ -1217,7 +1217,7 @@ textarea:focus-visible {
     width: 16px;
     height: 16px;
     border: 1.5px solid var(--line-strong);
-    border-radius: 3px;
+    border-radius: var(--r-sm);
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -1306,7 +1306,7 @@ textarea:focus-visible {
     border: none;
     color: var(--gold);
     font-family: var(--font-display);
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
     font-weight: 600;
     letter-spacing: var(--tracking-label);
     text-transform: uppercase;
@@ -1378,14 +1378,14 @@ textarea:focus-visible {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
 }
 
 .stats-bar-row.clickable {
     cursor: pointer;
     padding: 0.15rem 0.35rem;
     margin: 0 -0.35rem;
-    border-radius: 4px;
+    border-radius: var(--r-sm);
     transition: background 0.15s ease;
 }
 
@@ -1425,7 +1425,7 @@ textarea:focus-visible {
     text-align: right;
     color: var(--text-3);
     font-family: var(--font-data);
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
     white-space: nowrap;
 }
 
@@ -1665,7 +1665,7 @@ textarea:focus-visible {
 
 /* ---- Results Count ---- */
 .results-count {
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     color: var(--text-2);
     margin-bottom: 0.75rem;
     font-family: var(--font-data);
@@ -1697,7 +1697,7 @@ textarea:focus-visible {
 .item-card {
     background: var(--surface-card);
     border: 1px solid var(--line);
-    border-radius: 12px;
+    border-radius: var(--r-lg);
     overflow: visible;
     cursor: pointer;
     transition: var(--transition);
@@ -1736,7 +1736,7 @@ textarea:focus-visible {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    border-radius: 12px 12px 0 0;
+    border-radius: var(--r-lg) var(--r-lg) 0 0;
 }
 
 /* "NEW" sticker for the most-recently-added items — sits rotated
@@ -1813,7 +1813,7 @@ textarea:focus-visible {
 }
 
 .card-game {
-    font-size: 0.7rem;
+    font-size: var(--fs-label);
     color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -1835,7 +1835,7 @@ textarea:focus-visible {
 }
 
 .card-description {
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
     color: var(--text-2);
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -1853,7 +1853,7 @@ textarea:focus-visible {
 
 .card-year {
     font-family: var(--font-data);
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     color: var(--text-3);
 }
 
@@ -2045,7 +2045,7 @@ textarea:focus-visible {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--surface-bar) 0%, var(--surface-page) 100%);
-    border-radius: 16px 0 0 16px;
+    border-radius: var(--r-xl) 0 0 var(--r-xl);
     min-height: 450px;
 }
 
@@ -2074,7 +2074,7 @@ textarea:focus-visible {
     max-width: 100%;
     max-height: 70vh;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: var(--r-md);
     animation: gallerySlideLeft 0.25s ease;
 }
 
@@ -2143,9 +2143,9 @@ textarea:focus-visible {
     background: rgba(0, 0, 0, 0.65);
     color: var(--text-2);
     font-family: var(--font-data);
-    font-size: 0.7rem;
+    font-size: var(--fs-label);
     padding: 3px 8px;
-    border-radius: 10px;
+    border-radius: var(--r-pill);
     display: none;
     z-index: 5;
 }
@@ -2234,7 +2234,7 @@ textarea:focus-visible {
 
 .modal-title {
     font-family: var(--font-display);
-    font-size: 1.4rem;
+    font-size: var(--fs-xl);
     font-weight: 700;
     color: var(--text);
     margin-bottom: 0.5rem;
@@ -2249,14 +2249,14 @@ textarea:focus-visible {
 }
 
 .modal-game {
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     color: var(--gold);
     font-weight: 600;
 }
 
 .modal-year {
     font-family: var(--font-data);
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     color: var(--text-3);
 }
 
@@ -2268,7 +2268,7 @@ textarea:focus-visible {
     flex-wrap: wrap;
     align-items: baseline;
     gap: 0.5rem;
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
 }
 
 .modal-series-row[hidden] {
@@ -2276,7 +2276,7 @@ textarea:focus-visible {
 }
 
 .modal-series-label {
-    font-size: 0.65rem;
+    font-size: var(--fs-label);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -2290,7 +2290,7 @@ textarea:focus-visible {
 
 .modal-series-count {
     font-family: var(--font-data);
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
     color: var(--text-3);
 }
 
@@ -2311,7 +2311,7 @@ textarea:focus-visible {
     flex-wrap: wrap;
     align-items: baseline;
     gap: 0.5rem;
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
 }
 
 .modal-reading-name {
@@ -2336,18 +2336,18 @@ textarea:focus-visible {
 
 /* Hint under a collected edition's Read switch */
 .modal-reading-collects {
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
     line-height: 1.5;
     color: var(--text-3);
 }
 
 .modal-reading-last {
     color: var(--text-3);
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
 }
 
 .modal-description {
-    font-size: 0.9rem;
+    font-size: var(--fs-md);
     color: var(--text-2);
     line-height: 1.7;
     margin-bottom: 1rem;
@@ -2362,7 +2362,7 @@ textarea:focus-visible {
 }
 
 .modal-contents-section p {
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     color: var(--text-2);
     line-height: 1.6;
 }
@@ -2402,7 +2402,7 @@ textarea:focus-visible {
 }
 
 .control-row label {
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     color: var(--text-2);
     font-weight: 500;
 }
@@ -2492,10 +2492,10 @@ textarea:focus-visible {
     padding: 0.5rem 2rem 0.5rem 0.75rem;
     background: var(--surface-bar);
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: var(--r-md);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     cursor: pointer;
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239a9a9a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
@@ -2514,7 +2514,7 @@ textarea:focus-visible {
     align-items: center;
     gap: 0;
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: var(--r-md);
     overflow: hidden;
 }
 
@@ -2524,7 +2524,7 @@ textarea:focus-visible {
     background: var(--surface-bar);
     border: none;
     color: var(--text);
-    font-size: 1rem;
+    font-size: var(--fs-base);
     cursor: pointer;
     transition: var(--transition);
     display: flex;
@@ -2546,7 +2546,7 @@ textarea:focus-visible {
     border-right: 1px solid var(--line);
     color: var(--text);
     font-family: var(--font-data);
-    font-size: 0.9rem;
+    font-size: var(--fs-md);
     padding: 0.35rem 0;
     -moz-appearance: textfield;
 }
@@ -2562,10 +2562,10 @@ textarea:focus-visible {
     padding: 0.6rem;
     background: var(--surface-bar);
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: var(--r-md);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     resize: vertical;
     transition: var(--transition);
 }
@@ -2583,10 +2583,10 @@ textarea:focus-visible {
     padding: 0.5rem 0.75rem;
     background: var(--surface-bar);
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: var(--r-md);
     color: var(--text);
     font-family: var(--font-data);
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     transition: var(--transition);
     width: 140px;
 }
@@ -2695,7 +2695,7 @@ textarea:focus-visible {
 }
 
 .share-preview-stat .stat-number {
-    font-size: 1.3rem;
+    font-size: var(--fs-xl);
 }
 
 .share-success {
@@ -2740,7 +2740,7 @@ textarea:focus-visible {
 
 .share-manage-name {
     text-align: center;
-    font-size: 1rem;
+    font-size: var(--fs-base);
     color: var(--text-2);
     margin-bottom: 0.5rem;
 }
@@ -2800,7 +2800,7 @@ textarea:focus-visible {
 .reading-description {
     max-width: 75ch;
     color: var(--text-2);
-    font-size: 0.9rem;
+    font-size: var(--fs-md);
     line-height: 1.6;
     margin-bottom: 1.25rem;
 }
@@ -2856,7 +2856,7 @@ textarea:focus-visible {
 
 .reading-num {
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: var(--fs-lg);
     color: var(--gold);
     text-align: center;
 }
@@ -2866,7 +2866,7 @@ textarea:focus-visible {
     height: 72px;
     padding: 0;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--r-sm);
     overflow: hidden;
     background: var(--surface-bar);
     cursor: pointer;
@@ -2891,7 +2891,7 @@ textarea:focus-visible {
     border: none;
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: var(--fs-base);
     font-weight: 600;
     text-align: left;
     cursor: pointer;
@@ -2906,7 +2906,7 @@ textarea:focus-visible {
     flex-wrap: wrap;
     gap: 0.25rem 1rem;
     margin-top: 0.3rem;
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
     color: var(--text-3);
 }
 
@@ -2923,13 +2923,13 @@ textarea:focus-visible {
     align-items: center;
     gap: 0.6rem;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
     color: var(--text-2);
 }
 
 .reading-sources {
     margin-top: 1.5rem;
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     color: var(--text-3);
     line-height: 1.6;
 }
@@ -2955,7 +2955,7 @@ textarea:focus-visible {
 .reading-fold > summary:focus-visible {
     outline: 2px solid var(--gold);
     outline-offset: 2px;
-    border-radius: 4px;
+    border-radius: var(--r-sm);
 }
 
 .reading-fold .reading-section > span:first-child::before {
@@ -3008,7 +3008,7 @@ textarea:focus-visible {
 }
 
 @keyframes reading-flash {
-    0%, 40% { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.35); }
+    0%, 40% { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-glow); }
     100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
 }
 
@@ -3140,7 +3140,7 @@ textarea:focus-visible {
     display: block;
     width: 40px;
     height: 60px;
-    border-radius: 4px;
+    border-radius: var(--r-sm);
     overflow: hidden;
     background: var(--surface-bar);
 }
@@ -3173,7 +3173,7 @@ textarea:focus-visible {
 
 .series-meta {
     color: var(--text-3);
-    font-size: 0.8rem;
+    font-size: var(--fs-sm);
 }
 
 .series-progress {
@@ -3256,7 +3256,7 @@ textarea:focus-visible {
     width: 100%;
     border-collapse: collapse;
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: var(--fs-md);
 }
 
 .leaderboard-table th {
@@ -3339,7 +3339,7 @@ textarea:focus-visible {
     gap: 0.75rem;
     margin: -0.5rem 0 1.25rem;
     color: var(--text-3);
-    font-size: 0.9rem;
+    font-size: var(--fs-md);
 }
 
 .leaderboard-loading {
@@ -3520,7 +3520,7 @@ textarea:focus-visible {
     }
     .modal-image-section {
         min-height: 250px;
-        border-radius: 16px 16px 0 0;
+        border-radius: var(--r-xl) var(--r-xl) 0 0;
     }
     /* Single-column layout puts the gallery under the floating share/close
        buttons — move the image counter to the opposite corner. */
@@ -3569,7 +3569,7 @@ textarea:focus-visible {
     }
 
     .main-nav-link {
-        font-size: 0.7rem;
+        font-size: var(--fs-label);
         letter-spacing: 1px;
     }
 
@@ -3716,7 +3716,7 @@ textarea:focus-visible {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.7rem;
+    font-size: var(--fs-label);
     color: var(--text-3);
     cursor: pointer;
 }
@@ -3766,10 +3766,10 @@ textarea:focus-visible {
     padding: 0.75rem;
     background: var(--surface-page);
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: var(--r-md);
     color: var(--cond-mint);
     font-family: var(--font-data);
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
     line-height: 1.5;
     resize: none;
     white-space: pre;
@@ -3902,12 +3902,12 @@ textarea:focus-visible {
     }
 
     .main-nav-link {
-        font-size: 0.65rem;
+        font-size: var(--fs-label);
         letter-spacing: 0.5px;
     }
 
     .stat-number {
-        font-size: 1.2rem;
+        font-size: var(--fs-lg);
     }
 
     .items-grid {
@@ -3929,7 +3929,7 @@ textarea:focus-visible {
     }
 
     .progress-meter-pct {
-        font-size: 0.75rem;
+        font-size: var(--fs-xs);
     }
 }
 
@@ -3965,7 +3965,7 @@ textarea:focus-visible {
     background: var(--gold-deep);
     color: var(--gold);
     font-family: var(--font-data);
-    font-size: 0.65rem;
+    font-size: var(--fs-label);
     font-weight: 700;
 }
 
@@ -4007,7 +4007,7 @@ textarea:focus-visible {
 .account-menu-email {
     padding: 0.5rem 0.9rem 0.15rem;
     color: var(--text);
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
     font-weight: 600;
     word-break: break-all;
 }
@@ -4017,7 +4017,7 @@ textarea:focus-visible {
     margin-bottom: 0.3rem;
     border-bottom: 1px solid var(--line);
     color: var(--text-3);
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
 }
 
 .account-menu-item {
@@ -4061,7 +4061,7 @@ textarea:focus-visible {
 .account-menu-hint {
     margin-top: 0.4rem;
     color: var(--text-3);
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
 }
 
 .account-menu-sep {
@@ -4140,7 +4140,7 @@ textarea:focus-visible {
 .merge-question {
     margin-bottom: 0.75rem;
     color: var(--text-2);
-    font-size: 0.85rem;
+    font-size: var(--fs-md);
 }
 
 .merge-options {
@@ -4170,7 +4170,7 @@ textarea:focus-visible {
 
     .sync-banner p {
         flex: 1 1 calc(100% - 70px);
-        font-size: 0.85rem;
+        font-size: var(--fs-md);
     }
 
     .sync-banner-close {
@@ -4220,14 +4220,14 @@ textarea:focus-visible {
 
 .legal-page h1 {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: var(--fs-2xl);
     color: var(--gold);
     margin-bottom: 0.25rem;
 }
 
 .legal-page h2 {
     font-family: var(--font-display);
-    font-size: 1.15rem;
+    font-size: var(--fs-lg);
     color: var(--text);
     margin: 2rem 0 0.5rem;
 }
@@ -4259,7 +4259,7 @@ textarea:focus-visible {
 
 .legal-updated {
     color: var(--text-3);
-    font-size: 0.8rem !important;
+    font-size: var(--fs-sm) !important;
 }
 
 @media (max-width: 768px) {

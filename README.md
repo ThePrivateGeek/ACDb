@@ -82,7 +82,7 @@ Sharing is entirely optional. Your local collection works independently — shar
 
 ### Design system
 
-`css/style.css` starts with the design tokens (colours by role, type scale, spacing, radii, shadows, motion, focus ring) and the shared components; the per-view styles below use only those. Keep to them when adding UI:
+`css/style.css` starts with the design tokens (colours by role, type scale, spacing, radii, shadows, motion, focus ring) and the shared components; the per-view styles below build on those. The only literal sizes left are brand pieces (the logo, the header meter's numbers, the Google button, the NEW sticker, the lightbox). Keep to them when adding UI:
 
 - **Colour meanings** — gold for interaction, selection and progress (every progress bar is gold); green = owned (and Publish), purple = read, blue = wishlist mark the state of one item (badges, borders, switches, "complete" checks); red only for danger and the NEW sticker.
 - **Type** — Cinzel for titles and section headings, Raleway (lining numerals) for everything else, JetBrains Mono for counts and fractions.
