@@ -3247,6 +3247,13 @@ textarea:focus-visible {
     color: var(--text-2);
 }
 
+.profile-stat {
+    color: var(--gold);
+    font-family: var(--font-data);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
 /* ---- Leaderboard ---- */
 .leaderboard-table-wrap {
     overflow-x: auto;

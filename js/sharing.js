@@ -345,8 +345,9 @@
 
             document.getElementById('profileName').textContent = data.displayName;
             document.getElementById('profileCrumbName').textContent = data.displayName;
-            document.getElementById('profileOwned').textContent = `${data.ownedCount} items owned`;
-            document.getElementById('profilePct').textContent = `${pct}% complete`;
+            // The figures in gold mono, like other counts (both are numbers, so no escaping)
+            document.getElementById('profileOwned').innerHTML = `<span class="profile-stat">${Number(data.ownedCount)}</span> items owned`;
+            document.getElementById('profilePct').innerHTML = `<span class="profile-stat">${pct}%</span> complete`;
             document.getElementById('profileUpdated').textContent = `Updated ${updated}`;
 
             // Render owned items as cards
