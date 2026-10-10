@@ -301,7 +301,7 @@
                     </div>
                     <label class="reading-toggle">
                         <span class="reading-toggle-text">Read</span>
-                        <div class="toggle-switch">
+                        <div class="toggle-switch toggle-read">
                             <input type="checkbox" data-read="${item.id}"${data.hasRead ? ' checked' : ''}>
                             <span class="toggle-slider"></span>
                         </div>
@@ -342,7 +342,7 @@
             if (!foldable) return ol;
             return `
                 <details class="reading-fold" data-section="${esc(sec.heading)}"${open.has(sec.heading) ? ' open' : ''}>
-                    <summary><h4 class="reading-section"><span>${esc(sec.heading)}</span><span class="reading-section-count">${sec.read}/${sec.rows.length}</span></h4></summary>
+                    <summary><h4 class="section-head reading-section"><span>${esc(sec.heading)}</span><span class="section-head-count">${sec.read}/${sec.rows.length}</span></h4></summary>
                     ${ol}
                 </details>`;
         }).join('');
@@ -368,8 +368,8 @@
                     ${MODES.map(m => `<button class="seg-btn reading-mode${m === mode ? ' active' : ''}" data-mode="${m}" aria-pressed="${m === mode}">${m === 'chronological' ? 'Chronological' : 'Release'}</button>`).join('')}
                 </div>
                 <div class="reading-progress">
-                    <span class="reading-progress-text">${readCount} / ${entries.length} read</span>
-                    <div class="stats-bar-track"><div class="stats-bar-fill" style="width:${pct}%"></div></div>
+                    <span class="progress-count reading-progress-text">${readCount} / ${entries.length} read</span>
+                    <span class="progress"><span class="progress-fill" style="width:${pct}%"></span></span>
                 </div>
             </div>
             ${upNext || foldAll ? `<div class="reading-list-tools">${upNext}${foldAll}</div>` : ''}
@@ -408,8 +408,8 @@
                             <span class="series-meta">${esc(kinds.charAt(0).toUpperCase() + kinds.slice(1))}${when ? ` · ${esc(when)}` : ''}</span>
                         </span>
                         <span class="series-progress">
-                            <span class="series-count">${done ? '<span class="series-done" aria-label="Finished">&#10003;</span> ' : ''}${read} / ${total}</span>
-                            <span class="stats-bar-track"><span class="stats-bar-fill" style="width:${Math.round((read / total) * 100)}%"></span></span>
+                            <span class="progress-count${done ? ' done-read' : ''}">${done ? '<span aria-label="Finished">&#10003;</span> ' : ''}${read} / ${total}</span>
+                            <span class="progress"><span class="progress-fill" style="width:${Math.round((read / total) * 100)}%"></span></span>
                         </span>
                     </a>
                 </li>`;
@@ -419,7 +419,7 @@
             return read > 0 && read < s.entries.length;
         });
         const section = (title, list) => `
-            <h4 class="reading-section"><span>${title}</span><span class="reading-section-count">${list.length}</span></h4>
+            <h4 class="section-head reading-section"><span>${title}</span><span class="section-head-count">${list.length}</span></h4>
             <ul class="series-list">${list.map(rowHTML).join('')}</ul>`;
         return `
             <div class="reading-intro">

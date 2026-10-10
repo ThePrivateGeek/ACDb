@@ -219,19 +219,19 @@
         <div class="stats-panel" id="statsPanel">
             <div class="stats-grid">
                 <div class="stats-section">
-                    <h4>By Game</h4>
+                    <h4 class="section-head">By Game</h4>
                     <div class="stats-bars" id="statsByGame"></div>
                 </div>
                 <div class="stats-section">
-                    <h4>By Category</h4>
+                    <h4 class="section-head">By Category</h4>
                     <div class="stats-bars" id="statsByCategory"></div>
                 </div>
                 <div class="stats-section">
-                    <h4>Condition Breakdown</h4>
+                    <h4 class="section-head">Condition Breakdown</h4>
                     <div class="stats-bars" id="statsByCondition"></div>
                 </div>
                 <div class="stats-section">
-                    <h4>Reading Progress</h4>
+                    <h4 class="section-head">Reading Progress</h4>
                     <div class="stats-bars" id="statsReading"></div>
                 </div>
             </div>
@@ -279,8 +279,8 @@
                 </div>
                 <div class="modal-details">
                     <div class="modal-badges-row">
-                        <div class="modal-badge" id="modalBadge"></div>
-                        <div class="modal-badge modal-badge-type" id="modalBadgeType"></div>
+                        <div class="badge badge-accent modal-badge" id="modalBadge"></div>
+                        <div class="badge badge-plain modal-badge" id="modalBadgeType"></div>
                     </div>
                     <h2 class="modal-title" id="modalTitle"></h2>
                     <div class="modal-meta">
@@ -295,7 +295,7 @@
                     </div>
                     <p class="modal-description" id="modalDescription"></p>
                     <div class="modal-contents-section">
-                        <h3>Contents</h3>
+                        <h3 class="section-head">Contents</h3>
                         <p id="modalContents"></p>
                     </div>
                     <a class="btn btn-secondary modal-read-link" id="modalReadLink" target="_blank" rel="noopener noreferrer" hidden>
@@ -307,12 +307,12 @@
                     <div id="modalCollectionSection">
                         <div class="modal-divider"></div>
 
-                        <h3 class="collection-heading">My Collection</h3>
+                        <h3 class="section-head collection-heading">My Collection</h3>
                         <div class="collection-controls">
                             <div class="control-row">
                                 <label class="toggle-label">
                                     <span>Owned</span>
-                                    <div class="toggle-switch">
+                                    <div class="toggle-switch toggle-owned">
                                         <input type="checkbox" id="modalOwned">
                                         <span class="toggle-slider"></span>
                                     </div>
@@ -321,7 +321,7 @@
                             <div class="control-row">
                                 <label class="toggle-label">
                                     <span>Wishlist</span>
-                                    <div class="toggle-switch">
+                                    <div class="toggle-switch toggle-wish">
                                         <input type="checkbox" id="modalWishlist">
                                         <span class="toggle-slider"></span>
                                     </div>
@@ -372,12 +372,12 @@
 
                         <div id="modalReadingSection" hidden>
                             <div class="modal-divider"></div>
-                            <h3 class="collection-heading">Reading</h3>
+                            <h3 class="section-head collection-heading">Reading</h3>
                             <div class="collection-controls">
                                 <div class="control-row">
                                     <label class="toggle-label">
                                         <span>Read</span>
-                                        <div class="toggle-switch">
+                                        <div class="toggle-switch toggle-read">
                                             <input type="checkbox" id="modalHasRead">
                                             <span class="toggle-slider"></span>
                                         </div>

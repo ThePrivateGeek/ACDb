@@ -580,7 +580,7 @@ window.ACDB = window.ACDB || {};
         card.dataset.id = item.id;
 
         const conditionHTML = data.condition
-            ? `<span class="card-condition condition-${data.condition}">${formatCondition(data.condition)}</span>`
+            ? `<span class="badge card-condition condition-${data.condition}">${formatCondition(data.condition)}</span>`
             : '';
 
         const thumbPath = Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : null;
@@ -606,11 +606,6 @@ window.ACDB = window.ACDB || {};
                     ${data.wishlist && !data.owned ? '<span class="badge badge-wishlist">Wishlist</span>' : ''}
                     ${data.hasRead && ACDB.isReadable(item) ? '<span class="badge badge-read">Read</span>' : ''}
                 </div>
-                <div class="card-owned-indicator">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                        <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                </div>
             </div>
             <div class="card-body">
                 <div class="card-game">${escapeHTML(item.game)}</div>
@@ -618,7 +613,7 @@ window.ACDB = window.ACDB || {};
                 <div class="card-description">${escapeHTML(item.description)}</div>
                 <div class="card-footer">
                     <span class="card-year">${item.year}</span>
-                    <span class="card-type">${escapeHTML(item.type)}</span>
+                    <span class="badge badge-plain card-type">${escapeHTML(item.type)}</span>
                     ${conditionHTML}
                 </div>
             </div>

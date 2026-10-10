@@ -525,6 +525,120 @@ textarea:focus-visible {
     color: var(--gold);
 }
 
+/* ============================================
+   Components: status and progress
+   ============================================ */
+
+/* Badges: the state of one item, never interactive */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    padding: 0 7px;
+    border-radius: var(--r-sm);
+    font-family: var(--font-body);
+    font-size: var(--fs-label);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.badge-owned { background: var(--owned-solid); color: #fff; }
+.badge-wishlist { background: var(--wish-solid); color: #fff; }
+.badge-read { background: var(--read-solid); color: #fff; }
+
+.badge-accent {
+    background: var(--gold-tint-2);
+    color: var(--gold);
+}
+
+.badge-plain {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-2);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.condition-mint { background: rgba(26, 188, 156, 0.15); color: var(--cond-mint); }
+.condition-near-mint { background: rgba(46, 204, 113, 0.15); color: var(--cond-near-mint); }
+.condition-excellent { background: rgba(39, 174, 96, 0.15); color: var(--owned-text); }
+.condition-good { background: rgba(243, 156, 18, 0.15); color: var(--cond-good); }
+.condition-fair { background: rgba(230, 126, 34, 0.15); color: var(--cond-fair); }
+.condition-poor { background: rgba(231, 76, 60, 0.15); color: var(--danger-text); }
+
+/* Progress: gold measures progress; a status colour marks "complete" */
+.progress {
+    display: block;
+    height: 6px;
+    border-radius: var(--r-pill);
+    background: var(--line);
+    overflow: hidden;
+}
+
+.progress-fill {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--gold);
+    transition: width 0.4s ease;
+}
+
+.progress-thin {
+    height: 4px;
+}
+
+.progress-count {
+    font-family: var(--font-data);
+    font-size: var(--fs-sm);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-2);
+    white-space: nowrap;
+}
+
+.done-read { color: var(--read-text); }
+.done-owned { color: var(--owned-text); }
+
+/* Section heading: Cinzel overline with an optional count on the right */
+.section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s4);
+    margin: 0;
+    padding-bottom: var(--s2);
+    border-bottom: 1px solid var(--line);
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+.section-head-count {
+    font-family: var(--font-data);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--text-3);
+}
+
+/* Small uppercase label (meta labels, form labels, table headers) */
+.label {
+    font-family: var(--font-body);
+    font-size: var(--fs-label);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--text-3);
+}
+
 /* ---- Ambient Background ---- */
 .ambient-bg {
     position: fixed;
@@ -747,7 +861,7 @@ textarea:focus-visible {
 .progress-meter-bar {
     display: block;
     height: 4px;
-    border-radius: 2px;
+    border-radius: var(--r-pill);
     background: var(--line);
     overflow: hidden;
 }
@@ -756,8 +870,8 @@ textarea:focus-visible {
     display: block;
     width: 0;
     height: 100%;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--gold-deep), var(--gold));
+    border-radius: inherit;
+    background: var(--gold);
     transition: width 0.6s ease;
 }
 
@@ -1176,12 +1290,7 @@ textarea:focus-visible {
 }
 
 .stats-section h4 {
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    color: var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--s3);
 }
 
 .stats-bars {
@@ -1227,21 +1336,16 @@ textarea:focus-visible {
 
 .stats-bar-track {
     flex: 1;
-    height: 6px;
-    background: var(--line);
-    border-radius: 3px;
-    overflow: hidden;
 }
 
-.stats-bar-fill {
-    height: 100%;
-    background: var(--gold);
-    border-radius: 3px;
-    transition: width 0.4s ease;
+.stats-summary .stats-bar-label,
+.stats-summary .stats-bar-value {
+    color: var(--gold);
 }
 
-.stats-bar-fill.green {
-    background: var(--owned);
+.stats-empty {
+    font-size: var(--fs-sm);
+    color: var(--text-3);
 }
 
 .stats-bar-value {
@@ -1254,18 +1358,16 @@ textarea:focus-visible {
 }
 
 .stats-bar-pct {
+    margin-left: 0.25rem;
     color: var(--gold);
-    margin-left: 0.25rem;
 }
 
-.stats-bar-pct.complete {
-    color: var(--owned);
+.stats-bar-pct.done-owned {
+    color: var(--owned-text);
 }
 
-.stats-complete-badge {
-    color: var(--owned);
-    font-size: 0.75rem;
-    margin-left: 0.25rem;
+.stats-bar-pct.done-read {
+    color: var(--read-text);
 }
 
 /* ---- Toast Notification ---- */
@@ -1611,60 +1713,6 @@ textarea:focus-visible {
     flex-wrap: wrap;
 }
 
-.badge {
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.badge-owned {
-    background: rgba(39, 174, 96, 0.9);
-    color: #fff;
-}
-
-.badge-wishlist {
-    background: rgba(52, 152, 219, 0.9);
-    color: #fff;
-}
-
-.badge-read {
-    background: rgba(142, 68, 173, 0.9);
-    color: #fff;
-}
-
-.badge-category {
-    background: rgba(201, 168, 76, 0.9);
-    color: #1a1a1a;
-}
-
-.card-owned-indicator {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--owned);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.4);
-    display: none;
-}
-
-.item-card.owned .card-owned-indicator {
-    display: flex;
-}
-
-.card-owned-indicator svg {
-    width: 16px;
-    height: 16px;
-    color: #fff;
-}
-
 .card-body {
     padding: 1rem;
 }
@@ -1714,29 +1762,6 @@ textarea:focus-visible {
     color: var(--text-3);
 }
 
-.card-type {
-    font-size: 0.7rem;
-    color: var(--text-3);
-    padding: 2px 8px;
-    border: 1px solid var(--line);
-    border-radius: 4px;
-}
-
-.card-condition {
-    font-size: 0.65rem;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.condition-mint { background: rgba(26, 188, 156, 0.15); color: var(--cond-mint); }
-.condition-near-mint { background: rgba(46, 204, 113, 0.15); color: var(--cond-near-mint); }
-.condition-excellent { background: rgba(39, 174, 96, 0.15); color: var(--cond-excellent); }
-.condition-good { background: rgba(243, 156, 18, 0.15); color: var(--cond-good); }
-.condition-fair { background: rgba(230, 126, 34, 0.15); color: var(--cond-fair); }
-.condition-poor { background: rgba(231, 76, 60, 0.15); color: var(--cond-poor); }
 
 /* ---- List View Cards ---- */
 .items-grid.list-view .item-card {
@@ -2031,21 +2056,7 @@ textarea:focus-visible {
 }
 
 .modal-badge {
-    display: inline-block;
-    padding: 4px 10px;
-    background: rgba(201, 168, 76, 0.15);
-    color: var(--gold);
-    border-radius: 4px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-.modal-badge-type {
-    background: rgba(201, 168, 76, 0.08);
-    color: var(--text-2);
-    font-weight: 500;
+    font-size: var(--fs-xs);
 }
 
 .modal-badge.filter-link,
@@ -2054,12 +2065,12 @@ textarea:focus-visible {
     cursor: pointer;
 }
 
-.modal-badge.filter-link:hover {
-    background: rgba(201, 168, 76, 0.3);
+.badge-accent.filter-link:hover {
+    background: rgba(201, 168, 76, 0.28);
 }
 
-.modal-badge-type.filter-link:hover {
-    background: rgba(201, 168, 76, 0.2);
+.badge-plain.filter-link:hover {
+    background: rgba(255, 255, 255, 0.12);
     color: var(--text);
 }
 
@@ -2201,13 +2212,8 @@ textarea:focus-visible {
     margin-bottom: 1rem;
 }
 
-.modal-contents-section h3 {
-    font-family: var(--font-display);
-    font-size: 0.85rem;
-    color: var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
+.modal-contents-section .section-head {
+    margin-bottom: var(--s2);
 }
 
 .modal-contents-section p {
@@ -2229,18 +2235,12 @@ textarea:focus-visible {
 }
 
 .modal-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
-    margin: 1.5rem 0;
+    height: 0;
+    margin: var(--s5) 0 0;
 }
 
 .collection-heading {
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    color: var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
+    margin-bottom: var(--s4);
 }
 
 .collection-controls {
@@ -2297,23 +2297,22 @@ textarea:focus-visible {
 
 .toggle-slider {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: var(--line);
-    border-radius: 24px;
+    border: 1px solid var(--line-control);
+    border-radius: var(--r-pill);
     transition: var(--transition);
-    cursor: pointer;
+    pointer-events: none;
 }
 
 .toggle-slider::before {
     content: '';
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     left: 3px;
-    bottom: 3px;
+    top: 50%;
+    margin-top: -8px;
     background: var(--text-2);
     border-radius: 50%;
     transition: var(--transition);
@@ -2321,6 +2320,22 @@ textarea:focus-visible {
 
 .toggle-switch input:checked + .toggle-slider {
     background: var(--gold);
+    border-color: var(--gold);
+}
+
+.toggle-owned input:checked + .toggle-slider {
+    background: var(--owned);
+    border-color: var(--owned);
+}
+
+.toggle-wish input:checked + .toggle-slider {
+    background: var(--wish);
+    border-color: var(--wish);
+}
+
+.toggle-read input:checked + .toggle-slider {
+    background: var(--read);
+    border-color: var(--read);
 }
 
 .toggle-switch input:checked + .toggle-slider::before {
@@ -2672,15 +2687,12 @@ textarea:focus-visible {
     flex: 0 1 280px;
 }
 
-.reading-progress-text {
-    font-family: var(--font-data);
-    font-size: 0.8rem;
-    color: var(--text-2);
-    white-space: nowrap;
+.reading-progress .progress {
+    flex: 1;
 }
 
-.reading-progress .stats-bar-track {
-    flex: 1;
+.reading-progress-text {
+    font-size: var(--fs-sm);
 }
 
 /* Two columns where there's room, read left to right like the main grid */
@@ -2792,18 +2804,7 @@ textarea:focus-visible {
 }
 
 .reading-section {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
     margin: 1.75rem 0 0.75rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid var(--line);
-    font-family: var(--font-display);
-    font-size: 0.8rem;
-    color: var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
 }
 
 /* Era / release-year sections fold under their heading */
@@ -2863,13 +2864,6 @@ textarea:focus-visible {
     font-size: var(--fs-md);
 }
 
-.reading-section-count {
-    font-family: var(--font-data);
-    font-size: 0.75rem;
-    letter-spacing: 0;
-    color: var(--text-3);
-}
-
 .reading-up-next {
     margin-bottom: 0.5rem;
 }
@@ -2888,6 +2882,10 @@ textarea:focus-visible {
     display: inline-block;
     margin-bottom: 0.75rem;
     font-size: var(--fs-md);
+}
+
+.series-progress .progress {
+    width: 100%;
 }
 
 .series-list {
@@ -2965,26 +2963,6 @@ textarea:focus-visible {
     flex-direction: column;
     align-items: flex-end;
     gap: 0.35rem;
-}
-
-.series-progress .stats-bar-track {
-    flex: none;   /* the shared flex: 1 would collapse its height in this column */
-    width: 100%;
-}
-
-.series-progress .stats-bar-fill {
-    display: block;   /* a span here, not the usual div */
-}
-
-.series-count {
-    font-family: var(--font-data);
-    font-size: 0.8rem;
-    color: var(--text-2);
-    white-space: nowrap;
-}
-
-.series-done {
-    color: #b57edc;
 }
 
 @media (max-width: 768px) {
