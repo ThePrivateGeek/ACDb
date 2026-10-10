@@ -373,9 +373,9 @@
         const ctaEl = document.getElementById('leaderboardCta');
         if (isShared()) {
             const name = getShareName();
-            ctaEl.innerHTML = `You're on the board as <a href="#profile/${name.toLowerCase()}">${A.escapeHTML(name)}</a>`;
+            ctaEl.innerHTML = `You're on the board as <a class="link" href="#profile/${name.toLowerCase()}">${A.escapeHTML(name)}</a>`;
         } else {
-            ctaEl.innerHTML = '<span>Want to be on here?</span><button class="collection-action-btn share-btn" id="leaderboardShareLink">Join the Leaderboard</button>';
+            ctaEl.innerHTML = '<span>Want to be on here?</span><button class="btn btn-sm btn-publish" id="leaderboardShareLink">Join the Leaderboard</button>';
             document.getElementById('leaderboardShareLink').addEventListener('click', openShareModal);
         }
 

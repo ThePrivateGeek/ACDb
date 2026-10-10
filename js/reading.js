@@ -327,7 +327,7 @@
         const nextIndex = entries.findIndex(e => !A.getItemData(e.item).hasRead);
         const nextItem = nextIndex >= 0 && A.findItemByRef(entries[nextIndex].item);
         const upNext = nextItem && readCount > 0
-            ? `<button class="reading-up-next" data-jump="${nextItem.id}">Up next: ${esc(shortTitle(nextItem))}</button>`
+            ? `<button class="btn btn-sm btn-secondary reading-up-next" data-jump="${nextItem.id}">Up next: ${esc(shortTitle(nextItem))}</button>`
             : '';
 
         // Headed sections fold; see openSections.
@@ -346,14 +346,14 @@
                     ${ol}
                 </details>`;
         }).join('');
-        const foldAll = foldable && sections.length > 1 ? '<button class="reading-fold-all" data-fold-all></button>' : '';
+        const foldAll = foldable && sections.length > 1 ? '<button class="link link-quiet reading-fold-all" data-fold-all></button>' : '';
 
         // A series page links back to the list, and out to the whole series
         // in the collection (collected editions included).
         const series = order.series;
-        const back = series ? '<a href="#reading/series" class="reading-back">&larr; All series</a>' : '';
+        const back = series ? '<a href="#reading/series" class="link link-quiet reading-back">&larr; All series</a>' : '';
         const inCollection = series
-            ? `<button class="reading-series-link" data-series-filter="${esc(series.name)}">See the whole series in the collection &rarr;</button>`
+            ? `<button class="link reading-series-link" data-series-filter="${esc(series.name)}">See the whole series in the collection &rarr;</button>`
             : '';
 
         return `

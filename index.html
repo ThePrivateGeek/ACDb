@@ -64,12 +64,12 @@
                 </button>
                 <div class="collection-actions">
                     <!-- Shown until the collection is published; then "My public profile" in the menu -->
-                    <button id="shareBtn" class="collection-action-btn share-btn" title="Get a public page to show friends, and a spot on the Leaderboard" hidden>
+                    <button id="shareBtn" class="btn btn-sm btn-publish" title="Get a public page to show friends, and a spot on the Leaderboard" hidden>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                         <span>Publish collection</span>
                     </button>
                     <div class="account-control" id="accountControl">
-                        <button id="accountBtn" class="collection-action-btn account-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="accountMenu"></button>
+                        <button id="accountBtn" class="btn btn-sm btn-quiet account-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="accountMenu"></button>
                         <div class="account-menu" id="accountMenu" role="menu" hidden>
                             <div class="account-menu-header" id="accountMenuHeader" hidden>
                                 <div class="account-menu-email" id="accountMenuEmail"></div>
@@ -107,7 +107,7 @@
                 <svg class="google-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.710 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.980 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.180 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
                 <span>Sign in with Google</span>
             </button>
-            <button class="sync-banner-close" id="syncBannerClose" aria-label="Dismiss">&times;</button>
+            <button class="icon-btn icon-btn-sm icon-btn-bare sync-banner-close" id="syncBannerClose" aria-label="Dismiss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
         </div>
     </div>
 
@@ -119,7 +119,7 @@
                     <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
                 </svg>
                 <input type="text" id="searchInput" placeholder="Search items..." autocomplete="off">
-                <button id="clearSearch" class="clear-search" title="Clear search">&times;</button>
+                <button id="clearSearch" class="icon-btn icon-btn-sm icon-btn-bare clear-search" title="Clear search" aria-label="Clear search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
             </div>
             <div class="filter-group">
                 <div class="multi-select" id="filterGame" data-placeholder="All Games">
@@ -188,7 +188,7 @@
                 <button id="viewList" class="view-btn" title="List View">
                     <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="17" width="18" height="3" rx="1"/></svg>
                 </button>
-                <button id="addItemBtn" class="add-item-btn" title="Add Custom Item">
+                <button id="addItemBtn" class="btn btn-secondary add-item-btn" title="Add Custom Item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     <span>Add Item</span>
                 </button>
@@ -258,8 +258,8 @@
     <!-- Item Detail Modal -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal" id="itemModal">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <button class="modal-copy-link" id="modalCopyLink" title="Copy a shareable link to this item" aria-label="Copy a shareable link to this item">
+            <button class="icon-btn modal-close" id="modalClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            <button class="icon-btn modal-copy-link" id="modalCopyLink" title="Copy a shareable link to this item" aria-label="Copy a shareable link to this item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
             </button>
             <div class="modal-content">
@@ -270,10 +270,10 @@
                                 <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <button class="gallery-nav gallery-prev" id="galleryPrev" title="Previous image">
+                        <button class="gallery-nav gallery-prev" id="galleryPrev" title="Previous image" aria-label="Previous image">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
                         </button>
-                        <button class="gallery-nav gallery-next" id="galleryNext" title="Next image">
+                        <button class="gallery-nav gallery-next" id="galleryNext" title="Next image" aria-label="Next image">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
                         </button>
                         <div class="gallery-counter" id="galleryCounter"></div>
@@ -301,7 +301,7 @@
                         <h3>Contents</h3>
                         <p id="modalContents"></p>
                     </div>
-                    <a class="modal-read-link" id="modalReadLink" target="_blank" rel="noopener noreferrer" hidden>
+                    <a class="btn btn-secondary modal-read-link" id="modalReadLink" target="_blank" rel="noopener noreferrer" hidden>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                         <span id="modalReadLabel">Read on Internet Archive</span>
                         <svg class="modal-read-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -401,11 +401,11 @@
 
     <!-- Lightbox -->
     <div class="lightbox-overlay" id="lightboxOverlay">
-        <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
-        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
         <div class="lightbox-image-container">
@@ -417,7 +417,7 @@
     <!-- Dev Tool Modal -->
     <div class="modal-overlay" id="devToolOverlay">
         <div class="modal dev-tool-modal" id="devToolModal">
-            <button class="modal-close" id="devToolClose">&times;</button>
+            <button class="icon-btn modal-close" id="devToolClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
             <div class="dev-tool-content">
                 <h2 class="add-modal-title">Code Generator</h2>
                 <p class="add-modal-subtitle">Generate database.js and images.js entries</p>
@@ -500,7 +500,7 @@
                     <div class="dev-tool-preview">
                         <div class="dev-preview-header">
                             <span>Generated Code</span>
-                            <button id="devCopyCode" class="btn-save">Copy Code</button>
+                            <button id="devCopyCode" class="btn btn-sm btn-primary">Copy Code</button>
                         </div>
                         <textarea id="devCodeOutput" readonly rows="20" placeholder="Fill in the form to generate code..."></textarea>
                     </div>
@@ -512,7 +512,7 @@
     <!-- Share Modal -->
     <div class="modal-overlay" id="shareModalOverlay">
         <div class="modal share-modal">
-            <button class="modal-close" id="shareModalClose">&times;</button>
+            <button class="icon-btn modal-close" id="shareModalClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
             <div class="share-modal-content">
                 <h2 class="add-modal-title" id="shareModalTitle">Publish Your Collection</h2>
                 <p class="add-modal-subtitle" id="shareModalSubtitle">Get a public page to show friends, and a spot on the Leaderboard</p>
@@ -533,8 +533,8 @@
                         </div>
                     </div>
                     <div class="form-actions">
-                        <button id="shareCancel" class="btn-cancel">Cancel</button>
-                        <button id="shareSubmit" class="btn-save" disabled>Publish</button>
+                        <button id="shareCancel" class="btn btn-quiet">Cancel</button>
+                        <button id="shareSubmit" class="btn btn-publish-fill" disabled>Publish</button>
                     </div>
                 </div>
                 <div id="shareManageSection" style="display:none;">
@@ -551,14 +551,14 @@
                     </div>
                     <div class="share-url-box">
                         <input type="text" id="shareManageUrl" readonly>
-                        <button id="shareManageCopyUrl" class="btn-save">Copy</button>
+                        <button id="shareManageCopyUrl" class="btn btn-secondary">Copy</button>
                     </div>
                     <p class="form-hint share-auto-note" id="shareAutoNote" hidden>Updates automatically with your collection</p>
-                    <p class="form-hint share-signin-hint" id="shareSignInHint" hidden><a href="#" id="shareSignInLink">Sign in with Google</a> to keep your profile up to date automatically.</p>
+                    <p class="form-hint share-signin-hint" id="shareSignInHint" hidden><a href="#" id="shareSignInLink" class="link">Sign in with Google</a> to keep your profile up to date automatically.</p>
                     <div class="form-actions">
-                        <button id="shareDeleteBtn" class="btn-delete">Delete Profile</button>
-                        <button id="shareManageCancel" class="btn-cancel">Cancel</button>
-                        <button id="shareUpdateBtn" class="btn-save">Update Profile</button>
+                        <button id="shareDeleteBtn" class="btn btn-danger">Delete Profile</button>
+                        <button id="shareManageCancel" class="btn btn-quiet">Cancel</button>
+                        <button id="shareUpdateBtn" class="btn btn-publish-fill">Update Profile</button>
                     </div>
                 </div>
                 <div id="shareSuccessSection" style="display:none;">
@@ -566,10 +566,10 @@
                         <p>Your collection is live!</p>
                         <div class="share-url-box">
                             <input type="text" id="shareUrl" readonly>
-                            <button id="shareCopyUrl" class="btn-save">Copy</button>
+                            <button id="shareCopyUrl" class="btn btn-secondary">Copy</button>
                         </div>
                         <p class="form-hint">Share this link with friends or on social media.</p>
-                        <button id="shareDone" class="btn-save" style="margin-top:1rem;">Done</button>
+                        <button id="shareDone" class="btn btn-primary share-done">Done</button>
                     </div>
                 </div>
             </div>
@@ -599,11 +599,11 @@
                 </div>
                 <p class="merge-question">When the same item differs, keep:</p>
                 <div class="merge-options">
-                    <button class="btn-save" data-strategy="newest">The most recent change (recommended)</button>
-                    <button class="btn-cancel" data-strategy="device">This browser's version</button>
-                    <button class="btn-cancel" data-strategy="account">My account's version</button>
+                    <button class="btn btn-primary btn-block" data-strategy="newest">The most recent change (recommended)</button>
+                    <button class="btn btn-quiet btn-block" data-strategy="device">This browser's version</button>
+                    <button class="btn btn-quiet btn-block" data-strategy="account">My account's version</button>
                 </div>
-                <p class="form-hint merge-backup"><a href="#" id="mergeBackupLink">Download a backup of this browser's collection first</a></p>
+                <p class="form-hint merge-backup"><a href="#" id="mergeBackupLink" class="link">Download a backup of this browser's collection first</a></p>
             </div>
         </div>
     </div>
@@ -619,7 +619,7 @@
                     <span id="profileUpdated"></span>
                 </div>
             </div>
-            <button id="profileBackBtn" class="btn-cancel">Back to Collection</button>
+            <button id="profileBackBtn" class="btn btn-quiet">Back to Collection</button>
         </div>
         <div class="items-grid" id="profileItemsGrid"></div>
     </div>
@@ -672,7 +672,7 @@
     </footer>
 
     <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop" title="Back to top">
+    <button class="icon-btn back-to-top" id="backToTop" title="Back to top" aria-label="Back to top">
         <svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z"/></svg>
     </button>
 
