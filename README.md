@@ -26,7 +26,7 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 - **Series browsing** — comics, graphic novels, manga, novel lines, and the Hachette partwork carry a `series` field (e.g. *Assassin's Creed: Assassins*) that groups single issues with the trade paperbacks that collect them, and can span types (the *Last Descendants* novels and the *Locus* comic share one series). The Series dropdown only appears when the current selection contains series items, and the series line in an item's card is a one-click filter to the whole run
 - **Read online** — comics, graphic novels, and manga with a free scan in the [Internet Archive's Assassin's Creed anthology](https://archive.org/details/assassins-creed-graphic-novels-and-comics-anthology) show a "Read on Internet Archive" button in their item card. The entry's optional `read` field holds the book's path inside that collection, unencoded as the archive names it (e.g. `07. AC Templars/AC Templars 2016 (3)`), and `readUrl` in `js/utils.js` builds the link; a full `https://` URL is used as-is for books hosted elsewhere. An optional `readLang` (e.g. `"fr"`) marks a scan in a different language and adds a tag such as "(Fr)" to the button. collected editions only get one when the archive holds a scan of the collection itself, not just its single issues
 - **Reading tracker** — novels, comic books, graphic novels, manga, and gamebooks get a Reading section in their item card: mark them as read (with an optional finished date), whether or not you own them. Read items get a badge, the status filter has "Read" / "Not Read" options, and Collection Insights shows your progress per series. Collected editions carry a `collects` list of the items they reprint, so marking a trade paperback read also marks its issues read (never the other way round, and unmarking it changes nothing) Which types count is `READABLE_TYPES` in `js/utils.js`
-- **Reading order** — a "Reading Order" view (the Reading Order tab in the header, `#reading`) lists curated orders with a Chronological / Release toggle, read switches and an "Up next" shortcut. **Complete Lore** covers every canon novel, comic and manga in story order (120 entries, grouped under era headings that fold; all start open, with Collapse all / Expand all); a game filter narrows it to the stories tied to one game (`#reading/complete/valhalla`) or to the original stories not tied to any game. **By Series** (`#reading/series`) lists every series in the orders with your read progress (series under way first, under "Continue reading"); each series opens as its own page (`#reading/series/uprising`) with its books placed as in Complete Lore, and links to the whole series in the collection. Series pages are derived from the orders and the items' `series` field, so they need no data of their own. There are also the **Oliver Bowden Novels** (also the Bowden series' page) and **Non-canon Stories**. Books in an order show their position and the next book in their item card. Orders live in `js/reading-orders.js`: each entry is an item id, the start year and in-universe setting of its main story, and its earliest release date; the list order is the chronological order. Placement rules: a unit sits where its main historical story happens, story arcs stay together in issue order, anthologies split by era, and collected editions that only reprint issues are left out
+- **Reading order** — a "Reading Order" view (the Reading Order tab in the header, `#reading`) lists curated orders with a Chronological / Release toggle, read switches and an "Up next" shortcut. **Complete Lore** covers every canon novel, comic and manga in story order (120 entries, grouped under era headings that fold; all start open, with Collapse all / Expand all); a game filter narrows it to the stories tied to one game (`#reading/complete/valhalla`) or to the original stories not tied to any game. **By Series** (`#reading/series`) lists every series in the orders with your read progress (series under way first, under "Continue reading"); each series opens as its own page (`#reading/series/uprising`) under a "By Series › Uprising" breadcrumb, with a header card (first cover, types, era range, progress, "Up next" and a link to the whole series in the collection), its books placed as in Complete Lore, and links to the series before and after it. Series pages are derived from the orders and the items' `series` field, so they need no data of their own. There are also the **Oliver Bowden Novels** (also the Bowden series' page) and **Non-canon Stories**. Books in an order show their position and the next book in their item card. Orders live in `js/reading-orders.js`: each entry is an item id, the start year and in-universe setting of its main story, and its earliest release date; the list order is the chronological order. Placement rules: a unit sits where its main historical story happens, story arcs stay together in issue order, anthologies split by era, and collected editions that only reprint issues are left out
 - **Collection Insights** — collapsible stats dashboard showing completion progress by game and category (sorted by completion %), condition breakdown, reading progress by series, and 100% completion celebration with confetti
 - **Multi-image gallery** — swipe or click through multiple photos per item with smooth directional slide transitions and full-screen lightbox zoom
 - **Shareable item links** — each item has a unique URL. Ctrl+click or right-click to open in a new tab. Browser back button closes the modal. The share button in the item modal opens the native share sheet on mobile (copies the link on desktop); shared links unfurl with the item's own image and description in Slack/Discord/social media
@@ -34,7 +34,8 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 - **Search** — instant search across item names, games, series, descriptions, and contents with result count
 - **Back up / Restore** — save your collection as a JSON file from the account menu and restore it on another device
 - **Static site** — the database and collection tracking run entirely in the browser (LocalStorage); a small Cloudflare Worker handles sign-in, sync and sharing
-- **Responsive** — works on desktop, tablet, and mobile with touch swipe support
+- **Responsive** — works on desktop, tablet, and mobile with touch swipe support. On phones the filters fold behind a **Filters** button that shows how many are active
+- **Accessible** — every control works from the keyboard with one visible focus ring, text meets WCAG AA contrast, toasts are announced to screen readers, and animations stop when the system asks for reduced motion
 
 ## How It Works
 
@@ -79,6 +80,15 @@ Sharing is entirely optional. Your local collection works independently — shar
 - Hosted on GitHub Pages with custom domain
 - Cloudflare Web Analytics (no cookies)
 
+### Design system
+
+`css/style.css` starts with the design tokens (colours by role, type scale, spacing, radii, shadows, motion, focus ring) and the shared components; the per-view styles below use only those. Keep to them when adding UI:
+
+- **Colour meanings** — gold for interaction, selection and progress (every progress bar is gold); green = owned (and Publish), purple = read, blue = wishlist mark the state of one item (badges, borders, switches, "complete" checks); red only for danger and the NEW sticker.
+- **Type** — Cinzel for titles and section headings, Raleway (lining numerals) for everything else, JetBrains Mono for counts and fractions.
+- **Components** — `.btn` (`btn-primary`, `btn-secondary`, `btn-quiet`, `btn-danger`, `btn-publish`, `btn-sm`), `.link`, `.icon-btn`; `.tabs`/`.tab` to move between views, `.seg`/`.seg-btn` to switch how a view is shown, `.chip` to filter; `.badge`, `.progress`, `.section-head`, `.label`; `.page-head` with `.crumbs` for page titles and back navigation.
+- **Accessibility** — no `outline: none`; motion goes through the `--t*` tokens and stops under `prefers-reduced-motion` (scripted scrolls use `ACDB.scrollBehavior()`); toasts take a kind (`showToast(message, 'success' | 'error')`).
+
 ## Project Structure
 
 ```
@@ -97,7 +107,7 @@ js/
   devtool.js     — admin code generator
   app.js         — filters, rendering, routing, events, init
 css/
-  style.css      — all styles
+  style.css      — design tokens and shared components first, then per-view styles
 s/
   <slug>.html    — static share pages with per-item Open Graph tags
                    (generated by tools/build-share-pages.py; re-run after adding items)

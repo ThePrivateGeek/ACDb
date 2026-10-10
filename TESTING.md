@@ -60,7 +60,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Cards with images display correctly (top crop)
 - [ ] Cards without images show AC logo placeholder
 - [ ] Owned badge shows on owned items
-- [ ] Wishlist badge shows on wishlist items
+- [ ] Wishlist badge shows on wishlist items; Read badge on read books
 - [ ] Clicking a card opens the modal
 - [ ] Ctrl+click / right-click "Open in new tab" works
 - [ ] URL updates with item slug when card is clicked
@@ -108,12 +108,12 @@ For simple item additions or image updates, skip to the "Data" section only.
 
 ## 11. Collection Insights Dashboard
 - [ ] "Collection Insights" toggle opens/closes the panel
-- [ ] Sort toggle (% / #) switches between percentage and count sorting
+- [ ] Sort control (% / # / Timeline segmented buttons) switches between percentage, count and game order
 - [ ] By Game — bars show owned/total with percentage, sorted correctly
 - [ ] By Category — same as above
 - [ ] Condition Breakdown — shows counts, Total Physical Items at top
 - [ ] Reading Progress — "Stories Read X/164" at top, then one bar per series plus "Standalone"; clicking a series filters to it (Standalone is not clickable)
-- [ ] 100% completion — percentage turns green, checkmark appears
+- [ ] 100% completion — the percentage gets a check and turns green (owned panels) or purple (Reading Progress); bars stay gold
 - [ ] Confetti fires when completing a game/category (mark last unowned item)
 - [ ] Celebration toast appears center-screen
 
@@ -149,15 +149,19 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Escape closes the dev tool
 
 ## 15. Responsive / Mobile
-- [ ] Filters stack vertically on mobile
+- [ ] Phones: search on top, then **Filters** and the grid/list control; Filters opens the six filters below (closed on load). With filters set, the button shows how many (two games + Owned Only = 3) and turns gold while open; desktop shows the filters as before
+- [ ] Filters stack vertically on mobile once opened
 - [ ] Cards switch to single column on small screens
 - [ ] Modal switches to single column layout below 1024px
+- [ ] Scrolling a long item modal keeps the share and close buttons in view (desktop and phone)
 - [ ] Timeline scrolls horizontally
 - [ ] On phones the account menu opens centred under the button row and stays on screen at 360px
 - [ ] Back to Top button appears on scroll, works on tap
 
 ## 16. Data Integrity
 - [ ] Total item count in footer matches database
+- [ ] Search for "zzzz": "No items match" with a **Clear search and filters** button that clears the search, dropdowns, timeline and status filter (the sort stays) and shows everything again
+- [ ] Leaderboard and profile dates read like "9 Oct 2026", as in the reading view
 - [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, and share pages
 - [ ] Collection data keyed by item id under `acdb_collection_v2`, each entry with an `updatedAt` edit time once edited; a name-keyed `acdb_collection` from before ids is migrated once on load (unmatched keys are dropped) and kept as a backup until 2027-01-03, after which it is removed from browsers that have `acdb_collection_v2`
 - [ ] Export includes `id` and `name`; Import accepts both new exports (by id) and old ones (by name)
@@ -201,9 +205,10 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Phone width: the chip row scrolls sideways, the active chip is scrolled into view, and toggling a Read switch doesn't reset the row
 - [ ] Oliver Bowden Novels (`#reading/bowden`) lists 9 books, Desert Oath first, with no headings; Release puts Renaissance first and Desert Oath last; the mode choice survives a reload
 - [ ] Non-canon Stories (`#reading/non-canon`) lists 14 entries; Awakening Vol. 2 follows Awakening #6
-- [ ] By Series (`#reading/series`): "All series 24" in story order (Forgotten Myths first; Visionaries, Yan Leisheng, Awakening last as "Non-canon"); each row has a cover, types, era or era range ("Ancient World – Industrial Age" for Bowden), "read / total" and a bar; finished series get a purple border and ✓
+- [ ] By Series (`#reading/series`): "All series 24" in story order (Forgotten Myths first; Visionaries, Yan Leisheng, Awakening last as "Non-canon"); each row has a cover, types, era or era range ("Ancient World – Industrial Age" for Bowden), "read / total" and a bar; finished series get a purple border and a purple ✓ count
 - [ ] Read a book in a series without finishing it: the series also appears under "Continue reading" at the top
-- [ ] A series row opens `#reading/series/<slug>` (Uprising: 12 issues starting at #5, as in Complete Lore) with "← All series", the count and types, and the usual modes, Read switches and "Up next"; browser back returns to the list
+- [ ] A series row opens `#reading/series/<slug>` (Uprising: 12 issues starting at #5, as in Complete Lore) with a "By Series › Uprising" breadcrumb and a header card (first cover, "12 comic books · 20th Century – Modern Day · placed as in Complete Lore", read progress, "Up next" once something is read, "See the whole series in the collection"), the usual modes and Read switches; the page fades in (not with reduced motion); browser back returns to the list
+- [ ] The bottom of a series page links to the series before and after it in the list's order (Uprising: ← The Fall, Conspiracies →); Bowden's neighbours link to `#reading/bowden`; the first and last series have one link
 - [ ] Bowden's row opens `#reading/bowden`; pasting `#reading/series/oliver-bowden-novels` lands there too; an unknown series slug shows the list
 - [ ] "See the whole series in the collection" opens the grid filtered to that series (Uprising: 15 items, collected editions included)
 - [ ] Read toggle on a row marks the book read: purple border, "X / 9 read" and the bar update; the item's own modal shows Read too
@@ -223,6 +228,13 @@ Tokens live at the top of `css/style.css`; component rules use only them. Check 
 - [ ] Numbers use lining figures everywhere ("AC1", "Issue #1" and years sit on the baseline)
 - [ ] With reduced motion on (Windows: Settings > Accessibility > Visual effects > Animation effects off): no logo pulse, no card lift or slide-in, no gallery slide, no confetti, and Back to Top / "Up next" jump instead of scrolling smoothly
 - [ ] Muted text (meta lines, release dates, footer) is readable; nothing uses the old `#666`
+- [ ] Colour meanings: every progress bar is gold (header meter, Insights, reading view, series rows); a finished row shows a green (owned) or purple (read) check and count; the Owned switch turns green, Wishlist blue, Read purple (modal and reading list), Has Original Box gold
+- [ ] Buttons: Publish is green in the header, on the leaderboard and in its dialog; dialogs put Cancel and the main action on the right and Delete on the left; header buttons are 32px with readable text
+- [ ] One "pick one" style per job: underline tabs (header, reading orders), segmented controls (Chronological/Release, Insights sort, grid/list), chips (game timeline, reading game filter)
+- [ ] Toasts: "Link copied!" shows a green check, a failure (e.g. switch off the network and publish) a red alert and stays longer; a screen reader announces them
+- [ ] Owned cards have a green edge and the OWNED badge (no check circle); list view rows are compact with a 64px thumbnail and the badges after the details (under the title on phones)
+- [ ] Phones (390px): the leaderboard shows one row per collector (rank, name, "Updated 9 Oct 2026", items, %), nothing scrolls sideways
+- [ ] Profile: "Collection › Name" breadcrumb (or "Leaderboard › Name" when opened from the leaderboard); the first link goes back there
 
 ---
 
