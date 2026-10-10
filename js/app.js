@@ -956,6 +956,7 @@ window.ACDB = window.ACDB || {};
             renderItems();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        ACDB.applyExclusiveFilter = applyExclusiveFilter;   // series pages in the reading view
         dom.statsByGame.addEventListener('click', (e) => {
             const row = e.target.closest('.stats-bar-row.clickable');
             if (row) applyExclusiveFilter('game', row.dataset.label);

@@ -2668,6 +2668,130 @@ a.collection-action-btn {
     100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
 }
 
+/* ---- By Series (list of series, and a series page's extra links) ---- */
+.reading-back {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.reading-back:hover {
+    color: var(--accent);
+}
+
+.reading-series-link {
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.reading-series-link:hover {
+    text-decoration: underline;
+}
+
+.series-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
+    gap: 0.5rem 1rem;
+}
+
+.series-row {
+    display: grid;
+    grid-template-columns: 40px 1fr minmax(90px, 140px);
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.series-row:hover {
+    border-color: var(--accent-dark);
+    background: var(--bg-card-hover);
+}
+
+.series-row.done {
+    border-color: rgba(142, 68, 173, 0.6);
+}
+
+.series-cover {
+    display: block;
+    width: 40px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+}
+
+.series-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.series-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.series-name {
+    overflow: hidden;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.series-row:hover .series-name {
+    color: var(--accent);
+}
+
+.series-meta {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.series-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+}
+
+.series-progress .stats-bar-track {
+    flex: none;   /* the shared flex: 1 would collapse its height in this column */
+    width: 100%;
+}
+
+.series-progress .stats-bar-fill {
+    display: block;   /* a span here, not the usual div */
+}
+
+.series-count {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.series-done {
+    color: #b57edc;
+}
+
 @media (max-width: 768px) {
     #readingView {
         padding: 1rem 1rem 3rem;
@@ -2677,6 +2801,17 @@ a.collection-action-btn {
         grid-template-columns: 2rem 40px 1fr auto;
         gap: 0.6rem;
         padding: 0.6rem 0.75rem;
+    }
+
+    .series-row {
+        grid-template-columns: 34px 1fr 76px;
+        gap: 0.6rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .series-cover {
+        width: 34px;
+        height: 51px;
     }
 
     .reading-num {

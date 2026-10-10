@@ -190,7 +190,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Fresh private window: no requests to `accounts.google.com` until Sign in is clicked (Network tab; `fonts.googleapis.com` is the site's fonts and was always there)
 
 ## 18. Reading Order
-- [ ] Reading Order tab in the header opens `#reading` and turns active (Leaderboard likewise for `#leaderboard`; a profile leaves no tab active): grid, toolbar and stats are hidden; tabs read Complete Lore (active), Oliver Bowden Novels, Non-canon Stories
+- [ ] Reading Order tab in the header opens `#reading` and turns active (Leaderboard likewise for `#leaderboard`; a profile leaves no tab active): grid, toolbar and stats are hidden; tabs read Complete Lore (active), By Series, Oliver Bowden Novels, Non-canon Stories
 - [ ] Complete Lore: 120 entries under 9 era headings (Ancient World … Modern Day), each with a read count; numbering runs on across headings; Forgotten Myths #1 first, Escape Room Puzzle Book last; Trial by Fire #1–5 sit together at 1692
 - [ ] Release mode on Complete Lore groups by release year; dates known only to the month show as "Nov 2009"
 - [ ] After marking something read, "Up next: …" appears and jumps to (and briefly highlights) the first unread book
@@ -200,6 +200,11 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Phone width: the chip row scrolls sideways, the active chip is scrolled into view, and toggling a Read switch doesn't reset the row
 - [ ] Oliver Bowden Novels (`#reading/bowden`) lists 9 books, Desert Oath first, with no headings; Release puts Renaissance first and Desert Oath last; the mode choice survives a reload
 - [ ] Non-canon Stories (`#reading/non-canon`) lists 13 entries
+- [ ] By Series (`#reading/series`): "All series 24" in story order (Forgotten Myths first; Visionaries, Yan Leisheng, Awakening last as "Non-canon"); each row has a cover, types, era or era range ("Ancient World – Industrial Age" for Bowden), "read / total" and a bar; finished series get a purple border and ✓
+- [ ] Read a book in a series without finishing it: the series also appears under "Continue reading" at the top
+- [ ] A series row opens `#reading/series/<slug>` (Uprising: 12 issues starting at #5, as in Complete Lore) with "← All series", the count and types, and the usual modes, Read switches and "Up next"; browser back returns to the list
+- [ ] Bowden's row opens `#reading/bowden`; pasting `#reading/series/oliver-bowden-novels` lands there too; an unknown series slug shows the list
+- [ ] "See the whole series in the collection" opens the grid filtered to that series (Uprising: 15 items, collected editions included)
 - [ ] Read toggle on a row marks the book read: purple border, "X / 9 read" and the bar update; the item's own modal shows Read too
 - [ ] Clicking a cover or title opens the full modal on top of the view; the address stays `#reading`; category/type/game/series aren't filter links there
 - [ ] In that modal: "Next: …" swaps to the next book in place; marking Read updates the list underneath; Esc, ✕ and browser back all close it and leave the view

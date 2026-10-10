@@ -17,8 +17,13 @@
     const content = document.getElementById('readingContent');
     const modalRow = document.getElementById('modalReadingOrder');
 
-    let currentOrderId = null;
-    let currentGame = null;   // game filter (orders with "games": true), or null for all
+    // The "By Series" tab sits among the orders' tabs (#reading/series lists
+    // the series, #reading/series/<slug> opens one).
+    const SERIES_TAB = { id: 'series', name: 'By Series' };
+
+    let currentOrderId = null;   // a READING_ORDERS id, or SERIES_TAB.id
+    let currentGame = null;      // game filter (orders with "games": true), or null for all
+    let currentSeries = null;    // slug of the open series page; null shows the list
 
     function getMode() {
         try {
@@ -93,18 +98,123 @@
         return '#reading/' + currentOrderId + (currentGame ? '/' + gameSlug(currentGame) : '');
     }
 
+    // ---- Series ----
+    // Every series with a book in the orders gets its own page. Its books are
+    // the orders' entries for that series, in the orders' story order (each
+    // book once, Complete Lore first), so a series reads exactly as it does
+    // in Complete Lore; collected editions stay out, as they do there. A
+    // curated order named after a series (Oliver Bowden Novels) is that
+    // series' page. The catalog and orders are static, so this is built once.
+    const TYPE_NAMES = {
+        'Novel': ['novel', 'novels'],
+        'Comic Book': ['comic book', 'comic books'],
+        'Graphic Novel': ['graphic novel', 'graphic novels'],
+        'Manga': ['manga', 'manga'],
+        'Gamebook': ['gamebook', 'gamebooks']
+    };
+    const NON_CANON_ORDER = 'non-canon';
+    let seriesCache = null;
+
+    // "Assassin's Creed: Uprising" -> "Uprising",
+    // "Assassin's Creed (Les Deux Royaumes)" -> "Les Deux Royaumes"
+    function seriesLabel(name) {
+        return name.replace(/^Assassin's Creed(:| -)?\s*/, '').replace(/^\((.*)\)$/, '$1');
+    }
+
+    // "Renaissance", or "Ancient World – Industrial Age" for a series that
+    // moves through history. Entries without a year don't count.
+    function eraSpan(entries) {
+        const years = entries.map(e => e.year).filter(y => y != null);
+        if (years.length === 0) return '';
+        const first = eraOf(years[0]);
+        const last = eraOf(years[years.length - 1]);
+        return first === last ? first : `${first} – ${last}`;
+    }
+
+    function allSeries() {
+        if (seriesCache) return seriesCache;
+        const seen = new Set();
+        const bySeries = new Map();
+        READING_ORDERS.forEach(order => order.entries.forEach(entry => {
+            if (seen.has(entry.item)) return;
+            seen.add(entry.item);
+            const item = A.findItemByRef(entry.item);
+            if (!item || !item.series) return;
+            if (!bySeries.has(item.series)) bySeries.set(item.series, { entries: [], nonCanon: true });
+            const series = bySeries.get(item.series);
+            series.entries.push(entry);
+            if (order.id !== NON_CANON_ORDER) series.nonCanon = false;
+        }));
+        seriesCache = [...bySeries].map(([name, { entries, nonCanon }]) => {
+            const label = seriesLabel(name);
+            const types = [...new Set(entries.map(e => A.findItemByRef(e.item).type))];
+            return {
+                name,
+                label,
+                slug: A.slugify(label),
+                entries,
+                types,
+                nonCanon,
+                eras: eraSpan(entries),
+                curated: READING_ORDERS.find(o => o.name === name) || null
+            };
+        });
+        return seriesCache;
+    }
+
+    function findSeries(slug) {
+        return allSeries().find(s => s.slug === slug) || null;
+    }
+
+    function seriesHash(series) {
+        return series.curated ? '#reading/' + series.curated.id : '#reading/' + SERIES_TAB.id + '/' + series.slug;
+    }
+
+    // "12 comic books", "1 novel", "4 comic books and graphic novels"
+    function countPhrase(count, types) {
+        const words = types.map(t => (TYPE_NAMES[t] || [t.toLowerCase(), t.toLowerCase()])[count === 1 ? 0 : 1]);
+        const list = words.length > 1 ? words.slice(0, -1).join(', ') + ' and ' + words[words.length - 1] : words[0];
+        return `${count} ${list}`;
+    }
+
+    // A series page is drawn like an order: same list, modes and progress.
+    function seriesAsOrder(series) {
+        return {
+            name: series.label,
+            description: `${countPhrase(series.entries.length, series.types)} in story order`
+                + (series.nonCanon ? ', outside the main continuity.' : ', placed as in Complete Lore.'),
+            entries: series.entries,
+            series
+        };
+    }
+
     // ---- View ----
-    // `param` is the hash after "reading/": "<order>" or "<order>/<game>".
+    // `param` is the hash after "reading/": "<order>", "<order>/<game>",
+    // "series" or "series/<slug>".
     function showReadingOrder(param) {
         A.hideMainContent('reading');
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('leaderboardView').style.display = 'none';
         view.style.display = '';
         const [orderId, slug] = (param || '').split('/');
-        const order = getOrder(orderId);
-        currentOrderId = order.id;
-        const match = order.games && slug ? gamesIn(order).find(g => gameSlug(g.game) === slug) : null;
-        currentGame = match ? match.game : null;
+        currentGame = null;
+        currentSeries = null;
+        if (orderId === SERIES_TAB.id) {
+            const series = slug ? findSeries(slug) : null;
+            if (series && series.curated) {
+                // One page per series: the curated order is canonical.
+                history.replaceState(null, '', seriesHash(series));
+                currentOrderId = series.curated.id;
+            } else {
+                currentOrderId = SERIES_TAB.id;
+                currentSeries = series ? series.slug : null;
+            }
+        } else {
+            const order = getOrder(orderId);
+            currentOrderId = order.id;
+            const match = order.games && slug ? gamesIn(order).find(g => gameSlug(g.game) === slug) : null;
+            currentGame = match ? match.game : null;
+        }
         render();
         window.scrollTo(0, 0);
     }
@@ -120,18 +230,41 @@
 
     function render() {
         const chipScroll = content.querySelector('.reading-games')?.scrollLeft || 0;
-        const order = getOrder(currentOrderId);
+        const showList = currentOrderId === SERIES_TAB.id && !currentSeries;
+        content.innerHTML = tabsHTML() + (showList ? seriesListHTML() : orderHTML(currentOrder()));
+        restoreChipRow(chipScroll);
+    }
+
+    function currentOrder() {
+        return currentOrderId === SERIES_TAB.id
+            ? seriesAsOrder(findSeries(currentSeries))
+            : getOrder(currentOrderId);
+    }
+
+    // Complete Lore, By Series, then the other curated orders.
+    function tabsHTML() {
+        const tabs = [READING_ORDERS[0], SERIES_TAB, ...READING_ORDERS.slice(1)];
+        return `<nav class="reading-tabs">${tabs.map(t =>
+            `<a href="#reading/${t.id}" class="reading-tab${t.id === currentOrderId ? ' active' : ''}">${A.escapeHTML(t.name)}</a>`).join('')}</nav>`;
+    }
+
+    function readCountOf(entries) {
+        return entries.filter(e => A.getItemData(e.item).hasRead).length;
+    }
+
+    function coverOf(item) {
+        return Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : null;
+    }
+
+    const SOURCES_HTML = `<p class="reading-sources">Chronology from the <a href="https://assassinscreed.fandom.com/wiki/User_blog:Kulurak/Chronological_order_of_Assassin%27s_Creed_franchise" target="_blank" rel="noopener noreferrer">Assassin's Creed Wiki</a>, checked against each book's article. Books are placed by their main story; frame stories are left out.</p>`;
+
+    function orderHTML(order) {
         const mode = getMode();
         const entries = sortedEntries(order, mode)
             .filter(e => !currentGame || A.findItemByRef(e.item)?.game === currentGame);
         const esc = A.escapeHTML;
-        const readCount = entries.filter(e => A.getItemData(e.item).hasRead).length;
+        const readCount = readCountOf(entries);
         const pct = Math.round((readCount / entries.length) * 100);
-
-        const tabs = READING_ORDERS.length > 1
-            ? `<nav class="reading-tabs">${READING_ORDERS.map(o =>
-                `<a href="#reading/${o.id}" class="reading-tab${o.id === order.id ? ' active' : ''}">${esc(o.name)}</a>`).join('')}</nav>`
-            : '';
 
         const gameChips = order.games
             ? `<div class="reading-games" role="group" aria-label="Read with a game">
@@ -144,7 +277,7 @@
             const item = A.findItemByRef(entry.item);
             if (!item) return '';
             const data = A.getItemData(item.id);
-            const thumb = Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : null;
+            const thumb = coverOf(item);
             return `
                 <li class="reading-entry${data.hasRead ? ' read' : ''}" data-entry="${item.id}">
                     <span class="reading-num">${idx + 1}</span>
@@ -194,11 +327,19 @@
             ? `<button class="reading-up-next" data-jump="${nextItem.id}">Up next: ${esc(shortTitle(nextItem))}</button>`
             : '';
 
-        content.innerHTML = `
-            ${tabs}
+        // A series page links back to the list, and out to the whole series
+        // in the collection (collected editions included).
+        const series = order.series;
+        const back = series ? '<a href="#reading/series" class="reading-back">&larr; All series</a>' : '';
+        const inCollection = series
+            ? `<button class="reading-series-link" data-series-filter="${esc(series.name)}">See the whole series in the collection &rarr;</button>`
+            : '';
+
+        return `
+            ${back}
             <div class="reading-intro">
                 <h3 class="reading-name">${esc(order.name)}</h3>
-                <p class="reading-description">${esc(order.description)}</p>
+                <p class="reading-description">${esc(order.description)} ${inCollection}</p>
             </div>
             ${gameChips}
             <div class="reading-bar">
@@ -212,20 +353,66 @@
             </div>
             ${upNext}
             ${list}
-            <p class="reading-sources">Chronology from the <a href="https://assassinscreed.fandom.com/wiki/User_blog:Kulurak/Chronological_order_of_Assassin%27s_Creed_franchise" target="_blank" rel="noopener noreferrer">Assassin's Creed Wiki</a>, checked against each book's article. Books are placed by their main story; frame stories are left out.</p>
+            ${SOURCES_HTML}
         `;
+    }
 
-        // Re-rendering resets the chip row's scroll: restore it, then make
-        // sure the active chip is visible (e.g. after a deep link).
+    // Series in story order (by where each one starts), non-canon last.
+    // Series under way are repeated at the top under "Continue reading".
+    function seriesListHTML() {
+        const esc = A.escapeHTML;
+        const all = allSeries();
+        const rowHTML = (series) => {
+            const read = readCountOf(series.entries);
+            const total = series.entries.length;
+            const done = read === total;
+            const thumb = coverOf(A.findItemByRef(series.entries[0].item));
+            const kinds = series.types.map(t => (TYPE_NAMES[t] || [t, t])[1]).join(', ');
+            const when = series.nonCanon ? 'Non-canon' : series.eras;
+            return `
+                <li>
+                    <a class="series-row${done ? ' done' : ''}" href="${seriesHash(series)}" title="${esc(series.name)}">
+                        <span class="series-cover">${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy">` : ''}</span>
+                        <span class="series-info">
+                            <span class="series-name">${esc(series.label)}</span>
+                            <span class="series-meta">${esc(kinds.charAt(0).toUpperCase() + kinds.slice(1))}${when ? ` · ${esc(when)}` : ''}</span>
+                        </span>
+                        <span class="series-progress">
+                            <span class="series-count">${done ? '<span class="series-done" aria-label="Finished">&#10003;</span> ' : ''}${read} / ${total}</span>
+                            <span class="stats-bar-track"><span class="stats-bar-fill" style="width:${Math.round((read / total) * 100)}%"></span></span>
+                        </span>
+                    </a>
+                </li>`;
+        };
+        const underway = all.filter(s => {
+            const read = readCountOf(s.entries);
+            return read > 0 && read < s.entries.length;
+        });
+        const section = (title, list) => `
+            <h4 class="reading-section"><span>${title}</span><span class="reading-section-count">${list.length}</span></h4>
+            <ul class="series-list">${list.map(rowHTML).join('')}</ul>`;
+        return `
+            <div class="reading-intro">
+                <h3 class="reading-name">${esc(SERIES_TAB.name)}</h3>
+                <p class="reading-description">Read one series at a time. Every series in the reading orders, in story order, with its books placed as in Complete Lore.</p>
+            </div>
+            ${underway.length ? section('Continue reading', underway) : ''}
+            ${section('All series', all)}
+            ${SOURCES_HTML}
+        `;
+    }
+
+    // Re-rendering resets the chip row's scroll: restore it, then make sure
+    // the active chip is visible (e.g. after a deep link).
+    function restoreChipRow(scrollLeft) {
         const chipRow = content.querySelector('.reading-games');
-        if (chipRow) {
-            chipRow.scrollLeft = chipScroll;
-            const active = chipRow.querySelector('.reading-game.active');
-            if (active.offsetLeft < chipRow.scrollLeft) {
-                chipRow.scrollLeft = active.offsetLeft;
-            } else if (active.offsetLeft + active.offsetWidth > chipRow.scrollLeft + chipRow.clientWidth) {
-                chipRow.scrollLeft = active.offsetLeft + active.offsetWidth - chipRow.clientWidth;
-            }
+        if (!chipRow) return;
+        chipRow.scrollLeft = scrollLeft;
+        const active = chipRow.querySelector('.reading-game.active');
+        if (active.offsetLeft < chipRow.scrollLeft) {
+            chipRow.scrollLeft = active.offsetLeft;
+        } else if (active.offsetLeft + active.offsetWidth > chipRow.scrollLeft + chipRow.clientWidth) {
+            chipRow.scrollLeft = active.offsetLeft + active.offsetWidth - chipRow.clientWidth;
         }
     }
 
@@ -242,6 +429,13 @@
             // Replace, not push: switching filters shouldn't fill the back button.
             history.replaceState(null, '', readingHash());
             render();
+            return;
+        }
+        const seriesLink = e.target.closest('[data-series-filter]');
+        if (seriesLink) {
+            A.showMainContent();
+            A.clearHash();
+            A.applyExclusiveFilter('series', seriesLink.dataset.seriesFilter);
             return;
         }
         const jumpBtn = e.target.closest('[data-jump]');
