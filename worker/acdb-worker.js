@@ -3,12 +3,9 @@
 //
 // Bindings (dashboard → Worker → Settings → Bindings):
 //   DB    D1 database "acdb" (schema: worker/migrations/)
-//   ACDB  KV namespace: the original profile store. Read-only backup once
-//         profiles have been migrated to D1.
+//   ACDB  KV namespace: the pre-D1 profile store, no longer read. Kept for now
+//         as a frozen backup; it holds raw edit tokens, so delete it in time.
 // Variables and secrets (dashboard → Worker → Settings → Variables and Secrets):
-//   PROFILES_BACKEND  "kv" (the default) serves profiles from KV, "d1" from D1.
-//                     Switch to "d1" after POST /admin/migrate-kv reports done.
-//   ADMIN_KEY         secret for POST /admin/migrate-kv
 //   GOOGLE_CLIENT_ID      text: OAuth client id (Google Cloud → Credentials)
 //   GOOGLE_CLIENT_SECRET  secret: that client's secret
 // Cron trigger: daily (e.g. "0 3 * * *") cleans up expired rows.
@@ -154,86 +151,8 @@ async function checkRateLimit(env, key, limit) {
   return row.count <= limit;
 }
 
-// ---- Profile stores ----
-// Both stores expose the same methods so the routes below don't care where
-// profiles live. The KV store goes away once D1 has been in use for a while.
+// ---- Profile store ----
 // Times are epoch ms in and ISO strings out (the API's lastUpdated format).
-
-const kvProfiles = {
-  async nameExists(env, nameLower) {
-    return !!(await env.ACDB.get(`name:${nameLower}`));
-  },
-
-  // Returns false when the name is already taken.
-  async create(env, { nameLower, displayName, token, ownedItems, now }) {
-    if (await this.nameExists(env, nameLower)) return false;
-    const profile = {
-      displayName,
-      ownedItems,
-      ownedCount: ownedItems.length,
-      lastUpdated: new Date(now).toISOString()
-    };
-    await env.ACDB.put(`user:${token}`, JSON.stringify(profile));
-    await env.ACDB.put(`name:${nameLower}`, token);
-    return true;
-  },
-
-  // Returns false when no profile has this token.
-  async updateByToken(env, token, ownedItems, now) {
-    const profileData = await env.ACDB.get(`user:${token}`);
-    if (!profileData) return false;
-    const existing = JSON.parse(profileData);
-    existing.ownedItems = ownedItems;
-    existing.ownedCount = ownedItems.length;
-    existing.lastUpdated = new Date(now).toISOString();
-    await env.ACDB.put(`user:${token}`, JSON.stringify(existing));
-    return true;
-  },
-
-  async getByName(env, nameLower) {
-    const token = await env.ACDB.get(`name:${nameLower}`);
-    if (!token) return null;
-    const profileData = await env.ACDB.get(`user:${token}`);
-    if (!profileData) return null;
-    const profile = JSON.parse(profileData);
-    return {
-      displayName: profile.displayName,
-      ownedItems: profile.ownedItems,
-      ownedCount: profile.ownedCount,
-      lastUpdated: profile.lastUpdated
-    };
-  },
-
-  async leaderboard(env) {
-    const nameKeys = await env.ACDB.list({ prefix: 'name:' });
-    const profiles = [];
-    for (const key of nameKeys.keys) {
-      const token = await env.ACDB.get(key.name);
-      if (!token) continue;
-      const profileData = await env.ACDB.get(`user:${token}`);
-      if (!profileData) continue;
-      const profile = JSON.parse(profileData);
-      profiles.push({
-        displayName: profile.displayName,
-        ownedCount: profile.ownedCount,
-        lastUpdated: profile.lastUpdated
-      });
-    }
-    profiles.sort((a, b) => b.ownedCount - a.ownedCount);
-    return profiles;
-  },
-
-  // Returns false when no profile has this token.
-  async deleteByToken(env, token) {
-    const profileData = await env.ACDB.get(`user:${token}`);
-    if (!profileData) return false;
-    const profile = JSON.parse(profileData);
-    await env.ACDB.delete(`user:${token}`);
-    await env.ACDB.delete(`name:${profile.displayName.toLowerCase()}`);
-    return true;
-  }
-};
-
 // D1 keeps only a SHA-256 hash of each profile's edit token.
 const d1Profiles = {
   async nameExists(env, nameLower) {
@@ -241,6 +160,7 @@ const d1Profiles = {
       .bind(nameLower).first());
   },
 
+  // Returns false when the name is already taken.
   async create(env, { nameLower, displayName, token, ownedItems, now }) {
     const result = await env.DB.prepare(
       `INSERT INTO profiles (name_lower, display_name, legacy_token_hash, owned_items, owned_count, last_updated)
@@ -250,6 +170,7 @@ const d1Profiles = {
     return result.meta.changes === 1;
   },
 
+  // Returns false when no profile has this token.
   async updateByToken(env, token, ownedItems, now) {
     const result = await env.DB.prepare(
       'UPDATE profiles SET owned_items = ?, owned_count = ?, last_updated = ? WHERE legacy_token_hash = ?'
@@ -281,7 +202,7 @@ const d1Profiles = {
   },
 
   async leaderboard(env) {
-    // name_lower as tie-breaker matches the KV store's order (keys list alphabetically)
+    // Ties break alphabetically, the order the old KV store listed them in
     const { results } = await env.DB.prepare(
       'SELECT display_name, owned_count, last_updated FROM profiles ORDER BY owned_count DESC, name_lower'
     ).all();
@@ -292,16 +213,13 @@ const d1Profiles = {
     }));
   },
 
+  // Returns false when no profile has this token.
   async deleteByToken(env, token) {
     const result = await env.DB.prepare('DELETE FROM profiles WHERE legacy_token_hash = ?')
       .bind(await sha256Hex(token)).run();
     return result.meta.changes === 1;
   }
 };
-
-function profileStore(env) {
-  return env.PROFILES_BACKEND === 'd1' ? d1Profiles : kvProfiles;
-}
 
 // ---- Route handlers ----
 
@@ -328,7 +246,7 @@ async function handleShare(request, env, ip) {
 
   const nameLower = displayName.toLowerCase();
   const token = generateToken();
-  const created = await profileStore(env).create(env, { nameLower, displayName, token, ownedItems, now: Date.now() });
+  const created = await d1Profiles.create(env, { nameLower, displayName, token, ownedItems, now: Date.now() });
   if (!created) {
     return json(request, { error: 'Display name is already taken.' }, 409);
   }
@@ -358,7 +276,7 @@ async function handleUpdate(request, env, ip) {
   if (ownedError) return json(request, { error: ownedError }, 400);
 
   const now = Date.now();
-  const updated = await profileStore(env).updateByToken(env, authToken, ownedItems, now);
+  const updated = await d1Profiles.updateByToken(env, authToken, ownedItems, now);
   if (!updated) {
     return json(request, { error: 'Profile not found. Token may be invalid.' }, 404);
   }
@@ -369,7 +287,7 @@ async function handleUpdate(request, env, ip) {
 // GET /profile/:name - View a public profile
 async function handleGetProfile(request, env, path) {
   const nameLower = path.replace('/profile/', '').toLowerCase();
-  const profile = isValidName(nameLower) ? await profileStore(env).getByName(env, nameLower) : null;
+  const profile = isValidName(nameLower) ? await d1Profiles.getByName(env, nameLower) : null;
   if (!profile) {
     return json(request, { error: 'Profile not found.' }, 404);
   }
@@ -379,7 +297,7 @@ async function handleGetProfile(request, env, path) {
 
 // GET /leaderboard - Get all profiles sorted by owned count
 async function handleLeaderboard(request, env) {
-  const profiles = await profileStore(env).leaderboard(env);
+  const profiles = await d1Profiles.leaderboard(env);
   return json(request, { profiles }, 200, { 'Cache-Control': 'public, max-age=60' });
 }
 
@@ -389,7 +307,7 @@ async function handleCheckName(request, env, path) {
   if (!isValidName(nameLower)) {
     return json(request, { available: false, error: 'Invalid name format.' });
   }
-  const taken = await profileStore(env).nameExists(env, nameLower);
+  const taken = await d1Profiles.nameExists(env, nameLower);
   return json(request, { available: !taken });
 }
 
@@ -408,7 +326,7 @@ async function handleDeleteProfile(request, env) {
     return json(request, { success: true, message: 'Profile deleted.' });
   }
 
-  const deleted = await profileStore(env).deleteByToken(env, authToken);
+  const deleted = await d1Profiles.deleteByToken(env, authToken);
   if (!deleted) {
     return json(request, { error: 'Profile not found.' }, 404);
   }
@@ -674,9 +592,6 @@ async function handleAccountDelete(request, env) {
 
 // POST /share with a Bearer session (called from handleShare)
 async function createLinkedProfile(request, env, displayName) {
-  if (env.PROFILES_BACKEND !== 'd1') {
-    return json(request, { error: 'Not available yet.' }, 503);
-  }
   const user = await authenticate(request, env);
   if (!user) return sessionExpired(request);
 
@@ -700,9 +615,6 @@ async function createLinkedProfile(request, env, displayName) {
 
 // POST /profile/claim {legacyToken} - link a token-owned profile to the account
 async function handleClaimProfile(request, env) {
-  if (env.PROFILES_BACKEND !== 'd1') {
-    return json(request, { error: 'Not available yet.' }, 503);
-  }
   const user = await authenticate(request, env);
   if (!user) return sessionExpired(request);
 
@@ -732,72 +644,6 @@ async function handleClaimProfile(request, env) {
   return json(request, { success: true, displayName: profile.display_name });
 }
 
-// ---- One-time KV → D1 profile migration ----
-// POST /admin/migrate-kv[?cursor=<nextCursor>] with header X-Admin-Key.
-// Copies up to 100 profiles per call; repeat with nextCursor until done.
-// Re-running is safe: a profile already in D1 is only refreshed when it is
-// still the same token-owned profile and KV holds a newer version, so the
-// final catch-up run after switching PROFILES_BACKEND never clobbers a name
-// someone claimed in D1 meanwhile.
-const MIGRATE_UPSERT = `
-  INSERT INTO profiles (name_lower, display_name, legacy_token_hash, owned_items, owned_count, last_updated)
-  VALUES (?1, ?2, ?3, ?4, ?5, ?6)
-  ON CONFLICT(name_lower) DO UPDATE SET
-    owned_items = excluded.owned_items,
-    owned_count = excluded.owned_count,
-    last_updated = excluded.last_updated
-  WHERE profiles.sub IS NULL
-    AND profiles.legacy_token_hash = excluded.legacy_token_hash
-    AND excluded.last_updated > profiles.last_updated`;
-
-async function isAdminRequest(request, env) {
-  if (!env.ADMIN_KEY) return false;
-  // Comparing hashes keeps the comparison time independent of the secret.
-  const [given, expected] = await Promise.all([
-    sha256Hex(request.headers.get('X-Admin-Key') || ''),
-    sha256Hex(env.ADMIN_KEY)
-  ]);
-  return given === expected;
-}
-
-async function handleMigrateKv(request, env, url) {
-  if (!(await isAdminRequest(request, env))) {
-    return json(request, { error: 'Forbidden.' }, 403);
-  }
-
-  const cursor = url.searchParams.get('cursor') || undefined;
-  const page = await env.ACDB.list({ prefix: 'name:', limit: 100, cursor });
-
-  const rows = await Promise.all(page.keys.map(async key => {
-    const token = await env.ACDB.get(key.name);
-    const profileData = token && await env.ACDB.get(`user:${token}`);
-    if (!profileData) return null;
-    const profile = JSON.parse(profileData);
-    const ownedItems = Array.isArray(profile.ownedItems) ? profile.ownedItems : [];
-    return env.DB.prepare(MIGRATE_UPSERT).bind(
-      key.name.slice('name:'.length),
-      profile.displayName,
-      await sha256Hex(token),
-      JSON.stringify(ownedItems),
-      Number.isInteger(profile.ownedCount) ? profile.ownedCount : ownedItems.length,
-      Date.parse(profile.lastUpdated) || Date.now()
-    );
-  }));
-
-  const statements = rows.filter(Boolean);
-  const results = statements.length ? await env.DB.batch(statements) : [];
-  const written = results.reduce((sum, r) => sum + r.meta.changes, 0);
-
-  return json(request, {
-    scanned: page.keys.length,
-    written,                                   // inserted or refreshed
-    unchanged: statements.length - written,    // already up to date in D1
-    broken: page.keys.length - statements.length, // name key without profile data
-    nextCursor: page.list_complete ? null : page.cursor,
-    done: page.list_complete
-  });
-}
-
 export default {
   async fetch(request, env) {
     if (request.method === 'OPTIONS') return handleOptions(request);
@@ -823,8 +669,6 @@ export default {
       if (path === '/collection' && method === 'PUT') return await handlePutCollection(request, env);
       if (path === '/account/export' && method === 'GET') return await handleAccountExport(request, env);
       if (path === '/account' && method === 'DELETE') return await handleAccountDelete(request, env);
-
-      if (path === '/admin/migrate-kv' && method === 'POST') return await handleMigrateKv(request, env, url);
 
       return json(request, { error: 'Not found.' }, 404);
     } catch (err) {

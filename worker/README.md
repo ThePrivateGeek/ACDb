@@ -1,6 +1,6 @@
 # ACDb Worker — deploy runbook
 
-`acdb-worker.js` is the API behind sharing, the leaderboard and (soon) accounts. It is deployed by hand
+`acdb-worker.js` is the API behind sharing, the leaderboard, accounts and sync. It is deployed by hand
 from the Cloudflare dashboard: pushing to GitHub does **not** update it. Everything here runs on the
 Workers **Free** plan; no payment method is needed. If a screen asks for a card, stop and back out.
 
@@ -9,9 +9,9 @@ Workers **Free** plan; no payment method is needed. If a screen asks for a card,
 | Kind | Name | Value |
 |---|---|---|
 | D1 binding | `DB` | database `acdb` |
-| KV binding | `ACDB` | the existing namespace (original profile store; kept as a backup) |
-| Variable | `PROFILES_BACKEND` | `kv` until the migration is done, then `d1` |
-| Secret | `ADMIN_KEY` | long random string, used only for `/admin/migrate-kv` |
+| KV binding | `ACDB` | the pre-D1 profile store; no longer read, kept as a frozen backup (see Cleanup) |
+| Variable | `GOOGLE_CLIENT_ID` | OAuth client id (see Google Cloud below) |
+| Secret | `GOOGLE_CLIENT_SECRET` | that client's secret |
 | Cron trigger | — | `0 3 * * *` (daily cleanup of expired sessions and rate-limit rows) |
 
 Schema files live in `migrations/` and are applied in order in the D1 console. Each one is safe to re-run.
@@ -22,7 +22,7 @@ Workers & Pages → the ACDb worker → **Edit code** → replace everything wit
 `acdb-worker.js` → **Deploy**. Changing a variable or binding also needs its own **Deploy**/**Save**
 in the settings screen.
 
-## Phase 1 — move profiles from KV to D1 (one time)
+## Phase 1 — D1 database (one time)
 
 1. **Create the database.** Storage & Databases → D1 SQL Database → **Create** → name `acdb` → Create.
 2. **Create the tables.** Open `acdb` → **Console** → paste all of `migrations/0001_init.sql` → **Execute**.
@@ -32,34 +32,10 @@ in the settings screen.
    ```
    Expected tables: `items`, `profiles`, `rate_limits`, `sessions`, `users`.
 3. **Bind it.** Worker → Settings → **Bindings** → Add → D1 database → variable name `DB` → `acdb`.
-4. **Variables.** Worker → Settings → **Variables and Secrets** → Add:
-   - Text `PROFILES_BACKEND` = `kv`
-   - Secret `ADMIN_KEY` = a long random string (for example the output of
-     `python3 -c "import secrets; print(secrets.token_hex(32))"`). Keep it somewhere private (not in git).
-5. **Cron.** Worker → Settings → **Trigger events / Cron Triggers** → Add → `0 3 * * *`.
-6. **Save the current leaderboard** for comparison:
-   ```
-   curl -s https://api.acdb.workers.dev/leaderboard > leaderboard-before.json
-   ```
-7. **Deploy the new code** (see above). With `PROFILES_BACKEND=kv` the site behaves exactly as before.
-8. **Copy profiles to D1.** Repeat until the response says `"done": true`, passing `nextCursor` each time:
-   ```
-   curl -s -X POST -H "X-Admin-Key: <ADMIN_KEY>" "https://api.acdb.workers.dev/admin/migrate-kv"
-   curl -s -X POST -H "X-Admin-Key: <ADMIN_KEY>" "https://api.acdb.workers.dev/admin/migrate-kv?cursor=<nextCursor>"
-   ```
-   `broken` counts name keys whose profile data is missing in KV (already unreachable today).
-9. **Switch to D1.** Set `PROFILES_BACKEND` = `d1` and deploy, then **immediately run step 8 once more**
-   (catches any profile created or updated in between).
-10. **Verify.**
-    ```
-    curl -s https://api.acdb.workers.dev/leaderboard > leaderboard-after.json
-    ```
-    Compare with `leaderboard-before.json` (same names, counts and order). In the D1 console,
-    `SELECT COUNT(*) FROM profiles;` should equal the number of `name:` keys in the KV namespace minus `broken`.
-    Then on the site: open a profile, and Share → Update / Delete with a throwaway profile.
+4. **Cron.** Worker → Settings → **Trigger events / Cron Triggers** → Add → `0 3 * * *`.
 
-**Rollback:** set `PROFILES_BACKEND` back to `kv` and deploy. KV is never written in `d1` mode, so it still
-holds every profile as it was at the switch (profiles created after the switch exist only in D1).
+Profiles were copied from KV to D1 on 2026-10-06 with a one-time `/admin/migrate-kv` endpoint, removed in
+the 2026-10-13 cleanup (it is in git history if ever needed again).
 
 ## Phases 2, 3 and 6 — Google sign-in, sync API, linked profiles
 
@@ -119,12 +95,15 @@ The full sign-in round trip is tested from the site itself once the client code 
 2. Merge `feature/cloud-sync` into `main` and push. GitHub Pages publishes the site within a minute or two.
 3. Check on the live site: sign in with an account that is **not** a test user; `privacy.html` loads.
 
-## Cleanup (from about 2026-10-13, one week after the switch to D1)
+## Cleanup after the move to D1
 
-Once profiles have been served from D1 for a week without problems:
+Done 2026-10-13, one week after the switch:
 
-1. In `acdb-worker.js`, delete `kvProfiles`, `profileStore()` (use `d1Profiles` directly), the
-   `/admin/migrate-kv` route and handler, and the KV/`PROFILES_BACKEND`/`ADMIN_KEY` notes in the header. Deploy.
-2. Worker → Settings: remove the `PROFILES_BACKEND` variable and the `ADMIN_KEY` secret.
-3. Keep the `ACDB` KV binding and namespace a while longer as a read-only backup; deleting them is optional
-   and can wait months (KV storage is free at this size).
+1. `acdb-worker.js` no longer has the KV profile store, the `PROFILES_BACKEND` switch or `/admin/migrate-kv`.
+2. The `PROFILES_BACKEND` variable and the `ADMIN_KEY` secret were removed from the Worker settings
+   (after the new code was deployed: the old code fell back to KV when the variable was missing).
+
+Still to do, a few weeks later (around mid-November 2026): delete the KV backup. It is a frozen copy of the
+profiles as of 2026-10-06 and its keys are the raw edit tokens of signed-out profiles, so it should not be
+kept indefinitely. Worker → Settings → **Bindings** → remove `ACDB` → Deploy, then Storage & Databases →
+KV → the namespace → **Delete**. Deleting it cannot be undone.
