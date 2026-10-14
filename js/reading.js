@@ -20,10 +20,18 @@
     // The "By Series" tab sits among the orders' tabs (#reading/series lists
     // the series, #reading/series/<slug> opens one).
     const SERIES_TAB = { id: 'series', name: 'By Series' };
+    // The "Games" tab lists GAMES (js/games.js) with their story DLCs
+    // (#reading/games, #reading/games/<slug> scrolls to one game).
+    const GAMES_TAB = { id: 'games', name: 'Games' };
 
-    let currentOrderId = null;   // a READING_ORDERS id, or SERIES_TAB.id
+    // Whether orders with "gameMarkers" place the games among the books;
+    // a per-viewer preference like the mode.
+    const SHOW_GAMES_KEY = 'acdb_reading_games';
+
+    let currentOrderId = null;   // a READING_ORDERS id, SERIES_TAB.id or GAMES_TAB.id
     let currentGame = null;      // game filter (orders with "games": true), or null for all
     let currentSeries = null;    // slug of the open series page; null shows the list
+    let currentGameCard = null;  // slug of the game to scroll to on the Games tab
 
     // Open era/year sections per view (order, mode and game filter). All
     // start open; folding is kept while the page is open so re-renders
@@ -42,6 +50,18 @@
 
     function setMode(mode) {
         try { localStorage.setItem(MODE_KEY, mode); } catch { /* storage unavailable */ }
+    }
+
+    function getShowGames() {
+        try {
+            return localStorage.getItem(SHOW_GAMES_KEY) !== 'hide';
+        } catch {
+            return true;
+        }
+    }
+
+    function setShowGames(show) {
+        try { localStorage.setItem(SHOW_GAMES_KEY, show ? 'show' : 'hide'); } catch { /* storage unavailable */ }
     }
 
     function getOrder(id) {
@@ -102,6 +122,51 @@
 
     function readingHash() {
         return '#reading/' + currentOrderId + (currentGame ? '/' + gameSlug(currentGame) : '');
+    }
+
+    // ---- Games ----
+    // GAMES is in release order; a remake ("remakeOf") tells the same story
+    // as its original, so only the original gets a place in the lore.
+    // Story DLCs with "marker" are set in another period than their game and
+    // get a place of their own; the rest are read as part of their game.
+    const GAME_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.5 7h9a5 5 0 0 1 4.9 6l-.8 3.6a2.4 2.4 0 0 1-4.1 1.1L14.4 16H9.6l-2.1 1.7a2.4 2.4 0 0 1-4.1-1.1L2.6 13A5 5 0 0 1 7.5 7Zm-.5 3v1.5H5.5V13H7v1.5h1.5V13H10v-1.5H8.5V10H7Zm8.75 1.25a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm2-2a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg>';
+
+    function gameCardSlug(name) {
+        return A.slugify(name.replace(/^Assassin's Creed(:| -)?\s*/, '') || name);
+    }
+
+    // The games and DLCs placed in the lore, as rows for orderHTML
+    function loreGames() {
+        const rows = [];
+        GAMES.forEach(game => {
+            if (game.remakeOf) return;
+            rows.push({ ...game, game: game.name, dlc: false });
+            (game.dlcs || []).forEach(dlc => {
+                if (dlc.marker) rows.push({ ...dlc, game: game.name, dlc: true });
+            });
+        });
+        return rows;
+    }
+
+    // Books and games in one list. Sorting is stable and the books are
+    // already in order, so only the games move: each lands before the books
+    // with the same start year (or release date).
+    function withGames(entries, games, mode) {
+        const key = mode === 'release' ? (e => e.released) : (e => e.year);
+        const rows = [
+            ...entries.map(entry => ({ entry })),
+            ...games.map(game => ({ game }))
+        ];
+        return rows.sort((a, b) => {
+            const ka = key(a.entry || a.game);
+            const kb = key(b.entry || b.game);
+            if (ka !== kb) return ka < kb ? -1 : 1;
+            return (a.game ? 0 : 1) - (b.game ? 0 : 1);
+        });
+    }
+
+    function itemCountForGame(name) {
+        return AC_DATABASE.filter(item => item.game === name).length;
     }
 
     // ---- Series ----
@@ -204,7 +269,11 @@
         const [orderId, slug] = (param || '').split('/');
         currentGame = null;
         currentSeries = null;
-        if (orderId === SERIES_TAB.id) {
+        currentGameCard = null;
+        if (orderId === GAMES_TAB.id) {
+            currentOrderId = GAMES_TAB.id;
+            currentGameCard = slug || null;
+        } else if (orderId === SERIES_TAB.id) {
             const series = slug ? findSeries(slug) : null;
             if (series && series.curated) {
                 // One page per series: the curated order is canonical.
@@ -222,6 +291,18 @@
         }
         render(currentOrderId === SERIES_TAB.id);
         window.scrollTo(0, 0);
+        if (currentGameCard) flashRow(content.querySelector(`[data-game-card="${CSS.escape(currentGameCard)}"]`));
+    }
+
+    // Scroll a row into view and highlight it ("Up next", a game's link)
+    function flashRow(row) {
+        if (!row) return;
+        const fold = row.closest('.reading-fold');
+        if (fold) fold.open = true;
+        row.scrollIntoView({ behavior: ACDB.scrollBehavior(), block: 'center' });
+        row.classList.remove('flash');
+        void row.offsetWidth;   // restart the highlight animation
+        row.classList.add('flash');
     }
 
     function isVisible() {
@@ -238,7 +319,8 @@
     function render(enter = false) {
         const chipScroll = content.querySelector('.reading-games')?.scrollLeft || 0;
         const showList = currentOrderId === SERIES_TAB.id && !currentSeries;
-        const page = showList ? seriesListHTML() : orderHTML(currentOrder());
+        const page = currentOrderId === GAMES_TAB.id ? gamesHTML()
+            : showList ? seriesListHTML() : orderHTML(currentOrder());
         content.innerHTML = tabsHTML() + `<div class="reading-page${enter ? ' reading-page-enter' : ''}">${page}</div>`;
         restoreChipRow(chipScroll);
         updateFoldAll();
@@ -250,9 +332,9 @@
             : getOrder(currentOrderId);
     }
 
-    // Complete Lore, By Series, then the other curated orders.
+    // Complete Lore, By Series, Games, then the other curated orders.
     function tabsHTML() {
-        const tabs = [READING_ORDERS[0], SERIES_TAB, ...READING_ORDERS.slice(1)];
+        const tabs = [READING_ORDERS[0], SERIES_TAB, GAMES_TAB, ...READING_ORDERS.slice(1)];
         return `<nav class="tabs reading-tabs" aria-label="Reading orders">${tabs.map(t =>
             `<a href="#reading/${t.id}" class="tab${t.id === currentOrderId ? ' active" aria-current="page' : ''}">${A.escapeHTML(t.name)}</a>`).join('')}</nav>`;
     }
@@ -288,7 +370,7 @@
             const data = A.getItemData(item.id);
             const thumb = coverOf(item);
             return `
-                <li class="reading-entry${data.hasRead ? ' read' : ''}" data-entry="${item.id}">
+                <li class="reading-entry${data.hasRead ? ' read' : ''}" data-entry="${item.id}" value="${idx + 1}">
                     <span class="reading-num">${idx + 1}</span>
                     <button class="reading-cover" data-open="${item.id}" aria-label="Open ${esc(item.name)}">
                         ${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy">` : ''}
@@ -311,19 +393,58 @@
                 </li>`;
         };
 
+        // A game or DLC: a marker between the books, unnumbered and not
+        // counted, linking to its card on the Games tab.
+        const gameRowHTML = (game) => {
+            const href = `#reading/${GAMES_TAB.id}/${gameCardSlug(game.game)}`;
+            const label = game.dlc ? `Story DLC · ${gameLabel(game.game)}` : 'Game';
+            // A DLC without a cover of its own (free updates) keeps the icon
+            const picture = game.image
+                ? `<a class="reading-cover reading-game-cover" href="${href}" aria-label="${esc(game.name)} on the Games tab" tabindex="-1"><img src="${esc(game.image)}" alt="" loading="lazy"></a>`
+                : `<a class="reading-cover reading-game-icon" href="${href}" aria-label="${esc(game.name)} on the Games tab" tabindex="-1">${GAME_ICON}</a>`;
+            return `
+                <li class="reading-entry reading-entry-game">
+                    <span class="reading-num"></span>
+                    ${picture}
+                    <div class="reading-info">
+                        <a class="reading-title" href="${href}">${esc(game.name)}</a>
+                        <div class="reading-meta">
+                            <span class="reading-game-label">${esc(label)}</span>
+                            <span class="reading-setting${mode === 'chronological' ? ' primary' : ''}">Set ${esc(game.setting)}</span>
+                            <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${formatReleased(game)}</span>
+                        </div>
+                    </div>
+                </li>`;
+        };
+
+        // Games join orders with "gameMarkers" unless the viewer hid them;
+        // with a game filter, only that game and its DLCs.
+        const showGames = order.gameMarkers && getShowGames();
+        const games = showGames ? loreGames().filter(g => !currentGame || g.game === currentGame) : [];
+        const rows = games.length ? withGames(entries, games, mode) : entries.map(entry => ({ entry }));
+
         // Long orders get headings: eras in chronological mode, release
-        // years in release mode. Numbering runs on across sections.
+        // years in release mode. Numbering runs on across sections and
+        // counts only the books.
         const sections = [];
-        entries.forEach((entry, idx) => {
+        let idx = 0;
+        rows.forEach(row => {
+            const at = row.entry || row.game;
             const heading = !order.eras ? ''
-                : mode === 'chronological' ? eraOf(entry.year) : entry.released.slice(0, 4);
+                : mode === 'chronological' ? eraOf(at.year) : at.released.slice(0, 4);
             let section = sections[sections.length - 1];
             if (!section || section.heading !== heading) {
-                section = { heading, start: idx + 1, rows: [], read: 0 };
+                section = { heading, start: idx + 1, rows: [], books: 0, read: 0 };
                 sections.push(section);
             }
-            section.rows.push(rowHTML(entry, idx));
-            if (A.getItemData(entry.item).hasRead) section.read++;
+            if (row.game) {
+                section.rows.push(gameRowHTML(row.game));
+                return;
+            }
+            section.rows.push(rowHTML(row.entry, idx));
+            section.books++;
+            if (A.getItemData(row.entry.item).hasRead) section.read++;
+            idx++;
         });
         // Shortcut to the first unread book in the current mode.
         const nextIndex = entries.findIndex(e => !A.getItemData(e.item).hasRead);
@@ -339,7 +460,8 @@
 
         // Headed sections fold; see openSections.
         const foldable = sections.length > 0 && sections[0].heading !== '';
-        sectionKey = foldable ? `${order.id}/${mode}/${currentGame || ''}` : null;
+        // Showing the games can add release-year sections, so it is part of the key.
+        sectionKey = foldable ? `${order.id}/${mode}/${currentGame || ''}/${showGames ? 'games' : ''}` : null;
         if (foldable && !openSections.has(sectionKey)) {
             openSections.set(sectionKey, new Set(sections.map(sec => sec.heading)));
         }
@@ -349,11 +471,19 @@
             if (!foldable) return ol;
             return `
                 <details class="reading-fold" data-section="${esc(sec.heading)}"${open.has(sec.heading) ? ' open' : ''}>
-                    <summary><h4 class="section-head reading-section"><span>${esc(sec.heading)}</span><span class="section-head-count">${sec.read}/${sec.rows.length}</span></h4></summary>
+                    <summary><h4 class="section-head reading-section"><span>${esc(sec.heading)}</span>${sec.books ? `<span class="section-head-count">${sec.read}/${sec.books}</span>` : ''}</h4></summary>
                     ${ol}
                 </details>`;
         }).join('');
         const foldAll = foldable && sections.length > 1 ? '<button class="link link-quiet reading-fold-all" data-fold-all></button>' : '';
+        const gamesSwitch = order.gameMarkers ? `
+                <label class="reading-toggle reading-show-games">
+                    <span>Show games</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" data-show-games${showGames ? ' checked' : ''}>
+                        <span class="toggle-slider"></span>
+                    </div>
+                </label>` : '';
 
         const modes = `
                 <div class="seg reading-modes" role="group" aria-label="Reading order">
@@ -380,7 +510,7 @@
             </div>
             ${gameChips}
             <div class="reading-bar">${modes}${progress}</div>
-            ${upNext || foldAll ? `<div class="reading-list-tools">${upNext}${foldAll}</div>` : ''}
+            ${upNext || gamesSwitch || foldAll ? `<div class="reading-list-tools">${upNext}${gamesSwitch}${foldAll}</div>` : ''}
             ${list}
             ${SOURCES_HTML}
         `;
@@ -481,6 +611,100 @@
         `;
     }
 
+    // ---- Games tab ----
+    // One card per game with its story DLCs, in release order or by where
+    // the story starts (under era headings), with links to the books that
+    // go with it in Complete Lore and to its items in the collection.
+    const GAME_SOURCES_HTML = `<p class="reading-sources">Main games and console spin-offs with their story DLCs; gear and cosmetic packs are left out. Settings from the <a href="https://assassinscreed.fandom.com/wiki/User_blog:Kulurak/Chronological_order_of_Assassin%27s_Creed_franchise" target="_blank" rel="noopener noreferrer">Assassin's Creed Wiki</a>, release dates from Ubisoft and the press. Games are placed by their main historical story; the modern-day story is left out. Cover art &copy; Ubisoft.</p>`;
+
+    function gamesHTML() {
+        const esc = A.escapeHTML;
+        const mode = getMode();
+        const games = mode === 'chronological' ? [...GAMES].sort((a, b) => a.year - b.year) : GAMES;
+        const lore = READING_ORDERS[0];
+        const loreGamesWithBooks = new Map(gamesIn(lore).map(g => [g.game, g.count]));
+
+        // "Set" reads oddly before text like "After the main story"
+        const setText = (setting) => /^\d|^c\. /.test(setting) ? `Set ${setting}` : setting;
+        const dlcHTML = (dlc) => `
+            <li class="game-dlc">
+                <span class="game-dlc-cover">${dlc.image ? `<img src="${esc(dlc.image)}" alt="" loading="lazy">` : GAME_ICON}</span>
+                <span class="game-dlc-body">
+                <span class="game-dlc-name">${esc(dlc.name)}</span>
+                <span class="reading-meta">
+                    <span class="reading-setting${mode === 'chronological' ? ' primary' : ''}">${esc(setText(dlc.setting))}</span>
+                    <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${formatReleased(dlc)}</span>
+                    ${dlc.note ? `<span>${esc(dlc.note)}</span>` : ''}
+                    ${dlc.marker ? `<span class="reading-game-label">Own place in the lore</span>` : ''}
+                </span>
+                ${dlc.episodes ? `<span class="game-dlc-episodes">${dlc.episodes.map(ep => `<span class="game-dlc-episode">${esc(ep.name)} <span class="game-dlc-date">${formatReleased(ep)}</span></span>`).join(' · ')}</span>` : ''}
+                </span>
+            </li>`;
+
+        const cardHTML = (game) => {
+            const items = itemCountForGame(game.name);
+            const books = loreGamesWithBooks.get(game.name);
+            const remake = game.remakeOf ? GAMES.find(g => g.name === game.remakeOf) : null;
+            const links = [
+                books ? `<a class="link" href="#reading/${lore.id}/${gameSlug(game.name)}">${books} ${books === 1 ? 'story' : 'stories'} in ${esc(lore.name)} &rarr;</a>` : '',
+                items ? `<button class="link" data-game-catalog="${esc(game.name)}">${items} ${items === 1 ? 'item' : 'items'} in the collection &rarr;</button>` : ''
+            ].filter(Boolean).join('');
+            const dlcs = game.dlcs || [];
+            return `
+                <li class="game-card" data-game-card="${gameCardSlug(game.name)}">
+                    <div class="game-card-head">
+                        ${game.image
+                            ? `<span class="game-card-cover"><img src="${esc(game.image)}" alt="" loading="lazy"></span>`
+                            : `<span class="reading-game-icon">${GAME_ICON}</span>`}
+                        <div class="reading-info">
+                            <h4 class="game-card-title">${esc(game.name)}</h4>
+                            <div class="reading-meta">
+                                <span class="reading-setting${mode === 'chronological' ? ' primary' : ''}">Set ${esc(game.setting)}</span>
+                                <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${formatReleased(game)}</span>
+                            </div>
+                            ${remake ? `<p class="game-card-note">Remake of <a class="link" href="#reading/${GAMES_TAB.id}/${gameCardSlug(remake.name)}">${esc(remake.name)}</a></p>` : ''}
+                        </div>
+                    </div>
+                    ${dlcs.length ? `
+                    <div class="game-dlcs">
+                        <span class="label">Story DLC</span>
+                        <ul>${dlcs.map(dlcHTML).join('')}</ul>
+                    </div>` : ''}
+                    ${links ? `<div class="game-card-links">${links}</div>` : ''}
+                </li>`;
+        };
+
+        // Story order gets era headings, like Complete Lore
+        const sections = [];
+        games.forEach(game => {
+            const heading = mode === 'chronological' ? eraOf(game.year) : '';
+            let section = sections[sections.length - 1];
+            if (!section || section.heading !== heading) {
+                section = { heading, cards: [] };
+                sections.push(section);
+            }
+            section.cards.push(cardHTML(game));
+        });
+        const list = sections.map(sec => `
+            ${sec.heading ? `<h4 class="section-head reading-section"><span>${esc(sec.heading)}</span><span class="section-head-count">${sec.cards.length}</span></h4>` : ''}
+            <ul class="game-list">${sec.cards.join('')}</ul>`).join('');
+
+        const dlcCount = GAMES.reduce((n, g) => n + (g.dlcs || []).length, 0);
+        const modes = `
+                <div class="seg reading-modes" role="group" aria-label="Game order">
+                    ${MODES.map(m => `<button class="seg-btn reading-mode${m === mode ? ' active' : ''}" data-mode="${m}" aria-pressed="${m === mode}">${m === 'chronological' ? 'Chronological' : 'Release'}</button>`).join('')}
+                </div>`;
+        return `
+            <div class="reading-intro">
+                <h3 class="reading-name sr-only">${esc(GAMES_TAB.name)}</h3>
+                <p class="reading-description">Every main game and console spin-off, with its story DLCs: ${GAMES.length} games and ${dlcCount} DLCs. ${esc(lore.name)} places them among the books; a DLC set in another period than its game gets a place of its own.</p>
+            </div>
+            <div class="reading-bar">${modes}</div>
+            ${list}
+            ${GAME_SOURCES_HTML}
+        `;
+    }
+
     // Re-rendering resets the chip row's scroll: restore it, then make sure
     // the active chip is visible (e.g. after a deep link).
     function restoreChipRow(scrollLeft) {
@@ -525,15 +749,14 @@
         }
         const jumpBtn = e.target.closest('[data-jump]');
         if (jumpBtn) {
-            const row = content.querySelector(`[data-entry="${jumpBtn.dataset.jump}"]`);
-            if (row) {
-                const fold = row.closest('.reading-fold');
-                if (fold) fold.open = true;
-                row.scrollIntoView({ behavior: ACDB.scrollBehavior(), block: 'center' });
-                row.classList.remove('flash');
-                void row.offsetWidth;   // restart the highlight animation
-                row.classList.add('flash');
-            }
+            flashRow(content.querySelector(`[data-entry="${jumpBtn.dataset.jump}"]`));
+            return;
+        }
+        const catalogLink = e.target.closest('[data-game-catalog]');
+        if (catalogLink) {
+            A.showMainContent();
+            A.clearHash();
+            A.applyExclusiveFilter('game', catalogLink.dataset.gameCatalog);
             return;
         }
         const openBtn = e.target.closest('[data-open]');
@@ -552,6 +775,11 @@
     }, true);
 
     content.addEventListener('change', (e) => {
+        if (e.target.matches('[data-show-games]')) {
+            setShowGames(e.target.checked);
+            render();
+            return;
+        }
         const toggle = e.target.closest('[data-read]');
         if (!toggle) return;
         const id = Number(toggle.dataset.read);

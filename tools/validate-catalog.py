@@ -30,6 +30,13 @@ Checks:
              a readable type (READABLE_TYPES in js/utils.js), at most once
              per order, with a setting and a valid release date; years
              (needed for era headings) never go backwards
+  games      js/games.js: every game is on the timeline (SHORT_GAME_NAMES),
+             has its cover in images/games/,
+             listed once, in release order, with a start year, a setting and
+             a valid release date; the same for each story DLC (a year
+             only when it has a place in the lore, "marker"), its episodes
+             dated, the first on the DLC's date; a remake points at another
+             game in the list
 """
 from __future__ import annotations
 
@@ -47,6 +54,7 @@ INDEX_HTML = ROOT / "index.html"
 SHARE_DIR = ROOT / "s"
 UTILS_JS = ROOT / "js" / "utils.js"
 READING_ORDERS_JS = ROOT / "js" / "reading-orders.js"
+GAMES_JS = ROOT / "js" / "games.js"
 
 # Reuse the share-page builder's database parser and slug logic so all the
 # tools agree on how database.js is read and how slugs are made.
@@ -180,6 +188,110 @@ def check_reading_orders(items, errors, warnings):
             precision = entry.get("releasedPrecision")
             if precision is not None and precision not in ("month", "year"):
                 errors.append(f"{elabel}: \"releasedPrecision\" should be \"month\" or \"year\", got {precision!r}")
+
+
+def load_games():
+    """The GAMES array; its body is written as plain JSON."""
+    text = GAMES_JS.read_text(encoding="utf-8")
+    start = text.find("[", text.find("const GAMES ="))
+    end = text.rfind("]")
+    try:
+        return json.loads(text[start:end + 1])
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"validate-catalog: js/games.js did not parse as JSON: {e}")
+
+
+def check_released(label, entry, errors):
+    """A past release date like the orders', with an optional precision."""
+    released = entry.get("released")
+    try:
+        date = datetime.date.fromisoformat(released)
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", released) or date.year < FIRST_YEAR or date > datetime.date.today():
+            raise ValueError
+    except (TypeError, ValueError):
+        errors.append(f"{label}: \"released\" should be a past date like \"2009-11-17\", got {released!r}")
+        return False
+    precision = entry.get("releasedPrecision")
+    if precision is not None and precision not in ("month", "year"):
+        errors.append(f"{label}: \"releasedPrecision\" should be \"month\" or \"year\", got {precision!r}")
+    return True
+
+
+def check_story_fields(label, entry, errors, year_required=True):
+    """year, setting and release date of a game or DLC."""
+    year = entry.get("year")
+    if year is None and not year_required:
+        pass
+    elif not isinstance(year, int) or isinstance(year, bool):
+        errors.append(f"{label}: \"year\" should be a whole number, got {year!r}")
+    if not isinstance(entry.get("setting"), str) or not entry["setting"].strip():
+        errors.append(f"{label}: missing \"setting\"")
+    return check_released(label, entry, errors)
+
+
+def check_games(errors, warnings):
+    timeline = load_game_names() - {"General", "Assassin's Creed (Movie)"}
+    games = load_games()
+    names = [g.get("name") for g in games]
+    seen = set()
+    previous = None
+    for game in games:
+        name = game.get("name")
+        label = f"js/games.js: game {name!r}"
+        if name not in timeline:
+            errors.append(f"{label}: not a game on the timeline (SHORT_GAME_NAMES in js/app.js)")
+        if name in seen:
+            errors.append(f"{label}: listed twice")
+        seen.add(name)
+        if check_story_fields(label, game, errors):
+            if previous is not None and game["released"] < previous:
+                warnings.append(f"{label}: released before the game above it; GAMES is in release order")
+            previous = game["released"]
+        image = game.get("image")
+        if not isinstance(image, str) or not image.startswith("images/games/"):
+            errors.append(f"{label}: \"image\" should be a cover in images/games/, got {image!r}")
+        elif not (ROOT / image).is_file():
+            errors.append(f"{label}: image file not found: {image}")
+        remake_of = game.get("remakeOf")
+        if remake_of is not None and (remake_of not in names or remake_of == name):
+            errors.append(f"{label}: \"remakeOf\" should name another game in the list, got {remake_of!r}")
+        dlcs = game.get("dlcs", [])
+        if not isinstance(dlcs, list):
+            errors.append(f"{label}: \"dlcs\" should be a list")
+            continue
+        dlc_names = set()
+        for dlc in dlcs:
+            dlabel = f"{label}, DLC {dlc.get('name')!r}"
+            if not isinstance(dlc.get("name"), str) or not dlc["name"].strip():
+                errors.append(f"{label}: a DLC has no name")
+            elif dlc["name"] in dlc_names:
+                errors.append(f"{dlabel}: listed twice")
+            dlc_names.add(dlc.get("name"))
+            # The year places a DLC in the lore, so only one with a place needs it
+            check_story_fields(dlabel, dlc, errors, year_required=bool(dlc.get("marker")))
+            if "marker" in dlc and not isinstance(dlc["marker"], bool):
+                errors.append(f"{dlabel}: \"marker\" should be true or false")
+            if "image" in dlc:
+                dimage = dlc["image"]
+                if not isinstance(dimage, str) or not dimage.startswith("images/games/dlc/"):
+                    errors.append(f"{dlabel}: \"image\" should be a cover in images/games/dlc/, got {dimage!r}")
+                elif not (ROOT / dimage).is_file():
+                    errors.append(f"{dlabel}: image file not found: {dimage}")
+            if "note" in dlc and (not isinstance(dlc["note"], str) or not dlc["note"].strip()):
+                errors.append(f"{dlabel}: \"note\" should be text")
+            episodes = dlc.get("episodes")
+            if episodes is not None:
+                if not isinstance(episodes, list) or not episodes:
+                    errors.append(f"{dlabel}: \"episodes\" should be a non-empty list")
+                else:
+                    for ep in episodes:
+                        if not isinstance(ep.get("name"), str) or not ep["name"].strip():
+                            errors.append(f"{dlabel}: an episode has no name")
+                        check_released(f"{dlabel}, episode {ep.get('name')!r}", ep, errors)
+                    if episodes[0].get("released") != dlc.get("released"):
+                        errors.append(f"{dlabel}: \"released\" should be the first episode's date")
+            if dlc.get("marker") and remake_of:
+                errors.append(f"{dlabel}: a remake's DLC can't have a place in the lore (its original has it)")
 
 
 def check_collects(items, errors):
@@ -319,6 +431,7 @@ def main():
             warnings.append("series spelled more than one way: " + " / ".join(f'"{s}"' for s in sorted(spellings)))
 
     check_reading_orders(items, errors, warnings)
+    check_games(errors, warnings)
     check_collects(items, errors)
 
     for w in warnings:
