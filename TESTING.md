@@ -194,9 +194,13 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Fresh private window: no requests to `accounts.google.com` until Sign in is clicked (Network tab; `fonts.googleapis.com` is the site's fonts and was always there)
 
 ## 18. Reading Order
-- [ ] Reading Order tab in the header opens `#reading` and turns active (Leaderboard likewise for `#leaderboard`; a profile leaves no tab active): grid, toolbar and stats are hidden; tabs read Complete Lore (active), By Series, Oliver Bowden Novels, Non-canon Stories
+- [ ] Reading Order tab in the header opens `#reading` and turns active (Leaderboard likewise for `#leaderboard`; a profile leaves no tab active): grid, toolbar and stats are hidden; tabs read Complete Lore (active), By Series, Games, Oliver Bowden Novels, Non-canon Stories
 - [ ] Complete Lore: 120 entries under 9 era headings (Ancient World … Modern Day), each with a read count; numbering runs on across headings; Forgotten Myths #1 first, Escape Room Puzzle Book last; Trial by Fire #1–5 sit together at 1692
 - [ ] Era headings fold: all start open with a chevron and "Collapse all"; clicking a heading folds it (count stays visible) and the button turns to "Expand all"; folding survives marking books read and leaving/returning to the tab (until reload); "Up next" opens a folded section and lands on the book; release-year headings fold the same way; series and Bowden pages have no sections
+- [ ] Complete Lore shows the games among the books: 28 rows with a dashed gold border (18 games and 10 story DLCs, each with its cover art uncropped, except the free Crossover Stories and The Last Chapter, which show a controller icon; no Black Flag Resynced), unnumbered and without a Read switch; the books stay numbered 1–120 and the progress and era counts count books only. Assassin's Creed II sits between Heresy and Renaissance; Odyssey comes before the Odyssey novel
+- [ ] "Show games" switch (on by default) hides the game rows; the choice survives a reload. With a game filter only that game's rows show (Black Flag: the game, Aveline and Freedom Cry); "Original stories" has none
+- [ ] A game row's title or icon opens its card on the Games tab (`#reading/games/<slug>`), scrolled into view and highlighted; back returns to Complete Lore
+- [ ] Games tab (`#reading/games`): 19 cards, each with its cover, "19 games and 32 DLCs"; Chronological groups them under era headings (Odyssey first), Release lists them flat (Assassin's Creed first, Black Flag Resynced last). Each card shows setting and release date, its story DLCs (17 with a small cover, the free updates and the Xbox 360-era add-ons with a controller icon; with exclusives, "Own place in the lore" for the DLCs that get a row, and episode dates for The Tyranny of King Washington, Legacy of the First Blade and The Fate of Atlantis), "N stories in Complete Lore →" (opens the game filter) and "N items in the collection →" (opens the grid filtered to the game: AC II 31 items). Black Flag Resynced says "Remake of Assassin's Creed IV: Black Flag"
 - [ ] Release mode on Complete Lore groups by release year; dates known only to the month show as "Nov 2009"
 - [ ] After marking something read, "Up next: …" appears and jumps to (and briefly highlights) the first unread book
 - [ ] Game filter on Complete Lore: chips "All 120", then games in timeline order (AC1 first), "Original stories 62" last. Picking Valhalla shows its 12 entries numbered 1–12 with "x / 12 read"; the address becomes `#reading/complete/valhalla` without adding a back-button step; All resets to `#reading/complete`
@@ -218,7 +222,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] No reading order line for items outside an order, or in read-only (profile/leaderboard) modals
 - [ ] The **Collection** tab returns to the grid with no hash; pasting `/#reading/bowden` opens that tab directly
 - [ ] Phone width: rows fit without horizontal scroll, the Read label hides and the switch stays
-- [ ] `validate-catalog.py` covers `js/reading-orders.js` (unknown item, non-readable type, duplicate, missing setting, bad date are errors)
+- [ ] `validate-catalog.py` covers `js/reading-orders.js` (unknown item, non-readable type, duplicate, missing setting, bad date are errors) and `js/games.js` (a game not on the timeline, a duplicate, a bad date, a DLC with a place in the lore but no year, a bad episode date, a remake of an unknown game are errors)
 
 ## 19. Design System
 Tokens live at the top of `css/style.css`; component rules use only them. Check at 1600, 1200, 1000, 390 and 360px, signed in and out.

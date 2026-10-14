@@ -2996,8 +2996,191 @@ textarea:focus-visible {
     margin-bottom: 0.5rem;
 }
 
-.reading-entry.flash {
+.reading-entry.flash,
+.game-card.flash {
     animation: reading-flash 1.6s ease;
+}
+
+/* Games among the books: a marker row, no number or Read switch */
+.reading-entry-game {
+    background: var(--gold-tint);
+    border-style: dashed;
+    border-color: var(--gold-deep);
+}
+
+.reading-game-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--r-md);
+    background: var(--gold-tint-2);
+    color: var(--gold);
+}
+
+.reading-game-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.reading-entry-game .reading-game-icon {
+    justify-self: center;
+}
+
+/* Box art is wider than a book cover: keep its shape so the logo isn't cut */
+.reading-entry-game .reading-game-cover {
+    height: auto;
+    aspect-ratio: 3 / 4;
+}
+
+.reading-game-cover img,
+.game-card-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-card-cover {
+    display: block;
+    width: 64px;
+    aspect-ratio: 3 / 4;
+    border-radius: var(--r-sm);
+    overflow: hidden;
+    background: var(--surface-bar);
+}
+
+a.reading-title {
+    text-decoration: none;
+}
+
+.reading-game-label {
+    color: var(--gold);
+}
+
+.reading-show-games {
+    margin-bottom: 0.5rem;
+}
+
+/* ---- Games tab ---- */
+/* Cards keep their own height: DLC lists vary from none to six */
+.game-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
+    align-items: start;
+    gap: 0.75rem 1rem;
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s3);
+    padding: var(--s4);
+    background: var(--surface-card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+}
+
+.game-card-head {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--s4);
+}
+
+.game-card-title {
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    font-weight: 600;
+}
+
+.game-card-note {
+    margin-top: 0.3rem;
+    color: var(--text-3);
+    font-size: var(--fs-sm);
+}
+
+.game-dlcs {
+    display: grid;
+    gap: var(--s2);
+    padding-top: var(--s3);
+    border-top: 1px solid var(--line);
+}
+
+.game-dlcs ul {
+    list-style: none;
+    display: grid;
+    gap: var(--s2);
+}
+
+.game-dlc {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    align-items: start;
+    gap: var(--s3);
+}
+
+/* Small cover, or the controller icon for DLCs without one */
+.game-dlc-cover {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    aspect-ratio: 3 / 4;
+    border-radius: var(--r-sm);
+    overflow: hidden;
+    background: var(--gold-tint-2);
+    color: var(--gold);
+}
+
+.game-dlc-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-dlc-cover svg {
+    width: 20px;
+    height: 20px;
+}
+
+.game-dlc-body {
+    display: block;
+    min-width: 0;
+}
+
+.game-dlc-name {
+    color: var(--text);
+    font-size: var(--fs-md);
+    font-weight: 600;
+}
+
+.game-dlc .reading-meta {
+    margin-top: 0.1rem;
+}
+
+.game-dlc-episodes {
+    display: block;
+    margin-top: 0.2rem;
+    color: var(--text-2);
+    font-size: var(--fs-sm);
+}
+
+.game-dlc-episode {
+    white-space: nowrap;
+}
+
+.game-dlc-date {
+    color: var(--text-3);
+}
+
+.game-card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s2) var(--s4);
+    font-size: var(--fs-sm);
 }
 
 @keyframes reading-flash {
@@ -3205,6 +3388,11 @@ textarea:focus-visible {
     .reading-cover {
         width: 40px;
         height: 60px;
+    }
+
+    .reading-entry-game .reading-game-icon {
+        width: 40px;
+        height: 40px;
     }
 
     .reading-toggle-text {

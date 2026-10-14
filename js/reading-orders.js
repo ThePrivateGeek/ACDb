@@ -8,6 +8,8 @@
    Orders:
      eras      true to show era headings (READING_ERAS) in chronological mode
      games     true to show a filter by the items' game (#reading/<order>/<game>)
+     gameMarkers  true to place the games and story DLCs (GAMES in
+               js/games.js) among the books, with a "Show games" switch
 
    Entries:
      item      permanent item id from database.js (a readable type)
@@ -61,9 +63,10 @@ const READING_ORDERS = [
   {
     "id": "complete",
     "name": "Complete Lore",
-    "description": "Every canon novel, comic and manga in the catalog, in story order from the Isu era to the present day. Story arcs stay together; anthologies are split by era.",
+    "description": "Every canon novel, comic and manga in the catalog, in story order from the Isu era to the present day, with the games placed among them. Story arcs stay together; anthologies are split by era.",
     "eras": true,
     "games": true,
+    "gameMarkers": true,
     "entries": [
       { "item": 320, "year": -75000, "setting": "Isu era", "released": "2022-03-16" },
       { "item": 321, "year": -75000, "setting": "Isu era", "released": "2022-04-20" },
