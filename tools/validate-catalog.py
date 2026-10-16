@@ -24,6 +24,8 @@ Checks:
              with read
   series     no two series names that differ only in case or punctuation
   share      every item has its s/<slug>.html share page
+  aliases    js/slug-aliases.js: every old slug points at an existing item,
+             isn't a current item's slug, and has its share page
   collects   collected editions point at existing readable items that are
              not collections themselves
   reading    js/reading-orders.js: every entry points at an existing item of
@@ -324,6 +326,21 @@ def check_collects(items, errors):
                 errors.append(f"{label}: collects {pid} \"{part.get('name')}\", which is itself a collection")
 
 
+def check_slug_aliases(items, errors, warnings):
+    by_id = {item.get("id"): item for item in items}
+    current = {share_pages.slugify(item["name"]) for item in items if isinstance(item.get("name"), str)}
+    for old_slug, item_id in share_pages.load_slug_aliases().items():
+        label = f'js/slug-aliases.js "{old_slug}"'
+        if old_slug != share_pages.slugify(old_slug):
+            errors.append(f"{label}: not a slug (lowercase letters, digits and dashes)")
+        if old_slug in current:
+            errors.append(f"{label}: is the slug of a current item; remove it")
+        if item_id not in by_id:
+            errors.append(f"{label}: id {item_id} matches no item")
+        elif not (SHARE_DIR / f"{old_slug}.html").is_file():
+            warnings.append(f"{label}: no share page; run python3 tools/build-share-pages.py")
+
+
 def series_key(name):
     return re.sub(r"[^a-z0-9]+", "", name.lower())
 
@@ -433,6 +450,7 @@ def main():
     check_reading_orders(items, errors, warnings)
     check_games(errors, warnings)
     check_collects(items, errors)
+    check_slug_aliases(items, errors, warnings)
 
     for w in warnings:
         print(f"warning: {w}")

@@ -752,7 +752,13 @@ window.ACDB = window.ACDB || {};
     }
 
     function findItemBySlug(slug) {
-        return AC_DATABASE.find(i => slugify(i.name) === slug);
+        const item = AC_DATABASE.find(i => slugify(i.name) === slug);
+        if (item) return item;
+        // A link from before the item was renamed (js/slug-aliases.js)
+        if (Object.prototype.hasOwnProperty.call(SLUG_ALIASES, slug)) {
+            return AC_DATABASE.find(i => i.id === SLUG_ALIASES[slug]);
+        }
+        return undefined;
     }
 
     let suppressHashChange = false;
@@ -864,7 +870,11 @@ window.ACDB = window.ACDB || {};
         // Item modal
         showMainContent();
         const item = findItemBySlug(hash);
-        if (item) openModal(item.id, true);
+        if (!item) return;
+        // An old slug: show the current one in the address bar
+        const slug = getItemSlug(item);
+        if (slug !== hash) history.replaceState(null, '', '#' + slug);
+        openModal(item.id, true);
     }
 
     // ---- Utilities (moved to utils.js) ----

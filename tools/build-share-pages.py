@@ -20,6 +20,9 @@ index the redirect stubs; unfurl bots ignore that tag and read the og: tags.
 Re-run after adding items (same workflow as build-images.py). Stale pages in
 s/ whose slug no longer matches any item are deleted, and slug collisions
 between two item names abort the run.
+
+Renamed items keep their old links: every old slug in js/slug-aliases.js gets
+a page too, with the item's current tags and a redirect to its current slug.
 """
 
 import html
@@ -32,6 +35,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATABASE_JS = ROOT / "js" / "database.js"
 IMAGES_JS = ROOT / "js" / "images.js"
+SLUG_ALIASES_JS = ROOT / "js" / "slug-aliases.js"
 OUT_DIR = ROOT / "s"
 
 SITE = "https://acdb.theprivategeek.com"
@@ -72,6 +76,18 @@ def load_database():
         return json.loads(body)
     except json.JSONDecodeError as e:
         fail(f"database.js did not parse as JSON: {e}")
+
+
+def load_slug_aliases():
+    """Map old slug -> item id from js/slug-aliases.js (one '"slug": id,' per line)."""
+    aliases = {}
+    for line in SLUG_ALIASES_JS.read_text(encoding="utf-8").splitlines():
+        m = re.match(r'\s*"([^"]*)"\s*:\s*(\d+)\s*,', line)
+        if m:
+            if m.group(1) in aliases:
+                fail(f"js/slug-aliases.js lists '{m.group(1)}' twice")
+            aliases[m.group(1)] = int(m.group(2))
+    return aliases
 
 
 def load_base_images():
@@ -172,23 +188,33 @@ def main():
     no_image = []
     written = 0
     expected = set()
-    for item in items:
+    by_id = {item["id"]: item for item in items}
+    pages = [(slugify(item["name"]), item) for item in items]
+    for old_slug, item_id in load_slug_aliases().items():
+        if old_slug in slugs:
+            fail(f"js/slug-aliases.js: '{old_slug}' is the slug of a current item ({slugs[old_slug]!r})")
+        if item_id not in by_id:
+            fail(f"js/slug-aliases.js: '{old_slug}' points at id {item_id}, which matches no item")
+        pages.append((old_slug, by_id[item_id]))
+
+    for page_slug, item in pages:
         slug = slugify(item["name"])
-        expected.add(f"{slug}.html")
+        expected.add(f"{page_slug}.html")
         image = base_images.get(item["name"])
         if not image:
-            no_image.append(item["name"])
+            if page_slug == slug:
+                no_image.append(item["name"])
             image = FALLBACK_IMAGE
 
         description = item.get("description") or f"{item['game']} ({item['year']}) collectible on ACDb."
         page = PAGE_TEMPLATE.format(
             title=esc(item["name"]),
             description=esc(description),
-            page_url=f"{SITE}/s/{slug}",
+            page_url=f"{SITE}/s/{page_slug}",
             image_url=image_url(image),
             slug=slug,
         )
-        target = OUT_DIR / f"{slug}.html"
+        target = OUT_DIR / f"{page_slug}.html"
         if not target.is_file() or target.read_text(encoding="utf-8") != page:
             target.write_text(page, encoding="utf-8", newline="\n")
             written += 1
@@ -197,7 +223,8 @@ def main():
     for name in stale:
         (OUT_DIR / name).unlink()
 
-    print(f"{len(items)} share pages in s/ ({written} written/updated, {len(stale)} stale removed).")
+    aliases = len(pages) - len(items)
+    print(f"{len(items)} share pages in s/ plus {aliases} for old slugs ({written} written/updated, {len(stale)} stale removed).")
     if stale:
         for name in stale:
             print(f"  removed: {name}")
