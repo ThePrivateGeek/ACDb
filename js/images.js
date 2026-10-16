@@ -349,6 +349,12 @@ const AC_IMAGES = {
         "images/statues/mcfarlane-edward.webp",
         "images/statues/mcfarlane-edward_01.webp",
     ],
+    "McFarlane Toys Edward Kenway Limited Edition Resin Statue": [
+        "images/statues/mcfarlane-edward-resin-statue.webp",
+        "images/statues/mcfarlane-edward-resin-statue_01.webp",
+        "images/statues/mcfarlane-edward-resin-statue_02.webp",
+        "images/statues/mcfarlane-edward-resin-statue_03.webp",
+    ],
     "McFarlane Toys Aveline de Grandpre Action Figure (Series 2)": [
         "images/statues/mcfarlane-aveline.webp",
         "images/statues/mcfarlane-aveline_01.webp",

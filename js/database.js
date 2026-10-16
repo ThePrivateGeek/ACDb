@@ -6820,4 +6820,14 @@ const AC_DATABASE = [
     "contents": "Hardcover art book (192 pages, 301 x 228 mm)",
     "type": "Art Book"
   },
+  {
+    "id": 648,
+    "name": "McFarlane Toys Edward Kenway Limited Edition Resin Statue",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Statue",
+    "description": "Hand-painted cold-cast resin statue of Edward Kenway as he appears in the Black Flag key art, striding ashore with sword and pistol in hand, waves lapping at his boots and a dead rival pirate at his feet. Approximately 14\" tall with base, on a 360-degree turning base. Limited to 1,000 sequentially numbered pieces worldwide, 50 of them unpainted Artist's Proofs. Designed by the McFarlane Toys Design Group with Ubisoft. Released December 2013 at $295.",
+    "contents": "Cold-cast resin statue on rotating base, Certificate of Authenticity hand-signed by Todd McFarlane",
+    "type": "McFarlane"
+  },
 ];
