@@ -46,6 +46,12 @@ const AC_IMAGES = {
     "Assassin's Creed IV: Black Flag Black Chest Edition": ["images/collectors-editions/ac4-black-chest-edition.webp"],
     "Assassin's Creed IV: Black Flag Buccaneer Edition": ["images/collectors-editions/ac4-buccaneer-edition.webp"],
     "Assassin's Creed IV: Black Flag Skull Edition": ["images/collectors-editions/ac4-skull-edition.webp"],
+    "Assassin's Creed IV: Black Flag Lethal Pirate Edition (Amazon Exclusive)": [
+        "images/collectors-editions/ac4-lethal-pirate-edition.webp",
+        "images/collectors-editions/ac4-lethal-pirate-edition_01.webp",
+        "images/collectors-editions/ac4-lethal-pirate-edition_02.webp",
+        "images/collectors-editions/ac4-lethal-pirate-edition_03.webp",
+    ],
     "Assassin's Creed IV: Black Flag Limited Edition": ["images/collectors-editions/ac4-limited-edition.webp"],
     "Assassin's Creed Rogue Collector's Edition": [
         "images/collectors-editions/rogue-collectors-edition.webp",
@@ -345,6 +351,13 @@ const AC_IMAGES = {
         "images/statues/mcfarlane-connor.webp",
         "images/statues/mcfarlane-connor_01.webp",
     ],
+    "McFarlane Toys Connor New York Outfit Action Figure (Series 1, Walgreens Exclusive)": [
+        "images/statues/mcfarlane-connor-new-york.webp",
+        "images/statues/mcfarlane-connor-new-york_01.webp",
+        "images/statues/mcfarlane-connor-new-york_02.webp",
+        "images/statues/mcfarlane-connor-new-york_03.webp",
+        "images/statues/mcfarlane-connor-new-york_04.webp",
+    ],
     "McFarlane Toys Edward Kenway Action Figure (Series 1)": [
         "images/statues/mcfarlane-edward.webp",
         "images/statues/mcfarlane-edward_01.webp",
@@ -355,11 +368,12 @@ const AC_IMAGES = {
         "images/statues/mcfarlane-edward-resin-statue_02.webp",
         "images/statues/mcfarlane-edward-resin-statue_03.webp",
     ],
+    "McFarlane Toys Edward Kenway Limited Edition Resin Statue (Unpainted Artist Proof)": ["images/statues/mcfarlane-edward-resin-statue-artist-proof.webp"],
     "McFarlane Toys Aveline de Grandpre Action Figure (Series 2)": [
         "images/statues/mcfarlane-aveline.webp",
         "images/statues/mcfarlane-aveline_01.webp",
     ],
-    "McFarlane Toys Aguilar Action Figure (Movie Series)": [
+    "McFarlane Toys Aguilar Action Figure (Color Tops Blue Wave #12)": [
         "images/statues/mcfarlane-aguilar.webp",
         "images/statues/mcfarlane-aguilar_01.webp",
     ],
@@ -388,6 +402,12 @@ const AC_IMAGES = {
         "images/statues/mcfarlane-black-bart.webp",
         "images/statues/mcfarlane-black-bart_01.webp",
     ],
+    "McFarlane Toys Golden Age of Piracy Action Figure 3-Pack (Series 1)": [
+        "images/statues/mcfarlane-pirate-3-pack.webp",
+        "images/statues/mcfarlane-pirate-3-pack_01.webp",
+        "images/statues/mcfarlane-pirate-3-pack_02.webp",
+        "images/statues/mcfarlane-pirate-3-pack_03.webp",
+    ],
     "McFarlane Toys Adewale Action Figure (Series 2)": [
         "images/statues/mcfarlane-adewale.webp",
         "images/statues/mcfarlane-adewale_01.webp",
@@ -395,6 +415,12 @@ const AC_IMAGES = {
     "McFarlane Toys Arno Dorian Action Figure (Series 3)": [
         "images/statues/mcfarlane-arno.webp",
         "images/statues/mcfarlane-arno_01.webp",
+    ],
+    "McFarlane Toys Giants Creed Arno Action Figure (San Francisco Giants Gamer's Night Exclusive)": [
+        "images/statues/mcfarlane-arno-sf-giants.webp",
+        "images/statues/mcfarlane-arno-sf-giants_01.webp",
+        "images/statues/mcfarlane-arno-sf-giants_02.webp",
+        "images/statues/mcfarlane-arno-sf-giants_03.webp",
     ],
     "McFarlane Toys Ah Tabai Action Figure (Series 3)": [
         "images/statues/mcfarlane-ah-tabai.webp",
@@ -404,7 +430,7 @@ const AC_IMAGES = {
         "images/statues/mcfarlane-edward-mayan.webp",
         "images/statues/mcfarlane-edward-mayan_01.webp",
     ],
-    "McFarlane Toys Connor with Mohawk Action Figure (Series 3)": [
+    "McFarlane Toys Connor with Mohawk Action Figure (Series 2)": [
         "images/statues/mcfarlane-connor-mohawk.webp",
         "images/statues/mcfarlane-connor-mohawk_01.webp",
     ],
@@ -437,7 +463,7 @@ const AC_IMAGES = {
         "images/statues/mcfarlane-revolutionary-connor.webp",
         "images/statues/mcfarlane-revolutionary-connor_01.webp",
     ],
-    "McFarlane Toys Connor Color Tops Collector Edition": [
+    "McFarlane Toys Connor Action Figure (Color Tops Red Wave)": [
         "images/statues/mcfarlane-connor-color-tops.webp",
         "images/statues/mcfarlane-connor-color-tops_01.webp",
     ],
@@ -1170,6 +1196,155 @@ const AC_IMAGES = {
     "PureArts Master Ezio 1/8 Scale PVC Statue": [
         "images/statues/purearts-master-ezio.webp",
         "images/statues/purearts-master-ezio_01.webp",
+    ],
+
+    // ── Iron Studios ──
+    "Iron Studios Bayek Deluxe Art Scale 1/10 Statue": [
+        "images/statues/ironstudios-bayek-art-scale-1-10-deluxe.webp",
+        "images/statues/ironstudios-bayek-art-scale-1-10-deluxe_01.webp",
+        "images/statues/ironstudios-bayek-art-scale-1-10-deluxe_02.webp",
+        "images/statues/ironstudios-bayek-art-scale-1-10-deluxe_03.webp",
+        "images/statues/ironstudios-bayek-art-scale-1-10-deluxe_04.webp",
+    ],
+    "Iron Studios Ezio Auditore Art Scale 1/10 Statue": [
+        "images/statues/ironstudios-ezio-art-scale-1-10.webp",
+        "images/statues/ironstudios-ezio-art-scale-1-10_01.webp",
+        "images/statues/ironstudios-ezio-art-scale-1-10_02.webp",
+        "images/statues/ironstudios-ezio-art-scale-1-10_03.webp",
+        "images/statues/ironstudios-ezio-art-scale-1-10_04.webp",
+    ],
+    "Iron Studios Ezio Auditore Deluxe Art Scale 1/10 Statue": [
+        "images/statues/ironstudios-ezio-art-scale-1-10-deluxe.webp",
+        "images/statues/ironstudios-ezio-art-scale-1-10-deluxe_01.webp",
+        "images/statues/ironstudios-ezio-art-scale-1-10-deluxe_02.webp",
+        "images/statues/ironstudios-ezio-art-scale-1-10-deluxe_03.webp",
+    ],
+    "Iron Studios Naoe Art Scale 1/10 Statue": [
+        "images/statues/ironstudios-naoe-art-scale-1-10.webp",
+        "images/statues/ironstudios-naoe-art-scale-1-10_01.webp",
+        "images/statues/ironstudios-naoe-art-scale-1-10_02.webp",
+        "images/statues/ironstudios-naoe-art-scale-1-10_03.webp",
+        "images/statues/ironstudios-naoe-art-scale-1-10_04.webp",
+    ],
+    "Iron Studios Yasuke Art Scale 1/10 Statue": [
+        "images/statues/ironstudios-yasuke-art-scale-1-10.webp",
+        "images/statues/ironstudios-yasuke-art-scale-1-10_01.webp",
+        "images/statues/ironstudios-yasuke-art-scale-1-10_02.webp",
+        "images/statues/ironstudios-yasuke-art-scale-1-10_03.webp",
+        "images/statues/ironstudios-yasuke-art-scale-1-10_04.webp",
+    ],
+
+    // ── Attakus ──
+    "Attakus Ezio Auditore Deluxe Edition Statue": [
+        "images/statues/attakus-ezio-deluxe-statue.webp",
+        "images/statues/attakus-ezio-deluxe-statue_01.webp",
+        "images/statues/attakus-ezio-deluxe-statue_02.webp",
+        "images/statues/attakus-ezio-deluxe-statue_03.webp",
+        "images/statues/attakus-ezio-deluxe-statue_04.webp",
+    ],
+    "Attakus Connor Life-Size Statue": [
+        "images/statues/attakus-connor-life-size.webp",
+        "images/statues/attakus-connor-life-size_01.webp",
+        "images/statues/attakus-connor-life-size_02.webp",
+        "images/statues/attakus-connor-life-size_03.webp",
+        "images/statues/attakus-connor-life-size_04.webp",
+    ],
+
+    // ── Coarse (Ubi Workshop) ──
+    "Coarse x Ubi Workshop Ezio Auditore Designer Vinyl Figure": [
+        "images/statues/coarse-ezio-vinyl.webp",
+        "images/statues/coarse-ezio-vinyl_01.webp",
+    ],
+
+    // ── Hot Toys ──
+    "Hot Toys Ezio Auditore 1/6 Scale Collectible Figure (VGM12)": [
+        "images/statues/hottoys-ezio-vgm12.webp",
+        "images/statues/hottoys-ezio-vgm12_01.webp",
+        "images/statues/hottoys-ezio-vgm12_02.webp",
+        "images/statues/hottoys-ezio-vgm12_03.webp",
+        "images/statues/hottoys-ezio-vgm12_04.webp",
+    ],
+
+    // ── Square Enix Play Arts Kai ──
+    "Square Enix Play Arts Kai Ezio Auditore Action Figure": [
+        "images/statues/playartskai-ezio.webp",
+        "images/statues/playartskai-ezio_01.webp",
+        "images/statues/playartskai-ezio_02.webp",
+        "images/statues/playartskai-ezio_03.webp",
+        "images/statues/playartskai-ezio_04.webp",
+    ],
+    "Square Enix Play Arts Kai Connor Kenway Action Figure": [
+        "images/statues/playartskai-connor.webp",
+        "images/statues/playartskai-connor_01.webp",
+        "images/statues/playartskai-connor_02.webp",
+        "images/statues/playartskai-connor_03.webp",
+        "images/statues/playartskai-connor_04.webp",
+    ],
+    "Square Enix Play Arts Kai Edward Kenway Action Figure": [
+        "images/statues/playartskai-edward.webp",
+        "images/statues/playartskai-edward_01.webp",
+        "images/statues/playartskai-edward_02.webp",
+        "images/statues/playartskai-edward_03.webp",
+        "images/statues/playartskai-edward_04.webp",
+    ],
+
+    // ── Damtoys ──
+    "Damtoys Edward Kenway 1/6 Scale Figure (DMS003)": [
+        "images/statues/damtoys-edward-dms003.webp",
+        "images/statues/damtoys-edward-dms003_01.webp",
+        "images/statues/damtoys-edward-dms003_02.webp",
+        "images/statues/damtoys-edward-dms003_03.webp",
+        "images/statues/damtoys-edward-dms003_04.webp",
+    ],
+    "Damtoys Altair Ibn-La'Ahad 1/6 Scale Figure (DMS005)": [
+        "images/statues/damtoys-altair-dms005.webp",
+        "images/statues/damtoys-altair-dms005_01.webp",
+        "images/statues/damtoys-altair-dms005_02.webp",
+        "images/statues/damtoys-altair-dms005_03.webp",
+        "images/statues/damtoys-altair-dms005_04.webp",
+    ],
+    "Damtoys Aguilar 1/6 Scale Figure (DMS006)": [
+        "images/statues/damtoys-aguilar-dms006.webp",
+        "images/statues/damtoys-aguilar-dms006_01.webp",
+        "images/statues/damtoys-aguilar-dms006_02.webp",
+        "images/statues/damtoys-aguilar-dms006_03.webp",
+        "images/statues/damtoys-aguilar-dms006_04.webp",
+    ],
+    "Damtoys Connor 1/6 Scale Figure (DMS010)": [
+        "images/statues/damtoys-connor-dms010.webp",
+        "images/statues/damtoys-connor-dms010_01.webp",
+        "images/statues/damtoys-connor-dms010_02.webp",
+        "images/statues/damtoys-connor-dms010_03.webp",
+    ],
+    "Damtoys Shay Patrick Cormac 1/6 Scale Figure (DMS011)": [
+        "images/statues/damtoys-shay-dms011.webp",
+        "images/statues/damtoys-shay-dms011_01.webp",
+        "images/statues/damtoys-shay-dms011_02.webp",
+        "images/statues/damtoys-shay-dms011_03.webp",
+    ],
+    "Damtoys Ezio Auditore 1/6 Scale Figure (DMS012)": [
+        "images/statues/damtoys-ezio-dms012.webp",
+        "images/statues/damtoys-ezio-dms012_01.webp",
+        "images/statues/damtoys-ezio-dms012_02.webp",
+        "images/statues/damtoys-ezio-dms012_03.webp",
+    ],
+    "Damtoys Bayek 1/6 Scale Figure (DMS013)": [
+        "images/statues/damtoys-bayek-dms013.webp",
+        "images/statues/damtoys-bayek-dms013_01.webp",
+        "images/statues/damtoys-bayek-dms013_02.webp",
+        "images/statues/damtoys-bayek-dms013_03.webp",
+    ],
+    "Damtoys Mentor Ezio Auditore 1/6 Scale Figure (DMS014)": [
+        "images/statues/damtoys-mentor-ezio-dms014.webp",
+        "images/statues/damtoys-mentor-ezio-dms014_01.webp",
+        "images/statues/damtoys-mentor-ezio-dms014_02.webp",
+        "images/statues/damtoys-mentor-ezio-dms014_03.webp",
+    ],
+    "Damtoys Alexios 1/6 Scale Figure (DMS019)": [
+        "images/statues/damtoys-alexios-dms019.webp",
+        "images/statues/damtoys-alexios-dms019_01.webp",
+        "images/statues/damtoys-alexios-dms019_02.webp",
+        "images/statues/damtoys-alexios-dms019_03.webp",
     ],
 
     // ── Board Games / Tabletop ──

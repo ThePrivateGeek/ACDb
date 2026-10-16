@@ -321,11 +321,11 @@ const AC_DATABASE = [
   },
   {
     "id": 33,
-    "name": "McFarlane Toys Connor with Mohawk Action Figure (Series 3)",
+    "name": "McFarlane Toys Connor with Mohawk Action Figure (Series 2)",
     "game": "Assassin's Creed III",
     "year": 2014,
     "category": "Action Figure",
-    "description": "Connor Kenway in an alternate look featuring a mohawk hairstyle, based on his appearance in AC III. Walgreens exclusive. McFarlane Series 3.",
+    "description": "Connor Kenway in an alternate look featuring a mohawk hairstyle, based on his appearance in AC III. Walgreens exclusive (also at other select retailers). McFarlane Series 2.",
     "contents": "Connor (Mohawk) figure with accessories",
     "type": "McFarlane"
   },
@@ -401,11 +401,11 @@ const AC_DATABASE = [
   },
   {
     "id": 41,
-    "name": "McFarlane Toys Connor Color Tops Collector Edition",
+    "name": "McFarlane Toys Connor Action Figure (Color Tops Red Wave)",
     "game": "Assassin's Creed III",
     "year": 2017,
     "category": "Action Figure",
-    "description": "7-inch scale figure sculpted from 3D game assets from AC III. Comes with bow and arrow and a stylized display base. Part of McFarlane's Color Tops collector program.",
+    "description": "7-inch scale figure sculpted from 3D game assets from AC III. Comes with bow and arrow and a stylized display base. Part of McFarlane's Color Tops collector program (Red Wave). Announced for September 2016 at $19.99.",
     "contents": "Connor 7-inch figure with bow, arrow, and display base",
     "type": "McFarlane"
   },
@@ -1851,11 +1851,11 @@ const AC_DATABASE = [
   },
   {
     "id": 186,
-    "name": "McFarlane Toys Aguilar Action Figure (Movie Series)",
+    "name": "McFarlane Toys Aguilar Action Figure (Color Tops Blue Wave #12)",
     "game": "Assassin's Creed (Movie)",
     "year": 2016,
     "category": "Action Figure",
-    "description": "7-inch action figure of Aguilar sculpted using 3D scans of Michael Fassbender. Packaged in numbered collector edition window box.",
+    "description": "7-inch action figure of Aguilar sculpted using 3D scans of Michael Fassbender. Part of McFarlane's Color Tops collector program (Blue Wave, #12), packaged in a numbered window box. Released November 2016.",
     "contents": "7-inch Aguilar action figure with assassin sword and extended hidden blade, numbered collector box",
     "type": "McFarlane"
   },
@@ -6829,5 +6829,265 @@ const AC_DATABASE = [
     "description": "Hand-painted cold-cast resin statue of Edward Kenway as he appears in the Black Flag key art, striding ashore with sword and pistol in hand, waves lapping at his boots and a dead rival pirate at his feet. Approximately 14\" tall with base, on a 360-degree turning base. Limited to 1,000 sequentially numbered pieces worldwide, 50 of them unpainted Artist's Proofs. Designed by the McFarlane Toys Design Group with Ubisoft. Released December 2013 at $295.",
     "contents": "Cold-cast resin statue on rotating base, Certificate of Authenticity hand-signed by Todd McFarlane",
     "type": "McFarlane"
+  },
+  {
+    "id": 649,
+    "name": "McFarlane Toys Edward Kenway Limited Edition Resin Statue (Unpainted Artist Proof)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Statue",
+    "description": "Unpainted, primed grey version of McFarlane's cold-cast resin Edward Kenway statue, striding ashore with sword and pistol over a dead rival pirate. Approximately 14\" tall with base. Only 50 Artist Proofs were made, counted within the statue's run of 1,000. Sold through the McFarlane online store (US and Canada only) from December 2013 at $295 including shipping.",
+    "contents": "Unpainted cold-cast resin statue on rotating base, Certificate of Authenticity",
+    "type": "McFarlane"
+  },
+  {
+    "id": 650,
+    "name": "Iron Studios Bayek Deluxe Art Scale 1/10 Statue",
+    "game": "Assassin's Creed Origins",
+    "year": 2018,
+    "category": "Statue",
+    "description": "Hand-painted polystone 1/10 scale statue of Bayek drawing his bow with an arrow nocked, his eagle Senu perched on his shoulder with wings spread, shield and quiver on his back. He stands on a sandy desert base with a rock. Approximately 23 cm (9\") tall. Iron Studios Art Scale Deluxe, priced at $99.99.",
+    "contents": "Polystone statue on desert base",
+    "type": "Iron Studios"
+  },
+  {
+    "id": 651,
+    "name": "Iron Studios Ezio Auditore Art Scale 1/10 Statue",
+    "game": "Assassin's Creed II",
+    "year": 2020,
+    "category": "Statue",
+    "description": "Hand-painted polystone 1/10 scale statue of Ezio Auditore in his Assassin's Creed II robes and red cape, arms spread with both hidden blades deployed, on a plain black plinth. Approximately 21 cm (8.2\") tall. A limited edition from Iron Studios' Art Scale line (edition size not published). Pre-orders opened in September 2019 at $119.99.",
+    "contents": "Polystone statue on base",
+    "type": "Iron Studios"
+  },
+  {
+    "id": 652,
+    "name": "Iron Studios Ezio Auditore Deluxe Art Scale 1/10 Statue",
+    "game": "Assassin's Creed II",
+    "year": 2020,
+    "category": "Statue",
+    "description": "Deluxe version of Iron Studios' hand-painted polystone 1/10 scale Ezio Auditore. Ezio stands with arms spread and hidden blades out on the ledge of a Gothic arched stone window, which has a wrought-iron grille, a stained-glass Auditore crest on the back and a stone chest with the Assassin insignia beside it. Approximately 31 cm (12.2\") tall with the diorama base. Limited edition (size not published). Offered for pre-order in September 2019 at $170 through Sideshow ($159.99 at Iron Studios).",
+    "contents": "Polystone statue with diorama base",
+    "type": "Iron Studios"
+  },
+  {
+    "id": 653,
+    "name": "Iron Studios Naoe Art Scale 1/10 Statue",
+    "game": "Assassin's Creed Shadows",
+    "year": 2026,
+    "category": "Statue",
+    "description": "Hand-painted polystone 1/10 scale statue of the shinobi Naoe on mossy stone steps with tree roots, swinging her kusarigama overhead with her sword on her back. About 21 cm (8.3\") tall, 19 cm wide and 12 cm deep, weighing 520 g. Limited edition from Iron Studios' Art Scale line, priced at $179.99. In stock at retailers from May 2026.",
+    "contents": "Polystone statue on themed base",
+    "type": "Iron Studios"
+  },
+  {
+    "id": 654,
+    "name": "Iron Studios Yasuke Art Scale 1/10 Statue",
+    "game": "Assassin's Creed Shadows",
+    "year": 2026,
+    "category": "Statue",
+    "description": "Hand-painted polystone 1/10 scale statue of the samurai Yasuke in full armour and horned kabuto, in a wide fighting stance atop ruined stone steps with his naginata. About 22 cm (8.5\") tall, 22 cm wide and 15 cm deep, weighing 610 g. Limited edition from Iron Studios' Art Scale line, priced at $229.99. In stock at retailers from May 2026.",
+    "contents": "Polystone statue on themed base",
+    "type": "Iron Studios"
+  },
+  {
+    "id": 655,
+    "name": "Attakus Ezio Auditore Deluxe Edition Statue",
+    "game": "Assassin's Creed II",
+    "year": 2010,
+    "category": "Statue",
+    "description": "Hand-painted cold-cast resin statue of Ezio Auditore da Firenze in the black outfit he wears at the end of Assassin's Creed II, sword drawn, by the Attakus team that sculpted the Black and White Collector's Edition figurines. Approximately 16.7\" (43 cm) tall with its exclusive base, which carries a numbered plaque. Sold by Attakus as a cold-cast Deluxe Edition, first edition limited to 200 pieces (ref. C175), in stock in Europe by December 2010 at EUR 475. Sideshow Collectibles distributed it in the US from Q3 2011 at $600.",
+    "contents": "Cold-cast resin statue on pedestal base with numbered plaque, Certificate of Authenticity",
+    "type": "Attakus"
+  },
+  {
+    "id": 656,
+    "name": "Attakus Connor Life-Size Statue",
+    "game": "Assassin's Creed III",
+    "year": 2012,
+    "category": "Statue",
+    "description": "Life-size resin statue of Connor (Ratonhnhake:ton) in his Assassin robes, armed with bow, quiver, tomahawk and pistols, standing on a snow-covered rock base bearing the Assassin's Creed III logo. About 2 m (6 3/4 ft) tall on a 1.3 m wide base and weighing 88 kg; shipped in three crates (122 kg gross). Produced in a very small run by Attakus. First batch delivered from November 2012 at EUR 2,490, and a second batch was sold for June 2013 delivery.",
+    "contents": "Life-size resin statue and base, shipped in three boxes",
+    "type": "Attakus"
+  },
+  {
+    "id": 657,
+    "name": "Coarse x Ubi Workshop Ezio Auditore Designer Vinyl Figure",
+    "game": "Assassin's Creed II",
+    "year": 2014,
+    "category": "Statue",
+    "description": "Stylised designer-vinyl figure of a hooded Ezio Auditore da Firenze in his white robes with red sash, in a menacing stance with both hidden blades extended. Designed by Mark Landwehr and Sven Wasch (coarse) in their sculpting style, which makes the figure look chiselled from solid stone. 14\" x 5\" (35.5 x 12.7 cm), rotocast vinyl, limited to 200 pieces. Sold exclusively through the Ubi Workshop store from June 2014 at US$399.",
+    "contents": "Rotocast vinyl figure in colour-printed box with sponge insert",
+    "type": "Coarse"
+  },
+  {
+    "id": 658,
+    "name": "Hot Toys Ezio Auditore 1/6 Scale Collectible Figure (VGM12)",
+    "game": "Assassin's Creed II",
+    "year": 2010,
+    "category": "Action Figure",
+    "description": "Fully articulated 1/6 scale figure of Ezio Auditore in his Assassin's Creed II robes, number 12 in Hot Toys' Video Game Masterpiece line. Approximately 30 cm (12 in) tall on a TrueType body with over 30 points of articulation, with a hand-painted head sculpt by GOX, sculpted hair with a detachable ribbon-tied ponytail and a tailored fabric costume with leather-like cape, two striped jackets and buckled boots. Armed with a long sword, a short sword, two hidden blades in the forearm gauntlets and six throwing daggers. Announced by Hot Toys in July 2010 and scheduled for November 2010 at 22,000 yen (about US$250).",
+    "contents": "1/6 scale figure, 3 pairs of interchangeable hands, long sword, short sword, 2 hidden blades, 6 throwing daggers, necklace, figure stand with Ezio nameplate",
+    "type": "Hot Toys"
+  },
+  {
+    "id": 659,
+    "name": "Square Enix Play Arts Kai Ezio Auditore Action Figure",
+    "game": "Assassin's Creed II",
+    "year": 2010,
+    "category": "Action Figure",
+    "description": "Play Arts Kai action figure of Ezio Auditore da Firenze from Assassin's Creed II, in dark assassin robes with the eagle-beaked hood, sculpted chest armour and a red-striped sash. Painted PVC, 255 mm tall and weighing about 360 g. Comes with Altair's Sword, an ornate dagger, hidden blade and double hidden blade parts and two kinds of interchangeable hands. Released in Japan in late November 2010 at 4,800 yen (5,040 yen with tax).",
+    "contents": "Painted PVC figure, Altair's Sword, ornate dagger, hidden blade and double blade parts, interchangeable hands, weapon-swap parts",
+    "type": "Square Enix"
+  },
+  {
+    "id": 660,
+    "name": "Square Enix Play Arts Kai Connor Kenway Action Figure",
+    "game": "Assassin's Creed III",
+    "year": 2014,
+    "category": "Action Figure",
+    "description": "Play Arts Kai action figure of Connor from Assassin's Creed III in his hooded white-and-blue assassin coat, with painted skin and weathering detail and articulated coat tails for posing. Painted PVC, approximately 274 mm (10.8 in) tall and about 440 g. Comes with a bow and three arrows, a tomahawk, a sword, two flintlock pistols, three hidden blade parts, four interchangeable hands, hood and hair parts and a Play Arts Kai display base. Japanese retail price 9,800 yen before tax.",
+    "contents": "Painted PVC figure, bow, 3 arrows, tomahawk, sword, 2 pistols, 3 hidden blade parts, 4 interchangeable hands, hood and hair parts, display base",
+    "type": "Square Enix"
+  },
+  {
+    "id": 661,
+    "name": "Square Enix Play Arts Kai Edward Kenway Action Figure",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2014,
+    "category": "Action Figure",
+    "description": "Play Arts Kai action figure of Edward Kenway from Assassin's Creed IV: Black Flag in his pirate-assassin outfit of leather armour, long boots and red sash, with a soft-material hood that can be worn up or pulled down. Painted PVC, approximately 276 mm (nearly 11 in) tall. Comes with two swords, four flintlock pistols, two hidden blade parts, six interchangeable hands, hood and hair parts and a Play Arts Kai display base. Japanese retail price 9,800 yen before tax.",
+    "contents": "Painted PVC figure, 2 swords, 4 flintlock pistols, 2 hidden blade parts, 6 interchangeable hands, hood and hair parts, display base",
+    "type": "Square Enix"
+  },
+  {
+    "id": 662,
+    "name": "Damtoys Edward Kenway 1/6 Scale Figure (DMS003)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2018,
+    "category": "Action Figure",
+    "description": "1/6 scale collectible figure of Edward Kenway in his Assassin's Creed IV: Black Flag pirate-assassin outfit, with a head sculpt of his scarred face on the articulated DAM 2.0 male body and a tailored fabric costume of hooded leather-like vest, cloak, blue-and-white tunic and red sash. Approximately 31 cm (12 in) tall. Comes with four flintlock pistols, a saber, a sword, hidden-blade forearm gauntlets, ten interchangeable hands and a figure stand with the Black Flag logo. Damtoys' first Assassin's Creed figure, revealed in May 2017.",
+    "contents": "1/6 scale figure, 10 interchangeable hands, 4 flintlock pistols, saber, sword, hidden-blade gauntlets, figure stand",
+    "type": "Damtoys"
+  },
+  {
+    "id": 663,
+    "name": "Damtoys Altair Ibn-La'Ahad 1/6 Scale Figure (DMS005)",
+    "game": "Assassin's Creed",
+    "year": 2019,
+    "category": "Action Figure",
+    "description": "1/6 scale collectible figure of Altair Ibn-La'Ahad from the original Assassin's Creed, sold as 'Altair the Mentor', in his hooded white assassin robes with red sash and leather straps. A new head sculpt with his scarred lip sits on a highly poseable 31 cm DAM muscle body. Comes with a sword and sheath, a dagger and sheath, nine throwing knives with holsters, a hidden-blade bracer, eight interchangeable hands including ring-finger-missing hands, and a stone-tile base with game-logo nameplate. Japanese retail price 30,000 yen before tax.",
+    "contents": "1/6 scale figure, 8 interchangeable hands, sword with sheath, dagger with sheath, 9 throwing knives with holsters, hidden-blade bracer, stone-tile display base",
+    "type": "Damtoys"
+  },
+  {
+    "id": 664,
+    "name": "Damtoys Aguilar 1/6 Scale Figure (DMS006)",
+    "game": "Assassin's Creed (Movie)",
+    "year": 2019,
+    "category": "Action Figure",
+    "description": "1/6 scale collectible figure of Aguilar de Nerha as played by Michael Fassbender in the 2016 Assassin's Creed film, with a Fassbender head sculpt (unruly hair, beard and facial tattoo) on a 31 cm DAM muscle body and a weathered, movie-accurate fabric costume with hood. Comes with a pair of hidden-blade gauntlets, a bow and arrow, a dagger with sheath, three throwing knives, three bombs, ten interchangeable hands including ring-finger-missing hands, and a rooftop diorama stand with the movie-logo nameplate.",
+    "contents": "1/6 scale figure, 10 interchangeable hands, hidden-blade gauntlets, bow, arrow, dagger with sheath, 3 throwing knives, 3 bombs, diorama stand",
+    "type": "Damtoys"
+  },
+  {
+    "id": 665,
+    "name": "Damtoys Connor 1/6 Scale Figure (DMS010)",
+    "game": "Assassin's Creed III",
+    "year": 2020,
+    "category": "Action Figure",
+    "description": "Fully articulated 1/6 scale figure of Connor (Ratonhnhaké:ton) in his blue-and-white hooded Assassin robes from Assassin's Creed III, with a newly sculpted head on a roughly 31 cm (just over 12\") DAM muscle body and a tailored cloth outfit. Armed with a tomahawk, a longsword, a bow with five arrows, a hidden blade and two flintlock pistols, with swappable hands and a snow-covered display base. Damtoys item DMS010: first shown at Shanghai Comic-Con in October 2018, officially unveiled in March 2019 and shipped in early 2020.",
+    "contents": "Articulated figure with cloth outfit, tomahawk, longsword, bow, five arrows, quiver, hidden blade, two flintlock pistols, swappable hands, snow-covered display base",
+    "type": "Damtoys"
+  },
+  {
+    "id": 666,
+    "name": "Damtoys Shay Patrick Cormac 1/6 Scale Figure (DMS011)",
+    "game": "Assassin's Creed Rogue",
+    "year": 2020,
+    "category": "Action Figure",
+    "description": "Fully articulated 1/6 scale figure of Shay Patrick Cormac from Assassin's Creed Rogue, roughly 31 cm (just over 12\") tall, in a black outer robe over white and red shirts, leather chest belt and pouches, and a white sash bearing the Templar cross. Comes with his air rifle, two long-barrelled flintlock pistols, two hidden blades, a sword, a dagger, eleven swappable hands and a snowy shoreline display base. Damtoys item DMS011, revealed August 2019 and released mid-2020; pre-orders were HK$1,600 (about US$206) and the Chinese retail price was RMB 1,380.",
+    "contents": "Articulated figure with cloth outfit, air rifle, two flintlock pistols, two hidden blades, sword, dagger, 11 swappable hands, display base",
+    "type": "Damtoys"
+  },
+  {
+    "id": 667,
+    "name": "Damtoys Ezio Auditore 1/6 Scale Figure (DMS012)",
+    "game": "Assassin's Creed II",
+    "year": 2021,
+    "category": "Action Figure",
+    "description": "Fully articulated 1/6 scale figure of Ezio Auditore da Firenze in his Assassin's Creed II outfit: grey hooded jacket with red stripes, brown cape with leather-look pauldron, red sash and brown forearm gauntlets. Comes with a metal-look Schiavona sword, two hidden blades, the Apple of Eden, eight swappable hands and a display base with the game logo. Damtoys item DMS012, expected to cost about US$200 when it was shown in January 2020 (RMB 1,380 in China), and shipped in mid-2021 after delays.",
+    "contents": "Articulated figure with cloth outfit, Schiavona sword, two hidden blades, Apple of Eden, 8 swappable hands, display base",
+    "type": "Damtoys"
+  },
+  {
+    "id": 668,
+    "name": "Damtoys Bayek 1/6 Scale Figure (DMS013)",
+    "game": "Assassin's Creed Origins",
+    "year": 2020,
+    "category": "Action Figure",
+    "description": "Fully articulated 1/6 scale figure of Bayek of Siwa from Assassin's Creed Origins, in a hooded beige scarf, dark brown and gold breastplate, orange shawl, beige apron and red sash, with an eagle-skull necklace. Comes with a bow, three arrows and a quiver, a khopesh, a shield, a figure of his eagle Senu, eight swappable hands and a display base with the game logo. Damtoys item DMS013, revealed April 2020 and released November 2020 at RMB 1,480 in China.",
+    "contents": "Articulated figure with cloth outfit, bow, three arrows, quiver, khopesh, shield, Senu eagle figure, 8 swappable hands, display base",
+    "type": "Damtoys"
+  },
+  {
+    "id": 669,
+    "name": "Damtoys Mentor Ezio Auditore 1/6 Scale Figure (DMS014)",
+    "game": "Assassin's Creed Revelations",
+    "year": 2021,
+    "category": "Action Figure",
+    "description": "Fully articulated 1/6 scale figure of the older Ezio Auditore as Mentor in Assassin's Creed Revelations, in a dark green and white patterned hooded robe with grey fur mantle, cloak, striped scarf and brown-and-silver shoulder and arm armour. Comes with a sword and a short sword (both with scabbards), a dagger, two hidden blades, a hookblade, a Masyaf Key, eight swappable hands and a wooden-plank display base with the game logo. Damtoys item DMS014, revealed June 2020 and released in spring 2021 at RMB 1,580 in China.",
+    "contents": "Articulated figure with cloth outfit, sword and short sword with scabbards, dagger, two hidden blades, hookblade, Masyaf Key, 8 swappable hands, display base",
+    "type": "Damtoys"
+  },
+  {
+    "id": 670,
+    "name": "Damtoys Alexios 1/6 Scale Figure (DMS019)",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2022,
+    "category": "Action Figure",
+    "description": "Fully articulated 1/6 scale figure of Alexios from Assassin's Creed Odyssey, about 30 cm tall in PVC and ABS, with a gold crested helmet, red-and-gold cloth scarf, dark brown and gold breastplate, gold left vambrace and gold greaves. Armed with a bow, three arrows and a quiver, a kopis, and a long and a short spear, with seven swappable hands and a display base with the game logo. Damtoys item DMS019, released in 2022 at RMB 1,480 in China; Japanese distributor Milestone later listed it at ¥35,000 for March 2023.",
+    "contents": "Articulated figure with cloth outfit and helmet, bow, three arrows, quiver, kopis, long spear, short spear, 7 swappable hands, display base",
+    "type": "Damtoys"
+  },
+  {
+    "id": 671,
+    "name": "McFarlane Toys Connor New York Outfit Action Figure (Series 1, Walgreens Exclusive)",
+    "game": "Assassin's Creed III",
+    "year": 2013,
+    "category": "Action Figure",
+    "description": "Red-and-black repaint of McFarlane's Series 1 Connor figure, depicting him in his New York outfit from Assassin's Creed III. Approximately 6\" tall with 27 points of articulation, using the same sculpt and accessories as the standard grey-and-blue Connor (tomahawk, bow, two pistols, hidden blade). Exclusive to Walgreens stores in the USA and released October 2013 on a blister card. Like the standard figure, it includes a code that unlocks Connor's Sails in Assassin's Creed IV: Black Flag.",
+    "contents": "Connor figure with tomahawk, bow, two pistols and hidden blade, Connor's Sails unlock code",
+    "type": "McFarlane"
+  },
+  {
+    "id": 672,
+    "name": "McFarlane Toys Golden Age of Piracy Action Figure 3-Pack (Series 1)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Action Figure",
+    "description": "Boxed set of three Series 1 Assassin's Creed IV: Black Flag pirates: Bartholomew 'Black Bart' Roberts, Edward 'Blackbeard' Teach and Benjamin Hornigold. Each figure is just under 6\" tall with around 25-27 points of articulation. Together they come with removable hats for Black Bart and Blackbeard, three swords, six flintlock pistols, two bayonet rifles, Blackbeard's four-pistol bandolier and Hornigold's scabbard. Released by McFarlane Toys in October 2013. Unlike the single-carded figures, the set does not include in-game unlock codes.",
+    "contents": "Black Bart, Blackbeard and Benjamin Hornigold figures with hats, swords, pistols, rifles, pistol bandolier and scabbard",
+    "type": "McFarlane"
+  },
+  {
+    "id": 673,
+    "name": "McFarlane Toys Giants Creed Arno Action Figure (San Francisco Giants Gamer's Night Exclusive)",
+    "game": "Assassin's Creed Unity",
+    "year": 2014,
+    "category": "Action Figure",
+    "description": "Limited-edition repaint of McFarlane's Arno Dorian figure in the San Francisco Giants' black and orange, created by Todd McFarlane for the Giants' first Video Gamer Night at AT&T Park on 10 September 2014. The coat has a Giants logo on each arm and the number 14 on the back. It comes with a baseball bat marked with the Assassin insignia and the event date, plus a Giants batting helmet. It was never sold at retail: you could only get it with the special event ticket package, on a 'Giants Creed' / 'Giants Gamer's Night' blister card.",
+    "contents": "Arno figure in Giants colours, baseball bat, batting helmet",
+    "type": "McFarlane"
+  },
+  {
+    "id": 674,
+    "name": "Assassin's Creed IV: Black Flag Lethal Pirate Edition (Amazon Exclusive)",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2013,
+    "category": "Special Edition",
+    "description": "Amazon.com-exclusive bundle of Assassin's Creed IV: Black Flag with McFarlane Toys' Amazon-exclusive Black Bart action figure. The figure wears a crimson damask coat with epaulettes and a removable tricorne hat, has 27 points of articulation, and comes with sword, pistol and musket. The bundle also includes a code for Black Bart's Sails, a digital wallpaper by Todd McFarlane, and the Hidden Mystery Pack pre-order bonus. Announced as $69.99 with the standard game ($10 more than the game alone) or $139.99 with the Limited Edition. Released in 2013 alongside the game (29 October in North America on PS3/360).",
+    "contents": "Assassin's Creed IV: Black Flag game (standard or Limited Edition), McFarlane Black Bart action figure with sword, pistol, musket and hat, Black Bart's Sails code, Todd McFarlane digital wallpaper, Hidden Mystery Pack",
+    "type": "Special Edition"
   },
 ];
