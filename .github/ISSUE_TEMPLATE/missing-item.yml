@@ -1,0 +1,72 @@
+name: Suggest a missing item
+description: An Assassin's Creed collectible, edition, book or comic that ACDb doesn't list yet.
+title: "Missing item: "
+labels: ["missing item"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping fill the gaps. Only the item name and category are required, but a link to the product makes it much quicker to add.
+
+        Collectibles often go by several names, so please search ACDb for the maker or character too before you send this.
+
+  - type: input
+    id: item-name
+    attributes:
+      label: Item name
+      description: The name as printed on the box or the store page.
+      placeholder: "e.g. Animus Edward Kenway Statue"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Collector's Edition
+        - Special Edition
+        - Steelbook
+        - Statue
+        - Figurine
+        - Action Figure
+        - Replica/Prop
+        - Art & Reference
+        - Comic Book
+        - Novel
+        - Other
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: game
+    attributes:
+      label: Game
+      description: The game or story it belongs to, if any.
+      placeholder: "e.g. Assassin's Creed IV: Black Flag"
+
+  - type: input
+    id: maker
+    attributes:
+      label: Maker or publisher
+      placeholder: "e.g. PureArts, McFarlane Toys, Titan Comics"
+
+  - type: input
+    id: year
+    attributes:
+      label: Release year
+      placeholder: "e.g. 2013"
+
+  - type: input
+    id: link
+    attributes:
+      label: Product link
+      description: A store page, the maker's page, or a listing that shows the item. Not required, but it's the fastest way for us to check the details.
+      placeholder: https://
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Contents and anything else
+      description: What's in the box, edition size, region, ISBN, or how it differs from a similar item that is already listed.

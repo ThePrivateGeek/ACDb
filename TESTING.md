@@ -162,6 +162,9 @@ For simple item additions or image updates, skip to the "Data" section only.
 ## 16. Data Integrity
 - [ ] Total item count in footer matches database
 - [ ] Search for "zzzz": the emblem, "Nothing is true, everything is permitted... but no items match your search." (italic, centred) and a **Clear search and filters** button that clears the search, dropdowns, timeline and status filter (the sort stays) and shows everything again
+- [ ] Below that, "Can't find an item? Suggest it on GitHub or by email." (upright, not italic). **on GitHub** opens the "Suggest a missing item" form in a new tab with the title and *Item name* filled with "zzzz"; **by email** opens a mail draft with the subject "Missing item: zzzz" and the field list in the body
+- [ ] With no search text, a filter that matches nothing (e.g. Wishlist with an empty wishlist) shows the empty state *without* the suggest line
+- [ ] Footer **Suggest a missing item** opens the same form, empty
 - [ ] Leaderboard and profile dates read like "9 Oct 2026", as in the reading view
 - [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, share pages, and the old slugs in `js/slug-aliases.js`
 - [ ] Collection data keyed by item id under `acdb_collection_v2`, each entry with an `updatedAt` edit time once edited; a name-keyed `acdb_collection` from before ids is migrated once on load (unmatched keys are dropped) and kept as a backup until 2027-01-03, after which it is removed from browsers that have `acdb_collection_v2`

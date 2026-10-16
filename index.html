@@ -256,6 +256,11 @@
             </svg>
             <p>Nothing is true, everything is permitted... but no items match your search.</p>
             <button class="btn btn-sm btn-quiet" id="clearFilters" type="button">Clear search and filters</button>
+            <!-- Shown only when there is search text; app.js fills the links with it -->
+            <p class="no-results-suggest" id="suggestMissing" hidden>
+                Can't find an item? Suggest it <a class="link" id="suggestGithub" href="https://github.com/ThePrivateGeek/ACDb/issues/new?template=missing-item.yml" target="_blank" rel="noopener">on GitHub</a>
+                or <a class="link" id="suggestEmail" href="mailto:info@theprivategeek.com?subject=Missing%20item">by email</a>.
+            </p>
         </div>
     </main>
 
@@ -670,7 +675,8 @@
             <p class="footer-brand">ACDb · Assassin's Creed Collector's Database</p>
             <nav class="footer-links" aria-label="Footer">
                 <a class="link" href="#leaderboard">Collector's Leaderboard</a>
-                <a class="link" href="https://github.com/ThePrivateGeek/ACDb/issues" target="_blank" rel="noopener" title="Found a bug, a missing item, or have a suggestion?">Feedback on GitHub</a>
+                <a class="link" href="https://github.com/ThePrivateGeek/ACDb/issues/new?template=missing-item.yml" target="_blank" rel="noopener">Suggest a missing item</a>
+                <a class="link" href="https://github.com/ThePrivateGeek/ACDb/issues" target="_blank" rel="noopener" title="Found a bug or have a suggestion?">Feedback on GitHub</a>
                 <a class="link" href="mailto:info@theprivategeek.com">info@theprivategeek.com</a>
                 <a class="link" href="privacy.html">Privacy</a>
             </nav>

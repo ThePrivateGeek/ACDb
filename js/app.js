@@ -161,6 +161,9 @@ window.ACDB = window.ACDB || {};
         gameTimeline: document.getElementById('gameTimeline'),
         itemsContainer: document.getElementById('itemsContainer'),
         noResults: document.getElementById('noResults'),
+        suggestMissing: document.getElementById('suggestMissing'),
+        suggestGithub: document.getElementById('suggestGithub'),
+        suggestEmail: document.getElementById('suggestEmail'),
         modalOverlay: document.getElementById('modalOverlay'),
         modalClose: document.getElementById('modalClose'),
         modalImage: document.getElementById('modalImage'),
@@ -527,6 +530,30 @@ window.ACDB = window.ACDB || {};
         return results;
     }
 
+    // "Suggest a missing item" in the empty state: only for a search, since an
+    // empty filter (say, an empty wishlist) doesn't mean the catalogue lacks
+    // anything. The search text pre-fills the GitHub form and the email.
+    const SUGGEST_FORM = 'https://github.com/ThePrivateGeek/ACDb/issues/new?template=missing-item.yml';
+    const SUGGEST_EMAIL = 'mailto:info@theprivategeek.com';
+
+    function updateSuggestMissing() {
+        const query = dom.searchInput.value.trim();
+        dom.suggestMissing.hidden = !query;
+        if (!query) return;
+        const enc = encodeURIComponent;
+        dom.suggestGithub.href = `${SUGGEST_FORM}&title=${enc('Missing item: ' + query)}&item-name=${enc(query)}`;
+        const body = [
+            `Item name: ${query}`,
+            'Category (statue, figurine, comic, novel, collector\'s edition...):',
+            'Game:',
+            'Maker or publisher:',
+            'Release year:',
+            'Product link:',
+            'Contents and anything else:',
+        ].join('\r\n');   // mailto bodies want CRLF (RFC 6068)
+        dom.suggestEmail.href = `${SUGGEST_EMAIL}?subject=${enc('Missing item: ' + query)}&body=${enc(body)}`;
+    }
+
     function renderItems() {
         const items = getFilteredItems();
         dom.itemsContainer.innerHTML = '';
@@ -534,6 +561,7 @@ window.ACDB = window.ACDB || {};
         if (items.length === 0) {
             dom.noResults.style.display = '';   // the stylesheet's centred grid
             dom.resultsCount.textContent = '';
+            updateSuggestMissing();
         } else {
             dom.noResults.style.display = 'none';
             const total = AC_DATABASE.length;

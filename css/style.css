@@ -1967,6 +1967,17 @@ textarea:focus-visible {
     margin-top: var(--s2);
 }
 
+/* Not the italic grey line above: an ordinary sentence with links */
+.no-results .no-results-suggest {
+    color: var(--text-2);
+    font-size: var(--fs-md);
+    font-style: normal;
+}
+
+.no-results-suggest .link {
+    white-space: nowrap;
+}
+
 /* ---- Modal ---- */
 .modal-overlay {
     position: fixed;

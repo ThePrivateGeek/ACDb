@@ -192,4 +192,6 @@ This is a fan-made collection tracker, not affiliated with or endorsed by Ubisof
 
 ## Feedback
 
-Found a bug, missing item, or have a suggestion? [Open an issue](https://github.com/ThePrivateGeek/ACDb/issues).
+Missing an item? [Suggest it](https://github.com/ThePrivateGeek/ACDb/issues/new?template=missing-item.yml) with the issue form, or email info@theprivategeek.com. The site links to both from the footer, and from the empty state whenever a search finds nothing.
+
+Found a bug or have a suggestion? [Open an issue](https://github.com/ThePrivateGeek/ACDb/issues).
