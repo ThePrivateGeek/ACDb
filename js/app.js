@@ -257,6 +257,37 @@ window.ACDB = window.ACDB || {};
         };
     }
 
+    // ---- Coverage ----
+    // A collected edition lists the items it reprints in "collects", so
+    // owning it means having those stories. Built once: item id -> the
+    // editions that collect it.
+    const COLLECTED_IN = new Map();
+    AC_DATABASE.forEach(edition => (edition.collects || []).forEach(partId => {
+        if (!COLLECTED_IN.has(partId)) COLLECTED_IN.set(partId, []);
+        COLLECTED_IN.get(partId).push(edition);
+    }));
+
+    // The owned item that gives you this one: the item itself, or an owned
+    // edition that collects it. null when you have it in no edition.
+    function coveringItem(id) {
+        if (getItemData(id).owned) return ITEMS_BY_ID.get(id) || null;
+        for (const edition of COLLECTED_IN.get(id) || []) {
+            const cover = coveringItem(edition.id);
+            if (cover) return cover;
+        }
+        return null;
+    }
+
+    // The "Missing Stories" filter: story publications you have in no
+    // edition, each story once. A collected edition drops out once you have
+    // any part of it (the parts you lack show on their own), and a single
+    // drops out while an edition that collects it is listed.
+    function isMissingStory(item) {
+        if (!ACDB.isReadable(item) || coveringItem(item.id)) return false;
+        if ((item.collects || []).some(partId => coveringItem(partId))) return false;
+        return !(COLLECTED_IN.get(item.id) || []).some(isMissingStory);
+    }
+
     // Every edit goes through here. `updatedAt` lets cloud sync (sync.js)
     // keep the newest edit per item; export lists its fields explicitly, so
     // the timestamp never ends up in export files.
@@ -507,12 +538,14 @@ window.ACDB = window.ACDB || {};
             if (typeFilters.size > 0 && !typeFilters.has(item.type)) return false;
             // Series (empty set = all; items without a series never match a selection)
             if (seriesFilters.size > 0 && !seriesFilters.has(item.series)) return false;
-            // Owned / read status. Both read filters only ever show story
-            // publications, the only items with a read status.
+            // Owned / read status. The read filters and "Missing Stories"
+            // only ever show story publications, the only items with a read
+            // status.
             if (ownedFilter) {
                 const data = getItemData(item.id);
                 if (ownedFilter === 'owned' && !data.owned) return false;
                 if (ownedFilter === 'unowned' && data.owned) return false;
+                if (ownedFilter === 'missing' && !isMissingStory(item)) return false;
                 if (ownedFilter === 'wishlist' && !data.wishlist) return false;
                 if (ownedFilter === 'read' && !(ACDB.isReadable(item) && data.hasRead)) return false;
                 if (ownedFilter === 'unread' && !(ACDB.isReadable(item) && !data.hasRead)) return false;
@@ -574,6 +607,8 @@ window.ACDB = window.ACDB || {};
                     dom.resultsCount.textContent = `Showing ${items.length} owned items`;
                 } else if (ownedFilter === 'unowned') {
                     dom.resultsCount.textContent = `Showing ${items.length} unowned items`;
+                } else if (ownedFilter === 'missing') {
+                    dom.resultsCount.textContent = `Showing ${items.length} missing ${items.length === 1 ? 'story' : 'stories'}`;
                 } else if (ownedFilter === 'read') {
                     dom.resultsCount.textContent = `Showing ${items.length} read items`;
                 } else if (ownedFilter === 'unread') {
@@ -1588,6 +1623,7 @@ window.ACDB = window.ACDB || {};
     A.getItemData = getItemData;
     A.setItemData = setItemData;
     A.findItemByRef = findItemByRef;
+    A.coveringItem = coveringItem;
     A.renderItems = renderItems;
     A.createCard = createCard;
     A.getFilteredItems = getFilteredItems;
