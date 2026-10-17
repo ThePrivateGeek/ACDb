@@ -28,6 +28,10 @@
     // a per-viewer preference like the mode.
     const SHOW_GAMES_KEY = 'acdb_reading_games';
 
+    // Whether the lists show only the books you have in no edition; a
+    // per-viewer preference like the mode.
+    const MISSING_ONLY_KEY = 'acdb_reading_missing';
+
     let currentOrderId = null;   // a READING_ORDERS id, SERIES_TAB.id or GAMES_TAB.id
     let currentGame = null;      // game filter (orders with "games": true), or null for all
     let currentSeries = null;    // slug of the open series page; null shows the list
@@ -62,6 +66,18 @@
 
     function setShowGames(show) {
         try { localStorage.setItem(SHOW_GAMES_KEY, show ? 'show' : 'hide'); } catch { /* storage unavailable */ }
+    }
+
+    function getMissingOnly() {
+        try {
+            return localStorage.getItem(MISSING_ONLY_KEY) === 'missing';
+        } catch {
+            return false;
+        }
+    }
+
+    function setMissingOnly(missingOnly) {
+        try { localStorage.setItem(MISSING_ONLY_KEY, missingOnly ? 'missing' : 'all'); } catch { /* storage unavailable */ }
     }
 
     function getOrder(id) {
@@ -369,6 +385,11 @@
             if (!item) return '';
             const data = A.getItemData(item.id);
             const thumb = coverOf(item);
+            // Owned, or had in a collected edition you own
+            const cover = A.coveringItem(item.id);
+            const owned = !cover ? ''
+                : cover.id === item.id ? 'Owned'
+                : `Owned in ${shortTitle(cover)}`;
             return `
                 <li class="reading-entry${data.hasRead ? ' read' : ''}" data-entry="${item.id}" value="${idx + 1}">
                     <span class="reading-num">${idx + 1}</span>
@@ -380,7 +401,7 @@
                         <div class="reading-meta">
                             <span class="reading-setting${mode === 'chronological' ? ' primary' : ''}">Set ${esc(entry.setting)}</span>
                             <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${formatReleased(entry)}</span>
-                            ${data.owned ? '<span class="reading-owned">Owned</span>' : ''}
+                            ${owned ? `<span class="reading-owned">${esc(owned)}</span>` : ''}
                         </div>
                     </div>
                     <label class="reading-toggle">
@@ -423,6 +444,10 @@
         const games = showGames ? loreGames().filter(g => !currentGame || g.game === currentGame) : [];
         const rows = games.length ? withGames(entries, games, mode) : entries.map(entry => ({ entry }));
 
+        // "Only missing" hides the books you have in some edition. The rest
+        // keep their numbers, and sections left without a book are dropped.
+        const missingOnly = getMissingOnly();
+
         // Long orders get headings: eras in chronological mode, release
         // years in release mode. Numbering runs on across sections and
         // counts only the books.
@@ -434,14 +459,16 @@
                 : mode === 'chronological' ? eraOf(at.year) : at.released.slice(0, 4);
             let section = sections[sections.length - 1];
             if (!section || section.heading !== heading) {
-                section = { heading, start: idx + 1, rows: [], books: 0, read: 0 };
+                section = { heading, start: idx + 1, rows: [], books: 0, read: 0, missing: 0 };
                 sections.push(section);
             }
             if (row.game) {
                 section.rows.push(gameRowHTML(row.game));
                 return;
             }
-            section.rows.push(rowHTML(row.entry, idx));
+            const missing = !A.coveringItem(row.entry.item);
+            if (missing || !missingOnly) section.rows.push(rowHTML(row.entry, idx));
+            if (missing) section.missing++;
             section.books++;
             if (A.getItemData(row.entry.item).hasRead) section.read++;
             idx++;
@@ -449,8 +476,9 @@
         // Shortcut to the first unread book in the current mode.
         const nextIndex = entries.findIndex(e => !A.getItemData(e.item).hasRead);
         const nextItem = nextIndex >= 0 && A.findItemByRef(entries[nextIndex].item);
-        const upNext = nextItem && readCount > 0
-            ? `<button class="btn btn-sm btn-secondary reading-up-next" data-jump="${nextItem.id}">Up next: ${esc(shortTitle(nextItem))}</button>`
+        // Not with "Only missing": the next unread book may be hidden.
+        const upNext = nextItem && readCount > 0 && !missingOnly
+            ?`<button class="btn btn-sm btn-secondary reading-up-next" data-jump="${nextItem.id}">Up next: ${esc(shortTitle(nextItem))}</button>`
             : '';
         const progress = `
                 <div class="reading-progress">
@@ -466,7 +494,10 @@
             openSections.set(sectionKey, new Set(sections.map(sec => sec.heading)));
         }
         const open = foldable ? openSections.get(sectionKey) : null;
-        const list = sections.map(sec => {
+        const shown = missingOnly ? sections.filter(sec => sec.missing > 0) : sections;
+        const list = shown.length === 0
+            ? '<p class="reading-description">You have every book here, in one edition or another.</p>'
+            : shown.map(sec => {
             const ol = `<ol class="reading-list" start="${sec.start}">${sec.rows.join('')}</ol>`;
             if (!foldable) return ol;
             return `
@@ -475,9 +506,17 @@
                     ${ol}
                 </details>`;
         }).join('');
-        const foldAll = foldable && sections.length > 1 ? '<button class="link link-quiet reading-fold-all" data-fold-all></button>' : '';
+        const foldAll = foldable && shown.length > 1 ? '<button class="link link-quiet reading-fold-all" data-fold-all></button>' : '';
+        const missingSwitch = `
+                <label class="reading-toggle reading-switch">
+                    <span>Only missing</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" data-missing-only${missingOnly ? ' checked' : ''}>
+                        <span class="toggle-slider"></span>
+                    </div>
+                </label>`;
         const gamesSwitch = order.gameMarkers ? `
-                <label class="reading-toggle reading-show-games">
+                <label class="reading-toggle reading-switch">
                     <span>Show games</span>
                     <div class="toggle-switch">
                         <input type="checkbox" data-show-games${showGames ? ' checked' : ''}>
@@ -497,6 +536,7 @@
             return `
                 ${seriesHeaderHTML(order.series, progress, upNext)}
                 <div class="reading-bar">${modes}</div>
+                <div class="reading-list-tools">${missingSwitch}</div>
                 ${list}
                 ${seriesPagerHTML(order.series)}
                 ${SOURCES_HTML}
@@ -510,7 +550,7 @@
             </div>
             ${gameChips}
             <div class="reading-bar">${modes}${progress}</div>
-            ${upNext || gamesSwitch || foldAll ? `<div class="reading-list-tools">${upNext}${gamesSwitch}${foldAll}</div>` : ''}
+            <div class="reading-list-tools">${upNext}${missingSwitch}${gamesSwitch}${foldAll}</div>
             ${list}
             ${SOURCES_HTML}
         `;
@@ -777,6 +817,11 @@
     content.addEventListener('change', (e) => {
         if (e.target.matches('[data-show-games]')) {
             setShowGames(e.target.checked);
+            render();
+            return;
+        }
+        if (e.target.matches('[data-missing-only]')) {
+            setMissingOnly(e.target.checked);
             render();
             return;
         }
