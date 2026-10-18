@@ -245,7 +245,7 @@ Tokens live at the top of `css/style.css`; component rules use only them. Check 
 - [ ] One "pick one" style per job: underline tabs (header, reading orders), segmented controls (Chronological/Release, Insights sort, grid/list), chips (game timeline, reading game filter)
 - [ ] Toasts: "Link copied!" shows a green check, a failure (e.g. switch off the network and publish) a red alert and stays longer; a screen reader announces them
 - [ ] Owned cards have a green edge and the OWNED badge (no check circle); list view rows are compact with a 64px thumbnail and the badges after the details (under the title on phones)
-- [ ] Phones (390px): the leaderboard shows one row per collector (rank, name, "Updated 9 Oct 2026", items, %), nothing scrolls sideways
+- [ ] Phones (390px): the leaderboard shows one card per collector (medal or rank, gold name, "Updated 9 Oct 2026", item count, % and a gold progress bar) and the title fits on one line; tapping anywhere on a card opens the profile, Tab rings the whole card; nothing scrolls sideways. Desktop keeps the table
 - [ ] Profile: "Collection › Name" breadcrumb (or "Leaderboard › Name" when opened from the leaderboard); the first link goes back there
 
 ---

@@ -405,8 +405,8 @@
                 tr.innerHTML = `
                     <td class="rank-col"><span class="medal ${rankClass}">${rank}</span></td>
                     <td class="name-col"><a href="#profile/${profile.displayName.toLowerCase()}">${A.escapeHTML(profile.displayName)}</a></td>
-                    <td class="count-col">${profile.ownedCount}<span class="lb-unit"> items</span></td>
-                    <td class="pct-col">${pct}%</td>
+                    <td class="count-col">${profile.ownedCount}</td>
+                    <td class="pct-col"><span class="lb-pct">${pct}%</span><span class="progress lb-bar" aria-hidden="true"><span class="progress-fill" style="width:${Math.min(pct, 100)}%"></span></span></td>
                     <td class="date-col"><span class="lb-unit">Updated </span>${updated}</td>
                 `;
                 tbody.appendChild(tr);

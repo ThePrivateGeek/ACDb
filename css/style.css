@@ -3531,6 +3531,11 @@ a.reading-title {
     font-size: var(--fs-sm);
 }
 
+/* The progress bar only shows in the phone layout */
+.leaderboard-table .lb-bar {
+    display: none;
+}
+
 .leaderboard-cta {
     display: flex;
     align-items: center;
@@ -3547,8 +3552,9 @@ a.reading-title {
     text-align: center;
 }
 
-/* Phones: each collector becomes a row (rank, name and date, items and %)
-   instead of a table that scrolls sideways */
+/* Phones: each collector is a card, as in the design mockup (rank; name
+   and update date; items, % and a progress bar) instead of a table that
+   scrolls sideways. The whole card opens the profile. */
 @media (max-width: 600px) {
     .leaderboard-table thead {
         display: none;
@@ -3556,19 +3562,29 @@ a.reading-title {
 
     .leaderboard-table,
     .leaderboard-table tbody {
-        display: block;
+        display: grid;
+        gap: var(--s2);
     }
 
     .leaderboard-table tr {
+        position: relative;
         display: grid;
-        grid-template-columns: 40px minmax(0, 1fr) auto;
+        grid-template-columns: 28px minmax(0, 1fr) auto auto;
         grid-template-areas:
-            "rank name count"
-            "rank date pct";
+            "rank name count pct"
+            "rank date bar bar";
         align-items: center;
-        column-gap: var(--s3);
-        padding: var(--s3) 0;
-        border-bottom: 1px solid var(--line);
+        gap: 2px var(--s3);
+        padding: var(--s3);
+        background: var(--surface-card);
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        transition: var(--transition);
+    }
+
+    .leaderboard-table tr:hover {
+        border-color: var(--gold-deep);
+        background: var(--surface-card-hover);
     }
 
     .leaderboard-table td {
@@ -3582,22 +3598,49 @@ a.reading-title {
 
     .leaderboard-table .rank-col { grid-area: rank; width: auto; }
     .leaderboard-table .name-col { grid-area: name; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .leaderboard-table .count-col { grid-area: count; text-align: right; }
-    .leaderboard-table .pct-col { grid-area: pct; text-align: right; font-size: var(--fs-sm); }
     .leaderboard-table .date-col { grid-area: date; font-size: var(--fs-xs); }
+    .leaderboard-table .count-col { grid-area: count; color: var(--text-2); font-size: var(--fs-sm); text-align: right; }
+    .leaderboard-table .pct-col { display: contents; }
+    .leaderboard-table .lb-pct { grid-area: pct; color: var(--text); font-family: var(--font-data); font-size: var(--fs-sm); text-align: right; }
+
+    .leaderboard-table .lb-bar {
+        grid-area: bar;
+        display: block;
+        width: 84px;
+        justify-self: end;
+    }
+
+    /* The name link covers the whole card; the card shows its focus */
+    .leaderboard-table .name-col a::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+    }
+
+    .leaderboard-table .name-col a:focus-visible {
+        outline: none;
+    }
+
+    .leaderboard-table tr:has(a:focus-visible) {
+        outline: var(--focus);
+        outline-offset: 2px;
+    }
 
     .leaderboard-table .lb-unit {
         display: inline;
     }
 
-    .leaderboard-table .count-col .lb-unit {
-        color: var(--text-3);
-        font-family: var(--font-body);
-        font-size: var(--fs-xs);
+    /* "Loading…", "No collectors yet" and errors: plain text, no card */
+    .leaderboard-table tr:has(.leaderboard-loading) {
+        display: block;
+        background: none;
+        border: 0;
     }
 
-    .leaderboard-table .leaderboard-loading {
-        grid-column: 1 / -1;
+    /* Page titles fit on one line */
+    .page-title {
+        font-size: var(--fs-xl);
     }
 }
 
