@@ -2761,6 +2761,11 @@ textarea:focus-visible {
     padding: 1.5rem 2rem 4rem;
 }
 
+/* One centred column at the reading width of the legal pages */
+#leaderboardView {
+    max-width: calc(760px + 4rem);
+}
+
 /* ---- Reading Order View ---- */
 /* Same width as the main grid (.main-content) */
 #readingView {
@@ -3448,12 +3453,12 @@ a.reading-title {
 
 /* ---- Leaderboard ----
    One card per collector at every width, as in the design mockup: rank;
-   name and update date; items, % and a progress bar. Two columns where
-   there's room, like the reading lists; the whole card opens the profile. */
+   name and update date; items, % and a progress bar. One column (the view
+   is capped and centred, see #leaderboardView); the whole card opens the
+   profile. */
 .leaderboard-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(520px, 100%), 1fr));
-    gap: var(--s2) var(--s4);
+    gap: var(--s2);
     margin: 0;
     padding: 0;
     list-style: none;
