@@ -855,10 +855,12 @@
                 : '<span class="modal-reading-last">Last book</span>';
             return `
                 <span class="modal-reading-line">
-                    <span class="modal-series-label">Reading order</span>
-                    <a class="modal-reading-name" href="#reading/${order.id}" data-order="${order.id}">${esc(order.name)}</a>
-                    <span class="modal-series-count" title="Position in ${mode} order">${idx + 1} of ${entries.length}</span>
-                    ${nextHTML}
+                    <span class="modal-meta-label">Reading order</span>
+                    <span class="modal-meta-value">
+                        <a class="modal-reading-name" href="#reading/${order.id}" data-order="${order.id}">${esc(order.name)}</a>
+                        <span class="modal-series-count" title="Position in ${mode} order">${idx + 1} of ${entries.length}</span>
+                        ${nextHTML}
+                    </span>
                 </span>`;
         }).join('');
     }
