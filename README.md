@@ -18,7 +18,7 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 - **Item card** — full details, photos, your collection fields and, for books, reading status and reading order position. The category, type, game and series in the card are one-click filters, and the share and close buttons stay in reach while you scroll
 - **Cloud sync (optional)** — sign in with Google to keep your collection in your account and see it on every device you use. Changes sync within seconds, work offline and catch up later, and signing out clears the browser you used
 - **Publish your collection** — get a public profile page (unique URL and display name) and a spot on the leaderboard. When you're signed in, your profile updates automatically
-- **Collector's Leaderboard** — see how your collection stacks up against other collectors, ranked by items owned, and open anyone's public profile to browse what they own. Each collector is a card with their rank, item count, completion and a progress bar (two columns on wide screens)
+- **Collector's Leaderboard** — see how your collection stacks up against other collectors, ranked by items owned, and open anyone's public profile to browse what they own. Each collector is a card with their rank, item count, completion and a progress bar, in one centred column
 - **Cascading filters** — multi-select by game, category, type, and series. Filters cascade: selecting a game narrows categories, selecting a category narrows types, selecting a type narrows series. Filters persist across page reloads
 - **Series browsing** — comics, graphic novels, manga, novel lines, and the Hachette partwork carry a `series` field (e.g. *Assassin's Creed: Assassins*) that groups single issues with the trade paperbacks that collect them, and can span types (the *Last Descendants* novels and the *Locus* comic share one series). The Series dropdown only appears when the current selection contains series items, and the series line in an item's card is a one-click filter to the whole run
 - **Read online** — comics, graphic novels, and manga with a free scan in the [Internet Archive's Assassin's Creed anthology](https://archive.org/details/assassins-creed-graphic-novels-and-comics-anthology) show a "Read on Internet Archive" button in their item card. The entry's optional `read` field holds the book's path inside that collection, unencoded as the archive names it (e.g. `07. AC Templars/AC Templars 2016 (3)`), and `readUrl` in `js/utils.js` builds the link; a full `https://` URL is used as-is for books hosted elsewhere. An optional `readLang` (e.g. `"fr"`) marks a scan in a different language and adds a tag such as "(Fr)" to the button. collected editions only get one when the archive holds a scan of the collection itself, not just its single issues
@@ -102,16 +102,13 @@ Sharing is entirely optional. Your local collection works independently — shar
 
 ### Design system
 
-`css/style.css` starts with the design tokens (colours by role, type scale, spacing, radii, shadows, motion, focus ring) and the shared components; the per-view styles below build on those. The only literal sizes left are brand pieces (the logo, the header meter's numbers, the Google button, the NEW sticker, the lightbox). Keep to them when adding UI:
-
-- **Colour meanings** — gold for interaction, selection and progress (every progress bar is gold); green = owned (and Publish), purple = read, blue = wishlist mark the state of one item (badges, borders, switches, "complete" checks); red only for danger and the NEW sticker.
-- **Type** — Cinzel for titles and section headings, Raleway (lining numerals) for everything else, JetBrains Mono for counts and fractions.
-- **Components** — `.btn` (`btn-primary`, `btn-secondary`, `btn-quiet`, `btn-danger`, `btn-publish`, `btn-sm`), `.link`, `.icon-btn`; `.tabs`/`.tab` to move between views, `.seg`/`.seg-btn` to switch how a view is shown, `.chip` to filter; `.badge`, `.progress`, `.section-head`, `.label`; `.page-head` with `.crumbs` for page titles and back navigation.
-- **Accessibility** — no `outline: none`; motion goes through the `--t*` tokens and stops under `prefers-reduced-motion` (scripted scrolls use `ACDB.scrollBehavior()`); toasts take a kind (`showToast(message, 'success' | 'error')`).
+The site has one design language, written down in [DESIGN.md](DESIGN.md), the design book: what each colour means, the type scale, spacing, the shared components with markup to copy, page widths, wording and the accessibility rules. The values themselves are the design tokens at the top of `css/style.css`. Read the book before adding or changing any UI. [CLAUDE.md](CLAUDE.md) holds the working notes that Claude Code sessions load automatically (project rules, data conventions, tools).
 
 ## Project Structure
 
 ```
+DESIGN.md        — the design book: rules every page and feature follows
+CLAUDE.md        — working notes loaded by Claude Code sessions
 js/
   database.js    — item database (640+ entries, each with a permanent numeric id)
   images.js      — image path mappings

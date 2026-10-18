@@ -232,7 +232,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] `validate-catalog.py` covers `js/reading-orders.js` (unknown item, non-readable type, duplicate, missing setting, bad date are errors) and `js/games.js` (a game not on the timeline, a duplicate, a bad date, a DLC with a place in the lore but no year, a bad episode date, a remake of an unknown game are errors)
 
 ## 19. Design System
-Tokens live at the top of `css/style.css`; component rules use only them. Check at 1600, 1200, 1000, 390 and 360px, signed in and out.
+The rules are in [DESIGN.md](DESIGN.md) (its section 13 is the definition of done); tokens live at the top of `css/style.css` and component rules use only them. Check at 1600, 1200, 1000, 390 and 360px, signed in and out.
 - [ ] No page scrolls sideways at any of those widths (collection, every reading tab, a series page, leaderboard, a profile, privacy)
 - [ ] Tab through the collection, the reading view and an open item modal: every control (links, buttons, chips, dropdown options, Read/Owned switches, fold headings) shows the same 2px gold focus ring; fields also turn their border gold
 - [ ] The filter dropdowns work from the keyboard: Tab into the options, Space ticks one
@@ -245,7 +245,7 @@ Tokens live at the top of `css/style.css`; component rules use only them. Check 
 - [ ] One "pick one" style per job: underline tabs (header, reading orders), segmented controls (Chronological/Release, Insights sort, grid/list), chips (game timeline, reading game filter)
 - [ ] Toasts: "Link copied!" shows a green check, a failure (e.g. switch off the network and publish) a red alert and stays longer; a screen reader announces them
 - [ ] Owned cards have a green edge and the OWNED badge (no check circle); list view rows are compact with a 64px thumbnail and the badges after the details (under the title on phones)
-- [ ] Leaderboard: one card per collector at every width (medal or rank, gold name, "Updated 9 Oct 2026", item count, % and a gold progress bar), in two columns from about 1100px wide (1 and 2 side by side), one below; clicking anywhere on a card opens the profile and Tab rings the whole card; "Loading", "No collectors yet" and errors show as plain text across the list; on a 390px phone the title fits on one line and nothing scrolls sideways
+- [ ] Leaderboard: one card per collector at every width (medal or rank, gold name, "Updated 9 Oct 2026", item count, % and a gold progress bar), in one column at every width (centred at about 760px on wide screens, the title lined up with the cards); clicking anywhere on a card opens the profile and Tab rings the whole card; "Loading", "No collectors yet" and errors show as plain text across the list; on a 390px phone the title fits on one line and nothing scrolls sideways
 - [ ] Profile: "Collection › Name" breadcrumb (or "Leaderboard › Name" when opened from the leaderboard); the first link goes back there
 
 ---
