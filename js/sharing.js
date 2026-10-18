@@ -373,7 +373,7 @@
         document.getElementById('readingView').style.display = 'none';
         const leaderboardView = document.getElementById('leaderboardView');
         leaderboardView.style.display = '';
-        document.getElementById('leaderboardBody').innerHTML = '<tr><td colspan="5" class="leaderboard-loading">Loading leaderboard...</td></tr>';
+        document.getElementById('leaderboardBody').innerHTML = '<li class="leaderboard-loading">Loading leaderboard...</li>';
 
         const ctaEl = document.getElementById('leaderboardCta');
         if (isShared()) {
@@ -387,33 +387,38 @@
         try {
             const res = await fetch(`${A.API_URL}/leaderboard`);
             const data = await res.json();
-            const tbody = document.getElementById('leaderboardBody');
-            tbody.innerHTML = '';
+            const list = document.getElementById('leaderboardBody');
+            list.innerHTML = '';
 
             if (data.profiles.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="5" class="leaderboard-loading">No collectors yet. Be the first!</td></tr>';
+                list.innerHTML = '<li class="leaderboard-loading">No collectors yet. Be the first!</li>';
                 return;
             }
 
+            // One card per collector, the whole card a link to the profile.
+            // The list numbers the ranks for screen readers, so the medal is
+            // decoration; hidden words give the bare figures their meaning.
             data.profiles.forEach((profile, idx) => {
                 const rank = idx + 1;
                 const pct = Math.round((profile.ownedCount / AC_DATABASE.length) * 100);
                 const updated = A.formatDate(profile.lastUpdated);
                 const rankClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
 
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td class="rank-col"><span class="medal ${rankClass}">${rank}</span></td>
-                    <td class="name-col"><a href="#profile/${profile.displayName.toLowerCase()}">${A.escapeHTML(profile.displayName)}</a></td>
-                    <td class="count-col">${profile.ownedCount}</td>
-                    <td class="pct-col"><span class="lb-pct">${pct}%</span><span class="progress lb-bar" aria-hidden="true"><span class="progress-fill" style="width:${Math.min(pct, 100)}%"></span></span></td>
-                    <td class="date-col"><span class="lb-unit">Updated </span>${updated}</td>
-                `;
-                tbody.appendChild(tr);
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <a class="lb-card" href="#profile/${profile.displayName.toLowerCase()}">
+                        <span class="medal ${rankClass}" aria-hidden="true">${rank}</span>
+                        <span class="lb-name">${A.escapeHTML(profile.displayName)}</span>
+                        <span class="lb-date">Updated ${updated}</span>
+                        <span class="lb-count">${profile.ownedCount}<span class="sr-only"> items owned,</span></span>
+                        <span class="lb-pct">${pct}%<span class="sr-only"> complete</span></span>
+                        <span class="progress lb-bar" aria-hidden="true"><span class="progress-fill" style="width:${Math.min(pct, 100)}%"></span></span>
+                    </a>`;
+                list.appendChild(li);
             });
 
         } catch {
-            document.getElementById('leaderboardBody').innerHTML = '<tr><td colspan="5" class="leaderboard-loading">Error loading leaderboard</td></tr>';
+            document.getElementById('leaderboardBody').innerHTML = '<li class="leaderboard-loading">Error loading leaderboard</li>';
         }
     }
 

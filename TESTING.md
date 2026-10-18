@@ -189,7 +189,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Offline (DevTools → Network → Offline): edits still save, the dot turns amber; back online they sync
 - [ ] Two tabs open: an edit in one appears in the other; edits made in both at once all survive
 - [ ] Not published: header shows **Publish collection**; its window reads "Publish Your Collection" / "Get a public page to show friends, and a spot on the Leaderboard"; after publishing the button leaves the header and **My public profile** appears in the account menu, opening "Your Public Profile"
-- [ ] Leaderboard, not published: "Want to be on here? **Join the Leaderboard**" sits above the table and opens the publish window without leaving the leaderboard, which refreshes after publishing ("You're on the board as …")
+- [ ] Leaderboard, not published: "Want to be on here? **Join the Leaderboard**" sits above the list and opens the publish window without leaving the leaderboard, which refreshes after publishing ("You're on the board as …")
 - [ ] Publish while signed in: the profile is created without a token; the manage window has no Update button and says it updates automatically; owning more items updates the profile and leaderboard
 - [ ] Signing in on a browser that shared a profile before sign-in existed links that profile (toast) and it starts updating automatically
 - [ ] **Download all account data** downloads `acdb-account-<date>.json`
@@ -245,7 +245,7 @@ Tokens live at the top of `css/style.css`; component rules use only them. Check 
 - [ ] One "pick one" style per job: underline tabs (header, reading orders), segmented controls (Chronological/Release, Insights sort, grid/list), chips (game timeline, reading game filter)
 - [ ] Toasts: "Link copied!" shows a green check, a failure (e.g. switch off the network and publish) a red alert and stays longer; a screen reader announces them
 - [ ] Owned cards have a green edge and the OWNED badge (no check circle); list view rows are compact with a 64px thumbnail and the badges after the details (under the title on phones)
-- [ ] Phones (390px): the leaderboard shows one card per collector (medal or rank, gold name, "Updated 9 Oct 2026", item count, % and a gold progress bar) and the title fits on one line; tapping anywhere on a card opens the profile, Tab rings the whole card; nothing scrolls sideways. Desktop keeps the table
+- [ ] Leaderboard: one card per collector at every width (medal or rank, gold name, "Updated 9 Oct 2026", item count, % and a gold progress bar), in two columns from about 1100px wide (1 and 2 side by side), one below; clicking anywhere on a card opens the profile and Tab rings the whole card; "Loading", "No collectors yet" and errors show as plain text across the list; on a 390px phone the title fits on one line and nothing scrolls sideways
 - [ ] Profile: "Collection › Name" breadcrumb (or "Leaderboard › Name" when opened from the leaderboard); the first link goes back there
 
 ---
