@@ -874,7 +874,7 @@ const AC_DATABASE = [
     "name": "PureArts Assassin's Creed Shadows Shogi Board Game",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Official Assassin's Creed Shadows themed Shogi board game.",
     "contents": "Themed Shogi board and pieces",
     "type": "Board Game"
@@ -1864,7 +1864,7 @@ const AC_DATABASE = [
     "name": "Ubi Workshop Master Assassin Ring",
     "game": "General",
     "year": 2017,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Official Assassin's Creed ring manufactured in Italy for Ubisoft. Crafted in antiqued silver plated zinc metal with non-allergic treatment.",
     "contents": "Assassin's Creed insignia ring",
     "type": "Jewelry"
@@ -1874,7 +1874,7 @@ const AC_DATABASE = [
     "name": "Ubi Workshop Templar Ring",
     "game": "General",
     "year": 2013,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Assassin's Creed Templar Ring Official Ubisoft Collection by Ubi Workshop (Large, Silver), Sterling Silver",
     "contents": "Templar Ring",
     "type": "Jewelry"
@@ -1884,7 +1884,7 @@ const AC_DATABASE = [
     "name": "Ubi Workshop Connor Amulet Necklace (Silver)",
     "game": "Assassin's Creed III",
     "year": 2017,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Official silver-toned replica of Connor's amulet necklace from AC III.",
     "contents": "Connor amulet necklace",
     "type": "Jewelry"
@@ -1894,7 +1894,7 @@ const AC_DATABASE = [
     "name": "Ubi Workshop Syndicate Rooks Necklace",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Official Rooks gang necklace from Assassin's Creed Syndicate.",
     "contents": "Rooks necklace",
     "type": "Jewelry"
@@ -1904,7 +1904,7 @@ const AC_DATABASE = [
     "name": "Ubi Workshop Syndicate Starrick Templar Necklace",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Official Starrick Templar necklace from Assassin's Creed Syndicate.",
     "contents": "Templar necklace",
     "type": "Jewelry"
@@ -1914,7 +1914,7 @@ const AC_DATABASE = [
     "name": "Ubi Workshop Syndicate Templar Amulet Necklace",
     "game": "Assassin's Creed Syndicate",
     "year": 2017,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Official Templar amulet necklace from Assassin's Creed Syndicate.",
     "contents": "Templar amulet necklace",
     "type": "Jewelry"
@@ -1924,7 +1924,7 @@ const AC_DATABASE = [
     "name": "BIXLER x Assassin's Creed Odyssey Jewelry Collection",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Officially licensed fine jewelry collection designed exclusively by BIXLER featuring Grecian engravings, garnet gemstones, enamel details, and natural diamonds.",
     "contents": "Various fine jewelry pieces (rings, necklaces, bracelets)",
     "type": "Jewelry"
@@ -1934,7 +1934,7 @@ const AC_DATABASE = [
     "name": "King Ice x Assassin's Creed Shadows Necklace (Yasuke Kabuto 14K Gold)",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Collaboration with King Ice. Yasuke's kabuto crafted from brass and plated in 14K gold and black gold.",
     "contents": "14K gold plated Yasuke Kabuto necklace",
     "type": "Jewelry"
@@ -1984,7 +1984,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Heritage Collection",
     "game": "General",
     "year": 2013,
-    "category": "Other",
+    "category": "Special Edition",
     "description": "Compilation collection containing the first five main Assassin's Creed games.",
     "contents": "Assassin's Creed, Assassin's Creed II, Assassin's Creed Brotherhood, Assassin's Creed Revelations, Assassin's Creed III",
     "type": "Compilation"
@@ -2004,7 +2004,7 @@ const AC_DATABASE = [
     "name": "PureArts Assassin's Creed Valhalla Bundle (Eivor Statue, Hidden Blade & Dice Game)",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
-    "category": "Other",
+    "category": "Statue",
     "description": "Bundle package from PureArts including the Eivor statue, life-size hidden blade prop, and Orlog dice game.",
     "contents": "Animus Eivor statue, life-size hidden blade prop, Orlog dice game",
     "type": "Bundle"
@@ -3766,7 +3766,7 @@ const AC_DATABASE = [
     "name": "Nemesis Now Assassin's Creed 'The Creed' Tankard",
     "game": "Assassin's Creed",
     "year": 2021,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Cast resin tankard featuring the iconic Assassin Brotherhood crest and a hooded Assassin figure with ornate detailing. Stainless steel insert, ~15.5cm tall, 500ml capacity. By Nemesis Now.",
     "contents": "Cast resin tankard with stainless steel insert",
     "type": "Tankard"
@@ -3776,7 +3776,7 @@ const AC_DATABASE = [
     "name": "Nemesis Now Assassin's Creed Brotherhood Tankard",
     "game": "Assassin's Creed Brotherhood",
     "year": 2021,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Stealthy Assassin's Design: Showcases the Hidden Blade in its full glory, with a detailed bracer and blade, capturing the essence of the Assassin's Brotherhood. Stainless steel insert, ~15cm tall, 500ml capacity. By Nemesis Now.",
     "contents": "Cast resin tankard with stainless steel insert",
     "type": "Tankard"
@@ -3786,7 +3786,7 @@ const AC_DATABASE = [
     "name": "Nemesis Now Assassin's Creed 'Through the Ages' Tankard",
     "game": "General",
     "year": 2022,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "A masterfully crafted vessel that pays homage to the legendary assassins who have left their mark across centuries. Stainless steel insert, ~15.5cm tall, 500ml capacity. By Nemesis Now.",
     "contents": "Cast resin tankard with stainless steel insert",
     "type": "Tankard"
@@ -3796,7 +3796,7 @@ const AC_DATABASE = [
     "name": "Nemesis Now Assassin's Creed Valhalla Tankard",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Cast resin tankard with Viking-inspired designs, Norse imagery, axes, and the Valhalla logo. Evokes the world of Eivor and the Viking expansion. Stainless steel insert, ~15.5cm tall, 500ml capacity. By Nemesis Now.",
     "contents": "Cast resin tankard with stainless steel insert",
     "type": "Tankard"
@@ -3806,7 +3806,7 @@ const AC_DATABASE = [
     "name": "Nemesis Now Assassin's Creed Shadows Tankard",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Cast resin tankard themed around feudal Japan, featuring Japanese-inspired motifs and Shadows branding. Stainless steel insert, ~15.5cm tall, 500ml capacity. By Nemesis Now.",
     "contents": "Cast resin tankard with stainless steel insert",
     "type": "Tankard"
@@ -3816,7 +3816,7 @@ const AC_DATABASE = [
     "name": "Nemesis Now Assassin's Creed 'The Creed' Goblet",
     "game": "Assassin's Creed",
     "year": 2021,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Chalice-style goblet featuring the Assassin Brotherhood crest and hooded Assassin imagery with ornate detailing around the stem and base. Stainless steel insert, ~20.5cm tall, 200ml capacity. By Nemesis Now.",
     "contents": "Cast resin goblet with stainless steel insert",
     "type": "Goblet"
@@ -3826,7 +3826,7 @@ const AC_DATABASE = [
     "name": "Nemesis Now Assassin's Creed Brotherhood Goblet",
     "game": "Assassin's Creed Brotherhood",
     "year": 2021,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Goblet featuring Ezio-era iconography, the Brotherhood insignia, and Renaissance design elements. Stainless steel insert, ~20.5cm tall, 200ml capacity. By Nemesis Now.",
     "contents": "Cast resin goblet with stainless steel insert",
     "type": "Goblet"
@@ -3836,7 +3836,7 @@ const AC_DATABASE = [
     "name": "Nemesis Now Assassin's Creed Valhalla Goblet",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Viking-themed goblet featuring Norse runes, axes, and Valhalla branding. Stainless steel insert, ~20.5cm tall, 200ml capacity. By Nemesis Now.",
     "contents": "Cast resin goblet with stainless steel insert",
     "type": "Goblet"
@@ -3846,7 +3846,7 @@ const AC_DATABASE = [
     "name": "Nemesis Now Assassin's Creed Shadows Goblet",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Feudal Japan-themed goblet tied to Assassin's Creed Shadows, featuring Japanese artistic motifs and game branding. Stainless steel insert, ~20.5cm tall, 200ml capacity. By Nemesis Now.",
     "contents": "Cast resin goblet with stainless steel insert",
     "type": "Goblet"
@@ -3856,7 +3856,7 @@ const AC_DATABASE = [
     "name": "Assassins Creed Syndicate Official Press Promo Power Bank Cane Handle",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
-    "category": "Replica/Prop",
+    "category": "Tech & Gadgets",
     "description": "Official press promo power bank, featuring the cane or walking stick handle for Jacob Frye.",
     "contents": "Power bank with Jacob Frye cane design.",
     "type": "Replica"
@@ -4226,7 +4226,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: Leap Into History - Limited Edition 5xLP Boxset",
     "game": "General",
     "year": 2022,
-    "category": "Other",
+    "category": "Music",
     "description": "Limited edition vinyl boxset featuring 70 tracks spanning 12 Assassin's Creed games across 5 LPs. A 15th anniversary celebration of the franchise's iconic music. Published by Laced Records.",
     "contents": "5xLP vinyl boxset with tracks from AC1 through AC Valhalla",
     "type": "Vinyl Soundtrack"
@@ -4236,7 +4236,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Shadows: Soundtrack Collection Limited Edition 4LP Box Set",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Other",
+    "category": "Music",
     "description": "Limited Edition heavyweight translucent red and black splatter vinyl featuring 44 tracks from the 2025 open-world RPG action game\nIncludes three albums across 5 LPs. Published by Laced Records.",
     "contents": "4xLP vinyl boxset with tracks from AC Shadows",
     "type": "Vinyl Soundtrack"
@@ -4246,7 +4246,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Shadows: Original Score - Deluxe 2xLP",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Other",
+    "category": "Music",
     "description": "Double vinyl featuring the original score by The Flight for AC Shadows. Published by Laced Records.",
     "contents": "2xLP vinyl with original score",
     "type": "Vinyl Soundtrack"
@@ -4256,7 +4256,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Shadows: Kage No Iro - Deluxe Vinyl",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Other",
+    "category": "Music",
     "description": "Single LP featuring music by TEKE::TEKE for AC Shadows. Published by Laced Records.",
     "contents": "1xLP vinyl",
     "type": "Vinyl Soundtrack"
@@ -4266,7 +4266,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Shadows: UKOMBOZI - Deluxe Vinyl",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Other",
+    "category": "Music",
     "description": "Single LP featuring music by Thunderdrum ft. Tiggs Da Author for AC Shadows. Published by Laced Records.",
     "contents": "1xLP vinyl",
     "type": "Vinyl Soundtrack"
@@ -4276,7 +4276,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: The Piano Collection Vinyl",
     "game": "General",
     "year": 2026,
-    "category": "Other",
+    "category": "Music",
     "description": "Vinyl release of piano arrangements of iconic Assassin's Creed themes. Published by Black Screen Records.",
     "contents": "Vinyl LP with piano arrangements",
     "type": "Vinyl Soundtrack"
@@ -4286,7 +4286,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Mirage: Original Soundtrack Vinyl",
     "game": "Assassin's Creed Mirage",
     "year": 2024,
-    "category": "Other",
+    "category": "Music",
     "description": "Vinyl release of the AC Mirage original soundtrack. Published by Black Screen Records.",
     "contents": "Vinyl LP(s) with original soundtrack",
     "type": "Vinyl Soundtrack"
@@ -4296,7 +4296,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Valhalla: Dawn of Ragnarok - Original Soundtrack Vinyl",
     "game": "Assassin's Creed Valhalla",
     "year": 2023,
-    "category": "Other",
+    "category": "Music",
     "description": "Vinyl release of the Dawn of Ragnarok expansion original soundtrack. Published by Black Screen Records.",
     "contents": "Vinyl LP(s) with Dawn of Ragnarok soundtrack",
     "type": "Vinyl Soundtrack"
@@ -4306,7 +4306,7 @@ const AC_DATABASE = [
     "name": "Lofi Girl x Assassin's Creed: Shadows Vinyl",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Other",
+    "category": "Music",
     "description": "Collaboration vinyl between Lofi Girl and Assassin's Creed Shadows featuring lo-fi remixes of AC Shadows music. Published by Black Screen Records.",
     "contents": "Vinyl LP with lo-fi remixes",
     "type": "Vinyl Soundtrack"
@@ -4497,7 +4497,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Shot Glass Set",
     "game": "General",
     "year": 2016,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Set of two shot glasses featuring Assassin's Creed designs. Loot Crate exclusive.",
     "contents": "Shot glass set",
     "type": "Drinkware"
@@ -4507,7 +4507,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed IV Black Flag Flask",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2016,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Black Flag themed hip flask. Loot Crate Gaming July 2016 exclusive.",
     "contents": "Hip flask",
     "type": "Drinkware"
@@ -4547,7 +4547,7 @@ const AC_DATABASE = [
     "name": "Ravenforge Assassin's Creed Black Flag Hip Flask",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2024,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Officially licensed Black Flag themed hip flask. Crafted by Ravenforge.",
     "contents": "Hip flask",
     "type": "Drinkware"
@@ -4557,7 +4557,7 @@ const AC_DATABASE = [
     "name": "Ravenforge Assassin's Creed Hip Flask Gift Set",
     "game": "General",
     "year": 2024,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Officially licensed Assassin's Creed hip flask gift set. Crafted by Ravenforge.",
     "contents": "Hip flask gift set",
     "type": "Drinkware"
@@ -4567,7 +4567,7 @@ const AC_DATABASE = [
     "name": "Ravenforge Assassin's Creed Shadows Hip Flask",
     "game": "Assassin's Creed Shadows",
     "year": 2025,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Officially licensed AC Shadows themed hip flask. Crafted by Ravenforge.",
     "contents": "Hip flask",
     "type": "Drinkware"
@@ -4577,7 +4577,7 @@ const AC_DATABASE = [
     "name": "Ravenforge Assassin's Creed Odyssey Hip Flask",
     "game": "Assassin's Creed Odyssey",
     "year": 2024,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Officially licensed AC Odyssey themed hip flask. Crafted by Ravenforge.",
     "contents": "Hip flask",
     "type": "Drinkware"
@@ -4727,7 +4727,7 @@ const AC_DATABASE = [
     "name": "PureArts Orlog Dice Game Retail Edition",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Officially licensed two-player dice game based on the Orlog mini-game from AC Valhalla. Challenge your opponent using dice rolls and God Favor bonus effects. Produced by PureArts.",
     "contents": "2 ABS plastic dice bowls, 32 polished stone health counters, 50 God Favor tokens, 40 God Favor cards, 2 acrylic dice sets, 1 game coin, gameplay guide, 2 God Favor guides",
     "type": "Board Game"
@@ -4737,7 +4737,7 @@ const AC_DATABASE = [
     "name": "PureArts Orlog Dice Game Deluxe Edition",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Deluxe edition of the Orlog dice game from AC Valhalla. Crafted from carved wood, cast metal, polished stones, and linen cloth. Limited to 500 individually numbered units. Produced by PureArts.",
     "contents": "Carved wood storage case (numbered), 2 wooden dice bowls, 32 polished stone counters, 2 linen pouches, 50 golden metal tokens, 2 sets wooden God Favor cards, 2 acrylic dice sets, 1 metal game coin, 1 linen game mat (18\" x 26\")",
     "type": "Board Game"
@@ -4747,7 +4747,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: Vendetta",
     "game": "General",
     "year": 2017,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Officially licensed social deduction card game for 2-8 players. Players take on roles as Assassins or Templars in a game of bluffing and strategy. French language only. Designed by Sébastien Moricard. Published by Bra*Jeux.",
     "contents": "Card game with role cards, action cards, and rulebook (French language)",
     "type": "Card Game"
@@ -4767,20 +4767,20 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Unity Collectible Coin",
     "game": "Assassin's Creed Unity",
     "year": 2014,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Metal collectible coin/medallion featuring 'LIBERTE EGALITE UNITY' from AC Unity, packaged in a red velvet drawstring pouch. Loot Crate November 2014 exclusive.",
     "contents": "Metal coin/medallion, red velvet pouch",
-    "type": "Loot Crate"
+    "type": "Coin"
   },
   {
     "id": 455,
     "name": "Assassin's Creed Odyssey Promo Coin (Best Buy Exclusive)",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Metal collectible promotional coin/medal featuring the Spartan helmet design from AC Odyssey. Best Buy exclusive pre-order/purchase bonus.",
     "contents": "Metal coin/medal in protective case",
-    "type": "Promotional"
+    "type": "Coin"
   },
   {
     "id": 456,
@@ -4931,17 +4931,17 @@ const AC_DATABASE = [
     "name": "Ubisoft Star Player Mentors Guild Medal",
     "game": "General",
     "year": 2017,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Rare collectible medal distributed to members of Ubisoft's Assassin's Creed Mentors Guild — an invite-only community ambassador program founded in 2017 and folded into the wider Ubisoft Star Player Program on 13 July 2022. Limited to 130 pieces, never sold at retail. Ships in a black presentation box labelled 'Ubisoft Star Player'. The medal's obverse bears the Assassin's Creed logo with an x/130 serial beneath it; the reverse is engraved 'MENTORS GUILD'.",
     "contents": "Medal, black 'Ubisoft Star Player' presentation box",
-    "type": "Promotional"
+    "type": "Medal"
   },
   {
     "id": 471,
     "name": "Assassin's Creed Odyssey Medallion Pendant (Medaglione)",
     "game": "Assassin's Creed Odyssey",
     "year": 2018,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "A pendant came as a pre-order bonus given out to the first 10,000 Gold Editions of Assassin's Creed Odyssey in Italy.",
     "contents": "A silver pendant hung on a black leather cord",
     "type": "Jewelry"
@@ -5831,7 +5831,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: Arena",
     "game": "Assassin's Creed Revelations",
     "year": 2014,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Officially licensed board game set in Constantinople during the events of Assassin's Creed Revelations. Players take on the role of Master Assassins competing in Templar-sponsored arena contests. Published by Cryptozoic Entertainment.",
     "contents": "Game board, character cards, weapon cards, contract cards, guard tokens, one six-sided die, rulebook",
     "type": "Board Game"
@@ -5841,7 +5841,7 @@ const AC_DATABASE = [
     "name": "Monopoly: Assassin's Creed",
     "game": "General",
     "year": 2014,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Officially licensed Monopoly edition spanning the Assassin's Creed franchise. Abstergo Credits replace cash and historical AC locations replace properties. Tokens include Altair, Ezio, Connor, Edward, Aveline and Arno. Published by Winning Moves under Hasbro license.",
     "contents": "Game board, 6 collectible tokens, property cards, Leap of Faith and Treasure Chest cards, Abstergo Credits money, houses, hotels, 2 dice, rulebook",
     "type": "Board Game"
@@ -5851,7 +5851,7 @@ const AC_DATABASE = [
     "name": "Monopoly: Assassin's Creed Syndicate",
     "game": "Assassin's Creed Syndicate",
     "year": 2015,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Officially licensed Monopoly edition themed on Assassin's Creed Syndicate's Victorian London. Properties are replaced with iconic London landmarks from the game. Published by Winning Moves under Hasbro license.",
     "contents": "Game board, 6 Syndicate-themed tokens (Big Ben, Steam Ship, Bowler Hat, Crown, Gun, Knuckle Duster), property cards, Chance and Community Chest cards, money, houses, hotels, 2 dice, rulebook",
     "type": "Board Game"
@@ -5861,7 +5861,7 @@ const AC_DATABASE = [
     "name": "Risk: Assassin's Creed",
     "game": "General",
     "year": 2018,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Officially licensed Risk edition themed around the centuries-long conflict between Assassins and Templars. Five Assassin factions battle for territorial control using custom Assassin and Templar Insignia pieces, Piece of Eden ability cards, and Memory Fragment cards. Published by Winning Moves under Hasbro license.",
     "contents": "Game board, 5 sets of custom faction pieces (Assassin and Templar Insignias), Piece of Eden ability cards, Memory Fragment cards, dice, rulebook",
     "type": "Board Game"
@@ -5871,7 +5871,7 @@ const AC_DATABASE = [
     "name": "Stratego: Assassin's Creed",
     "game": "General",
     "year": 2020,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Officially licensed Stratego edition pitting Assassins against Templars. Includes three game variants: Classic, Duel, and a Special mode that introduces Pieces of Eden with unique powers. Published by Jumbo International (SKU 19815).",
     "contents": "Game board, 30 red pieces, 30 blue pieces, 2 player screens, Piece of Eden sticker sheet, rulebook",
     "type": "Board Game"
@@ -5881,7 +5881,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: Brotherhood of Venice",
     "game": "Assassin's Creed Brotherhood",
     "year": 2021,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Officially licensed cooperative miniatures board game bridging the events of Assassin's Creed Brotherhood and Revelations. Players control Italian Assassins on stealth, parkour and combat missions across a branching campaign of Memories. Kickstarter funded in 2018; retail released June 2021. Published by Triton Noir.",
     "contents": "Game board, Assassin and enemy miniatures, Memory campaign cards, skill cards, dice, tokens, campaign book, rulebook",
     "type": "Board Game"
@@ -5891,7 +5891,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: Brotherhood of Venice - Roma Expansion",
     "game": "Assassin's Creed Brotherhood",
     "year": 2021,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Expansion for Assassin's Creed: Brotherhood of Venice that takes the Assassins to Rome against the Papal Guards and the Followers of Romulus. Adds new Assassins, enemies and Memories. Published by Triton Noir.",
     "contents": "New miniatures (Assassins, Papal Guards, Followers of Romulus), new Memory cards, new scenarios, rules supplement",
     "type": "Board Game"
@@ -5901,7 +5901,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: Brotherhood of Venice - Tokyo XXI Expansion",
     "game": "General",
     "year": 2021,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Modern-day expansion for Assassin's Creed: Brotherhood of Venice set in 21st-century Tokyo. Adds playable characters Layla Hassan, Rebecca Crane, Shaun Hastings and Kiyoshi Takakura, along with modern enemies and equipment. Published by Triton Noir.",
     "contents": "Modern-day Assassin miniatures (Layla, Rebecca, Shaun, Kiyoshi), modern enemy miniatures, new equipment cards, new Memory cards, rules supplement",
     "type": "Board Game"
@@ -5911,7 +5911,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: Brotherhood of Venice - Creed vs Crows Expansion",
     "game": "Assassin's Creed Brotherhood",
     "year": 2021,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Competitive versus-mode expansion for Assassin's Creed: Brotherhood of Venice. 2-4 players face off inside a Borgia fortress, splitting into Assassin and Crow teams for asymmetric confrontations. Published by Triton Noir.",
     "contents": "Borgia fortress board tiles, Crow miniatures, versus-mode cards, tokens, rules supplement",
     "type": "Board Game"
@@ -5921,7 +5921,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: Brotherhood of Venice - Apocalypse Expansion",
     "game": "General",
     "year": 2024,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Fourth expansion for Assassin's Creed: Brotherhood of Venice, set in the post-Angkor Khmer Empire of Cambodia. Renaissance Assassins hunt a rogue Brotherhood member with the aid of Shao Jun through a dozen Memories in the jungle. Kickstarter funded 2023; retail released October 2024. Published by Triton Noir.",
     "contents": "Shao Jun miniature, rogue Assassin miniature, Khmer Empire enemies, jungle environment tiles, new Memory cards, rules supplement",
     "type": "Board Game"
@@ -5931,7 +5931,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: Assassin or Templar? (300 Questions)",
     "game": "General",
     "year": 2021,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Officially licensed Assassin's Creed trivia and party game. Players pick the Assassin or Templar path and race to become Master Assassin or Master Templar by answering questions spanning the AC universe, using skill and bonus cards along the way. Originally released in French as 'Boîte Assassin ou Templier'. Designed by Alain T. Puysségur. 2-4 players, ages 14+. Published by Hachette Heroes (ISBN 9782017134541).",
     "contents": "Game board, 300 question cards, 14 special/bonus/skill cards, rulebook",
     "type": "Board Game"
@@ -5941,7 +5941,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: The Last Quest of Leonardo da Vinci (Escape Game)",
     "game": "Assassin's Creed II",
     "year": 2022,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Officially licensed cooperative escape-room board game featuring Ezio Auditore and Leonardo da Vinci. Set in Amboise in 1519 and across nine Renaissance European cities, the game offers three replayable scenarios with nine possible endings. Originally released in French as 'Escape Game Assassin's Creed'. Designed by Nicolas Lozzi. 2+ players, ages 12+. Published by Hachette Heroes (ISBN 9782017094364).",
     "contents": "3 scenarios (9 possible endings), 9 European city cards, 200 gameplay cards, 2 booklets/guides",
     "type": "Board Game"
@@ -5971,7 +5971,7 @@ const AC_DATABASE = [
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Legacy (1000 pieces)",
     "game": "General",
     "year": 2022,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features a franchise-spanning collage of Assassin Order members including Altair, Ezio, Eivor and more. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
     "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
     "type": "Puzzle"
@@ -5981,7 +5981,7 @@ const AC_DATABASE = [
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Syndicate - The Tavern (1000 pieces)",
     "game": "Assassin's Creed Syndicate",
     "year": 2022,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Depicts Jacob Frye rallying workers in a Victorian London tavern. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
     "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
     "type": "Puzzle"
@@ -5991,7 +5991,7 @@ const AC_DATABASE = [
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Eivor Male (1000 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features the male Eivor portrait with axe and shield. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
     "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
     "type": "Puzzle"
@@ -6001,7 +6001,7 @@ const AC_DATABASE = [
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Eivor Female (1500 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1500-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features the female Eivor portrait. Finished size 85 x 58 cm. Includes a same-size poster and a printed cotton drawstring bag.",
     "contents": "1500 puzzle pieces, matching 85 x 58 cm poster, cotton drawstring storage bag",
     "type": "Puzzle"
@@ -6011,7 +6011,7 @@ const AC_DATABASE = [
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Vista of England (1000 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Depicts a panoramic Anglo-Saxon countryside featuring Stonehenge and hill castles. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag. Shares artwork with the 1500-piece edition.",
     "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
     "type": "Puzzle"
@@ -6021,7 +6021,7 @@ const AC_DATABASE = [
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Vista of England (1500 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1500-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Depicts a panoramic Anglo-Saxon countryside featuring Stonehenge and hill castles. Finished size 85 x 58 cm. Includes a same-size poster and a printed cotton drawstring bag. Shares artwork with the 1000-piece edition.",
     "contents": "1500 puzzle pieces, matching 85 x 58 cm poster, cotton drawstring storage bag",
     "type": "Puzzle"
@@ -6031,7 +6031,7 @@ const AC_DATABASE = [
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Valhalla - Dawn of Ragnarok (1000 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2022,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series, themed on the Dawn of Ragnarok expansion. Depicts a battle that changed the fate of Svartalfheim, the mythical kingdom of dwarves. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
     "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
     "type": "Puzzle"
@@ -6041,7 +6041,7 @@ const AC_DATABASE = [
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Mirage (1000 pieces)",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features Basim in 9th-century Baghdad. Finished size 68.3 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag. EAN 5908305243472.",
     "contents": "1000 puzzle pieces, matching 68.3 x 48 cm poster, cotton drawstring storage bag",
     "type": "Puzzle"
@@ -6051,7 +6051,7 @@ const AC_DATABASE = [
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Shadows - Naoe & Yasuke (1000 pieces)",
     "game": "Assassin's Creed Shadows",
     "year": 2024,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features a dual portrait of Naoe and Yasuke. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
     "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
     "type": "Puzzle"
@@ -6061,7 +6061,7 @@ const AC_DATABASE = [
     "name": "Good Loot Gaming Puzzle: Assassin's Creed Shadows - Vista of Japan (1000 pieces)",
     "game": "Assassin's Creed Shadows",
     "year": 2024,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Depicts a panoramic feudal Japan landscape. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
     "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
     "type": "Puzzle"
@@ -6071,7 +6071,7 @@ const AC_DATABASE = [
     "name": "Dark Horse Deluxe Assassin's Creed Valhalla: Raid Planning Puzzle (1000 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle by Dark Horse Deluxe. Depicts Eivor and crew strategizing a Viking raid. Finished size 20\" x 27\" (approximately 51 x 69 cm). Dark Horse SKU 3007-692.",
     "contents": "1000 puzzle pieces in collector box",
     "type": "Puzzle"
@@ -6081,7 +6081,7 @@ const AC_DATABASE = [
     "name": "Dark Horse Deluxe Assassin's Creed Valhalla: Fortress Assault Puzzle (1000 pieces)",
     "game": "Assassin's Creed Valhalla",
     "year": 2020,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle by Dark Horse Deluxe. Depicts Eivor leading a longship raid on a fortified British coast. Finished size 20\" x 27\" (approximately 51 x 69 cm). Dark Horse SKU 3007-693.",
     "contents": "1000 puzzle pieces in collector box",
     "type": "Puzzle"
@@ -6091,7 +6091,7 @@ const AC_DATABASE = [
     "name": "Trefl Assassin's Creed (Movie) - Kolaż Puzzle (1500 pieces)",
     "game": "Assassin's Creed (Movie)",
     "year": 2018,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 1500-piece jigsaw puzzle by Trefl, tied to the 2016 Assassin's Creed film. Depicts a collage of the film cast including Michael Fassbender's Aguilar de Nerha. Finished size 85 x 58 cm. Marketed in Poland as 'Kolaż' and in the UK as 'Assassin's Creed The Movie'. Trefl reference 26142, EAN 5900511261424.",
     "contents": "1500 puzzle pieces",
     "type": "Puzzle"
@@ -6101,7 +6101,7 @@ const AC_DATABASE = [
     "name": "Wrebbit3D Assassin's Creed Unity: Notre-Dame de Paris 3D Puzzle",
     "game": "Assassin's Creed Unity",
     "year": 2018,
-    "category": "Other",
+    "category": "Puzzles",
     "description": "Officially licensed 3D foam-backed architectural puzzle by Wrebbit3D. Builds the Notre-Dame de Paris cathedral as featured in AC Unity, with hidden Assassin easter eggs. Uses the same sculpt as Wrebbit's standalone Notre-Dame puzzle, rebranded under AC Unity license.",
     "contents": "860 foam-backed 3D puzzle pieces, assembly instructions",
     "type": "Puzzle"
@@ -6131,7 +6131,7 @@ const AC_DATABASE = [
     "name": "PureArts Nine Men's Morris Assassin's Creed: Black Flag Resynced Board Game",
     "game": "Assassin's Creed Black Flag Resynced",
     "year": 2026,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Immerse yourself in the Assassin's Creed: Black Flag Resynced universe with this elegant reinterpretation of the classic strategy game Nine Men's Morris. Inspired by the pirate aesthetics and legacy of the Assassins, this set combines tradition and atmosphere to offer a unique gaming experience, perfect for both collectors and table game lovers. A piece that combines history, strategy and design, ideal to enjoy in company or exhibit as part of a collection dedicated to the saga. This board game captures the essence of the Black Flag universe, bringing a distinctive touch to any gameplay session or themed showcase. Produced by PureArts.",
     "contents": "• Classic Nine Men's Morris game with Assassin's Creed themed design\n• Parchment style board with aged leather effect finish\n• Custom chips with Assassin and pirate iconography",
     "type": "Board Game"
@@ -6221,7 +6221,7 @@ const AC_DATABASE = [
     "name": "FiGPiN Assassin's Creed Deluxe Box Set",
     "game": "General",
     "year": 2022,
-    "category": "Action Figure",
+    "category": "Jewelry & Accessories",
     "description": "Limited edition box set of five gold-plated FiGPiN enamel pins featuring the Assassins Altaïr, Ezio, Connor, Edward, and Aguilar, plus an exclusive FiGPiN logo pin. Limited to 1,000 units worldwide. Released 28 December 2022.",
     "contents": "5 gold-plated FiGPiN enamel pins (Altaïr, Ezio, Connor, Edward, Aguilar) and 1 exclusive FiGPiN logo pin in deluxe display box",
     "type": "FiGPiN"
@@ -6231,7 +6231,7 @@ const AC_DATABASE = [
     "name": "MeoWorld Assassin's Creed Cat Figurines",
     "game": "General",
     "year": 2024,
-    "category": "Action Figure",
+    "category": "Figurine",
     "description": "Officially licensed series of cat-themed Assassin's Creed figurines from Bona Fide Studio's MeoWorld line. Each ~140mm ABS & PVC figure reimagines an iconic Assassin as a cat (lineup includes Altaïr, Ezio, Edward, Bayek, and others). Originally Kickstarter-funded in late 2023 (HK$339,741 raised, 113% of goal); production fulfilled in August 2024. Manufactured by Shanghai WuLiu Cultural Company.",
     "contents": "ABS & PVC cat figurines (~140mm) with display base — sold individually and in sets",
     "type": "Figurine"
@@ -6241,7 +6241,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed: The Official Light (Neamedia Icons)",
     "game": "General",
     "year": 2023,
-    "category": "Other",
+    "category": "Home Decor",
     "description": "Officially licensed LED logo lamp by Neamedia Icons. Features the 3D Assassin's Creed logo on a dark base, with DNA helix engravings on the underside referencing the Animus and the genetic-memory premise. Rechargeable battery providing up to 12 hours of autonomy. Dimensions: 22cm × 5cm × 8cm, 0.4kg. First available October 2023.",
     "contents": "LED logo lamp (22cm × 5cm × 8cm), USB charging cable",
     "type": "Lamp"
@@ -6251,7 +6251,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Mirage: Logo Light (Neamedia Icons)",
     "game": "Assassin's Creed Mirage",
     "year": 2023,
-    "category": "Other",
+    "category": "Home Decor",
     "description": "Officially licensed LED logo lamp by Neamedia Icons designed for Assassin's Creed Mirage. Features the 3D Mirage logo on a Baghdad-inspired base with mosaic-textured backdrop and a sandy-orange glow that evokes the game's setting. Rechargeable battery providing approximately 12 hours of autonomy. Dimensions: 20cm × 8cm. Released alongside the launch of AC Mirage.",
     "contents": "LED logo lamp (20cm × 8cm), USB charging cable",
     "type": "Lamp"
@@ -6261,7 +6261,7 @@ const AC_DATABASE = [
     "name": "GravaStar Mars Pro Limited Edition - Apple of Eden",
     "game": "General",
     "year": 2024,
-    "category": "Other",
+    "category": "Tech & Gadgets",
     "description": "Officially licensed Bluetooth 5.0 speaker by GravaStar styled as the Apple of Eden. Hand-painted golden metal orb with customizable RGB lighting, attachable cloth hood (assassin's robe styling), and an individually numbered casing — no two units are identical. Limited to 1,000 units worldwide. Built-in DSP audio algorithms and passive bass radiator; up to 15 hours of battery life via USB-C.",
     "contents": "Apple of Eden Bluetooth speaker, attachable cloth hood, USB-C cable, presentation packaging with serial number",
     "type": "Audio"
@@ -6271,7 +6271,7 @@ const AC_DATABASE = [
     "name": "Flydigi Apex 4 - Assassin's Creed Edition",
     "game": "General",
     "year": 2024,
-    "category": "Other",
+    "category": "Tech & Gadgets",
     "description": "Officially licensed wireless gaming controller by Flydigi, themed around Assassin's Creed. Features high-precision analog sticks, force-feedback triggers, full button remapping, and Bluetooth/USB-C connectivity. Compatible with PC, mobile, and Switch. Optional charging stand and carrying case sold separately.",
     "contents": "Apex 4 wireless controller (AC edition), USB-C cable, dongle",
     "type": "Controller"
@@ -6281,7 +6281,7 @@ const AC_DATABASE = [
     "name": "Blend Cota Studios - Assassin's Creed Fine Art Prints",
     "game": "General",
     "year": 2023,
-    "category": "Other",
+    "category": "Home Decor",
     "description": "Officially licensed fine art prints by painter Blend Cota in collaboration with Ubisoft. Reproduces Cota's museum-quality oil paintings of iconic Assassin's Creed characters and scenes (Ezio Auditore, Connor Kenway, Edward Kenway, Eivor, Kassandra, Naoe, and others) across the franchise. Available as paper prints, canvas prints, and limited-edition signed pieces. Sold via Blend Cota Studios.",
     "contents": "Fine art prints (paper, canvas, or limited-edition signed) — sold individually",
     "type": "Art Print"
@@ -6291,7 +6291,7 @@ const AC_DATABASE = [
     "name": "Displate - Assassin's Creed Metal Posters",
     "game": "General",
     "year": 2023,
-    "category": "Other",
+    "category": "Home Decor",
     "description": "Officially licensed Assassin's Creed metal posters from Displate. Each piece is printed on metal with a magnetic mounting system (no drilling required), hand-signed by the Master of Production, and stamped with an official license emblem. The collection spans the franchise — character art, in-game vistas, and AC Legacy designs from Valhalla, Odyssey, Origins, Mirage, Shadows, and others. Available in multiple sizes.",
     "contents": "Metal posters with magnetic mounting kit — sold individually in multiple sizes",
     "type": "Art Print"
@@ -6301,7 +6301,7 @@ const AC_DATABASE = [
     "name": "Art4Fans - Assassin's Creed Print Collection",
     "game": "General",
     "year": 2022,
-    "category": "Other",
+    "category": "Home Decor",
     "description": "Officially licensed Ubisoft × Art4Fans print collection. Features 'Essentials' poster sets (typically five prints per game) for Assassin's Creed I, III, IV: Black Flag, Liberation, Unity, Syndicate, Origins, Odyssey, Valhalla, and Shadows. Available as fine art prints, posters, metal prints, and canvases. Sold via Art4Fans.",
     "contents": "Sets of 5 prints per game (Liberation has 3) — also available as canvases, metal prints, and posters",
     "type": "Art Print"
@@ -6311,7 +6311,7 @@ const AC_DATABASE = [
     "name": "Hidden Blade by Assassin's Creed (Ubisoft Brasil)",
     "game": "General",
     "year": 2015,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Officially licensed men's fragrance launched exclusively in Brazil by Ubisoft Brasil in partnership with Swiss perfumery Firmenich. Top notes of lavender, Sicilian lemon, absinthe, and Sichuan pepper; heart of jasmine, cinnamon, rose, and Indonesian ylang; base of coffee, leather, cumaru, agarwood, and gaiac. 50ml bottle in a Saverglass 'Jeans' flacon. Released 4 October 2015 at R$149. Brazil exclusive; production discontinued.",
     "contents": "50ml fragrance bottle and packaging (Brazil exclusive, discontinued)",
     "type": "Fragrance"
@@ -6321,7 +6321,7 @@ const AC_DATABASE = [
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Beyond Booster Box",
     "game": "General",
     "year": 2024,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Display box of 24 Beyond Boosters from the Wizards of the Coast Universes Beyond crossover set. The set introduces the new 'Beyond Booster' product type — a mid-size 7-card pack with 1–4 rares or higher per pack. Released 5 July 2024.",
     "contents": "24 Beyond Boosters (7 cards per pack)",
     "type": "Card Game"
@@ -6331,7 +6331,7 @@ const AC_DATABASE = [
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Beyond Booster Pack",
     "game": "General",
     "year": 2024,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Single Beyond Booster from the Wizards of the Coast Universes Beyond crossover set. The Beyond Booster is a new mid-size pack type debuted with this set. Released 5 July 2024.",
     "contents": "1 Beyond Booster pack (7 cards, 1-4 rares or higher)",
     "type": "Card Game"
@@ -6341,7 +6341,7 @@ const AC_DATABASE = [
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Collector Booster Box",
     "game": "General",
     "year": 2024,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Display box of premium Collector Boosters from the Wizards of the Coast Universes Beyond crossover set. Collector Boosters carry the extended-art and foiled treatments — 1 mythic rare and 16 rares are exclusive to this product line — and are the only place to find the ultra-rare serialized double-rainbow foil cards printed in the historical figure's spoken language. Released 5 July 2024.",
     "contents": "12 Collector Boosters (premium foil and extended-art cards)",
     "type": "Card Game"
@@ -6351,7 +6351,7 @@ const AC_DATABASE = [
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Collector Booster Pack",
     "game": "General",
     "year": 2024,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Single Collector Booster from the Wizards of the Coast Universes Beyond crossover set, containing the premium foiled and extended-art treatments — including the chance at one of the ultra-rare serialized double-rainbow foil cards printed in the historical figure's spoken language. Released 5 July 2024.",
     "contents": "1 Collector Booster pack (premium foil and extended-art cards)",
     "type": "Card Game"
@@ -6361,7 +6361,7 @@ const AC_DATABASE = [
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Bundle",
     "game": "General",
     "year": 2024,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "All-in-one product from the Wizards of the Coast Universes Beyond crossover set, packing 9 Beyond Boosters with the accessories typical of the MTG Bundle line: basic lands, a foil alt-art promo, a Spindown life counter, and a card storage box. Released 5 July 2024.",
     "contents": "9 Beyond Boosters, 40 basic lands (20 foil + 20 non-foil), 1 alt-art foil promo card, 1 Spindown life counter, card storage box",
     "type": "Card Game"
@@ -6371,7 +6371,7 @@ const AC_DATABASE = [
     "name": "Magic: The Gathering - Assassin's Creed (Universes Beyond) - Starter Kit",
     "game": "General",
     "year": 2024,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Two-player learn-to-play product from the Wizards of the Coast Universes Beyond crossover set. The Blue-Black deck features Ezio as a master assassin; the White-Red deck features the Viking shieldmaiden Eivor. Each deck contains exclusive cards (a foil mythic rare, plus rares and uncommons with unique artwork) not found in boosters. Released 5 July 2024.",
     "contents": "2 ready-to-play 60-card decks (Ezio Blue/Black, Eivor White/Red), 2 deck boxes, how-to-play guide, 2 double-sided reference cards",
     "type": "Card Game"
@@ -6401,7 +6401,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Revelations Playing Cards",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Assassin's Creed Revelations Playing Cards. Special promo. Featuring 12 different characters from Assassin's Creed Revelations.",
     "contents": "One playing cards deck",
     "type": "Card Game"
@@ -6411,27 +6411,27 @@ const AC_DATABASE = [
     "name": "Assassin's Creed III Axe USB Stick",
     "game": "Assassin's Creed III",
     "year": 2013,
-    "category": "Other",
+    "category": "Tech & Gadgets",
     "description": "Promotional Assassin's Creed III Axe USB stick - 4GB",
     "contents": "Promotional Assassin's Creed III Axe USB stick - 4GB",
-    "type": "Promotional"
+    "type": "USB Stick"
   },
   {
     "id": 611,
     "name": "Assassin's Creed III Promo Bracelet",
     "game": "Assassin's Creed III",
     "year": 2013,
-    "category": "Other",
+    "category": "Jewelry & Accessories",
     "description": "Assassin's Creed III Promo Bracelet",
     "contents": "Assassin's Creed III Promo Bracelet",
-    "type": "Promotional"
+    "type": "Jewelry"
   },
   {
     "id": 612,
     "name": "Nemesis Now Assassin's Creed Apple of Eden Bookends",
     "game": "General",
     "year": 2020,
-    "category": "Other",
+    "category": "Home Decor",
     "description": "Officially licensed Assassin's Creed bookends featuring the golden Apple of Eden held within the silver Assassin Brotherhood emblem, engraved with the maxim \"Nothing is true, everything is permitted\". The emblem and apple split into two pieces to bracket your books. Cast in resin, hand-painted, 18.5cm tall. By Nemesis Now.",
     "contents": "Pair of cast resin bookends, ~18.5cm tall",
     "type": "Bookends"
@@ -6441,7 +6441,7 @@ const AC_DATABASE = [
     "name": "Nemesis Now Assassin's Creed Altaïr and Ezio Bookends",
     "game": "General",
     "year": 2021,
-    "category": "Other",
+    "category": "Home Decor",
     "description": "Officially licensed bookends featuring Altaïr Ibn-La'Ahad in front of a decorated stone archway, paired with his descendant Ezio Auditore da Firenze. Both have hidden blades extended. Cast in resin and hand-painted, 24cm tall. By Nemesis Now.",
     "contents": "Pair of cast resin bookends, ~24cm tall",
     "type": "Bookends"
@@ -6451,7 +6451,7 @@ const AC_DATABASE = [
     "name": "Nemesis Now Assassin's Creed Valhalla Bookends",
     "game": "Assassin's Creed Valhalla",
     "year": 2021,
-    "category": "Other",
+    "category": "Home Decor",
     "description": "Officially licensed Valhalla bookends celebrating the Viking raider Eivor, standing on both ends of a longship in signature armour, ready for battle. Cast in resin and hand-painted, 31cm tall. By Nemesis Now.",
     "contents": "Pair of cast resin bookends, ~31cm tall",
     "type": "Bookends"
@@ -6521,7 +6521,7 @@ const AC_DATABASE = [
     "name": "ABYstyle Assassin's Creed Premium Large Glass",
     "game": "General",
     "year": 2019,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Celebrate your victories against the Templars with this Assassin's Creed glass! Officially licensed premium large glass featuring the Assassin Brotherhood crest. Made of high quality glass, king size (40cl). Not suitable for microwave and dishwasher. By ABYstyle.",
     "contents": "Large glass, 40cl",
     "type": "Drinkware"
@@ -6531,7 +6531,7 @@ const AC_DATABASE = [
     "name": "Assassin's Creed Revelations Playing Cards (Light)",
     "game": "Assassin's Creed Revelations",
     "year": 2011,
-    "category": "Other",
+    "category": "Board & Card Games",
     "description": "Assassin's Creed Revelations Playing Cards, light colour variant. Special promo. Featuring 12 different characters from Assassin's Creed Revelations.",
     "contents": "One playing cards deck",
     "type": "Card Game"
@@ -6541,7 +6541,7 @@ const AC_DATABASE = [
     "name": "GB eye Assassin's Creed Logo Hip Flask Gift Set",
     "game": "General",
     "year": 2018,
-    "category": "Other",
+    "category": "Drinkware",
     "description": "Officially licensed Assassin's Creed hip flask gift set by GB eye. Contains a fully printed metal hip flask (6oz/170ml) featuring the Assassin's Creed logo, two 1oz metal cups and a funnel for easy refilling. Presented in a black gift box with fully branded sleeve. Hand wash only.",
     "contents": "Metal hip flask (170ml), two 1oz metal cups, funnel, branded gift box",
     "type": "Drinkware"

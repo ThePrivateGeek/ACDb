@@ -34,7 +34,13 @@ body:
         - Art & Reference
         - Comic Book
         - Novel
-        - Other
+        - Board & Card Games
+        - Puzzles
+        - Music
+        - Drinkware
+        - Home Decor
+        - Jewelry & Accessories
+        - Tech & Gadgets
         - Not sure
     validations:
       required: true

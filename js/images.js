@@ -971,7 +971,7 @@ const AC_IMAGES = {
          "images/comics/ac-valhalla-webcomic_03.webp",
      ],
 
-    // ── Other/Tankards and Goblets ──
+    // ── Drinkware (Tankards and Goblets) ──
     "Nemesis Now Assassin's Creed 'The Creed' Tankard": ["images/other/nemesis-the-creed-tankard.webp"],
     "Nemesis Now Assassin's Creed Brotherhood Tankard": ["images/other/nemesis-brotherhood-tankard.webp"],
     "Nemesis Now Assassin's Creed 'Through the Ages' Tankard": ["images/other/nemesis-through-the-ages-tankard.webp"],
@@ -1902,7 +1902,7 @@ const AC_IMAGES = {
         "images/other/hidden-blade-fragrance.webp",
         "images/other/hidden-blade-fragrance_01.webp",
     ],
-    // ── Other ──
+    // ── Promotional (USB stick, bracelet) ──
     "Assassin's Creed III Axe USB Stick": [
         "images/other/ac-3-promo-usb-stick.webp",
         "images/other/ac-3-promo-usb-stick_01.webp",
