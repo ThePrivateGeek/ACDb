@@ -58,7 +58,8 @@ For simple item additions or image updates, skip to the "Data" section only.
 
 ## 7. Cards
 - [ ] Grid view shows image, game, title, description, year, type
-- [ ] List view works (toggle button)
+- [ ] Each card shows its item id (e.g. `#14` for the Assassin's Creed III Freedom Edition) in a grey pill at the right end of the gold game line; a long game name ("Assassin's Creed IV: Black Flag") wraps in full with the pill on its first line
+- [ ] List view works (toggle button). On wide screens each row ends with the year then the id pill, and both line up in straight columns down the list whatever the type, condition or Owned/Wishlist/Read badges (which sit between the title and the year). On phones the id stays at the end of the game line (clear of the NEW sticker)
 - [ ] Cards with images display correctly (top crop)
 - [ ] Cards without images show AC logo placeholder
 - [ ] Owned badge shows on owned items
@@ -69,6 +70,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 
 ## 8. Item Modal
 - [ ] Title, game, year, category badge, type badge display correctly
+- [ ] The Game line ends with the item id pill after the year (`#14` for the Freedom Edition), also in the read-only modal on a profile; with a long game name on a phone it wraps onto the next line rather than overflowing
 - [ ] Type badge hidden when type equals category
 - [ ] Series line (name + entry count) shows for comic/manga items and is absent for items without a series
 - [ ] Description and contents show
@@ -245,7 +247,7 @@ The rules are in [DESIGN.md](DESIGN.md) (its section 13 is the definition of don
 - [ ] Buttons: Publish is green in the header, on the leaderboard and in its dialog; dialogs put Cancel and the main action on the right and Delete on the left; header buttons are 32px with readable text
 - [ ] One "pick one" style per job: underline tabs (header, reading orders), segmented controls (Chronological/Release, Insights sort, grid/list), chips (game timeline, reading game filter)
 - [ ] Toasts: "Link copied!" shows a green check, a failure (e.g. switch off the network and publish) a red alert and stays longer; a screen reader announces them
-- [ ] Owned cards have a green edge and the OWNED badge (no check circle); list view rows are compact with a 64px thumbnail and the badges after the details (under the title on phones)
+- [ ] Owned cards have a green edge and the OWNED badge (no check circle); list view rows are compact with a 64px thumbnail, the badges between the type and the year (under the title on phones); the `#id` pill is grey in JetBrains Mono, never gold
 - [ ] Leaderboard: one card per collector at every width (medal or rank, gold name, "Updated 9 Oct 2026", item count, % and a gold progress bar), in one column at every width (centred at about 760px on wide screens, the title lined up with the cards); clicking anywhere on a card opens the profile and Tab rings the whole card; "Loading", "No collectors yet" and errors show as plain text across the list; on a 390px phone the title fits on one line and nothing scrolls sideways
 - [ ] Profile: "Collection › Name" breadcrumb (or "Leaderboard › Name" when opened from the leaderboard); the first link goes back there
 

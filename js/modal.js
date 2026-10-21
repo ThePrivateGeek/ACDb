@@ -29,6 +29,7 @@
         dom.modalTitle.textContent = item.name;
         dom.modalGame.textContent = item.game;
         dom.modalYear.textContent = item.year;
+        dom.modalId.textContent = '#' + item.id;
         dom.modalDescription.textContent = item.description;
         dom.modalContents.textContent = item.contents || 'N/A';
 

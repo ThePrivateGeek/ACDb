@@ -132,7 +132,7 @@ On a single-column page, put the **whole view** (title, intro line and list) in 
 | 600 px | Page titles drop to `--fs-xl`; leaderboard cards tighten |
 | 480 px, 400 px | Logo and header squeeze for very small phones |
 
-Reuse these breakpoints. Don't add a new one for one component unless nothing else works; if you must, note why in a comment.
+The one `min-width` query, `min-width: 769px` for the list view's single-line row, is the 768 px breakpoint seen from above, not a new one. Reuse these breakpoints. Don't add a new one for one component unless nothing else works; if you must, note why in a comment.
 
 ### Checking a layout
 
@@ -251,6 +251,7 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
 - If the whole card goes to one place, make the **whole card one `<a>`** (`.lb-card`, `.item-card`) so it's one Tab stop with one focus ring. Don't nest other buttons or links inside it.
 - A card that also holds its own controls (a reading row with a Read switch) is a plain container. Its title is the link or button.
 - A state edge goes on the border: `.owned` uses `--owned-edge` and `.read` uses `--read-edge`.
+- The item card's game line is a row that ends in the item's permanent id: `<div class="card-game-row"><div class="card-game">…</div><span class="badge badge-plain item-id">#14</span></div>`. The pill is a plain badge in `--font-data`, never gold (it isn't interactive). A long game name wraps and the pill lines up with its first line. In list view (above 768 px) a row reads thumb · game · title · type · condition · status badges · year · id, and the id pill has a fixed width (`6ch`, room for "#999"), so every row ends with its year and id at the same x. Phone rows stack and keep the id on the game line. The item modal shows the same pill at the end of its Game line, after the year.
 - A game marker in a list of books is a dashed gold-tint row (`.reading-entry-game`). It is not a book: it gets no number and no switch.
 
 ### Dialogs

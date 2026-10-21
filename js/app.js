@@ -172,6 +172,7 @@ window.ACDB = window.ACDB || {};
         modalTitle: document.getElementById('modalTitle'),
         modalGame: document.getElementById('modalGame'),
         modalYear: document.getElementById('modalYear'),
+        modalId: document.getElementById('modalId'),
         modalDescription: document.getElementById('modalDescription'),
         modalContents: document.getElementById('modalContents'),
         modalSeriesRow: document.getElementById('modalSeriesRow'),
@@ -672,7 +673,10 @@ window.ACDB = window.ACDB || {};
                 </div>
             </div>
             <div class="card-body">
-                <div class="card-game">${escapeHTML(item.game)}</div>
+                <div class="card-game-row">
+                    <div class="card-game">${escapeHTML(item.game)}</div>
+                    <span class="badge badge-plain item-id">#${item.id}</span>
+                </div>
                 <div class="card-title">${escapeHTML(item.name)}</div>
                 <div class="card-description">${escapeHTML(item.description)}</div>
                 <div class="card-footer">
