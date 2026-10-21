@@ -726,8 +726,12 @@ window.ACDB = window.ACDB || {};
     const generateCode = ACDB.generateCode;
 
 
-    // Number of active filter values, on the phone "Filters" button
+    // Number of active filter values, on the phone "Filters" button. Also marks
+    // the search box and status filter when set (the multi-selects mark
+    // themselves with .has-selection).
     function updateFilterCount() {
+        dom.searchInput.classList.toggle('is-set', dom.searchInput.value.trim() !== '');
+        dom.filterOwned.classList.toggle('is-set', dom.filterOwned.value !== '');
         const count = selectedGames.size + selectedCategories.size + selectedTypes.size
             + selectedSeries.size + (dom.filterOwned.value ? 1 : 0);
         const badge = document.getElementById('filtersCount');

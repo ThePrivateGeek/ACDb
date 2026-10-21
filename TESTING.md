@@ -35,6 +35,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Sort — Default, Year asc/desc, Name A-Z/Z-A, Recently Added
 - [ ] Filters cascade: selecting a game narrows Category options, selecting a category narrows Type options, selecting a type narrows Series options
 - [ ] Clear (x) button on each multi-select resets that filter
+- [ ] A filter with a value (search text, a ticked game/category/type/series, a status other than "All Items") has a gold edge and a faint gold tint; untouched filters and Sort stay plain. Holds after a reload, clears with "Clear search and filters" and the logo, and the status dropdown's option list stays dark
 - [ ] Type and Series search boxes filter options as you type
 
 ## 4. Filter Persistence

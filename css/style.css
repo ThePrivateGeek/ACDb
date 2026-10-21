@@ -30,6 +30,7 @@
     --gold-tint: rgba(201, 168, 76, 0.08);
     --gold-tint-2: rgba(201, 168, 76, 0.16);
     --gold-glow: rgba(201, 168, 76, 0.35);
+    --surface-set: #191714;          /* a filter with a value: --gold-tint on --surface-page, opaque so native <option> lists stay dark */
 
     /* Status. -solid takes white text (4.5:1+), -text reads on cards */
     --owned: #27ae60;
@@ -995,6 +996,13 @@ textarea:focus-visible {
     transition: var(--transition);
 }
 
+/* A filter with a value gets a gold edge and tint, so changed filters stand
+   out at a glance. Kept before each :focus rule so focus still wins. */
+#searchInput.is-set {
+    border-color: var(--gold-deep);
+    background-color: var(--surface-set);
+}
+
 #searchInput:focus {
     border-color: var(--gold);
     box-shadow: 0 0 0 3px var(--gold-tint);
@@ -1038,6 +1046,11 @@ textarea:focus-visible {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239a9a9a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 8px center;
+}
+
+.filter-select.is-set {
+    border-color: var(--gold-deep);
+    background-color: var(--surface-set);
 }
 
 .filter-select:focus {
@@ -1084,6 +1097,11 @@ textarea:focus-visible {
     text-align: left;
     white-space: nowrap;
     min-height: 38px;
+}
+
+.multi-select.has-selection > .multi-select-toggle {
+    border-color: var(--gold-deep);
+    background-color: var(--surface-set);
 }
 
 .multi-select-toggle:focus {

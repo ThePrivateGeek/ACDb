@@ -28,7 +28,7 @@ Contents: [1. Principles](#1-principles) · [2. Colour](#2-colour) · [3. Type](
 | Page and surfaces | `--surface-page` (body), `--surface-bar` (header, toolbar, menus, footer, inputs in bars), `--surface-card`, `--surface-card-hover`, `--surface-overlay` (dialogs) | Backgrounds, from the darkest to the lightest | Text |
 | Lines | `--line` (default border and divider, empty progress track), `--line-strong` (quiet button edge, stronger divider), `--line-control` (switch track edge) | Borders and dividers | Fills behind text |
 | Text | `--text` (main), `--text-2` (secondary, 7.2:1 on cards), `--text-3` (meta and labels, 5.3:1 on cards) | All text | Anything lighter or darker than these three |
-| **Gold**, interaction and progress | `--gold`, `--gold-strong` (hover), `--gold-deep` (resting borders, card hover edge), `--gold-tint` / `--gold-tint-2` (selected or secondary backgrounds), `--gold-glow` | Primary and secondary buttons, links, the active tab, segment or chip, the focus ring, **every progress bar**, page titles, section heads, names you can click | Status ("owned", "read"), decoration with no meaning |
+| **Gold**, interaction and progress | `--gold`, `--gold-strong` (hover), `--gold-deep` (resting borders, card hover edge), `--gold-tint` / `--gold-tint-2` (selected or secondary backgrounds), `--surface-set` (`--gold-tint` mixed into `--surface-page`, opaque, behind a toolbar filter with a value), `--gold-glow` | Primary and secondary buttons, links, the active tab, segment or chip, the focus ring, **every progress bar**, page titles, section heads, names you can click | Status ("owned", "read"), decoration with no meaning |
 | **Green**, owned (and publishing) | `--owned`, `--owned-text`, `--owned-solid`, `--owned-tint`, `--owned-edge` | Owned badge, owned card edge, Owned switch, "complete" check when owned, Publish buttons, the success toast icon | Progress fills, generic "OK" or confirm buttons |
 | **Purple**, read | `--read`, `--read-text`, `--read-solid`, `--read-edge` | Read badge, Read switch, read row edge, "complete" check on reading progress | Anything not about reading |
 | **Blue**, wishlist | `--wish`, `--wish-text`, `--wish-solid`, `--wish-edge` | Wishlist badge, card edge and switch | Links, info messages |
@@ -319,6 +319,7 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
 - **Filters:**
   - Collection filters persist (`saveFilters`). The logo resets everything.
   - "Clear search and filters" keeps the sort order.
+  - A filter with a value (search text, a ticked multi-select, a status other than "All Items") gets a `--gold-deep` edge on `--surface-set`: `.has-selection` on a `.multi-select`, `.is-set` on the search box and `.filter-select`, toggled in `updateFilterCount()`. Sort is not a filter and never gets it. Focus and an open dropdown still show the bright `--gold` edge.
   - On phones the filters fold behind "Filters (n)", where n is the number of active filters.
 - **Sign-in is optional everywhere.** Every feature must work signed out, from this browser's own copy of the collection. Signed-in-only extras say so with a `.link` to sign in, never a wall.
 - **Anything public** (profiles, the leaderboard) shows the display name and counts only.
