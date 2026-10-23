@@ -102,7 +102,7 @@ Fonts load from Google Fonts with `display=swap` (in `index.html` and `privacy.h
 - Use `transition: var(--transition)`. It covers colour, background, border, shadow, opacity and transform with the right durations. Never use `transition: all`.
 - Durations: `--t-fast` 120 ms (colour), `--t` 200 ms (most things), `--t-slow` 320 ms (toasts, dialogs). Easing: `--ease`.
 - Hover lifts are subtle: a grid card moves −3 px, a list row +3 px sideways. Nothing bounces. View changes fade (200 ms); they don't slide.
-- Reduced motion is handled once, globally (`prefers-reduced-motion` in `style.css`). A JS scroll must use `behavior: ACDB.scrollBehavior()`, never a hard-coded `'smooth'`. A new looping or decorative animation must also stop under reduced motion; add it to that block if the global rule doesn't cover it.
+- Reduced motion is handled once, globally (`prefers-reduced-motion` in `style.css`). A JS scroll must use `behavior: ACDB.scrollBehavior()`, never a hard-coded `'smooth'`. A new looping or decorative animation must also stop under reduced motion; add it to that block if the global rule doesn't cover it. A new hover lift goes in that block's `transform: none !important` list (`.item-card:hover`, `.game-tile:hover`); the `!important` is needed because the hover rules come later in the file.
 
 ## 5. Layout and widths
 
@@ -117,7 +117,7 @@ On a single-column page, put the **whole view** (title, intro line and list) in 
 
 ### Grids
 
-- For responsive columns, use `grid-template-columns: repeat(auto-fill, minmax(min(Npx, 100%), 1fr))`. The `min(…, 100%)` stops a phone from scrolling sideways. Current values: item grid 280 px (240 px on phones), reading rows 520 px, game cards 420 px.
+- For responsive columns, use `grid-template-columns: repeat(auto-fill, minmax(min(Npx, 100%), 1fr))`. The `min(…, 100%)` stops a phone from scrolling sideways. Current values: item grid 280 px (240 px on phones), reading rows 520 px, games grid 200 px (150 px on phones, two columns).
 - Multi-column lists read left to right, then down, like the main grid.
 - Inside a grid or flex row, any text that can be long needs `min-width: 0` on its column, then `overflow: hidden; text-overflow: ellipsis; white-space: nowrap` (or a line clamp) so long names never push the layout wider.
 
@@ -185,7 +185,7 @@ A round 36 px button with one 18 px icon, used for close, share, previous/next a
 | Change how *this* view is shown (grid or list, chronological or release, sort) | **Segmented control** `.seg` > `button.seg-btn` | `<div class="seg" role="group" aria-label="…"><button class="seg-btn active" aria-pressed="true">…</button>…</div>` |
 | Narrow a list (filter by game) | **Chips** `button.chip` (+ `.chip-count`) | `<button class="chip active" aria-pressed="true">All <span class="chip-count">120</span></button>` |
 
-- Tabs are links with real `href`s (hash routes), so Back works. The header nav is the larger version of the same idea (`.main-nav-link`, with `aria-current="page"` set by `setActiveNav()`).
+- Tabs are links with real `href`s (hash routes), so Back works. The header nav is the larger version of the same idea (`.main-nav-link`, with `aria-current="page"` set by `setActiveNav()`). It has four links: Collection, Reading Order, Games, Leaderboard. At 400 px and below "Reading Order" shows as "Reading" (the ` Order` part is a `.nav-long` span, hidden there), and its `aria-label` keeps the full name. A fifth link needs the same kind of check at 360 px.
 - Segments and chips are buttons. Keep `.active` **and** `aria-pressed` in step whenever the state changes.
 - Put a row of chips in a **chip row**, `<div class="chip-row" role="group" aria-label="…">`. It wraps on wide screens; on phones it becomes one row that scrolls sideways inside itself (like the game timeline), and the page doesn't. A view that re-renders the row keeps its sideways scroll and brings the active chip into view (`restoreChipRow` in `js/reading.js`).
 - Multi-select filters use the existing `.multi-select` dropdown in the toolbar. Don't build a second dropdown.
@@ -245,14 +245,16 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
 
 | Kind | Radius | Examples |
 |---|---|---|
-| Content card with an image | `--r-lg` | `.item-card`, `.game-card`, `.series-head` (header card) |
+| Content card with an image | `--r-lg` | `.item-card`, `.game-tile` (Games grid), `.games-tl-card` (Games timeline), `.series-head` (header card) |
 | List row | `--r-md` | `.reading-entry`, `.lb-card` |
 
 - If the whole card goes to one place, make the **whole card one `<a>`** (`.lb-card`, `.item-card`) so it's one Tab stop with one focus ring. Don't nest other buttons or links inside it.
 - A card that also holds its own controls (a reading row with a Read switch) is a plain container. Its title is the link or button.
 - A state edge goes on the border: `.owned` uses `--owned-edge` and `.read` uses `--read-edge`.
 - The item card's game line is a row that ends in the item's permanent id: `<div class="card-game-row"><div class="card-game">…</div><span class="badge badge-plain item-id">#14</span></div>`. The pill is a plain badge in `--font-data`, never gold (it isn't interactive). A long game name wraps and the pill lines up with its first line. In list view (above 768 px) a row reads thumb · game · title · type · condition · status badges · year · id, and the id pill has a fixed width (`6ch`, room for "#999"), so every row ends with its year and id at the same x. Phone rows stack and keep the id on the game line. The item modal shows the same pill at the end of its Game line, after the year.
-- A game marker in a list of books is a dashed gold-tint row (`.reading-entry-game`). It is not a book: it gets no number and no switch.
+- A game marker in a list of books is a dashed gold-tint row (`.reading-entry-game`). It is not a book: it gets no number and no switch. It opens the game dialog over the list.
+- **Game cards** (`.game-tile`, the Games tab in release order): the whole card is one `<a href="#games/<slug>">` with box art (3:4, cut to fit; the controller icon on `--gold-tint-2` when there is no cover), the kind line (`.game-kind`, gold uppercase like an item card's game line), the title (Cinzel, up to three lines: names all start "Assassin's Creed") and plain-badge counts. A plain click opens the game dialog instead of navigating; a modified click opens a new tab.
+- **Story timeline** (`.games-tl-list`, the Games tab in story order): under era section heads, each row is a year (`--font-data`, gold) on a rail with a dot, then a game card (`.games-tl-card`: cover, kind line, title, setting and release date, the first three DLC names as plain badges that cut off when long, and story and item counts). A DLC with its own place in the lore gets a dashed gold-tint row (`.games-tl-dlc`), like a game marker in Complete Lore. Copy the markup from `timelineHTML()` in `js/games-view.js`.
 
 ### Dialogs
 
@@ -273,9 +275,16 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
 </div>
 ```
 - Open a dialog by adding `.active` to the overlay.
+- **The game dialog (`#gameOverlay` in `index.html`, `js/games-view.js`) is the model for new dialogs.** It has everything the accessibility floor asks for:
+  - `role="dialog" aria-modal="true" aria-labelledby="<title id>"` and `tabindex="-1"` on the frame;
+  - on open, focus moves to the first control (its Close button: focusing the frame would outline the whole dialog with the focus ring), and `const release = ACDB.trapFocus(frame)` keeps Tab and Shift+Tab inside;
+  - on close, `release()`, then focus goes back to the element that opened it (or, after a re-render, the same card found again), and the page title when neither is on screen;
+  - it is in the Esc chain below.
+  A dialog with an address (`#games/<slug>`) pushes it on open and pushes the view's address on close, like the item modal. Opened over another view, it pushes a duplicate history entry instead, so Back closes it (`ACDB.pushGameDialogState`), and a link out of it replaces that entry with the destination, so Back doesn't land on a stale copy.
 - Esc is handled in one place, the `keydown` listener in `initEvents()` in `js/app.js`, in priority order (account menu, lightbox, dropdown, then dialogs). **Add a new dialog there**; don't add a second Esc listener.
 - Esc, the overlay and the close button all close it, **unless a choice is required** (the first sign-in merge dialog has no close button and ignores Esc and overlay clicks).
-- Sizes: `.share-modal` is 480 px, for small dialogs. The item modal is 980 px, or 1300 px in landscape. The dev tool is 1100 px.
+- Sizes: `.share-modal` is 480 px, for small dialogs. The item modal and the game dialog (`.modal.game-modal`) are 980 px; the item modal grows to 1300 px for a landscape image. The dev tool is 1100 px.
+- A share button uses `ACDB.shareLink({ title, text, url })`: the native share sheet on touch devices (`ACDB.canWebShare`, which also decides its label, "Share this …"), otherwise copy and "Link copied!".
 - In a long scrolling dialog, keep close (and share) reachable with the sticky `.modal-actions` bar.
 - Actions go bottom right in `.form-actions`, with the primary last and danger on the far left.
 
@@ -415,7 +424,8 @@ These keep literal values on purpose. Don't "fix" them, and don't copy them else
 
 Older code that doesn't meet this book yet. Fix it when you're working on that screen anyway; don't spread it:
 
-- The item, share and dev-tool dialogs lack `role="dialog" aria-modal="true" aria-labelledby` (the merge dialog has them). No dialog traps focus or returns it to the opener on close. New dialogs should do all of this.
+- The item, share and dev-tool dialogs lack `role="dialog" aria-modal="true" aria-labelledby` (the merge dialog has them), and they don't trap focus or return it to the opener on close. The game dialog does all of this and is the one to copy (section 6, Dialogs).
+- A header-nav click while a dialog is open over a view (the item modal or the game dialog over a reading order) leaves its duplicate history entry behind, so Back takes one extra step.
 - Some per-view rules still use literal `rem` values for padding and margin instead of `--s*` tokens. New rules use tokens.
 - Views switch with `style.display` (from before the `[hidden]` rule). New parts use `hidden`.
 - The toolbar wraps onto two lines at about 1280 px.
@@ -463,3 +473,8 @@ Owner decisions this book rests on, so they aren't reopened:
   - The empty state keeps its original wording, italic style and `#666` grey; it gets no heading.
   - Date inputs stay native.
 - **18 Oct 2026, leaderboard:** one card per collector at every width (medal or rank, name, update date, count, % and a gold bar), in one centred 760 px column like the Privacy page, with the whole card as one link.
+- **23 Oct 2026, Games tab:**
+  - A top-level Games tab (`#games`) for every released game and its DLCs, replacing the Games sub-tab of Reading Order.
+  - Release order is a grid of box-art cards like the collection; story order is a timeline under era headings, with the DLCs that have their own place in the lore as dashed rows.
+  - A card opens a game dialog styled like the item modal (box art left, facts, description, links and DLCs grouped by type right). Game rows in Complete Lore open the same dialog over the list.
+  - Left out: cosmetic packs, multiplayer map and character packs, seasonal festivals. Mobile, browser and VR games stay off Complete Lore unless decided otherwise. A "Played" switch may come later.

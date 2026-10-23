@@ -139,6 +139,9 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Share page redirects into the app: `/s/<slug>.html` loads and lands on `/#<slug>` with the item modal open
 - [ ] Old links of renamed items still work: `/#mcfarlane-toys-connor-with-mohawk-action-figure-series-3` opens the Series 2 figure and the address switches to its current slug; `/s/assassins-creed-the-jade-seal` lands on Chang'an Wang
 - [ ] After adding items, `python3 tools/build-share-pages.py` was re-run (623+ pages, no warnings)
+- [ ] `#games` opens the Games tab; `#games/assassins-creed-valhalla` opens it with Valhalla's dialog; `#games/nope` shows the tab and the address becomes `#games`
+- [ ] Old links still work: `#reading/games` becomes `#games`, and `#reading/games/ii` becomes `#games/assassins-creed-ii` with AC II's dialog open
+- [ ] Back closes a game dialog (from the Games tab and over Complete Lore) and stays on the view underneath
 
 ## 14. Admin / Dev Tool
 - [ ] `localStorage.setItem('acdb_admin', 'true')` shows "Add Item" button
@@ -170,7 +173,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] With no search text, a filter that matches nothing (e.g. Wishlist with an empty wishlist) shows the empty state *without* the suggest line
 - [ ] Footer **Suggest a missing item** opens the same form, empty
 - [ ] Leaderboard and profile dates read like "9 Oct 2026", as in the reading view
-- [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, share pages, and the old slugs in `js/slug-aliases.js`
+- [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, share pages, and the old slugs in `js/slug-aliases.js`. For `js/games.js` it checks each game's kind, developer, platforms (known names, in the validator's `PLATFORMS` order), description (a warning past 300 characters), re-releases and URL slug, and each DLC's type; a lore place (`marker`) only on expansions and story DLCs of main, spin-off and handheld games with a year
 - [ ] Collection data keyed by item id under `acdb_collection_v2`, each entry with an `updatedAt` edit time once edited; a name-keyed `acdb_collection` from before ids is migrated once on load (unmatched keys are dropped) and kept as a backup until 2027-01-03, after which it is removed from browsers that have `acdb_collection_v2`
 - [ ] Export includes `id` and `name`; Import accepts both new exports (by id) and old ones (by name)
 - [ ] Shared profiles upload item ids; profiles uploaded before ids (item names) still display. Profiles and the leaderboard are served from D1
@@ -202,15 +205,15 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Fresh private window: no requests to `accounts.google.com` until Sign in is clicked (Network tab; `fonts.googleapis.com` is the site's fonts and was always there)
 
 ## 18. Reading Order
-- [ ] Reading Order tab in the header opens `#reading` and turns active (Leaderboard likewise for `#leaderboard`; a profile leaves no tab active): grid, toolbar and stats are hidden; tabs read Complete Lore (active), By Series, Games, Oliver Bowden Novels, Non-canon Stories
+- [ ] Reading Order tab in the header opens `#reading` and turns active (Leaderboard likewise for `#leaderboard`; a profile leaves no tab active): grid, toolbar and stats are hidden; tabs read Complete Lore (active), By Series, Oliver Bowden Novels, Non-canon Stories (the games have their own tab, section 20)
 - [ ] Complete Lore: 120 entries under 9 era headings (Ancient World … Modern Day), each with a read count; numbering runs on across headings; Forgotten Myths #1 first, Escape Room Puzzle Book last; Trial by Fire #1–5 sit together at 1692
 - [ ] Era headings fold: all start open with a chevron and "Collapse all"; clicking a heading folds it (count stays visible) and the button turns to "Expand all"; folding survives marking books read and leaving/returning to the tab (until reload); "Up next" opens a folded section and lands on the book; release-year headings fold the same way; series and Bowden pages have no sections
-- [ ] Complete Lore shows the games among the books: 28 rows with a dashed gold border (18 games and 10 story DLCs, each with its cover art uncropped, the two Crossover Stories sharing one; no Black Flag Resynced), unnumbered and without a Read switch; the books stay numbered 1–120 and the progress and era counts count books only. Assassin's Creed II sits between Heresy and Renaissance; Odyssey comes before the Odyssey novel
+- [ ] Complete Lore shows the games among the books: 28 rows with a dashed gold border (18 games and 10 story DLCs, each with its cover art uncropped, the two Crossover Stories sharing one; no Black Flag Resynced), unnumbered and without a Read switch; the books stay numbered 1–120 and the progress and era counts count books only. Assassin's Creed II sits between Heresy and Renaissance; Odyssey comes before the Odyssey novel. Only main, spin-off and handheld games with a story year get a row (mobile, browser and VR games stay on the Games tab)
 - [ ] "Show games" switch (on by default) hides the game rows; the choice survives a reload. With a game filter only that game's rows show (Black Flag: the game, Aveline and Freedom Cry); "Original stories" has none
 - [ ] A book you have only in a collected edition says "Owned in <edition>" (owning Origins Special Edition: Origins #1–4 say "Owned in Origins Special Edition")
 - [ ] "Only missing" switch (off by default) hides the books you have in any edition, on the orders and series pages; the rest keep their numbers, era sections left empty disappear, "Up next" hides, and an order with nothing missing says "You have every book here, in one edition or another." The choice survives a reload
-- [ ] A game row's title or icon opens its card on the Games tab (`#reading/games/<slug>`), scrolled into view and highlighted; back returns to Complete Lore
-- [ ] Games tab (`#reading/games`): 19 cards, each with its cover, "19 games and 32 DLCs"; Chronological groups them under era headings (Odyssey first), Release lists them flat (Assassin's Creed first, Black Flag Resynced last). Each card shows setting and release date, its story DLCs (28 with a small cover, Shadows' four free updates with a controller icon; with exclusives, "Own place in the lore" for the DLCs that get a row, and episode dates for The Tyranny of King Washington, Legacy of the First Blade and The Fate of Atlantis), "N stories in Complete Lore →" (opens the game filter) and "N items in the collection →" (opens the grid filtered to the game: AC II 31 items). Black Flag Resynced says "Remake of Assassin's Creed IV: Black Flag"
+- [ ] A game row's title or cover opens the game's dialog over the list: the address stays (`#reading/complete`), the list keeps its scroll and folds, and Back, Esc or ✕ close it and put focus back on the row. A DLC row (Wrath of the Druids) opens its game's dialog with the DLC highlighted. Ctrl+click opens `#games/<slug>` in a new tab
+- [ ] In a dialog over Complete Lore, "N items in the collection" opens the grid filtered to the game; one Back returns to Complete Lore without the dialog, a second leaves Reading Order. "12 stories in Complete Lore" on Valhalla's already-filtered list just closes the dialog
 - [ ] Release mode on Complete Lore groups by release year; dates known only to the month show as "Nov 2009"
 - [ ] After marking something read, "Up next: …" appears and jumps to (and briefly highlights) the first unread book
 - [ ] Game filter on Complete Lore: chips "All 120", then games in timeline order (AC1 first), "Original stories 62" last. Picking Valhalla shows its 12 entries numbered 1–12 with "x / 12 read"; the address becomes `#reading/complete/valhalla` without adding a back-button step; All resets to `#reading/complete`
@@ -232,24 +235,47 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] No reading order line for items outside an order, or in read-only (profile/leaderboard) modals
 - [ ] The **Collection** tab returns to the grid with no hash; pasting `/#reading/bowden` opens that tab directly
 - [ ] Phone width: rows fit without horizontal scroll, the Read label hides and the switch stays
-- [ ] `validate-catalog.py` covers `js/reading-orders.js` (unknown item, non-readable type, duplicate, missing setting, bad date are errors) and `js/games.js` (a game not on the timeline, a duplicate, a bad date, a DLC with a place in the lore but no year, a bad episode date, a remake of an unknown game are errors)
+- [ ] `validate-catalog.py` covers `js/reading-orders.js` (unknown item, non-readable type, duplicate, missing setting, bad date are errors) and `js/games.js` (a main game or spin-off not on the timeline, a duplicate, a bad date, a DLC with a place in the lore but no year, a bad episode date, a remake of an unknown game are errors; the newer games checks are in section 16)
 
 ## 19. Design System
 The rules are in [DESIGN.md](DESIGN.md) (its section 13 is the definition of done); tokens live at the top of `css/style.css` and component rules use only them. Check at 1600, 1200, 1000, 390 and 360px, signed in and out.
-- [ ] No page scrolls sideways at any of those widths (collection, every reading tab, a series page, leaderboard, a profile, privacy)
-- [ ] Tab through the collection, the reading view and an open item modal: every control (links, buttons, chips, dropdown options, Read/Owned switches, fold headings) shows the same 2px gold focus ring; fields also turn their border gold
+- [ ] No page scrolls sideways at any of those widths (collection, every reading tab, a series page, the Games tab in both orders and with a game dialog open, leaderboard, a profile, privacy)
+- [ ] Tab through the collection, the reading view, the Games tab and an open item modal: every control (links, buttons, chips, dropdown options, Read/Owned switches, fold headings, game cards) shows the same 2px gold focus ring; fields also turn their border gold
+- [ ] In a game dialog, Tab and Shift+Tab cycle through its controls and never leave it; closing returns focus to the card or row that opened it
 - [ ] The filter dropdowns work from the keyboard: Tab into the options, Space ticks one
 - [ ] Numbers use lining figures everywhere ("AC1", "Issue #1" and years sit on the baseline)
-- [ ] With reduced motion on (Windows: Settings > Accessibility > Visual effects > Animation effects off): no logo pulse, no card lift or slide-in, no gallery slide, no confetti, and Back to Top / "Up next" jump instead of scrolling smoothly
+- [ ] With reduced motion on (Windows: Settings > Accessibility > Visual effects > Animation effects off): no logo pulse, no card lift or slide-in (item cards and game cards), no gallery slide, no confetti, and Back to Top / "Up next" / a highlighted DLC in a game dialog jump instead of scrolling smoothly
 - [ ] Muted text (meta lines, release dates, footer) is readable; only the "no items match" line keeps the original `#666` (on purpose)
 - [ ] Fonts: after a hard refresh (Ctrl+F5) headings are still Cinzel and text Raleway once the page settles (fonts load with `display=swap`, so a brief fallback flash is expected)
 - [ ] Colour meanings: every progress bar is gold (header meter, Insights, reading view, series rows); a finished row shows a green (owned) or purple (read) check and count; the Owned switch turns green, Wishlist blue, Read purple (modal and reading list), Has Original Box gold
 - [ ] Buttons: Publish is green in the header, on the leaderboard and in its dialog; dialogs put Cancel and the main action on the right and Delete on the left; header buttons are 32px with readable text
-- [ ] One "pick one" style per job: underline tabs (header, reading orders), segmented controls (Chronological/Release, Insights sort, grid/list), chips (game timeline, reading game filter)
+- [ ] One "pick one" style per job: underline tabs (header, reading orders), segmented controls (Chronological/Release, Release/Story order on Games, Insights sort, grid/list), chips (game timeline, reading game filter, Games kinds)
+- [ ] One search box: the collection search and the Games search look the same (icon, gold edge while there is text, a clear button that shows with text)
 - [ ] Toasts: "Link copied!" shows a green check, a failure (e.g. switch off the network and publish) a red alert and stays longer; a screen reader announces them
 - [ ] Owned cards have a green edge and the OWNED badge (no check circle); list view rows are compact with a 64px thumbnail, the badges between the type and the year (under the title on phones); the `#id` pill is grey in JetBrains Mono, never gold
 - [ ] Leaderboard: one card per collector at every width (medal or rank, gold name, "Updated 9 Oct 2026", item count, % and a gold progress bar), in one column at every width (centred at about 760px on wide screens, the title lined up with the cards); clicking anywhere on a card opens the profile and Tab rings the whole card; "Loading", "No collectors yet" and errors show as plain text across the list; on a 390px phone the title fits on one line and nothing scrolls sideways
 - [ ] Profile: "Collection › Name" breadcrumb (or "Leaderboard › Name" when opened from the leaderboard); the first link goes back there
+
+## 20. Games
+The Games tab (`#games`, `js/games-view.js`) lists `js/games.js`. Counts below are for today's data (19 games, 32 DLCs).
+- [ ] The header reads Collection · Reading Order · Games · Leaderboard; Games turns active on `#games` and the others still do on theirs. At 400px and below the second tab reads "Reading" and nothing in the nav is cut off at 360px
+- [ ] Intro: "19 games and 32 DLCs"; chips All 19 · Main games 15 · Spin-offs 3 · Handheld 1 (kinds with no games have no chip); Handheld shows Liberation only
+- [ ] Release (the default): a grid of box-art cards, Assassin's Creed first, Black Flag Resynced last with the kind line "Remake"; Liberation reads "Handheld · PS Vita"; each card shows "year · Set …" and "N DLCs" / "N items" pills (Valhalla: 6 DLCs, 47 items). All covers are the same height and no title is cut off (1600 to 360px). Two columns on phones
+- [ ] Story order: 8 era headings with game counts (Ancient World 2 first); years read "431 BCE"; Ancient World runs Odyssey, Those Who Are Treasured, Origins, The Hidden Ones, The Curse of the Pharaohs; Valhalla is followed by Wrath of the Druids, The Siege of Paris, A Fated Encounter and The Last Chapter; Black Flag Resynced sits right after Black Flag ("Remake of …"). Long DLC names on the cards cut off rather than widening them at 360px
+- [ ] The order choice survives a reload; the chip and search don't
+- [ ] Search ignores case and accents: "ragnarok" finds Valhalla only, "chronicles" the three Chronicles; typing keeps focus in the box and gives it the gold edge; "xyz" shows "No games match your search." and **Clear search and filters**, which brings all 19 back (keeping the order)
+- [ ] A card or a DLC row opens the game dialog; the address becomes `#games/<slug>`. Ctrl+click opens it in a new tab instead
+- [ ] Valhalla's dialog: box art left; "Main game"; Developer Ubisoft Montreal, Set 872–878, Released 10 Nov 2020, its platforms; the description; "12 stories in Complete Lore →" and "47 items in the collection →"; DLCs 6, as Expansions (3) and Story missions (3), four with "Own place in the lore"
+- [ ] AC II shows "Also released as: The Ezio Collection (2016)"; Assassin's Creed has no DLC section and no "Also released as"; Shadows' four free updates show the controller icon; The Tyranny of King Washington keeps its episode dates
+- [ ] Black Flag Resynced's "Remake of" switches the dialog to Black Flag and the address follows
+- [ ] Esc, ✕, a click outside and Back close the dialog: the address goes back to `#games`, focus returns to the card, and the page doesn't jump. A click inside the dialog doesn't close it
+- [ ] Focus starts on ✕ when the dialog opens (the ring never outlines the whole dialog), and Tab stays inside it
+- [ ] "N stories in Complete Lore" opens the order filtered to the game (Origins: `#reading/complete/origins`), and Back returns to the open dialog; "N items in the collection" opens the grid filtered to the game
+- [ ] Share copies `https://acdb.theprivategeek.com/#games/<slug>` with "Link copied!" (the native share sheet on phones); the pasted link opens that game
+- [ ] Changing the address from one game to another while a dialog is open switches the dialog in place; Esc still returns focus to the first card
+- [ ] Phone: the dialog stacks with a 200px cover on top, and ✕ and Share stay in reach while it scrolls
+- [ ] Signed in: the header, the account menu and the sync banner behave as on the other tabs (the banner only shows on the collection)
+- [ ] A dev-tool edit with the Games tab open updates the item counts on the cards
 
 ---
 
