@@ -174,6 +174,31 @@
      Trésor Perdu d'Aliénor; the owner's call, 2026-10-23), the Odyssey
      Cloud Version for Switch (a port) and Ubisoft All-Star VR (not an
      Assassin's Creed game).
+
+   Edition missions, modes and Discovery Tours: two more independent
+   researchers (Ubisoft news and patch notes, the PlayStation, Xbox and
+   Steam stores, the press, the Assassin's Creed Wiki), verified 2026-10-23.
+   These points were settled as follows:
+   - Edition-exclusive bonus levels count (AC II's Templar lairs,
+     Brotherhood's two maps, Vlad the Impaler's Prison), as do pre-order and
+     edition missions; the owner's call, 2026-10-23. Missions later sold in
+     mixed packs with gear (The Hidden Secrets Pack, Illustrious Pirates,
+     Secrets of the Revolution, Streets of London) are listed one by one,
+     with the pack in the note. Killed by Science is only known from Unity's
+     pack, so it takes the pack's date.
+   - The Secrets of Greece (Odyssey's Season Pass mission) and Go with the
+     Bo (Shadows' free quest) were found by one researcher, each with two
+     sources.
+   - Modes are free updates that add a way to play: River Raids, Mastery
+     Challenge, Tombs of the Fallen, The Forgotten Saga, Story Creator Mode.
+     New Game+, difficulty options, Shadows' Domains and Animus Rifts, and
+     time-limited events (festivals, Trials of the Gods, crossover events)
+     aren't listed.
+   - The Discovery Tours were free updates and were also sold on their own:
+     Ancient Egypt and Ancient Greece for PC, Viking Age for PC (2021) and
+     consoles (2022).
+   - The Benedict Arnold Missions were on PC as well as PS3.
+   - None of these has cover art yet: they show the controller icon.
 */
 
 const GAMES = [
@@ -239,6 +264,9 @@ const GAMES = [
     "rereleases": [{ "name": "The Ezio Collection", "released": "2016-11-15" }],
     "description": "Young Florentine noble Ezio Auditore da Firenze takes up the Assassins' cause after his family is betrayed, and follows a conspiracy across Renaissance Italy.",
     "dlcs": [
+      { "name": "Palazzo Medici", "type": "story", "setting": "During the main story", "released": "2009-11-17", "note": "Edition bonus level" },
+      { "name": "Santa Maria dei Frari", "type": "story", "setting": "During the main story", "released": "2009-11-17", "note": "Edition bonus level" },
+      { "name": "Arsenale di Venezia", "type": "story", "setting": "During the main story", "released": "2009-11-17", "note": "Edition bonus level" },
       { "name": "The Battle of Forlì", "type": "story", "image": "images/games/dlc/the-battle-of-forli.webp", "setting": "1488", "released": "2010-01-28" },
       { "name": "The Bonfire of the Vanities", "type": "story", "image": "images/games/dlc/the-bonfire-of-the-vanities.webp", "setting": "1497–1498", "released": "2010-02-18" }
     ]
@@ -315,6 +343,8 @@ const GAMES = [
     "description": "Ezio takes the fight to Rome, rebuilding the Assassin Brotherhood to break the Borgia family's hold on the city.",
     "dlcs": [
       { "name": "The Copernicus Conspiracy", "type": "story", "image": "images/games/dlc/the-copernicus-conspiracy.webp", "setting": "1500", "released": "2010-11-16", "note": "PS3 exclusive at launch" },
+      { "name": "The Trajan Market", "type": "story", "setting": "During the main story", "released": "2010-11-16", "note": "Edition bonus level" },
+      { "name": "The Aqueducts", "type": "story", "setting": "During the main story", "released": "2010-11-16", "note": "Edition bonus level" },
       { "name": "The Da Vinci Disappearance", "type": "story", "image": "images/games/dlc/the-da-vinci-disappearance.webp", "setting": "1506", "released": "2011-03-08" }
     ]
   },
@@ -355,6 +385,7 @@ const GAMES = [
     "rereleases": [{ "name": "The Ezio Collection", "released": "2016-11-15" }],
     "description": "An ageing Ezio travels to Constantinople in search of the library Altaïr left behind, and finds the Ottoman capital caught in a new struggle with the Templars.",
     "dlcs": [
+      { "name": "Vlad the Impaler's Prison", "type": "story", "setting": "During the main story", "released": "2011-11-15", "note": "Edition bonus level" },
       { "name": "The Lost Archive", "type": "story", "image": "images/games/dlc/the-lost-archive.webp", "setting": "Subject 16's memories", "released": "2012-02-28" }
     ]
   },
@@ -381,7 +412,10 @@ const GAMES = [
     "rereleases": [{ "name": "Assassin's Creed III Remastered", "released": "2019-03-29" }],
     "description": "Ratonhnhaké:ton, a young Mohawk man known as Connor, joins the Assassins in the years of the American Revolution, from the colonial frontier to Boston and New York.",
     "dlcs": [
-      { "name": "The Benedict Arnold Missions", "type": "story", "image": "images/games/dlc/the-benedict-arnold-missions.webp", "setting": "1780", "released": "2012-10-30", "note": "PS3 exclusive at launch" },
+      { "name": "The Benedict Arnold Missions", "type": "story", "image": "images/games/dlc/the-benedict-arnold-missions.webp", "setting": "1780", "released": "2012-10-30", "note": "PS3 and PC only" },
+      { "name": "The Lost Mayan Ruins", "type": "story", "setting": "During the main story", "released": "2012-10-30", "note": "Edition mission, later in The Hidden Secrets Pack (2012)" },
+      { "name": "Ghost of War", "type": "story", "setting": "During the main story", "released": "2012-10-30", "note": "Edition mission, later in The Hidden Secrets Pack (2012)" },
+      { "name": "A Dangerous Secret", "type": "story", "setting": "During the main story", "released": "2012-10-30", "note": "Edition mission, later in The Hidden Secrets Pack (2012)" },
       {
         "name": "The Tyranny of King Washington", "type": "expansion", "image": "images/games/dlc/the-tyranny-of-king-washington.webp",
         "setting": "c. 1783 (alternate reality)",
@@ -436,6 +470,9 @@ const GAMES = [
     "description": "Welsh privateer Edward Kenway turns pirate in the golden age of piracy and stumbles into the war between Assassins and Templars across the Caribbean.",
     "dlcs": [
       { "name": "Aveline", "type": "story", "image": "images/games/dlc/aveline.webp", "year": 1784, "setting": "1784", "released": "2013-10-29", "marker": true, "note": "PlayStation exclusive at launch" },
+      { "name": "Black Island", "type": "story", "setting": "During the main story", "released": "2013-10-29", "note": "Edition mission, later in the Illustrious Pirates Pack (2014)" },
+      { "name": "Mystery Island", "type": "story", "setting": "During the main story", "released": "2013-10-29", "note": "Edition mission, later in the Illustrious Pirates Pack (2014)" },
+      { "name": "Sacrifice Island", "type": "story", "setting": "During the main story", "released": "2013-10-29", "note": "Edition mission, later in the Illustrious Pirates Pack (2014)" },
       { "name": "Freedom Cry", "type": "expansion", "image": "images/games/dlc/freedom-cry.webp", "year": 1735, "setting": "1735–1737", "released": "2013-12-17", "marker": true, "note": "Also sold standalone (2014)" }
     ]
   },
@@ -476,7 +513,10 @@ const GAMES = [
       { "name": "The Rebel Collection", "released": "2019-12-06" }
     ],
     "description": "During the Seven Years' War, the Assassin Shay Patrick Cormac turns against the Brotherhood and joins the Templars, sailing from the North Atlantic to colonial New York.",
-    "dlcs": []
+    "dlcs": [
+      { "name": "The Siege of Fort de Sable", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Pre-order and edition mission" },
+      { "name": "The Armor of Sir Gunn's Quest", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Pre-order and edition mission" }
+    ]
   },
   {
     "name": "Assassin's Creed Unity",
@@ -489,7 +529,10 @@ const GAMES = [
     "released": "2014-11-11",
     "description": "In Paris during the French Revolution, Arno Dorian joins the Assassins to find the truth behind a murder that changed his life.",
     "dlcs": [
-      { "name": "Dead Kings", "type": "expansion", "image": "images/games/dlc/dead-kings.webp", "setting": "1794", "released": "2015-01-13" }
+      { "name": "The Chemical Revolution", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Edition mission, later in Secrets of the Revolution (2015)" },
+      { "name": "The American Prisoner", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Edition mission, later in Secrets of the Revolution (2015)" },
+      { "name": "Dead Kings", "type": "expansion", "image": "images/games/dlc/dead-kings.webp", "setting": "1794", "released": "2015-01-13" },
+      { "name": "Killed by Science", "type": "story", "setting": "During the main story", "released": "2015-01-20", "note": "In the Secrets of the Revolution pack" }
     ]
   },
   {
@@ -518,6 +561,8 @@ const GAMES = [
     "dlcs": [
       { "name": "The Dreadful Crimes", "type": "story", "image": "images/games/dlc/the-dreadful-crimes.webp", "setting": "1868", "released": "2015-10-23", "note": "PS4 exclusive at launch" },
       { "name": "A Long Night", "type": "story", "image": "images/games/dlc/a-long-night.webp", "setting": "1868", "released": "2015-10-23", "note": "Season Pass mission" },
+      { "name": "The Darwin and Dickens Conspiracy", "type": "story", "setting": "During the main story", "released": "2015-10-23", "note": "Pre-order mission, later in the Streets of London Pack (2016)" },
+      { "name": "Runaway Train", "type": "story", "setting": "During the main story", "released": "2015-10-23", "note": "Edition mission, later in the Streets of London Pack (2016)" },
       { "name": "Jack the Ripper", "type": "expansion", "image": "images/games/dlc/jack-the-ripper.webp", "year": 1888, "setting": "1888", "released": "2015-12-15", "marker": true },
       { "name": "The Last Maharaja", "type": "story", "image": "images/games/dlc/the-last-maharaja.webp", "setting": "1868", "released": "2016-03-01" }
     ]
@@ -586,7 +631,10 @@ const GAMES = [
     "released": "2017-10-27",
     "description": "In Ptolemaic Egypt, the Medjay Bayek of Siwa and his wife Aya hunt a secret order, laying the foundations of what will become the Assassin Brotherhood.",
     "dlcs": [
+      { "name": "Secrets of the First Pyramids", "type": "story", "setting": "During the main story", "released": "2017-10-27", "note": "Pre-order mission" },
+      { "name": "Ambush at Sea", "type": "story", "setting": "During the main story", "released": "2017-10-27", "note": "Deluxe Edition mission" },
       { "name": "The Hidden Ones", "type": "expansion", "image": "images/games/dlc/the-hidden-ones.webp", "year": -38, "setting": "38 BCE", "released": "2018-01-23", "marker": true },
+      { "name": "Discovery Tour by Assassin's Creed: Ancient Egypt", "type": "discovery-tour", "setting": "Ptolemaic Egypt", "released": "2018-02-20", "note": "Free update; also sold on its own for PC" },
       { "name": "The Curse of the Pharaohs", "type": "expansion", "image": "images/games/dlc/the-curse-of-the-pharaohs.webp", "year": -38, "setting": "38 BCE", "released": "2018-03-13", "marker": true }
     ]
   },
@@ -638,6 +686,8 @@ const GAMES = [
     "released": "2018-10-05",
     "description": "During the Peloponnesian War, a Spartan mercenary, Kassandra or Alexios, sails the Greek world to uncover a cult and find a lost family. The player chooses the hero.",
     "dlcs": [
+      { "name": "The Blind King", "type": "story", "setting": "During the main story", "released": "2018-10-05", "note": "Pre-order mission" },
+      { "name": "The Secrets of Greece", "type": "story", "setting": "During the main story", "released": "2018-10-05", "note": "Season Pass mission" },
       { "name": "The Lost Tales of Greece", "type": "story", "image": "images/games/dlc/the-lost-tales-of-greece.webp", "setting": "431–422 BCE", "released": "2018-11-01", "releasedPrecision": "month", "note": "Free story quests, 2018–2019" },
       {
         "name": "Legacy of the First Blade", "type": "expansion", "image": "images/games/dlc/legacy-of-the-first-blade.webp",
@@ -659,6 +709,8 @@ const GAMES = [
           { "name": "Judgment of Atlantis", "released": "2019-07-16" }
         ]
       },
+      { "name": "Story Creator Mode", "type": "mode", "setting": "Players' own quests in the game's Greece", "released": "2019-06-10", "note": "Free update" },
+      { "name": "Discovery Tour by Assassin's Creed: Ancient Greece", "type": "discovery-tour", "setting": "Classical Greece", "released": "2019-09-10", "note": "Free update; also sold on its own for PC" },
       { "name": "Crossover Stories: Those Who Are Treasured", "type": "story", "image": "images/games/dlc/crossover-stories.webp", "year": -421, "setting": "421 BCE", "released": "2021-12-14", "marker": true, "note": "Free update" }
     ]
   },
@@ -702,10 +754,16 @@ const GAMES = [
     "description": "Eivor leads a Viking clan from Norway to settle in England in the age of Alfred the Great, forging alliances and raiding across the Anglo-Saxon kingdoms.",
     "dlcs": [
       { "name": "The Legend of Beowulf", "type": "story", "image": "images/games/dlc/the-legend-of-beowulf.webp", "setting": "873–878", "released": "2020-11-10", "note": "Season Pass quest" },
+      { "name": "The Way of the Berserker", "type": "story", "setting": "During the main story", "released": "2020-11-10", "note": "Pre-order quest" },
+      { "name": "River Raids", "type": "mode", "setting": "During the main story", "released": "2021-02-16", "note": "Free update" },
       { "name": "Wrath of the Druids", "type": "expansion", "image": "images/games/dlc/wrath-of-the-druids.webp", "year": 879, "setting": "c. 879", "released": "2021-05-13", "marker": true },
+      { "name": "Mastery Challenge", "type": "mode", "setting": "Animus trials", "released": "2021-06-15", "note": "Free update" },
       { "name": "The Siege of Paris", "type": "expansion", "image": "images/games/dlc/the-siege-of-paris.webp", "year": 885, "setting": "c. 885", "released": "2021-08-12", "marker": true },
+      { "name": "Discovery Tour: Viking Age", "type": "discovery-tour", "setting": "Viking Age Norway and England", "released": "2021-10-19", "note": "Free update; also sold on its own (PC 2021, consoles 2022)" },
+      { "name": "Tombs of the Fallen", "type": "mode", "setting": "During the main story", "released": "2021-11-09", "note": "Free update" },
       { "name": "Crossover Stories: A Fated Encounter", "type": "story", "image": "images/games/dlc/crossover-stories.webp", "year": 887, "setting": "c. 887", "released": "2021-12-14", "marker": true, "note": "Free update" },
       { "name": "Dawn of Ragnarök", "type": "expansion", "image": "images/games/dlc/dawn-of-ragnarok.webp", "setting": "Odin's memories", "released": "2022-03-10" },
+      { "name": "The Forgotten Saga", "type": "mode", "setting": "Odin's memories", "released": "2022-08-02", "note": "Free update" },
       { "name": "The Last Chapter", "type": "story", "image": "images/games/dlc/the-last-chapter.webp", "year": 889, "setting": "c. 889", "released": "2022-11-29", "marker": true, "note": "Free update" }
     ]
   },
@@ -732,6 +790,7 @@ const GAMES = [
     "released": "2023-10-05",
     "description": "In ninth-century Baghdad, the street thief Basim Ibn Ishaq joins the Hidden Ones, in a smaller, stealth-focused return to the series' roots.",
     "dlcs": [
+      { "name": "The Forty Thieves", "type": "story", "setting": "During the main story", "released": "2023-10-05", "note": "Pre-order quest" },
       { "name": "Valley of Memory", "type": "expansion", "image": "images/games/dlc/valley-of-memory.webp", "setting": "861", "released": "2025-11-18", "note": "Free update" }
     ]
   },
@@ -757,9 +816,11 @@ const GAMES = [
     "released": "2025-03-20",
     "description": "In Japan's Sengoku period, the shinobi Naoe and Yasuke, an African samurai in the service of Oda Nobunaga, are drawn together by a shared fight.",
     "dlcs": [
+      { "name": "Thrown to the Dogs", "type": "story", "setting": "During the main story", "released": "2025-03-20", "note": "Pre-order quest, free for all from May 2025" },
       { "name": "The Works of Luis Frois", "type": "story", "setting": "During the main story", "released": "2025-05-06", "note": "Free update" },
       { "name": "A Critical Encounter", "type": "story", "setting": "During the main story", "released": "2025-06-25", "note": "Free update" },
       { "name": "Claws of Awaji", "type": "expansion", "image": "images/games/dlc/claws-of-awaji.webp", "setting": "After the main story", "released": "2025-09-16" },
+      { "name": "Go with the Bo", "type": "story", "setting": "During the main story", "released": "2025-09-16", "note": "Free update" },
       { "name": "A Puzzlement", "type": "story", "setting": "During the main story", "released": "2025-11-25", "note": "Free update" },
       { "name": "Black Tides", "type": "story", "setting": "After the main story", "released": "2026-06-16", "note": "Free update" }
     ]
