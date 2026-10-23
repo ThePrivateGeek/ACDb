@@ -36,11 +36,12 @@
                it then gets its own place in the lore. The others are read
                as part of their game.
      note      how it was released, when that matters (exclusives)
-     image     its cover, images/games/dlc/<slug>.webp, when it has one:
-               store art (Xbox Store), the Assassin's Creed Wiki, Wikipedia
-               (Freedom Cry) or the site owner. Free updates and the Xbox 360
-               era add-ons (whose store art is just the game's cover) have
-               none and show a controller icon.
+     image     its cover, images/games/dlc/<slug>.webp (300px wide at most,
+               cropped to about 3:4), when it has one: store art (Xbox
+               Store), the Assassin's Creed Wiki, Wikipedia (Freedom Cry) or
+               the site owner. The two Crossover Stories share one cover
+               (crossover-stories.webp). Shadows' free updates have none and
+               show a controller icon.
      episodes  episodic expansions: [{ name, released }], the DLC's own
                "released" being the first episode's
 
@@ -81,8 +82,8 @@ const GAMES = [
     "setting": "1476–1499",
     "released": "2009-11-17",
     "dlcs": [
-      { "name": "The Battle of Forlì", "setting": "1488", "released": "2010-01-28" },
-      { "name": "The Bonfire of the Vanities", "setting": "1497–1498", "released": "2010-02-18" }
+      { "name": "The Battle of Forlì", "image": "images/games/dlc/the-battle-of-forli.webp", "setting": "1488", "released": "2010-01-28" },
+      { "name": "The Bonfire of the Vanities", "image": "images/games/dlc/the-bonfire-of-the-vanities.webp", "setting": "1497–1498", "released": "2010-02-18" }
     ]
   },
   {
@@ -92,8 +93,8 @@ const GAMES = [
     "setting": "1499–1507",
     "released": "2010-11-16",
     "dlcs": [
-      { "name": "The Copernicus Conspiracy", "setting": "1500", "released": "2010-11-16", "note": "PS3 exclusive at launch" },
-      { "name": "The Da Vinci Disappearance", "setting": "1506", "released": "2011-03-08" }
+      { "name": "The Copernicus Conspiracy", "image": "images/games/dlc/the-copernicus-conspiracy.webp", "setting": "1500", "released": "2010-11-16", "note": "PS3 exclusive at launch" },
+      { "name": "The Da Vinci Disappearance", "image": "images/games/dlc/the-da-vinci-disappearance.webp", "setting": "1506", "released": "2011-03-08" }
     ]
   },
   {
@@ -103,7 +104,7 @@ const GAMES = [
     "setting": "1511–1512",
     "released": "2011-11-15",
     "dlcs": [
-      { "name": "The Lost Archive", "setting": "Subject 16's memories", "released": "2012-02-28" }
+      { "name": "The Lost Archive", "image": "images/games/dlc/the-lost-archive.webp", "setting": "Subject 16's memories", "released": "2012-02-28" }
     ]
   },
   {
@@ -113,7 +114,7 @@ const GAMES = [
     "setting": "1754–1783",
     "released": "2012-10-30",
     "dlcs": [
-      { "name": "The Benedict Arnold Missions", "setting": "1780", "released": "2012-10-30", "note": "PS3 exclusive at launch" },
+      { "name": "The Benedict Arnold Missions", "image": "images/games/dlc/the-benedict-arnold-missions.webp", "setting": "1780", "released": "2012-10-30", "note": "PS3 exclusive at launch" },
       {
         "name": "The Tyranny of King Washington", "image": "images/games/dlc/the-tyranny-of-king-washington.webp",
         "setting": "c. 1783 (alternate reality)",
@@ -178,7 +179,7 @@ const GAMES = [
     "setting": "1868",
     "released": "2015-10-23",
     "dlcs": [
-      { "name": "The Dreadful Crimes", "setting": "1868", "released": "2015-10-23", "note": "PS4 exclusive at launch" },
+      { "name": "The Dreadful Crimes", "image": "images/games/dlc/the-dreadful-crimes.webp", "setting": "1868", "released": "2015-10-23", "note": "PS4 exclusive at launch" },
       { "name": "A Long Night", "image": "images/games/dlc/a-long-night.webp", "setting": "1868", "released": "2015-10-23", "note": "Season Pass mission" },
       { "name": "Jack the Ripper", "image": "images/games/dlc/jack-the-ripper.webp", "year": 1888, "setting": "1888", "released": "2015-12-15", "marker": true },
       { "name": "The Last Maharaja", "image": "images/games/dlc/the-last-maharaja.webp", "setting": "1868", "released": "2016-03-01" }
@@ -218,7 +219,7 @@ const GAMES = [
     "setting": "431–422 BCE",
     "released": "2018-10-05",
     "dlcs": [
-      { "name": "The Lost Tales of Greece", "setting": "431–422 BCE", "released": "2018-11-01", "releasedPrecision": "month", "note": "Free story quests, 2018–2019" },
+      { "name": "The Lost Tales of Greece", "image": "images/games/dlc/the-lost-tales-of-greece.webp", "setting": "431–422 BCE", "released": "2018-11-01", "releasedPrecision": "month", "note": "Free story quests, 2018–2019" },
       {
         "name": "Legacy of the First Blade", "image": "images/games/dlc/legacy-of-the-first-blade.webp",
         "setting": "c. 429–425 BCE",
@@ -239,7 +240,7 @@ const GAMES = [
           { "name": "Judgment of Atlantis", "released": "2019-07-16" }
         ]
       },
-      { "name": "Crossover Stories: Those Who Are Treasured", "year": -421, "setting": "421 BCE", "released": "2021-12-14", "marker": true, "note": "Free update" }
+      { "name": "Crossover Stories: Those Who Are Treasured", "image": "images/games/dlc/crossover-stories.webp", "year": -421, "setting": "421 BCE", "released": "2021-12-14", "marker": true, "note": "Free update" }
     ]
   },
   {
@@ -252,9 +253,9 @@ const GAMES = [
       { "name": "The Legend of Beowulf", "image": "images/games/dlc/the-legend-of-beowulf.webp", "setting": "873–878", "released": "2020-11-10", "note": "Season Pass quest" },
       { "name": "Wrath of the Druids", "image": "images/games/dlc/wrath-of-the-druids.webp", "year": 879, "setting": "c. 879", "released": "2021-05-13", "marker": true },
       { "name": "The Siege of Paris", "image": "images/games/dlc/the-siege-of-paris.webp", "year": 885, "setting": "c. 885", "released": "2021-08-12", "marker": true },
-      { "name": "Crossover Stories: A Fated Encounter", "year": 887, "setting": "c. 887", "released": "2021-12-14", "marker": true, "note": "Free update" },
+      { "name": "Crossover Stories: A Fated Encounter", "image": "images/games/dlc/crossover-stories.webp", "year": 887, "setting": "c. 887", "released": "2021-12-14", "marker": true, "note": "Free update" },
       { "name": "Dawn of Ragnarök", "image": "images/games/dlc/dawn-of-ragnarok.webp", "setting": "Odin's memories", "released": "2022-03-10" },
-      { "name": "The Last Chapter", "year": 889, "setting": "c. 889", "released": "2022-11-29", "marker": true, "note": "Free update" }
+      { "name": "The Last Chapter", "image": "images/games/dlc/the-last-chapter.webp", "year": 889, "setting": "c. 889", "released": "2022-11-29", "marker": true, "note": "Free update" }
     ]
   },
   {
