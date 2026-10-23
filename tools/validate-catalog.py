@@ -51,6 +51,7 @@ import importlib.util
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -97,7 +98,8 @@ PLATFORMS = (
     "Xbox 360", "Xbox One", "Xbox Series X|S",
     "Wii U", "Switch", "Switch 2", "DS",
     "PC", "Mac", "Stadia",
-    "iOS", "Android", "Windows Phone", "Facebook", "Meta Quest",
+    "iOS", "Android", "Windows Phone", "webOS", "Symbian", "Java ME",
+    "Facebook", "Browser", "Meta Quest",
 )
 DESCRIPTION_MAX = 300
 GAME_FIELDS = {"name", "kind", "developer", "platforms", "image", "year", "setting", "released",
@@ -320,7 +322,8 @@ def check_games(errors, warnings):
             errors.append(f"{label}: listed twice")
         seen.add(name)
         if is_text(name):
-            slug = share_pages.slugify(name)
+            # Mirror of ACDB.gameUrlSlug(): accents folded, then slugify
+            slug = share_pages.slugify("".join(c for c in unicodedata.normalize("NFD", name) if not unicodedata.combining(c)))
             if slug in slugs and slugs[slug] != name:
                 errors.append(f"{label}: URL slug \"{slug}\" is also {slugs[slug]!r}'s")
             slugs.setdefault(slug, name)

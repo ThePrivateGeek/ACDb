@@ -32,7 +32,10 @@
                order: PLATFORMS in tools/validate-catalog.py.
      image     the cover, images/games/<slug of name>.webp (300px wide
                at most; from Wikipedia, the Chronicles covers from the
-               Assassin's Creed Wiki). Optional: without one the Games tab
+               Assassin's Creed Wiki). Art that isn't 3:4 (DS and PSP boxes,
+               the browser games' banners) is shown whole on a 300x400
+               canvas over a blurred, darkened copy of itself, so the tiles
+               don't crop the title. Optional: without one the Games tab
                shows a controller icon.
      year      start year of the main historical story (negative for BCE);
                places the game in the lore. The modern-day story and
@@ -103,6 +106,25 @@
      PS Vita.
    - Retail box sets of separate discs (Anthology, Heritage Collection, Ezio
      Trilogy, Americas Collection) aren't re-releases.
+
+   Handheld and browser games: two more independent researchers (Wikipedia,
+   the Assassin's Creed Wiki, Nintendo, Pocket Gamer, TouchArcade, Engadget,
+   Game Informer, the press), verified 2026-10-23. They found the same five
+   games; these points were settled as follows:
+   - Bloodlines: Wikipedia says 1191–1193, the wiki autumn 1191; "1191".
+   - Altaïr's Chronicles' phone versions (iOS, Android, Windows Phone,
+     webOS, Symbian, Java ME) are Gameloft's ports of the DS game, so they're
+     its platforms; Discovery's iOS version likewise.
+   - Project Legacy: only "Ubisoft" is credited (one source names Ubisoft
+     Montreal). It went live on 30 Sep 2010; later dates are press coverage.
+     Its free memory sets were updates of the game, not DLCs (one was a
+     holiday event).
+   - Freerunners: open beta from April 2021 per the wiki only, so just the
+     year is shown.
+   - Left out: Assassin's Creed Initiates (a community website, not a game),
+     the 2009 Twitter Assassination Experience (a promotion, one source),
+     the Pirates web race (a demo of a mobile game; batch 2b) and Lost Legacy
+     (cancelled).
 */
 
 const GAMES = [
@@ -116,6 +138,18 @@ const GAMES = [
     "setting": "1191",
     "released": "2007-11-13",
     "description": "In the Holy Land of the Third Crusade, the disgraced Assassin Altaïr Ibn-La'Ahad must win back his rank by hunting nine targets. In the present day, Desmond Miles relives his ancestor's memories in the Animus.",
+    "dlcs": []
+  },
+  {
+    "name": "Assassin's Creed: Altaïr's Chronicles",
+    "kind": "handheld",
+    "developer": "Gameloft Bucharest",
+    "platforms": ["DS", "iOS", "Android", "Windows Phone", "webOS", "Symbian", "Java ME"],
+    "image": "images/games/assassins-creed-altairs-chronicles.webp",
+    "year": 1190,
+    "setting": "1190",
+    "released": "2008-02-05",
+    "description": "A year before the first game, Altaïr Ibn-La'Ahad crosses the Holy Land of the Third Crusade to recover the Chalice, an artefact that could end the war, before the Templars find it. A side-scrolling prequel.",
     "dlcs": []
   },
   {
@@ -133,6 +167,41 @@ const GAMES = [
       { "name": "The Battle of Forlì", "type": "story", "image": "images/games/dlc/the-battle-of-forli.webp", "setting": "1488", "released": "2010-01-28" },
       { "name": "The Bonfire of the Vanities", "type": "story", "image": "images/games/dlc/the-bonfire-of-the-vanities.webp", "setting": "1497–1498", "released": "2010-02-18" }
     ]
+  },
+  {
+    "name": "Assassin's Creed: Bloodlines",
+    "kind": "handheld",
+    "developer": "Griptonite Games",
+    "platforms": ["PSP"],
+    "image": "images/games/assassins-creed-bloodlines.webp",
+    "year": 1191,
+    "setting": "1191",
+    "released": "2009-11-17",
+    "description": "Weeks after the first game, Altaïr follows the retreating Templars to Cyprus, where he joins the island's resistance to hunt down the last of the Order's leaders.",
+    "dlcs": []
+  },
+  {
+    "name": "Assassin's Creed II: Discovery",
+    "kind": "handheld",
+    "developer": "Griptonite Games",
+    "platforms": ["DS", "iOS"],
+    "image": "images/games/assassins-creed-ii-discovery.webp",
+    "year": 1491,
+    "setting": "1491–1492",
+    "released": "2009-11-17",
+    "description": "Ezio Auditore travels to Spain, where the Templars use Tomás de Torquemada's Inquisition to hunt down the Assassins. A side-scrolling game set during the events of Assassin's Creed II.",
+    "dlcs": []
+  },
+  {
+    "name": "Assassin's Creed: Project Legacy",
+    "kind": "browser",
+    "developer": "Ubisoft",
+    "platforms": ["Facebook"],
+    "image": "images/games/assassins-creed-project-legacy.webp",
+    "setting": "Several eras",
+    "released": "2010-09-30",
+    "description": "An Abstergo recruit relives the memories of Assassins and Templars, mostly in Renaissance Italy. A text-based Facebook game that shared unlocks with Brotherhood; Facebook removed it in 2013.",
+    "dlcs": []
   },
   {
     "name": "Assassin's Creed Brotherhood",
@@ -376,6 +445,18 @@ const GAMES = [
       { "name": "Dawn of Ragnarök", "type": "expansion", "image": "images/games/dlc/dawn-of-ragnarok.webp", "setting": "Odin's memories", "released": "2022-03-10" },
       { "name": "The Last Chapter", "type": "story", "image": "images/games/dlc/the-last-chapter.webp", "year": 889, "setting": "c. 889", "released": "2022-11-29", "marker": true, "note": "Free update" }
     ]
+  },
+  {
+    "name": "Assassin's Creed: Freerunners",
+    "kind": "browser",
+    "developer": "Ubisoft Da Nang",
+    "platforms": ["Browser"],
+    "image": "images/games/assassins-creed-freerunners.webp",
+    "setting": "The Animus",
+    "released": "2021-04-14",
+    "releasedPrecision": "year",
+    "description": "Up to eight players pick famous Assassins and race them through a side-scrolling Animus course. A free multiplayer party game from Ubisoft Nano's browser games, released as an open beta.",
+    "dlcs": []
   },
   {
     "name": "Assassin's Creed Mirage",

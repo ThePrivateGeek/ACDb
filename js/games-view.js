@@ -80,11 +80,12 @@
 
     // ---- Wording ----
     // "Main game", "Remake", or "Handheld · PS Vita" for a non-main game
-    // that came out on one platform
+    // that came out on one platform (not "Browser · Browser")
     function kindLine(game) {
         if (game.remakeOf) return 'Remake';
         const label = KIND_LABELS[game.kind] || '';
-        return game.kind !== 'main' && game.platforms.length === 1 ? `${label} · ${game.platforms[0]}` : label;
+        const only = game.platforms.length === 1 ? game.platforms[0] : null;
+        return game.kind !== 'main' && only && only !== label ? `${label} · ${only}` : label;
     }
 
     // "Set" reads oddly before text like "After the main story"
