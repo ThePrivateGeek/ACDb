@@ -278,6 +278,7 @@
         A.hideMainContent('reading');
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('leaderboardView').style.display = 'none';
+        document.getElementById('gamesView').style.display = 'none';
         view.style.display = '';
         const [orderId, slug] = (param || '').split('/');
         currentGame = null;

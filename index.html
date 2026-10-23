@@ -50,7 +50,8 @@
             </a>
             <nav class="main-nav" aria-label="Sections">
                 <a href="./" class="main-nav-link active" id="navCollection" data-view="collection" aria-current="page">Collection</a>
-                <a href="#reading" class="main-nav-link" data-view="reading">Reading Order</a>
+                <a href="#reading" class="main-nav-link" data-view="reading" aria-label="Reading Order"><span>Reading<span class="nav-long"> Order</span></span></a>
+                <a href="#games" class="main-nav-link" data-view="games">Games</a>
                 <a href="#leaderboard" class="main-nav-link" data-view="leaderboard">Leaderboard</a>
             </nav>
             <div class="header-stats">
@@ -670,6 +671,14 @@
         <div id="readingContent"></div>
     </div>
 
+    <!-- Games View (rendered by js/games-view.js) -->
+    <div id="gamesView" style="display:none;">
+        <div class="page-head">
+            <h2 class="page-title">Games</h2>
+        </div>
+        <div id="gamesContent"></div>
+    </div>
+
     <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-inner">
@@ -710,6 +719,7 @@
     <script src="js/auth.js"></script>
     <script src="js/sharing.js"></script>
     <script src="js/reading.js"></script>
+    <script src="js/games-view.js"></script>
     <script src="js/app.js"></script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4bdfedeff50c4784a6bde51fd26c2c99"}'></script>

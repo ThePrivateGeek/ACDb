@@ -633,6 +633,7 @@ window.ACDB = window.ACDB || {};
         saveFilters();
         ACDB.renderSyncBanner();
         ACDB.refreshReadingView();
+        ACDB.refreshGamesView();
     }
 
     function createCard(item) {
@@ -935,6 +936,13 @@ window.ACDB = window.ACDB || {};
         if (hash === 'reading' || hash.startsWith('reading/')) {
             if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true });
             ACDB.showReadingOrder(hash.slice('reading/'.length) || null);
+            return;
+        }
+
+        // Games view (#games; #games/<slug> opens a game)
+        if (hash === 'games' || hash.startsWith('games/')) {
+            if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true });
+            ACDB.showGames(hash.slice('games/'.length) || null);
             return;
         }
 

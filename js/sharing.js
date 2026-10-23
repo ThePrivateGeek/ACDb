@@ -303,6 +303,7 @@
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('leaderboardView').style.display = 'none';
         document.getElementById('readingView').style.display = 'none';
+        document.getElementById('gamesView').style.display = 'none';
         A.renderSyncBanner();
     }
 
@@ -319,6 +320,7 @@
         hideMainContent();
         document.getElementById('leaderboardView').style.display = 'none';
         document.getElementById('readingView').style.display = 'none';
+        document.getElementById('gamesView').style.display = 'none';
         profileFromLeaderboard = fromLeaderboard;
         // The breadcrumb names where the visitor came from, like the old back button
         const backLink = document.getElementById('profileBackBtn');
@@ -371,6 +373,7 @@
         hideMainContent('leaderboard');
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('readingView').style.display = 'none';
+        document.getElementById('gamesView').style.display = 'none';
         const leaderboardView = document.getElementById('leaderboardView');
         leaderboardView.style.display = '';
         document.getElementById('leaderboardBody').innerHTML = '<li class="leaderboard-loading">Loading leaderboard...</li>';
