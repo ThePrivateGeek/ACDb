@@ -32,13 +32,17 @@ Checks:
              a readable type (READABLE_TYPES in js/utils.js), at most once
              per order, with a setting and a valid release date; years
              (needed for era headings) never go backwards
-  games      js/games.js: every game is on the timeline (SHORT_GAME_NAMES),
-             has its cover in images/games/,
-             listed once, in release order, with a start year, a setting and
-             a valid release date; the same for each story DLC (a year
-             only when it has a place in the lore, "marker"), its episodes
-             dated, the first on the DLC's date; a remake points at another
-             game in the list
+  games      js/games.js: every game is listed once, in release order, with
+             a kind (GAME_KINDS), a developer, its platforms (from PLATFORMS,
+             in that order), a description, a setting and a valid release
+             date; a start year unless it is a mobile, browser or VR game;
+             a main game or spin-off is on the timeline (SHORT_GAME_NAMES);
+             a cover, when given, is in images/games/; no two games share a
+             URL slug; re-releases are named and dated; a remake points at
+             another game in the list. Each DLC has a type (DLC_TYPES), a
+             setting and a valid release date, a year only when it has a
+             place in the lore ("marker", expansions and story DLCs only),
+             its episodes dated, the first on the DLC's date
 """
 from __future__ import annotations
 
@@ -76,6 +80,30 @@ REQUIRED = {
 }
 OPTIONAL = {"series": str, "read": str, "readLang": str}
 FIRST_YEAR = 2005  # Assassin's Creed was announced in 2005; nothing licensed predates it
+
+# js/games.js values. A game's platforms are listed in PLATFORMS order; add a
+# platform here (in its place) when a game needs one that isn't listed yet.
+# Only versions made for a platform count: Stadia got its own ports, but
+# streaming an existing build (Luna, OnLive, GeForce NOW, Switch "Cloud
+# Version") doesn't, so those aren't listed.
+GAME_KINDS = {"main", "spin-off", "handheld", "mobile", "browser", "vr"}
+YEARLESS_KINDS = {"mobile", "browser", "vr"}   # may span eras, so "year" is optional
+TIMELINE_KINDS = {"main", "spin-off"}          # always have items, so must be on the timeline
+LORE_KINDS = {"main", "spin-off", "handheld"}  # the games Complete Lore places among the books (LORE_KINDS in js/reading.js)
+DLC_TYPES = {"expansion", "story", "mode", "discovery-tour"}
+LORE_DLC_TYPES = {"expansion", "story"}        # the only DLCs that can have a place in the lore
+PLATFORMS = (
+    "PS3", "PS4", "PS5", "PSP", "PS Vita",
+    "Xbox 360", "Xbox One", "Xbox Series X|S",
+    "Wii U", "Switch", "Switch 2", "DS",
+    "PC", "Mac", "Stadia",
+    "iOS", "Android", "Windows Phone", "Facebook", "Meta Quest",
+)
+DESCRIPTION_MAX = 300
+GAME_FIELDS = {"name", "kind", "developer", "platforms", "image", "year", "setting", "released",
+               "releasedPrecision", "rereleases", "remakeOf", "description", "dlcs"}
+DLC_FIELDS = {"name", "type", "image", "year", "setting", "released", "releasedPrecision",
+              "marker", "note", "episodes"}
 
 STR = r'"((?:[^"\\]|\\.)*)"'
 
@@ -231,29 +259,87 @@ def check_story_fields(label, entry, errors, year_required=True):
     return check_released(label, entry, errors)
 
 
+def is_text(value):
+    return isinstance(value, str) and bool(value.strip())
+
+
+def check_game_facts(label, game, errors, warnings):
+    """kind, developer, platforms, description and re-releases of a game."""
+    kind = game.get("kind")
+    if kind not in GAME_KINDS:
+        errors.append(f"{label}: \"kind\" should be one of {', '.join(sorted(GAME_KINDS))}, got {kind!r}")
+    if not is_text(game.get("developer")):
+        errors.append(f"{label}: missing \"developer\"")
+    platforms = game.get("platforms")
+    if not isinstance(platforms, list) or not platforms:
+        errors.append(f"{label}: \"platforms\" should be a non-empty list")
+    else:
+        unknown = [p for p in platforms if p not in PLATFORMS]
+        if unknown:
+            errors.append(f"{label}: unknown platform(s) {unknown}; use the names in PLATFORMS "
+                          "(tools/validate-catalog.py) or add the new one there")
+        elif len(set(platforms)) != len(platforms):
+            errors.append(f"{label}: a platform is listed twice")
+        elif platforms != sorted(platforms, key=PLATFORMS.index):
+            errors.append(f"{label}: list the platforms in PLATFORMS order: {sorted(platforms, key=PLATFORMS.index)}")
+    description = game.get("description")
+    if not is_text(description):
+        errors.append(f"{label}: missing \"description\"")
+    elif len(description) > DESCRIPTION_MAX:
+        warnings.append(f"{label}: description is {len(description)} characters; keep it to {DESCRIPTION_MAX}")
+    rereleases = game.get("rereleases")
+    if rereleases is not None:
+        if not isinstance(rereleases, list) or not rereleases:
+            errors.append(f"{label}: \"rereleases\" should be a non-empty list")
+        else:
+            seen = set()
+            for rr in rereleases:
+                rlabel = f"{label}, re-release {rr.get('name')!r}"
+                if not is_text(rr.get("name")):
+                    errors.append(f"{label}: a re-release has no name")
+                elif rr["name"] in seen:
+                    errors.append(f"{rlabel}: listed twice")
+                seen.add(rr.get("name"))
+                check_released(rlabel, rr, errors)
+
+
 def check_games(errors, warnings):
     timeline = load_game_names() - {"General", "Assassin's Creed (Movie)"}
     games = load_games()
     names = [g.get("name") for g in games]
     seen = set()
+    slugs = {}
     previous = None
     for game in games:
         name = game.get("name")
         label = f"js/games.js: game {name!r}"
-        if name not in timeline:
-            errors.append(f"{label}: not a game on the timeline (SHORT_GAME_NAMES in js/app.js)")
+        for field in game:
+            if field not in GAME_FIELDS:
+                warnings.append(f"{label}: unknown field \"{field}\"")
         if name in seen:
             errors.append(f"{label}: listed twice")
         seen.add(name)
-        if check_story_fields(label, game, errors):
+        if is_text(name):
+            slug = share_pages.slugify(name)
+            if slug in slugs and slugs[slug] != name:
+                errors.append(f"{label}: URL slug \"{slug}\" is also {slugs[slug]!r}'s")
+            slugs.setdefault(slug, name)
+        check_game_facts(label, game, errors, warnings)
+        kind = game.get("kind")
+        # Main games and spin-offs always have items, so a name off the
+        # timeline is a typo; other kinds may have none
+        if kind in TIMELINE_KINDS and name not in timeline:
+            errors.append(f"{label}: a main game or spin-off must be on the timeline (SHORT_GAME_NAMES in js/app.js)")
+        if check_story_fields(label, game, errors, year_required=kind not in YEARLESS_KINDS):
             if previous is not None and game["released"] < previous:
                 warnings.append(f"{label}: released before the game above it; GAMES is in release order")
             previous = game["released"]
-        image = game.get("image")
-        if not isinstance(image, str) or not image.startswith("images/games/"):
-            errors.append(f"{label}: \"image\" should be a cover in images/games/, got {image!r}")
-        elif not (ROOT / image).is_file():
-            errors.append(f"{label}: image file not found: {image}")
+        if "image" in game:
+            image = game["image"]
+            if not isinstance(image, str) or not image.startswith("images/games/"):
+                errors.append(f"{label}: \"image\" should be a cover in images/games/, got {image!r}")
+            elif not (ROOT / image).is_file():
+                errors.append(f"{label}: image file not found: {image}")
         remake_of = game.get("remakeOf")
         if remake_of is not None and (remake_of not in names or remake_of == name):
             errors.append(f"{label}: \"remakeOf\" should name another game in the list, got {remake_of!r}")
@@ -264,15 +350,26 @@ def check_games(errors, warnings):
         dlc_names = set()
         for dlc in dlcs:
             dlabel = f"{label}, DLC {dlc.get('name')!r}"
+            for field in dlc:
+                if field not in DLC_FIELDS:
+                    warnings.append(f"{dlabel}: unknown field \"{field}\"")
             if not isinstance(dlc.get("name"), str) or not dlc["name"].strip():
                 errors.append(f"{label}: a DLC has no name")
             elif dlc["name"] in dlc_names:
                 errors.append(f"{dlabel}: listed twice")
             dlc_names.add(dlc.get("name"))
+            dlc_type = dlc.get("type")
+            if dlc_type not in DLC_TYPES:
+                errors.append(f"{dlabel}: \"type\" should be one of {', '.join(sorted(DLC_TYPES))}, got {dlc_type!r}")
             # The year places a DLC in the lore, so only one with a place needs it
             check_story_fields(dlabel, dlc, errors, year_required=bool(dlc.get("marker")))
             if "marker" in dlc and not isinstance(dlc["marker"], bool):
                 errors.append(f"{dlabel}: \"marker\" should be true or false")
+            if dlc.get("marker") and dlc_type in DLC_TYPES and dlc_type not in LORE_DLC_TYPES:
+                errors.append(f"{dlabel}: only expansions and story DLCs can have a place in the lore (\"marker\")")
+            if dlc.get("marker") and (kind not in LORE_KINDS or game.get("year") is None):
+                errors.append(f"{dlabel}: only a main game, spin-off or handheld game with a year "
+                              "places its DLCs in the lore (\"marker\")")
             if "image" in dlc:
                 dimage = dlc["image"]
                 if not isinstance(dimage, str) or not dimage.startswith("images/games/dlc/"):
