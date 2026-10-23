@@ -153,6 +153,27 @@
      get no place in Complete Lore (the owner's call, 2026-10-23).
    - Left out: the Black Flag and Unity companion apps (no game of their
      own), and Jade, the Netflix game, Utopia and Singularity (not released).
+
+   VR games: two more independent researchers (Ubisoft news and its escape
+   games pages, the Meta store, UploadVR, Road to VR, Triotech's press
+   releases, the Assassin's Creed Wiki), verified 2026-10-23. They found
+   the same four games; these points were settled as follows:
+   - Escape the Lost Pyramid, The Temple of Anubis and Beyond Medusa's Gate
+     only run at VR venues (escape rooms, arcades, family entertainment
+     centres): platform "Location-based". They're still offered.
+   - Escape the Lost Pyramid: venues had it by September 2018 (the wiki says
+     July), so just the year is shown. Its story is a 1928 expedition, told
+     in the world of Origins.
+   - The Temple of Anubis: launched in September 2018 (Triotech); no source
+     dates its story, so it takes Origins' year (Bayek). Triotech made it
+     under licence.
+   - Beyond Medusa's Gate: 445 BCE per the wiki and two venues.
+   - Nexus VR has three settings (405 BCE, 1509, 1775–1777), so no year.
+   - Left out: the 2016 Assassin's Creed film's VR Experience (a 360° film,
+     not a game), location-locked AR tour apps (Echoes of Revolution, Le
+     Trésor Perdu d'Aliénor; the owner's call, 2026-10-23), the Odyssey
+     Cloud Version for Switch (a port) and Ubisoft All-Star VR (not an
+     Assassin's Creed game).
 */
 
 const GAMES = [
@@ -415,7 +436,7 @@ const GAMES = [
     "description": "Welsh privateer Edward Kenway turns pirate in the golden age of piracy and stumbles into the war between Assassins and Templars across the Caribbean.",
     "dlcs": [
       { "name": "Aveline", "type": "story", "image": "images/games/dlc/aveline.webp", "year": 1784, "setting": "1784", "released": "2013-10-29", "marker": true, "note": "PlayStation exclusive at launch" },
-      { "name": "Freedom Cry", "type": "expansion", "image": "images/games/dlc/freedom-cry.webp", "year": 1735, "setting": "1735–1737", "released": "2013-12-17", "marker": true }
+      { "name": "Freedom Cry", "type": "expansion", "image": "images/games/dlc/freedom-cry.webp", "year": 1735, "setting": "1735–1737", "released": "2013-12-17", "marker": true, "note": "Also sold standalone (2014)" }
     ]
   },
   {
@@ -581,6 +602,32 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "name": "Escape the Lost Pyramid",
+    "kind": "vr",
+    "developer": "Ubisoft Blue Byte",
+    "platforms": ["Location-based"],
+    "image": "images/games/escape-the-lost-pyramid.webp",
+    "year": 1928,
+    "setting": "1928",
+    "released": "2018-07-01",
+    "releasedPrecision": "year",
+    "description": "In 1928 an expedition vanishes in the Sinai while searching for the Lost Pyramid of Nebka. Two or four players relive the explorers' memories and have 60 minutes to find what they were after and escape. A VR escape game for escape rooms and arcades.",
+    "dlcs": []
+  },
+  {
+    "name": "Assassin's Creed: The Temple of Anubis",
+    "kind": "vr",
+    "developer": "Triotech",
+    "platforms": ["Location-based"],
+    "image": "images/games/assassins-creed-the-temple-of-anubis.webp",
+    "year": -49,
+    "setting": "Ancient Egypt",
+    "released": "2018-09-13",
+    "releasedPrecision": "month",
+    "description": "As Bayek, players walk a real maze in virtual reality, fighting a temple's guardians with bow and burning arrows to rescue Aya, and finish with a Leap of Faith. A ten-minute free-roam attraction for Triotech's VR Maze.",
+    "dlcs": []
+  },
+  {
     "name": "Assassin's Creed Odyssey",
     "kind": "main",
     "developer": "Ubisoft Quebec",
@@ -632,6 +679,18 @@ const GAMES = [
     ]
   },
   {
+    "name": "Beyond Medusa's Gate",
+    "kind": "vr",
+    "developer": "Ubisoft Blue Byte",
+    "platforms": ["Location-based"],
+    "image": "images/games/beyond-medusas-gate.webp",
+    "year": -445,
+    "setting": "445 BCE",
+    "released": "2019-05-07",
+    "description": "In a sea cave on the Aegean, where the Argonauts' ship is said to lie, two or four players have 60 minutes to solve its riddles and find a way out. A VR escape game set in the world of Assassin's Creed Odyssey.",
+    "dlcs": []
+  },
+  {
     "name": "Assassin's Creed Valhalla",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -675,6 +734,17 @@ const GAMES = [
     "dlcs": [
       { "name": "Valley of Memory", "type": "expansion", "image": "images/games/dlc/valley-of-memory.webp", "setting": "861", "released": "2025-11-18", "note": "Free update" }
     ]
+  },
+  {
+    "name": "Assassin's Creed Nexus VR",
+    "kind": "vr",
+    "developer": "Red Storm Entertainment",
+    "platforms": ["Meta Quest"],
+    "image": "images/games/assassins-creed-nexus-vr.webp",
+    "setting": "405 BCE, 1509 and 1775–1777",
+    "released": "2023-11-16",
+    "description": "A hacker inside Abstergo relives the memories of Ezio, Kassandra and Connor in first person, to stop the company from using ancient technology to control what people believe. Climbing, stealth and combat made for VR.",
+    "dlcs": []
   },
   {
     "name": "Assassin's Creed Shadows",

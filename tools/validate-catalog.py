@@ -99,7 +99,7 @@ PLATFORMS = (
     "Wii U", "Switch", "Switch 2", "DS",
     "PC", "Mac", "Stadia",
     "iOS", "Android", "Windows Phone", "webOS", "Symbian", "Java ME",
-    "Facebook", "Browser", "Meta Quest",
+    "Facebook", "Browser", "Meta Quest", "Location-based",
 )
 DESCRIPTION_MAX = 300
 GAME_FIELDS = {"name", "kind", "developer", "platforms", "image", "year", "setting", "released",
