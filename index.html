@@ -420,6 +420,22 @@
         </div>
     </div>
 
+    <!-- Game dialog (js/games-view.js): like the item modal, filled per game -->
+    <div class="modal-overlay" id="gameOverlay">
+        <div class="modal game-modal" id="gameModal" role="dialog" aria-modal="true" aria-labelledby="gameModalTitle" tabindex="-1">
+            <div class="modal-actions">
+            <button class="icon-btn modal-close" id="gameModalClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            <button class="icon-btn modal-copy-link" id="gameModalShare" title="Copy a shareable link to this game" aria-label="Copy a shareable link to this game">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </button>
+            </div>
+            <div class="modal-content">
+                <div class="modal-image-section game-modal-cover" id="gameModalCover"></div>
+                <div class="modal-details" id="gameModalDetails"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Lightbox -->
     <div class="lightbox-overlay" id="lightboxOverlay">
         <button class="lightbox-close" id="lightboxClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>

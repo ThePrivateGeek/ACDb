@@ -886,6 +886,41 @@ window.ACDB = window.ACDB || {};
         history.back();
     }
 
+    // Same pattern for the game dialog opened over another view (a game row
+    // in Complete Lore): back closes it and leaves the view where it was.
+    let gameDialogPushed = false;
+    let gameDialogPushedHash = '';
+
+    function pushGameDialogState() {
+        gameDialogPushedHash = window.location.hash;
+        history.pushState(null, '', window.location.href);
+        gameDialogPushed = true;
+    }
+
+    function popGameDialogState() {
+        if (!gameDialogPushed) return;
+        clearGameDialogState();
+        suppressNextPopstate = true;
+        history.back();
+    }
+
+    function isGameDialogPushed() {
+        return gameDialogPushed;
+    }
+
+    function clearGameDialogState() {
+        gameDialogPushed = false;
+        gameDialogPushedHash = '';
+    }
+
+    // The Games view's own address: #games, or #games/<slug> with a game
+    // open. Like setHash/clearHash for items, opening and closing push.
+    function setGamesHash(slug) {
+        suppressHashChange = true;
+        history.pushState(null, '', slug ? '#games/' + slug : '#games');
+        suppressHashChange = false;
+    }
+
     function handleHash() {
         // Lightbox comes first — it sits on top of the modal and must close
         // first on back-button (matching existing Esc-key priority order).
@@ -907,7 +942,18 @@ window.ACDB = window.ACDB || {};
             if (hashUnchanged) return;
         }
 
+        // The same for a game dialog opened over a view
+        if (gameDialogPushed && ACDB.isGameDialogOpen()) {
+            const hashUnchanged = window.location.hash === gameDialogPushedHash;
+            ACDB.closeGameDialog({ silent: true });
+            if (hashUnchanged) return;
+        }
+
         const hash = window.location.hash.slice(1);
+
+        // Any route but another game's address closes an open game dialog
+        // (back from #games/<slug> to #games included)
+        if (ACDB.isGameDialogOpen() && !/^games\/./.test(hash)) ACDB.closeGameDialog({ silent: true });
         if (!hash) {
             // Hash cleared (back button) — close modal if open, show main content.
             // Use skipClearHash so closeModal doesn't re-push history state.
@@ -1303,6 +1349,8 @@ window.ACDB = window.ACDB || {};
                     closeShareModal();
                 } else if (dom.devToolOverlay.classList.contains('active')) {
                     closeDevTool();
+                } else if (ACDB.isGameDialogOpen()) {
+                    ACDB.closeGameDialog();
                 } else if (dom.modalOverlay.classList.contains('active')) {
                     closeModal();
                 }
@@ -1648,6 +1696,11 @@ window.ACDB = window.ACDB || {};
     A.handleHash = handleHash;
     A.pushReadOnlyHistoryState = pushReadOnlyHistoryState;
     A.popReadOnlyHistoryState = popReadOnlyHistoryState;
+    A.pushGameDialogState = pushGameDialogState;
+    A.popGameDialogState = popGameDialogState;
+    A.isGameDialogPushed = isGameDialogPushed;
+    A.clearGameDialogState = clearGameDialogState;
+    A.setGamesHash = setGamesHash;
     A.pushLightboxHistoryState = pushLightboxHistoryState;
     A.popLightboxHistoryState = popLightboxHistoryState;
 

@@ -35,13 +35,28 @@
         'vr': 'VR'
     };
 
-    const SEARCH_ICON = '<svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>';
+    // The game dialog groups DLCs by type, in this order
+    const DLC_GROUPS = [
+        ['expansion', 'Expansions'],
+        ['story', 'Story missions'],
+        ['mode', 'Game modes'],
+        ['discovery-tour', 'Discovery Tour']
+    ];
+    const SITE_URL = 'https://acdb.theprivategeek.com/';
+
+    const SEARCH_ICON ='<svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>';
     const CLEAR_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 
     const SOURCES_HTML = `<p class="reading-sources">Every released game with its DLCs; cosmetic packs, multiplayer map and character packs and seasonal events are left out. Settings from the <a href="https://assassinscreed.fandom.com/wiki/User_blog:Kulurak/Chronological_order_of_Assassin%27s_Creed_franchise" target="_blank" rel="noopener noreferrer">Assassin's Creed Wiki</a>; release dates, developers and platforms from Ubisoft, the platform stores and the press. Games are placed by their main historical story; the modern-day story is left out. Cover art &copy; Ubisoft.</p>`;
 
     const view = document.getElementById('gamesView');
     const content = document.getElementById('gamesContent');
+    const overlay = document.getElementById('gameOverlay');
+    const frame = document.getElementById('gameModal');
+    const coverEl = document.getElementById('gameModalCover');
+    const detailsEl = document.getElementById('gameModalDetails');
+    const shareBtn = document.getElementById('gameModalShare');
+    const closeBtn = document.getElementById('gameModalClose');
 
     let currentKind = '';    // '' for all kinds
     let searchText = '';
@@ -297,6 +312,236 @@
         });
     }
 
+    // ---- Game dialog ----
+    // Styled like the item modal, but it meets DESIGN.md's dialog floor:
+    // role="dialog", focus moves in (to Close, the first control, so a ring
+    // never outlines the whole dialog) and is trapped, and returns on close.
+    // From the Games view it has an address (#games/<slug>); over another
+    // view (a game row in Complete Lore) it pushes a duplicate history entry
+    // like the item modal over a view, so back closes it.
+    let dialogGame = null;
+    let dialogOverView = false;
+    let opener = null;            // the element that opened the dialog
+    let openerSelector = '';      // finds it again after a re-render
+    let releaseTrap = null;
+
+    function isGameDialogOpen() {
+        return overlay.classList.contains('active');
+    }
+
+    function isShown(el) {
+        return !!el && el !== document.body && el.isConnected && el.getClientRects().length > 0;
+    }
+
+    function selectorFor(el) {
+        const parts = ['gameSlug', 'gameDialog', 'dlc']
+            .filter(key => el.dataset[key] !== undefined)
+            .map(key => `[data-${key.replace(/[A-Z]/g, c => '-' + c.toLowerCase())}="${CSS.escape(el.dataset[key])}"]`);
+        return parts.length ? el.tagName.toLowerCase() + parts.join('') : '';
+    }
+
+    function metaRow(label, valueHTML) {
+        return `<span class="modal-meta-label">${label}</span><span class="modal-meta-value">${valueHTML}</span>`;
+    }
+
+    function dlcHTML(dlc) {
+        const esc = A.escapeHTML;
+        const episodes = dlc.episodes
+            ? `<span class="game-dlc-episodes">${dlc.episodes.map(ep => `<span class="game-dlc-episode">${esc(ep.name)} <span class="game-dlc-date">${A.formatReleased(ep)}</span></span>`).join(' · ')}</span>`
+            : '';
+        return `
+            <li class="game-dlc" data-dlc="${esc(dlc.name)}">
+                <span class="game-dlc-cover">${dlc.image ? `<img src="${esc(dlc.image)}" alt="" loading="lazy">` : A.GAME_ICON}</span>
+                <span class="game-dlc-body">
+                    <span class="game-dlc-name">${esc(dlc.name)}</span>
+                    <span class="reading-meta">
+                        <span>${esc(setText(dlc.setting))}</span>
+                        <span>Released ${A.formatReleased(dlc)}</span>
+                        ${dlc.note ? `<span>${esc(dlc.note)}</span>` : ''}
+                        ${dlc.marker ? '<span class="reading-game-label">Own place in the lore</span>' : ''}
+                    </span>
+                    ${episodes}
+                </span>
+            </li>`;
+    }
+
+    function detailsHTML(game) {
+        const esc = A.escapeHTML;
+        const lore = A.loreLinkFor(game.name);
+        const items = itemCount(game.name);
+        const original = game.remakeOf ? GAMES.find(g => g.name === game.remakeOf) : null;
+        const meta = [
+            metaRow('Developer', esc(game.developer)),
+            metaRow('Set', esc(game.setting)),
+            metaRow('Released', A.formatReleased(game)),
+            metaRow('Platforms', esc(game.platforms.join(' · '))),
+            game.rereleases ? metaRow('Also released as', game.rereleases.map(r => `${esc(r.name)} (${r.released.slice(0, 4)})`).join(', ')) : '',
+            original ? metaRow('Remake of', `<button class="link" data-game-switch="${A.gameUrlSlug(original)}">${esc(original.name)}</button>`) : ''
+        ].join('');
+        const links = [
+            lore ? `<a class="link" href="${lore.hash}" data-game-leave>${count(lore.count, 'story', 'stories')} in Complete Lore &rarr;</a>` : '',
+            items ? `<button class="link" data-game-catalog="${esc(game.name)}">${count(items, 'item', 'items')} in the collection &rarr;</button>` : ''
+        ].join('');
+        const groups = DLC_GROUPS
+            .map(([type, label]) => ({ label, dlcs: game.dlcs.filter(dlc => dlc.type === type) }))
+            .filter(group => group.dlcs.length > 0)
+            .map(group => `
+                <div class="game-dlc-group">
+                    <span class="label">${group.label}</span>
+                    <ul class="game-dlc-list">${group.dlcs.map(dlcHTML).join('')}</ul>
+                </div>`).join('');
+        return `
+            <div class="modal-badges-row"><span class="badge badge-accent modal-badge">${game.remakeOf ? 'Remake' : esc(KIND_LABELS[game.kind] || '')}</span></div>
+            <h2 class="modal-title" id="gameModalTitle">${esc(game.name)}</h2>
+            <div class="modal-meta">${meta}</div>
+            <p class="modal-description">${esc(game.description)}</p>
+            ${links ? `<div class="game-modal-links">${links}</div>` : ''}
+            ${game.dlcs.length ? `
+                <h3 class="section-head game-modal-dlcs"><span>DLCs</span><span class="section-head-count">${game.dlcs.length}</span></h3>
+                ${groups}` : ''}`;
+    }
+
+    function fill(game) {
+        const esc = A.escapeHTML;
+        dialogGame = game;
+        coverEl.innerHTML = game.image
+            ? `<img src="${esc(game.image)}" alt="${esc(game.name)} cover">`
+            : `<span class="game-modal-nocover game-nocover">${A.GAME_ICON}</span>`;
+        detailsEl.innerHTML = detailsHTML(game);
+        // Desktop scrolls the details pane, phones the whole dialog
+        frame.scrollTop = 0;
+        detailsEl.scrollTop = 0;
+    }
+
+    // Bring a DLC's row into view and highlight it (the dialog must be open)
+    function flashDlc(name) {
+        const row = name && detailsEl.querySelector(`[data-dlc="${CSS.escape(name)}"]`);
+        if (!row) return;
+        row.scrollIntoView({ behavior: A.scrollBehavior(), block: 'center' });
+        row.classList.remove('flash');
+        void row.offsetWidth;   // restart the highlight animation
+        row.classList.add('flash');
+    }
+
+    // fromHash: the address already names the game (a pasted link, back).
+    // overView: opened over another view, which stays as it is underneath.
+    // dlc: a DLC to highlight. opener: what to give focus back to.
+    function openGameDialog(game, { fromHash = false, overView = false, dlc = null, opener: from = null } = {}) {
+        if (!game) return;
+        // Already open (the address changed to another game): refill in place
+        if (isGameDialogOpen()) {
+            fill(game);
+            closeBtn.focus();
+            flashDlc(dlc);
+            return;
+        }
+        dialogOverView = overView;
+        const candidate = from || document.activeElement;
+        opener = isShown(candidate) ? candidate : null;
+        openerSelector = opener ? selectorFor(opener) : '';
+        if (overView) A.pushGameDialogState();
+        else if (!fromHash) A.setGamesHash(A.gameUrlSlug(game));
+        fill(game);
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+        releaseTrap = A.trapFocus(frame);
+        flashDlc(dlc);
+    }
+
+    // silent: the address has already moved on (back, a route change or a
+    // link out of the dialog), so history isn't touched and focus is only
+    // returned if the opener is still on screen.
+    function closeGameDialog({ silent = false } = {}) {
+        if (!isGameDialogOpen()) return;
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        if (releaseTrap) releaseTrap();
+        releaseTrap = null;
+        if (!silent) {
+            if (dialogOverView) A.popGameDialogState();
+            else if (isVisible()) A.setGamesHash(null);
+        }
+        A.clearGameDialogState();
+        const back = isShown(opener) ? opener
+            : (openerSelector ? document.querySelector(openerSelector) : null);
+        if (isShown(back)) {
+            back.focus();
+        } else if (!silent && isVisible()) {
+            const title = view.querySelector('.page-title');
+            title.tabIndex = -1;
+            title.focus();
+        }
+        dialogGame = null;
+        dialogOverView = false;
+        opener = null;
+        openerSelector = '';
+    }
+
+    // "Remake of": show the original in the same dialog
+    function switchGame(game) {
+        if (!game) return;
+        fill(game);
+        closeBtn.focus();   // the button that had focus was just replaced
+        if (!dialogOverView && isVisible()) history.replaceState(null, '', '#games/' + A.gameUrlSlug(game));
+    }
+
+    // A link out of the dialog: over a view, the duplicate history entry
+    // becomes the destination (no stale entry for back to land on);
+    // otherwise the destination is pushed. Then route there.
+    function leaveDialogTo(address, route) {
+        if (dialogOverView && A.isGameDialogPushed()) {
+            A.clearGameDialogState();
+            history.replaceState(null, '', address);
+        } else {
+            history.pushState(null, '', address);
+        }
+        closeGameDialog({ silent: true });
+        route();
+    }
+
+    function plainClick(e) {
+        return e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
+    }
+
+    closeBtn.addEventListener('click', () => closeGameDialog());
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeGameDialog();
+    });
+
+    if (A.canWebShare) {
+        shareBtn.title = 'Share this game';
+        shareBtn.setAttribute('aria-label', 'Share this game');
+    }
+    shareBtn.addEventListener('click', () => {
+        if (!dialogGame) return;
+        A.shareLink({ title: dialogGame.name, text: dialogGame.description, url: SITE_URL + '#games/' + A.gameUrlSlug(dialogGame) });
+    });
+
+    detailsEl.addEventListener('click', (e) => {
+        const switchBtn = e.target.closest('[data-game-switch]');
+        if (switchBtn) {
+            switchGame(A.findGameBySlug(switchBtn.dataset.gameSwitch));
+            return;
+        }
+        const leave = e.target.closest('[data-game-leave]');
+        if (leave && plainClick(e)) {
+            e.preventDefault();
+            // Already showing that game's stories underneath: just close
+            if (dialogOverView && leave.hash === window.location.hash) closeGameDialog();
+            else leaveDialogTo(leave.getAttribute('href'), A.handleHash);
+            return;
+        }
+        const catalog = e.target.closest('[data-game-catalog]');
+        if (catalog) {
+            const name = catalog.dataset.gameCatalog;
+            leaveDialogTo(window.location.pathname + window.location.search, () => {
+                A.showMainContent();
+                A.applyExclusiveFilter('game', name);
+            });
+        }
+    });
+
     // ---- View ----
     // `slug` opens that game; an already visible view keeps its scroll
     // (back from a game, or another game's address).
@@ -312,7 +557,13 @@
         restoreChipRow(chipScroll);
         if (!wasVisible) window.scrollTo(0, 0);
         const game = slug ? A.findGameBySlug(slug) : null;
-        if (game && A.openGameDialog) A.openGameDialog(game, { fromHash: true });
+        if (game) {
+            openGameDialog(game, { fromHash: true });
+        } else if (slug) {
+            // An unknown game: show the list
+            closeGameDialog({ silent: true });
+            history.replaceState(null, '', '#games');
+        }
     }
 
     // The collection changed (item counts on the cards)
@@ -329,6 +580,15 @@
     });
 
     content.addEventListener('click', (e) => {
+        // A card or DLC row opens the game's dialog; a modified click still
+        // opens the address in a new tab
+        const card = e.target.closest('a[data-game-slug]');
+        if (card) {
+            if (!plainClick(e)) return;
+            e.preventDefault();
+            openGameDialog(A.findGameBySlug(card.dataset.gameSlug), { opener: card, dlc: card.dataset.dlc || null });
+            return;
+        }
         const modeBtn = e.target.closest('[data-games-mode]');
         if (modeBtn) {
             setMode(modeBtn.dataset.gamesMode);
@@ -366,6 +626,8 @@
     // Expose on namespace
     A.showGames = showGames;
     A.refreshGamesView = refreshGamesView;
-    A.gameKindLine = kindLine;
+    A.openGameDialog = openGameDialog;
+    A.closeGameDialog = closeGameDialog;
+    A.isGameDialogOpen = isGameDialogOpen;
 
 })();
