@@ -160,6 +160,95 @@
         return READABLE_TYPES.has(item.type);
     }
 
+    // ---- Dates and eras (reading orders and games) ----
+    // Shows only what's known: "26 Nov 2009", "Nov 2009" or "2009".
+    function formatReleased(entry) {
+        if (entry.releasedPrecision === 'year') return entry.released.slice(0, 4);
+        const parts = entry.releasedPrecision === 'month'
+            ? { month: 'short', year: 'numeric' }
+            : { day: 'numeric', month: 'short', year: 'numeric' };
+        return new Date(entry.released + 'T00:00:00Z').toLocaleDateString('en-GB', { ...parts, timeZone: 'UTC' });
+    }
+
+    // The era heading for a story's start year (READING_ERAS in js/reading-orders.js)
+    function eraOf(year) {
+        const era = READING_ERAS.find(e => e.until === null || year < e.until);
+        return era ? era.name : '';
+    }
+
+    // "431 BCE" or "1191"
+    function yearLabel(year) {
+        return year < 0 ? `${-year} BCE` : String(year);
+    }
+
+    // ---- Games (js/games.js) ----
+    // The controller icon shown for a game or DLC without a cover
+    const GAME_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.5 7h9a5 5 0 0 1 4.9 6l-.8 3.6a2.4 2.4 0 0 1-4.1 1.1L14.4 16H9.6l-2.1 1.7a2.4 2.4 0 0 1-4.1-1.1L2.6 13A5 5 0 0 1 7.5 7Zm-.5 3v1.5H5.5V13H7v1.5h1.5V13H10v-1.5H8.5V10H7Zm8.75 1.25a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm2-2a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg>';
+
+    // A game's address on the Games tab: #games/<slug>, e.g. "assassins-creed-ii"
+    function gameUrlSlug(game) {
+        return slugify(game.name);
+    }
+
+    function findGameBySlug(slug) {
+        return GAMES.find(game => gameUrlSlug(game) === slug) || null;
+    }
+
+    // ---- Dialogs ----
+    // Keeps Tab and Shift+Tab inside an open dialog. The dialog frame itself
+    // (tabindex="-1") isn't in the cycle, so focus on it, or anywhere
+    // outside the list, wraps to the first or last control. Returns a
+    // function that releases the trap.
+    const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    function trapFocus(container) {
+        function onKeydown(e) {
+            if (e.key !== 'Tab') return;
+            const controls = [...container.querySelectorAll(FOCUSABLE)]
+                .filter(el => el.getClientRects().length > 0);
+            if (controls.length === 0) {
+                e.preventDefault();
+                container.focus();
+                return;
+            }
+            const first = controls[0];
+            const last = controls[controls.length - 1];
+            const at = controls.indexOf(document.activeElement);
+            if (at === -1) {
+                e.preventDefault();
+                (e.shiftKey ? last : first).focus();
+            } else if (e.shiftKey && at === 0) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && at === controls.length - 1) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+        document.addEventListener('keydown', onKeydown);
+        return () => document.removeEventListener('keydown', onKeydown);
+    }
+
+    // ---- Share links ----
+    // Touch devices with the Web Share API get the native share sheet;
+    // everywhere else the link is copied to the clipboard.
+    const canWebShare = typeof navigator.share === 'function'
+        && window.matchMedia('(pointer: coarse)').matches;
+
+    function shareLink({ title, text, url }) {
+        const copyLink = () => navigator.clipboard.writeText(url).then(() => showToast('Link copied!', 'success'));
+        if (canWebShare) {
+            navigator.share({ title, text, url })
+                .catch(err => {
+                    // AbortError = the sheet was dismissed; anything else
+                    // (unsupported target, permission) falls back to copy.
+                    if (!err || err.name !== 'AbortError') copyLink();
+                });
+        } else {
+            copyLink();
+        }
+    }
+
     // Expose on namespace
     A.escapeHTML = escapeHTML;
     A.debounce = debounce;
@@ -173,5 +262,14 @@
     A.readUrl = readUrl;
     A.readPathFromUrl = readPathFromUrl;
     A.isReadable = isReadable;
+    A.formatReleased = formatReleased;
+    A.eraOf = eraOf;
+    A.yearLabel = yearLabel;
+    A.GAME_ICON = GAME_ICON;
+    A.gameUrlSlug = gameUrlSlug;
+    A.findGameBySlug = findGameBySlug;
+    A.trapFocus = trapFocus;
+    A.canWebShare = canWebShare;
+    A.shareLink = shareLink;
 
 })();

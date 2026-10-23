@@ -1263,11 +1263,9 @@ window.ACDB = window.ACDB || {};
         // tools/build-share-pages.py) so pasted links unfurl with item-specific
         // Open Graph tags; the page itself redirects into the app at /#<slug>.
         // On touch devices with the Web Share API the button opens the native
-        // share sheet; everywhere else it copies the link to the clipboard.
+        // share sheet; everywhere else it copies the link (ACDB.shareLink).
         const shareBtn = document.getElementById('modalCopyLink');
-        const canWebShare = typeof navigator.share === 'function'
-            && window.matchMedia('(pointer: coarse)').matches;
-        if (canWebShare) {
+        if (ACDB.canWebShare) {
             shareBtn.title = 'Share this item';
             shareBtn.setAttribute('aria-label', 'Share this item');
         }
@@ -1275,17 +1273,7 @@ window.ACDB = window.ACDB || {};
             const item = AC_DATABASE.find(i => i.id === ACDB.getCurrentItemId());
             if (!item) return;
             const url = 'https://acdb.theprivategeek.com/s/' + slugify(item.name);
-            const copyLink = () => navigator.clipboard.writeText(url).then(() => showToast('Link copied!', 'success'));
-            if (canWebShare) {
-                navigator.share({ title: item.name, text: item.description, url })
-                    .catch(err => {
-                        // AbortError = user dismissed the sheet; anything else
-                        // (unsupported target, permission) falls back to copy.
-                        if (!err || err.name !== 'AbortError') copyLink();
-                    });
-            } else {
-                copyLink();
-            }
+            ACDB.shareLink({ title: item.name, text: item.description, url });
         });
 
         document.addEventListener('keydown', (e) => {

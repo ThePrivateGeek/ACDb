@@ -187,7 +187,7 @@ A round 36 px button with one 18 px icon, used for close, share, previous/next a
 
 - Tabs are links with real `href`s (hash routes), so Back works. The header nav is the larger version of the same idea (`.main-nav-link`, with `aria-current="page"` set by `setActiveNav()`).
 - Segments and chips are buttons. Keep `.active` **and** `aria-pressed` in step whenever the state changes.
-- On phones, a chip row scrolls sideways inside itself (like the game timeline); the page doesn't.
+- Put a row of chips in a **chip row**, `<div class="chip-row" role="group" aria-label="…">`. It wraps on wide screens; on phones it becomes one row that scrolls sideways inside itself (like the game timeline), and the page doesn't. A view that re-renders the row keeps its sideways scroll and brings the active chip into view (`restoreChipRow` in `js/reading.js`).
 - Multi-select filters use the existing `.multi-select` dropdown in the toolbar. Don't build a second dropdown.
 
 ### Status and progress
@@ -287,6 +287,15 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
 - Every input has a `<label for>`; a placeholder doesn't count as a label.
 - Live validation messages (such as name availability) go in a `.form-hint` with a reserved `min-height`, so the dialog doesn't jump.
 - Date inputs stay native: the browser shows them in the visitor's locale order.
+- **Search box** (`.search-box`, the collection search and any list's search): a field with a search icon and a clear button that shows while there is text. The input gets `.is-set` while it has text, like any filter with a value (section 7). Size and place it with the view's own class (`.search-container` in the collection toolbar).
+  ```html
+  <div class="search-box">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <label class="sr-only" for="fooSearch">Search …</label>
+    <input type="search" id="fooSearch" placeholder="Search …" autocomplete="off">
+    <button class="icon-btn icon-btn-sm icon-btn-bare clear-search" aria-label="Clear search">…</button>
+  </div>
+  ```
 
 ### Toasts and the celebration
 
@@ -313,7 +322,7 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
 
 - **Loading, empty and error in a list:** one plain line of `--text-2` text, centred and spanning the whole list (`.leaderboard-loading` is the model): "Loading leaderboard...", "No collectors yet. Be the first!", "Error loading leaderboard". No spinners or skeletons. In a `<ol>` or `<ul>`, the message is an `<li>`.
 - **Counts:** "12 / 674" or "3/9" in JetBrains Mono; "61%" as a whole number (`Math.round`).
-- **Dates:** always `ACDB.formatDate(value)`, giving **"9 Oct 2026"**. Never `toLocaleDateString()` with no arguments, and never US order.
+- **Dates:** always `ACDB.formatDate(value)`, giving **"9 Oct 2026"**. Never `toLocaleDateString()` with no arguments, and never US order. A release date that may be known only to the month or year (reading orders, games) uses `ACDB.formatReleased(entry)`, which reads `releasedPrecision` and shows "26 Nov 2009", "Nov 2009" or "2009".
 - **Up next:** a reading order or series page with progress shows a `btn btn-sm btn-secondary` "Up next: <title>" button that jumps to the next unread book and flashes its row (`.flash`).
 - **Previous / next:** a series page ends with links to the previous and next series, using the series names.
 - **Item names in a list** open the item modal over the current view (`ACDB.openModalOverView`), so closing it returns the visitor where they were.

@@ -526,6 +526,91 @@ textarea:focus-visible {
     color: var(--gold);
 }
 
+/* Chip row: chips wrap on wide screens; on phones they become one row that
+   scrolls sideways inside itself (never the page), like the game timeline */
+.chip-row {
+    position: relative;   /* chips' offsetLeft is measured from the row */
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s2);
+}
+
+/* Thin bar in the site's scrollbar style (a standard scrollbar-width
+   would switch Chrome back to its default light scrollbar) */
+.chip-row::-webkit-scrollbar {
+    height: 6px;
+}
+
+@media (max-width: 768px) {
+    .chip-row {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 0.35rem;
+    }
+}
+
+/* Search box: a field with a search icon and a clear button. It gets
+   .is-set while it has text, like any filter with a value */
+.search-box {
+    position: relative;
+}
+
+.search-box .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--text-3);
+    pointer-events: none;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.6rem 2.5rem 0.6rem 2.5rem;
+    background: var(--surface-page);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    transition: var(--transition);
+    appearance: none;
+}
+
+/* type="search" draws its own clear button; the box has one already */
+.search-box input::-webkit-search-cancel-button {
+    display: none;
+}
+
+/* Kept before :focus so focus still wins */
+.search-box input.is-set {
+    border-color: var(--gold-deep);
+    background-color: var(--surface-set);
+}
+
+.search-box input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px var(--gold-tint);
+}
+
+.search-box input::placeholder {
+    color: var(--text-3);
+}
+
+.search-box .clear-search {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.search-box .clear-search.visible {
+    display: inline-flex;
+}
+
 /* ============================================
    Components: status and progress
    ============================================ */
@@ -967,61 +1052,10 @@ textarea:focus-visible {
     flex-wrap: wrap;
 }
 
+/* The collection's search: a .search-box (Components) that fills the row */
 .search-container {
-    position: relative;
     flex: 1;
     min-width: 250px;
-}
-
-.search-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    color: var(--text-3);
-    pointer-events: none;
-}
-
-#searchInput {
-    width: 100%;
-    padding: 0.6rem 2.5rem 0.6rem 2.5rem;
-    background: var(--surface-page);
-    border: 1px solid var(--line);
-    border-radius: var(--r-md);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: var(--fs-md);
-    transition: var(--transition);
-}
-
-/* A filter with a value gets a gold edge and tint, so changed filters stand
-   out at a glance. Kept before each :focus rule so focus still wins. */
-#searchInput.is-set {
-    border-color: var(--gold-deep);
-    background-color: var(--surface-set);
-}
-
-#searchInput:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px var(--gold-tint);
-}
-
-#searchInput::placeholder {
-    color: var(--text-3);
-}
-
-.clear-search {
-    position: absolute;
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: none;
-}
-
-.clear-search.visible {
-    display: inline-flex;
 }
 
 .filter-group {
@@ -2858,20 +2892,9 @@ textarea:focus-visible {
     margin-bottom: var(--s5);
 }
 
-/* Game filter: chips wrap on wide screens; on phones they become one
-   sideways-scrolling row, like the game timeline (see the media query) */
+/* Game filter: a .chip-row (Components) */
 .reading-games {
-    position: relative;   /* chips' offsetLeft is measured from the row */
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--s2);
     margin-bottom: var(--s4);
-}
-
-/* Thin bar in the site's scrollbar style (a standard scrollbar-width
-   would switch Chrome back to its default light scrollbar) */
-.reading-games::-webkit-scrollbar {
-    height: 6px;
 }
 
 .reading-game {
@@ -3497,12 +3520,6 @@ a.reading-title {
 
     .reading-progress {
         flex: 1 1 100%;
-    }
-
-    .reading-games {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: 0.35rem;
     }
 
     .timeline-inner {

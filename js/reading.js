@@ -101,20 +101,6 @@
         return /^(Vol\.|\()/.test(short) ? item.name : short;
     }
 
-    function eraOf(year) {
-        const era = READING_ERAS.find(e => e.until === null || year < e.until);
-        return era ? era.name : '';
-    }
-
-    // Shows only what's known: "26 Nov 2009", "Nov 2009" or "2009".
-    function formatReleased(entry) {
-        if (entry.releasedPrecision === 'year') return entry.released.slice(0, 4);
-        const parts = entry.releasedPrecision === 'month'
-            ? { month: 'short', year: 'numeric' }
-            : { day: 'numeric', month: 'short', year: 'numeric' };
-        return new Date(entry.released + 'T00:00:00Z').toLocaleDateString('en-GB', { ...parts, timeZone: 'UTC' });
-    }
-
     // ---- Game filter ----
     // "General" items aren't tied to one game: they're the original stories.
     function gameLabel(game) {
@@ -145,7 +131,10 @@
     // as its original, so only the original gets a place in the lore.
     // Story DLCs with "marker" are set in another period than their game and
     // get a place of their own; the rest are read as part of their game.
-    const GAME_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.5 7h9a5 5 0 0 1 4.9 6l-.8 3.6a2.4 2.4 0 0 1-4.1 1.1L14.4 16H9.6l-2.1 1.7a2.4 2.4 0 0 1-4.1-1.1L2.6 13A5 5 0 0 1 7.5 7Zm-.5 3v1.5H5.5V13H7v1.5h1.5V13H10v-1.5H8.5V10H7Zm8.75 1.25a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm2-2a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg>';
+    // Only the story games are placed: mobile, browser and VR games stay on
+    // the Games tab, and a game needs a start year to have a place at all
+    // (without one it would sort unpredictably and land under the last era).
+    const LORE_KINDS = new Set(['main', 'spin-off', 'handheld']);
 
     function gameCardSlug(name) {
         return A.slugify(name.replace(/^Assassin's Creed(:| -)?\s*/, '') || name);
@@ -155,7 +144,7 @@
     function loreGames() {
         const rows = [];
         GAMES.forEach(game => {
-            if (game.remakeOf) return;
+            if (game.remakeOf || !LORE_KINDS.has(game.kind) || game.year == null) return;
             rows.push({ ...game, game: game.name, dlc: false });
             (game.dlcs || []).forEach(dlc => {
                 if (dlc.marker) rows.push({ ...dlc, game: game.name, dlc: true });
@@ -183,6 +172,14 @@
 
     function itemCountForGame(name) {
         return AC_DATABASE.filter(item => item.game === name).length;
+    }
+
+    // A game's stories in Complete Lore, for links from the game dialog:
+    // { count, hash } (the order's game filter), or null when it has none.
+    function loreLinkFor(name) {
+        const lore = READING_ORDERS[0];
+        const match = gamesIn(lore).find(g => g.game === name);
+        return match ? { count: match.count, hash: `#reading/${lore.id}/${gameSlug(name)}` } : null;
     }
 
     // ---- Series ----
@@ -213,8 +210,8 @@
     function eraSpan(entries) {
         const years = entries.map(e => e.year).filter(y => y != null);
         if (years.length === 0) return '';
-        const first = eraOf(years[0]);
-        const last = eraOf(years[years.length - 1]);
+        const first = A.eraOf(years[0]);
+        const last = A.eraOf(years[years.length - 1]);
         return first === last ? first : `${first} – ${last}`;
     }
 
@@ -374,7 +371,7 @@
         const pct = Math.round((readCount / entries.length) * 100);
 
         const gameChips = order.games
-            ? `<div class="reading-games" role="group" aria-label="Read with a game">
+            ? `<div class="chip-row reading-games" role="group" aria-label="Read with a game">
                 <button class="chip reading-game${!currentGame ? ' active' : ''}" data-game="" aria-pressed="${!currentGame}">All <span class="chip-count">${order.entries.length}</span></button>
                 ${gamesIn(order).map(g => `<button class="chip reading-game${g.game === currentGame ? ' active' : ''}" data-game="${esc(g.game)}" aria-pressed="${g.game === currentGame}" title="${esc(g.game === 'General' ? 'Original stories not tied to one game' : g.game)}">${esc(gameLabel(g.game))} <span class="chip-count">${g.count}</span></button>`).join('')}
             </div>`
@@ -400,7 +397,7 @@
                         <button class="reading-title" data-open="${item.id}" title="${esc(item.name)}">${esc(shortTitle(item))}</button>
                         <div class="reading-meta">
                             <span class="reading-setting${mode === 'chronological' ? ' primary' : ''}">Set ${esc(entry.setting)}</span>
-                            <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${formatReleased(entry)}</span>
+                            <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${A.formatReleased(entry)}</span>
                             ${owned ? `<span class="reading-owned">${esc(owned)}</span>` : ''}
                         </div>
                     </div>
@@ -422,7 +419,7 @@
             // A DLC without a cover of its own (free updates) keeps the icon
             const picture = game.image
                 ? `<a class="reading-cover reading-game-cover" href="${href}" aria-label="${esc(game.name)} on the Games tab" tabindex="-1"><img src="${esc(game.image)}" alt="" loading="lazy"></a>`
-                : `<a class="reading-cover reading-game-icon" href="${href}" aria-label="${esc(game.name)} on the Games tab" tabindex="-1">${GAME_ICON}</a>`;
+                : `<a class="reading-cover reading-game-icon" href="${href}" aria-label="${esc(game.name)} on the Games tab" tabindex="-1">${A.GAME_ICON}</a>`;
             return `
                 <li class="reading-entry reading-entry-game">
                     <span class="reading-num"></span>
@@ -432,7 +429,7 @@
                         <div class="reading-meta">
                             <span class="reading-game-label">${esc(label)}</span>
                             <span class="reading-setting${mode === 'chronological' ? ' primary' : ''}">Set ${esc(game.setting)}</span>
-                            <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${formatReleased(game)}</span>
+                            <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${A.formatReleased(game)}</span>
                         </div>
                     </div>
                 </li>`;
@@ -456,7 +453,7 @@
         rows.forEach(row => {
             const at = row.entry || row.game;
             const heading = !order.eras ? ''
-                : mode === 'chronological' ? eraOf(at.year) : at.released.slice(0, 4);
+                : mode === 'chronological' ? A.eraOf(at.year) : at.released.slice(0, 4);
             let section = sections[sections.length - 1];
             if (!section || section.heading !== heading) {
                 section = { heading, start: idx + 1, rows: [], books: 0, read: 0, missing: 0 };
@@ -668,16 +665,16 @@
         const setText = (setting) => /^\d|^c\. /.test(setting) ? `Set ${setting}` : setting;
         const dlcHTML = (dlc) => `
             <li class="game-dlc">
-                <span class="game-dlc-cover">${dlc.image ? `<img src="${esc(dlc.image)}" alt="" loading="lazy">` : GAME_ICON}</span>
+                <span class="game-dlc-cover">${dlc.image ? `<img src="${esc(dlc.image)}" alt="" loading="lazy">` : A.GAME_ICON}</span>
                 <span class="game-dlc-body">
                 <span class="game-dlc-name">${esc(dlc.name)}</span>
                 <span class="reading-meta">
                     <span class="reading-setting${mode === 'chronological' ? ' primary' : ''}">${esc(setText(dlc.setting))}</span>
-                    <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${formatReleased(dlc)}</span>
+                    <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${A.formatReleased(dlc)}</span>
                     ${dlc.note ? `<span>${esc(dlc.note)}</span>` : ''}
                     ${dlc.marker ? `<span class="reading-game-label">Own place in the lore</span>` : ''}
                 </span>
-                ${dlc.episodes ? `<span class="game-dlc-episodes">${dlc.episodes.map(ep => `<span class="game-dlc-episode">${esc(ep.name)} <span class="game-dlc-date">${formatReleased(ep)}</span></span>`).join(' · ')}</span>` : ''}
+                ${dlc.episodes ? `<span class="game-dlc-episodes">${dlc.episodes.map(ep => `<span class="game-dlc-episode">${esc(ep.name)} <span class="game-dlc-date">${A.formatReleased(ep)}</span></span>`).join(' · ')}</span>` : ''}
                 </span>
             </li>`;
 
@@ -695,12 +692,12 @@
                     <div class="game-card-head">
                         ${game.image
                             ? `<span class="game-card-cover"><img src="${esc(game.image)}" alt="" loading="lazy"></span>`
-                            : `<span class="reading-game-icon">${GAME_ICON}</span>`}
+                            : `<span class="reading-game-icon">${A.GAME_ICON}</span>`}
                         <div class="reading-info">
                             <h4 class="game-card-title">${esc(game.name)}</h4>
                             <div class="reading-meta">
                                 <span class="reading-setting${mode === 'chronological' ? ' primary' : ''}">Set ${esc(game.setting)}</span>
-                                <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${formatReleased(game)}</span>
+                                <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${A.formatReleased(game)}</span>
                             </div>
                             ${remake ? `<p class="game-card-note">Remake of <a class="link" href="#reading/${GAMES_TAB.id}/${gameCardSlug(remake.name)}">${esc(remake.name)}</a></p>` : ''}
                         </div>
@@ -717,7 +714,7 @@
         // Story order gets era headings, like Complete Lore
         const sections = [];
         games.forEach(game => {
-            const heading = mode === 'chronological' ? eraOf(game.year) : '';
+            const heading = mode === 'chronological' ? A.eraOf(game.year) : '';
             let section = sections[sections.length - 1];
             if (!section || section.heading !== heading) {
                 section = { heading, cards: [] };
@@ -887,5 +884,6 @@
     A.showReadingOrder = showReadingOrder;
     A.refreshReadingView = refreshReadingView;
     A.fillModalReadingOrder = fillModalReadingOrder;
+    A.loreLinkFor = loreLinkFor;
 
 })();
