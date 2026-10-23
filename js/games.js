@@ -125,9 +125,50 @@
      the 2009 Twitter Assassination Experience (a promotion, one source),
      the Pirates web race (a demo of a mobile game; batch 2b) and Lost Legacy
      (cancelled).
+
+   Mobile games: two more independent researchers (the Assassin's Creed
+   Wiki, Wikipedia, Ubisoft news, the App Store, Pocket Gamer, TouchArcade,
+   Engadget, appgefahren, the press), verified 2026-10-23. They found the
+   same 14 games; these points were settled as follows:
+   - Gameloft's Java phone games share their console games' names but are
+     different games (side-scrollers that retell and change the stories), so
+     they're their own entries, named "(mobile)" like the wiki's pages. Their
+     release days come from the wiki only, so just the year is shown; AC's
+     came out between 22 Oct and 5 Nov 2007 (Pocket Gamer). Their settings
+     are the wiki's (AC II and Brotherhood both "1486"); Revelations' isn't
+     given, so it takes the console game's.
+   - Multiplayer Rearmed: in Canada on 21 Oct 2011, worldwide about a week
+     later; the month is shown. Its logo reads "Multiplayer Rearmed".
+   - Recollection: 1 Dec 2011 (appgefahren, Pocket Gamer's review); the
+     wiki's 13 Dec is later than both.
+   - Pirates: its Windows 8 store app is the PC version; the 2014 web race
+     was only a demo. The free "Quest for Eden" update (2015) has a single
+     source, so it isn't listed.
+   - Arno's Chronicles: only the wiki names a studio (Playwing), so the
+     developer is Ubisoft; it follows Unity's story, hence 1789.
+   - Rebellion: Behaviour Interactive developed it (launch release, Ubisoft
+     news); the campaigns' dates and settings are Ubisoft's posts. Its
+     Helix Rift events were time-limited and aren't listed.
+   - Soft launches don't count (Memories, Identity, Rebellion). Mobile games
+     get no place in Complete Lore (the owner's call, 2026-10-23).
+   - Left out: the Black Flag and Unity companion apps (no game of their
+     own), and Jade, the Netflix game, Utopia and Singularity (not released).
 */
 
 const GAMES = [
+  {
+    "name": "Assassin's Creed (mobile)",
+    "kind": "mobile",
+    "developer": "Gameloft",
+    "platforms": ["Android", "Java ME"],
+    "image": "images/games/assassins-creed-mobile.webp",
+    "year": 1189,
+    "setting": "1189–1191",
+    "released": "2007-11-05",
+    "releasedPrecision": "year",
+    "description": "Gameloft's side-scrolling version of the first game for phones: Altaïr hunts eight Templars across the Holy Land of the Third Crusade to win back his rank, in a loose retelling of the console story.",
+    "dlcs": []
+  },
   {
     "name": "Assassin's Creed",
     "kind": "main",
@@ -150,6 +191,19 @@ const GAMES = [
     "setting": "1190",
     "released": "2008-02-05",
     "description": "A year before the first game, Altaïr Ibn-La'Ahad crosses the Holy Land of the Third Crusade to recover the Chalice, an artefact that could end the war, before the Templars find it. A side-scrolling prequel.",
+    "dlcs": []
+  },
+  {
+    "name": "Assassin's Creed II (mobile)",
+    "kind": "mobile",
+    "developer": "Gameloft",
+    "platforms": ["Android", "Java ME"],
+    "image": "images/games/assassins-creed-ii-mobile.webp",
+    "year": 1486,
+    "setting": "1486",
+    "released": "2009-10-20",
+    "releasedPrecision": "year",
+    "description": "Ezio Auditore avenges his family across Florence, Venice and Forlì, guided by Leonardo da Vinci. A side-scroller for phones that retells Assassin's Creed II loosely, all in one year.",
     "dlcs": []
   },
   {
@@ -193,6 +247,17 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "name": "Assassin's Creed II Multiplayer",
+    "kind": "mobile",
+    "developer": "Ubisoft",
+    "platforms": ["iOS"],
+    "image": "images/games/assassins-creed-ii-multiplayer.webp",
+    "setting": "Renaissance Italy",
+    "released": "2010-03-01",
+    "description": "An online game for iPhone: up to four players each hunt an assigned target in the crowd while being hunted themselves, on maps from Assassin's Creed II. It has no story.",
+    "dlcs": []
+  },
+  {
     "name": "Assassin's Creed: Project Legacy",
     "kind": "browser",
     "developer": "Ubisoft",
@@ -201,6 +266,19 @@ const GAMES = [
     "setting": "Several eras",
     "released": "2010-09-30",
     "description": "An Abstergo recruit relives the memories of Assassins and Templars, mostly in Renaissance Italy. A text-based Facebook game that shared unlocks with Brotherhood; Facebook removed it in 2013.",
+    "dlcs": []
+  },
+  {
+    "name": "Assassin's Creed: Brotherhood (mobile)",
+    "kind": "mobile",
+    "developer": "Gameloft",
+    "platforms": ["Android", "Java ME"],
+    "image": "images/games/assassins-creed-brotherhood-mobile.webp",
+    "year": 1486,
+    "setting": "1486",
+    "released": "2010-10-21",
+    "releasedPrecision": "year",
+    "description": "After Cesare Borgia steals the Apple of Eden, Ezio works with Rome's thieves to hunt down the Borgia's allies. A side-scroller for phones that retells Brotherhood loosely.",
     "dlcs": []
   },
   {
@@ -220,6 +298,31 @@ const GAMES = [
     ]
   },
   {
+    "name": "Assassin's Creed: Multiplayer Rearmed",
+    "kind": "mobile",
+    "developer": "Ubisoft",
+    "platforms": ["iOS"],
+    "image": "images/games/assassins-creed-multiplayer-rearmed.webp",
+    "setting": "Several eras",
+    "released": "2011-10-21",
+    "releasedPrecision": "month",
+    "description": "A free follow-up to Assassin's Creed II Multiplayer for iPhone and iPad: up to four players blend into crowds and hunt each other, as characters from Brotherhood's and Revelations' multiplayer.",
+    "dlcs": []
+  },
+  {
+    "name": "Assassin's Creed: Revelations (mobile)",
+    "kind": "mobile",
+    "developer": "Gameloft",
+    "platforms": ["Android", "Java ME"],
+    "image": "images/games/assassins-creed-revelations-mobile.webp",
+    "year": 1511,
+    "setting": "c. 1511",
+    "released": "2011-11-08",
+    "releasedPrecision": "year",
+    "description": "An older Ezio searches Constantinople for the keys to Altaïr's library, with levels set in Altaïr's time, and sends freed Assassins on missions of their own. A side-scroller for phones.",
+    "dlcs": []
+  },
+  {
     "name": "Assassin's Creed Revelations",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -233,6 +336,17 @@ const GAMES = [
     "dlcs": [
       { "name": "The Lost Archive", "type": "story", "image": "images/games/dlc/the-lost-archive.webp", "setting": "Subject 16's memories", "released": "2012-02-28" }
     ]
+  },
+  {
+    "name": "Assassin's Creed Recollection",
+    "kind": "mobile",
+    "developer": "Ubisoft Montreal",
+    "platforms": ["iOS"],
+    "image": "images/games/assassins-creed-recollection.webp",
+    "setting": "Ezio's era",
+    "released": "2011-12-01",
+    "description": "A real-time strategy card game for iPad, later iPhone: Assassins and Templars fight for control of regions with cards of the characters and places of the Ezio games, in a 20-mission campaign and online.",
+    "dlcs": []
   },
   {
     "name": "Assassin's Creed III",
@@ -276,6 +390,19 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "name": "Assassin's Creed III (mobile)",
+    "kind": "mobile",
+    "developer": "Gameloft",
+    "platforms": ["Android", "Java ME"],
+    "image": "images/games/assassins-creed-iii-mobile.webp",
+    "year": 1770,
+    "setting": "1770–1776",
+    "released": "2012-11-16",
+    "releasedPrecision": "year",
+    "description": "Connor fights the British and the Templars across the frontier, Boston and New York during the American Revolution, with naval battles aboard the Aquila. A side-scroller for phones that retells Assassin's Creed III loosely.",
+    "dlcs": []
+  },
+  {
     "name": "Assassin's Creed IV: Black Flag",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -290,6 +417,29 @@ const GAMES = [
       { "name": "Aveline", "type": "story", "image": "images/games/dlc/aveline.webp", "year": 1784, "setting": "1784", "released": "2013-10-29", "marker": true, "note": "PlayStation exclusive at launch" },
       { "name": "Freedom Cry", "type": "expansion", "image": "images/games/dlc/freedom-cry.webp", "year": 1735, "setting": "1735–1737", "released": "2013-12-17", "marker": true }
     ]
+  },
+  {
+    "name": "Assassin's Creed Pirates",
+    "kind": "mobile",
+    "developer": "Ubisoft Paris",
+    "platforms": ["PC", "iOS", "Android", "Windows Phone"],
+    "image": "images/games/assassins-creed-pirates.webp",
+    "year": 1716,
+    "setting": "1716–1718",
+    "released": "2013-12-05",
+    "description": "Captain Alonzo Batilla, a pirate who is neither Assassin nor Templar, sails the Caribbean in search of La Buse's lost treasure, in real-time ship battles. It left the stores in 2017.",
+    "dlcs": []
+  },
+  {
+    "name": "Assassin's Creed Memories",
+    "kind": "mobile",
+    "developer": "GREE and PlayNext",
+    "platforms": ["iOS"],
+    "image": "images/games/assassins-creed-memories.webp",
+    "setting": "Several eras",
+    "released": "2014-08-21",
+    "description": "A card-battle game for iOS: players collect Assassins and allies from six eras of history, hunt targets and fight in guilds of up to 20. It shut down in 2015.",
+    "dlcs": []
   },
   {
     "name": "Assassin's Creed Rogue",
@@ -378,6 +528,33 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "name": "Assassin's Creed Identity",
+    "kind": "mobile",
+    "developer": "Ubisoft Blue Byte",
+    "platforms": ["iOS", "Android"],
+    "image": "images/games/assassins-creed-identity.webp",
+    "year": 1501,
+    "setting": "1501",
+    "released": "2016-02-25",
+    "description": "An Assassin of the player's making joins Machiavelli's Brotherhood in Renaissance Italy and hunts the Crows, a gang that copies Assassin skills. An action RPG for phones; it shut down in 2021.",
+    "dlcs": [
+      { "name": "Forlì – A Crimson Sunset", "type": "story", "setting": "The story's second act", "released": "2016-05-18" }
+    ]
+  },
+  {
+    "name": "Assassin's Creed Unity: Arno's Chronicles",
+    "kind": "mobile",
+    "developer": "Ubisoft",
+    "platforms": ["Android"],
+    "image": "images/games/assassins-creed-unity-arnos-chronicles.webp",
+    "year": 1789,
+    "setting": "French Revolution",
+    "released": "2017-06-27",
+    "releasedPrecision": "month",
+    "description": "Arno Dorian runs, climbs and fights through 20 side-scrolling levels of revolutionary Paris, loosely following Unity's story. It only came preinstalled on some Honor phones.",
+    "dlcs": []
+  },
+  {
     "name": "Assassin's Creed Origins",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -391,6 +568,17 @@ const GAMES = [
       { "name": "The Hidden Ones", "type": "expansion", "image": "images/games/dlc/the-hidden-ones.webp", "year": -38, "setting": "38 BCE", "released": "2018-01-23", "marker": true },
       { "name": "The Curse of the Pharaohs", "type": "expansion", "image": "images/games/dlc/the-curse-of-the-pharaohs.webp", "year": -38, "setting": "38 BCE", "released": "2018-03-13", "marker": true }
     ]
+  },
+  {
+    "name": "The Tower Assassin's Creed",
+    "kind": "mobile",
+    "developer": "Ketchapp",
+    "platforms": ["iOS", "Android"],
+    "image": "images/games/the-tower-assassins-creed.webp",
+    "setting": "Several eras",
+    "released": "2017-11-01",
+    "description": "A one-touch stacking game for the series' tenth anniversary: build the tallest tower floor by floor, then send an Assassin on a Leap of Faith from the top. Nine Assassins in five settings to unlock.",
+    "dlcs": []
   },
   {
     "name": "Assassin's Creed Odyssey",
@@ -425,6 +613,22 @@ const GAMES = [
         ]
       },
       { "name": "Crossover Stories: Those Who Are Treasured", "type": "story", "image": "images/games/dlc/crossover-stories.webp", "year": -421, "setting": "421 BCE", "released": "2021-12-14", "marker": true, "note": "Free update" }
+    ]
+  },
+  {
+    "name": "Assassin's Creed Rebellion",
+    "kind": "mobile",
+    "developer": "Behaviour Interactive",
+    "platforms": ["iOS", "Android"],
+    "image": "images/games/assassins-creed-rebellion.webp",
+    "year": 1489,
+    "setting": "15th-century Spain",
+    "released": "2018-11-21",
+    "description": "Aguilar de Nerha's Spanish Brotherhood builds a fortress and recruits Assassins from across the series to fight the Inquisition's Templars. A free strategy RPG; off the stores since September 2026, its servers close in January 2027.",
+    "dlcs": [
+      { "name": "Norway Campaign", "type": "story", "setting": "872", "released": "2021-03-10", "note": "Free update" },
+      { "name": "Caribbean Campaign", "type": "story", "setting": "Golden Age of Piracy", "released": "2021-06-22", "note": "Free update" },
+      { "name": "Naples Campaign", "type": "story", "setting": "1499", "released": "2021-09-21", "note": "Free update" }
     ]
   },
   {
