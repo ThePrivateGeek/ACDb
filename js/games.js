@@ -32,10 +32,11 @@
                order: PLATFORMS in tools/validate-catalog.py.
      image     the cover, images/games/<slug of name>.webp (300px wide
                at most; from Wikipedia, the Chronicles covers from the
-               Assassin's Creed Wiki). Art that isn't 3:4 (DS and PSP boxes,
-               the browser games' banners) is shown whole on a 300x400
-               canvas over a blurred, darkened copy of itself, so the tiles
-               don't crop the title. Optional: without one the Games tab
+               Assassin's Creed Wiki, some from the site owner). Art that
+               isn't 3:4 (PSP boxes, the browser games' banners) is shown
+               whole on a 300x400 canvas over a blurred, darkened copy of
+               itself, so the tiles don't crop the title. Small originals
+               aren't scaled up (AC III (mobile) 270px, Rebellion 190px). Optional: without one the Games tab
                shows a controller icon.
      year      start year of the main historical story (negative for BCE);
                places the game in the lore. The modern-day story and
