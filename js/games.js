@@ -212,7 +212,7 @@ const GAMES = [
     "setting": "1189–1191",
     "released": "2007-11-05",
     "releasedPrecision": "year",
-    "description": "Gameloft's side-scrolling version of the first game for phones: Altaïr hunts eight Templars across the Holy Land of the Third Crusade to win back his rank, in a loose retelling of the console story.",
+    "description": "Gameloft's side-scrolling version of the first game for phones: Altaïr hunts eight Templars across the Holy Land of the Third Crusade to win back his rank, in a loose retelling of the console story. It came out shortly before the console game.",
     "dlcs": []
   },
   {
@@ -249,7 +249,7 @@ const GAMES = [
     "setting": "1486",
     "released": "2009-10-20",
     "releasedPrecision": "year",
-    "description": "Ezio Auditore avenges his family across Florence, Venice and Forlì, guided by Leonardo da Vinci. A side-scroller for phones that retells Assassin's Creed II loosely, all in one year.",
+    "description": "Ezio Auditore avenges his family across Florence, Venice and Forlì, guided by Leonardo da Vinci. A side-scroller for phones that retells Assassin's Creed II loosely, all in one year. It came out shortly before the console game.",
     "dlcs": []
   },
   {
@@ -327,7 +327,7 @@ const GAMES = [
     "setting": "1486",
     "released": "2010-10-21",
     "releasedPrecision": "year",
-    "description": "After Cesare Borgia steals the Apple of Eden, Ezio works with Rome's thieves to hunt down the Borgia's allies. A side-scroller for phones that retells Brotherhood loosely.",
+    "description": "After Cesare Borgia steals the Apple of Eden, Ezio works with Rome's thieves to hunt down the Borgia's allies. A side-scroller for phones that retells Brotherhood loosely. It came out shortly before the console game.",
     "dlcs": []
   },
   {
@@ -370,7 +370,7 @@ const GAMES = [
     "setting": "c. 1511",
     "released": "2011-11-08",
     "releasedPrecision": "year",
-    "description": "An older Ezio searches Constantinople for the keys to Altaïr's library, with levels set in Altaïr's time, and sends freed Assassins on missions of their own. A side-scroller for phones.",
+    "description": "An older Ezio searches Constantinople for the keys to Altaïr's library, with levels set in Altaïr's time, and sends freed Assassins on missions of their own. A side-scroller for phones. It came out shortly before the console game.",
     "dlcs": []
   },
   {
