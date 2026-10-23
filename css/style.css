@@ -2950,6 +2950,7 @@ textarea:focus-visible {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(520px, 100%), 1fr));
     gap: 0.5rem 1rem;
+    container-type: inline-size;   /* game rows indent only in one column */
 }
 
 .reading-entry {
@@ -3122,30 +3123,51 @@ textarea:focus-visible {
     animation: reading-flash 1.6s ease;
 }
 
-/* Games among the books: a marker row, no number or Read switch */
+/* Games among the books: a compact marker row, indented to start under the
+   book covers like the Games tab's DLC rows, with a gold kind line on top
+   and no number or Read switch. The gold stripe is a background, not a
+   box-shadow, so the flash doesn't hide it */
 .reading-entry-game {
-    background: var(--gold-tint);
-    border-style: dashed;
-    border-color: var(--gold-deep);
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: var(--s3);
+    margin-left: calc(2.5rem + var(--s4));
+    padding: var(--s2) var(--s4) var(--s2) var(--s3);
+    background: linear-gradient(var(--gold), var(--gold)) left / 3px 100% no-repeat, var(--surface-card);
+}
+
+/* Two columns (2 × 520px + the 1rem gap): the row is a cell beside a book,
+   where an indent means nothing, so it starts flush */
+@container (min-width: 1056px) {
+    .reading-entry-game {
+        margin-left: 0;
+    }
+}
+
+.reading-entry-game .game-kind {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.reading-entry-game .reading-title {
+    font-size: var(--fs-md);
+}
+
+.reading-entry-game .reading-cover {
+    width: 36px;
 }
 
 .reading-game-icon {
     display: grid;
     place-items: center;
-    width: 48px;
-    height: 48px;
+    height: 36px;
     border-radius: var(--r-md);
     background: var(--gold-tint-2);
     color: var(--gold);
 }
 
 .reading-game-icon svg {
-    width: 28px;
-    height: 28px;
-}
-
-.reading-entry-game .reading-game-icon {
-    justify-self: center;
+    width: 22px;
+    height: 22px;
 }
 
 /* Box art is wider than a book cover: keep its shape so the logo isn't cut */
@@ -3541,8 +3563,8 @@ a.reading-title {
     font-weight: 600;
 }
 
-/* A DLC with its own place in the lore: dashed like the game markers in
-   Complete Lore, indented under the rail */
+/* A DLC with its own place in the lore: a gold stripe like the game markers
+   in Complete Lore, indented under the rail */
 .games-tl-dlc {
     display: grid;
     grid-template-columns: 36px minmax(0, 1fr);
@@ -3550,8 +3572,8 @@ a.reading-title {
     gap: var(--s3);
     margin-left: var(--s5);
     padding: var(--s2) var(--s4) var(--s2) var(--s3);
-    background: var(--gold-tint);
-    border: 1px dashed var(--gold-deep);
+    background: linear-gradient(var(--gold), var(--gold)) left / 3px 100% no-repeat, var(--surface-card);
+    border: 1px solid var(--line);
     border-radius: var(--r-md);
     color: inherit;
     text-decoration: none;
@@ -3882,9 +3904,18 @@ a.reading-title {
         height: 60px;
     }
 
+    .reading-entry-game {
+        grid-template-columns: 36px minmax(0, 1fr);
+        margin-left: calc(2rem + 0.6rem);
+        padding: var(--s2) 0.75rem var(--s2) var(--s3);
+    }
+
+    .reading-entry-game .reading-cover {
+        width: 36px;
+    }
+
     .reading-entry-game .reading-game-icon {
-        width: 40px;
-        height: 40px;
+        height: 36px;
     }
 
     .reading-toggle-text {

@@ -424,12 +424,11 @@
                 : `<a class="reading-cover reading-game-icon" href="${href}" ${data} aria-label="${esc(game.name)}: open the game" tabindex="-1">${A.GAME_ICON}</a>`;
             return `
                 <li class="reading-entry reading-entry-game">
-                    <span class="reading-num"></span>
                     ${picture}
                     <div class="reading-info">
+                        <span class="game-kind">${esc(label)}</span>
                         <a class="reading-title" href="${href}" ${data}>${esc(game.name)}</a>
                         <div class="reading-meta">
-                            <span class="reading-game-label">${esc(label)}</span>
                             <span class="reading-setting${mode === 'chronological' ? ' primary' : ''}">Set ${esc(game.setting)}</span>
                             <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${A.formatReleased(game)}</span>
                         </div>
