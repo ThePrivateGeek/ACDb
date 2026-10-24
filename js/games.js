@@ -199,7 +199,8 @@
      Ancient Egypt and Ancient Greece for PC, Viking Age for PC (2021) and
      consoles (2022).
    - The Benedict Arnold Missions were on PC as well as PS3.
-   - None of these has cover art yet: they show the controller icon.
+   - Cover art for most of them came from the site owner (2026-10-24);
+     the rest show the controller icon.
 */
 
 const GAMES = [
@@ -530,7 +531,7 @@ const GAMES = [
     "released": "2014-11-11",
     "description": "In Paris during the French Revolution, Arno Dorian joins the Assassins to find the truth behind a murder that changed his life.",
     "dlcs": [
-      { "name": "The Chemical Revolution", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Edition mission, later in Secrets of the Revolution (2015)" },
+      { "name": "The Chemical Revolution", "type": "story", "image": "images/games/dlc/the-chemical-revolution.webp", "setting": "During the main story", "released": "2014-11-11", "note": "Edition mission, later in Secrets of the Revolution (2015)" },
       { "name": "The American Prisoner", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Edition mission, later in Secrets of the Revolution (2015)" },
       { "name": "Dead Kings", "type": "expansion", "image": "images/games/dlc/dead-kings.webp", "setting": "1794", "released": "2015-01-13" },
       { "name": "Killed by Science", "type": "story", "setting": "During the main story", "released": "2015-01-20", "note": "In the Secrets of the Revolution pack" }
@@ -632,10 +633,10 @@ const GAMES = [
     "released": "2017-10-27",
     "description": "In Ptolemaic Egypt, the Medjay Bayek of Siwa and his wife Aya hunt a secret order, laying the foundations of what will become the Assassin Brotherhood.",
     "dlcs": [
-      { "name": "Secrets of the First Pyramids", "type": "story", "setting": "During the main story", "released": "2017-10-27", "note": "Pre-order mission" },
+      { "name": "Secrets of the First Pyramids", "type": "story", "image": "images/games/dlc/secrets-of-the-first-pyramids.webp", "setting": "During the main story", "released": "2017-10-27", "note": "Pre-order mission" },
       { "name": "Ambush at Sea", "type": "story", "setting": "During the main story", "released": "2017-10-27", "note": "Deluxe Edition mission" },
       { "name": "The Hidden Ones", "type": "expansion", "image": "images/games/dlc/the-hidden-ones.webp", "year": -38, "setting": "38 BCE", "released": "2018-01-23", "marker": true },
-      { "name": "Discovery Tour by Assassin's Creed: Ancient Egypt", "type": "discovery-tour", "setting": "Ptolemaic Egypt", "released": "2018-02-20", "note": "Free update; also sold on its own for PC" },
+      { "name": "Discovery Tour by Assassin's Creed: Ancient Egypt", "type": "discovery-tour", "image": "images/games/dlc/discovery-tour-by-assassins-creed-ancient-egypt.webp", "setting": "Ptolemaic Egypt", "released": "2018-02-20", "note": "Free update; also sold on its own for PC" },
       { "name": "The Curse of the Pharaohs", "type": "expansion", "image": "images/games/dlc/the-curse-of-the-pharaohs.webp", "year": -38, "setting": "38 BCE", "released": "2018-03-13", "marker": true }
     ]
   },
@@ -687,8 +688,8 @@ const GAMES = [
     "released": "2018-10-05",
     "description": "During the Peloponnesian War, a Spartan mercenary, Kassandra or Alexios, sails the Greek world to uncover a cult and find a lost family. The player chooses the hero.",
     "dlcs": [
-      { "name": "The Blind King", "type": "story", "setting": "During the main story", "released": "2018-10-05", "note": "Pre-order mission" },
-      { "name": "The Secrets of Greece", "type": "story", "setting": "During the main story", "released": "2018-10-05", "note": "Season Pass mission" },
+      { "name": "The Blind King", "type": "story", "image": "images/games/dlc/the-blind-king.webp", "setting": "During the main story", "released": "2018-10-05", "note": "Pre-order mission" },
+      { "name": "The Secrets of Greece", "type": "story", "image": "images/games/dlc/the-secrets-of-greece.webp", "setting": "During the main story", "released": "2018-10-05", "note": "Season Pass mission" },
       { "name": "The Lost Tales of Greece", "type": "story", "image": "images/games/dlc/the-lost-tales-of-greece.webp", "setting": "431–422 BCE", "released": "2018-11-01", "releasedPrecision": "month", "note": "Free story quests, 2018–2019" },
       {
         "name": "Legacy of the First Blade", "type": "expansion", "image": "images/games/dlc/legacy-of-the-first-blade.webp",
@@ -711,7 +712,7 @@ const GAMES = [
         ]
       },
       { "name": "Story Creator Mode", "type": "mode", "setting": "Players' own quests in the game's Greece", "released": "2019-06-10", "note": "Free update" },
-      { "name": "Discovery Tour by Assassin's Creed: Ancient Greece", "type": "discovery-tour", "setting": "Classical Greece", "released": "2019-09-10", "note": "Free update; also sold on its own for PC" },
+      { "name": "Discovery Tour by Assassin's Creed: Ancient Greece", "type": "discovery-tour", "image": "images/games/dlc/discovery-tour-by-assassins-creed-ancient-greece.webp", "setting": "Classical Greece", "released": "2019-09-10", "note": "Free update; also sold on its own for PC" },
       { "name": "Crossover Stories: Those Who Are Treasured", "type": "story", "image": "images/games/dlc/crossover-stories.webp", "year": -421, "setting": "421 BCE", "released": "2021-12-14", "marker": true, "note": "Free update" }
     ]
   },
@@ -755,16 +756,16 @@ const GAMES = [
     "description": "Eivor leads a Viking clan from Norway to settle in England in the age of Alfred the Great, forging alliances and raiding across the Anglo-Saxon kingdoms.",
     "dlcs": [
       { "name": "The Legend of Beowulf", "type": "story", "image": "images/games/dlc/the-legend-of-beowulf.webp", "setting": "873–878", "released": "2020-11-10", "note": "Season Pass quest" },
-      { "name": "The Way of the Berserker", "type": "story", "setting": "During the main story", "released": "2020-11-10", "note": "Pre-order quest" },
+      { "name": "The Way of the Berserker", "type": "story", "image": "images/games/dlc/the-way-of-the-berserker.webp", "setting": "During the main story", "released": "2020-11-10", "note": "Pre-order quest" },
       { "name": "River Raids", "type": "mode", "setting": "During the main story", "released": "2021-02-16", "note": "Free update" },
       { "name": "Wrath of the Druids", "type": "expansion", "image": "images/games/dlc/wrath-of-the-druids.webp", "year": 879, "setting": "c. 879", "released": "2021-05-13", "marker": true },
       { "name": "Mastery Challenge", "type": "mode", "setting": "Animus trials", "released": "2021-06-15", "note": "Free update" },
       { "name": "The Siege of Paris", "type": "expansion", "image": "images/games/dlc/the-siege-of-paris.webp", "year": 885, "setting": "c. 885", "released": "2021-08-12", "marker": true },
-      { "name": "Discovery Tour: Viking Age", "type": "discovery-tour", "setting": "Viking Age Norway and England", "released": "2021-10-19", "note": "Free update; also sold on its own (PC 2021, consoles 2022)" },
+      { "name": "Discovery Tour: Viking Age", "type": "discovery-tour", "image": "images/games/dlc/discovery-tour-viking-age.webp", "setting": "Viking Age Norway and England", "released": "2021-10-19", "note": "Free update; also sold on its own (PC 2021, consoles 2022)" },
       { "name": "Tombs of the Fallen", "type": "mode", "setting": "During the main story", "released": "2021-11-09", "note": "Free update" },
       { "name": "Crossover Stories: A Fated Encounter", "type": "story", "image": "images/games/dlc/crossover-stories.webp", "year": 887, "setting": "c. 887", "released": "2021-12-14", "marker": true, "note": "Free update" },
       { "name": "Dawn of Ragnarök", "type": "expansion", "image": "images/games/dlc/dawn-of-ragnarok.webp", "setting": "Odin's memories", "released": "2022-03-10" },
-      { "name": "The Forgotten Saga", "type": "mode", "setting": "Odin's memories", "released": "2022-08-02", "note": "Free update" },
+      { "name": "The Forgotten Saga", "type": "mode", "image": "images/games/dlc/the-forgotten-saga.webp", "setting": "Odin's memories", "released": "2022-08-02", "note": "Free update" },
       { "name": "The Last Chapter", "type": "story", "image": "images/games/dlc/the-last-chapter.webp", "year": 889, "setting": "c. 889", "released": "2022-11-29", "marker": true, "note": "Free update" }
     ]
   },
@@ -791,7 +792,7 @@ const GAMES = [
     "released": "2023-10-05",
     "description": "In ninth-century Baghdad, the street thief Basim Ibn Ishaq joins the Hidden Ones, in a smaller, stealth-focused return to the series' roots.",
     "dlcs": [
-      { "name": "The Forty Thieves", "type": "story", "setting": "During the main story", "released": "2023-10-05", "note": "Pre-order quest" },
+      { "name": "The Forty Thieves", "type": "story", "image": "images/games/dlc/the-forty-thieves.webp", "setting": "During the main story", "released": "2023-10-05", "note": "Pre-order quest" },
       { "name": "Valley of Memory", "type": "expansion", "image": "images/games/dlc/valley-of-memory.webp", "setting": "861", "released": "2025-11-18", "note": "Free update" }
     ]
   },
@@ -817,7 +818,7 @@ const GAMES = [
     "released": "2025-03-20",
     "description": "In Japan's Sengoku period, the shinobi Naoe and Yasuke, an African samurai in the service of Oda Nobunaga, are drawn together by a shared fight.",
     "dlcs": [
-      { "name": "Thrown to the Dogs", "type": "story", "setting": "During the main story", "released": "2025-03-20", "note": "Pre-order quest, free for all from May 2025" },
+      { "name": "Thrown to the Dogs", "type": "story", "image": "images/games/dlc/thrown-to-the-dogs.webp", "setting": "During the main story", "released": "2025-03-20", "note": "Pre-order quest, free for all from May 2025" },
       { "name": "The Works of Luis Frois", "type": "story", "setting": "During the main story", "released": "2025-05-06", "note": "Free update" },
       { "name": "A Critical Encounter", "type": "story", "setting": "During the main story", "released": "2025-06-25", "note": "Free update" },
       { "name": "Claws of Awaji", "type": "expansion", "image": "images/games/dlc/claws-of-awaji.webp", "setting": "After the main story", "released": "2025-09-16" },
