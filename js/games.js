@@ -346,7 +346,7 @@ const GAMES = [
     "dlcs": [
       { "name": "The Copernicus Conspiracy", "type": "story", "image": "images/games/dlc/the-copernicus-conspiracy.webp", "setting": "1500", "released": "2010-11-16", "note": "PS3 exclusive at launch" },
       { "name": "The Trajan Market", "type": "story", "setting": "During the main story", "released": "2010-11-16", "note": "Edition bonus level" },
-      { "name": "The Aqueducts", "type": "story", "setting": "During the main story", "released": "2010-11-16", "note": "Edition bonus level" },
+      { "name": "Liquid Gold (The Aqueducts)", "type": "story", "setting": "During the main story", "released": "2010-11-16", "note": "Edition bonus level" },
       { "name": "The Da Vinci Disappearance", "type": "story", "image": "images/games/dlc/the-da-vinci-disappearance.webp", "setting": "1506", "released": "2011-03-08" }
     ]
   },
