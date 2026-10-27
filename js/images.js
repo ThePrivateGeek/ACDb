@@ -37,6 +37,7 @@ const AC_IMAGES = {
     "Assassin's Creed Revelations Animus Edition": [
         "images/collectors-editions/revelations-animus-edition.webp",
         "images/collectors-editions/revelations-animus-edition_01.webp",
+        "images/collectors-editions/revelations-animus-edition_02.webp",
     ],
     "Assassin's Creed Revelations Templar Collector Edition": ["images/collectors-editions/revelations-templar-edition.webp"],
     "Assassin's Creed Revelations Signature Edition": ["images/collectors-editions/revelations-signature-edition.webp"],
