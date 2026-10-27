@@ -332,15 +332,13 @@ const AC_IMAGES = {
         "images/other/syndicate-cane-handle-power-bank_01.webp",
     ],
     "Landstalker Props Flintlock Pistol (Edward Kenway)": ["images/other/landstalker-flintlock-pistol.webp"],
-    "Connor Tomahawk Developer Kit": [
-        "images/other/connor-tomahawk-developer-kit.webp",
-        "images/other/connor-tomahawk-developer-kit_01.webp",
-    ],
+    "Connor Tomahawk Developer Kit": ["images/other/connor-tomahawk-developer-kit.webp"],
     "Connor's Tomahawk Latex Replica": [
         "images/other/connor-tomahawk-latex-replica.webp",
         "images/other/connor-tomahawk-latex-replica_01.webp",
         "images/other/connor-tomahawk-latex-replica_02.webp",
         "images/other/connor-tomahawk-latex-replica_03.webp",
+        "images/other/connor-tomahawk-latex-replica_04.webp",
     ],
 
     // ── McFarlane Action Figures ──

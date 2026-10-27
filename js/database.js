@@ -4922,8 +4922,8 @@ const AC_DATABASE = [
     "game": "Assassin's Creed III",
     "year": 2013,
     "category": "Replica/Prop",
-    "description": "Replica of Connor's tomahawk from Assassin's Creed III, presented in a deluxe wooden chest as a developer/press-kit release. The blade is sculpted PU latex over a fibreglass core, and the haft is plastic wrapped in real leather. Approximately 19 inches in length. Produced in an undocumented but very small quantity and distributed to press and Ubisoft staff around 2012-2013. Never sold at retail.",
-    "contents": "tomahawk replica (PU-latex blade, fibreglass core, leather-wrapped haft) in a wooden presentation chest",
+    "description": "Replica of Connor's tomahawk from Assassin's Creed III, presented in a hinged wooden chest lined with black velvet. It is a different sculpt from the retail Connor's Tomahawk Latex Replica: the blade is weathered and textured with spikes along its edge, the haft is wrapped in dark leather strips, and a white feather hangs on red beads from a natural cord binding. Thought to be a developer or press item; its maker, materials, size and the number made are undocumented.",
+    "contents": "Tomahawk replica in a velvet-lined wooden chest",
     "type": "Replica/Prop"
   },
   {
