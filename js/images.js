@@ -336,6 +336,12 @@ const AC_IMAGES = {
         "images/other/connor-tomahawk-developer-kit.webp",
         "images/other/connor-tomahawk-developer-kit_01.webp",
     ],
+    "Connor's Tomahawk Latex Replica": [
+        "images/other/connor-tomahawk-latex-replica.webp",
+        "images/other/connor-tomahawk-latex-replica_01.webp",
+        "images/other/connor-tomahawk-latex-replica_02.webp",
+        "images/other/connor-tomahawk-latex-replica_03.webp",
+    ],
 
     // ── McFarlane Action Figures ──
     "McFarlane Toys Altair Action Figure (Series 3)": [

@@ -7100,4 +7100,14 @@ const AC_DATABASE = [
     "contents": "Seven-page manga (Japanese original, with Ubisoft's English translation)",
     "type": "Manga"
   },
+  {
+    "id": 676,
+    "name": "Connor's Tomahawk Latex Replica",
+    "game": "Assassin's Creed III",
+    "year": 2012,
+    "category": "Replica/Prop",
+    "description": "Officially licensed replica of Connor's tomahawk from Assassin's Creed III, its shape and colours taken from Ubisoft's game files. The blade and haft are PU latex over a fibreglass core, which gives it a realistic weight while staying soft. The haft has a red-banded collar, yellow cord wrapping and a hanging moulded feather on red beads. About 50 cm (19.7 inches) long. Sold by Jinx, which opened pre-orders at $44.99 in September 2012 ahead of the game's launch, and later also stocked by ThinkGeek, Entertainment Earth and, in the UK, Forbidden Planet.",
+    "contents": "Latex tomahawk replica with fibreglass core",
+    "type": "Replica/Prop"
+  },
 ];
