@@ -7090,4 +7090,14 @@ const AC_DATABASE = [
     "contents": "Assassin's Creed IV: Black Flag game (standard or Limited Edition), McFarlane Black Bart action figure with sword, pistol, musket and hat, Black Bart's Sails code, Todd McFarlane digital wallpaper, Hidden Mystery Pack",
     "type": "Special Edition"
   },
+  {
+    "id": 675,
+    "name": "Assassin's Creed Valhalla × Vinland Saga (crossover manga)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Comic Book",
+    "description": "A seven-page crossover side story written and drawn by Makoto Yukimura, creator of the Viking manga Vinland Saga, in which Vinland Saga's Thorfinn has an unlikely meeting with Eivor. Made to promote Assassin's Creed Valhalla in Japan, it was posted free on Ubisoft Japan's website on 23 October 2020 and printed the next day in the December 2020 issue of Kodansha's Monthly Afternoon, the magazine that serializes Vinland Saga. Ubisoft also published it in translation, including an English edition on its Assassin's Creed Valhalla website.",
+    "contents": "Seven-page manga (Japanese original, with Ubisoft's English translation)",
+    "type": "Manga"
+  },
 ];

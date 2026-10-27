@@ -970,6 +970,16 @@ const AC_IMAGES = {
          "images/comics/ac-valhalla-webcomic_02.webp",
          "images/comics/ac-valhalla-webcomic_03.webp",
      ],
+     "Assassin's Creed Valhalla × Vinland Saga (crossover manga)": [
+         "images/comics/ac-valhalla-vinland-saga.webp",
+         "images/comics/ac-valhalla-vinland-saga_01.webp",
+         "images/comics/ac-valhalla-vinland-saga_02.webp",
+         "images/comics/ac-valhalla-vinland-saga_03.webp",
+         "images/comics/ac-valhalla-vinland-saga_04.webp",
+         "images/comics/ac-valhalla-vinland-saga_05.webp",
+         "images/comics/ac-valhalla-vinland-saga_06.webp",
+         "images/comics/ac-valhalla-vinland-saga_07.webp",
+     ],
 
     // ── Drinkware (Tankards and Goblets) ──
     "Nemesis Now Assassin's Creed 'The Creed' Tankard": ["images/other/nemesis-the-creed-tankard.webp"],

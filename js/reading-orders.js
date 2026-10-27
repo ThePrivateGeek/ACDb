@@ -36,7 +36,11 @@
    Awakening Vol. 2, which holds chapters 7-12 (the six English single
    issues stop at chapter 6), dated by chapter 7's Jump Kai ("Jump X")
    on-sale date; no source prints years in the story, so its setting
-   follows its Nassau and King's Pardon plot (1717-1718).
+   follows its Nassau and King's Pardon plot (1717-1718). Added
+   2026-10-27: the Valhalla × Vinland Saga crossover manga (found by
+   cross-checking comicbooktreasury.com's comics reading order), dated by
+   Famitsu and Game Watch; it has no dated setting of its own, so it sits
+   with Eivor's 870s, like the Valhalla webcomic.
 
    Placement rules: a unit sits where its main historical story happens;
    frame stories don't count unless the unit is mostly modern day. Story
@@ -97,6 +101,7 @@ const READING_ORDERS = [
       { "item": 315, "year": 870, "setting": "870", "released": "2020-11-18" },
       { "item": 316, "year": 870, "setting": "870", "released": "2020-12-23" },
       { "item": 231, "year": 870, "setting": "870", "released": "2021-09-08" },
+      { "item": 675, "year": 872, "setting": "870s", "released": "2020-10-23" },
       { "item": 461, "year": 872, "setting": "870s", "released": "2020-11-26" },
       { "item": 409, "year": 872, "setting": "870s", "released": "2023-01-25" },
       { "item": 226, "year": 878, "setting": "878", "released": "2022-04-05" },
