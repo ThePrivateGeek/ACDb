@@ -17,6 +17,8 @@
     // The kind chip and the search last for the visit only.
     const MODE_KEY = 'acdb_games_mode';
     const MODES = ['release', 'story'];
+    // The tab opens on the main games; "All" and the other kinds are a chip away
+    const DEFAULT_KIND = 'main';
 
     const KIND_LABELS = {
         'main': 'Main game',
@@ -58,7 +60,7 @@
     const shareBtn = document.getElementById('gameModalShare');
     const closeBtn = document.getElementById('gameModalClose');
 
-    let currentKind = '';    // '' for all kinds
+    let currentKind = DEFAULT_KIND;    // '' for all kinds
     let searchText = '';
 
     function getMode() {
