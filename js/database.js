@@ -7110,4 +7110,24 @@ const AC_DATABASE = [
     "contents": "Latex tomahawk replica with fibreglass core",
     "type": "Replica/Prop"
   },
+  {
+    "id": 677,
+    "name": "Cable Guys - Ezio Controller Holder & Phone Stand",
+    "game": "Assassin's Creed II",
+    "year": 2019,
+    "category": "Tech & Gadgets",
+    "description": "Officially licensed Cable Guys figure of Ezio Auditore da Firenze by Exquisite Gaming (now EXG), sold boxed as \"Ezio – Phone and Controller Holder\". Ezio stands in his white Assassin's Creed II robes with red trim, red-lined cape and Auditore crest buckle, on a white base with the Assassin's Creed logo, his outstretched hands holding a game controller or a smartphone upright. A charging cable runs up through the base so the device can charge while on display. About 20–22 cm (8–8.5 inches) tall, in PVC. Released in 2019 and still in production; the cable included has varied between print runs. SKU CGCRAC300138, EAN 5060525893216.",
+    "contents": "Ezio Cable Guys figure (controller and phone holder), charging cable",
+    "type": "Device Holder"
+  },
+  {
+    "id": 678,
+    "name": "Cable Guys - Edward Kenway Controller Holder & Phone Stand",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2026,
+    "category": "Tech & Gadgets",
+    "description": "Officially licensed Cable Guys figure of Edward Kenway by EXG (Exquisite Gaming), sold as \"Edward Black Flag Controller Holder & Phone Stand\". Edward wears his Assassin's Creed IV: Black Flag robes with red sash and twin flintlock pistols, standing on a dark base with the Assassin's Creed logo, and holds a game controller or a smartphone in his outstretched hands. About 22 cm (8.5 inches) tall. First listed for 2025, it reached the maker's UK store in July 2026, with other regions following later in the year. SKU CGCRAC400785, EAN 5060525897382.",
+    "contents": "Edward Kenway Cable Guys figure (controller and phone holder)",
+    "type": "Device Holder"
+  },
 ];

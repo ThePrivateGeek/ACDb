@@ -1896,6 +1896,21 @@ const AC_IMAGES = {
         "images/other/gravastar-mars-pro-apple-of-eden_01.webp",
     ],
     "Flydigi Apex 4 - Assassin's Creed Edition": ["images/other/flydigi-apex4-ac-edition.webp"],
+    "Cable Guys - Ezio Controller Holder & Phone Stand": [
+        "images/other/cable-guys-ezio.webp",
+        "images/other/cable-guys-ezio_01.webp",
+        "images/other/cable-guys-ezio_02.webp",
+        "images/other/cable-guys-ezio_03.webp",
+        "images/other/cable-guys-ezio_04.webp",
+        "images/other/cable-guys-ezio_05.webp",
+    ],
+    "Cable Guys - Edward Kenway Controller Holder & Phone Stand": [
+        "images/other/cable-guys-edward.webp",
+        "images/other/cable-guys-edward_01.webp",
+        "images/other/cable-guys-edward_02.webp",
+        "images/other/cable-guys-edward_03.webp",
+        "images/other/cable-guys-edward_04.webp",
+    ],
 
     // ── Art Prints / Posters ──
     "Blend Cota Studios - Assassin's Creed Fine Art Prints": [
