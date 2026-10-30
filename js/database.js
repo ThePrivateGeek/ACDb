@@ -425,8 +425,8 @@ const AC_DATABASE = [
     "game": "Assassin's Creed Unity",
     "year": 2014,
     "category": "Collector's Edition",
-    "description": "Premium Uplay/Ubisoft Store exclusive edition featuring a 41cm Arno figurine on a guillotine. The most premium Unity edition.",
-    "contents": "Game, Guillotine collector's box, 41cm Arno on Guillotine statue, FuturePak steelbook case, soundtrack, map of Paris, framed canvas print, two lithographs, tarot card, music box",
+    "description": "Uplay shop exclusive (now the Ubisoft Store) featuring the Guillotine Collector box with a 41cm figurine of Arno on a bloody guillotine, an artbook, a customised tarot game, a framed canvas print and a wooden music box. The game's Special Edition shipped separately. The priciest Unity edition at launch (€149.95).",
+    "contents": "Special Edition of the game (shipped separately), Guillotine collector's box, 41cm Arno on Guillotine statue, FuturePak steelbook case, artbook, soundtrack, map of Paris, framed canvas print, two lithographs, customised tarot card game, wooden music box, two bonus single-player missions (The Chemical Revolution, The American Prisoner)",
     "type": "Collector's Edition"
   },
   {
