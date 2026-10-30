@@ -445,8 +445,8 @@ const AC_DATABASE = [
     "game": "Assassin's Creed Unity",
     "year": 2014,
     "category": "Collector's Edition",
-    "description": "North American collector's edition featuring a large Arno statue and a functioning music box.",
-    "contents": "Game, Arno statue, functioning wooden music box playing AC Unity theme remix, artbook, bonus content",
+    "description": "North American collector's edition featuring a 16\" Arno figurine on a Notre Dame gargoyle and a functioning music box. The North American counterpart of the European Notre Dame Edition, with a music box in place of the lithographs.",
+    "contents": "Game, Notre Dame collector's box, 16\" Arno on gargoyle figurine, functioning wooden music box playing AC Unity theme remix, artbook, official soundtrack, two bonus single-player missions (The Science Mission, The Chemical Revolution)",
     "type": "Collector's Edition"
   },
   {
