@@ -28,7 +28,9 @@
    - batch 3 (2026-10-31): the modern-day team and Hytham, and the heroes
      of the novels, comics, manhua and the 2016 film (ids 49-81);
    - the owner's request (2026-10-31): Lydia Frye and Jack the Ripper from
-     Syndicate's First World War memories and its expansion (ids 82-83).
+     Syndicate's First World War memories and its expansion (ids 82-83);
+   - batch 4 (2026-10-31): Altaïr's world, from Assassin's Creed and
+     Bloodlines (ids 84-88).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -223,6 +225,36 @@
    - No usable art, so the emblem: Darius Gift, Tomo, Simon Hathaway, Owen
      Meyers, Javier Mondragón, Pierrette Arnaud, Simeon Price, Geirmund
      Hel-hide, Niamh of Argyll.
+   Batch 4 (two more researchers, 2026-10-31), settled as follows:
+   - Al Mualim is an Assassin, the Mentor: both researchers found him
+     secretly allied with the Templars, never sworn in (Wikipedia: he
+     "betrayed both the Assassins and Templars"). He is historical, the
+     games' Rashid ad-Din Sinan, born 1135 as the games have it (history:
+     1131 or 1135).
+   - Maria Thorpe is "other": she starts as a Templar and leaves them in
+     Bloodlines, but only the wiki says she joins the Assassins, and no
+     game shows it (the same rule as Quila). Born c. 1160: the wiki says
+     1161, Wikipedia's character list 1160. In AC II through Desmond's
+     vision of Altaïr and Maria in Acre (the wiki and a player's account;
+     Wikipedia doesn't name her).
+   - Left out until a scene is confirmed: Abbas Sofian in Assassin's Creed
+     (the wiki and an IMDb voice credit, but no one could name the scene).
+     Not counted: Al Mualim in AC II and Brotherhood (flashback only) and
+     his body in Revelations; Malik and Robert in Revelations (mentioned
+     only); Robert in Bloodlines (mentioned only).
+   - year: Al Mualim and Abbas 1189, Revelations' "The Mentor's Keeper",
+     as for Altaïr. Malik's birth year (1165) is from the wiki and
+     Wikipedia's character list; Abbas's (1166) from the wiki, which
+     quotes the game's database entry.
+   - Left out with one source only: the comic Assassin's Creed 1: Desmond
+     (Al Mualim, Malik), Maria in the Revelations novel and the comic
+     Reflections.
+   Batch 4 portraits, all from the Assassin's Creed Wiki (the owner's
+   picks for three): Al Mualim from Ubisoft's Revelations render sheet
+   (an in-game headshot), Robert de Sablé's AC1 render (small, so scaled
+   up), Maria Thorpe's Revelations render (her older look), Malik's AC1
+   render, and young Abbas from Revelations' 1191 memories (no AC1 image
+   of him exists).
    Lydia Frye and Jack the Ripper (candidates in the scratchpad's
    portraits4): Lydia's Syndicate render on the Assassin's Creed Wiki, and
    Jack from the expansion's promotional art.
@@ -1170,5 +1202,66 @@ const CHARACTERS = [
     "image": "images/characters/jack-the-ripper.webp",
     "games": ["Assassin's Creed Syndicate"],
     "description": "The infamous Whitechapel killer of 1888, who draws members of the Rooks gang to his side and brings Evie Frye back to London in Syndicate's Jack the Ripper expansion."
+  },
+  {
+    "id": 84,
+    "name": "Al Mualim",
+    "aka": ["Rashid ad-Din Sinan"],
+    "group": "assassin",
+    "historical": true,
+    "born": "1135",
+    "year": 1189,
+    "image": "images/characters/al-mualim.webp",
+    "games": ["Assassin's Creed", "Assassin's Creed: Altaïr's Chronicles", "Assassin's Creed Revelations"],
+    "stories": "Novel: The Secret Crusade",
+    "description": "The Mentor of the Assassins at Masyaf, a stern and revered old man who raised Altaïr in the Brotherhood and sends him out to hunt nine men across the Holy Land."
+  },
+  {
+    "id": 85,
+    "name": "Robert de Sablé",
+    "group": "templar",
+    "historical": true,
+    "born": "c. 1150",
+    "year": 1191,
+    "image": "images/characters/robert-de-sable.webp",
+    "games": ["Assassin's Creed"],
+    "stories": "Novel: The Secret Crusade",
+    "description": "The Grand Master of the Knights Templar during the Third Crusade, a ruthless knight who also rides in King Richard's army and the Assassins' most dangerous enemy in the Holy Land."
+  },
+  {
+    "id": 86,
+    "name": "Malik Al-Sayf",
+    "group": "assassin",
+    "historical": false,
+    "born": "1165",
+    "year": 1191,
+    "image": "images/characters/malik-al-sayf.webp",
+    "games": ["Assassin's Creed"],
+    "stories": "Novel: The Secret Crusade",
+    "description": "A proud and capable Assassin who goes into Solomon's Temple with Altaïr and his younger brother Kadar, and who later keeps the Brotherhood's bureau in Jerusalem."
+  },
+  {
+    "id": 87,
+    "name": "Maria Thorpe",
+    "group": "other",
+    "historical": false,
+    "born": "c. 1160",
+    "year": 1191,
+    "image": "images/characters/maria-thorpe.webp",
+    "games": ["Assassin's Creed", "Assassin's Creed II", "Assassin's Creed: Bloodlines", "Assassin's Creed Revelations"],
+    "stories": "Novel: The Secret Crusade",
+    "description": "An English Templar in Robert de Sablé's service, sharp-tongued and handy with a sword, who crosses paths with Altaïr in Jerusalem during the Third Crusade."
+  },
+  {
+    "id": 88,
+    "name": "Abbas Sofian",
+    "group": "assassin",
+    "historical": false,
+    "born": "1166",
+    "year": 1189,
+    "image": "images/characters/abbas-sofian.webp",
+    "games": ["Assassin's Creed Revelations"],
+    "stories": "Novel: The Secret Crusade",
+    "description": "Altaïr's childhood friend at Masyaf, raised in the Brotherhood alongside him, whose friendship is soured by an old grievance over the fate of his father."
   }
 ]

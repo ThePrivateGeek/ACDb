@@ -2205,7 +2205,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [2]
+    "characters": [2, 84, 85, 86, 87, 88]
   },
   {
     "id": 209,
@@ -5011,7 +5011,7 @@ const AC_DATABASE = [
     "description": "Dynamic 1/6 scale diorama capturing the moment Altaïr defeats Robert de Sablé. Polyresin and mixed media with game-accurate costumes and weaponry. 17\" H x 13\" W x 9\" D. Limited to 1,250 pieces (plus 250 Exclusive Edition). Produced by PureArts.",
     "contents": "1/6 scale polyresin diorama with rock and paving stone base",
     "type": "PureArts",
-    "characters": [2]
+    "characters": [2, 85]
   },
   {
     "id": 448,
@@ -5624,7 +5624,8 @@ const AC_DATABASE = [
     "description": "Issue #30 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #30 and figurine of Malik Al-Sayf",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [86]
   },
   {
     "id": 502,
@@ -5764,7 +5765,8 @@ const AC_DATABASE = [
     "description": "Issue #42 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #42 and figurine of Al Mualim",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [84]
   },
   {
     "id": 514,
