@@ -4,8 +4,9 @@
 
    The Characters tab (#characters): every character in js/characters.js
    as a card, A to Z or in story order (under era headings), with search
-   and faction chips. #characters/<slug> is a character's page: who they
-   are, the games they appear in and their items in the collection. */
+   and faction and game chips. #characters/<slug> is a character's page:
+   who they are, the games they appear in and their items in the
+   collection. */
 
 (function () {
     'use strict';
@@ -14,7 +15,7 @@
     const A = window.ACDB;
 
     // A to Z or story order; a per-viewer preference like the Games tab's.
-    // The faction chip and the search last for the visit only.
+    // The faction and game chips and the search last for the visit only.
     const MODE_KEY = 'acdb_characters_mode';
     const MODES = ['az', 'story'];
     const MODE_LABELS = { 'az': 'A–Z', 'story': 'Story order' };
@@ -31,6 +32,16 @@
         'other': 'Others'
     };
 
+    // Game chips use the collection's short names (SHORT_GAME_NAMES), and
+    // these for the games with no items of their own. NO_GAME picks the
+    // characters of the novels, comics and film, who are in no game.
+    const GAME_LABELS = {
+        "Assassin's Creed: Altaïr's Chronicles": "Altaïr's Chronicles",
+        "Assassin's Creed II: Discovery": 'Discovery',
+        "Assassin's Creed: Bloodlines": 'Bloodlines'
+    };
+    const NO_GAME = 'none';
+
     const SEARCH_ICON = '<svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>';
     const CLEAR_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 
@@ -40,6 +51,7 @@
     const content = document.getElementById('charactersContent');
 
     let currentGroup = '';         // '' for all groups
+    let currentGame = '';          // '' for every game, NO_GAME for none
     let searchText = '';
     let currentSlug = null;        // the open character page; null shows the list
     let listScroll = 0;            // the list's scroll, for the way back from a page
@@ -100,6 +112,24 @@
         return character.games.map(name => GAMES.find(g => g.name === name)).filter(Boolean);
     }
 
+    // The games with characters, in release order, with how many each has.
+    // Built once, like the items.
+    let gameChipsCache = null;
+    function gameChips() {
+        if (!gameChipsCache) {
+            const counts = new Map();
+            CHARACTERS.forEach(c => c.games.forEach(name => counts.set(name, (counts.get(name) || 0) + 1)));
+            gameChipsCache = GAMES.filter(g => counts.has(g.name))
+                .sort((a, b) => a.released.localeCompare(b.released))
+                .map(g => ({ game: g.name, count: counts.get(g.name) }));
+        }
+        return gameChipsCache;
+    }
+
+    function gameLabel(name) {
+        return A.SHORT_GAME_NAMES[name] || GAME_LABELS[name] || name;
+    }
+
     function byName(a, b) {
         return fold(a.name).localeCompare(fold(b.name), 'en');
     }
@@ -123,10 +153,16 @@
     }
 
     // ---- Filtering ----
+    function inCurrentGame(character) {
+        if (!currentGame) return true;
+        return currentGame === NO_GAME ? character.games.length === 0 : character.games.includes(currentGame);
+    }
+
     function shownCharacters() {
         const query = fold(searchText.trim());
         return CHARACTERS.filter(c => {
             if (currentGroup && c.group !== currentGroup) return false;
+            if (!inCurrentGame(c)) return false;
             if (!query) return true;
             return [c.name, ...(c.aka || []), c.stories || ''].some(text => fold(text).includes(query));
         });
@@ -140,9 +176,12 @@
             .map(group => ({ group, count: CHARACTERS.filter(c => c.group === group).length }))
             .filter(g => g.count > 0);
         if (currentGroup && !groups.some(g => g.group === currentGroup)) currentGroup = '';
-        const chip = (group, label, n) => {
-            const on = group === currentGroup;
-            return `<button class="chip${on ? ' active' : ''}" data-characters-group="${group}" aria-pressed="${on}">${esc(label)} <span class="chip-count">${n}</span></button>`;
+        const storyOnly = CHARACTERS.filter(c => c.games.length === 0).length;
+        // A chip of either row: `filter` is "group" or "game"; a short game
+        // label carries the full name as its title
+        const chip = (filter, value, current, label, n, title = '') => {
+            const on = value === current;
+            return `<button class="chip${on ? ' active' : ''}" data-characters-${filter}="${esc(value)}" aria-pressed="${on}"${title ? ` title="${esc(title)}"` : ''}>${esc(label)} <span class="chip-count">${n}</span></button>`;
         };
         return `
             <div class="page-head">
@@ -161,8 +200,16 @@
                 </div>
             </div>
             <div class="chip-row characters-groups" role="group" aria-label="Faction">
-                ${chip('', 'All', CHARACTERS.length)}
-                ${groups.map(g => chip(g.group, GROUP_CHIPS[g.group], g.count)).join('')}
+                ${chip('group', '', currentGroup, 'All', CHARACTERS.length)}
+                ${groups.map(g => chip('group', g.group, currentGroup, GROUP_CHIPS[g.group], g.count)).join('')}
+            </div>
+            <div class="chip-row characters-games" role="group" aria-label="Game">
+                ${chip('game', '', currentGame, 'All games', CHARACTERS.length)}
+                ${gameChips().map(g => {
+                    const label = gameLabel(g.game);
+                    return chip('game', g.game, currentGame, label, g.count, label === g.game ? '' : g.game);
+                }).join('')}
+                ${storyOnly ? chip('game', NO_GAME, currentGame, 'Books, comics & film', storyOnly) : ''}
             </div>
             <div class="characters-results">${resultsHTML()}</div>
             ${SOURCES_HTML}`;
@@ -179,7 +226,7 @@
         if (shown.length === 0) {
             return `
                 <div class="games-empty">
-                    <p>No characters match your search.</p>
+                    <p>No characters match your ${searchText.trim() ? 'search' : 'filters'}.</p>
                     <button class="btn btn-secondary btn-sm" data-characters-clear>Clear search and filters</button>
                 </div>`;
         }
@@ -330,19 +377,28 @@
         }
     }
 
-    // Re-rendering resets the chip row's scroll: restore it, then make sure
-    // the active chip is visible (as the Games tab does)
-    function restoreChipRow(scrollLeft) {
-        const row = content.querySelector('.characters-groups');
-        if (!row) return;
-        row.scrollLeft = scrollLeft;
-        const active = row.querySelector('.chip.active');
-        if (!active) return;
-        if (active.offsetLeft < row.scrollLeft) {
-            row.scrollLeft = active.offsetLeft;
-        } else if (active.offsetLeft + active.offsetWidth > row.scrollLeft + row.clientWidth) {
-            row.scrollLeft = active.offsetLeft + active.offsetWidth - row.clientWidth;
-        }
+    // Re-rendering resets the chip rows' scroll (phones scroll them
+    // sideways): read it before, restore it after, then make sure each
+    // active chip is visible (as the Games tab does)
+    const CHIP_ROWS = ['.characters-groups', '.characters-games'];
+
+    function chipRowScrolls() {
+        return CHIP_ROWS.map(selector => content.querySelector(selector)?.scrollLeft || 0);
+    }
+
+    function restoreChipRows(scrolls) {
+        CHIP_ROWS.forEach((selector, i) => {
+            const row = content.querySelector(selector);
+            if (!row) return;
+            row.scrollLeft = scrolls[i];
+            const active = row.querySelector('.chip.active');
+            if (!active) return;
+            if (active.offsetLeft < row.scrollLeft) {
+                row.scrollLeft = active.offsetLeft;
+            } else if (active.offsetLeft + active.offsetWidth > row.scrollLeft + row.clientWidth) {
+                row.scrollLeft = active.offsetLeft + active.offsetWidth - row.clientWidth;
+            }
+        });
     }
 
     function updatePressed(selector, isOn) {
@@ -376,9 +432,9 @@
         if (wasVisible && !prevSlug && slug) listScroll = window.scrollY;
         currentSlug = slug;
         const changed = wasVisible && prevSlug !== slug;
-        const chipScroll = content.querySelector('.characters-groups')?.scrollLeft || 0;
+        const chipScrolls = chipRowScrolls();
         render(changed);
-        restoreChipRow(chipScroll);
+        restoreChipRows(chipScrolls);
         if (slug) {
             if (prevSlug !== slug) window.scrollTo(0, 0);
         } else if (prevSlug) {
@@ -436,6 +492,13 @@
             renderResults();
             return;
         }
+        const gameBtn = e.target.closest('[data-characters-game]');
+        if (gameBtn) {
+            currentGame = gameBtn.dataset.charactersGame;
+            updatePressed('[data-characters-game]', btn => btn.dataset.charactersGame === currentGame);
+            renderResults();
+            return;
+        }
         if (e.target.closest('[data-characters-clear-search]')) {
             searchText = '';
             rerender();
@@ -445,15 +508,16 @@
         if (e.target.closest('[data-characters-clear]')) {
             searchText = '';
             currentGroup = '';
+            currentGame = '';
             rerender();
             document.getElementById('charactersSearch').focus();
         }
     });
 
     function rerender() {
-        const chipScroll = content.querySelector('.characters-groups')?.scrollLeft || 0;
+        const chipScrolls = chipRowScrolls();
         render();
-        restoreChipRow(chipScroll);
+        restoreChipRows(chipScrolls);
     }
 
     // Expose on namespace
