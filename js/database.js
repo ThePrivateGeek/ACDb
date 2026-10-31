@@ -1149,7 +1149,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "24cm statue of Aguilar from the Assassin's Creed film. Face carved from 3D scans of Michael Fassbender.",
     "contents": "24cm Aguilar statue",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [58]
   },
   {
     "id": 108,
@@ -1159,7 +1160,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Statue of Maria from the Assassin's Creed film.",
     "contents": "Maria statue",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [59]
   },
   {
     "id": 109,
@@ -1169,7 +1171,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "14-inch Aguilar statue with the likeness of Michael Fassbender. Includes exclusive triptych folder with three lithographs.",
     "contents": "35cm Aguilar statue, triptych folder with three high-quality lithographs",
-    "type": "Triforce"
+    "type": "Triforce",
+    "characters": [58]
   },
   {
     "id": 110,
@@ -1199,7 +1202,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Replica of Aguilar's hidden blade from the movie. Features spring-loaded retractable blade with locking mechanism and adjustable velcro. Limited edition with certificate of authenticity.",
     "contents": "Hidden blade replica with retractable blade, certificate of authenticity",
-    "type": "Replica"
+    "type": "Replica",
+    "characters": [58]
   },
   {
     "id": 113,
@@ -1250,7 +1254,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Limited-edition life-size role play accessory of Aguilar's hidden blade from the movie.",
     "contents": "Hidden blade replica",
-    "type": "Replica"
+    "type": "Replica",
+    "characters": [58]
   },
   {
     "id": 118,
@@ -1856,7 +1861,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Aguilar from the Assassin's Creed movie.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [58]
   },
   {
     "id": 177,
@@ -1866,7 +1872,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Maria from the Assassin's Creed movie.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [59]
   },
   {
     "id": 178,
@@ -1886,7 +1893,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Callum Lynch from the Assassin's Creed movie.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [57]
   },
   {
     "id": 180,
@@ -1896,7 +1904,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Loot Crate exclusive crouching variant of Aguilar.",
     "contents": "Pop! vinyl figure (crouching exclusive)",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [58]
   },
   {
     "id": 181,
@@ -1961,7 +1970,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "7-inch action figure of Aguilar sculpted using 3D scans of Michael Fassbender. Part of McFarlane's Color Tops collector program (Blue Wave, #12), packaged in a numbered window box. Released November 2016.",
     "contents": "7-inch Aguilar action figure with assassin sword and extended hidden blade, numbered collector box",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [58]
   },
   {
     "id": 187,
@@ -2084,7 +2094,8 @@ const AC_DATABASE = [
     "category": "Steelbook",
     "description": "Steelbook Blu-ray edition of the Assassin's Creed movie featuring Callum Lynch in a free fall pose.",
     "contents": "Blu-ray film in steelbook case",
-    "type": "Steelbook"
+    "type": "Steelbook",
+    "characters": [57]
   },
   {
     "id": 199,
@@ -2264,7 +2275,8 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Abstergo employee Simon Hathaway relives the memories of Joan of Arc's companion-at-arms, exploring the role of a Sword of Eden in the Hundred Years' War. By Christie Golden.",
     "contents": "Paperback novel",
-    "type": "Novel"
+    "type": "Novel",
+    "characters": [75]
   },
   {
     "id": 215,
@@ -2275,7 +2287,8 @@ const AC_DATABASE = [
     "description": "Abstergo employee Simon Hathaway relives the memories of Joan of Arc's companion-at-arms, exploring the role of a Sword of Eden in the Hundred Years' War. By Christie Golden.",
     "contents": "Premium hardcover edition features exclusive art sketches and behind the scenes interviews, as well as a special code to unlock Assassin's Creed rewards through Ubisoft Club's loyalty program.",
     "type": "Novel",
-    "collects": [214]
+    "collects": [214],
+    "characters": [75]
   },
   {
     "id": 216,
@@ -2286,7 +2299,8 @@ const AC_DATABASE = [
     "description": "YA novel. Teenagers are recruited by Assassins and Templars to use the Animus, reliving ancestors' memories during the 1863 New York City draft riots to find a Piece of Eden. By Matthew Kirby.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Assassin's Creed: Last Descendants"
+    "series": "Assassin's Creed: Last Descendants",
+    "characters": [73, 76, 77]
   },
   {
     "id": 217,
@@ -2297,7 +2311,8 @@ const AC_DATABASE = [
     "description": "YA novel. The young protagonists are sent into memories from the time of the Mongol Empire, searching for a prong of the Trident of Eden. By Matthew Kirby.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Assassin's Creed: Last Descendants"
+    "series": "Assassin's Creed: Last Descendants",
+    "characters": [76, 77]
   },
   {
     "id": 218,
@@ -2308,7 +2323,8 @@ const AC_DATABASE = [
     "description": "YA novel. The conclusion of the trilogy, where the teens must locate the final prong of the Trident of Eden across multiple historical eras. By Matthew Kirby.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Assassin's Creed: Last Descendants"
+    "series": "Assassin's Creed: Last Descendants",
+    "characters": [76, 77]
   },
   {
     "id": 219,
@@ -2340,7 +2356,8 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Geirmund's Saga is a tie-in novel to Assassin's Creed Valhalla. Follows Norse warrior Geirmund Hel-hide during the Viking invasion of England, offering a parallel story to the game's events. By Matthew Kirby.",
     "contents": "Paperback novel",
-    "type": "Novel"
+    "type": "Novel",
+    "characters": [80]
   },
   {
     "id": 222,
@@ -2386,7 +2403,8 @@ const AC_DATABASE = [
     "description": "Follows acrobat Pierrette Arnaud and Assassin Simeon Price from London to Paris between 1851 and 1862, as they protect Ada Lovelace's Engine of History from the Templar-allied Magus. First book of The Engine of History. By Kate Heartfield.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Assassin's Creed: The Engine of History"
+    "series": "Assassin's Creed: The Engine of History",
+    "characters": [78, 79]
   },
   {
     "id": 226,
@@ -2396,7 +2414,8 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Sword of the White Horse is a tie-in novel and sequel to Assassin's Creed Valhalla. Follows Niamh, a blind Norse-Gaelic woman and Hidden One, in the court of King Alfred's Wessex, as she protects a sacred artifact. By Elsa Sjunneson.",
     "contents": "Paperback novel",
-    "type": "Novel"
+    "type": "Novel",
+    "characters": [81]
   },
   {
     "id": 227,
@@ -2407,7 +2426,7 @@ const AC_DATABASE = [
     "description": "Constantinople, 867 - A murderous plot is afoot. Assisted by the Order of the Ancients, the emperor schemes to assassinate his son and throw the city into chaos. In response, the Hidden Ones have dispatched Assassin acolyte Hytham to join his mentor, Basim Ibn Ishaq, to infiltrate the palace and foil the emperor's plan. But that is not his only mission... Hytham's brotherhood have entrusted him with uncovering where Basim's true loyalties lie and whether the master Assassin's personal obsessions outweigh his sense of duty. For Hytham to succeed, he must tread carefully, for Constantinople is a city of shadows, and danger hides in all of them.. By Jaleigh Johnson.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [34]
+    "characters": [34, 56]
   },
   {
     "id": 228,
@@ -2503,7 +2522,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
     "read": "02. AC - The Fall/AC The Fall 1st 2010",
-    "characters": [44]
+    "characters": [44, 67]
   },
   {
     "id": 237,
@@ -2516,7 +2535,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
     "read": "02. AC - The Fall/AC The Fall 2nd 2011",
-    "characters": [44]
+    "characters": [44, 67]
   },
   {
     "id": 238,
@@ -2529,7 +2548,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
     "read": "02. AC - The Fall/AC The Fall 3rd 2011",
-    "characters": [44]
+    "characters": [44, 67]
   },
   {
     "id": 239,
@@ -2543,7 +2562,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Fall",
     "read": "02. AC - The Fall/AC - The Fall (Deluxe Edition) 2012",
     "collects": [236, 237, 238],
-    "characters": [44]
+    "characters": [44, 67]
   },
   {
     "id": 240,
@@ -2556,7 +2575,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
     "read": "03. 04/03 AC The Chain 2012",
-    "characters": [44]
+    "characters": [44, 67]
   },
   {
     "id": 241,
@@ -2569,7 +2588,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed: The Fall",
     "collects": [236, 237, 238, 240],
-    "characters": [44]
+    "characters": [44, 67]
   },
   {
     "id": 242,
@@ -2582,7 +2601,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol1 - Desmond 2009",
-    "characters": [3]
+    "characters": [3, 70]
   },
   {
     "id": 243,
@@ -2595,7 +2614,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol2 - Aquilus 2010",
-    "characters": [3]
+    "characters": [3, 70]
   },
   {
     "id": 244,
@@ -2608,7 +2627,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol3 - Accipiter 2012",
-    "characters": [3]
+    "characters": [3, 70]
   },
   {
     "id": 245,
@@ -2620,7 +2639,8 @@ const AC_DATABASE = [
     "contents": "Hardcover graphic novel (48 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
-    "read": "01. AC Cycle 1/2 The Hawk Trilogy/AC vol4 - Hawk 2013"
+    "read": "01. AC Cycle 1/2 The Hawk Trilogy/AC vol4 - Hawk 2013",
+    "characters": [68, 69]
   },
   {
     "id": 246,
@@ -2632,7 +2652,8 @@ const AC_DATABASE = [
     "contents": "Hardcover graphic novel (48 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
-    "read": "01. AC Cycle 1/2 The Hawk Trilogy/AC vol5 - El Cakr 2013)"
+    "read": "01. AC Cycle 1/2 The Hawk Trilogy/AC vol5 - El Cakr 2013)",
+    "characters": [68, 69]
   },
   {
     "id": 247,
@@ -2645,7 +2666,8 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "read": "01. AC Cycle 1/2 The Hawk Trilogy/AC vol6 - Leila 2014",
-    "readLang": "fr"
+    "readLang": "fr",
+    "characters": [68, 69]
   },
   {
     "id": 248,
@@ -2658,7 +2680,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "collects": [242, 243, 244],
-    "characters": [3]
+    "characters": [3, 70]
   },
   {
     "id": 249,
@@ -2670,7 +2692,8 @@ const AC_DATABASE = [
     "contents": "144-page hardcover collecting the last 3 French BD volumes in English",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
-    "collects": [245, 246, 247]
+    "collects": [245, 246, 247],
+    "characters": [68, 69]
   },
   {
     "id": 250,
@@ -2682,7 +2705,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (1st)"
+    "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (1st)",
+    "characters": [60, 61, 62]
   },
   {
     "id": 251,
@@ -2694,7 +2718,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (2nd)"
+    "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (2nd)",
+    "characters": [60, 61, 62]
   },
   {
     "id": 252,
@@ -2706,7 +2731,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (3rd)"
+    "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (3rd)",
+    "characters": [60, 61, 62]
   },
   {
     "id": 253,
@@ -2718,7 +2744,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (4th)"
+    "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (4th)",
+    "characters": [60, 61, 62]
   },
   {
     "id": 254,
@@ -2730,7 +2757,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (5th)"
+    "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (5th)",
+    "characters": [60, 61, 62]
   },
   {
     "id": 255,
@@ -2742,7 +2770,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (6th)"
+    "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (6th)",
+    "characters": [60, 61, 63]
   },
   {
     "id": 256,
@@ -2754,7 +2783,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (7th)"
+    "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (7th)",
+    "characters": [60, 61, 63]
   },
   {
     "id": 257,
@@ -2766,7 +2796,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (8th)"
+    "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (8th)",
+    "characters": [60, 61, 63]
   },
   {
     "id": 258,
@@ -2778,7 +2809,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (9th)"
+    "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (9th)",
+    "characters": [60, 61, 63]
   },
   {
     "id": 259,
@@ -2790,7 +2822,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (_10th)"
+    "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (_10th)",
+    "characters": [60, 61, 63]
   },
   {
     "id": 260,
@@ -2802,7 +2835,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (11th)"
+    "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (11th)",
+    "characters": [60, 61]
   },
   {
     "id": 261,
@@ -2814,7 +2848,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (12th)"
+    "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (12th)",
+    "characters": [60, 61]
   },
   {
     "id": 262,
@@ -2826,7 +2861,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (13th)"
+    "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (13th)",
+    "characters": [60, 61]
   },
   {
     "id": 263,
@@ -2838,7 +2874,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (14th)"
+    "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (14th)",
+    "characters": [60, 61]
   },
   {
     "id": 264,
@@ -2850,7 +2887,8 @@ const AC_DATABASE = [
     "contents": "Trade paperback collecting issues #1-5",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "collects": [250, 251, 252, 253, 254]
+    "collects": [250, 251, 252, 253, 254],
+    "characters": [60, 61, 62]
   },
   {
     "id": 265,
@@ -2862,7 +2900,8 @@ const AC_DATABASE = [
     "contents": "Trade paperback collecting issues #6-10",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "collects": [255, 256, 257, 258, 259]
+    "collects": [255, 256, 257, 258, 259],
+    "characters": [60, 61, 63]
   },
   {
     "id": 266,
@@ -2874,7 +2913,8 @@ const AC_DATABASE = [
     "contents": "Trade paperback collecting issues #11-14",
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
-    "collects": [260, 261, 262, 263]
+    "collects": [260, 261, 262, 263],
+    "characters": [60, 61]
   },
   {
     "id": 267,
@@ -2886,7 +2926,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
-    "read": "07. AC Templars/AC Templars 2016 (1)"
+    "read": "07. AC Templars/AC Templars 2016 (1)",
+    "characters": [64, 65]
   },
   {
     "id": 268,
@@ -2898,7 +2939,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
-    "read": "07. AC Templars/AC Templars 2016 (2)"
+    "read": "07. AC Templars/AC Templars 2016 (2)",
+    "characters": [64, 65]
   },
   {
     "id": 269,
@@ -2910,7 +2952,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
-    "read": "07. AC Templars/AC Templars 2016 (3)"
+    "read": "07. AC Templars/AC Templars 2016 (3)",
+    "characters": [64, 65]
   },
   {
     "id": 270,
@@ -2922,7 +2965,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
-    "read": "07. AC Templars/AC Templars 2016 (4)"
+    "read": "07. AC Templars/AC Templars 2016 (4)",
+    "characters": [64, 65]
   },
   {
     "id": 271,
@@ -2934,7 +2978,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
-    "read": "07. AC Templars/AC Templars 2016 (5)"
+    "read": "07. AC Templars/AC Templars 2016 (5)",
+    "characters": [64, 65]
   },
   {
     "id": 272,
@@ -2946,7 +2991,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
-    "read": "07. AC Templars/AC Templars 2016 (6)"
+    "read": "07. AC Templars/AC Templars 2016 (6)",
+    "characters": [55, 66]
   },
   {
     "id": 273,
@@ -2958,7 +3004,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
-    "read": "07. AC Templars/AC Templars 2016 (7)"
+    "read": "07. AC Templars/AC Templars 2016 (7)",
+    "characters": [55, 66]
   },
   {
     "id": 274,
@@ -2970,7 +3017,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
-    "read": "07. AC Templars/AC Templars 2016 (8)"
+    "read": "07. AC Templars/AC Templars 2016 (8)",
+    "characters": [55, 66]
   },
   {
     "id": 275,
@@ -2982,7 +3030,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
-    "read": "07. AC Templars/AC Templars 2016 (9)"
+    "read": "07. AC Templars/AC Templars 2016 (9)",
+    "characters": [55, 66]
   },
   {
     "id": 276,
@@ -2994,7 +3043,8 @@ const AC_DATABASE = [
     "contents": "Trade paperback collecting issues #1-5",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
-    "collects": [267, 268, 269, 270, 271]
+    "collects": [267, 268, 269, 270, 271],
+    "characters": [64, 65]
   },
   {
     "id": 277,
@@ -3006,7 +3056,8 @@ const AC_DATABASE = [
     "contents": "Trade paperback collecting issues #6-9",
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
-    "collects": [272, 273, 274, 275]
+    "collects": [272, 273, 274, 275],
+    "characters": [55, 66]
   },
   {
     "id": 278,
@@ -3019,7 +3070,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
     "read": "08. AC - Locus/AC Locus 01 Case In Point 2016",
-    "characters": [39, 41]
+    "characters": [39, 41, 73]
   },
   {
     "id": 279,
@@ -3031,7 +3082,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
-    "read": "08. AC - Locus/AC Locus 02 Last Descendants 2016"
+    "read": "08. AC - Locus/AC Locus 02 Last Descendants 2016",
+    "characters": [73]
   },
   {
     "id": 280,
@@ -3043,7 +3095,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
-    "read": "08. AC - Locus/AC Locus 03 Last Descendants 2016"
+    "read": "08. AC - Locus/AC Locus 03 Last Descendants 2016",
+    "characters": [73]
   },
   {
     "id": 281,
@@ -3055,7 +3108,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
-    "read": "08. AC - Locus/AC Locus 04 Last Descendants 2016"
+    "read": "08. AC - Locus/AC Locus 04 Last Descendants 2016",
+    "characters": [73]
   },
   {
     "id": 282,
@@ -3068,7 +3122,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
     "collects": [278, 279, 280, 281],
-    "characters": [39, 41]
+    "characters": [39, 41, 73]
   },
   {
     "id": 283,
@@ -3080,7 +3134,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (1)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (1)",
+    "characters": [60, 61]
   },
   {
     "id": 284,
@@ -3092,7 +3147,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (2)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (2)",
+    "characters": [60, 61]
   },
   {
     "id": 285,
@@ -3104,7 +3160,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (3)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (3)",
+    "characters": [60, 61]
   },
   {
     "id": 286,
@@ -3116,7 +3173,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (4)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (4)",
+    "characters": [60, 61]
   },
   {
     "id": 287,
@@ -3128,7 +3186,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (5)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (5)",
+    "characters": [60, 61]
   },
   {
     "id": 288,
@@ -3140,7 +3199,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (6)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (6)",
+    "characters": [60, 61]
   },
   {
     "id": 289,
@@ -3152,7 +3212,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (7)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (7)",
+    "characters": [60, 61]
   },
   {
     "id": 290,
@@ -3164,7 +3225,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (8)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (8)",
+    "characters": [60, 61]
   },
   {
     "id": 291,
@@ -3176,7 +3238,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (9)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (9)",
+    "characters": [60, 61]
   },
   {
     "id": 292,
@@ -3188,7 +3251,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (10)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (10)",
+    "characters": [60, 61]
   },
   {
     "id": 293,
@@ -3200,7 +3264,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (11)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (11)",
+    "characters": [60, 61]
   },
   {
     "id": 294,
@@ -3212,7 +3277,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "read": "10. AC - Uprising/AC Uprising 2016 (12)"
+    "read": "10. AC - Uprising/AC Uprising 2016 (12)",
+    "characters": [60, 61]
   },
   {
     "id": 295,
@@ -3224,7 +3290,8 @@ const AC_DATABASE = [
     "contents": "Trade paperback collecting issues #1-4",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "collects": [283, 284, 285, 286]
+    "collects": [283, 284, 285, 286],
+    "characters": [60, 61]
   },
   {
     "id": 296,
@@ -3236,7 +3303,8 @@ const AC_DATABASE = [
     "contents": "Trade paperback collecting issues #5-8",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "collects": [287, 288, 289, 290]
+    "collects": [287, 288, 289, 290],
+    "characters": [60, 61]
   },
   {
     "id": 297,
@@ -3248,7 +3316,8 @@ const AC_DATABASE = [
     "contents": "Trade paperback collecting issues #9-12",
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
-    "collects": [291, 292, 293, 294]
+    "collects": [291, 292, 293, 294],
+    "characters": [60, 61]
   },
   {
     "id": 298,
@@ -3390,7 +3459,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Conspiracies",
-    "read": "13. AC - Conspiracies Cycle 2/AC Conspiracies 2018 (1)"
+    "read": "13. AC - Conspiracies Cycle 2/AC Conspiracies 2018 (1)",
+    "characters": [71]
   },
   {
     "id": 309,
@@ -3402,7 +3472,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Conspiracies",
-    "read": "13. AC - Conspiracies Cycle 2/AC Conspiracies 2018 (2)"
+    "read": "13. AC - Conspiracies Cycle 2/AC Conspiracies 2018 (2)",
+    "characters": [71]
   },
   {
     "id": 310,
@@ -3414,7 +3485,8 @@ const AC_DATABASE = [
     "contents": "104-page paperback collecting both French volumes in English translation",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Conspiracies",
-    "collects": [308, 309]
+    "collects": [308, 309],
+    "characters": [71]
   },
   {
     "id": 311,
@@ -3425,7 +3497,8 @@ const AC_DATABASE = [
     "description": "Volume 1 of 2. The world of Assassin's Creed visits a new era in the Vietnam War! Tomo, one of the youngest members of the Japanese Assassin cell, has uncovered a conspiracy. More of a man of science than a man of action, Tomo investigates further, leading him to follow the footsteps of Assassins that operated during the Vietnam War. But what secrets will he uncover? Written by Guillaume Dorison. Art by Ennio Bufi. Originally published in French by Les Deux Royaumes (March 2019); English edition by Titan Comics (February 2020).",
     "contents": "48-page hardcover graphic novel",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: Bloodstone"
+    "series": "Assassin's Creed: Bloodstone",
+    "characters": [72]
   },
   {
     "id": 312,
@@ -3436,7 +3509,8 @@ const AC_DATABASE = [
     "description": "Volume 2 of 2. The second volume of the epic Assassin's Creed adventure set in the Vietnam War. Tomo, one of the youngest members of the Japanese Assassin cell, has uncovered a conspiracy. In this thrilling sequel, what secrets will Tomo uncover in his ancestor's memories? What horrific experiments took place secretly during the Vietnam War? Written by Guillaume Dorison. Art by Ennio Bufi. Originally published in French by Les Deux Royaumes (October 2019); English edition by Titan Comics (January 2021).",
     "contents": "48-page hardcover graphic novel",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: Bloodstone"
+    "series": "Assassin's Creed: Bloodstone",
+    "characters": [72]
   },
   {
     "id": 313,
@@ -3449,7 +3523,8 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Bloodstone",
     "read": "17/AC - Bloodstone - Complete Collection 2022",
-    "collects": [311, 312]
+    "collects": [311, 312],
+    "characters": [72]
   },
   {
     "id": 314,
@@ -3573,7 +3648,8 @@ const AC_DATABASE = [
     "contents": "Paperback manhua",
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
-    "read": "18/AC Dynasty (1) 2022"
+    "read": "18/AC Dynasty (1) 2022",
+    "characters": [74]
   },
   {
     "id": 324,
@@ -3585,7 +3661,8 @@ const AC_DATABASE = [
     "contents": "Paperback manhua",
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
-    "read": "18/AC Dynasty (2) 2022"
+    "read": "18/AC Dynasty (2) 2022",
+    "characters": [74]
   },
   {
     "id": 325,
@@ -3597,7 +3674,8 @@ const AC_DATABASE = [
     "contents": "Paperback manhua",
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
-    "read": "18/AC Dynasty (3) 2022"
+    "read": "18/AC Dynasty (3) 2022",
+    "characters": [74]
   },
   {
     "id": 326,
@@ -3609,7 +3687,8 @@ const AC_DATABASE = [
     "contents": "Paperback manhua",
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
-    "read": "18/AC Dynasty (4) 2022"
+    "read": "18/AC Dynasty (4) 2022",
+    "characters": [74]
   },
   {
     "id": 327,
@@ -3621,7 +3700,8 @@ const AC_DATABASE = [
     "contents": "Paperback manhua",
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
-    "read": "18/AC Dynasty (5) 2022"
+    "read": "18/AC Dynasty (5) 2022",
+    "characters": [74]
   },
   {
     "id": 328,
@@ -3632,7 +3712,8 @@ const AC_DATABASE = [
     "description": "Volume 6 of the Assassin's Creed: Dynasty series. In the 14th year of the Tianbao Era (CE 755) An Lushan, a military governor with ties to the Knights Templar, leads his elite corps to rebel against the Tang Dynasty, and the ill-prepared Tang empire falters under the threat. The two capitals Luoyang and Chang'an fall and China falls under the oppression of the cruel An Lushan. As the Tang dynasty starts to crumble, Li E, a shady Assassin trained by the Hidden Ones in the far West, teams up with Tang loyalists to turn the tide and save both the dynasty and the country from this crisis. This volume was published only in French, by Mana Books (April 2023); Tokyopop's English edition ended at Vol. 5.",
     "contents": "Paperback manhua (French language, Mana Books)",
     "type": "Manga",
-    "series": "Assassin's Creed: Dynasty"
+    "series": "Assassin's Creed: Dynasty",
+    "characters": [74]
   },
   {
     "id": 329,
@@ -3644,7 +3725,8 @@ const AC_DATABASE = [
     "contents": "Volumes 1-5 of the Assassin's Creed: Dynasty series collected in a box set",
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
-    "collects": [323, 324, 325, 326, 327]
+    "collects": [323, 324, 325, 326, 327],
+    "characters": [74]
   },
   {
     "id": 330,
@@ -4552,7 +4634,8 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Official novelization of the 2016 Assassin's Creed film starring Michael Fassbender. Follows Callum Lynch as he relives the memories of his ancestor Aguilar during the Spanish Inquisition.",
     "contents": "Paperback novel",
-    "type": "Novel"
+    "type": "Novel",
+    "characters": [57, 58]
   },
   {
     "id": 413,
@@ -5315,7 +5398,8 @@ const AC_DATABASE = [
     "description": "Issue #11 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #11 and figurine of Charlotte de la Cruz",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [60]
   },
   {
     "id": 483,
@@ -5373,7 +5457,8 @@ const AC_DATABASE = [
     "description": "Issue #16 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #16 and figurine of Juhani Otso Berg",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [55]
   },
   {
     "id": 488,
@@ -5408,7 +5493,8 @@ const AC_DATABASE = [
     "description": "Issue #19 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #19 and figurine of Rebecca Crane",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [51]
   },
   {
     "id": 491,
@@ -5467,7 +5553,8 @@ const AC_DATABASE = [
     "description": "Issue #24 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #24 and figurine of Daniel Cross",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [67]
   },
   {
     "id": 496,
@@ -5698,7 +5785,8 @@ const AC_DATABASE = [
     "description": "Issue #44 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #44 and figurine of William Miles",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [52]
   },
   {
     "id": 516,
@@ -5753,7 +5841,8 @@ const AC_DATABASE = [
     "description": "Issue #49 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #49 and figurine of Galina Voronina",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [61]
   },
   {
     "id": 521,
@@ -5924,7 +6013,8 @@ const AC_DATABASE = [
     "description": "Issue #64 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #64 and figurine of Warren Vidic",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [53]
   },
   {
     "id": 536,
@@ -5957,7 +6047,8 @@ const AC_DATABASE = [
     "description": "Issue #67 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #67 and figurine of Shaun Hastings",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [50]
   },
   {
     "id": 539,
@@ -6014,7 +6105,8 @@ const AC_DATABASE = [
     "description": "Issue #72 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #72 and figurine of Clay Kaczmarek",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [54]
   },
   {
     "id": 544,
@@ -6237,7 +6329,8 @@ const AC_DATABASE = [
     "category": "Art & Reference",
     "description": "Illustrated in-universe hardcover companion book presented as the journal of the Hidden One Hytham. Chronicles Viking culture, history, lore, and mythology from the world of Assassin's Creed Valhalla. Written by Rick Barba. Published by Dark Horse Books, July 11, 2023 (ISBN 9781506735214).",
     "contents": "Hardcover in-universe journal with illustrations, maps, and lore entries",
-    "type": "Companion Book"
+    "type": "Companion Book",
+    "characters": [56]
   },
   {
     "id": 565,
@@ -6247,7 +6340,8 @@ const AC_DATABASE = [
     "category": "Art & Reference",
     "description": "Deluxe edition of the in-universe Hidden One journal companion book. Adds a protective slipcase, an exclusive cover, and a folio containing two gallery-quality prints. Written by Rick Barba. Published by Dark Horse Books, July 11, 2023 (ISBN 9781506735221).",
     "contents": "Hardcover in-universe journal, protective slipcase, exclusive cover, folio with 2 gallery-quality prints",
-    "type": "Companion Book"
+    "type": "Companion Book",
+    "characters": [56]
   },
   {
     "id": 566,
@@ -7036,7 +7130,8 @@ const AC_DATABASE = [
     "description": "Sequel to The Magus Conspiracy, seven years on. Pierrette Arnaud and Simeon Price are drawn from the 1869 opening of the Suez Canal through the Siege of Paris to the unfinished Eiffel Tower in 1889, against the Templar Countess Konstanze von Visler. Second book of The Engine of History. By Kate Heartfield. Published by Aconyte Books.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Assassin's Creed: The Engine of History"
+    "series": "Assassin's Creed: The Engine of History",
+    "characters": [78, 79]
   },
   {
     "id": 639,
@@ -7107,7 +7202,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed: The Fall",
     "collects": [236, 237, 238, 240],
-    "characters": [44]
+    "characters": [44, 67]
   },
   {
     "id": 645,
@@ -7119,7 +7214,8 @@ const AC_DATABASE = [
     "contents": "Prestige-format one-shot (80 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: The Fall",
-    "collects": [236, 237, 238]
+    "collects": [236, 237, 238],
+    "characters": [67]
   },
   {
     "id": 646,
@@ -7328,7 +7424,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "1/6 scale collectible figure of Aguilar de Nerha as played by Michael Fassbender in the 2016 Assassin's Creed film, with a Fassbender head sculpt (unruly hair, beard and facial tattoo) on a 31 cm DAM muscle body and a weathered, movie-accurate fabric costume with hood. Comes with a pair of hidden-blade gauntlets, a bow and arrow, a dagger with sheath, three throwing knives, three bombs, ten interchangeable hands including ring-finger-missing hands, and a rooftop diorama stand with the movie-logo nameplate.",
     "contents": "1/6 scale figure, 10 interchangeable hands, hidden-blade gauntlets, bow, arrow, dagger with sheath, 3 throwing knives, 3 bombs, diorama stand",
-    "type": "Damtoys"
+    "type": "Damtoys",
+    "characters": [58]
   },
   {
     "id": 665,

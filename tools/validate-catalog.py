@@ -47,8 +47,8 @@ Checks:
              (each new one higher than all before it), a unique name and
              URL slug, a side (CHARACTER_GROUPS), a year, a portrait (when
              given) in images/characters/<slug>.webp, games from GAMES
-             (main, spin-off or handheld, each once, in release order) and
-             a description. An item's "characters" lists existing
+             (main, spin-off or handheld, each once, in release order),
+             "stories" when they're in no game, and a description. An item's "characters" lists existing
              character ids, each once
 """
 from __future__ import annotations
@@ -115,7 +115,8 @@ GAME_FIELDS = {"name", "kind", "developer", "platforms", "image", "year", "setti
 DLC_FIELDS = {"name", "type", "image", "year", "setting", "released", "releasedPrecision",
               "marker", "note", "episodes"}
 CHARACTER_GROUPS = {"assassin", "templar", "isu", "other"}
-CHARACTER_FIELDS = {"id", "name", "aka", "group", "historical", "born", "year", "image", "games", "description"}
+CHARACTER_FIELDS = {"id", "name", "aka", "group", "historical", "born", "year", "image", "games", "stories",
+                    "description"}
 
 STR = r'"((?:[^"\\]|\\.)*)"'
 
@@ -478,11 +479,15 @@ def check_characters(items, errors, warnings):
                 elif kinds[game] not in LORE_KINDS:
                     errors.append(f"{label}: {game!r} is a {kinds[game]} game; only main, spin-off "
                                   "and handheld games are listed")
+            if not appears and not is_text(character.get("stories")):
+                errors.append(f"{label}: a character in no game needs \"stories\" (where they come from)")
             known = [g for g in appears if g in order]
             if len(set(known)) != len(known):
                 errors.append(f"{label}: a game is listed twice")
             elif known != sorted(known, key=order.get):
                 warnings.append(f"{label}: list the games in release order (the order of js/games.js)")
+        if "stories" in character and not is_text(character["stories"]):
+            errors.append(f"{label}: \"stories\" should be text like \"Comics: Assassins, Uprising\"")
         if "image" in character:
             image = character["image"]
             expected = f"images/characters/{url_slug(name)}.webp" if is_text(name) else None

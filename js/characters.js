@@ -15,17 +15,19 @@
    player meets. Out: unnamed characters, one-scene named characters with
    no further role, multiplayer personas, characters only mentioned or
    only in database entries, and characters from the mobile, browser and
-   VR games (until decided otherwise). The main characters of the novels,
-   comics and the film may come later.
+   VR games (until decided otherwise). Also in (from batch 3): the main
+   characters of the novels, comics, manga and the 2016 film, with the
+   works they appear in as "stories".
 
    The list grows in batches:
    - the pilot (2026-10-30): the Ezio saga, the Kenway saga, Desmond Miles
      and two Isu (ids 1-25);
    - batch 2 (2026-10-31): the protagonists of the other games and the key
      figures around them, from Origins to Shadows, the Chronicles and
-     Layla Hassan (ids 26-48).
-   Still to come: the modern-day team (Lucy, Shaun, Rebecca, William
-   Miles), more allies and targets, and the novels' and comics' heroes.
+     Layla Hassan (ids 26-48);
+   - batch 3 (2026-10-31): the modern-day team and Hytham, and the heroes
+     of the novels, comics, manhua and the 2016 film (ids 49-81).
+   Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
      id        permanent number, the next one is the highest + 1. Items
@@ -74,6 +76,12 @@
                corpses, visions of future Assassins, and Isu or Abstergo
                simulations in DLC (Ezio in Valhalla, Desmond's body in
                Black Flag)
+     stories   where they appear outside the games, as display text:
+               "Comics: Assassins, Uprising", "Novel: Heresy", "Film:
+               Assassin's Creed (2016)". Required for a character in no
+               game (the card shows it instead of a games count); optional
+               for the others (Juhani Otso Berg is in games and comics).
+               Search finds it
      description  one or two spoiler-free sentences, 300 characters at
                most, written for ACDb (never copied from the wiki): who
                they are when the player meets them, not what happens to
@@ -137,6 +145,33 @@
      Left out with one source only: Roshan in Valhalla's free quest
      "Shared History", Élise as a child in Rogue, Sigurd in Dawn of
      Ragnarök. Shao Jun is not in Chronicles: Russia (only her memories).
+   Batch 3 (two more researchers, 2026-10-31), settled as follows:
+   - Names from the works, not from the brief: Owen Meyers and Javier
+     Mondragón (Monroe is their teacher; the wiki's Javier Ortiz is
+     someone else); Numa Al'Khamsin, called El Cakr; Niamh of Argyll (the
+     wiki's "Niamh" is a druid in Wrath of the Druids); María; André "Dre"
+     Bolden. The Templars comic has two leads, Darius Gift (Ubisoft's
+     blurb) and Albert Bolden (the reviews); both are in. Dynasty's lead is
+     Li E (Zhang Xiaojing is not in it).
+   - Sides: Lucy Stillman and Daniel Cross are Templars, as the end of
+     their stories leaves them (the same rule as Haytham). Quila and
+     Tommy Greyling are allies, never sworn in. "The Black Cross" is kept
+     out of every name: it is the 1927 arc's mystery and, for Otso Berg,
+     a later twist.
+   - year for a character in the games is still where a game first shows
+     them (Vidic 2012, not Bloodstone's 1964; Berg 2014, Rogue); for the
+     others, where their own story first shows them (Callum Lynch as a
+     boy in 1986, Tomo as a child in 2000). Hytham is a Hidden One of 872,
+     not a modern-day character.
+   - Left out with one source only: Hytham as a boy in Mirage, Li E as a
+     historical person. Left out as voice only or unconfirmed: Shaun in
+     Unity, William Miles in Valhalla's The Last Chapter, Vidic in
+     Brotherhood, Berg's faceless multiplayer scenes, Daniel Cross in
+     Revelations.
+   - Disputed years: Quila 1534 (#8; another source 1536), Pierrette 1851
+     (the main story; one source 1848), Simeon Price 1852, Eddie Gorm
+     1931. Birth years given by the wiki alone: Charlotte, Owen, Javier,
+     Li E; Aguilar's (1455) is uncited, so it is left out.
 
    Portraits (2026-10-31): two researchers collected official art; every
    candidate they found stays in the session scratchpad for re-picking.
@@ -171,6 +206,20 @@
      kept as portraits2/basim/owner-supplied.png).
    - A close-up from Shadows' cutscenes: Oda Nobunaga. A screenshot:
      Layla Hassan (Origins; no render of her exists).
+   Batch 3 portraits (candidates kept in the scratchpad's portraits3):
+   - Renders on the Assassin's Creed Wiki: Lucy, Shaun, Rebecca (AC II and
+     Brotherhood looks), William Miles, Warren Vidic (his AC III look),
+     Daniel Cross (AC III); Hytham (Discovery Tour: Viking Age); Juhani
+     Otso Berg (Syndicate's database image).
+   - A Revelations screenshot: Clay Kaczmarek (no render exists).
+   - The film's official stills: Callum Lynch, Aguilar, María.
+   - Comic art (covers, panels, cut-outs): Charlotte, Galina, Quila, Tom
+     Stoddard, Albert and André Bolden (Templars), Jonathan Hawk and Numa
+     Al'Khamsin (Les Deux Royaumes), Aquilus (the Encyclopedia), Eddie
+     Gorm, Tommy Greyling, Li E (Tokyopop's Dynasty vol. 2 cover).
+   - No usable art, so the emblem: Darius Gift, Tomo, Simon Hathaway, Owen
+     Meyers, Javier Mondragón, Pierrette Arnaud, Simeon Price, Geirmund
+     Hel-hide, Niamh of Argyll.
 */
 
 const CHARACTERS = [
@@ -706,5 +755,385 @@ const CHARACTERS = [
     "image": "images/characters/layla-hassan.webp",
     "games": ["Assassin's Creed Origins", "Assassin's Creed Odyssey", "Assassin's Creed Valhalla"],
     "description": "A brilliant and impatient Abstergo engineer who builds her own portable Animus to explore the memories of people the company has overlooked."
+  },
+  {
+    "id": 49,
+    "name": "Lucy Stillman",
+    "group": "templar",
+    "historical": false,
+    "born": "1988",
+    "year": 2012,
+    "image": "images/characters/lucy-stillman.webp",
+    "games": ["Assassin's Creed", "Assassin's Creed II", "Assassin's Creed Brotherhood", "Assassin's Creed Revelations"],
+    "description": "A brilliant scientist working inside Abstergo Industries, and the first friendly face Desmond Miles meets in the Animus lab."
+  },
+  {
+    "id": 50,
+    "name": "Shaun Hastings",
+    "group": "assassin",
+    "historical": false,
+    "born": "1985",
+    "year": 2012,
+    "image": "images/characters/shaun-hastings.webp",
+    "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood", "Assassin's Creed Revelations", "Assassin's Creed III", "Assassin's Creed IV: Black Flag", "Assassin's Creed Syndicate", "Assassin's Creed Valhalla"],
+    "description": "The modern-day Assassins' sharp-tongued British historian, who fills in the history behind every memory with very dry wit."
+  },
+  {
+    "id": 51,
+    "name": "Rebecca Crane",
+    "group": "assassin",
+    "historical": false,
+    "born": "1984",
+    "year": 2012,
+    "image": "images/characters/rebecca-crane.webp",
+    "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood", "Assassin's Creed Revelations", "Assassin's Creed III", "Assassin's Creed IV: Black Flag", "Assassin's Creed Syndicate", "Assassin's Creed Valhalla"],
+    "stories": "Novel: Last Descendants: Tomb of the Khan",
+    "description": "The modern-day Assassins' cheerful technical wizard, who built and looks after their own Animus, which she calls Baby."
+  },
+  {
+    "id": 52,
+    "name": "William Miles",
+    "group": "assassin",
+    "historical": false,
+    "born": "1948",
+    "year": 2012,
+    "image": "images/characters/william-miles.webp",
+    "games": ["Assassin's Creed Revelations", "Assassin's Creed III", "Assassin's Creed Origins"],
+    "description": "Desmond's father and a leader of the modern-day Assassins, a stern and demanding man who puts the Brotherhood first."
+  },
+  {
+    "id": 53,
+    "name": "Warren Vidic",
+    "group": "templar",
+    "historical": false,
+    "born": "1940s",
+    "year": 2012,
+    "image": "images/characters/warren-vidic.webp",
+    "games": ["Assassin's Creed", "Assassin's Creed II", "Assassin's Creed Revelations", "Assassin's Creed III"],
+    "stories": "Comics: The Fall, The Chain; graphic novel: Bloodstone",
+    "description": "A cold and calculating scientist at Abstergo Industries who runs the Animus project and holds Desmond Miles captive to search his memories."
+  },
+  {
+    "id": 54,
+    "name": "Clay Kaczmarek",
+    "aka": ["Subject 16"],
+    "group": "assassin",
+    "historical": false,
+    "born": "1982",
+    "year": 2012,
+    "image": "images/characters/clay-kaczmarek.webp",
+    "games": ["Assassin's Creed Revelations"],
+    "description": "Abstergo's test subject before Desmond, known only as Subject 16, who leaves cryptic messages and puzzles hidden inside the Animus."
+  },
+  {
+    "id": 55,
+    "name": "Juhani Otso Berg",
+    "aka": ["Otso Berg"],
+    "group": "templar",
+    "historical": false,
+    "born": "1985",
+    "year": 2014,
+    "image": "images/characters/juhani-otso-berg.webp",
+    "games": ["Assassin's Creed Rogue", "Assassin's Creed Syndicate", "Assassin's Creed Chronicles: Russia", "Assassin's Creed Odyssey"],
+    "stories": "Comics: Templars, Uprising",
+    "description": "A Finnish former special forces officer who leads Abstergo's Sigma Team, hunting Assassins and Pieces of Eden for the Templars."
+  },
+  {
+    "id": 56,
+    "name": "Hytham",
+    "group": "assassin",
+    "historical": false,
+    "born": "850s",
+    "year": 872,
+    "image": "images/characters/hytham.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "stories": "Novels: The Golden City, Geirmund's Saga, Sword of the White Horse",
+    "description": "A young and earnest Hidden One who comes to England with Basim and keeps the Brotherhood's bureau in the Raven Clan's settlement."
+  },
+  {
+    "id": 57,
+    "name": "Callum Lynch",
+    "aka": ["Cal Lynch"],
+    "group": "assassin",
+    "historical": false,
+    "born": "1979",
+    "year": 1986,
+    "image": "images/characters/callum-lynch.webp",
+    "games": [],
+    "stories": "Film: Assassin's Creed (2016)",
+    "description": "A death-row prisoner who is taken by Abstergo and made to relive the memories of his ancestor Aguilar in the Animus."
+  },
+  {
+    "id": 58,
+    "name": "Aguilar de Nerha",
+    "group": "assassin",
+    "historical": false,
+    "year": 1492,
+    "image": "images/characters/aguilar-de-nerha.webp",
+    "games": [],
+    "stories": "Film: Assassin's Creed (2016)",
+    "description": "An Assassin in fifteenth-century Andalusia, sworn to keep the Apple of Eden out of the hands of the Spanish Inquisition."
+  },
+  {
+    "id": 59,
+    "name": "María",
+    "group": "assassin",
+    "historical": false,
+    "year": 1492,
+    "image": "images/characters/maria.webp",
+    "games": [],
+    "stories": "Film: Assassin's Creed (2016)",
+    "description": "Aguilar's fellow Assassin and partner in fifteenth-century Spain, a fearless fighter in the Brotherhood's war against the Inquisition."
+  },
+  {
+    "id": 60,
+    "name": "Charlotte de la Cruz",
+    "group": "assassin",
+    "historical": false,
+    "born": "1992",
+    "year": 2015,
+    "image": "images/characters/charlotte-de-la-cruz.webp",
+    "games": [],
+    "stories": "Comics: Assassins, Uprising",
+    "description": "An overqualified office worker in San Diego whose obsession with conspiracy theories leads her straight into the Assassins' secret war."
+  },
+  {
+    "id": 61,
+    "name": "Galina Voronina",
+    "group": "assassin",
+    "historical": false,
+    "born": "1983",
+    "year": 2015,
+    "image": "images/characters/galina-voronina.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "stories": "Comics: Assassins, Uprising",
+    "description": "A tough, uncompromising Russian Assassin who leads the modern-day cell that takes Charlotte de la Cruz under its wing."
+  },
+  {
+    "id": 62,
+    "name": "Tom Stoddard",
+    "aka": ["Thomas Stoddard"],
+    "group": "assassin",
+    "historical": false,
+    "year": 1692,
+    "image": "images/characters/tom-stoddard.webp",
+    "games": [],
+    "stories": "Comics: Assassins",
+    "description": "A seasoned Assassin in 1692 Salem, an ancestor of Charlotte de la Cruz, caught up in the witch trials as hysteria grips the town."
+  },
+  {
+    "id": 63,
+    "name": "Quila",
+    "group": "other",
+    "historical": false,
+    "year": 1534,
+    "image": "images/characters/quila.webp",
+    "games": [],
+    "stories": "Comics: Assassins",
+    "description": "An Inca courier in the last days of the Inca Empire, racing across the Andes as the Spanish conquest closes in."
+  },
+  {
+    "id": 64,
+    "name": "Darius Gift",
+    "group": "templar",
+    "historical": false,
+    "year": 1927,
+    "games": [],
+    "stories": "Comics: Templars",
+    "description": "A young and privileged Templar of the British Rite, sent to 1920s Shanghai on his first assignment for the Order."
+  },
+  {
+    "id": 65,
+    "name": "Albert Bolden",
+    "aka": ["Albie Bolden"],
+    "group": "templar",
+    "historical": false,
+    "born": "1893",
+    "year": 1927,
+    "image": "images/characters/albert-bolden.webp",
+    "games": [],
+    "stories": "Comics: Templars, Uprising",
+    "description": "A jazz trumpeter from Baltimore and a Templar in 1920s Shanghai, caught up in a struggle to root out corruption within the Order."
+  },
+  {
+    "id": 66,
+    "name": "André Bolden",
+    "aka": ["Dre Bolden"],
+    "group": "templar",
+    "historical": false,
+    "born": "1944",
+    "year": 2016,
+    "image": "images/characters/andre-bolden.webp",
+    "games": [],
+    "stories": "Comics: Templars, Uprising",
+    "description": "Albert Bolden's son, an older man in 2016 whose family memories suddenly become of great interest to Abstergo."
+  },
+  {
+    "id": 67,
+    "name": "Daniel Cross",
+    "group": "templar",
+    "historical": false,
+    "born": "1974",
+    "year": 2012,
+    "image": "images/characters/daniel-cross.webp",
+    "games": ["Assassin's Creed III"],
+    "stories": "Comics: The Fall, The Chain",
+    "description": "A troubled drifter plagued by visions of his ancestor Nikolai Orelov, who is drawn into the war between the Assassins and the Templars."
+  },
+  {
+    "id": 68,
+    "name": "Jonathan Hawk",
+    "group": "assassin",
+    "historical": false,
+    "year": 2012,
+    "image": "images/characters/jonathan-hawk.webp",
+    "games": [],
+    "stories": "Graphic novels: Accipiter, Hawk, El Cakr, Leila",
+    "description": "A London Assassin and a friend of Desmond Miles, sent to find a powerful ancient sceptre through the memories of his ancestor."
+  },
+  {
+    "id": 69,
+    "name": "Numa Al'Khamsin",
+    "aka": ["El Cakr"],
+    "group": "assassin",
+    "historical": false,
+    "year": 1340,
+    "image": "images/characters/numa-alkhamsin.webp",
+    "games": [],
+    "stories": "Graphic novels: Hawk, El Cakr, Leila",
+    "description": "An elite Assassin of the Egyptian Brotherhood in the fourteenth century, known as El Cakr, the Hawk, who guards a powerful ancient sceptre."
+  },
+  {
+    "id": 70,
+    "name": "Aquilus",
+    "group": "assassin",
+    "historical": false,
+    "year": 259,
+    "image": "images/characters/aquilus.webp",
+    "games": [],
+    "stories": "Graphic novels: Desmond, Aquilus, Accipiter (the Ankh of Isis trilogy)",
+    "description": "An Assassin of the third-century Roman Empire, one of Desmond Miles' ancestors, whose memories hold the secret of an ancient artefact."
+  },
+  {
+    "id": 71,
+    "name": "Eddie Gorm",
+    "group": "assassin",
+    "historical": false,
+    "year": 1931,
+    "image": "images/characters/eddie-gorm.webp",
+    "games": [],
+    "stories": "Graphic novels: Conspiracies",
+    "description": "The boss of London's East End docks, a small-time racketeer drawn into the Assassins' war during the Second World War."
+  },
+  {
+    "id": 72,
+    "name": "Tomo",
+    "aka": ["Tomo Sakagawa"],
+    "group": "assassin",
+    "historical": false,
+    "year": 2000,
+    "games": [],
+    "stories": "Graphic novels: Bloodstone, Conspiracies",
+    "description": "One of the youngest members of the Japanese Brotherhood, more scientist than fighter, who uncovers a conspiracy reaching back to the Vietnam War."
+  },
+  {
+    "id": 73,
+    "name": "Tommy Greyling",
+    "aka": ["Thomas Greyling"],
+    "group": "other",
+    "historical": false,
+    "year": 1863,
+    "image": "images/characters/tommy-greyling.webp",
+    "games": [],
+    "stories": "Novel: Last Descendants; comic: Locus",
+    "description": "A New York police officer in the 1863 draft riots who later becomes a Pinkerton detective on the trail of a killer in Victorian London."
+  },
+  {
+    "id": 74,
+    "name": "Li E",
+    "group": "assassin",
+    "historical": false,
+    "born": "730",
+    "year": 751,
+    "image": "images/characters/li-e.webp",
+    "games": [],
+    "stories": "Manhua: Dynasty",
+    "description": "A young man of eighth-century China who joins the Hidden Ones as the An Lushan Rebellion tears the Tang empire apart."
+  },
+  {
+    "id": 75,
+    "name": "Simon Hathaway",
+    "group": "templar",
+    "historical": false,
+    "born": "1980s",
+    "year": 2016,
+    "games": [],
+    "stories": "Novel: Heresy; comic: Uprising",
+    "description": "A Templar historian at Abstergo who relives the memories of a companion of Joan of Arc to learn the secrets of a Sword of Eden."
+  },
+  {
+    "id": 76,
+    "name": "Owen Meyers",
+    "group": "assassin",
+    "historical": false,
+    "born": "2001",
+    "year": 2016,
+    "games": [],
+    "stories": "Novels: Last Descendants trilogy",
+    "description": "A teenager desperate to clear his late father's name, who is recruited to explore the memories of his ancestors in the Animus."
+  },
+  {
+    "id": 77,
+    "name": "Javier Mondragón",
+    "group": "assassin",
+    "historical": false,
+    "born": "2000",
+    "year": 2016,
+    "games": [],
+    "stories": "Novels: Last Descendants trilogy",
+    "description": "Owen's best friend, who follows him into the Animus and into the hidden war between the Assassins and the Templars."
+  },
+  {
+    "id": 78,
+    "name": "Pierrette Arnaud",
+    "group": "assassin",
+    "historical": false,
+    "born": "c. 1833",
+    "year": 1851,
+    "games": [],
+    "stories": "Novels: The Engine of History (The Magus Conspiracy, The Resurrection Plot)",
+    "description": "A trapeze acrobat in mid-nineteenth-century Europe who is swept into the Assassins' fight to protect Ada Lovelace's Engine of History."
+  },
+  {
+    "id": 79,
+    "name": "Simeon Price",
+    "group": "assassin",
+    "historical": false,
+    "born": "c. 1825",
+    "year": 1852,
+    "games": [],
+    "stories": "Novels: The Engine of History (The Magus Conspiracy, The Resurrection Plot)",
+    "description": "A seasoned British Assassin who, with Pierrette Arnaud, races to protect Ada Lovelace's Engine of History from a Templar-allied magician."
+  },
+  {
+    "id": 80,
+    "name": "Geirmund Hel-hide",
+    "group": "other",
+    "historical": true,
+    "born": "c. 850",
+    "year": 870,
+    "games": [],
+    "stories": "Novel: Geirmund's Saga",
+    "description": "A Norse warrior from Rogaland in the Great Heathen Army's invasion of England, whose saga runs alongside Eivor's."
+  },
+  {
+    "id": 81,
+    "name": "Niamh of Argyll",
+    "group": "assassin",
+    "historical": false,
+    "year": 878,
+    "games": [],
+    "stories": "Novel: Sword of the White Horse",
+    "description": "A blind Norse-Gaelic woman at the court of King Alfred of Wessex, drawn into the Hidden Ones' fight to protect a sacred artefact."
   }
 ]

@@ -34,7 +34,7 @@
     const SEARCH_ICON = '<svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>';
     const CLEAR_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 
-    const SOURCES_HTML = `<p class="reading-sources">Characters who appear in person in the main, spin-off and handheld games. Facts from the <a href="https://assassinscreed.fandom.com/" target="_blank" rel="noopener noreferrer">Assassin's Creed Wiki</a>, checked against Wikipedia and Ubisoft; descriptions written for ACDb and kept free of spoilers. A character's items are the ones that show them or tell their story. Character art &copy; Ubisoft.</p>`;
+    const SOURCES_HTML = `<p class="reading-sources">Characters who appear in person in the main, spin-off and handheld games, and the heroes of the novels, comics and the 2016 film. Facts from the <a href="https://assassinscreed.fandom.com/" target="_blank" rel="noopener noreferrer">Assassin's Creed Wiki</a>, checked against Wikipedia and Ubisoft; descriptions written for ACDb and kept free of spoilers. A character's items are the ones that show them or tell their story. Character art &copy; Ubisoft.</p>`;
 
     const view = document.getElementById('charactersView');
     const content = document.getElementById('charactersContent');
@@ -128,7 +128,7 @@
         return CHARACTERS.filter(c => {
             if (currentGroup && c.group !== currentGroup) return false;
             if (!query) return true;
-            return [c.name, ...(c.aka || [])].some(name => fold(name).includes(query));
+            return [c.name, ...(c.aka || []), c.stories || ''].some(text => fold(text).includes(query));
         });
     }
 
@@ -148,7 +148,7 @@
             <div class="page-head">
                 <h2 class="page-title">Characters</h2>
             </div>
-            <p class="reading-description">Who's who in Assassin's Creed: ${count(CHARACTERS.length, 'character', 'characters')} so far, each with the games they appear in and their items in the collection. More are on the way.</p>
+            <p class="reading-description">Who's who in Assassin's Creed: ${count(CHARACTERS.length, 'character', 'characters')} so far, from the games, novels, comics and the film, each with where they appear and their items in the collection. More are on the way.</p>
             <div class="games-toolbar">
                 <div class="search-box games-search">
                     ${SEARCH_ICON}
@@ -231,6 +231,7 @@
                             <h3 class="character-card-name">${esc(character.name)}</h3>
                             <span class="character-card-meta">${esc(bornLine(character))}</span>
                             ${character.aka ? `<span class="character-card-meta">Also known as ${esc(character.aka.join(', '))}</span>` : ''}
+                            ${character.stories && !games ? `<span class="character-card-meta">${esc(character.stories)}</span>` : ''}
                         </span>
                     </span>
                     <span class="character-card-text">${esc(character.description)}</span>
@@ -270,7 +271,8 @@
         const meta = [
             character.born ? metaRow('Born', esc(character.born)) : '',
             metaRow('Era', esc(A.eraOf(character.year))),
-            character.aka ? metaRow('Also known as', esc(character.aka.join(', '))) : ''
+            character.aka ? metaRow('Also known as', esc(character.aka.join(', '))) : '',
+            character.stories ? metaRow('Stories', esc(character.stories)) : ''
         ].join('');
         const progress = items.length ? `
             <div class="character-progress">
