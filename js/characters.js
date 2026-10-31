@@ -34,7 +34,9 @@
    - batch 5 (2026-10-31): the Ezio saga's family, allies and enemies, from
      AC II to Revelations (ids 89-102);
    - batch 6 (2026-10-31): Black Flag's pirates, governors and Assassins
-     (ids 103-111).
+     (ids 103-111);
+   - batch 7 (2026-10-31): AC III's Templars and Patriots, and
+     Liberation's New Orleans (ids 112-122).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -253,6 +255,32 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   Batch 7 (two more researchers, 2026-10-31), settled as follows:
+   - Sides: Kaniehtí:io, Samuel Adams and Lafayette are "other" (the
+     wiki's infoboxes say Assassins; its own text, Wikipedia and a cut
+     line of Achilles's say allies). Benjamin Church is a Templar, though
+     he ends a renegade. Gérald Blanc is an Assassin from the start
+     (Wikipedia: "fellow Assassin"). Madeleine de L'Isle is "other" and her
+     Templar side and alias are left out: they are Liberation's final
+     twist (as for Ahmet).
+   - Names: Marquis de Lafayette, as AC III's database and cast list have
+     him (aka Gilbert du Motier); Kaniehtí:io with the accent, as the
+     database and the cast list write it (aka Ziio, from Forsaken and the
+     fans). Her page is #characters/kaniehti-io (the colon becomes a
+     hyphen, as for Ratonhnhaké:ton).
+   - Games: William Johnson is the only one of AC III's Templars in Rogue;
+     Birch is only mentioned in Black Flag and Rogue, Lafayette only in
+     Unity's database. Kaniehtí:io and Samuel Adams are in The Tyranny of
+     King Washington too, which counts as AC III.
+   - Births as the games have them: Johnson 1715 (history: c. 1715);
+     Hickey's is unknown, so it is left out. Kaniehtí:io 1731, Birch 1705,
+     Agaté c. 1722, Madeleine 1732 and Gérald 1745 from the wiki and
+     Wikipedia's list of the series' historical characters.
+   - year: Samuel Adams 1770 (Boston's Most Wanted, after the massacre);
+     Lafayette 1778 (Monmouth; his Valley Forge scene is optional); Agaté
+     1766 (the wiki; he is first on screen in Sequence 2).
+   - Stories: Forsaken for Birch only (the wiki and Wikipedia's list); the
+     others' Forsaken roles rest on the wiki alone.
    Batch 6 (two more researchers, 2026-10-31), settled as follows:
    - All nine are in Black Flag Resynced: Metacritic's and Game Rant's
      credits, Wikipedia and reviews; Ah Tabai from a Resynced walkthrough
@@ -302,6 +330,11 @@
      (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
      Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
      out.
+   Batch 7 portraits, all from the Assassin's Creed Wiki: AC III renders
+   of Kaniehtí:io, Birch, Johnson, Church and Samuel Adams; AC III
+   in-engine close-ups of Hickey, Pitcairn and Lafayette (their renders
+   are small); Liberation Remastered database renders of Madeleine,
+   Agaté and Gérald, with the white glow around them removed.
    Batch 6 portraits, all from the Assassin's Creed Wiki: the original
    Black Flag renders, to match Edward, Blackbeard and Adéwalé (each also
    has a Resynced render among the candidates in portraits7).
@@ -1589,5 +1622,129 @@ const CHARACTERS = [
     "image": "images/characters/ah-tabai.webp",
     "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
     "description": "The calm, stern Mentor of the Assassins in the West Indies, who leads the Brotherhood from its hidden home at Tulum."
+  },
+  {
+    "id": 112,
+    "name": "Kaniehtí:io",
+    "aka": ["Ziio"],
+    "group": "other",
+    "historical": false,
+    "born": "1731",
+    "year": 1754,
+    "image": "images/characters/kaniehti-io.webp",
+    "games": ["Assassin's Creed III"],
+    "description": "A Kanien'kehá:ka (Mohawk) woman fighting to protect her people's land, who crosses paths with Haytham Kenway in 1754."
+  },
+  {
+    "id": 113,
+    "name": "Reginald Birch",
+    "group": "templar",
+    "historical": false,
+    "born": "1705",
+    "year": 1754,
+    "image": "images/characters/reginald-birch.webp",
+    "games": ["Assassin's Creed III"],
+    "stories": "Novel: Forsaken",
+    "description": "A wealthy London merchant and an old friend of the Kenway family, who has watched over Haytham since he was a boy."
+  },
+  {
+    "id": 114,
+    "name": "Thomas Hickey",
+    "group": "templar",
+    "historical": true,
+    "year": 1754,
+    "image": "images/characters/thomas-hickey.webp",
+    "games": ["Assassin's Creed III"],
+    "description": "A crude, cocky soldier who works as William Johnson's hired muscle, more interested in coin than in any cause."
+  },
+  {
+    "id": 115,
+    "name": "John Pitcairn",
+    "group": "templar",
+    "historical": true,
+    "born": "1722",
+    "year": 1754,
+    "image": "images/characters/john-pitcairn.webp",
+    "games": ["Assassin's Creed III"],
+    "description": "A young British marine officer serving under General Braddock in 1754, a soldier with a strong sense of duty."
+  },
+  {
+    "id": 116,
+    "name": "William Johnson",
+    "group": "templar",
+    "historical": true,
+    "born": "1715",
+    "year": 1754,
+    "image": "images/characters/william-johnson.webp",
+    "games": ["Assassin's Creed III", "Assassin's Creed Rogue"],
+    "description": "A British trader and official with close ties to the Mohawk, whose hard-won research has been stolen by thieves in Boston."
+  },
+  {
+    "id": 117,
+    "name": "Benjamin Church",
+    "group": "templar",
+    "historical": true,
+    "born": "1734",
+    "year": 1754,
+    "image": "images/characters/benjamin-church.webp",
+    "games": ["Assassin's Creed III"],
+    "description": "A Boston physician and surgeon, held for ransom by slavers when Haytham first comes looking for him."
+  },
+  {
+    "id": 118,
+    "name": "Samuel Adams",
+    "aka": ["Sam Adams"],
+    "group": "other",
+    "historical": true,
+    "born": "1722",
+    "year": 1770,
+    "image": "images/characters/samuel-adams.webp",
+    "games": ["Assassin's Creed III"],
+    "description": "A Boston political organiser and Patriot leader of the Sons of Liberty, who lends Connor a hand when the city turns against him."
+  },
+  {
+    "id": 119,
+    "name": "Marquis de Lafayette",
+    "aka": ["Gilbert du Motier"],
+    "group": "other",
+    "historical": true,
+    "born": "1757",
+    "year": 1778,
+    "image": "images/characters/marquis-de-lafayette.webp",
+    "games": ["Assassin's Creed III"],
+    "description": "A young French aristocrat and idealist serving as a major general in Washington's Continental Army."
+  },
+  {
+    "id": 120,
+    "name": "Madeleine de L'Isle",
+    "group": "other",
+    "historical": false,
+    "born": "1732",
+    "year": 1765,
+    "image": "images/characters/madeleine-de-lisle.webp",
+    "games": ["Assassin's Creed III: Liberation"],
+    "description": "Aveline's elegant, well-connected stepmother, the wife of the wealthy New Orleans merchant Philippe de Grandpré."
+  },
+  {
+    "id": 121,
+    "name": "Agaté",
+    "group": "assassin",
+    "historical": false,
+    "born": "c. 1722",
+    "year": 1766,
+    "image": "images/characters/agate.webp",
+    "games": ["Assassin's Creed III: Liberation"],
+    "description": "A reclusive former slave who lives deep in the bayou, the Mentor of the Assassins in Louisiana and the man who trained Aveline."
+  },
+  {
+    "id": 122,
+    "name": "Gérald Blanc",
+    "group": "assassin",
+    "historical": false,
+    "born": "1745",
+    "year": 1765,
+    "image": "images/characters/gerald-blanc.webp",
+    "games": ["Assassin's Creed III: Liberation"],
+    "description": "Aveline's childhood friend and her father's clerk, who keeps a quiet network of informants across New Orleans."
   }
 ]

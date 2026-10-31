@@ -5943,7 +5943,8 @@ const AC_DATABASE = [
     "description": "Issue #57 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #57 and figurine of Agaté",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [121]
   },
   {
     "id": 529,
@@ -6198,7 +6199,8 @@ const AC_DATABASE = [
     "description": "Issue #79 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #79 and figurine of Madeleine de L'Isle",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [120]
   },
   {
     "id": 551,
