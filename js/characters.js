@@ -30,7 +30,9 @@
    - the owner's request (2026-10-31): Lydia Frye and Jack the Ripper from
      Syndicate's First World War memories and its expansion (ids 82-83);
    - batch 4 (2026-10-31): Altaïr's world, from Assassin's Creed and
-     Bloodlines (ids 84-88).
+     Bloodlines (ids 84-88);
+   - batch 5 (2026-10-31): the Ezio saga's family, allies and enemies, from
+     AC II to Revelations (ids 89-102).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -249,6 +251,39 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   Batch 5 (two more researchers, 2026-10-31), settled as follows:
+   - Names: Maria and Federico Auditore da Firenze, as for Giovanni and
+     Claudia; Suleiman and Ahmet as the games' cast lists have them (the
+     database says "Prince"), with Süleyman and Şehzade Ahmet as aka. La
+     Volpe's given name, Gilberto, is from the novels (and Hachette's
+     figure), so it is an aka.
+   - Sides: La Volpe, Bartolomeo, Antonio and Paola are Assassins, shown
+     as members at Ezio's induction in 1488 (no game shows their own).
+     Maria, Federico and Lorenzo are "other": the wiki's Assassin labels
+     for them are thinly sourced. Uberto is a Templar, as the game calls
+     him. Tarik Barleti is "other", a loyal Janissary. Ahmet is "other" and
+     his Templar side is left out: it is Revelations' twist (as for Jack
+     the Ripper and Alexios).
+   - Births as the games have them: Jacopo de' Pazzi 1421 (history: 1423),
+     Bartolomeo 1455 (Wikipedia: c. 1455), Ahmet 1466 (history: c. 1466).
+     From the wiki alone (the games' database entries): Maria 1432,
+     Federico 1456, Uberto 1416, Antonio 1443, Paola 1438, Yusuf c. 1467,
+     Tarik 1470.
+   - year: Maria 1459 (Ezio's birth); the Pazzi 1478, the San Gimignano
+     meeting (the wiki; Ubisoft's Initiates timeline says 1477, but the
+     conspiracy is 1478); Antonio 1481 (the memory; his page says 1480).
+     Federico is not in the 1459 birth scene.
+   - Not counted: Federico's Brotherhood flashback, Antonio in Nexus VR
+     (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
+     Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
+     out.
+   Batch 5 portraits, all from the Assassin's Creed Wiki: AC II database
+   portraits (256 wide, scaled up slightly) for Maria, Federico, Lorenzo,
+   Uberto, Francesco, Bartolomeo, Antonio and Paola; La Volpe's
+   Brotherhood render; Ahmet's Revelations promo render and Tarik's
+   Revelations render. The owner's picks, small renders cropped wider and
+   scaled up: Jacopo's AC II render, Yusuf's Revelations render and
+   Suleiman's Revelations database render.
    Batch 4 portraits, all from the Assassin's Creed Wiki (the owner's
    picks for three): Al Mualim from Ubisoft's Revelations render sheet
    (an in-game headshot), Robert de Sablé's AC1 render (small, so scaled
@@ -1263,5 +1298,166 @@ const CHARACTERS = [
     "games": ["Assassin's Creed Revelations"],
     "stories": "Novel: The Secret Crusade",
     "description": "Altaïr's childhood friend at Masyaf, raised in the Brotherhood alongside him, whose friendship is soured by an old grievance over the fate of his father."
+  },
+  {
+    "id": 89,
+    "name": "Maria Auditore da Firenze",
+    "group": "other",
+    "historical": false,
+    "born": "1432",
+    "year": 1459,
+    "image": "images/characters/maria-auditore-da-firenze.webp",
+    "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood"],
+    "stories": "Short film: Assassin's Creed: Lineage",
+    "description": "Ezio's mother, a gracious Florentine noblewoman and patron of artists, and the warm heart of the Auditore household."
+  },
+  {
+    "id": 90,
+    "name": "Federico Auditore da Firenze",
+    "group": "other",
+    "historical": false,
+    "born": "1456",
+    "year": 1476,
+    "image": "images/characters/federico-auditore-da-firenze.webp",
+    "games": ["Assassin's Creed II"],
+    "stories": "Short film: Assassin's Creed: Lineage",
+    "description": "Ezio's carefree older brother, quick with a joke and a fist, who leads him on races across the rooftops of Florence."
+  },
+  {
+    "id": 91,
+    "name": "Lorenzo de' Medici",
+    "aka": ["Lorenzo il Magnifico"],
+    "group": "other",
+    "historical": true,
+    "born": "1449",
+    "year": 1476,
+    "image": "images/characters/lorenzo-de-medici.webp",
+    "games": ["Assassin's Creed II"],
+    "stories": "Short film: Assassin's Creed: Lineage",
+    "description": "The ruler of Florence in all but name, a great patron of artists and thinkers and a close friend of Ezio's father, Giovanni."
+  },
+  {
+    "id": 92,
+    "name": "Uberto Alberti",
+    "group": "templar",
+    "historical": false,
+    "born": "1416",
+    "year": 1476,
+    "image": "images/characters/uberto-alberti.webp",
+    "games": ["Assassin's Creed II"],
+    "stories": "Short film: Assassin's Creed: Lineage",
+    "description": "The Gonfaloniere of Florence, the city's chief magistrate, and a trusted friend of the Auditore family."
+  },
+  {
+    "id": 93,
+    "name": "Jacopo de' Pazzi",
+    "group": "templar",
+    "historical": true,
+    "born": "1421",
+    "year": 1478,
+    "image": "images/characters/jacopo-de-pazzi.webp",
+    "games": ["Assassin's Creed II"],
+    "description": "The ageing head of the powerful Pazzi banking family, the Medici's great rivals for control of Florence."
+  },
+  {
+    "id": 94,
+    "name": "Francesco de' Pazzi",
+    "group": "templar",
+    "historical": true,
+    "born": "1444",
+    "year": 1478,
+    "image": "images/characters/francesco-de-pazzi.webp",
+    "games": ["Assassin's Creed II"],
+    "description": "Jacopo's hot-headed nephew and Vieri's father, a Pazzi banker who burns with resentment of the Medici."
+  },
+  {
+    "id": 95,
+    "name": "La Volpe",
+    "aka": ["Gilberto", "The Fox"],
+    "group": "assassin",
+    "historical": false,
+    "year": 1478,
+    "image": "images/characters/la-volpe.webp",
+    "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood"],
+    "description": "Florence's elusive master thief, known as the Fox, who leads the city's guild of thieves and seems to hear of everything that happens in its streets."
+  },
+  {
+    "id": 96,
+    "name": "Bartolomeo d'Alviano",
+    "group": "assassin",
+    "historical": true,
+    "born": "1455",
+    "year": 1486,
+    "image": "images/characters/bartolomeo-dalviano.webp",
+    "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood"],
+    "description": "A boisterous condottiere, a mercenary captain with a booming laugh who takes on the Templars with his men and his beloved sword, Bianca."
+  },
+  {
+    "id": 97,
+    "name": "Antonio de Magianis",
+    "group": "assassin",
+    "historical": false,
+    "born": "1443",
+    "year": 1481,
+    "image": "images/characters/antonio-de-magianis.webp",
+    "games": ["Assassin's Creed II", "Assassin's Creed II: Discovery"],
+    "description": "The leader of the thieves' guild in Venice, a sharp-tongued schemer with no love for the nobles who rule the city."
+  },
+  {
+    "id": 98,
+    "name": "Paola",
+    "group": "assassin",
+    "historical": false,
+    "born": "1438",
+    "year": 1476,
+    "image": "images/characters/paola.webp",
+    "games": ["Assassin's Creed II"],
+    "description": "The poised madam of Florence's most elegant courtesan house, who teaches a hunted young Ezio the art of vanishing into a crowd."
+  },
+  {
+    "id": 99,
+    "name": "Yusuf Tazim",
+    "group": "assassin",
+    "historical": false,
+    "born": "c. 1467",
+    "year": 1511,
+    "image": "images/characters/yusuf-tazim.webp",
+    "games": ["Assassin's Creed Revelations"],
+    "description": "The cheerful, quick-witted leader of the Assassins in Constantinople, who welcomes Ezio to the city and shows him its rooftops."
+  },
+  {
+    "id": 100,
+    "name": "Suleiman",
+    "aka": ["Prince Suleiman", "Süleyman", "Suleiman the Magnificent"],
+    "group": "other",
+    "historical": true,
+    "born": "1494",
+    "year": 1511,
+    "image": "images/characters/suleiman.webp",
+    "games": ["Assassin's Creed Revelations"],
+    "description": "The Sultan's seventeen-year-old grandson, a curious and thoughtful young prince eager to learn everything Constantinople can teach him."
+  },
+  {
+    "id": 101,
+    "name": "Ahmet",
+    "aka": ["Prince Ahmet", "Şehzade Ahmet"],
+    "group": "other",
+    "historical": true,
+    "born": "1466",
+    "year": 1511,
+    "image": "images/characters/ahmet.webp",
+    "games": ["Assassin's Creed Revelations"],
+    "description": "The Sultan's eldest son and favoured heir, Suleiman's uncle, a polished and persuasive prince with his eye on the Ottoman throne."
+  },
+  {
+    "id": 102,
+    "name": "Tarik Barleti",
+    "group": "other",
+    "historical": false,
+    "born": "1470",
+    "year": 1511,
+    "image": "images/characters/tarik-barleti.webp",
+    "games": ["Assassin's Creed Revelations"],
+    "description": "The proud, blunt captain of the Janissaries, the Sultan's elite guard, who has little patience for foreigners like Ezio."
   }
 ]

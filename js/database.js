@@ -5961,7 +5961,8 @@ const AC_DATABASE = [
     "description": "Issue #59 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #59 and figurine of Yusuf Tazim",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [99]
   },
   {
     "id": 531,
@@ -6063,7 +6064,8 @@ const AC_DATABASE = [
     "description": "Issue #68 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #68 and figurine of Gilberto La Volpe",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [95]
   },
   {
     "id": 540,
