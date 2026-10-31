@@ -555,6 +555,7 @@
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('leaderboardView').style.display = 'none';
         document.getElementById('readingView').style.display = 'none';
+        document.getElementById('charactersView').style.display = 'none';
         view.style.display = '';
         render();
         restoreChipRow(chipScroll);
@@ -632,5 +633,6 @@
     A.openGameDialog = openGameDialog;
     A.closeGameDialog = closeGameDialog;
     A.isGameDialogOpen = isGameDialogOpen;
+    A.gameKindLine = kindLine;   // the game rows on a character's page
 
 })();

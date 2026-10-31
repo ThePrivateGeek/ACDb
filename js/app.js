@@ -634,6 +634,7 @@ window.ACDB = window.ACDB || {};
         ACDB.renderSyncBanner();
         ACDB.refreshReadingView();
         ACDB.refreshGamesView();
+        ACDB.refreshCharactersView();
     }
 
     function createCard(item) {
@@ -703,6 +704,9 @@ window.ACDB = window.ACDB || {};
             e.preventDefault();
             if (card.closest('#profileItemsGrid')) {
                 ACDB.openReadOnlyModal(item.id);
+            } else if (card.closest('#charactersView')) {
+                // A character's items open over their page
+                ACDB.openModalOverView(item.id);
             } else {
                 openModal(item.id);
             }
@@ -989,6 +993,13 @@ window.ACDB = window.ACDB || {};
         if (hash === 'games' || hash.startsWith('games/')) {
             if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true });
             ACDB.showGames(hash.slice('games/'.length) || null);
+            return;
+        }
+
+        // Characters view (#characters; #characters/<slug> is a character's page)
+        if (hash === 'characters' || hash.startsWith('characters/')) {
+            if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true });
+            ACDB.showCharacters(hash.slice('characters/'.length) || null);
             return;
         }
 
@@ -1677,6 +1688,7 @@ window.ACDB = window.ACDB || {};
     A.findItemByRef = findItemByRef;
     A.coveringItem = coveringItem;
     A.renderItems = renderItems;
+    A.createItemCard = createCard;   // a character's items (js/characters-view.js)
     A.createCard = createCard;
     A.getFilteredItems = getFilteredItems;
     A.initFilters = initFilters;

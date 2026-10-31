@@ -180,7 +180,8 @@ textarea:focus-visible {
     .item-card:hover,
     .items-grid.list-view .item-card:hover,
     .item-card:hover .card-image img,
-    .game-tile:hover {
+    .game-tile:hover,
+    .character-card:hover {
         transform: none !important;
     }
 
@@ -908,7 +909,7 @@ textarea:focus-visible {
     border-left: 1px solid var(--line);
 }
 
-/* ---- Main navigation (Collection / Reading Order / Games / Leaderboard) ---- */
+/* ---- Main navigation (Collection / Reading Order / Games / Characters / Leaderboard) ---- */
 .main-nav {
     display: flex;
     align-items: stretch;
@@ -3702,6 +3703,233 @@ a.reading-title {
     }
 }
 
+/* ---- Characters View (js/characters-view.js) ---- */
+/* The list and a character's page share the wide container: the page
+   ends in a grid of item cards */
+#charactersView {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 4rem;
+}
+
+.characters-groups {
+    margin-bottom: var(--s5);
+}
+
+/* No portraits yet: text cards, the whole card one link */
+.character-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+    gap: var(--s4);
+}
+
+.character-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s1);
+    height: 100%;
+    padding: var(--s4);
+    background: var(--surface-card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.character-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold-deep);
+    box-shadow: var(--glow-card);
+    background: var(--surface-card-hover);
+}
+
+/* Portrait beside the name; the description and pills run full width below */
+.character-card-top {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    align-items: start;
+    gap: var(--s3);
+}
+
+.character-card-id {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s1);
+    min-width: 0;
+}
+
+/* Head-and-shoulders portrait, 3:4 (300x400 WebP in images/characters/) */
+.character-portrait {
+    display: block;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: var(--r-sm);
+    background: var(--surface-bar);
+}
+
+.character-portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* No portrait yet: the emblem on a gold tint, like an item card without a photo */
+.character-portrait-none {
+    display: grid;
+    place-items: center;
+    background: var(--gold-tint-2);
+    color: var(--gold-deep);
+}
+
+.character-portrait-none svg {
+    width: 45%;
+    height: auto;
+}
+
+.character-card-name {
+    margin: 0;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.character-card-meta {
+    color: var(--text-3);
+    font-size: var(--fs-sm);
+}
+
+.character-card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: var(--s1);
+    color: var(--text-2);
+    font-size: var(--fs-sm);
+    line-height: 1.5;
+}
+
+/* A character's page: header card (portrait; badge, facts, description, owned) */
+.character-head {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    align-content: start;
+    column-gap: var(--s5);
+    max-width: 760px;
+    padding: var(--s5);
+    margin-bottom: var(--s5);
+    background: var(--surface-card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+}
+
+/* The portrait spans the facts, description and owned bar beside it; on
+   phones the description and the bar run full width below it */
+.character-head-portrait {
+    grid-row: span 3;
+}
+
+.character-head .modal-meta {
+    margin-bottom: var(--s3);
+}
+
+.character-description {
+    max-width: 75ch;
+    margin: 0;
+    color: var(--text-2);
+    line-height: 1.6;
+}
+
+.character-progress {
+    display: flex;
+    align-items: center;
+    gap: var(--s3);
+    max-width: 420px;
+    margin-top: var(--s4);
+}
+
+.character-progress .progress {
+    flex: 1;
+}
+
+.character-progress-label {
+    color: var(--text-3);
+    font-size: var(--fs-sm);
+}
+
+/* The games they appear in: compact rows like the game dialog's DLCs */
+.character-games {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+    gap: var(--s3);
+}
+
+.character-game {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    align-items: start;
+    gap: var(--s3);
+    height: 100%;
+    padding: var(--s2) var(--s3);
+    background: var(--surface-card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.character-game:hover {
+    border-color: var(--gold-deep);
+    background: var(--surface-card-hover);
+}
+
+.character-game .game-kind,
+.character-game .game-dlc-name {
+    display: block;
+}
+
+.character-none {
+    color: var(--text-2);
+}
+
+/* Item modal: "Characters" links, comma separated */
+.modal-characters-row {
+    display: contents;
+}
+
+.modal-characters-row .modal-reading-name:not(:last-child)::after {
+    content: ',';
+}
+
+@media (max-width: 768px) {
+    #charactersView {
+        padding: 1rem 1rem 3rem;
+    }
+
+    .character-head {
+        grid-template-columns: 96px minmax(0, 1fr);
+        column-gap: var(--s4);
+        padding: var(--s4);
+    }
+
+    .character-head-portrait {
+        grid-row: auto;
+        margin-bottom: var(--s3);
+    }
+
+    .character-head .character-description,
+    .character-head .character-progress {
+        grid-column: 1 / -1;
+    }
+}
+
 /* ---- By Series (list of series, and a series page's extra links) ---- */
 .series-progress .progress {
     width: 100%;
@@ -3786,8 +4014,10 @@ a.reading-title {
     font-size: var(--fs-md);
 }
 
-/* Moving between the series list and a series page */
-.reading-page-enter {
+/* Moving between the series list and a series page (and the character
+   list and a character's page) */
+.reading-page-enter,
+.characters-page-enter {
     animation: readingPageEnter var(--t) ease-out;
 }
 
@@ -4170,6 +4400,8 @@ a.reading-title {
         padding-right: 0;
     }
 
+    /* Five links don't fit a phone: the row scrolls sideways inside itself
+       (like a chip row) and setActiveNav() keeps the current one in view */
     .main-nav {
         order: 3;
         width: 100%;
@@ -4177,6 +4409,8 @@ a.reading-title {
         gap: 0;
         border-top: 1px solid var(--line);
         padding-top: 0.25rem;
+        overflow-x: auto;
+        scrollbar-width: none;
     }
 
     .main-nav-link {

@@ -52,6 +52,7 @@
                 <a href="./" class="main-nav-link active" id="navCollection" data-view="collection" aria-current="page">Collection</a>
                 <a href="#reading" class="main-nav-link" data-view="reading" aria-label="Reading Order"><span>Reading<span class="nav-long"> Order</span></span></a>
                 <a href="#games" class="main-nav-link" data-view="games">Games</a>
+                <a href="#characters" class="main-nav-link" data-view="characters">Characters</a>
                 <a href="#leaderboard" class="main-nav-link" data-view="leaderboard">Leaderboard</a>
             </nav>
             <div class="header-stats">
@@ -316,6 +317,10 @@
                             </span>
                         </span>
                         <span class="modal-reading-order" id="modalReadingOrder" hidden></span>
+                        <span class="modal-characters-row" id="modalCharactersRow" hidden>
+                            <span class="modal-meta-label" id="modalCharactersLabel">Characters</span>
+                            <span class="modal-meta-value" id="modalCharacters"></span>
+                        </span>
                     </div>
                     <p class="modal-description" id="modalDescription"></p>
                     <div class="modal-contents-section">
@@ -695,6 +700,11 @@
         <div id="gamesContent"></div>
     </div>
 
+    <!-- Characters View (rendered by js/characters-view.js, page head included) -->
+    <div id="charactersView" style="display:none;">
+        <div id="charactersContent"></div>
+    </div>
+
     <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-inner">
@@ -706,7 +716,7 @@
                 <a class="link" href="mailto:info@theprivategeek.com">info@theprivategeek.com</a>
                 <a class="link" href="privacy.html">Privacy</a>
             </nav>
-            <p class="footer-legal">This is a fan-made collection tracker, not affiliated with or endorsed by Ubisoft. Assassin's Creed and all related names, logos, and trademarks are property of Ubisoft Entertainment. Product images are the property of their respective manufacturers and retailers (e.g. PureArts, Ravenforge), used for identification and reference only; no copyright or affiliation is claimed. <a href="mailto:info@theprivategeek.com">Contact us</a> to request removal of any image.</p>
+            <p class="footer-legal">This is a fan-made collection tracker, not affiliated with or endorsed by Ubisoft. Assassin's Creed and all related names, logos, and trademarks are property of Ubisoft Entertainment. Product images are the property of their respective manufacturers and retailers (e.g. PureArts, Ravenforge), used for identification and reference only; no copyright or affiliation is claimed. Game cover art and character art are &copy; Ubisoft, shown for identification only. <a href="mailto:info@theprivategeek.com">Contact us</a> to request removal of any image.</p>
             <p class="footer-legal">Your collection is saved in your browser. Sign in with Google to also keep it in your account and see it on any device. Shared profiles are public. Anonymous visitor analytics by Cloudflare (no cookies).</p>
             <p class="footer-meta">&copy; 2026 ACDb &middot; v3.0 &middot; <span id="footerItemCount">0</span> items</p>
         </div>
@@ -726,6 +736,7 @@
     <script src="js/slug-aliases.js"></script>
     <script src="js/reading-orders.js"></script>
     <script src="js/games.js"></script>
+    <script src="js/characters.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/stats.js"></script>
@@ -736,6 +747,7 @@
     <script src="js/sharing.js"></script>
     <script src="js/reading.js"></script>
     <script src="js/games-view.js"></script>
+    <script src="js/characters-view.js"></script>
     <script src="js/app.js"></script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4bdfedeff50c4784a6bde51fd26c2c99"}'></script>

@@ -285,6 +285,7 @@
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('leaderboardView').style.display = 'none';
         document.getElementById('gamesView').style.display = 'none';
+        document.getElementById('charactersView').style.display = 'none';
         view.style.display = '';
         currentGame = null;
         currentSeries = null;

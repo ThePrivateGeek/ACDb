@@ -43,6 +43,13 @@ Checks:
              setting and a valid release date, a year only when it has a
              place in the lore ("marker", expansions and story DLCs only),
              its episodes dated, the first on the DLC's date
+  characters js/characters.js: every character has a unique positive id
+             (each new one higher than all before it), a unique name and
+             URL slug, a side (CHARACTER_GROUPS), a year, a portrait (when
+             given) in images/characters/<slug>.webp, games from GAMES
+             (main, spin-off or handheld, each once, in release order) and
+             a description. An item's "characters" lists existing
+             character ids, each once
 """
 from __future__ import annotations
 
@@ -62,6 +69,7 @@ SHARE_DIR = ROOT / "s"
 UTILS_JS = ROOT / "js" / "utils.js"
 READING_ORDERS_JS = ROOT / "js" / "reading-orders.js"
 GAMES_JS = ROOT / "js" / "games.js"
+CHARACTERS_JS = ROOT / "js" / "characters.js"
 
 # Reuse the share-page builder's database parser and slug logic so all the
 # tools agree on how database.js is read and how slugs are made.
@@ -106,6 +114,8 @@ GAME_FIELDS = {"name", "kind", "developer", "platforms", "image", "year", "setti
                "releasedPrecision", "rereleases", "remakeOf", "description", "dlcs"}
 DLC_FIELDS = {"name", "type", "image", "year", "setting", "released", "releasedPrecision",
               "marker", "note", "episodes"}
+CHARACTER_GROUPS = {"assassin", "templar", "isu", "other"}
+CHARACTER_FIELDS = {"id", "name", "aka", "group", "historical", "born", "year", "image", "games", "description"}
 
 STR = r'"((?:[^"\\]|\\.)*)"'
 
@@ -396,6 +406,113 @@ def check_games(errors, warnings):
                 errors.append(f"{dlabel}: a remake's DLC can't have a place in the lore (its original has it)")
 
 
+def url_slug(name):
+    """Mirror of ACDB.gameUrlSlug() and the character slug: accents folded, then slugify."""
+    return share_pages.slugify("".join(c for c in unicodedata.normalize("NFD", name) if not unicodedata.combining(c)))
+
+
+def load_characters():
+    """The CHARACTERS array; its body is written as plain JSON."""
+    text = CHARACTERS_JS.read_text(encoding="utf-8")
+    start = text.find("[", text.find("const CHARACTERS ="))
+    end = text.rfind("]")
+    try:
+        return json.loads(text[start:end + 1])
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"validate-catalog: js/characters.js did not parse as JSON: {e}")
+
+
+def check_characters(items, errors, warnings):
+    games = load_games()
+    order = {g.get("name"): i for i, g in enumerate(games)}
+    kinds = {g.get("name"): g.get("kind") for g in games}
+    ids, names, slugs = set(), set(), {}
+    highest = 0
+    for character in load_characters():
+        name = character.get("name")
+        label = f"js/characters.js: {name!r}"
+        for field in character:
+            if field not in CHARACTER_FIELDS:
+                warnings.append(f"{label}: unknown field \"{field}\"")
+        cid = character.get("id")
+        if not isinstance(cid, int) or isinstance(cid, bool) or cid <= 0:
+            errors.append(f"{label}: \"id\" should be a positive whole number, got {cid!r}")
+        elif cid in ids:
+            errors.append(f"{label}: id {cid} is used twice")
+        else:
+            if cid <= highest:
+                warnings.append(f"{label}: id {cid} is lower than an earlier character's {highest}; "
+                                "new characters go at the end with the next id")
+            highest = max(highest, cid)
+            ids.add(cid)
+        if not is_text(name):
+            errors.append(f"js/characters.js: character {cid!r} has no name")
+        else:
+            if name in names:
+                errors.append(f"{label}: listed twice")
+            names.add(name)
+            slug = url_slug(name)
+            if slug in slugs and slugs[slug] != name:
+                errors.append(f"{label}: URL slug \"{slug}\" is also {slugs[slug]!r}'s")
+            slugs.setdefault(slug, name)
+        aka = character.get("aka")
+        if aka is not None and (not isinstance(aka, list) or not aka or not all(is_text(a) for a in aka)):
+            errors.append(f"{label}: \"aka\" should be a non-empty list of names")
+        if character.get("group") not in CHARACTER_GROUPS:
+            errors.append(f"{label}: \"group\" should be one of {', '.join(sorted(CHARACTER_GROUPS))}, "
+                          f"got {character.get('group')!r}")
+        if not isinstance(character.get("historical"), bool):
+            errors.append(f"{label}: \"historical\" should be true or false")
+        if "born" in character and not is_text(character["born"]):
+            errors.append(f"{label}: \"born\" should be text like \"1459\" or \"c. 1680\"")
+        year = character.get("year")
+        if not isinstance(year, int) or isinstance(year, bool):
+            errors.append(f"{label}: \"year\" should be a whole number, got {year!r}")
+        appears = character.get("games")
+        if not isinstance(appears, list):
+            errors.append(f"{label}: \"games\" should be a list")
+        else:
+            for game in appears:
+                if game not in order:
+                    errors.append(f"{label}: game {game!r} is not in js/games.js")
+                elif kinds[game] not in LORE_KINDS:
+                    errors.append(f"{label}: {game!r} is a {kinds[game]} game; only main, spin-off "
+                                  "and handheld games are listed")
+            known = [g for g in appears if g in order]
+            if len(set(known)) != len(known):
+                errors.append(f"{label}: a game is listed twice")
+            elif known != sorted(known, key=order.get):
+                warnings.append(f"{label}: list the games in release order (the order of js/games.js)")
+        if "image" in character:
+            image = character["image"]
+            expected = f"images/characters/{url_slug(name)}.webp" if is_text(name) else None
+            if not isinstance(image, str) or not image.startswith("images/characters/") or not image.endswith(".webp"):
+                errors.append(f"{label}: \"image\" should be a WebP portrait in images/characters/, got {image!r}")
+            elif not (ROOT / image).is_file():
+                errors.append(f"{label}: image file not found: {image}")
+            elif expected and image != expected:
+                warnings.append(f"{label}: portrait should be named after the character's slug: {expected}")
+        description = character.get("description")
+        if not is_text(description):
+            errors.append(f"{label}: missing \"description\"")
+        elif len(description) > DESCRIPTION_MAX:
+            warnings.append(f"{label}: description is {len(description)} characters; keep it to {DESCRIPTION_MAX}")
+
+    for item in items:
+        if "characters" not in item:
+            continue
+        label = f'item {item.get("id")} ("{item.get("name", "?")}")'
+        refs = item["characters"]
+        if not isinstance(refs, list) or not refs or not all(isinstance(r, int) and not isinstance(r, bool) for r in refs):
+            errors.append(f"{label}: \"characters\" should be a non-empty list of character ids")
+            continue
+        if len(set(refs)) != len(refs):
+            errors.append(f"{label}: a character is listed twice in \"characters\"")
+        for ref in refs:
+            if ref not in ids:
+                errors.append(f"{label}: \"characters\" names id {ref}, which isn't in js/characters.js")
+
+
 def check_collects(items, errors):
     """"collects" lists the items a collected edition reprints, so marking it
     read can mark them read too. Collections and their parts must be
@@ -471,7 +588,7 @@ def main():
             if field in item and (not isinstance(item[field], kind) or not item[field].strip()):
                 errors.append(f"{label}: \"{field}\" should be a non-empty {kind.__name__}")
         for field in item:
-            if field not in REQUIRED and field not in OPTIONAL and field != "collects":
+            if field not in REQUIRED and field not in OPTIONAL and field not in ("collects", "characters"):
                 warnings.append(f"{label}: unknown field \"{field}\"")
 
         # ids
@@ -549,6 +666,7 @@ def main():
 
     check_reading_orders(items, errors, warnings)
     check_games(errors, warnings)
+    check_characters(items, errors, warnings)
     check_collects(items, errors)
     check_slug_aliases(items, errors, warnings)
 

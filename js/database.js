@@ -7,7 +7,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Limited edition tin box for the original Assassin's Creed, featuring a 3-inch Altair figurine and bonus content disc.",
     "contents": "Tin box, 3-inch Altair figurine, Penny Arcade comic book, mini strategy guide, bonus DVD with making-of videos, game trailers, and IFC short films",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [2]
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Assassin's Creed Limited Collector's Edition Statue.",
     "contents": "Statue of Altair Ibn-La'Ahad",
-    "type": "Statue"
+    "type": "Statue",
+    "characters": [2]
   },
   {
     "id": 3,
@@ -37,7 +39,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Premium collector's edition featuring Ezio in his black outfit. European/Australian exclusive, rumored limited to 50,000 units.",
     "contents": "Game, Ezio figurine (black outfit), art book, bonus DVD with soundtrack and behind-the-scenes content, three bonus areas/missions, premium PS3/Xbox 360 theme, 2 desktop wallpapers",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [1]
   },
   {
     "id": 5,
@@ -47,7 +50,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Mid-tier collector's edition featuring Ezio in his white outfit. Available in parts of Europe and Australia.",
     "contents": "Game, Ezio figurine (white outfit), one bonus area/mission",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [1]
   },
   {
     "id": 6,
@@ -57,7 +61,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "North American limited edition of Assassin's Creed II.",
     "contents": "Game, Ezio figurine, two bonus areas, art book, Blu-ray disc with music and behind-the-scenes content",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [1]
   },
   {
     "id": 7,
@@ -117,7 +122,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Ultra-premium Italian exclusive edition featuring an 8.5-inch Ezio statue. Only available from OpenGames Italia.",
     "contents": "All Collector's Edition content plus 8.5-inch Ezio Auditore statue",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [1]
   },
   {
     "id": 13,
@@ -137,7 +143,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Premium collector's edition featuring a highly detailed 25cm Connor statue atop a snow-covered rock with the American flag. European/Australian exclusive.",
     "contents": "Game, 25cm Connor statue with American flag, exclusive steelbook with Alex Ross artwork, two lithographs, George Washington's notebook",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [16]
   },
   {
     "id": 15,
@@ -147,7 +154,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Mid-tier collector's edition featuring Connor's medallion. Primarily available in Europe.",
     "contents": "Game, collector's box, Connor's medallion, George Washington's notebook, Ghost of War bonus mission, Sharpshooter multiplayer character",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [16]
   },
   {
     "id": 16,
@@ -167,7 +175,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Premium collector's edition featuring a 55cm Edward Kenway diorama on the bow of the Jackdaw. The largest and most premium Black Flag edition.",
     "contents": "Game, 55cm Edward Kenway ship bow diorama, collector's box, steelbook case, world map, artbook, official soundtrack CD, two lithographs, two canvas prints, pirate flag",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [14]
   },
   {
     "id": 18,
@@ -177,7 +186,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Collector's edition with a 46cm Captain Edward Kenway statue.",
     "contents": "Game, collector's box, 46cm Captain Edward statue, artbook, official soundtrack, two lithographs, three bonus single-player missions (Black Island, Hidden Mystery, Sacrificed Secrets)",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [14]
   },
   {
     "id": 19,
@@ -217,7 +227,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "The Renegade figurine by Ubicollectibles is a 24cm tall PVC collectible featuring Shay Patrick Cormac walking through a snowy, rocky landscape, capturing his transition from Assassin to Templar. Released in 2018, it showcases high-detail, including his iconic rifle, pistols, and specialized, red-and-white accented gear.",
     "contents": "Shay in his Templar outfit walking on a snowy base, armed with his signature air rifle and two pistols.",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [17]
   },
   {
     "id": 23,
@@ -227,7 +238,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Shay action figure comes equipped with a pistol, rifle and sword",
     "contents": "Figure comes with Pistol, Air Rifle and Sword accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [17]
   },
   {
     "id": 24,
@@ -237,7 +249,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Connor's father and Templar Grand Master. Comes with sword and pistol. ~25 points of articulation. McFarlane Series 1.",
     "contents": "Haytham Kenway figure with sword and pistol accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [15]
   },
   {
     "id": 25,
@@ -247,7 +260,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Alternate-reality Connor from 'The Tyranny of King Washington' DLC, in a different outfit from the standard Connor figure. McFarlane Series 1.",
     "contents": "Ratonhnhake:ton figure with accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [16]
   },
   {
     "id": 26,
@@ -267,7 +281,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Edward Teach (Blackbeard) the legendary pirate. ~27 points of articulation. Comes with four pistols, rifle, and sword. McFarlane Series 1.",
     "contents": "Blackbeard figure with four pistols, rifle, and sword",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [21]
   },
   {
     "id": 28,
@@ -287,7 +302,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Adewale, a freed slave who became an Assassin, from AC IV: Black Flag's Freedom Cry DLC. McFarlane Series 2.",
     "contents": "Adewale figure with accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [18]
   },
   {
     "id": 30,
@@ -317,7 +333,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Edward Kenway wearing the golden Mayan/First Civilization armor unlocked by collecting all Mayan Keystones in AC IV: Black Flag. Target exclusive. McFarlane Series 3.",
     "contents": "Edward Kenway (Mayan Outfit) figure with accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [14]
   },
   {
     "id": 33,
@@ -327,7 +344,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Connor Kenway in an alternate look featuring a mohawk hairstyle, based on his appearance in AC III. Walgreens exclusive (also at other select retailers). McFarlane Series 2.",
     "contents": "Connor (Mohawk) figure with accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [16]
   },
   {
     "id": 34,
@@ -387,7 +405,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Ezio in a unique tricolor outfit from AC Revelations. McFarlane Series 5.",
     "contents": "Ezio Auditore figure with accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [1]
   },
   {
     "id": 40,
@@ -397,7 +416,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Connor in his unhooded Revolutionary costume from AC III. McFarlane Series 5.",
     "contents": "Connor figure with accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [16]
   },
   {
     "id": 41,
@@ -407,7 +427,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "7-inch scale figure sculpted from 3D game assets from AC III. Comes with bow and arrow and a stylized display base. Part of McFarlane's Color Tops collector program (Red Wave). Announced for September 2016 at $19.99.",
     "contents": "Connor 7-inch figure with bow, arrow, and display base",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [16]
   },
   {
     "id": 42,
@@ -467,7 +488,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Inspired by the first act of the saga, this statue depicts Altair Ibn-La'Ahad, the hero featured in Assassin's Creed.",
     "contents": "Statue of Altair Ibn-La'Ahad",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [2]
   },
   {
     "id": 48,
@@ -637,7 +659,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Premium 1/4 scale polyresin statue of Altair with illuminated LED Animus effect. Part of PureArts' Animus Collection.",
     "contents": "1/4 scale Altair statue with LED Animus base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [2]
   },
   {
     "id": 65,
@@ -647,7 +670,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Ultra-premium 1/2 scale statue of Altair. The largest and most detailed Assassin's Creed statue produced.",
     "contents": "1/2 scale Altair statue",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [2]
   },
   {
     "id": 66,
@@ -657,7 +681,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Premium 1/4 scale statue of Ezio Auditore with illuminated LED Animus effect.",
     "contents": "1/4 scale Ezio statue with LED Animus base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [1]
   },
   {
     "id": 67,
@@ -667,7 +692,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "11-inch scale statue of Ezio Auditore. More affordable entry in the Animus collection.",
     "contents": "1/8 scale Ezio statue",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [1]
   },
   {
     "id": 68,
@@ -677,7 +703,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Premium 1/4 scale statue of Connor Kenway with LED Animus effect. Seventh in the Animus Collection.",
     "contents": "1/4 scale Connor statue with LED Animus base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [16]
   },
   {
     "id": 69,
@@ -687,7 +714,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Smaller scale version of the Connor Animus statue.",
     "contents": "1/8 scale Connor statue",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [16]
   },
   {
     "id": 70,
@@ -697,7 +725,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Premium 1/4 scale statue of Edward Kenway with LED Animus effect.",
     "contents": "1/4 scale Edward Kenway statue with LED Animus base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [14]
   },
   {
     "id": 71,
@@ -797,7 +826,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Smaller scale Animus statue of Altair.",
     "contents": "1/8 scale Altair statue",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [2]
   },
   {
     "id": 81,
@@ -867,7 +897,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Affordable PVC figure of Ezio performing the iconic Leap of Faith.",
     "contents": "PVC Ezio Leap of Faith figure",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [1]
   },
   {
     "id": 88,
@@ -887,7 +918,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Statue depicting Ezio Auditore launching into a dive from the top of a collapsed church. 39cm tall.",
     "contents": "39cm Ezio Leap of Faith statue",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [1]
   },
   {
     "id": 90,
@@ -897,7 +929,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Highly detailed hand-crafted statuette depicting Ezio in a combative stance from Brotherhood.",
     "contents": "Ezio's Fury statue",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [1]
   },
   {
     "id": 91,
@@ -907,7 +940,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Legacy Collection bust of Altair Ibn-La'Ahad with throwing knives, pouches, and shoulder guard with hidden blade. 19cm tall.",
     "contents": "19cm Altair bust figurine",
-    "type": "Ubicollectibles Bust"
+    "type": "Ubicollectibles Bust",
+    "characters": [2]
   },
   {
     "id": 92,
@@ -917,7 +951,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Legacy Collection bust of Ezio Auditore as he appears in Revelations at age 52, with embroidered hood and shoulder guard.",
     "contents": "19cm Ezio bust figurine",
-    "type": "Ubicollectibles Bust"
+    "type": "Ubicollectibles Bust",
+    "characters": [1]
   },
   {
     "id": 93,
@@ -927,7 +962,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Legacy Collection bust of Connor Kenway.",
     "contents": "19cm Connor bust figurine",
-    "type": "Ubicollectibles Bust"
+    "type": "Ubicollectibles Bust",
+    "characters": [16]
   },
   {
     "id": 94,
@@ -937,7 +973,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Legacy Collection bust of Edward Kenway.",
     "contents": "19cm Edward Kenway bust figurine",
-    "type": "Ubicollectibles Bust"
+    "type": "Ubicollectibles Bust",
+    "characters": [14]
   },
   {
     "id": 95,
@@ -947,7 +984,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Legacy Collection bust of Aveline de Grandpre with tricorn hat, detailed dress and ornaments. 19cm with removable base.",
     "contents": "19cm Aveline bust figurine with removable base",
-    "type": "Ubicollectibles Bust"
+    "type": "Ubicollectibles Bust",
+    "characters": [19]
   },
   {
     "id": 96,
@@ -957,7 +995,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "27cm PVC statue of Aveline in a lethal encounter with an alligator. Limited to 9,000 pieces worldwide with certificate of authenticity.",
     "contents": "27cm Aveline statue with certificate of authenticity",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [19]
   },
   {
     "id": 97,
@@ -967,7 +1006,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Statue depicting Altair holding the Apple of Eden.",
     "contents": "Altair Apple of Eden Keeper statue",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [2]
   },
   {
     "id": 98,
@@ -1147,7 +1187,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Life-size prop replica of Edward Kenway's hidden blade gauntlet with exclusive skull-shaped buckle.",
     "contents": "Hidden blade gauntlet with skull buckle",
-    "type": "Replica"
+    "type": "Replica",
+    "characters": [14]
   },
   {
     "id": 116,
@@ -1217,7 +1258,8 @@ const AC_DATABASE = [
     "category": "Art & Reference",
     "description": "An in-universe journal presented as the lost writings of Edward Thatch (Blackbeard), filled with hand-drawn illustrations, maps, and personal accounts from the Golden Age of Piracy. Published by Insight Editions.",
     "contents": "Hardcover in-universe journal with illustrations and maps",
-    "type": "Companion Book"
+    "type": "Companion Book",
+    "characters": [21]
   },
   {
     "id": 123,
@@ -1597,7 +1639,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Altair from the original Assassin's Creed.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [2]
   },
   {
     "id": 161,
@@ -1607,7 +1650,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop Assassin's Creed Game Cover #901 Altair",
     "contents": "Funko Pop Assassin's Creed Game Cover",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [2]
   },
   {
     "id": 162,
@@ -1617,7 +1661,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Ezio Auditore in standard white robes.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [1]
   },
   {
     "id": 163,
@@ -1627,7 +1672,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "GameStop exclusive translucent blue Ezio variant representing Eagle Vision.",
     "contents": "Pop! vinyl figure (translucent blue exclusive)",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [1]
   },
   {
     "id": 164,
@@ -1637,7 +1683,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Black robed variant of Ezio Funko Pop!",
     "contents": "Pop! vinyl figure (black variant)",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [1]
   },
   {
     "id": 165,
@@ -1647,7 +1694,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Connor Kenway.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [16]
   },
   {
     "id": 166,
@@ -1657,7 +1705,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Edward Kenway.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [14]
   },
   {
     "id": 167,
@@ -1677,7 +1726,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Aveline de Grandpre.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [19]
   },
   {
     "id": 169,
@@ -1807,7 +1857,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "7-inch articulated action figure of Altair with included weapons and accessories.",
     "contents": "7-inch Altair action figure with weapons",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [2]
   },
   {
     "id": 182,
@@ -1817,7 +1868,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "7-inch articulated action figure of Ezio Auditore with included weapons.",
     "contents": "7-inch Ezio action figure with weapons",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [1]
   },
   {
     "id": 183,
@@ -1827,7 +1879,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "7-inch articulated action figure of Connor Kenway with included weapons.",
     "contents": "7-inch Connor action figure with weapons",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [16]
   },
   {
     "id": 184,
@@ -1837,7 +1890,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "7-inch articulated action figure of Edward Kenway.",
     "contents": "7-inch Edward Kenway action figure with weapons",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [14]
   },
   {
     "id": 185,
@@ -1847,7 +1901,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "7-inch articulated action figure of Aveline including Sugarcane Machete, Blowpipe, Pistols, and Whip. Includes code for Aveline Avatar and Uplay points.",
     "contents": "7-inch Aveline action figure with Sugarcane Machete, Blowpipe, Pistols, Whip, Uplay code",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [19]
   },
   {
     "id": 186,
@@ -1887,7 +1942,8 @@ const AC_DATABASE = [
     "category": "Jewelry & Accessories",
     "description": "Official silver-toned replica of Connor's amulet necklace from AC III.",
     "contents": "Connor amulet necklace",
-    "type": "Jewelry"
+    "type": "Jewelry",
+    "characters": [16]
   },
   {
     "id": 190,
@@ -2038,7 +2094,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Highly detailed 28cm PVC statue depicting Connor Kenway in a dramatic pose about to execute an English general, inspired by the AC3 announcement trailer. Produced by Ubicollectibles.",
     "contents": "Connor 'The Last Breath' PVC statue (28cm), display base, window box packaging",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [16]
   },
   {
     "id": 205,
@@ -2048,7 +2105,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Detailed 25cm PVC statue of Connor perched in a dead Silver Birch tree, drawing his bow. Features positionable hidden blade, real cord bowstring, and tomahawk with Assassin logo. Sculpted using Ubisoft's CGI models.",
     "contents": "Connor 'The Hunter' PVC statue (25cm), tree base/diorama, window box packaging",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [16]
   },
   {
     "id": 206,
@@ -2059,7 +2117,8 @@ const AC_DATABASE = [
     "description": "Novelization of Ezio Auditore's origin story in Renaissance Italy, covering his transformation from a Florentine nobleman's son into a Master Assassin. By Oliver Bowden.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Oliver Bowden Novels"
+    "series": "Oliver Bowden Novels",
+    "characters": [1]
   },
   {
     "id": 207,
@@ -2070,7 +2129,8 @@ const AC_DATABASE = [
     "description": "Continues Ezio's story as he travels to Rome to confront Cesare Borgia and rebuilds the Assassin Brotherhood. By Oliver Bowden.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Oliver Bowden Novels"
+    "series": "Oliver Bowden Novels",
+    "characters": [1]
   },
   {
     "id": 208,
@@ -2081,7 +2141,8 @@ const AC_DATABASE = [
     "description": "The full life story of Altair Ibn-La'Ahad, framed as Niccolo Polo's account, covering events from the first game and beyond through Altair's later years. By Oliver Bowden.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Oliver Bowden Novels"
+    "series": "Oliver Bowden Novels",
+    "characters": [2]
   },
   {
     "id": 209,
@@ -2092,7 +2153,8 @@ const AC_DATABASE = [
     "description": "Novelization of an aging Ezio's journey to Constantinople to uncover Altair's secrets hidden beneath Masyaf, navigating Ottoman-era political intrigue. By Oliver Bowden.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Oliver Bowden Novels"
+    "series": "Oliver Bowden Novels",
+    "characters": [1]
   },
   {
     "id": 210,
@@ -2103,7 +2165,8 @@ const AC_DATABASE = [
     "description": "Told partly through Haytham Kenway's journal, this novel explores the Kenway family saga, offering a Templar perspective on the events of AC III. By Oliver Bowden.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Oliver Bowden Novels"
+    "series": "Oliver Bowden Novels",
+    "characters": [15]
   },
   {
     "id": 211,
@@ -2114,7 +2177,8 @@ const AC_DATABASE = [
     "description": "Novelization of Edward Kenway's pirate adventures in the Caribbean during the Golden Age of Piracy. By Oliver Bowden.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Oliver Bowden Novels"
+    "series": "Oliver Bowden Novels",
+    "characters": [14]
   },
   {
     "id": 212,
@@ -2452,7 +2516,8 @@ const AC_DATABASE = [
     "contents": "Hardcover graphic novel (48 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
-    "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol1 - Desmond 2009"
+    "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol1 - Desmond 2009",
+    "characters": [3]
   },
   {
     "id": 243,
@@ -2464,7 +2529,8 @@ const AC_DATABASE = [
     "contents": "Hardcover graphic novel (48 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
-    "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol2 - Aquilus 2010"
+    "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol2 - Aquilus 2010",
+    "characters": [3]
   },
   {
     "id": 244,
@@ -2476,7 +2542,8 @@ const AC_DATABASE = [
     "contents": "Hardcover graphic novel (48 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
-    "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol3 - Accipiter 2012"
+    "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol3 - Accipiter 2012",
+    "characters": [3]
   },
   {
     "id": 245,
@@ -2525,7 +2592,8 @@ const AC_DATABASE = [
     "contents": "144-page hardcover collecting the first 3 French BD volumes in English",
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
-    "collects": [242, 243, 244]
+    "collects": [242, 243, 244],
+    "characters": [3]
   },
   {
     "id": 249,
@@ -3125,7 +3193,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Reflections",
-    "read": "11/AC Reflections 2017 (1)"
+    "read": "11/AC Reflections 2017 (1)",
+    "characters": [1, 4]
   },
   {
     "id": 299,
@@ -3137,7 +3206,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Reflections",
-    "read": "11/AC Reflections 2017 (2)"
+    "read": "11/AC Reflections 2017 (2)",
+    "characters": [2]
   },
   {
     "id": 300,
@@ -3149,7 +3219,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Reflections",
-    "read": "11/AC Reflections 2017 (3)"
+    "read": "11/AC Reflections 2017 (3)",
+    "characters": [14, 18]
   },
   {
     "id": 301,
@@ -3161,7 +3232,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Reflections",
-    "read": "11/AC Reflections 2017 (4)"
+    "read": "11/AC Reflections 2017 (4)",
+    "characters": [16]
   },
   {
     "id": 302,
@@ -3173,7 +3245,8 @@ const AC_DATABASE = [
     "contents": "Trade paperback collecting 4 issues",
     "type": "Comic Book",
     "series": "Assassin's Creed: Reflections",
-    "collects": [298, 299, 300, 301]
+    "collects": [298, 299, 300, 301],
+    "characters": [1, 2, 4, 14, 16, 18]
   },
   {
     "id": 303,
@@ -3560,7 +3633,8 @@ const AC_DATABASE = [
     "contents": "Paperback manga (224 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
-    "collects": [629, 630, 631, 632, 633, 634]
+    "collects": [629, 630, 631, 632, 633, 634],
+    "characters": [14]
   },
   {
     "id": 335,
@@ -3571,7 +3645,8 @@ const AC_DATABASE = [
     "description": "Volume 2 of 2. Final volume. The second half of the Assassin's Creed IV: Black Flag manga adaptation serialized in Shueisha's Jump X. Edward Kenway broke the law of the Assassins Brotherhood, but is offered a chance at redemption. Written by Takashi Yano. Art by Kenji Oiwa. English edition published by Titan Comics (October 2017).",
     "contents": "Paperback manga (192 pages)",
     "type": "Manga",
-    "series": "Assassin's Creed: Awakening"
+    "series": "Assassin's Creed: Awakening",
+    "characters": [14]
   },
   {
     "id": 336,
@@ -3649,7 +3724,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "PVC statue of Edward Kenway in his iconic pirate-assassin outfit, dual-wielding his cutlasses. Produced by Ubicollectibles.",
     "contents": "Edward Kenway PVC statue, display base",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [14]
   },
   {
     "id": 343,
@@ -3659,7 +3735,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "PVC statue of the infamous pirate Blackbeard (Edward Thatch) as depicted in AC IV: Black Flag. Produced by Ubicollectibles.",
     "contents": "Blackbeard PVC statue, display base",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [21]
   },
   {
     "id": 344,
@@ -3669,7 +3746,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Exclusive Loot Crate mini figure of Edward Kenway from AC IV: Black Flag.",
     "contents": "Edward Kenway figure",
-    "type": "Loot Crate"
+    "type": "Loot Crate",
+    "characters": [14]
   },
   {
     "id": 345,
@@ -3699,7 +3777,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Chibi-style collectible figure of Ezio Auditore, approximately 10cm tall. Part of the Ubisoft Heroes Collection by Ubicollectibles.",
     "contents": "Ezio chibi figure (10cm)",
-    "type": "Ubisoft Heroes"
+    "type": "Ubisoft Heroes",
+    "characters": [1]
   },
   {
     "id": 348,
@@ -3729,7 +3808,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "YouTooz vinyl collectible figure of Ezio Auditore, approximately 12.5cm tall. #0 in the Assassin's Creed YouTooz series.",
     "contents": "Ezio vinyl figure (12.5cm)",
-    "type": "YouTooz"
+    "type": "YouTooz",
+    "characters": [1]
   },
   {
     "id": 351,
@@ -3869,7 +3949,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Jazwares Basic Series action figure of Altair Ibn-La'Ahad.",
     "contents": "Jazwares figure",
-    "type": "Jazwares"
+    "type": "Jazwares",
+    "characters": [2]
   },
   {
     "id": 365,
@@ -3899,7 +3980,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Jazwares Mystery Figures mini figure of Altair Ibn-La'Ahad.",
     "contents": "Jazwares figure",
-    "type": "Jazwares"
+    "type": "Jazwares",
+    "characters": [2]
   },
   {
     "id": 368,
@@ -3929,7 +4011,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Jazwares Mystery Figures mini figure of Ezio Auditore.",
     "contents": "Jazwares figure",
-    "type": "Jazwares"
+    "type": "Jazwares",
+    "characters": [1]
   },
   {
     "id": 371,
@@ -3959,7 +4042,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Basic Series figure of Altair.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [2]
   },
   {
     "id": 374,
@@ -3989,7 +4073,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Basic Series figure of Connor.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [16]
   },
   {
     "id": 377,
@@ -3999,7 +4084,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Basic Series figure of Edward.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [14]
   },
   {
     "id": 378,
@@ -4019,7 +4105,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Basic Series figure of Ezio.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [1]
   },
   {
     "id": 380,
@@ -4049,7 +4136,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Plush figure of Altair.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [2]
   },
   {
     "id": 383,
@@ -4059,7 +4147,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Plush figure of Connor.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [16]
   },
   {
     "id": 384,
@@ -4089,7 +4178,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Neca Basic Series 7-inch figure of Ezio (Auditore da Firenze). Features include a retractable blade and a removable blade.",
     "contents": "Neca figure",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 387,
@@ -4099,7 +4189,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Neca Basic Series 7-inch figure of Ezio in his dark Master Assassin attire. Features include a retractable blade.",
     "contents": "Neca figure",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 388,
@@ -4109,7 +4200,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Unimax Gamestars Collectibles figure of Cesare Borgia.",
     "contents": "Unimax figure",
-    "type": "Unimax"
+    "type": "Unimax",
+    "characters": [6]
   },
   {
     "id": 389,
@@ -4119,7 +4211,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Unimax Gamestars Collectibles figure of Ezio Auditore da Firenze.",
     "contents": "Unimax figure",
-    "type": "Unimax"
+    "type": "Unimax",
+    "characters": [1]
   },
   {
     "id": 390,
@@ -4129,7 +4222,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Unimax Gamestars Collectibles figure of Leonardo da Vinci.",
     "contents": "Unimax figure",
-    "type": "Unimax"
+    "type": "Unimax",
+    "characters": [4]
   },
   {
     "id": 391,
@@ -4139,7 +4233,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Unimax Gamestars Collectibles figure of Niccolo Machiavelli.",
     "contents": "Unimax figure",
-    "type": "Unimax"
+    "type": "Unimax",
+    "characters": [9]
   },
   {
     "id": 392,
@@ -4169,7 +4264,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop Dorbz figure of Altair.",
     "contents": "Funko figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [2]
   },
   {
     "id": 395,
@@ -4199,7 +4295,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop Dorbz figure of Edward.",
     "contents": "Funko figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [14]
   },
   {
     "id": 398,
@@ -4209,7 +4306,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop Dorbz figure of Ezio.",
     "contents": "Funko figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [1]
   },
   {
     "id": 399,
@@ -4360,7 +4458,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "7 inches tall figure of Altair Ibn-La'Ahad from the Basic Series by Neca. Features include a retractable blade and a removable Sword & Daggers.",
     "contents": "Altair figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [2]
   },
   {
     "id": 414,
@@ -4370,7 +4469,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Two 7-inch tall figures of Ezio Auditore da Firenze from the Basic Series by Neca. Features include replaceable hands and weapons.",
     "contents": "Ezio 2-Pack figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 415,
@@ -4390,7 +4490,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Ezio (Auditore) (Eagle Vision) figurine from the Brotherhood, produced by Neca. Features include a translucent blue 'Eagle Vision' effect.",
     "contents": "Ezio (Eagle Vision) figurine and Eagle",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 417,
@@ -4400,7 +4501,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Ezio (Ebony Assassin) (Hooded) figurine from the Brotherhood, produced by Neca.",
     "contents": "Ezio (Ebony Assassin) (Hooded) figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 418,
@@ -4410,7 +4512,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Ezio (Ebony Assassin) (Unhooded) figurine from the Brotherhood, produced by Neca.",
     "contents": "Ezio (Ebony Assassin) (Unhooded) figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 419,
@@ -4420,7 +4523,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Ezio (Legendary Assassin) (Hooded) figurine from the Brotherhood, produced by Neca.",
     "contents": "Ezio (Legendary Assassin) (Hooded) figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 420,
@@ -4430,7 +4534,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Ezio (Legendary Assassin) (Unhooded) figurine from the Brotherhood, produced by Neca.",
     "contents": "Ezio (Legendary Assassin) (Unhooded) figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 421,
@@ -4440,7 +4545,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Ezio (Onyx Assassin) (Hooded) figurine from the Brotherhood, produced by Neca.",
     "contents": "Ezio (Onyx Assassin) (Hooded) figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 422,
@@ -4450,7 +4556,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Ezio (Onyx Assassin) (Unhooded) figurine from the Brotherhood, produced by Neca.",
     "contents": "Ezio (Onyx Assassin) (Unhooded) figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 423,
@@ -4460,7 +4567,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Ezio Auditore (Brotherhood) figurine with head knockers, produced by Neca.",
     "contents": "Ezio Auditore (Brotherhood) figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 424,
@@ -4470,7 +4578,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Ezio Auditore (Revelations) figurine with head knockers, produced by Neca.",
     "contents": "Ezio Auditore (Revelations) figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 425,
@@ -4480,7 +4589,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Ezio Auditore (The Mentor) figurine from the Revelations, produced by Neca.",
     "contents": "Ezio Auditore (The Mentor) figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 426,
@@ -4490,7 +4600,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Ezio Auditore (The Mentor) figurine from the Revelations, produced by Neca.",
     "contents": "Ezio Auditore (The Mentor) figurine",
-    "type": "Neca"
+    "type": "Neca",
+    "characters": [1]
   },
   {
     "id": 427,
@@ -4520,7 +4631,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Officially licensed replica of Altaïr's iconic sword from the original Assassin's Creed. Crafted by Ravenforge.",
     "contents": "Sword replica",
-    "type": "Replica"
+    "type": "Replica",
+    "characters": [2]
   },
   {
     "id": 430,
@@ -4630,7 +4742,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Qlectors series PVC figure of Altaïr perched atop a bell tower, capturing the iconic lookout pose. Produced by PureArts.",
     "contents": "PVC figure with bell tower base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [2]
   },
   {
     "id": 441,
@@ -4640,7 +4753,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "1/6 scale premium articulated figure of Desmond Miles, the modern-day protagonist of the original AC saga. Features multiple points of articulation and accessories. Produced by PureArts.",
     "contents": "1/6 scale articulated figure with accessories and display base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [3]
   },
   {
     "id": 442,
@@ -4680,7 +4794,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Qlectors series 6-inch PVC figure capturing the iconic moment of Connor overpowering a British soldier in his fight to protect the United States from Templar control. Produced by PureArts.",
     "contents": "6-inch PVC statue with display base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [16]
   },
   {
     "id": 446,
@@ -4690,7 +4805,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Premium 1/2 scale statue of Ezio in his iconic wide-armed stance. Features hyperrealistic silicone head sculpt with glass eyes, hand-punched facial features, tailored clothing, polished metal weapons, and genuine leather accessories. 43 inches tall. Limited to 500 pieces. Produced by PureArts.",
     "contents": "1/2 scale polyresin statue with silicone head, real metal weapons, hand-stitched leather, travel case",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [1]
   },
   {
     "id": 447,
@@ -4700,7 +4816,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Dynamic 1/6 scale diorama capturing the moment Altaïr defeats Robert de Sablé. Polyresin and mixed media with game-accurate costumes and weaponry. 17\" H x 13\" W x 9\" D. Limited to 1,250 pieces (plus 250 Exclusive Edition). Produced by PureArts.",
     "contents": "1/6 scale polyresin diorama with rock and paving stone base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [2]
   },
   {
     "id": 448,
@@ -4710,7 +4827,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Diorama capturing the pivotal moment from AC Revelations when Ezio discovers Altaïr's remains seated in a chair holding a Memory Seal. Features LED-lit Memory Seal. 11\" H x 14.5\" W x 9\" D. Requires 2 AAA batteries. Limited to 1,250 pieces (plus 250 Exclusive). Produced by PureArts.",
     "contents": "1/6 scale polyresin diorama with LED-lit Memory Seal (batteries not included)",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [1, 2]
   },
   {
     "id": 449,
@@ -4720,7 +4838,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "1/8 scale PVC statue of Ezio wielding dual hidden blades with a beautiful Animus effect, inspired by AC Brotherhood. 10\" H x 6\" W x 5.5\" D. Produced by PureArts.",
     "contents": "1/8 scale PVC statue with display base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [1]
   },
   {
     "id": 450,
@@ -4791,7 +4910,8 @@ const AC_DATABASE = [
     "description": "A non-canonical, sixteen-page graphic novel that was included as promotional material in the Limited Edition of Assassin's Creed and later distributed to EB Games store managers in 2007 to promote the game. The story served as a prelude to the game and introduced its protagonists by telling overlapping stories of the Levantine Assassin Altaïr Ibn-La'Ahad during the Third Crusade and Desmond Miles in 2012.",
     "contents": "Sixteen-page graphic novel",
     "type": "Graphic Novel",
-    "read": "00/AC1 2007"
+    "read": "00/AC1 2007",
+    "characters": [2, 3]
   },
     {
     "id": 457,
@@ -4802,7 +4922,8 @@ const AC_DATABASE = [
     "description": "Assassin's Creed is a non-canonical eight-page comic by Michael \"Gabe\" Krahulik and Jerry \"Tycho Brahe\" Holkins of Penny Arcade, a website focused on video game culture. Originally published online on 1 August 2007, it was included as promotional material in pre-ordered Limited Edition steelboxes of the game Assassin's Creed and follows its protagonist, Altaïr Ibn-La'Ahad, on one of his missions in Acre.",
     "contents": "Eight-page comic",
     "type": "Comic Book",
-    "read": "00/AC1 webcomic 2007"
+    "read": "00/AC1 webcomic 2007",
+    "characters": [2]
   },
     {
     "id": 458,
@@ -4864,7 +4985,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Bronze-finish variant of the premium Connor diorama statue, depicting the moment Connor is about to execute a British general — based on a scene from the AC3 announcement trailer. Sculpted by Martel Hugues and manufactured by PureArts for Ubicollectibles. Limited to just 100 units (versus 250 for the standard colour edition), primarily distributed to Ubisoft staff and VIPs rather than sold at retail.",
     "contents": "~70 cm tall resin diorama with bronze finish depicting Connor and a British general on a rocky base. Limited to 100 units.",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [16]
   },
   {
     "id": 464,
@@ -4874,7 +4996,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Fully painted colour edition of the premium Connor diorama, depicting the moment Connor is about to execute a red-coat British general — based on a scene from the AC3 announcement trailer. Sculpted by Martel Hugues and manufactured by PureArts for Ubicollectibles. Limited to 250 units, many distributed to Ubisoft staff and partners rather than broad retail.",
     "contents": "~70 cm tall resin diorama in full colour finish depicting Connor and a British general on a rocky base. Limited to 250 units.",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [16]
   },
   {
     "id": 465,
@@ -4884,7 +5007,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Officially commissioned by Ubisoft from UK prop house Landstalker Props, this is a one-of-one replica of Edward Kenway's flintlock pistol from AC IV: Black Flag. Revealed in October 2013 ahead of the game's launch, the piece was never produced in a run and was never sold — it was kept internally by Ubisoft and Landstalker as a promotional showcase.",
     "contents": "Hand-crafted flintlock pistol prop replica (one-off, unique piece)",
-    "type": "Replica/Prop"
+    "type": "Replica/Prop",
+    "characters": [14]
   },
   {
     "id": 466,
@@ -4894,7 +5018,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Crouched Altair figure from the Assassin's Creed. Produced in 2007 by First 4 Figures, limited to 1,000 units worldwide and used as a gift for some Ubisoft employees.",
     "contents": "Crouched Altair figure with display base",
-    "type": "Statue"
+    "type": "Statue",
+    "characters": [2]
   },
   {
     "id": 467,
@@ -4904,7 +5029,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Edward Kenway's Bust, intended exclusively for the developers of Assassin's Creed IV Black Flag. This statue was carved by Mufizal Mokhtar and is limited to 475 units. The only way to see the serial number of the statue is via the NFC technology",
     "contents": "Bust of Edward Kenway",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [14]
   },
   {
     "id": 468,
@@ -4914,7 +5040,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Bust of Ezio reserved for AC Revelations programmers, limited to 220 pieces and never marketed. This statue was carved by Mufizal Mokhtar.",
     "contents": "Bust of Ezio",
-    "type": "Statue"
+    "type": "Statue",
+    "characters": [1]
   },
   {
     "id": 469,
@@ -4924,7 +5051,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Replica of Connor's tomahawk from Assassin's Creed III, presented in a hinged wooden chest lined with black velvet. It is a different sculpt from the retail Connor's Tomahawk Latex Replica: the blade is weathered and textured with spikes along its edge, the haft is wrapped in dark leather strips, and a white feather hangs on red beads from a natural cord binding. Thought to be a developer or press item; its maker, materials, size and the number made are undocumented.",
     "contents": "Tomahawk replica in a velvet-lined wooden chest",
-    "type": "Replica/Prop"
+    "type": "Replica/Prop",
+    "characters": [16]
   },
   {
     "id": 470,
@@ -4955,7 +5083,8 @@ const AC_DATABASE = [
     "description": "Issue #01 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #01 and figurine of Altaïr Ibn-La'Ahad",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [2]
   },
   {
     "id": 473,
@@ -4966,7 +5095,8 @@ const AC_DATABASE = [
     "description": "Issue #02 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #02 and figurine of Ezio Auditore",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [1]
   },
   {
     "id": 474,
@@ -4977,7 +5107,8 @@ const AC_DATABASE = [
     "description": "Issue #03 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #03 and figurine of Haytham Kenway",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [15]
   },
   {
     "id": 475,
@@ -4999,7 +5130,8 @@ const AC_DATABASE = [
     "description": "Issue #05 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #05 and figurine of Cesare Borgia",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [6]
   },
   {
     "id": 477,
@@ -5010,7 +5142,8 @@ const AC_DATABASE = [
     "description": "Issue #06 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #06 and figurine of Ratonhnhaké:ton",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [16]
   },
   {
     "id": 478,
@@ -5021,7 +5154,8 @@ const AC_DATABASE = [
     "description": "Issue #07 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #07 and figurine of Shay Cormac",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [17]
   },
   {
     "id": 479,
@@ -5043,7 +5177,8 @@ const AC_DATABASE = [
     "description": "Issue #09 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #09 and figurine of Aveline de Grandpré",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [19]
   },
   {
     "id": 481,
@@ -5054,7 +5189,8 @@ const AC_DATABASE = [
     "description": "Issue #10 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #10 and figurine of Edward Kenway",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [14]
   },
   {
     "id": 482,
@@ -5131,7 +5267,8 @@ const AC_DATABASE = [
     "description": "Issue #17 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #17 and figurine of Juno",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [25]
   },
   {
     "id": 489,
@@ -5164,7 +5301,8 @@ const AC_DATABASE = [
     "description": "Issue #20 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #20 and figurine of Desmond Miles",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [3]
   },
   {
     "id": 492,
@@ -5186,7 +5324,8 @@ const AC_DATABASE = [
     "description": "Issue #22 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #22 and figurine of Adéwalé",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [18]
   },
   {
     "id": 494,
@@ -5252,7 +5391,8 @@ const AC_DATABASE = [
     "description": "Issue #28 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #28 and figurine of Rodrigo Borgia",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [5]
   },
   {
     "id": 500,
@@ -5285,7 +5425,8 @@ const AC_DATABASE = [
     "description": "Issue #31 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #31 and figurine of Aveline de Grandpré",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [19]
   },
   {
     "id": 503,
@@ -5307,7 +5448,8 @@ const AC_DATABASE = [
     "description": "Issue #33 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #33 and figurine of Mario Auditore",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [10]
   },
   {
     "id": 505,
@@ -5318,7 +5460,8 @@ const AC_DATABASE = [
     "description": "Issue #34 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #34 and figurine of Edward Thatch",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [21]
   },
   {
     "id": 506,
@@ -5351,7 +5494,8 @@ const AC_DATABASE = [
     "description": "Issue #37 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #37 and figurine of Leonardo da Vinci",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [4]
   },
   {
     "id": 509,
@@ -5516,7 +5660,8 @@ const AC_DATABASE = [
     "description": "Issue #52 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #52 and figurine of Maestro Ezio Auditore",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [1]
   },
   {
     "id": 524,
@@ -5538,7 +5683,8 @@ const AC_DATABASE = [
     "description": "Issue #54 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #54 and figurine of Connor Espíritu animal",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [16]
   },
   {
     "id": 526,
@@ -5626,7 +5772,8 @@ const AC_DATABASE = [
     "description": "Issue #62 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #62 and figurine of Mentor Altaïr",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [2]
   },
   {
     "id": 534,
@@ -5703,7 +5850,8 @@ const AC_DATABASE = [
     "description": "Issue #69 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #69 and figurine of Mentor Ezio",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [1]
   },
   {
     "id": 541,
@@ -5714,7 +5862,8 @@ const AC_DATABASE = [
     "description": "Issue #70 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #70 and figurine of Charles Lee",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [22]
   },
   {
     "id": 542,
@@ -5747,7 +5896,8 @@ const AC_DATABASE = [
     "description": "Issue #73 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #73 and figurine of Claudia Auditore",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [12]
   },
   {
     "id": 545,
@@ -5758,7 +5908,8 @@ const AC_DATABASE = [
     "description": "Issue #74 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #74 and figurine of Edward Kenway",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [14]
   },
   {
     "id": 546,
@@ -5791,7 +5942,8 @@ const AC_DATABASE = [
     "description": "Issue #77 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #77 and figurine of Achilles Davenport",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [20]
   },
   {
     "id": 549,
@@ -5944,7 +6096,8 @@ const AC_DATABASE = [
     "category": "Board & Card Games",
     "description": "Officially licensed cooperative escape-room board game featuring Ezio Auditore and Leonardo da Vinci. Set in Amboise in 1519 and across nine Renaissance European cities, the game offers three replayable scenarios with nine possible endings. Originally released in French as 'Escape Game Assassin's Creed'. Designed by Nicolas Lozzi. 2+ players, ages 12+. Published by Hachette Heroes (ISBN 9782017094364).",
     "contents": "3 scenarios (9 possible endings), 9 European city cards, 200 gameplay cards, 2 booklets/guides",
-    "type": "Board Game"
+    "type": "Board Game",
+    "characters": [1, 4]
   },
   {
     "id": 564,
@@ -6114,7 +6267,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Whether you're sailing the open seas or journeying across untamed lands, discover a seamless open world built with the latest Anvil engine. Take in sweeping vistas as you brave stormy waters, dive into underwater shipwrecks, or push through dense tropical jungles. Building on top of the original story, Assassin's Creed Black Flag Resynced introduces exclusive new content. Familiar faces will return, with new storylines dedicated to fan-favorite characters such as Blackbeard and Stede Bonnet.",
     "contents": "Edward Kenway figurine (31cm/12in), Edward's leather logbook, Wearable Metal brooch, Exclusive Steelbook, Cloth World map & Sea shanty music sheet.",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [14]
   },
   {
     "id": 581,
@@ -6124,7 +6278,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Flag Resynced Flagship Edition available in Spain only for now.",
     "contents": "Nine Men's Morris Board Game\nAnimus Edward 1/8 Statue of Pure Arts\nReplica Hidden Blade Edward\nDLC",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [14]
   },
     {
     "id": 582,
@@ -6214,7 +6369,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Officially licensed Nendoroid figure of Ezio Auditore from Assassin's Creed II. Approximately 100mm tall, fully articulated. Includes three interchangeable face plates (hooded shadow, combat, smiling), the Hidden Blade, the Apple of Eden, the Sword of Altaïr, a feather (for Petruccio), and a haystack paper craft. Released November 2022 by Good Smile Company.",
     "contents": "Articulated Nendoroid figure (~100mm), 3 face plates, Hidden Blade, Apple of Eden, Sword of Altaïr, feather, haystack paper craft, stand",
-    "type": "Nendoroid"
+    "type": "Nendoroid",
+    "characters": [1]
   },
   {
     "id": 591,
@@ -6224,7 +6380,8 @@ const AC_DATABASE = [
     "category": "Jewelry & Accessories",
     "description": "Limited edition box set of five gold-plated FiGPiN enamel pins featuring the Assassins Altaïr, Ezio, Connor, Edward, and Aguilar, plus an exclusive FiGPiN logo pin. Limited to 1,000 units worldwide. Released 28 December 2022.",
     "contents": "5 gold-plated FiGPiN enamel pins (Altaïr, Ezio, Connor, Edward, Aguilar) and 1 exclusive FiGPiN logo pin in deluxe display box",
-    "type": "FiGPiN"
+    "type": "FiGPiN",
+    "characters": [1, 2, 14, 16]
   },
   {
     "id": 592,
@@ -6384,7 +6541,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Edward Kenway joins the Qlector series with this 6-inch PVC figure capturing the fearless pirate Assassin from Assassin's Creed IV Black Flag Resynced.\n\nIn a bold mid-action pose, Edward grips a rope from his ship's mast in his right hand while brandishing his saber in his left, ready for battle.",
     "contents": "6 Inch PVC figure",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [14]
   },
   {
     "id": 608,
@@ -6394,7 +6552,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "This wearable and functional replica of Edward Kenway Hidden Blade is secured with adjustable laces on the gauntlet and reinforced straps holding the blade in place.  The spring-loaded mechanism activates with the press of a button, making the blade extend with a satisfying snap, while a built-in safety system ensures secure handling.Designed with an interchangeable top plate, it can be worn on either the left or right arm.  For the ultimate cosplay, equip two replicas complete Edward's iconic dual Hidden Blades.",
     "contents": "Edward Kenway Hidden Blade 1/1 Scale Replica",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [14]
   },
   {
     "id": 609,
@@ -6444,7 +6603,8 @@ const AC_DATABASE = [
     "category": "Home Decor",
     "description": "Officially licensed bookends featuring Altaïr Ibn-La'Ahad in front of a decorated stone archway, paired with his descendant Ezio Auditore da Firenze. Both have hidden blades extended. Cast in resin and hand-painted, 24cm tall. By Nemesis Now.",
     "contents": "Pair of cast resin bookends, ~24cm tall",
-    "type": "Bookends"
+    "type": "Bookends",
+    "characters": [1, 2]
   },
   {
     "id": 614,
@@ -6474,7 +6634,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Officially licensed bust of master assassin Ezio Auditore da Firenze in his Roman robes and hood, cape over the left shoulder, holding his throwing knives crossed against his chest. Cast in resin and expertly finished in bronze, 30cm tall. Base doubles as a storage compartment. By Nemesis Now.",
     "contents": "Bronze-finish resin bust box with storage compartment, ~30cm tall",
-    "type": "Nemesis Now"
+    "type": "Nemesis Now",
+    "characters": [1]
   },
   {
     "id": 617,
@@ -6504,7 +6665,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Capture the daring spirit and roguish charm of Edward Kenway, the legendary pirate Assassin, with this exquisitely crafted bust.  Every detail brings the swashbuckling hero to life – from the determined set of his gaze to the intricate textures of his hood, leather straps and naval attire.\n\nHis Assassin robes are richly sculpted, adorned with the subtle yet iconic insignia of the Brotherhood, symbolizing his dual life as both a pirate and an Assassin. A striking tribute to one of the saga's most charismatic heroes, perfect for fans of Assassin's Creed IV Black Flag Resynced and the Golden Age of Piracy.",
     "contents": "Detailed sculpt of Edward Kenway from Assassin's Creed IV Black Flag Resynced",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [14]
   },
   {
     "id": 620,
@@ -6514,7 +6676,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Sail into the Golden Age of Piracy with this finely crafted 1/8 scale PVC statue of Edward Kenway, the fearless pirate Assassin from Assassin's Creed IV Black Flag. Striking a bold pose, Edward stands with one foot on the rear railing of the Jackdaw, ready for battle – his pistol aimed in his left hand and the Kenway family sword drawn in his right.\n\nThe base evokes the weathered wood of his ship, setting the scene for high-seas adventure.  On the left, the dynamic Animus effect rises, symbolizing the link between past and present. With a built-in LED light-up feature, it adds a dramatic glow to this legendary display.",
     "contents": "Detailed PVC statue of Edward Kenway, Jackdaw-inspired base, LED-lit Animus effect, Animus Link cable",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [14]
   },
   {
     "id": 621,
@@ -6554,7 +6717,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "European/PAL exclusive edition featuring a transparency box with a 3D thermoformed portrait of Ezio Auditore and an 'Animus' glitch effect. Sold in limited quantities at select retailers on PS3 and Xbox 360, with a PC version following in 2011.",
     "contents": "Game, transparency box with 3D thermoformed Ezio Auditore portrait, multiplayer character cards with kill moves and biographies, Assassin's Creed Lineage DVD, exclusive Aqueducts single-player map, Helmschmied Drachen Armor for Ezio",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [1]
   },
   {
     "id": 625,
@@ -6565,7 +6729,8 @@ const AC_DATABASE = [
     "description": "Volume 1. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Noa Kim is kidnapped by Abstergo in Macau and forced to explore the memories of one of his ancestors through their Animus program. That ancestor turns out to be Edward Kenway, the legendary pirate and Assassin! Held under Abstergo's thumb, Kim finds himself thrust into an adventure that spans Southeast Asia as Kenway searches for vaults from the First Civilization. Collects episodes 1-7 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (November 2025).",
     "contents": "Paperback graphic novel (224 pages)",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: Forgotten Temple"
+    "series": "Assassin's Creed: Forgotten Temple",
+    "characters": [14]
   },
   {
     "id": 626,
@@ -6576,7 +6741,8 @@ const AC_DATABASE = [
     "description": "Volume 2. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Abstergo Industries' plans to scavenge Edward Kenway's memories for details of the Lost City are in full swing, and kidnapped college student Noa Kim is... cooperating with their scheme? As Noa relives Kenway's memories, he follows the Assassin through an adventure across Southeast Asia, battling ninjas, warriors, and the Templar Order at every turn. Newly allied with the self-interested Madam Lee, Noa will soon discover that Kenway is in for the fight of his life! Collects episodes 8-14 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (February 2026).",
     "contents": "Paperback graphic novel (224 pages)",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: Forgotten Temple"
+    "series": "Assassin's Creed: Forgotten Temple",
+    "characters": [14]
   },
   {
     "id": 627,
@@ -6587,7 +6753,8 @@ const AC_DATABASE = [
     "description": "Volume 3. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Conflict is a constant in Kenway's life, but he's never navigated one like this before! Madam Lee has proved a formidable ally, but nothing can last forever in a world as fraught with deception and violence as this one. Plus, Noa Kim's search bleeds into his real life, and he discovers some interesting changes in himself! Collects episodes 15-21 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (May 2026).",
     "contents": "Paperback graphic novel (200 pages)",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: Forgotten Temple"
+    "series": "Assassin's Creed: Forgotten Temple",
+    "characters": [14]
   },
   {
     "id": 628,
@@ -6598,7 +6765,8 @@ const AC_DATABASE = [
     "description": "Volume 4. English print collection of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag, following the pirate Assassin into 18th-century Southeast Asia while his descendant Noa Kim relives his memories in the present day. Exploring Kenway's memories is having a strange effect on Kim. He's suddenly capable of things he could never do before, like fearlessly leaping off a roof and landing on both feet, or fighting three men all alone and coming out unscathed. Could his ancestor's memories be changing Kim for the worse? Collects episodes 22-28 of the webtoon. Story by ARC. Art by Tabii. Published by VIZ Media under the VIZ Signature imprint (August 2026).",
     "contents": "Paperback graphic novel (184 pages)",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: Forgotten Temple"
+    "series": "Assassin's Creed: Forgotten Temple",
+    "characters": [14]
   },
   {
     "id": 629,
@@ -6610,7 +6778,8 @@ const AC_DATABASE = [
     "contents": "Single issue manga (48 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
-    "read": "09. AC - Awakening/AC Awakening 2016 (1)"
+    "read": "09. AC - Awakening/AC Awakening 2016 (1)",
+    "characters": [14]
   },
   {
     "id": 630,
@@ -6622,7 +6791,8 @@ const AC_DATABASE = [
     "contents": "Single issue manga (32 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
-    "read": "09. AC - Awakening/AC Awakening 2016 (2)"
+    "read": "09. AC - Awakening/AC Awakening 2016 (2)",
+    "characters": [14]
   },
   {
     "id": 631,
@@ -6634,7 +6804,8 @@ const AC_DATABASE = [
     "contents": "Single issue manga (36 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
-    "read": "09. AC - Awakening/AC Awakening 2016 (3)"
+    "read": "09. AC - Awakening/AC Awakening 2016 (3)",
+    "characters": [14]
   },
   {
     "id": 632,
@@ -6646,7 +6817,8 @@ const AC_DATABASE = [
     "contents": "Single issue manga (40 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
-    "read": "09. AC - Awakening/AC Awakening 2016 (4)"
+    "read": "09. AC - Awakening/AC Awakening 2016 (4)",
+    "characters": [14]
   },
   {
     "id": 633,
@@ -6658,7 +6830,8 @@ const AC_DATABASE = [
     "contents": "Single issue manga (40 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
-    "read": "09. AC - Awakening/AC Awakening 2016 (5)"
+    "read": "09. AC - Awakening/AC Awakening 2016 (5)",
+    "characters": [14]
   },
   {
     "id": 634,
@@ -6670,7 +6843,8 @@ const AC_DATABASE = [
     "contents": "Single issue manga (40 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
-    "read": "09. AC - Awakening/AC Awakening 2016 (6)"
+    "read": "09. AC - Awakening/AC Awakening 2016 (6)",
+    "characters": [14]
   },
   {
     "id": 635,
@@ -6739,7 +6913,8 @@ const AC_DATABASE = [
     "description": "Volume 5 of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag. In 1725, Edward escapes the Paracel Islands and returns to Macau, where a deal with the Dutch East India Company leads him to Sun's floating gambling hall. Collects episodes 29-35 of the webtoon. Story by ARC. Art by Tabii. This volume is published in French by Mana Books (October 2025); VIZ Media's English edition has reached Vol. 4.",
     "contents": "Paperback graphic novel (French language, Mana Books, 192 pages)",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: Forgotten Temple"
+    "series": "Assassin's Creed: Forgotten Temple",
+    "characters": [14]
   },
   {
     "id": 641,
@@ -6750,7 +6925,8 @@ const AC_DATABASE = [
     "description": "Volume 6 of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag. The battle on Sun's ship decides the fight for Macau in 1725 and Madam Lee allies with the Chinese Assassins, while in the present day Noa Kim is pulled out of the Animus. Collects episodes 36-42 of the webtoon. Story by ARC. Art by Tabii. This volume is published in French by Mana Books (January 2026); VIZ Media's English edition has reached Vol. 4.",
     "contents": "Paperback graphic novel (French language, Mana Books, 192 pages)",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: Forgotten Temple"
+    "series": "Assassin's Creed: Forgotten Temple",
+    "characters": [14]
   },
   {
     "id": 642,
@@ -6761,7 +6937,8 @@ const AC_DATABASE = [
     "description": "Volume 7 of the Webtoon series that continues Edward Kenway's story after Assassin's Creed IV: Black Flag. Noa Kim's present-day fight in Cebu takes up half the volume, while in 1725 Edward is ambushed at sea on the way to Manila. Continues from episode 43 of the webtoon. Story by ARC. Art by Tabii. This volume is published in French by Mana Books (April 2026); VIZ Media's English edition has reached Vol. 4.",
     "contents": "Paperback graphic novel (French language, Mana Books, 224 pages)",
     "type": "Graphic Novel",
-    "series": "Assassin's Creed: Forgotten Temple"
+    "series": "Assassin's Creed: Forgotten Temple",
+    "characters": [14]
   },
   {
     "id": 643,
@@ -6828,7 +7005,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Hand-painted cold-cast resin statue of Edward Kenway as he appears in the Black Flag key art, striding ashore with sword and pistol in hand, waves lapping at his boots and a dead rival pirate at his feet. Approximately 14\" tall with base, on a 360-degree turning base. Limited to 1,000 sequentially numbered pieces worldwide, 50 of them unpainted Artist's Proofs. Designed by the McFarlane Toys Design Group with Ubisoft. Released December 2013 at $295.",
     "contents": "Cold-cast resin statue on rotating base, Certificate of Authenticity hand-signed by Todd McFarlane",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [14]
   },
   {
     "id": 649,
@@ -6838,7 +7016,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Unpainted, primed grey version of McFarlane's cold-cast resin Edward Kenway statue, striding ashore with sword and pistol over a dead rival pirate. Approximately 14\" tall with base. Only 50 Artist Proofs were made, counted within the statue's run of 1,000. Sold through the McFarlane online store (US and Canada only) from December 2013 at $295 including shipping.",
     "contents": "Unpainted cold-cast resin statue on rotating base, Certificate of Authenticity",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [14]
   },
   {
     "id": 650,
@@ -6858,7 +7037,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Hand-painted polystone 1/10 scale statue of Ezio Auditore in his Assassin's Creed II robes and red cape, arms spread with both hidden blades deployed, on a plain black plinth. Approximately 21 cm (8.2\") tall. A limited edition from Iron Studios' Art Scale line (edition size not published). Pre-orders opened in September 2019 at $119.99.",
     "contents": "Polystone statue on base",
-    "type": "Iron Studios"
+    "type": "Iron Studios",
+    "characters": [1]
   },
   {
     "id": 652,
@@ -6868,7 +7048,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Deluxe version of Iron Studios' hand-painted polystone 1/10 scale Ezio Auditore. Ezio stands with arms spread and hidden blades out on the ledge of a Gothic arched stone window, which has a wrought-iron grille, a stained-glass Auditore crest on the back and a stone chest with the Assassin insignia beside it. Approximately 31 cm (12.2\") tall with the diorama base. Limited edition (size not published). Offered for pre-order in September 2019 at $170 through Sideshow ($159.99 at Iron Studios).",
     "contents": "Polystone statue with diorama base",
-    "type": "Iron Studios"
+    "type": "Iron Studios",
+    "characters": [1]
   },
   {
     "id": 653,
@@ -6898,7 +7079,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Hand-painted cold-cast resin statue of Ezio Auditore da Firenze in the black outfit he wears at the end of Assassin's Creed II, sword drawn, by the Attakus team that sculpted the Black and White Collector's Edition figurines. Approximately 16.7\" (43 cm) tall with its exclusive base, which carries a numbered plaque. Sold by Attakus as a cold-cast Deluxe Edition, first edition limited to 200 pieces (ref. C175), in stock in Europe by December 2010 at EUR 475. Sideshow Collectibles distributed it in the US from Q3 2011 at $600.",
     "contents": "Cold-cast resin statue on pedestal base with numbered plaque, Certificate of Authenticity",
-    "type": "Attakus"
+    "type": "Attakus",
+    "characters": [1]
   },
   {
     "id": 656,
@@ -6908,7 +7090,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Life-size resin statue of Connor (Ratonhnhake:ton) in his Assassin robes, armed with bow, quiver, tomahawk and pistols, standing on a snow-covered rock base bearing the Assassin's Creed III logo. About 2 m (6 3/4 ft) tall on a 1.3 m wide base and weighing 88 kg; shipped in three crates (122 kg gross). Produced in a very small run by Attakus. First batch delivered from November 2012 at EUR 2,490, and a second batch was sold for June 2013 delivery.",
     "contents": "Life-size resin statue and base, shipped in three boxes",
-    "type": "Attakus"
+    "type": "Attakus",
+    "characters": [16]
   },
   {
     "id": 657,
@@ -6918,7 +7101,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Stylised designer-vinyl figure of a hooded Ezio Auditore da Firenze in his white robes with red sash, in a menacing stance with both hidden blades extended. Designed by Mark Landwehr and Sven Wasch (coarse) in their sculpting style, which makes the figure look chiselled from solid stone. 14\" x 5\" (35.5 x 12.7 cm), rotocast vinyl, limited to 200 pieces. Sold exclusively through the Ubi Workshop store from June 2014 at US$399.",
     "contents": "Rotocast vinyl figure in colour-printed box with sponge insert",
-    "type": "Coarse"
+    "type": "Coarse",
+    "characters": [1]
   },
   {
     "id": 658,
@@ -6928,7 +7112,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Fully articulated 1/6 scale figure of Ezio Auditore in his Assassin's Creed II robes, number 12 in Hot Toys' Video Game Masterpiece line. Approximately 30 cm (12 in) tall on a TrueType body with over 30 points of articulation, with a hand-painted head sculpt by GOX, sculpted hair with a detachable ribbon-tied ponytail and a tailored fabric costume with leather-like cape, two striped jackets and buckled boots. Armed with a long sword, a short sword, two hidden blades in the forearm gauntlets and six throwing daggers. Announced by Hot Toys in July 2010 and scheduled for November 2010 at 22,000 yen (about US$250).",
     "contents": "1/6 scale figure, 3 pairs of interchangeable hands, long sword, short sword, 2 hidden blades, 6 throwing daggers, necklace, figure stand with Ezio nameplate",
-    "type": "Hot Toys"
+    "type": "Hot Toys",
+    "characters": [1]
   },
   {
     "id": 659,
@@ -6938,7 +7123,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Play Arts Kai action figure of Ezio Auditore da Firenze from Assassin's Creed II, in dark assassin robes with the eagle-beaked hood, sculpted chest armour and a red-striped sash. Painted PVC, 255 mm tall and weighing about 360 g. Comes with Altair's Sword, an ornate dagger, hidden blade and double hidden blade parts and two kinds of interchangeable hands. Released in Japan in late November 2010 at 4,800 yen (5,040 yen with tax).",
     "contents": "Painted PVC figure, Altair's Sword, ornate dagger, hidden blade and double blade parts, interchangeable hands, weapon-swap parts",
-    "type": "Square Enix"
+    "type": "Square Enix",
+    "characters": [1]
   },
   {
     "id": 660,
@@ -6948,7 +7134,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Play Arts Kai action figure of Connor from Assassin's Creed III in his hooded white-and-blue assassin coat, with painted skin and weathering detail and articulated coat tails for posing. Painted PVC, approximately 274 mm (10.8 in) tall and about 440 g. Comes with a bow and three arrows, a tomahawk, a sword, two flintlock pistols, three hidden blade parts, four interchangeable hands, hood and hair parts and a Play Arts Kai display base. Japanese retail price 9,800 yen before tax.",
     "contents": "Painted PVC figure, bow, 3 arrows, tomahawk, sword, 2 pistols, 3 hidden blade parts, 4 interchangeable hands, hood and hair parts, display base",
-    "type": "Square Enix"
+    "type": "Square Enix",
+    "characters": [16]
   },
   {
     "id": 661,
@@ -6958,7 +7145,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Play Arts Kai action figure of Edward Kenway from Assassin's Creed IV: Black Flag in his pirate-assassin outfit of leather armour, long boots and red sash, with a soft-material hood that can be worn up or pulled down. Painted PVC, approximately 276 mm (nearly 11 in) tall. Comes with two swords, four flintlock pistols, two hidden blade parts, six interchangeable hands, hood and hair parts and a Play Arts Kai display base. Japanese retail price 9,800 yen before tax.",
     "contents": "Painted PVC figure, 2 swords, 4 flintlock pistols, 2 hidden blade parts, 6 interchangeable hands, hood and hair parts, display base",
-    "type": "Square Enix"
+    "type": "Square Enix",
+    "characters": [14]
   },
   {
     "id": 662,
@@ -6968,7 +7156,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "1/6 scale collectible figure of Edward Kenway in his Assassin's Creed IV: Black Flag pirate-assassin outfit, with a head sculpt of his scarred face on the articulated DAM 2.0 male body and a tailored fabric costume of hooded leather-like vest, cloak, blue-and-white tunic and red sash. Approximately 31 cm (12 in) tall. Comes with four flintlock pistols, a saber, a sword, hidden-blade forearm gauntlets, ten interchangeable hands and a figure stand with the Black Flag logo. Damtoys' first Assassin's Creed figure, revealed in May 2017.",
     "contents": "1/6 scale figure, 10 interchangeable hands, 4 flintlock pistols, saber, sword, hidden-blade gauntlets, figure stand",
-    "type": "Damtoys"
+    "type": "Damtoys",
+    "characters": [14]
   },
   {
     "id": 663,
@@ -6978,7 +7167,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "1/6 scale collectible figure of Altair Ibn-La'Ahad from the original Assassin's Creed, sold as 'Altair the Mentor', in his hooded white assassin robes with red sash and leather straps. A new head sculpt with his scarred lip sits on a highly poseable 31 cm DAM muscle body. Comes with a sword and sheath, a dagger and sheath, nine throwing knives with holsters, a hidden-blade bracer, eight interchangeable hands including ring-finger-missing hands, and a stone-tile base with game-logo nameplate. Japanese retail price 30,000 yen before tax.",
     "contents": "1/6 scale figure, 8 interchangeable hands, sword with sheath, dagger with sheath, 9 throwing knives with holsters, hidden-blade bracer, stone-tile display base",
-    "type": "Damtoys"
+    "type": "Damtoys",
+    "characters": [2]
   },
   {
     "id": 664,
@@ -6998,7 +7188,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Fully articulated 1/6 scale figure of Connor (Ratonhnhaké:ton) in his blue-and-white hooded Assassin robes from Assassin's Creed III, with a newly sculpted head on a roughly 31 cm (just over 12\") DAM muscle body and a tailored cloth outfit. Armed with a tomahawk, a longsword, a bow with five arrows, a hidden blade and two flintlock pistols, with swappable hands and a snow-covered display base. Damtoys item DMS010: first shown at Shanghai Comic-Con in October 2018, officially unveiled in March 2019 and shipped in early 2020.",
     "contents": "Articulated figure with cloth outfit, tomahawk, longsword, bow, five arrows, quiver, hidden blade, two flintlock pistols, swappable hands, snow-covered display base",
-    "type": "Damtoys"
+    "type": "Damtoys",
+    "characters": [16]
   },
   {
     "id": 666,
@@ -7008,7 +7199,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Fully articulated 1/6 scale figure of Shay Patrick Cormac from Assassin's Creed Rogue, roughly 31 cm (just over 12\") tall, in a black outer robe over white and red shirts, leather chest belt and pouches, and a white sash bearing the Templar cross. Comes with his air rifle, two long-barrelled flintlock pistols, two hidden blades, a sword, a dagger, eleven swappable hands and a snowy shoreline display base. Damtoys item DMS011, revealed August 2019 and released mid-2020; pre-orders were HK$1,600 (about US$206) and the Chinese retail price was RMB 1,380.",
     "contents": "Articulated figure with cloth outfit, air rifle, two flintlock pistols, two hidden blades, sword, dagger, 11 swappable hands, display base",
-    "type": "Damtoys"
+    "type": "Damtoys",
+    "characters": [17]
   },
   {
     "id": 667,
@@ -7018,7 +7210,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Fully articulated 1/6 scale figure of Ezio Auditore da Firenze in his Assassin's Creed II outfit: grey hooded jacket with red stripes, brown cape with leather-look pauldron, red sash and brown forearm gauntlets. Comes with a metal-look Schiavona sword, two hidden blades, the Apple of Eden, eight swappable hands and a display base with the game logo. Damtoys item DMS012, expected to cost about US$200 when it was shown in January 2020 (RMB 1,380 in China), and shipped in mid-2021 after delays.",
     "contents": "Articulated figure with cloth outfit, Schiavona sword, two hidden blades, Apple of Eden, 8 swappable hands, display base",
-    "type": "Damtoys"
+    "type": "Damtoys",
+    "characters": [1]
   },
   {
     "id": 668,
@@ -7038,7 +7231,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Fully articulated 1/6 scale figure of the older Ezio Auditore as Mentor in Assassin's Creed Revelations, in a dark green and white patterned hooded robe with grey fur mantle, cloak, striped scarf and brown-and-silver shoulder and arm armour. Comes with a sword and a short sword (both with scabbards), a dagger, two hidden blades, a hookblade, a Masyaf Key, eight swappable hands and a wooden-plank display base with the game logo. Damtoys item DMS014, revealed June 2020 and released in spring 2021 at RMB 1,580 in China.",
     "contents": "Articulated figure with cloth outfit, sword and short sword with scabbards, dagger, two hidden blades, hookblade, Masyaf Key, 8 swappable hands, display base",
-    "type": "Damtoys"
+    "type": "Damtoys",
+    "characters": [1]
   },
   {
     "id": 670,
@@ -7058,7 +7252,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Red-and-black repaint of McFarlane's Series 1 Connor figure, depicting him in his New York outfit from Assassin's Creed III. Approximately 6\" tall with 27 points of articulation, using the same sculpt and accessories as the standard grey-and-blue Connor (tomahawk, bow, two pistols, hidden blade). Exclusive to Walgreens stores in the USA and released October 2013 on a blister card. Like the standard figure, it includes a code that unlocks Connor's Sails in Assassin's Creed IV: Black Flag.",
     "contents": "Connor figure with tomahawk, bow, two pistols and hidden blade, Connor's Sails unlock code",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [16]
   },
   {
     "id": 672,
@@ -7068,7 +7263,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Boxed set of three Series 1 Assassin's Creed IV: Black Flag pirates: Bartholomew 'Black Bart' Roberts, Edward 'Blackbeard' Teach and Benjamin Hornigold. Each figure is just under 6\" tall with around 25-27 points of articulation. Together they come with removable hats for Black Bart and Blackbeard, three swords, six flintlock pistols, two bayonet rifles, Blackbeard's four-pistol bandolier and Hornigold's scabbard. Released by McFarlane Toys in October 2013. Unlike the single-carded figures, the set does not include in-game unlock codes.",
     "contents": "Black Bart, Blackbeard and Benjamin Hornigold figures with hats, swords, pistols, rifles, pistol bandolier and scabbard",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [21]
   },
   {
     "id": 673,
@@ -7108,7 +7304,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Officially licensed replica of Connor's tomahawk from Assassin's Creed III, its shape and colours taken from Ubisoft's game files. The blade and haft are PU latex over a fibreglass core, which gives it a realistic weight while staying soft. The haft has a red-banded collar, yellow cord wrapping and a hanging moulded feather on red beads. About 50 cm (19.7 inches) long. Sold by Jinx, which opened pre-orders at $44.99 in September 2012 ahead of the game's launch, and later also stocked by ThinkGeek, Entertainment Earth and, in the UK, Forbidden Planet.",
     "contents": "Latex tomahawk replica with fibreglass core",
-    "type": "Replica/Prop"
+    "type": "Replica/Prop",
+    "characters": [16]
   },
   {
     "id": 677,
@@ -7118,7 +7315,8 @@ const AC_DATABASE = [
     "category": "Tech & Gadgets",
     "description": "Officially licensed Cable Guys figure of Ezio Auditore da Firenze by Exquisite Gaming (now EXG), sold boxed as \"Ezio – Phone and Controller Holder\". Ezio stands in his white Assassin's Creed II robes with red trim, red-lined cape and Auditore crest buckle, on a white base with the Assassin's Creed logo, his outstretched hands holding a game controller or a smartphone upright. A charging cable runs up through the base so the device can charge while on display. About 20–22 cm (8–8.5 inches) tall, in PVC. Released in 2019 and still in production; the cable included has varied between print runs. SKU CGCRAC300138, EAN 5060525893216.",
     "contents": "Ezio Cable Guys figure (controller and phone holder), charging cable",
-    "type": "Device Holder"
+    "type": "Device Holder",
+    "characters": [1]
   },
   {
     "id": 678,
@@ -7128,6 +7326,7 @@ const AC_DATABASE = [
     "category": "Tech & Gadgets",
     "description": "Officially licensed Cable Guys figure of Edward Kenway by EXG (Exquisite Gaming), sold as \"Edward Black Flag Controller Holder & Phone Stand\". Edward wears his Assassin's Creed IV: Black Flag robes with red sash and twin flintlock pistols, standing on a dark base with the Assassin's Creed logo, and holds a game controller or a smartphone in his outstretched hands. About 22 cm (8.5 inches) tall. First listed for 2025, it reached the maker's UK store in July 2026, with other regions following later in the year. SKU CGCRAC400785, EAN 5060525897382.",
     "contents": "Edward Kenway Cable Guys figure (controller and phone holder)",
-    "type": "Device Holder"
+    "type": "Device Holder",
+    "characters": [14]
   },
 ];

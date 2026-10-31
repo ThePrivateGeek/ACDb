@@ -43,6 +43,15 @@
             dom.modalSeriesCount.textContent = `${total} ${total === 1 ? 'entry' : 'entries'}`;
         }
 
+        // Characters the item shows or tells the story of (js/characters.js),
+        // each a link to their page on the Characters tab
+        const characters = (item.characters || []).map(A.findCharacterById).filter(Boolean);
+        document.getElementById('modalCharactersRow').hidden = characters.length === 0;
+        document.getElementById('modalCharactersLabel').textContent = characters.length === 1 ? 'Character' : 'Characters';
+        document.getElementById('modalCharacters').innerHTML = characters
+            .map(c => `<a class="modal-reading-name" href="#characters/${A.characterSlug(c)}" data-character-id="${c.id}">${A.escapeHTML(c.name)}</a>`)
+            .join('');
+
         // Free scan on the Internet Archive, when one exists for this publication
         // (or another edition/translation of the same story). Shown in read-only
         // mode too — it's not a collection control.
@@ -411,6 +420,17 @@
         if (parts.every(p => !/Issue #\d/.test(p.name))) return 'volumes';
         return 'comics';
     }
+
+    // Opened over the page of the character it links to, the link just
+    // closes the modal (like the reading order line); otherwise it navigates.
+    document.getElementById('modalCharacters').addEventListener('click', (e) => {
+        const link = e.target.closest('[data-character-id]');
+        if (!link || !isOverView) return;
+        if (A.isCharacterPageOpen(A.findCharacterById(Number(link.dataset.characterId)))) {
+            e.preventDefault();
+            closeModal();
+        }
+    });
 
     // Expose on namespace
     A.openModal = openModal;

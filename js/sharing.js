@@ -292,6 +292,14 @@
             if (active) link.setAttribute('aria-current', 'page');
             else link.removeAttribute('aria-current');
         });
+        // On phones the nav row scrolls sideways: bring the current link into view
+        const nav = document.querySelector('.main-nav');
+        const current = nav.querySelector('.main-nav-link.active');
+        if (!current || nav.scrollWidth <= nav.clientWidth) return;
+        const row = nav.getBoundingClientRect();
+        const link = current.getBoundingClientRect();
+        if (link.left < row.left) nav.scrollLeft -= row.left - link.left;
+        else if (link.right > row.right) nav.scrollLeft += link.right - row.right;
     }
 
     function showMainContent() {
@@ -304,6 +312,7 @@
         document.getElementById('leaderboardView').style.display = 'none';
         document.getElementById('readingView').style.display = 'none';
         document.getElementById('gamesView').style.display = 'none';
+        document.getElementById('charactersView').style.display = 'none';
         A.renderSyncBanner();
     }
 
@@ -321,6 +330,7 @@
         document.getElementById('leaderboardView').style.display = 'none';
         document.getElementById('readingView').style.display = 'none';
         document.getElementById('gamesView').style.display = 'none';
+        document.getElementById('charactersView').style.display = 'none';
         profileFromLeaderboard = fromLeaderboard;
         // The breadcrumb names where the visitor came from, like the old back button
         const backLink = document.getElementById('profileBackBtn');
@@ -374,6 +384,7 @@
         document.getElementById('profileView').style.display = 'none';
         document.getElementById('readingView').style.display = 'none';
         document.getElementById('gamesView').style.display = 'none';
+        document.getElementById('charactersView').style.display = 'none';
         const leaderboardView = document.getElementById('leaderboardView');
         leaderboardView.style.display = '';
         document.getElementById('leaderboardBody').innerHTML = '<li class="leaderboard-loading">Loading leaderboard...</li>';

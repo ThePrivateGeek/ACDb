@@ -81,6 +81,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Clicking image opens lightbox
 - [ ] Clicking category badge / type badge / game / series closes the modal and filters the grid by that value (replaces existing filters)
 - [ ] Badges are NOT clickable in read-only modal (shared profile / leaderboard)
+- [ ] Character line: an item that shows a character has "Character" (one) or "Characters" (several) with gold links after the series line. The Reflections trade paperback (#302) lists six; the PureArts Animus Ezio 1/4 statue lists Ezio; the Pre-Order Art Book (#3) has no line. A link opens that character's page (also from the read-only modal on a profile)
 - [ ] Share icon button (badges row): desktop copies `https://acdb.theprivategeek.com/s/<slug>` with toast; mobile/touch opens the native share sheet (also in read-only modal)
 
 ## 9. Lightbox
@@ -142,6 +143,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] `#games` opens the Games tab; `#games/assassins-creed-valhalla` opens it with Valhalla's dialog; `#games/nope` shows the tab and the address becomes `#games`
 - [ ] Old links still work: `#reading/games` becomes `#games`, and `#reading/games/ii` becomes `#games/assassins-creed-ii` with AC II's dialog open
 - [ ] Back closes a game dialog (from the Games tab and over Complete Lore) and stays on the view underneath
+- [ ] `#characters` opens the Characters tab; `#characters/ezio-auditore-da-firenze` opens Ezio's page; `#characters/nope` shows the list and the address becomes `#characters`
 
 ## 14. Admin / Dev Tool
 - [ ] `localStorage.setItem('acdb_admin', 'true')` shows "Add Item" button
@@ -173,7 +175,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] With no search text, a filter that matches nothing (e.g. Wishlist with an empty wishlist) shows the empty state *without* the suggest line
 - [ ] Footer **Suggest a missing item** opens the same form, empty
 - [ ] Leaderboard and profile dates read like "9 Oct 2026", as in the reading view
-- [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, share pages, and the old slugs in `js/slug-aliases.js`. For `js/games.js` it checks each game's kind, developer, platforms (known names, in the validator's `PLATFORMS` order), description (a warning past 300 characters), re-releases and URL slug, and each DLC's type; a lore place (`marker`) only on expansions and story DLCs of main, spin-off and handheld games with a year
+- [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, share pages, and the old slugs in `js/slug-aliases.js`. For `js/games.js` it checks each game's kind, developer, platforms (known names, in the validator's `PLATFORMS` order), description (a warning past 300 characters), re-releases and URL slug, and each DLC's type; a lore place (`marker`) only on expansions and story DLCs of main, spin-off and handheld games with a year. For `js/characters.js` it checks each character's id (unique, each new one higher), name and URL slug, side, year, games (from `js/games.js`, main, spin-off or handheld only, in release order) and description (a warning past 300 characters), and that every item's `characters` lists existing ids, each once
 - [ ] Collection data keyed by item id under `acdb_collection_v2`, each entry with an `updatedAt` edit time once edited; a name-keyed `acdb_collection` from before ids is migrated once on load (unmatched keys are dropped) and kept as a backup until 2027-01-03, after which it is removed from browsers that have `acdb_collection_v2`
 - [ ] Export includes `id` and `name`; Import accepts both new exports (by id) and old ones (by name)
 - [ ] Shared profiles upload item ids; profiles uploaded before ids (item names) still display. Profiles and the leaderboard are served from D1
@@ -239,8 +241,8 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 
 ## 19. Design System
 The rules are in [DESIGN.md](DESIGN.md) (its section 13 is the definition of done); tokens live at the top of `css/style.css` and component rules use only them. Check at 1600, 1200, 1000, 390 and 360px, signed in and out.
-- [ ] No page scrolls sideways at any of those widths (collection, every reading tab, a series page, the Games tab in both orders and with a game dialog open, leaderboard, a profile, privacy)
-- [ ] Tab through the collection, the reading view, the Games tab and an open item modal: every control (links, buttons, chips, dropdown options, Read/Owned switches, fold headings, game cards) shows the same 2px gold focus ring; fields also turn their border gold
+- [ ] No page scrolls sideways at any of those widths (collection, every reading tab, a series page, the Games tab in both orders and with a game dialog open, the Characters tab in both orders, a character's page, leaderboard, a profile, privacy)
+- [ ] Tab through the collection, the reading view, the Games tab, the Characters tab and an open item modal: every control (links, buttons, chips, dropdown options, Read/Owned switches, fold headings, game cards) shows the same 2px gold focus ring; fields also turn their border gold
 - [ ] In a game dialog, Tab and Shift+Tab cycle through its controls and never leave it; closing returns focus to the card or row that opened it
 - [ ] The filter dropdowns work from the keyboard: Tab into the options, Space ticks one
 - [ ] Numbers use lining figures everywhere ("AC1", "Issue #1" and years sit on the baseline)
@@ -258,7 +260,7 @@ The rules are in [DESIGN.md](DESIGN.md) (its section 13 is the definition of don
 
 ## 20. Games
 The Games tab (`#games`, `js/games-view.js`) lists `js/games.js`. Counts below are for today's data (42 games, 71 DLCs).
-- [ ] The header reads Collection · Reading Order · Games · Leaderboard; Games turns active on `#games` and the others still do on theirs. At 400px and below the second tab reads "Reading" and nothing in the nav is cut off at 360px
+- [ ] The header reads Collection · Reading Order · Games · Characters · Leaderboard; Games turns active on `#games` and the others still do on theirs. At 400px and below the second tab reads "Reading". At 390 and 360px the five tabs don't fit: the row swipes sideways (no scrollbar), the current tab is always in view (open Leaderboard, then Collection), and the page itself doesn't scroll sideways
 - [ ] Intro: "42 games and 71 DLCs"; chips All 42 · Main games 15 · Spin-offs 3 · Handheld 4 · Mobile 14 · Browser 2 · VR 4 (kinds with no games have no chip). **Main games is selected on load** (15 cards, Assassin's Creed first, Black Flag Resynced last); the rest of this section is with All picked unless it says otherwise. Mobile shows the 14 phone and tablet games; VR shows Escape the Lost Pyramid, The Temple of Anubis, Beyond Medusa's Gate and Nexus VR; Handheld shows Altaïr's Chronicles, Bloodlines, Discovery and Liberation; Browser shows Project Legacy and Freerunners
 - [ ] Release (the default order) with All picked: a grid of box-art cards, Assassin's Creed (mobile) first (Gameloft's phone game came out a week before the console game), Black Flag Resynced last with the kind line "Remake"; Liberation reads "Handheld · PS Vita", Bloodlines "Handheld · PSP", Project Legacy "Browser · Facebook" and Freerunners just "Browser", Assassin's Creed II Multiplayer "Mobile · iOS", the Gameloft games "Mobile", the three VR venue games "VR · Location-based" and Nexus VR "VR · Meta Quest"; each card shows "year · Set …" and "N DLCs" / "N items" pills (Valhalla: 12 DLCs, 47 items). All covers are the same height and no title is cut off (1600 to 360px). Two columns on phones
 - [ ] Story order: 8 era headings with game counts (Ancient World 4 first), then "Across eras 8" last for the games with no single setting (Project Legacy, Freerunners, AC II Multiplayer, Multiplayer Rearmed, Recollection, Memories, The Tower, Nexus VR); Escape the Lost Pyramid sits under 20th Century (1928); High Middle Ages runs Assassin's Creed (mobile), Altaïr's Chronicles, Assassin's Creed, Bloodlines; Rebellion's three campaigns stay on its card, not rows of their own; years read "431 BCE"; Ancient World runs Beyond Medusa's Gate (445 BCE), Odyssey, Those Who Are Treasured, Origins, The Temple of Anubis, The Hidden Ones, The Curse of the Pharaohs; Valhalla is followed by Wrath of the Druids, The Siege of Paris, A Fated Encounter and The Last Chapter; Black Flag Resynced sits right after Black Flag ("Remake of …"). Long DLC names on the cards cut off rather than widening them at 360px
@@ -277,6 +279,24 @@ The Games tab (`#games`, `js/games-view.js`) lists `js/games.js`. Counts below a
 - [ ] Phone: the dialog stacks with a 200px cover on top, and ✕ and Share stay in reach while it scrolls
 - [ ] Signed in: the header, the account menu and the sync banner behave as on the other tabs (the banner only shows on the collection)
 - [ ] A dev-tool edit with the Games tab open updates the item counts on the cards
+
+## 21. Characters
+The Characters tab (`#characters`, `js/characters-view.js`) lists `js/characters.js`. Counts below are for the pilot (25 characters, 199 tagged items).
+- [ ] Characters turns active in the header on `#characters` and on a character's page
+- [ ] Intro "25 characters so far"; chips All 25 · Assassins 12 · Templars 6 · Isu 2 · Others 5, with All picked on load
+- [ ] Every card and page shows a head-and-shoulders portrait (no stretched or squashed faces; Altaïr and Connor hooded); a character without an `image` would show the gold emblem instead (remove one locally to check). The sources line ends "Character art © Ubisoft", and the footer says game cover art and character art are © Ubisoft
+- [ ] A–Z (the default): Achilles Davenport first, Sofia Sartor last; accents don't change the order (Adéwalé after Achilles, Niccolò before Ratonhnhaké:ton). Each card: the gold side line ("Assassin", "Templar · Historical figure", or "Historical figure" for Leonardo, Caterina, Blackbeard and Washington; nothing for Sofia), the name, "Born 1459 · Renaissance" (Minerva and Juno: just "Ancient World"; Achilles "Born c. 1710"), "Also known as Connor, Connor Kenway" on Ratonhnhaké:ton, three lines of description, and "N games" / "N items" pills (Ezio: 4 games, 62 items; Lucrezia: 1 game, no items pill). Three columns at 1200px, one at 390px
+- [ ] Story order: Ancient World (Juno, Minerva), High Middle Ages (Altaïr), Renaissance 11 (Ezio first, Sofia last), Colonial Era 8 (Adéwalé first, Haytham last), Age of Revolution (Ratonhnhaké:ton, Aveline), Modern Day (Desmond). The order survives a reload; the chip and the search don't
+- [ ] Search ignores case and accents: "connor" finds Ratonhnhaké:ton, "altair" Altaïr, "blackbeard" Edward Thatch, "alexander" Rodrigo Borgia; typing keeps focus in the box with the gold edge; "zzz" shows "No characters match your search." and **Clear search and filters**, which picks All and brings back all 25 (keeping the order)
+- [ ] Templars shows 6; Isu shows Juno and Minerva
+- [ ] A card opens the page (`#characters/<slug>`; Ctrl+click opens a new tab): "Characters › Name" breadcrumb, the name as the title, a header card with the side badge, Born, Era and Also known as, the description and "0 / 62 owned 0%" (Ezio); Games 4 as rows with covers (Main game / Handheld kind lines); In the collection 62 item cards; links to the characters before and after it in A–Z order, by name (Achilles has only "Adéwalé →"). Focus moves to the page title
+- [ ] Characters with no items (Lucrezia, Caterina, Giovanni, Sofia, Washington, Minerva) say "No items of <name> in the catalogue yet."
+- [ ] The breadcrumb or Back returns to the list where it was scrolled, with focus on the card that opened the page; the page fades in and out (no fade with reduced motion, and no card lift)
+- [ ] An item card on a page opens the item modal over it (the address stays `#characters/<slug>`); ticking Owned updates the card and the "owned" bar; Back, Esc or ✕ closes the modal and the page stays. In that modal, the link to the same character just closes it
+- [ ] A game row opens the game's dialog over the character's page (the address stays `#characters/<slug>`); a click outside, Esc, ✕ or Back closes it back to the page, scrolled where it was, with focus on the row, and one more Back leaves the page (no stale entry). "N stories in Complete Lore" opens the order, and Back returns to the page; Ctrl+click on a row opens the Games tab in a new tab
+- [ ] 360px: nothing scrolls sideways on the list or a page; long names (Claudia Auditore da Firenze) wrap
+- [ ] Signed in: the header, the account menu and the sync banner behave as on the other tabs; owning an item on another device updates the page after sync
+- [ ] Tab reaches the search, the order buttons, the chips and every card with the gold ring; Enter opens a card
 
 ---
 
