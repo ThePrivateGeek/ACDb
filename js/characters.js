@@ -36,7 +36,9 @@
    - batch 6 (2026-10-31): Black Flag's pirates, governors and Assassins
      (ids 103-111);
    - batch 7 (2026-10-31): AC III's Templars and Patriots, and
-     Liberation's New Orleans (ids 112-122).
+     Liberation's New Orleans (ids 112-122);
+   - batch 8 (2026-10-31): Rogue's Colonial Brotherhood and Unity's Paris
+     (ids 123-131).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -255,6 +257,31 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   Batch 8 (two more researchers, 2026-10-31), settled as follows:
+   - Sides: Liam O'Brien, Hope Jensen and the Chevalier de la Vérendrye
+     are Assassins (the Chevalier is one of the Brotherhood Shay leaves,
+     not a Templar); Christopher Gist is a Templar from before Shay meets
+     him. Pierre Bellec stays an Assassin (he turns on his own leaders,
+     not to the Templars). Mirabeau is the Paris Assassins' Mentor, shown
+     early. François de la Serre is a Templar, shown at his death in the
+     first sequence. Napoleon is "other", an ally. François-Thomas Germain
+     is "other" and his Templar side is left out: Unity reveals it in
+     stages up to its last act (as for Ahmet and Madeleine).
+   - Names: the Chevalier de la Vérendrye as the game and Wikipedia's
+     list of the series' historical characters have him (aka his full
+     name, Louis-Joseph Gaultier de La Vérendrye, the explorer's fourth
+     son); Mirabeau as the cast list has him (aka his full name);
+     Napoleon Bonaparte as the game's database has it.
+   - Games: none of the nine is in another game in person. Germain and de
+     la Serre are only on a notice board in Rogue, Bellec's war years only
+     in Unity's database. Napoleon is in Dead Kings and the 1808 ending,
+     which count as Unity.
+   - year: Germain 1791, when Arno meets him (an unnamed figure at
+     Versailles in 1789 is the wiki's reading alone); de la Serre 1776.
+   - Births: the games' and Wikipedia's years agree for the real people;
+     Liam 1726, Hope 1732, Bellec c. 1740 and de la Serre 1733 from the
+     database and Wikipedia's list. Novel roles (Bowden's Unity) rest on
+     the wiki alone, so no stories.
    Batch 7 (two more researchers, 2026-10-31), settled as follows:
    - Sides: Kaniehtí:io, Samuel Adams and Lafayette are "other" (the
      wiki's infoboxes say Assassins; its own text, Wikipedia and a cut
@@ -330,6 +357,10 @@
      (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
      Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
      out.
+   Batch 8 portraits, all from the Assassin's Creed Wiki: Rogue renders of
+   Liam, Hope, Gist and the Chevalier; Unity screenshots of Germain (his
+   silversmith look, not his robe), Bellec, Mirabeau and de la Serre
+   (their renders are small); Napoleon from Dead Kings' promo art.
    Batch 7 portraits, all from the Assassin's Creed Wiki: AC III renders
    of Kaniehtí:io, Birch, Johnson, Church and Samuel Adams; AC III
    in-engine close-ups of Hickey, Pitcairn and Lafayette (their renders
@@ -1746,5 +1777,107 @@ const CHARACTERS = [
     "image": "images/characters/gerald-blanc.webp",
     "games": ["Assassin's Creed III: Liberation"],
     "description": "Aveline's childhood friend and her father's clerk, who keeps a quiet network of informants across New Orleans."
+  },
+  {
+    "id": 123,
+    "name": "Liam O'Brien",
+    "group": "assassin",
+    "historical": false,
+    "born": "1726",
+    "year": 1752,
+    "image": "images/characters/liam-obrien.webp",
+    "games": ["Assassin's Creed Rogue"],
+    "description": "Shay's oldest friend and a senior Assassin of the Colonial Brotherhood, Achilles Davenport's first recruit and right hand."
+  },
+  {
+    "id": 124,
+    "name": "Hope Jensen",
+    "group": "assassin",
+    "historical": false,
+    "born": "1732",
+    "year": 1752,
+    "image": "images/characters/hope-jensen.webp",
+    "games": ["Assassin's Creed Rogue"],
+    "description": "A Colonial Assassin who runs New York's criminal gangs as the Brotherhood's eyes and ears, and who teaches Shay the art of stealth."
+  },
+  {
+    "id": 125,
+    "name": "Christopher Gist",
+    "group": "templar",
+    "historical": true,
+    "born": "1706",
+    "year": 1756,
+    "image": "images/characters/christopher-gist.webp",
+    "games": ["Assassin's Creed Rogue"],
+    "description": "A frontiersman and surveyor whom Shay saves from the gallows in New York, and who becomes first mate of his ship, the Morrigan."
+  },
+  {
+    "id": 126,
+    "name": "Chevalier de la Vérendrye",
+    "aka": ["Louis-Joseph Gaultier de La Vérendrye"],
+    "group": "assassin",
+    "historical": true,
+    "born": "1717",
+    "year": 1752,
+    "image": "images/characters/chevalier-de-la-verendrye.webp",
+    "games": ["Assassin's Creed Rogue"],
+    "description": "A proud French-Canadian nobleman, explorer and sea captain of the Colonial Brotherhood, who has little time for Shay."
+  },
+  {
+    "id": 127,
+    "name": "François-Thomas Germain",
+    "group": "other",
+    "historical": true,
+    "born": "1726",
+    "year": 1791,
+    "image": "images/characters/francois-thomas-germain.webp",
+    "games": ["Assassin's Creed Unity"],
+    "description": "A celebrated royal silversmith of Paris, who says he was forced to make the pin used in a murder that Arno is investigating."
+  },
+  {
+    "id": 128,
+    "name": "Pierre Bellec",
+    "group": "assassin",
+    "historical": false,
+    "born": "c. 1740",
+    "year": 1789,
+    "image": "images/characters/pierre-bellec.webp",
+    "games": ["Assassin's Creed Unity"],
+    "description": "A gruff veteran Assassin and old soldier of the Seven Years' War, who shares a cell with Arno in the Bastille and teaches him to fight."
+  },
+  {
+    "id": 129,
+    "name": "Mirabeau",
+    "aka": ["Honoré Gabriel Riqueti, comte de Mirabeau"],
+    "group": "assassin",
+    "historical": true,
+    "born": "1749",
+    "year": 1789,
+    "image": "images/characters/mirabeau.webp",
+    "games": ["Assassin's Creed Unity"],
+    "description": "The great orator of the National Assembly and a leading voice of the Revolution, who is secretly the Mentor of the Paris Assassins."
+  },
+  {
+    "id": 130,
+    "name": "François de la Serre",
+    "group": "templar",
+    "historical": false,
+    "born": "1733",
+    "year": 1776,
+    "image": "images/characters/francois-de-la-serre.webp",
+    "games": ["Assassin's Creed Unity"],
+    "description": "A nobleman of Versailles and Élise's father, who takes the orphaned young Arno into his family."
+  },
+  {
+    "id": 131,
+    "name": "Napoleon Bonaparte",
+    "aka": ["Napoleon I"],
+    "group": "other",
+    "historical": true,
+    "born": "1769",
+    "year": 1792,
+    "image": "images/characters/napoleon-bonaparte.webp",
+    "games": ["Assassin's Creed Unity"],
+    "description": "A young and ambitious Corsican artillery officer of the French Army, met searching the Tuileries for a prize of his own."
   }
 ]

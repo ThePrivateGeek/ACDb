@@ -5735,7 +5735,8 @@ const AC_DATABASE = [
     "description": "Issue #39 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #39 and figurine of François-Thomas Germain",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [127]
   },
   {
     "id": 511,
@@ -5838,7 +5839,8 @@ const AC_DATABASE = [
     "description": "Issue #48 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #48 and figurine of Pierre Bellec",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [128]
   },
   {
     "id": 520,
