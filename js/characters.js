@@ -18,8 +18,14 @@
    VR games (until decided otherwise). The main characters of the novels,
    comics and the film may come later.
 
-   The list grows in batches; this is the pilot (2026-10-30): the Ezio
-   saga, the Kenway saga, Desmond Miles and two Isu.
+   The list grows in batches:
+   - the pilot (2026-10-30): the Ezio saga, the Kenway saga, Desmond Miles
+     and two Isu (ids 1-25);
+   - batch 2 (2026-10-31): the protagonists of the other games and the key
+     figures around them, from Origins to Shadows, the Chronicles and
+     Layla Hassan (ids 26-48).
+   Still to come: the modern-day team (Lucy, Shaun, Rebecca, William
+   Miles), more allies and targets, and the novels' and comics' heroes.
 
    Characters (keys in this order; the list itself is in id order):
      id        permanent number, the next one is the highest + 1. Items
@@ -104,6 +110,33 @@
      Juno.
    - Shay is not in Unity: its opening shows an unnamed hooded killer.
    - Altaïr is in AC II: Desmond's vision of Altaïr and Maria in Acre.
+   Batch 2 (two more researchers, 2026-10-31), settled as follows:
+   - Names: Bayek of Siwa (the wiki's page is "Bayek"); Aya, known later as
+     Amunet (the wiki's page), which her statues use; Sigurd Styrbjornsson
+     (wiki, Wikipedia; Ubisoft also writes "Styrbjornson"); Basim Ibn
+     Ishaq (Ubisoft, Wikipedia; the wiki writes "ibn"); Naoe (Ubisoft; the
+     wiki's page is "Fujibayashi Naoe"); Nikolai Orelov (the game's
+     "Nikolaï" is a misspelling).
+   - Sides: Eivor with the Assassins (she takes the Hidden Ones' blade
+     and creed; both researchers). Kassandra, Sigurd and Cleopatra under
+     "other": none is sworn in (the wiki's text, against its infobox for
+     Cleopatra and Sigurd). Alexios under "other" too: as a player
+     character he is a mercenary like Kassandra, and his items show him
+     so; the canon story's twist about him is left alone, as is his alias.
+     Julius Caesar with the Templars (the Order of the Ancients; both).
+   - Births: Kassandra 458 BCE and Alexios 451 BCE (the wiki and Wikipedia;
+     the game implies 453 and 446); Shao Jun 1505 (the wiki and the
+     Essential Guide; Chronicles: China says 1506). Arbaaz Mir's and
+     Nikolai Orelov's are not known.
+   - First seen: Kassandra and Alexios 431 BCE, as the story's dates are;
+     their childhood scene is undated. Eivor and Sigurd 855, the prologue
+     (Wikipedia and one wiki page; another says 856). Arno and Élise 1776,
+     the Unity prologue. Yasuke 1581: his 1579 arrival isn't shown.
+   - Games: Kassandra is in Valhalla through the free crossover story "A
+     Fated Encounter"; Arno is in Rogue as the boy in its last memory.
+     Left out with one source only: Roshan in Valhalla's free quest
+     "Shared History", Élise as a child in Rogue, Sigurd in Dawn of
+     Ragnarök. Shao Jun is not in Chronicles: Russia (only her memories).
 
    Portraits (2026-10-31): two researchers collected official art; every
    candidate they found stays in the session scratchpad for re-picking.
@@ -123,6 +156,21 @@
      ones.
    - A screenshot, where no render shows the face: Minerva (AC II's
      Vatican vault, a glowing hologram).
+   Batch 2 portraits (two more researchers, 2026-10-31; candidates kept
+   in the scratchpad's portraits2 folder):
+   - Ubisoft's Shadows fan kit: Naoe, Yasuke (helmeted; the owner's
+     choice over a trailer close-up). Ubisoft's Chronicles turnaround
+     sheets (one figure cropped): Arbaaz Mir, Nikolai Orelov.
+   - Renders and promo art on the Assassin's Creed Wiki: Bayek, Aya,
+     Cleopatra, Julius Caesar (Origins); Kassandra, Alexios (Odyssey);
+     Eivor (the female Eivor), Sigurd (database render, 260px, scaled up;
+     Valhalla); Roshan (Mirage); Arno, Élise (Unity); Jacob,
+     Evie, Starrick, Henry Green (Syndicate); Shao Jun (the Chronicles:
+     China cover art).
+   - Sent by the site owner: Basim (a Mirage render, 240px, scaled up;
+     kept as portraits2/basim/owner-supplied.png).
+   - A close-up from Shadows' cutscenes: Oda Nobunaga. A screenshot:
+     Layla Hassan (Origins; no render of her exists).
 */
 
 const CHARACTERS = [
@@ -401,5 +449,262 @@ const CHARACTERS = [
     "image": "images/characters/juno.webp",
     "games": ["Assassin's Creed Brotherhood", "Assassin's Creed III", "Assassin's Creed IV: Black Flag", "Assassin's Creed Syndicate", "Assassin's Creed Valhalla"],
     "description": "An Isu scientist from the age before the great catastrophe, whose voice reaches Desmond across thousands of years from the vaults her people left behind."
+  },
+  {
+    "id": 26,
+    "name": "Bayek of Siwa",
+    "group": "assassin",
+    "historical": false,
+    "born": "c. 85 BCE",
+    "year": -49,
+    "image": "images/characters/bayek-of-siwa.webp",
+    "games": ["Assassin's Creed Origins"],
+    "description": "One of the last Medjay, sworn protectors of Egypt's people, who leaves his village of Siwa to hunt down the masked men who tore his family apart."
+  },
+  {
+    "id": 27,
+    "name": "Aya",
+    "aka": ["Amunet"],
+    "group": "assassin",
+    "historical": false,
+    "born": "c. 85 BCE",
+    "year": -48,
+    "image": "images/characters/aya.webp",
+    "games": ["Assassin's Creed Origins"],
+    "description": "Bayek's wife, a sharp and determined warrior from Alexandria who carries their fight against a secret order from the banks of the Nile to the heart of Rome."
+  },
+  {
+    "id": 28,
+    "name": "Cleopatra",
+    "group": "other",
+    "historical": true,
+    "born": "69 BCE",
+    "year": -48,
+    "image": "images/characters/cleopatra.webp",
+    "games": ["Assassin's Creed Origins"],
+    "description": "The young queen of Egypt, driven from her throne by her brother Ptolemy XIII, who sees in Bayek and Aya useful allies in winning it back."
+  },
+  {
+    "id": 29,
+    "name": "Julius Caesar",
+    "group": "templar",
+    "historical": true,
+    "born": "100 BCE",
+    "year": -48,
+    "image": "images/characters/julius-caesar.webp",
+    "games": ["Assassin's Creed Origins"],
+    "description": "The Roman general whose arrival in Egypt in the middle of a civil war tips the balance of power and draws him into Cleopatra's fight for the throne."
+  },
+  {
+    "id": 30,
+    "name": "Kassandra",
+    "aka": ["The Eagle Bearer"],
+    "group": "other",
+    "historical": false,
+    "born": "458 BCE",
+    "year": -431,
+    "image": "images/characters/kassandra.webp",
+    "games": ["Assassin's Creed Odyssey", "Assassin's Creed Valhalla"],
+    "description": "A Spartan-born mercenary, or misthios, scraping a living on the island of Kephallonia when the Peloponnesian War and the search for her family pull her across the Greek world."
+  },
+  {
+    "id": 31,
+    "name": "Alexios",
+    "group": "other",
+    "historical": false,
+    "born": "451 BCE",
+    "year": -431,
+    "image": "images/characters/alexios.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "description": "A Spartan-born mercenary, or misthios, and the hero of Odyssey for players who choose him instead of Kassandra, caught up in the Peloponnesian War."
+  },
+  {
+    "id": 32,
+    "name": "Eivor Varinsdottir",
+    "aka": ["Eivor Wolf-Kissed"],
+    "group": "assassin",
+    "historical": false,
+    "born": "847",
+    "year": 855,
+    "image": "images/characters/eivor-varinsdottir.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "description": "A fierce Viking raider of the Raven Clan who leaves Norway with her brother Sigurd to carve out a new home for their people in ninth-century England."
+  },
+  {
+    "id": 33,
+    "name": "Sigurd Styrbjornsson",
+    "group": "other",
+    "historical": false,
+    "born": "842",
+    "year": 855,
+    "image": "images/characters/sigurd-styrbjornsson.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "description": "Eivor's adoptive brother and the son of a Norwegian jarl, a proud and restless leader who brings his clan across the sea to settle in England."
+  },
+  {
+    "id": 34,
+    "name": "Basim Ibn Ishaq",
+    "group": "assassin",
+    "historical": false,
+    "born": "c. 844",
+    "year": 861,
+    "image": "images/characters/basim-ibn-ishaq.webp",
+    "games": ["Assassin's Creed Valhalla", "Assassin's Creed Mirage"],
+    "description": "A quick-witted street thief in ninth-century Baghdad, troubled by strange visions, who is taken in by the Hidden Ones and trained in their ways."
+  },
+  {
+    "id": 35,
+    "name": "Roshan",
+    "group": "assassin",
+    "historical": false,
+    "born": "c. 802",
+    "year": 861,
+    "image": "images/characters/roshan.webp",
+    "games": ["Assassin's Creed Mirage"],
+    "description": "A seasoned Master of the Hidden Ones, wry and demanding, who takes the young Basim under her wing and teaches him the Creed."
+  },
+  {
+    "id": 36,
+    "name": "Arno Dorian",
+    "group": "assassin",
+    "historical": false,
+    "born": "1768",
+    "year": 1776,
+    "image": "images/characters/arno-dorian.webp",
+    "games": ["Assassin's Creed Rogue", "Assassin's Creed Unity"],
+    "description": "A charming young Frenchman raised in a noble household at Versailles, who is drawn into the Assassins' fight amid the chaos of the French Revolution."
+  },
+  {
+    "id": 37,
+    "name": "Élise de la Serre",
+    "group": "templar",
+    "historical": false,
+    "born": "1768",
+    "year": 1776,
+    "image": "images/characters/elise-de-la-serre.webp",
+    "games": ["Assassin's Creed Unity"],
+    "description": "Arno's childhood love, the fearless and headstrong daughter of a Templar Grand Master, who meets the Revolution with a sword in her hand."
+  },
+  {
+    "id": 38,
+    "name": "Jacob Frye",
+    "group": "assassin",
+    "historical": false,
+    "born": "1847",
+    "year": 1868,
+    "image": "images/characters/jacob-frye.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "Evie's twin brother, a brash and charming Assassin who arrives in Victorian London set on taking the city back from its gangs one street at a time."
+  },
+  {
+    "id": 39,
+    "name": "Evie Frye",
+    "group": "assassin",
+    "historical": false,
+    "born": "1847",
+    "year": 1868,
+    "image": "images/characters/evie-frye.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "Jacob's twin sister, a patient and clever Assassin who comes to London in search of a Piece of Eden rather than a fight with the gangs."
+  },
+  {
+    "id": 40,
+    "name": "Crawford Starrick",
+    "group": "templar",
+    "historical": false,
+    "born": "1827",
+    "year": 1868,
+    "image": "images/characters/crawford-starrick.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "The Grand Master of the Templars in Britain, a cold industrialist whose factories, banks and gangs hold Victorian London in their grip."
+  },
+  {
+    "id": 41,
+    "name": "Henry Green",
+    "aka": ["Jayadeep Mir"],
+    "group": "assassin",
+    "historical": false,
+    "born": "1843",
+    "year": 1868,
+    "image": "images/characters/henry-green.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "The quiet keeper of the Assassins' bureau in London, an antiques dealer born in India who becomes the Frye twins' closest ally in the city."
+  },
+  {
+    "id": 42,
+    "name": "Shao Jun",
+    "group": "assassin",
+    "historical": false,
+    "born": "1505",
+    "year": 1526,
+    "image": "images/characters/shao-jun.webp",
+    "games": ["Assassin's Creed Chronicles: China"],
+    "description": "The last Assassin of the Chinese Brotherhood, trained in Italy by Ezio Auditore, who returns to Ming China to bring down those who destroyed her order."
+  },
+  {
+    "id": 43,
+    "name": "Arbaaz Mir",
+    "group": "assassin",
+    "historical": false,
+    "year": 1841,
+    "image": "images/characters/arbaaz-mir.webp",
+    "games": ["Assassin's Creed Chronicles: India"],
+    "description": "An Assassin of the Indian Brotherhood in the Sikh Empire of the 1840s, caught between two empires as he guards a precious relic."
+  },
+  {
+    "id": 44,
+    "name": "Nikolai Orelov",
+    "group": "assassin",
+    "historical": false,
+    "year": 1918,
+    "image": "images/characters/nikolai-orelov.webp",
+    "games": ["Assassin's Creed Chronicles: Russia"],
+    "description": "A weary Russian Assassin in 1918, as revolution sweeps the country, who takes on one last mission before he hopes to start a new life with his family."
+  },
+  {
+    "id": 45,
+    "name": "Naoe",
+    "aka": ["Fujibayashi Naoe"],
+    "group": "assassin",
+    "historical": false,
+    "born": "c. 1564",
+    "year": 1579,
+    "image": "images/characters/naoe.webp",
+    "games": ["Assassin's Creed Shadows"],
+    "description": "A young shinobi of Iga, the daughter of Fujibayashi Nagato, trained in stealth and the blade as war closes in on her home province."
+  },
+  {
+    "id": 46,
+    "name": "Yasuke",
+    "aka": ["Diogo"],
+    "group": "assassin",
+    "historical": true,
+    "born": "c. 1555",
+    "year": 1581,
+    "image": "images/characters/yasuke.webp",
+    "games": ["Assassin's Creed Shadows"],
+    "description": "An African warrior who comes to Japan and enters the service of the warlord Oda Nobunaga, becoming a samurai in the Sengoku period."
+  },
+  {
+    "id": 47,
+    "name": "Oda Nobunaga",
+    "group": "other",
+    "historical": true,
+    "born": "1534",
+    "year": 1581,
+    "image": "images/characters/oda-nobunaga.webp",
+    "games": ["Assassin's Creed Shadows"],
+    "description": "The ambitious and ruthless warlord bent on uniting Japan under his rule, the most feared man of the Sengoku period."
+  },
+  {
+    "id": 48,
+    "name": "Layla Hassan",
+    "group": "assassin",
+    "historical": false,
+    "born": "1984",
+    "year": 2017,
+    "image": "images/characters/layla-hassan.webp",
+    "games": ["Assassin's Creed Origins", "Assassin's Creed Odyssey", "Assassin's Creed Valhalla"],
+    "description": "A brilliant and impatient Abstergo engineer who builds her own portable Animus to explore the memories of people the company has overlooked."
   }
 ]

@@ -313,7 +313,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "The lead Assassin from AC Unity, armed with Phantom Blade (wrist crossbow), French cutlass, and multi-barreled pistol. McFarlane Series 3.",
     "contents": "Arno Dorian figure with Phantom Blade, cutlass, and pistol",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [36]
   },
   {
     "id": 31,
@@ -355,7 +356,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Arno Dorian in an alternate costume designed by Todd McFarlane himself, featuring a unique Master Assassin outfit distinct from his standard Unity robes. McFarlane Series 4.",
     "contents": "Arno Dorian (Master Assassin Outfit) figure with accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [36]
   },
   {
     "id": 35,
@@ -365,7 +367,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Translucent blue-glowing version of Arno Dorian depicting the Eagle Vision effect. The first-ever Eagle Vision figure in the McFarlane AC line. Walgreens exclusive. McFarlane Series 4.",
     "contents": "Eagle Vision Arno Dorian translucent figure with accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [36]
   },
   {
     "id": 36,
@@ -375,7 +378,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Life-size replica of Jacob Frye's signature cane sword from AC Syndicate. Features a concealed blade within a gentleman's walking cane. McFarlane Series 4.",
     "contents": "Cane sword replica",
-    "type": "Replica"
+    "type": "Replica",
+    "characters": [38]
   },
   {
     "id": 37,
@@ -385,7 +389,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Jacob Frye in Blackguard outfit from AC Syndicate. Equipped with cane sword, two pistols, and detachable hood. GameStop exclusive. McFarlane Series 4.",
     "contents": "Jacob Frye figure with cane sword, pistols, and detachable hood",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [38]
   },
   {
     "id": 38,
@@ -395,7 +400,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Jacob Frye in Union outfit from AC Syndicate. Armed with cane sword, two large pistols, kukri, and extended/retracted hidden blades. McFarlane Series 5.",
     "contents": "Jacob Frye figure with cane sword, pistols, kukri, and hidden blades",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [38]
   },
   {
     "id": 39,
@@ -438,7 +444,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Life-size wearable replica of Arno's Phantom Blade. Features functional hidden blade, retractable crossbow arms, and soft-firing dart. Adjustable straps with simulated-leather gauntlet.",
     "contents": "Phantom Blade wearable replica with functional hidden blade and crossbow",
-    "type": "Replica"
+    "type": "Replica",
+    "characters": [36]
   },
   {
     "id": 43,
@@ -448,7 +455,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Uplay shop exclusive (now the Ubisoft Store) featuring the Guillotine Collector box with a 41cm figurine of Arno on a bloody guillotine, an artbook, a customised tarot game, a framed canvas print and a wooden music box. The game's Special Edition shipped separately. The priciest Unity edition at launch (€149.95).",
     "contents": "Special Edition of the game (shipped separately), Guillotine collector's box, 41cm Arno on Guillotine statue, FuturePak steelbook case, artbook, soundtrack, map of Paris, framed canvas print, two lithographs, customised tarot card game, wooden music box, two bonus single-player missions (The Chemical Revolution, The American Prisoner)",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [36]
   },
   {
     "id": 44,
@@ -458,7 +466,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "European collector's edition featuring a 39.5cm Arno figurine on a Notre Dame gargoyle.",
     "contents": "Game, Notre Dame collector's box, 39.5cm Arno on gargoyle figurine, high quality artbook with concept art",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [36]
   },
   {
     "id": 45,
@@ -468,7 +477,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "North American collector's edition featuring a 16\" Arno figurine on a Notre Dame gargoyle and a functioning music box. The North American counterpart of the European Notre Dame Edition, with a music box in place of the lithographs.",
     "contents": "Game, Notre Dame collector's box, 16\" Arno on gargoyle figurine, functioning wooden music box playing AC Unity theme remix, artbook, official soundtrack, two bonus single-player missions (The Science Mission, The Chemical Revolution)",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [36]
   },
   {
     "id": 46,
@@ -499,7 +509,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Premium collector's edition featuring Jacob's Machinery figurine and an exclusive premium hip flask. The largest Syndicate edition.",
     "contents": "Game, exclusive collector's box, Jacob's Machinery figurine, artbook, double-sided London map, game soundtrack, fan-chosen lithography, exclusive FuturePak steelbook, exclusive premium hip flask, Season Pass, two bonus single-player missions, Darwin and Dickens Conspiracy Mission, Runaway Train Mission",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [38]
   },
   {
     "id": 49,
@@ -509,7 +520,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Mid-tier collector's edition featuring a 26cm Jacob Cross-Road figurine.",
     "contents": "Game, Charing Cross edition box, 26cm Jacob Cross-Road figurine, artbook, double-sided London map, official soundtrack",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [38]
   },
   {
     "id": 50,
@@ -539,7 +551,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Collector's edition featuring a 10.2-inch Bayek figurine on the head of the Sekhmet Goddess.",
     "contents": "Game (Standard Edition), 10.2-inch Bayek figurine on Sekhmet Goddess head, Egyptian Gods themed box, art book, world map, official soundtrack, exclusive extra mission, digital bonus content",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [26]
   },
   {
     "id": 53,
@@ -549,7 +562,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Premium collector's edition with a 15.4-inch Bayek and Senu figurine. Available at major retailers.",
     "contents": "Gold Edition of game (with Season Pass), 15.4-inch Bayek and Senu figurine, eagle skull amulet, premium collector's case, art book, world map, two original art cards with hieroglyphic Assassin's tenets, soundtrack, steelbook",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [26]
   },
   {
     "id": 54,
@@ -559,7 +573,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Premium Ubisoft Store exclusive limited to 999 units, featuring a massive 28.7-inch resin statue of Bayek and Senu.",
     "contents": "Gold Edition of game (with Season Pass), 28.7-inch resin statue of Bayek and Senu, hand-drawn map, resin eagle skull amulet, 15x11-inch lithographs signed by Ubisoft Montreal artists, artbook, collector cards, soundtrack, two steelbook cases, certificate of authenticity (numbered 1-999)",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [26]
   },
   {
     "id": 55,
@@ -589,7 +604,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Collector's edition featuring an Alexios figurine performing a Spartan leap.",
     "contents": "Game (with Season Pass), Alexios Spartan Leap figurine, premium collector case, steelbook, world map, game soundtrack, 64-page artbook, digital content, temporary boosts, additional mission",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [31]
   },
   {
     "id": 58,
@@ -599,7 +615,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "European exclusive featuring the Fallen Gorgon figurine depicting Alexios standing on a Medusa statue.",
     "contents": "Game (with Season Pass), 33cm Fallen Gorgon figurine (Alexios on Medusa statue by Ubicollectibles), art book, world map, steelbook, soundtrack",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [31]
   },
   {
     "id": 59,
@@ -609,7 +626,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Ubisoft Store exclusive featuring a 30cm Female Eivor figurine on her longship. Includes the Ultimate Edition of the game.",
     "contents": "Ultimate Edition of game (with Season Pass and Ultimate Pack), 30cm Female Eivor on longship figurine, exclusive steelbook case, 5cm Eivor statuette with raven and Dane axe, selected soundtrack CD, three lithographs, The Way of the Berserker bonus mission",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [32]
   },
   {
     "id": 60,
@@ -639,7 +657,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Collector's edition featuring a 32cm Basim figurine atop Middle-Eastern architecture. Note: does NOT include a physical game disc.",
     "contents": "Digital Deluxe Edition download code, 32cm Basim figurine, exclusive steelbook case, mini-artbook, selected soundtrack CD, replica map of Baghdad, collectible replica of Basim's brooch, Prince of Persia inspired outfit and skins (digital), digital artbook and soundtrack",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [34]
   },
   {
     "id": 63,
@@ -649,7 +668,8 @@ const AC_DATABASE = [
     "category": "Collector's Edition",
     "description": "Premium collector's edition featuring a 40cm Naoe and Yasuke diorama and life-sized Katana Tsuba replica.",
     "contents": "Ultimate Edition of game, 40cm Naoe and Yasuke diorama, steelbook case, art book, life-sized Naoe's Katana Tsuba replica, sumi-e style world map, 70x30cm wall scroll with Creed of the Assassins, two sumi-e lithographs, digital Ultimate Pack, Claws of Awaji expansion, Thrown to the Dogs bonus quest",
-    "type": "Collector's Edition"
+    "type": "Collector's Edition",
+    "characters": [45, 46]
   },
   {
     "id": 64,
@@ -736,7 +756,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Premium 1/4 scale statue of Arno Dorian with LED Animus effect.",
     "contents": "1/4 scale Arno statue with LED Animus base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [36]
   },
   {
     "id": 72,
@@ -746,7 +767,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Premium 1/4 scale dual-figure statue of Jacob and Evie Frye with LED Animus effect.",
     "contents": "1/4 scale Jacob and Evie diorama statue with LED Animus base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [38, 39]
   },
   {
     "id": 73,
@@ -756,7 +778,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "1/8 scale statue of Bayek of Siwa from the Animus Collection.",
     "contents": "1/8 scale Bayek statue",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [26]
   },
   {
     "id": 74,
@@ -766,7 +789,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "11-inch scale statue of Kassandra from the Animus Collection.",
     "contents": "1/8 scale Kassandra statue",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [30]
   },
   {
     "id": 75,
@@ -786,7 +810,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Premium Animus statue of Eivor from Valhalla.",
     "contents": "Animus Eivor statue with LED base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [32]
   },
   {
     "id": 77,
@@ -796,7 +821,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Smaller scale Animus statue of Eivor from Valhalla.",
     "contents": "1/8 scale Eivor statue",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [32]
   },
   {
     "id": 78,
@@ -806,7 +832,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Premium 1/4 scale statue of Basim with LED Animus effect.",
     "contents": "1/4 scale Basim statue with LED Animus base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [34]
   },
   {
     "id": 79,
@@ -816,7 +843,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Smaller scale Animus statue of Basim.",
     "contents": "1/8 scale Basim statue",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [34]
   },
   {
     "id": 80,
@@ -837,7 +865,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Premium 1/4 scale dual-character diorama with LED Animus effect.",
     "contents": "1/4 scale Naoe and Yasuke diorama statue with LED Animus base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [45, 46]
   },
   {
     "id": 82,
@@ -847,7 +876,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "1/8 scale statue of Yasuke from the Animus Collection.",
     "contents": "1/8 scale Yasuke statue",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [46]
   },
   {
     "id": 83,
@@ -857,7 +887,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "1/8 scale statue of Naoe from the Animus Collection.",
     "contents": "1/8 scale Naoe statue",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [45]
   },
   {
     "id": 84,
@@ -867,7 +898,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "1/4 scale bust of Naoe.",
     "contents": "1/4 scale Naoe bust",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [45]
   },
   {
     "id": 85,
@@ -877,7 +909,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "1/4 scale bust of Yasuke.",
     "contents": "1/4 scale Yasuke bust",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [46]
   },
   {
     "id": 86,
@@ -887,7 +920,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Affordable PVC figure set of Naoe and Yasuke from the Qlectors line.",
     "contents": "PVC figures of Naoe and Yasuke",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [45, 46]
   },
   {
     "id": 87,
@@ -1017,7 +1051,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Statue of Jacob Frye in a threatening pose holding his cane behind his shoulder. Includes lithography.",
     "contents": "Jacob Frye statue with lithography",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [38]
   },
   {
     "id": 99,
@@ -1027,7 +1062,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Statue of Evie Frye in an offensive position with dagger drawn.",
     "contents": "Evie Frye statue",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [39]
   },
   {
     "id": 100,
@@ -1037,7 +1073,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "33cm diorama combining both Jacob and Evie figurines together.",
     "contents": "33cm Jacob and Evie diorama (combining both individual figurines)",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [38, 39]
   },
   {
     "id": 101,
@@ -1047,7 +1084,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Statue of Bayek of Siwa. Can be combined with Aya figurine to form a diorama.",
     "contents": "Bayek statue",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [26]
   },
   {
     "id": 102,
@@ -1057,7 +1095,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Statue of Aya. Can be combined with Bayek figurine to form a diorama.",
     "contents": "Aya statue",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [27]
   },
   {
     "id": 103,
@@ -1067,7 +1106,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "32cm statue of Alexios from Odyssey.",
     "contents": "32cm Alexios statue",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [31]
   },
   {
     "id": 104,
@@ -1077,7 +1117,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "29cm statue of Kassandra from Odyssey.",
     "contents": "29cm Kassandra statue",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [30]
   },
   {
     "id": 105,
@@ -1087,7 +1128,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Limited edition statue of Alexios on a Medusa base in Hero of Sparta outfit with Broken Spear of Leonidas. Numbered, limited to 1,900 units with certificate of authenticity.",
     "contents": "Alexios Legendary statue with certificate of authenticity",
-    "type": "Ubicollectibles"
+    "type": "Ubicollectibles",
+    "characters": [31]
   },
   {
     "id": 106,
@@ -1737,7 +1779,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Arno Dorian.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [36]
   },
   {
     "id": 170,
@@ -1747,7 +1790,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Elise de la Serre.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [37]
   },
   {
     "id": 171,
@@ -1757,7 +1801,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Jacob Frye.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [38]
   },
   {
     "id": 172,
@@ -1767,7 +1812,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Evie Frye.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [39]
   },
   {
     "id": 173,
@@ -1777,7 +1823,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Underground Toys exclusive variant of Jacob without his hood.",
     "contents": "Pop! vinyl figure (uncloaked exclusive)",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [38]
   },
   {
     "id": 174,
@@ -1787,7 +1834,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Eivor from Valhalla.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [32]
   },
   {
     "id": 175,
@@ -1797,7 +1845,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "GameStop exclusive Eivor variant wielding double axes.",
     "contents": "Pop! vinyl figure (double axe exclusive)",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [32]
   },
   {
     "id": 176,
@@ -1963,7 +2012,8 @@ const AC_DATABASE = [
     "category": "Jewelry & Accessories",
     "description": "Official Starrick Templar necklace from Assassin's Creed Syndicate.",
     "contents": "Templar necklace",
-    "type": "Jewelry"
+    "type": "Jewelry",
+    "characters": [40]
   },
   {
     "id": 192,
@@ -1993,7 +2043,8 @@ const AC_DATABASE = [
     "category": "Jewelry & Accessories",
     "description": "Collaboration with King Ice. Yasuke's kabuto crafted from brass and plated in 14K gold and black gold.",
     "contents": "14K gold plated Yasuke Kabuto necklace",
-    "type": "Jewelry"
+    "type": "Jewelry",
+    "characters": [46]
   },
   {
     "id": 195,
@@ -2063,7 +2114,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Bundle package from PureArts including the Eivor statue, life-size hidden blade prop, and Orlog dice game.",
     "contents": "Animus Eivor statue, life-size hidden blade prop, Orlog dice game",
-    "type": "Bundle"
+    "type": "Bundle",
+    "characters": [32]
   },
   {
     "id": 202,
@@ -2189,7 +2241,8 @@ const AC_DATABASE = [
     "description": "Follows Arno Dorian during the French Revolution as he joins the Assassin Brotherhood and pursues those responsible for his adoptive father's murder. By Oliver Bowden.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Oliver Bowden Novels"
+    "series": "Oliver Bowden Novels",
+    "characters": [36]
   },
   {
     "id": 213,
@@ -2200,7 +2253,8 @@ const AC_DATABASE = [
     "description": "A prequel/companion to Syndicate set in Victorian London, following Assassin Henry Green and events leading up to the arrival of Jacob and Evie Frye. By Oliver Bowden.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Oliver Bowden Novels"
+    "series": "Oliver Bowden Novels",
+    "characters": [41]
   },
   {
     "id": 214,
@@ -2265,7 +2319,8 @@ const AC_DATABASE = [
     "description": "A prequel to AC Origins, following a young Bayek in ancient Egypt as he trains to become a Medjay and the events that shaped him before the game's story. By Oliver Bowden.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Oliver Bowden Novels"
+    "series": "Oliver Bowden Novels",
+    "characters": [26]
   },
   {
     "id": 220,
@@ -2296,7 +2351,8 @@ const AC_DATABASE = [
     "description": "Follows Shao Jun as she returns to Ming Dynasty China to rebuild the Brotherhood after training with Ezio Auditore in Italy. By Yan Leisheng.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Yan Leisheng Shao Jun Novels"
+    "series": "Yan Leisheng Shao Jun Novels",
+    "characters": [42]
   },
   {
     "id": 223,
@@ -2307,7 +2363,8 @@ const AC_DATABASE = [
     "description": "Continues Shao Jun's story as she pursues the eunuch Zhang Yong from the Ming coast to the Mongolian frontier in 1530. By Yan Leisheng.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "series": "Yan Leisheng Shao Jun Novels"
+    "series": "Yan Leisheng Shao Jun Novels",
+    "characters": [42]
   },
   {
     "id": 224,
@@ -2349,7 +2406,8 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Constantinople, 867 - A murderous plot is afoot. Assisted by the Order of the Ancients, the emperor schemes to assassinate his son and throw the city into chaos. In response, the Hidden Ones have dispatched Assassin acolyte Hytham to join his mentor, Basim Ibn Ishaq, to infiltrate the palace and foil the emperor's plan. But that is not his only mission... Hytham's brotherhood have entrusted him with uncovering where Basim's true loyalties lie and whether the master Assassin's personal obsessions outweigh his sense of duty. For Hytham to succeed, he must tread carefully, for Constantinople is a city of shadows, and danger hides in all of them.. By Jaleigh Johnson.",
     "contents": "Paperback novel",
-    "type": "Novel"
+    "type": "Novel",
+    "characters": [34]
   },
   {
     "id": 228,
@@ -2359,7 +2417,8 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Master Assassin Roshan's past is revealed as she joins a hunt along the Silk Road for a powerful lost artifact. A prequel companion to AC Mirage. By Maria Lewis.",
     "contents": "Paperback novel",
-    "type": "Novel"
+    "type": "Novel",
+    "characters": [35]
   },
   {
     "id": 229,
@@ -2443,7 +2502,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
-    "read": "02. AC - The Fall/AC The Fall 1st 2010"
+    "read": "02. AC - The Fall/AC The Fall 1st 2010",
+    "characters": [44]
   },
   {
     "id": 237,
@@ -2455,7 +2515,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
-    "read": "02. AC - The Fall/AC The Fall 2nd 2011"
+    "read": "02. AC - The Fall/AC The Fall 2nd 2011",
+    "characters": [44]
   },
   {
     "id": 238,
@@ -2467,7 +2528,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
-    "read": "02. AC - The Fall/AC The Fall 3rd 2011"
+    "read": "02. AC - The Fall/AC The Fall 3rd 2011",
+    "characters": [44]
   },
   {
     "id": 239,
@@ -2480,7 +2542,8 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed: The Fall",
     "read": "02. AC - The Fall/AC - The Fall (Deluxe Edition) 2012",
-    "collects": [236, 237, 238]
+    "collects": [236, 237, 238],
+    "characters": [44]
   },
   {
     "id": 240,
@@ -2492,7 +2555,8 @@ const AC_DATABASE = [
     "contents": "Original graphic novel",
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
-    "read": "03. 04/03 AC The Chain 2012"
+    "read": "03. 04/03 AC The Chain 2012",
+    "characters": [44]
   },
   {
     "id": 241,
@@ -2504,7 +2568,8 @@ const AC_DATABASE = [
     "contents": "Collected trade paperback containing The Fall (3 issues) and The Chain graphic novel",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: The Fall",
-    "collects": [236, 237, 238, 240]
+    "collects": [236, 237, 238, 240],
+    "characters": [44]
   },
   {
     "id": 242,
@@ -2953,7 +3018,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
-    "read": "08. AC - Locus/AC Locus 01 Case In Point 2016"
+    "read": "08. AC - Locus/AC Locus 01 Case In Point 2016",
+    "characters": [39, 41]
   },
   {
     "id": 279,
@@ -3001,7 +3067,8 @@ const AC_DATABASE = [
     "contents": "Trade paperback collecting 4 issues",
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
-    "collects": [278, 279, 280, 281]
+    "collects": [278, 279, 280, 281],
+    "characters": [39, 41]
   },
   {
     "id": 283,
@@ -3258,7 +3325,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
-    "read": "12. AC - Origins/AC Origins 2018 (1)"
+    "read": "12. AC - Origins/AC Origins 2018 (1)",
+    "characters": [27]
   },
   {
     "id": 304,
@@ -3270,7 +3338,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
-    "read": "12. AC - Origins/AC Origins 2018 (2)"
+    "read": "12. AC - Origins/AC Origins 2018 (2)",
+    "characters": [26, 27]
   },
   {
     "id": 305,
@@ -3282,7 +3351,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
-    "read": "12. AC - Origins/AC Origins 2018 (3)"
+    "read": "12. AC - Origins/AC Origins 2018 (3)",
+    "characters": [27]
   },
   {
     "id": 306,
@@ -3294,7 +3364,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
-    "read": "12. AC - Origins/AC Origins 2018 (4)"
+    "read": "12. AC - Origins/AC Origins 2018 (4)",
+    "characters": [27]
   },
   {
     "id": 307,
@@ -3390,7 +3461,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book (32 pages)",
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Song of Glory",
-    "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (1)"
+    "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (1)",
+    "characters": [32]
   },
   {
     "id": 315,
@@ -3402,7 +3474,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book (32 pages)",
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Song of Glory",
-    "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (2)"
+    "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (2)",
+    "characters": [32]
   },
   {
     "id": 316,
@@ -3414,7 +3487,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book (32 pages)",
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Song of Glory",
-    "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (3)"
+    "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (3)",
+    "characters": [32, 33]
   },
   {
     "id": 317,
@@ -3426,7 +3500,8 @@ const AC_DATABASE = [
     "contents": "72-page hardcover collecting all 3 issues",
     "type": "Graphic Novel",
     "series": "Assassin's Creed Valhalla: Song of Glory",
-    "collects": [314, 315, 316]
+    "collects": [314, 315, 316],
+    "characters": [32, 33]
   },
   {
     "id": 318,
@@ -3582,7 +3657,8 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 01 2019",
-    "readLang": "fr"
+    "readLang": "fr",
+    "characters": [42]
   },
   {
     "id": 331,
@@ -3595,7 +3671,8 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 02 2020",
-    "readLang": "fr"
+    "readLang": "fr",
+    "characters": [42]
   },
   {
     "id": 332,
@@ -3608,7 +3685,8 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 03 2021",
-    "readLang": "fr"
+    "readLang": "fr",
+    "characters": [42]
   },
   {
     "id": 333,
@@ -3621,7 +3699,8 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 04 2022",
-    "readLang": "fr"
+    "readLang": "fr",
+    "characters": [42]
   },
   {
     "id": 334,
@@ -3703,7 +3782,8 @@ const AC_DATABASE = [
     "contents": "72-page hardcover collecting all 3 issues",
     "type": "Graphic Novel",
     "series": "Assassin's Creed Mirage: A Soar of Eagles",
-    "collects": [635, 636, 637]
+    "collects": [635, 636, 637],
+    "characters": [35]
   },
   {
     "id": 341,
@@ -3714,7 +3794,8 @@ const AC_DATABASE = [
     "description": "Set in the Assassin's Creed universe, it tells the story of Arbaaz Mir, a member of the Indian Brotherhood of Assassins during the 19th century, who fights the increasing influence and occupation of the East India Company while also clashing with the Assassins' longtime enemies, the Templar Order.",
     "contents": "Standalone graphic novel",
     "type": "Graphic Novel",
-    "read": "03. 04/04 AC Brahman 2013"
+    "read": "03. 04/04 AC Brahman 2013",
+    "characters": [43]
   },
   {
     "id": 342,
@@ -3757,7 +3838,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Exclusive Loot Crate figure of Bayek from AC Origins.",
     "contents": "Bayek figure",
-    "type": "Loot Crate"
+    "type": "Loot Crate",
+    "characters": [26]
   },
   {
     "id": 346,
@@ -3767,7 +3849,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Chibi-style collectible figure of Shao Jun, approximately 10cm tall. Part of the Ubisoft Heroes Collection by Ubicollectibles.",
     "contents": "Shao Jun chibi figure (10cm)",
-    "type": "Ubisoft Heroes"
+    "type": "Ubisoft Heroes",
+    "characters": [42]
   },
   {
     "id": 347,
@@ -3788,7 +3871,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Chibi-style collectible figure of male Eivor, approximately 10cm tall. Part of the Ubisoft Heroes Collection by Ubicollectibles.",
     "contents": "Eivor (male) chibi figure (10cm)",
-    "type": "Ubisoft Heroes"
+    "type": "Ubisoft Heroes",
+    "characters": [32]
   },
   {
     "id": 349,
@@ -3798,7 +3882,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Chibi-style collectible figure of female Eivor, approximately 10cm tall. Part of the Ubisoft Heroes Collection by Ubicollectibles.",
     "contents": "Eivor (female) chibi figure (10cm)",
-    "type": "Ubisoft Heroes"
+    "type": "Ubisoft Heroes",
+    "characters": [32]
   },
   {
     "id": 350,
@@ -3819,7 +3904,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "YouTooz vinyl collectible figure of Eivor, approximately 12.5cm tall. #1 in the Assassin's Creed YouTooz series.",
     "contents": "Eivor vinyl figure (12.5cm)",
-    "type": "YouTooz"
+    "type": "YouTooz",
+    "characters": [32]
   },
   {
     "id": 352,
@@ -3829,7 +3915,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "YouTooz vinyl collectible figure of Yasuke, approximately 12.5cm tall. #2 in the Assassin's Creed YouTooz series.",
     "contents": "Yasuke vinyl figure (12.5cm)",
-    "type": "YouTooz"
+    "type": "YouTooz",
+    "characters": [46]
   },
   {
     "id": 353,
@@ -3839,7 +3926,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "YouTooz vinyl collectible figure of Naoe, approximately 12.5cm tall. #3 in the Assassin's Creed YouTooz series.",
     "contents": "Naoe vinyl figure (12.5cm)",
-    "type": "YouTooz"
+    "type": "YouTooz",
+    "characters": [45]
   },
   {
     "id": 354,
@@ -3939,7 +4027,8 @@ const AC_DATABASE = [
     "category": "Tech & Gadgets",
     "description": "Official press promo power bank, featuring the cane or walking stick handle for Jacob Frye.",
     "contents": "Power bank with Jacob Frye cane design.",
-    "type": "Replica"
+    "type": "Replica",
+    "characters": [38]
   },
   {
     "id": 364,
@@ -3960,7 +4049,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Jazwares Basic Series action figure of Evie Frye.",
     "contents": "Jazwares figure",
-    "type": "Jazwares"
+    "type": "Jazwares",
+    "characters": [39]
   },
   {
     "id": 366,
@@ -3970,7 +4060,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Jazwares Basic Series action figure of Jacob Frye.",
     "contents": "Jazwares figure",
-    "type": "Jazwares"
+    "type": "Jazwares",
+    "characters": [38]
   },
   {
     "id": 367,
@@ -3991,7 +4082,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Jazwares Mystery Figures mini figure of Aya.",
     "contents": "Jazwares figure",
-    "type": "Jazwares"
+    "type": "Jazwares",
+    "characters": [27]
   },
   {
     "id": 369,
@@ -4001,7 +4093,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Jazwares Mystery Figures mini figure of Bayek.",
     "contents": "Jazwares figure",
-    "type": "Jazwares"
+    "type": "Jazwares",
+    "characters": [26]
   },
   {
     "id": 370,
@@ -4032,7 +4125,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Basic Series figure of Alexios.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [31]
   },
   {
     "id": 373,
@@ -4053,7 +4147,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Basic Series figure of Arno.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [36]
   },
   {
     "id": 375,
@@ -4063,7 +4158,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Basic Series figure of Bayek.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [26]
   },
   {
     "id": 376,
@@ -4095,7 +4191,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Basic Series figure of Evie.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [39]
   },
   {
     "id": 379,
@@ -4116,7 +4213,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Basic Series figure of Jacob.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [38]
   },
   {
     "id": 381,
@@ -4126,7 +4224,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Basic Series figure of Kassandra.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [30]
   },
   {
     "id": 382,
@@ -4158,7 +4257,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Plush figure of Evie.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [39]
   },
   {
     "id": 385,
@@ -4168,7 +4268,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Xtreme Play Plush figure of Kassandra.",
     "contents": "Xtreme Play figure",
-    "type": "Xtreme Play"
+    "type": "Xtreme Play",
+    "characters": [30]
   },
   {
     "id": 386,
@@ -4275,7 +4376,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop Dorbz figure of Arno.",
     "contents": "Funko figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [36]
   },
   {
     "id": 396,
@@ -4285,7 +4387,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop Dorbz figure of Elise.",
     "contents": "Funko figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [37]
   },
   {
     "id": 397,
@@ -4317,7 +4420,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop Dorbz figure of Jacob.",
     "contents": "Funko figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [38]
   },
   {
     "id": 400,
@@ -4642,7 +4746,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Officially licensed replica of Naoe's tantō from AC Shadows. Crafted by Ravenforge.",
     "contents": "Tantō replica",
-    "type": "Replica"
+    "type": "Replica",
+    "characters": [45]
   },
   {
     "id": 431,
@@ -4652,7 +4757,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Officially licensed replica of Yasuke's wakizashi from AC Shadows. Crafted by Ravenforge.",
     "contents": "Wakizashi replica",
-    "type": "Replica"
+    "type": "Replica",
+    "characters": [46]
   },
   {
     "id": 432,
@@ -4722,7 +4828,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Life-size 1:1 scale replica of Naoe's hidden blade from AC Shadows. Wearable in tantō and hidden blade modes. Produced by PureArts.",
     "contents": "1/1 scale hidden blade replica",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [45]
   },
   {
     "id": 439,
@@ -4732,7 +4839,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "1/8 scale PVC statue of Amunet (Aya), co-founder of the Hidden Ones, from AC Origins. Produced by PureArts.",
     "contents": "1/8 scale PVC statue with display base",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [27]
   },
   {
     "id": 440,
@@ -4764,7 +4872,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Made with premium materials and artfully crafted, the highly detailed Yasuke Helmet 1/1 Scale Replica features a removable face plate and Kabuto-style cords.",
     "contents": "Highly detailed, game accurate helmet replica",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [46]
   },
   {
     "id": 443,
@@ -4774,7 +4883,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "This stunning collectible includes two head poses and an elaborate LED lit base featuring a massive bronze statue of Athena crumbling into our signature Animus Transition effect",
     "contents": "Detailed sculpt with classic Misthios battle attire and broken spear.\nA wearable replica of Kassandra’s golden brooch!\nED lit base with bronze colored Athena Statue and engravings depicting Alexios in battle. Exclusive Edition includes a wearable replica of Kassandra’s golden brooch",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [30]
   },
   {
     "id": 444,
@@ -4784,7 +4894,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Eivor 1/6 Scale Articulated Figure featuring 27 points of articulation and hyperdetailed sculpt and clothing.",
     "contents": "Detailed Assassin's Creed Valhalla Eivor 1/6 Scale Articulated Figure.\n4 pairs of interchangeable hands.\nFull arsenal of weapons including Death-Speaker bow, Hidden Blade, Varin’s Axe, Mammen Axe, Blacksmith’s Hammer, Raider Axe, Harpoon, Raven Claw Helmet, Raven Claw Shield and Calling Horn!\nCustom Assassin’s Creed Valhalla styled display stand.",
-    "type": "PureArts"
+    "type": "PureArts",
+    "characters": [32]
   },
   {
     "id": 445,
@@ -4965,7 +5076,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "Assassin's Creed: Valhalla is a short French webcomic created by Glénat Editions. The comic, written by Mathieu Gabella with art by Paolo Traisci and colors by Fabien Alquier, was released on 26 November 2020. It served as a tie-in to the video game of the same name, and followed the Viking shieldmaiden Eivor Varinsdottir of the Raven Clan as she raided a monastery.",
     "contents": "Eight pages comic",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "characters": [32]
   },
   {
     "id": 462,
@@ -5119,7 +5231,8 @@ const AC_DATABASE = [
     "description": "Issue #04 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #04 and figurine of Jacob Frye",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [38]
   },
   {
     "id": 476,
@@ -5166,7 +5279,8 @@ const AC_DATABASE = [
     "description": "Issue #08 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #08 and figurine of Evie Frye",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [39]
   },
   {
     "id": 480,
@@ -5212,7 +5326,8 @@ const AC_DATABASE = [
     "description": "Issue #12 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #12 and figurine of Arno Dorian",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [36]
   },
   {
     "id": 484,
@@ -5223,7 +5338,8 @@ const AC_DATABASE = [
     "description": "Issue #13 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #13 and figurine of Élise de la Serre",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [37]
   },
   {
     "id": 485,
@@ -5245,7 +5361,8 @@ const AC_DATABASE = [
     "description": "Issue #15 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #15 and figurine of Arbaaz Mir",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [43]
   },
   {
     "id": 487,
@@ -5279,7 +5396,8 @@ const AC_DATABASE = [
     "description": "Issue #18 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #18 and figurine of Nikolaï Orelov",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [44]
   },
   {
     "id": 490,
@@ -5313,7 +5431,8 @@ const AC_DATABASE = [
     "description": "Issue #21 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #21 and figurine of Bayek",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [26]
   },
   {
     "id": 493,
@@ -5336,7 +5455,8 @@ const AC_DATABASE = [
     "description": "Issue #23 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #23 and figurine of Aya",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [27]
   },
   {
     "id": 495,
@@ -5358,7 +5478,8 @@ const AC_DATABASE = [
     "description": "Issue #25 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #25 and figurine of Julius Caesar",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [29]
   },
   {
     "id": 497,
@@ -5380,7 +5501,8 @@ const AC_DATABASE = [
     "description": "Issue #27 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #27 and figurine of Cleopatra",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [28]
   },
   {
     "id": 499,
@@ -5403,7 +5525,8 @@ const AC_DATABASE = [
     "description": "Issue #29 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #29 and figurine of Layla Hassan",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [48]
   },
   {
     "id": 501,
@@ -5437,7 +5560,8 @@ const AC_DATABASE = [
     "description": "Issue #32 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #32 and figurine of Crawford Starrick",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [40]
   },
   {
     "id": 504,
@@ -5472,7 +5596,8 @@ const AC_DATABASE = [
     "description": "Issue #35 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #35 and figurine of Shao Jun",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [42]
   },
   {
     "id": 507,
@@ -5539,7 +5664,8 @@ const AC_DATABASE = [
     "description": "Issue #41 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #41 and figurine of Amunet",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [27]
   },
   {
     "id": 513,
@@ -5649,7 +5775,8 @@ const AC_DATABASE = [
     "description": "Issue #51 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #51 and figurine of Henry Green (Jayadeep Mir)",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [41]
   },
   {
     "id": 523,
@@ -5672,7 +5799,8 @@ const AC_DATABASE = [
     "description": "Issue #53 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #53 and figurine of Bayek II",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [26]
   },
   {
     "id": 525,
@@ -5706,7 +5834,8 @@ const AC_DATABASE = [
     "description": "Issue #56 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #56 and figurine of Kassandra",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [30]
   },
   {
     "id": 528,
@@ -5931,7 +6060,8 @@ const AC_DATABASE = [
     "description": "Issue #76 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #76 and figurine of Evie Frye",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [39]
   },
   {
     "id": 548,
@@ -6137,7 +6267,8 @@ const AC_DATABASE = [
     "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Depicts Jacob Frye rallying workers in a Victorian London tavern. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
     "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
-    "type": "Puzzle"
+    "type": "Puzzle",
+    "characters": [38]
   },
   {
     "id": 568,
@@ -6147,7 +6278,8 @@ const AC_DATABASE = [
     "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features the male Eivor portrait with axe and shield. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
     "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
-    "type": "Puzzle"
+    "type": "Puzzle",
+    "characters": [32]
   },
   {
     "id": 569,
@@ -6157,7 +6289,8 @@ const AC_DATABASE = [
     "category": "Puzzles",
     "description": "Officially licensed 1500-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features the female Eivor portrait. Finished size 85 x 58 cm. Includes a same-size poster and a printed cotton drawstring bag.",
     "contents": "1500 puzzle pieces, matching 85 x 58 cm poster, cotton drawstring storage bag",
-    "type": "Puzzle"
+    "type": "Puzzle",
+    "characters": [32]
   },
   {
     "id": 570,
@@ -6197,7 +6330,8 @@ const AC_DATABASE = [
     "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features Basim in 9th-century Baghdad. Finished size 68.3 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag. EAN 5908305243472.",
     "contents": "1000 puzzle pieces, matching 68.3 x 48 cm poster, cotton drawstring storage bag",
-    "type": "Puzzle"
+    "type": "Puzzle",
+    "characters": [34]
   },
   {
     "id": 574,
@@ -6207,7 +6341,8 @@ const AC_DATABASE = [
     "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle from Good Loot's Gaming Puzzle series. Features a dual portrait of Naoe and Yasuke. Finished size 68 x 48 cm. Includes a same-size poster and a printed cotton drawstring bag.",
     "contents": "1000 puzzle pieces, matching 68 x 48 cm poster, cotton drawstring storage bag",
-    "type": "Puzzle"
+    "type": "Puzzle",
+    "characters": [45, 46]
   },
   {
     "id": 575,
@@ -6227,7 +6362,8 @@ const AC_DATABASE = [
     "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle by Dark Horse Deluxe. Depicts Eivor and crew strategizing a Viking raid. Finished size 20\" x 27\" (approximately 51 x 69 cm). Dark Horse SKU 3007-692.",
     "contents": "1000 puzzle pieces in collector box",
-    "type": "Puzzle"
+    "type": "Puzzle",
+    "characters": [32]
   },
   {
     "id": 577,
@@ -6237,7 +6373,8 @@ const AC_DATABASE = [
     "category": "Puzzles",
     "description": "Officially licensed 1000-piece jigsaw puzzle by Dark Horse Deluxe. Depicts Eivor leading a longship raid on a fortified British coast. Finished size 20\" x 27\" (approximately 51 x 69 cm). Dark Horse SKU 3007-693.",
     "contents": "1000 puzzle pieces in collector box",
-    "type": "Puzzle"
+    "type": "Puzzle",
+    "characters": [32]
   },
   {
     "id": 578,
@@ -6359,7 +6496,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Singapore-exclusive pre-order bonus distributed by Singapore-based retailer Qisahn. A small Eivor mini-statuette bundled with copies of Assassin's Creed Valhalla purchased through Qisahn's pre-order campaign. Limited regional run.",
     "contents": "Mini Eivor statuette (Singapore-exclusive Qisahn pre-order bonus)",
-    "type": "Promotional"
+    "type": "Promotional",
+    "characters": [32]
   },
   {
     "id": 590,
@@ -6614,7 +6752,8 @@ const AC_DATABASE = [
     "category": "Home Decor",
     "description": "Officially licensed Valhalla bookends celebrating the Viking raider Eivor, standing on both ends of a longship in signature armour, ready for battle. Cast in resin and hand-painted, 31cm tall. By Nemesis Now.",
     "contents": "Pair of cast resin bookends, ~31cm tall",
-    "type": "Bookends"
+    "type": "Bookends",
+    "characters": [32]
   },
   {
     "id": 615,
@@ -6624,7 +6763,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Officially licensed bust of Naoe, the shinobi Assassin from Iga Province, brandishing her katana above her head with hood drawn. Cast in resin, hand-painted, 30.7cm tall. Comes in a Nemesis Now / Assassin's Creed branded gift box. By Nemesis Now.",
     "contents": "Hand-painted resin bust, ~30.7cm tall, in branded gift box",
-    "type": "Nemesis Now"
+    "type": "Nemesis Now",
+    "characters": [45]
   },
   {
     "id": 616,
@@ -6645,7 +6785,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Officially licensed bust of Eivor in signature Viking armour, holding his axe between his hands with his Raven Clan shield visible at the back. Cast in resin and expertly finished in bronze, 31cm tall. Base features a drawer compartment with the Valhalla logo. By Nemesis Now.",
     "contents": "Bronze-finish resin bust box with Valhalla-branded drawer, ~31cm tall",
-    "type": "Nemesis Now"
+    "type": "Nemesis Now",
+    "characters": [32]
   },
   {
     "id": 618,
@@ -6655,7 +6796,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Officially licensed bust of Eivor in signature Viking armour, holding his axe between his hands with his Raven Clan shield visible at the back. Cast in resin and masterfully hand-painted, 32cm tall. Base features a drawer compartment with the Valhalla logo. By Nemesis Now.",
     "contents": "Hand-painted resin bust box with Valhalla-branded drawer, ~32cm tall",
-    "type": "Nemesis Now"
+    "type": "Nemesis Now",
+    "characters": [32]
   },
   {
     "id": 619,
@@ -6856,7 +6998,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book (32 pages)",
     "type": "Comic Book",
     "series": "Assassin's Creed Mirage: A Soar of Eagles",
-    "read": "19/AC Mirage - A Soar of Eagles 001 2025"
+    "read": "19/AC Mirage - A Soar of Eagles 001 2025",
+    "characters": [35]
   },
   {
     "id": 636,
@@ -6868,7 +7011,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book (32 pages)",
     "type": "Comic Book",
     "series": "Assassin's Creed Mirage: A Soar of Eagles",
-    "read": "19/AC Mirage - A Soar of Eagles 002 2025"
+    "read": "19/AC Mirage - A Soar of Eagles 002 2025",
+    "characters": [35]
   },
   {
     "id": 637,
@@ -6880,7 +7024,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book (32 pages)",
     "type": "Comic Book",
     "series": "Assassin's Creed Mirage: A Soar of Eagles",
-    "read": "19/AC Mirage - A Soar of Eagles 003 2025 (Son of Ultron-Empire)"
+    "read": "19/AC Mirage - A Soar of Eagles 003 2025 (Son of Ultron-Empire)",
+    "characters": [35]
   },
   {
     "id": 638,
@@ -6961,7 +7106,8 @@ const AC_DATABASE = [
     "contents": "Softcover graphic novel (208 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: The Fall",
-    "collects": [236, 237, 238, 240]
+    "collects": [236, 237, 238, 240],
+    "characters": [44]
   },
   {
     "id": 645,
@@ -6985,7 +7131,8 @@ const AC_DATABASE = [
     "contents": "Paperback graphic novel (128 pages)",
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
-    "collects": [303, 304, 305, 306]
+    "collects": [303, 304, 305, 306],
+    "characters": [27]
   },
   {
     "id": 647,
@@ -7027,7 +7174,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Hand-painted polystone 1/10 scale statue of Bayek drawing his bow with an arrow nocked, his eagle Senu perched on his shoulder with wings spread, shield and quiver on his back. He stands on a sandy desert base with a rock. Approximately 23 cm (9\") tall. Iron Studios Art Scale Deluxe, priced at $99.99.",
     "contents": "Polystone statue on desert base",
-    "type": "Iron Studios"
+    "type": "Iron Studios",
+    "characters": [26]
   },
   {
     "id": 651,
@@ -7059,7 +7207,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Hand-painted polystone 1/10 scale statue of the shinobi Naoe on mossy stone steps with tree roots, swinging her kusarigama overhead with her sword on her back. About 21 cm (8.3\") tall, 19 cm wide and 12 cm deep, weighing 520 g. Limited edition from Iron Studios' Art Scale line, priced at $179.99. In stock at retailers from May 2026.",
     "contents": "Polystone statue on themed base",
-    "type": "Iron Studios"
+    "type": "Iron Studios",
+    "characters": [45]
   },
   {
     "id": 654,
@@ -7069,7 +7218,8 @@ const AC_DATABASE = [
     "category": "Statue",
     "description": "Hand-painted polystone 1/10 scale statue of the samurai Yasuke in full armour and horned kabuto, in a wide fighting stance atop ruined stone steps with his naginata. About 22 cm (8.5\") tall, 22 cm wide and 15 cm deep, weighing 610 g. Limited edition from Iron Studios' Art Scale line, priced at $229.99. In stock at retailers from May 2026.",
     "contents": "Polystone statue on themed base",
-    "type": "Iron Studios"
+    "type": "Iron Studios",
+    "characters": [46]
   },
   {
     "id": 655,
@@ -7221,7 +7371,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Fully articulated 1/6 scale figure of Bayek of Siwa from Assassin's Creed Origins, in a hooded beige scarf, dark brown and gold breastplate, orange shawl, beige apron and red sash, with an eagle-skull necklace. Comes with a bow, three arrows and a quiver, a khopesh, a shield, a figure of his eagle Senu, eight swappable hands and a display base with the game logo. Damtoys item DMS013, revealed April 2020 and released November 2020 at RMB 1,480 in China.",
     "contents": "Articulated figure with cloth outfit, bow, three arrows, quiver, khopesh, shield, Senu eagle figure, 8 swappable hands, display base",
-    "type": "Damtoys"
+    "type": "Damtoys",
+    "characters": [26]
   },
   {
     "id": 669,
@@ -7242,7 +7393,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Fully articulated 1/6 scale figure of Alexios from Assassin's Creed Odyssey, about 30 cm tall in PVC and ABS, with a gold crested helmet, red-and-gold cloth scarf, dark brown and gold breastplate, gold left vambrace and gold greaves. Armed with a bow, three arrows and a quiver, a kopis, and a long and a short spear, with seven swappable hands and a display base with the game logo. Damtoys item DMS019, released in 2022 at RMB 1,480 in China; Japanese distributor Milestone later listed it at ¥35,000 for March 2023.",
     "contents": "Articulated figure with cloth outfit and helmet, bow, three arrows, quiver, kopis, long spear, short spear, 7 swappable hands, display base",
-    "type": "Damtoys"
+    "type": "Damtoys",
+    "characters": [31]
   },
   {
     "id": 671,
@@ -7274,7 +7426,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Limited-edition repaint of McFarlane's Arno Dorian figure in the San Francisco Giants' black and orange, created by Todd McFarlane for the Giants' first Video Gamer Night at AT&T Park on 10 September 2014. The coat has a Giants logo on each arm and the number 14 on the back. It comes with a baseball bat marked with the Assassin insignia and the event date, plus a Giants batting helmet. It was never sold at retail: you could only get it with the special event ticket package, on a 'Giants Creed' / 'Giants Gamer's Night' blister card.",
     "contents": "Arno figure in Giants colours, baseball bat, batting helmet",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [36]
   },
   {
     "id": 674,
@@ -7294,7 +7447,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "A seven-page crossover side story written and drawn by Makoto Yukimura, creator of the Viking manga Vinland Saga, in which Vinland Saga's Thorfinn has an unlikely meeting with Eivor. Made to promote Assassin's Creed Valhalla in Japan, it was posted free on Ubisoft Japan's website on 23 October 2020 and printed the next day in the December 2020 issue of Kodansha's Monthly Afternoon, the magazine that serializes Vinland Saga. Ubisoft also published it in translation, including an English edition on its Assassin's Creed Valhalla website.",
     "contents": "Seven-page manga (Japanese original, with Ubisoft's English translation)",
-    "type": "Manga"
+    "type": "Manga",
+    "characters": [32]
   },
   {
     "id": 676,
