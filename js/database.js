@@ -5695,7 +5695,8 @@ const AC_DATABASE = [
     "description": "Issue #36 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #36 and figurine of Lydia Frye",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [82]
   },
   {
     "id": 508,
@@ -5797,7 +5798,8 @@ const AC_DATABASE = [
     "description": "Issue #45 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #45 and figurine of Jack the Ripper",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [83]
   },
   {
     "id": 517,

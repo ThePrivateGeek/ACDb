@@ -26,7 +26,9 @@
      figures around them, from Origins to Shadows, the Chronicles and
      Layla Hassan (ids 26-48);
    - batch 3 (2026-10-31): the modern-day team and Hytham, and the heroes
-     of the novels, comics, manhua and the 2016 film (ids 49-81).
+     of the novels, comics, manhua and the 2016 film (ids 49-81);
+   - the owner's request (2026-10-31): Lydia Frye and Jack the Ripper from
+     Syndicate's First World War memories and its expansion (ids 82-83).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -212,7 +214,8 @@
      Daniel Cross (AC III); Hytham (Discovery Tour: Viking Age); Juhani
      Otso Berg (Syndicate's database image).
    - A Revelations screenshot: Clay Kaczmarek (no render exists).
-   - The film's official stills: Callum Lynch, Aguilar, María.
+   - The film's official stills: Aguilar, María; Callum Lynch from a
+     cut-out of one (the owner's pick, candidate 3).
    - Comic art (covers, panels, cut-outs): Charlotte, Galina, Quila, Tom
      Stoddard, Albert and André Bolden (Templars), Jonathan Hawk and Numa
      Al'Khamsin (Les Deux Royaumes), Aquilus (the Encyclopedia), Eddie
@@ -220,6 +223,16 @@
    - No usable art, so the emblem: Darius Gift, Tomo, Simon Hathaway, Owen
      Meyers, Javier Mondragón, Pierrette Arnaud, Simeon Price, Geirmund
      Hel-hide, Niamh of Argyll.
+   Lydia Frye and Jack the Ripper (candidates in the scratchpad's
+   portraits4): Lydia's Syndicate render on the Assassin's Creed Wiki, and
+   Jack from the expansion's promotional art.
+   Lydia's facts (born 1893, Jacob's granddaughter, 1916, Churchill) agree
+   on the wiki and Giant Bomb; Wikipedia gives 1916 and Churchill too.
+   Jack the Ripper is "other" and his tie to the Brotherhood is left out:
+   it is the expansion's twist. He counts as historical, as the game's
+   take on the real, never-identified killer. Born c. 1860: the wiki's
+   year, inside the 1853-1863 range the owner gives from police records.
+   Rooks "drawn to his side" follows Wikipedia's wording.
 */
 
 const CHARACTERS = [
@@ -1135,5 +1148,27 @@ const CHARACTERS = [
     "games": [],
     "stories": "Novel: Sword of the White Horse",
     "description": "A blind Norse-Gaelic woman at the court of King Alfred of Wessex, drawn into the Hidden Ones' fight to protect a sacred artefact."
+  },
+  {
+    "id": 82,
+    "name": "Lydia Frye",
+    "group": "assassin",
+    "historical": false,
+    "born": "1893",
+    "year": 1916,
+    "image": "images/characters/lydia-frye.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "Jacob Frye's granddaughter, a British Assassin in London during the First World War, who works with Winston Churchill to root out enemy spies in Syndicate's 1916 memories."
+  },
+  {
+    "id": 83,
+    "name": "Jack the Ripper",
+    "group": "other",
+    "historical": true,
+    "born": "c. 1860",
+    "year": 1888,
+    "image": "images/characters/jack-the-ripper.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "The infamous Whitechapel killer of 1888, who draws members of the Rooks gang to his side and brings Evie Frye back to London in Syndicate's Jack the Ripper expansion."
   }
 ]
