@@ -74,9 +74,16 @@
     }
 
     // ---- Data ----
-    // Search and A to Z ignore case and accents ("altair" finds Altaïr)
+    // Search, A to Z and the addresses ignore case and accents ("altair"
+    // finds Altaïr)
     function fold(text) {
         return text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    }
+
+    // Search also ignores apostrophes, straight or curly, and the ʿ in
+    // Arabic names ("obrien" finds Liam O'Brien, "mutazz" Al-Mu'tazz)
+    function searchKey(text) {
+        return fold(text).replace(/['‘’ʿʾ]/g, '');
     }
 
     // #characters/<slug>, accents folded like a game's address
@@ -159,12 +166,12 @@
     }
 
     function shownCharacters() {
-        const query = fold(searchText.trim());
+        const query = searchKey(searchText.trim());
         return CHARACTERS.filter(c => {
             if (currentGroup && c.group !== currentGroup) return false;
             if (!inCurrentGame(c)) return false;
             if (!query) return true;
-            return [c.name, ...(c.aka || []), c.stories || ''].some(text => fold(text).includes(query));
+            return [c.name, ...(c.aka || []), c.stories || ''].some(text => searchKey(text).includes(query));
         });
     }
 

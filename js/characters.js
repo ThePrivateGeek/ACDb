@@ -284,7 +284,9 @@
      reading alone, so she is first seen openly in Baghdad.
    - Stories: Fuladh is in person in Daughter of No One (he recruits
      Roshan) and A Soar of Eagles (Dark Horse's and Penguin Random House's
-     blurbs). None of the others is in a novel or comic.
+     blurbs). None of the others is in a novel or comic. Roshan, from the
+     pilot, now has the same stories line: the novel is her own story and
+     the comic is hers and Fuladh's.
    Batch 8 (two more researchers, 2026-10-31), settled as follows:
    - Sides: Liam O'Brien, Hope Jensen and the Chevalier de la Vérendrye
      are Assassins (the Chevalier is one of the Brotherhood Shay leaves,
@@ -814,6 +816,7 @@ const CHARACTERS = [
     "year": 861,
     "image": "images/characters/roshan.webp",
     "games": ["Assassin's Creed Mirage"],
+    "stories": "Novel: Daughter of No One; comic: A Soar of Eagles",
     "description": "A seasoned Master of the Hidden Ones, wry and demanding, who takes the young Basim under her wing and teaches him the Creed."
   },
   {
