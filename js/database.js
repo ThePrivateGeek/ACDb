@@ -3868,7 +3868,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed Mirage: A Soar of Eagles",
     "collects": [635, 636, 637],
-    "characters": [35]
+    "characters": [35, 133]
   },
   {
     "id": 341,
@@ -7108,7 +7108,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed Mirage: A Soar of Eagles",
     "read": "19/AC Mirage - A Soar of Eagles 001 2025",
-    "characters": [35]
+    "characters": [35, 133]
   },
   {
     "id": 636,
@@ -7121,7 +7121,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed Mirage: A Soar of Eagles",
     "read": "19/AC Mirage - A Soar of Eagles 002 2025",
-    "characters": [35]
+    "characters": [35, 133]
   },
   {
     "id": 637,
@@ -7134,7 +7134,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed Mirage: A Soar of Eagles",
     "read": "19/AC Mirage - A Soar of Eagles 003 2025 (Son of Ultron-Empire)",
-    "characters": [35]
+    "characters": [35, 133]
   },
   {
     "id": 638,

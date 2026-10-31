@@ -38,7 +38,9 @@
    - batch 7 (2026-10-31): AC III's Templars and Patriots, and
      Liberation's New Orleans (ids 112-122);
    - batch 8 (2026-10-31): Rogue's Colonial Brotherhood and Unity's Paris
-     (ids 123-131).
+     (ids 123-131);
+   - batch 9 (2026-10-31): Mirage's Anbar, Alamut and Baghdad (ids
+     132-139).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -257,6 +259,32 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   Batch 9 (two more researchers, 2026-10-31), settled as follows; both
+   corrected the owner's brief in the same places:
+   - Names: Fuladh, as Ubisoft and the game call him; his full name, from
+     the novel Daughter of No One, is Fuladh Al Haami (no source has "al-
+     Halab"). The caliph's son is Abu 'Abdallah in the game (its database:
+     Abu 'Abdallah Muhammad ibn Ja'far), with Al-Mu'tazz, the name he
+     later reigns under, as aka: he is not caliph during the story (al-
+     Musta'in reigns 862-866). The Banu Musa are three people on screen,
+     each with his own scenes, so three entries, as the game names them
+     (Abu Jafar Muhammad, Ahmad, Al-Hasan, each "ibn Musa"), all with
+     "Banu Musa" as aka. The game's database has one shared entry for
+     them. Births: Muhammad c. 780 and Al-Hasan c. 810, from the owner
+     (Wikipedia: Muhammad before 803); Ahmad's is unknown.
+   - Sides: Fuladh and the Banu Musa are Hidden Ones (Ubisoft: "a Rafiq,
+     or Eagle-Master, for the Hidden Ones"). Ali ibn Muhammad is an ally,
+     not a member. Abu 'Abdallah is "other". Nehal is "other", and what
+     she really is stays out: it is Mirage's central twist. Qabiha is
+     "other" and her place in the Order stays out: it is the game's last
+     reveal (as for Ahmet).
+   - year: 861 (the Anbar prologue) for Nehal and Abu 'Abdallah; 862 for
+     everyone met at Alamut or in Baghdad (the wiki's dating; Ubisoft says
+     "circa 861"). Qabiha's disguised presence at Anbar is the wiki's
+     reading alone, so she is first seen openly in Baghdad.
+   - Stories: Fuladh is in person in Daughter of No One (he recruits
+     Roshan) and A Soar of Eagles (Dark Horse's and Penguin Random House's
+     blurbs). None of the others is in a novel or comic.
    Batch 8 (two more researchers, 2026-10-31), settled as follows:
    - Sides: Liam O'Brien, Hope Jensen and the Chevalier de la Vérendrye
      are Assassins (the Chevalier is one of the Brotherhood Shay leaves,
@@ -357,6 +385,10 @@
      (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
      Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
      out.
+   Batch 9 portraits, all from the Assassin's Creed Wiki: Mirage's painted
+   codex portraits, the style of Roshan's (the three Banu Musa cropped
+   from their shared codex painting). The sharper 3D renders, promo
+   posters and screenshots are among the candidates in portraits10.
    Batch 8 portraits, all from the Assassin's Creed Wiki: Rogue renders of
    Liam, Hope, Gist and the Chevalier; Unity screenshots of Germain (his
    silversmith look, not his robe), Bellec, Mirabeau and de la Serre
@@ -1879,5 +1911,95 @@ const CHARACTERS = [
     "image": "images/characters/napoleon-bonaparte.webp",
     "games": ["Assassin's Creed Unity"],
     "description": "A young and ambitious Corsican artillery officer of the French Army, met searching the Tuileries for a prize of his own."
+  },
+  {
+    "id": 132,
+    "name": "Nehal",
+    "group": "other",
+    "historical": false,
+    "year": 861,
+    "image": "images/characters/nehal.webp",
+    "games": ["Assassin's Creed Mirage"],
+    "description": "Basim's closest friend in Anbar, a fellow street thief who trusts no one but herself and has little faith in the Hidden Ones."
+  },
+  {
+    "id": 133,
+    "name": "Fuladh",
+    "aka": ["Fuladh Al Haami"],
+    "group": "assassin",
+    "historical": false,
+    "year": 862,
+    "image": "images/characters/fuladh.webp",
+    "games": ["Assassin's Creed Mirage"],
+    "stories": "Novel: Daughter of No One; comic: A Soar of Eagles",
+    "description": "The Hidden Ones' calm, dry-humoured Eagle-Master at Alamut, who introduces Basim to his eagle, Enkidu, and helps Roshan guide him."
+  },
+  {
+    "id": 134,
+    "name": "Abu Jafar Muhammad ibn Musa",
+    "aka": ["Muhammad ibn Musa", "Banu Musa"],
+    "group": "assassin",
+    "historical": true,
+    "born": "c. 780",
+    "year": 862,
+    "image": "images/characters/abu-jafar-muhammad-ibn-musa.webp",
+    "games": ["Assassin's Creed Mirage"],
+    "description": "One of the three Banu Musa brothers, scholars of Baghdad's House of Wisdom, who crafts and upgrades the Hidden Ones' tools for Basim."
+  },
+  {
+    "id": 135,
+    "name": "Ahmad ibn Musa",
+    "aka": ["Banu Musa"],
+    "group": "assassin",
+    "historical": true,
+    "year": 862,
+    "image": "images/characters/ahmad-ibn-musa.webp",
+    "games": ["Assassin's Creed Mirage"],
+    "description": "One of the three Banu Musa brothers of Baghdad's House of Wisdom, an inventor with a gift for ingenious machines who works with the Hidden Ones."
+  },
+  {
+    "id": 136,
+    "name": "Al-Hasan ibn Musa",
+    "aka": ["Banu Musa"],
+    "group": "assassin",
+    "historical": true,
+    "born": "c. 810",
+    "year": 862,
+    "image": "images/characters/al-hasan-ibn-musa.webp",
+    "games": ["Assassin's Creed Mirage"],
+    "description": "One of the three Banu Musa brothers, a scholar and engineer of the House of Wisdom who keeps a workshop for the Hidden Ones at Alamut."
+  },
+  {
+    "id": 137,
+    "name": "Qabiha",
+    "group": "other",
+    "historical": true,
+    "year": 862,
+    "image": "images/characters/qabiha.webp",
+    "games": ["Assassin's Creed Mirage"],
+    "description": "The mother of the murdered caliph's young son, who runs the harem in Baghdad and wields quiet influence at the Abbasid court."
+  },
+  {
+    "id": 138,
+    "name": "Abu 'Abdallah",
+    "aka": ["Al-Mu'tazz", "Abu 'Abdallah Muhammad ibn Ja'far"],
+    "group": "other",
+    "historical": true,
+    "born": "c. 847",
+    "year": 861,
+    "image": "images/characters/abu-abdallah.webp",
+    "games": ["Assassin's Creed Mirage"],
+    "description": "The young son of Caliph al-Mutawakkil and Qabiha, an Abbasid prince who will one day rule as Caliph al-Mu'tazz."
+  },
+  {
+    "id": 139,
+    "name": "Ali ibn Muhammad",
+    "aka": ["Sahib al-Zanj"],
+    "group": "other",
+    "historical": true,
+    "year": 862,
+    "image": "images/characters/ali-ibn-muhammad.webp",
+    "games": ["Assassin's Creed Mirage"],
+    "description": "The fiery leader of the Zanj, enslaved workers rising against their masters, and a useful but uneasy ally of the Hidden Ones in Baghdad."
   }
 ]
