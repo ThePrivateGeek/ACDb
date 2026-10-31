@@ -271,7 +271,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "1700s naval captain from AC IV: Black Flag with navy blue, gold-trimmed fearnought jacket. McFarlane Series 1.",
     "contents": "Benjamin Hornigold figure with accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [106]
   },
   {
     "id": 27,
@@ -292,7 +293,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Bartholomew Roberts, the legendary pirate known as Black Bart, from AC IV: Black Flag. McFarlane Series 1.",
     "contents": "Black Bart figure with accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [105]
   },
   {
     "id": 29,
@@ -324,7 +326,8 @@ const AC_DATABASE = [
     "category": "Action Figure",
     "description": "Mayan Assassin Mentor and leader of the Caribbean Brotherhood from AC IV: Black Flag. Walgreens exclusive. McFarlane Series 3.",
     "contents": "Ah Tabai figure with accessories",
-    "type": "McFarlane"
+    "type": "McFarlane",
+    "characters": [111]
   },
   {
     "id": 32,
@@ -5720,7 +5723,8 @@ const AC_DATABASE = [
     "description": "Issue #38 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #38 and figurine of Mary Read/James Kidd",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [103]
   },
   {
     "id": 510,
@@ -6030,7 +6034,8 @@ const AC_DATABASE = [
     "description": "Issue #65 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #65 and figurine of Ah Tabai",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [111]
   },
   {
     "id": 537,
@@ -7086,7 +7091,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
     "read": "09. AC - Awakening/AC Awakening 2016 (6)",
-    "characters": [14]
+    "characters": [14, 111]
   },
   {
     "id": 635,
@@ -7519,7 +7524,7 @@ const AC_DATABASE = [
     "description": "Boxed set of three Series 1 Assassin's Creed IV: Black Flag pirates: Bartholomew 'Black Bart' Roberts, Edward 'Blackbeard' Teach and Benjamin Hornigold. Each figure is just under 6\" tall with around 25-27 points of articulation. Together they come with removable hats for Black Bart and Blackbeard, three swords, six flintlock pistols, two bayonet rifles, Blackbeard's four-pistol bandolier and Hornigold's scabbard. Released by McFarlane Toys in October 2013. Unlike the single-carded figures, the set does not include in-game unlock codes.",
     "contents": "Black Bart, Blackbeard and Benjamin Hornigold figures with hats, swords, pistols, rifles, pistol bandolier and scabbard",
     "type": "McFarlane",
-    "characters": [21]
+    "characters": [21, 105, 106]
   },
   {
     "id": 673,
@@ -7540,7 +7545,8 @@ const AC_DATABASE = [
     "category": "Special Edition",
     "description": "Amazon.com-exclusive bundle of Assassin's Creed IV: Black Flag with McFarlane Toys' Amazon-exclusive Black Bart action figure. The figure wears a crimson damask coat with epaulettes and a removable tricorne hat, has 27 points of articulation, and comes with sword, pistol and musket. The bundle also includes a code for Black Bart's Sails, a digital wallpaper by Todd McFarlane, and the Hidden Mystery Pack pre-order bonus. Announced as $69.99 with the standard game ($10 more than the game alone) or $139.99 with the Limited Edition. Released in 2013 alongside the game (29 October in North America on PS3/360).",
     "contents": "Assassin's Creed IV: Black Flag game (standard or Limited Edition), McFarlane Black Bart action figure with sword, pistol, musket and hat, Black Bart's Sails code, Todd McFarlane digital wallpaper, Hidden Mystery Pack",
-    "type": "Special Edition"
+    "type": "Special Edition",
+    "characters": [105]
   },
   {
     "id": 675,

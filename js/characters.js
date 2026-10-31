@@ -32,7 +32,9 @@
    - batch 4 (2026-10-31): Altaïr's world, from Assassin's Creed and
      Bloodlines (ids 84-88);
    - batch 5 (2026-10-31): the Ezio saga's family, allies and enemies, from
-     AC II to Revelations (ids 89-102).
+     AC II to Revelations (ids 89-102);
+   - batch 6 (2026-10-31): Black Flag's pirates, governors and Assassins
+     (ids 103-111).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -251,6 +253,29 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   Batch 6 (two more researchers, 2026-10-31), settled as follows:
+   - All nine are in Black Flag Resynced: Metacritic's and Game Rant's
+     credits, Wikipedia and reviews; Ah Tabai from a Resynced walkthrough
+     and its database entry (he is missing from the credit lists). None is
+     in person in Freedom Cry, Rogue, AC III or Liberation.
+   - Names as the game credits them: Calico Jack Rackham (aka John
+     Rackham), Laureano Torres y Ayala (history: Laureano de Torres y
+     Ayala, kept as aka).
+   - Sides: Mary Read and Ah Tabai are Assassins; Torres and Woodes Rogers
+     are Templars, as the game shows them from the Havana meeting on.
+     Benjamin Hornigold is "other": he joins the Templars only late in
+     the story, so it is left out (as for Ahmet). Bartholomew Roberts is
+     "other", a Sage, not a Templar. Anne Bonny never joins the Assassins
+     in a main game.
+   - Mary Read keeps "James Kidd" as aka: the game's and Hachette's
+     figure name her by both.
+   - Births as the game's database has them (the wiki alone): Anne Bonny
+     1702 and Rackham 1682 (history: unknown and possibly 1673), Ah Tabai
+     the 1660s; Hornigold "mid-1680s", kept as the 1680s (history: c.
+     1680). Mary Read's is unknown in the game and in history, so it is
+     left out. Vane c. 1680 (game: 1680; history: the 1680s).
+   - The novel and the manga Awakening are left out of "stories": every
+     cast list comes from the wiki alone.
    Batch 5 (two more researchers, 2026-10-31), settled as follows:
    - Names: Maria and Federico Auditore da Firenze, as for Giovanni and
      Claudia; Suleiman and Ahmet as the games' cast lists have them (the
@@ -277,6 +302,9 @@
      (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
      Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
      out.
+   Batch 6 portraits, all from the Assassin's Creed Wiki: the original
+   Black Flag renders, to match Edward, Blackbeard and Adéwalé (each also
+   has a Resynced render among the candidates in portraits7).
    Batch 5 portraits, all from the Assassin's Creed Wiki: AC II database
    portraits (256 wide, scaled up slightly) for Maria, Federico, Lorenzo,
    Uberto, Francesco, Bartolomeo, Antonio and Paola; La Volpe's
@@ -1459,5 +1487,107 @@ const CHARACTERS = [
     "image": "images/characters/tarik-barleti.webp",
     "games": ["Assassin's Creed Revelations"],
     "description": "The proud, blunt captain of the Janissaries, the Sultan's elite guard, who has little patience for foreigners like Ezio."
+  },
+  {
+    "id": 103,
+    "name": "Mary Read",
+    "aka": ["James Kidd"],
+    "group": "assassin",
+    "historical": true,
+    "year": 1715,
+    "image": "images/characters/mary-read.webp",
+    "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
+    "description": "A sharp-witted young pirate in Nassau who sails under the name James Kidd, and who wants to know where Edward got his Assassin's robes."
+  },
+  {
+    "id": 104,
+    "name": "Anne Bonny",
+    "group": "other",
+    "historical": true,
+    "born": "1702",
+    "year": 1718,
+    "image": "images/characters/anne-bonny.webp",
+    "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
+    "description": "A quick-tongued barmaid at the Old Avery tavern in Nassau, more than a match for the pirates who drink there."
+  },
+  {
+    "id": 105,
+    "name": "Bartholomew Roberts",
+    "aka": ["Black Bart", "The Sage"],
+    "group": "other",
+    "historical": true,
+    "born": "1682",
+    "year": 1715,
+    "image": "images/characters/bartholomew-roberts.webp",
+    "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
+    "description": "A mysterious captive in Havana, known as the Sage, sought by powerful men for what he is said to know."
+  },
+  {
+    "id": 106,
+    "name": "Benjamin Hornigold",
+    "group": "other",
+    "historical": true,
+    "born": "1680s",
+    "year": 1715,
+    "image": "images/characters/benjamin-hornigold.webp",
+    "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
+    "description": "A veteran pirate captain and Blackbeard's partner, one of the founders of the pirate haven at Nassau, who teaches Edward how to run a ship."
+  },
+  {
+    "id": 107,
+    "name": "Charles Vane",
+    "group": "other",
+    "historical": true,
+    "born": "c. 1680",
+    "year": 1717,
+    "image": "images/characters/charles-vane.webp",
+    "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
+    "description": "A hot-headed, violent pirate captain who answers to no one, sailing into Nassau with his quartermaster Jack Rackham."
+  },
+  {
+    "id": 108,
+    "name": "Calico Jack Rackham",
+    "aka": ["John Rackham"],
+    "group": "other",
+    "historical": true,
+    "born": "1682",
+    "year": 1717,
+    "image": "images/characters/calico-jack-rackham.webp",
+    "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
+    "description": "Charles Vane's flamboyant, easy-going quartermaster, a charming opportunist with a fondness for drink."
+  },
+  {
+    "id": 109,
+    "name": "Laureano Torres y Ayala",
+    "aka": ["Laureano de Torres y Ayala", "Governor Torres"],
+    "group": "templar",
+    "historical": true,
+    "born": "1645",
+    "year": 1715,
+    "image": "images/characters/laureano-torres-y-ayala.webp",
+    "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
+    "description": "The Spanish Governor of Havana, a polished and courteous statesman and the Grand Master of the Templars in the West Indies."
+  },
+  {
+    "id": 110,
+    "name": "Woodes Rogers",
+    "group": "templar",
+    "historical": true,
+    "born": "1679",
+    "year": 1715,
+    "image": "images/characters/woodes-rogers.webp",
+    "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
+    "description": "An English privateer and former navy captain among the Templars in Havana, who later comes to the Bahamas as its governor."
+  },
+  {
+    "id": 111,
+    "name": "Ah Tabai",
+    "group": "assassin",
+    "historical": false,
+    "born": "1660s",
+    "year": 1716,
+    "image": "images/characters/ah-tabai.webp",
+    "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
+    "description": "The calm, stern Mentor of the Assassins in the West Indies, who leads the Brotherhood from its hidden home at Tulum."
   }
 ]
