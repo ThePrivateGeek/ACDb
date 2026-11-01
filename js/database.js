@@ -3398,7 +3398,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
     "read": "12. AC - Origins/AC Origins 2018 (1)",
-    "characters": [27]
+    "characters": [27, 171, 172]
   },
   {
     "id": 304,
@@ -3411,7 +3411,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
     "read": "12. AC - Origins/AC Origins 2018 (2)",
-    "characters": [26, 27]
+    "characters": [26, 27, 171, 172]
   },
   {
     "id": 305,
@@ -3424,7 +3424,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
     "read": "12. AC - Origins/AC Origins 2018 (3)",
-    "characters": [27]
+    "characters": [27, 171, 172]
   },
   {
     "id": 306,
@@ -3437,7 +3437,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
     "read": "12. AC - Origins/AC Origins 2018 (4)",
-    "characters": [27]
+    "characters": [27, 171, 172]
   },
   {
     "id": 307,
@@ -3450,7 +3450,8 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
     "read": "12. AC - Origins/AC Origins - Special Edition 2021",
-    "collects": [303, 304, 305, 306]
+    "collects": [303, 304, 305, 306],
+    "characters": [171, 172]
   },
   {
     "id": 308,

@@ -48,7 +48,8 @@
      families (ids 140-155);
    - 2026-11-01: Unity's Marquis de Sade (id 156);
    - batch 11 (2026-11-01): Abstergo's Alan Rikkin and Victoria Bibeau,
-     and seven Isu (ids 157-165).
+     and seven Isu (ids 157-165);
+   - batch 12 (2026-11-01): Origins' Egypt and Rome (ids 166-172).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -274,6 +275,33 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   Batch 12 (two more researchers, 2026-11-01), settled as follows:
+   - Sides: Lucius Septimius is named as one of the Order of the
+     Ancients early (Way of the Gabiniani), so he is a Templar. Flavius
+     Metellus is "other": his place in the Order is a late reveal (as for
+     Ahmet), and so is his Order name. Ptolemy XIII is the Order's
+     puppet, not a member; Apollodorus is Cleopatra's man and the Hidden
+     Ones' ally, not one of them. Brutus and Cassius are Assassins: Aya
+     introduces them as "our Roman brothers" in their first scene.
+   - Years first seen: Flavius and Septimius are among the masked men of
+     Siwa in 49 BCE, but unknown there, so they take 48 BCE, their first
+     open scene (Aya: Blade of the Goddess), with Ptolemy. Brutus and
+     Cassius: 47 BCE (the wiki's character pages; its quest page says
+     46). Khemu: 49 BCE, the Siwa flashback.
+   - Births: Ptolemy c. 62 BCE, Brutus 85 BCE, Cassius c. 86 BCE
+     (Wikipedia, the wiki). The real Septimius and Apollodorus have no
+     known birth year; the wiki's "c. 90s BCE" for them, Flavius (who is
+     fictional) and Khemu's c. 56 BCE are left out.
+   - Games: Origins only. Not counted: Apollodorus in Rebellion (mobile),
+     the Discovery Tour avatars, Septimius's spirit in a Curse of the
+     Pharaohs side quest, and Brutus in Project Legacy (browser). Brutus
+     and Cassius are in the Origins comic (Titan, 2018).
+   - Family: Khemu is Bayek and Aya's son; Ptolemy is Cleopatra's younger
+     brother. Their marriage (history) is left out: the game only calls
+     them brother and sister. Brutus and Cassius were brothers-in-law,
+     which the game doesn't mention and the list has no word for.
+   - Kept out: who the Lion is, Khemu's death, Apollodorus's fate, the
+     Battle of the Nile and the Ides of March.
    Batch 11 (two more researchers, 2026-11-01), settled as follows:
    - Alan Rikkin is in one game in person: a short scene in Assassin's
      Creed (2012), hearing Vidic's report (the wiki; Wikipedia: he
@@ -478,6 +506,10 @@
      (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
      Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
      out.
+   Batch 12 portraits, all from the Assassin's Creed Wiki: Ubisoft's
+   render of Septimius (helmeted, as he always is); in-game close-ups of
+   Flavius, Ptolemy XIII, Apollodorus and Khemu; cutscenes of Brutus and
+   of Cassius (with Aya and Brutus, cropped to him).
    Batch 11 portraits, all from the Assassin's Creed Wiki: the Fate of
    Atlantis render of Aletheia; studio renders of Hermes's and Victoria
    Bibeau's Odyssey models; AC III's render of Jupiter; cutscene close-ups
@@ -833,7 +865,7 @@ const CHARACTERS = [
     "year": -49,
     "image": "images/characters/bayek-of-siwa.webp",
     "games": ["Assassin's Creed Origins"],
-    "family": [{"id": 27, "relation": "wife"}],
+    "family": [{"id": 27, "relation": "wife"}, {"id": 170, "relation": "son"}],
     "description": "One of the last Medjay, sworn protectors of Egypt's people, who leaves his village of Siwa to hunt down the masked men who tore his family apart."
   },
   {
@@ -846,7 +878,7 @@ const CHARACTERS = [
     "year": -48,
     "image": "images/characters/aya.webp",
     "games": ["Assassin's Creed Origins"],
-    "family": [{"id": 26, "relation": "husband"}],
+    "family": [{"id": 26, "relation": "husband"}, {"id": 170, "relation": "son"}],
     "description": "Bayek's wife, a sharp and determined warrior from Alexandria who carries their fight against a secret order from the banks of the Nile to the heart of Rome."
   },
   {
@@ -858,6 +890,7 @@ const CHARACTERS = [
     "year": -48,
     "image": "images/characters/cleopatra.webp",
     "games": ["Assassin's Creed Origins"],
+    "family": [{"id": 168, "relation": "brother"}],
     "description": "The young queen of Egypt, driven from her throne by her brother Ptolemy XIII, who sees in Bayek and Aya useful allies in winning it back."
   },
   {
@@ -2453,5 +2486,86 @@ const CHARACTERS = [
     "games": ["Assassin's Creed Odyssey"],
     "family": [{"id": 164, "relation": "wife"}],
     "description": "The Isu lord of the Underworld, who sets Kassandra to work restoring order in his realm."
+  },
+  {
+    "id": 166,
+    "name": "Flavius Metellus",
+    "group": "other",
+    "historical": false,
+    "year": -48,
+    "image": "images/characters/flavius-metellus.webp",
+    "games": ["Assassin's Creed Origins"],
+    "description": "A Roman officer and Julius Caesar's trusted lieutenant, who arrives with him in Alexandria in the middle of Egypt's civil war."
+  },
+  {
+    "id": 167,
+    "name": "Lucius Septimius",
+    "group": "templar",
+    "historical": true,
+    "year": -48,
+    "image": "images/characters/lucius-septimius.webp",
+    "games": ["Assassin's Creed Origins"],
+    "description": "A Roman commander of the Gabiniani, the garrison that serves Egypt's boy-king, and a member of the secret order that Bayek is hunting."
+  },
+  {
+    "id": 168,
+    "name": "Ptolemy XIII",
+    "aka": ["Ptolemy XIII Theos Philopator"],
+    "group": "other",
+    "historical": true,
+    "born": "c. 62 BCE",
+    "year": -48,
+    "image": "images/characters/ptolemy-xiii.webp",
+    "games": ["Assassin's Creed Origins"],
+    "family": [{"id": 28, "relation": "sister"}],
+    "description": "Egypt's young pharaoh, at war with his exiled sister Cleopatra for the throne and guided by his scheming court advisers."
+  },
+  {
+    "id": 169,
+    "name": "Apollodorus",
+    "aka": ["Apollodorus the Sicilian"],
+    "group": "other",
+    "historical": true,
+    "year": -48,
+    "image": "images/characters/apollodorus.webp",
+    "games": ["Assassin's Creed Origins"],
+    "description": "Cleopatra's devoted Sicilian spymaster, who runs her network of agents in Alexandria and brings Bayek into her service."
+  },
+  {
+    "id": 170,
+    "name": "Khemu",
+    "group": "other",
+    "historical": false,
+    "year": -49,
+    "image": "images/characters/khemu.webp",
+    "games": ["Assassin's Creed Origins"],
+    "family": [{"id": 26, "relation": "father"}, {"id": 27, "relation": "mother"}],
+    "description": "Bayek and Aya's young son in Siwa, whom Bayek is teaching the ways of the Medjay."
+  },
+  {
+    "id": 171,
+    "name": "Brutus",
+    "aka": ["Marcus Junius Brutus"],
+    "group": "assassin",
+    "historical": true,
+    "born": "85 BCE",
+    "year": -47,
+    "image": "images/characters/brutus.webp",
+    "games": ["Assassin's Creed Origins"],
+    "stories": "Comic: Origins",
+    "description": "A Roman senator wary of Julius Caesar's growing power, whom Aya counts among her Roman brothers."
+  },
+  {
+    "id": 172,
+    "name": "Cassius",
+    "aka": ["Gaius Cassius Longinus"],
+    "group": "assassin",
+    "historical": true,
+    "born": "c. 86 BCE",
+    "year": -47,
+    "image": "images/characters/cassius.webp",
+    "games": ["Assassin's Creed Origins"],
+    "stories": "Comic: Origins",
+    "description": "A Roman senator and general who comes to Alexandria with Brutus as one of Aya's Roman allies."
   }
 ]
