@@ -4641,7 +4641,7 @@ const AC_DATABASE = [
     "description": "Official novelization of the 2016 Assassin's Creed film starring Michael Fassbender. Follows Callum Lynch as he relives the memories of his ancestor Aguilar during the Spanish Inquisition.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [57, 58, 157]
+    "characters": [57, 58, 157, 192, 193]
   },
   {
     "id": 413,

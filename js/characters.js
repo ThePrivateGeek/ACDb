@@ -51,7 +51,9 @@
      and seven Isu (ids 157-165);
    - batch 12 (2026-11-01): Origins' Egypt and Rome (ids 166-172);
    - batch 13 (2026-11-01): Odyssey's Greece and Valhalla's Norway and
-     England (ids 173-191).
+     England (ids 173-191);
+   - batch 14 (2026-11-01): the 2016 film's Sofia Rikkin and Joseph Lynch
+     (ids 192-193).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -277,6 +279,16 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   Batch 14 (two more researchers, 2026-11-01): Sofia Rikkin and Joseph
+   Lynch are in the film and its novelization only (Sofia is only a voice
+   on the phone in Heresy, and an email name in Origins). Sofia is a
+   Templar: the film puts her inside her father's Order and the
+   novelization says so; Joseph is an Assassin from the 1986 opening.
+   Births from the wiki, citing official sources: Sofia 1980 (the
+   novelization), Joseph 1955 (Fox's featurette "The Creed Mythology").
+   Callum's line to Aguilar runs through his mother, so Joseph is linked
+   to Callum alone. Kept out: what happened in 1986, the riot, the
+   London ceremony and the ending.
    Batch 13 (four more researchers, two per game, 2026-11-01), settled
    as follows:
    - Sides: everyone is "other" but Darius, whom the Assassins honour as
@@ -541,6 +553,8 @@
      (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
      Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
      out.
+   Batch 14 portraits, from the film like Callum's: Sofia's official
+   character poster (a cut-out), and a still of Joseph at Abstergo.
    Batch 13 portraits, all from the Assassin's Creed Wiki: Ubisoft's
    promo art of Barnabas, Herodotos and Alfred (cropped below the
    lettering) and its render of Ivarr; model renders of Phoibe,
@@ -1276,7 +1290,7 @@ const CHARACTERS = [
     "image": "images/characters/callum-lynch.webp",
     "games": [],
     "stories": "Film: Assassin's Creed (2016)",
-    "family": [{"id": 58, "relation": "ancestor"}],
+    "family": [{"id": 193, "relation": "father"}, {"id": 58, "relation": "ancestor"}],
     "description": "A death-row prisoner who is taken by Abstergo and made to relive the memories of his ancestor Aguilar in the Animus."
   },
   {
@@ -2441,6 +2455,7 @@ const CHARACTERS = [
     "image": "images/characters/alan-rikkin.webp",
     "games": ["Assassin's Creed"],
     "stories": "Film: Assassin's Creed (2016); novel: Heresy",
+    "family": [{"id": 192, "relation": "daughter"}],
     "description": "The chief executive of Abstergo Industries, who keeps a close eye on its Animus research, from Desmond Miles's sessions to Callum Lynch's in the 2016 film."
   },
   {
@@ -2837,5 +2852,32 @@ const CHARACTERS = [
     "games": ["Assassin's Creed Valhalla"],
     "stories": "Novel: Sword of the White Horse",
     "description": "The Raven Clan's seer, whose potions and rituals help Eivor make sense of her troubling dreams."
+  },
+  {
+    "id": 192,
+    "name": "Sofia Rikkin",
+    "aka": ["Sophia Rikkin"],
+    "group": "templar",
+    "historical": false,
+    "born": "1980",
+    "year": 2016,
+    "image": "images/characters/sofia-rikkin.webp",
+    "games": [],
+    "stories": "Film: Assassin's Creed (2016)",
+    "family": [{"id": 157, "relation": "father"}],
+    "description": "Abstergo's lead scientist in Madrid and Alan Rikkin's daughter, who puts Callum Lynch in the Animus in the hope of curing humanity of violence."
+  },
+  {
+    "id": 193,
+    "name": "Joseph Lynch",
+    "group": "assassin",
+    "historical": false,
+    "born": "1955",
+    "year": 1986,
+    "image": "images/characters/joseph-lynch.webp",
+    "games": [],
+    "stories": "Film: Assassin's Creed (2016)",
+    "family": [{"id": 57, "relation": "son"}],
+    "description": "Callum Lynch's father, an Irish-born Assassin of the modern Brotherhood whom his son has not seen since he was a boy."
   }
 ]
