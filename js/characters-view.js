@@ -299,6 +299,18 @@
         return `<span class="modal-meta-label">${label}</span><span class="modal-meta-value">${valueHTML}</span>`;
     }
 
+    // "Arbaaz Mir (father), Pyara Kaur (mother)", each name a link to their
+    // page, styled like the item modal's character links
+    function familyHTML(character) {
+        const esc = A.escapeHTML;
+        return character.family.map(({ id, relation }) => {
+            const relative = findCharacterById(id);
+            return relative
+                ? `<span class="character-relative"><a class="modal-reading-name" href="#characters/${characterSlug(relative)}">${esc(relative.name)}</a> <span class="character-relation">(${esc(relation)})</span></span>`
+                : '';
+        }).join('');
+    }
+
     function gameRowHTML(game) {
         const esc = A.escapeHTML;
         const slug = A.gameUrlSlug(game);
@@ -326,6 +338,7 @@
             character.born ? metaRow('Born', esc(character.born)) : '',
             metaRow('Era', esc(A.eraOf(character.year))),
             character.aka ? metaRow('Also known as', esc(character.aka.join(', '))) : '',
+            character.family ? metaRow('Family', familyHTML(character)) : '',
             character.stories ? metaRow('Stories', esc(character.stories)) : ''
         ].join('');
         const progress = items.length ? `

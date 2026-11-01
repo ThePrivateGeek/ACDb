@@ -48,8 +48,10 @@ Checks:
              URL slug, a side (CHARACTER_GROUPS), a year, a portrait (when
              given) in images/characters/<slug>.webp, games from GAMES
              (main, spin-off or handheld, each once, in release order),
-             "stories" when they're in no game, and a description. An item's "characters" lists existing
-             character ids, each once
+             "stories" when they're in no game, and a description; "family"
+             links other characters by id with a relation (FAMILY_RELATIONS),
+             and each link is returned on the relative's own entry. An
+             item's "characters" lists existing character ids, each once
 """
 from __future__ import annotations
 
@@ -116,7 +118,18 @@ DLC_FIELDS = {"name", "type", "image", "year", "setting", "released", "releasedP
               "marker", "note", "episodes"}
 CHARACTER_GROUPS = {"assassin", "templar", "isu", "other"}
 CHARACTER_FIELDS = {"id", "name", "aka", "group", "historical", "born", "year", "image", "games", "stories",
-                    "description"}
+                    "family", "description"}
+# What a relative is to the character whose entry lists them
+FAMILY_RELATIONS = {
+    "father", "mother", "son", "daughter", "brother", "sister", "twin brother", "twin sister",
+    "half-brother", "half-sister", "husband", "wife",
+    "grandfather", "grandmother", "grandson", "granddaughter",
+    "great-grandfather", "great-grandmother", "great-grandson", "great-granddaughter",
+    "uncle", "aunt", "nephew", "niece", "great-uncle", "great-aunt", "great-nephew", "great-niece",
+    "cousin", "stepfather", "stepmother", "stepson", "stepdaughter",
+    "adoptive father", "adoptive mother", "adopted son", "adopted daughter",
+    "foster brother", "foster sister", "ancestor", "descendant",
+}
 
 STR = r'"((?:[^"\\]|\\.)*)"'
 
@@ -428,6 +441,7 @@ def check_characters(items, errors, warnings):
     order = {g.get("name"): i for i, g in enumerate(games)}
     kinds = {g.get("name"): g.get("kind") for g in games}
     ids, names, slugs = set(), set(), {}
+    families = {}  # id -> (label, the ids its "family" links to)
     highest = 0
     for character in load_characters():
         name = character.get("name")
@@ -488,6 +502,22 @@ def check_characters(items, errors, warnings):
                 warnings.append(f"{label}: list the games in release order (the order of js/games.js)")
         if "stories" in character and not is_text(character["stories"]):
             errors.append(f"{label}: \"stories\" should be text like \"Comics: Assassins, Uprising\"")
+        if "family" in character:
+            family = character["family"]
+            if not isinstance(family, list) or not family or not all(
+                    isinstance(f, dict) and set(f) == {"id", "relation"} and isinstance(f["id"], int)
+                    and not isinstance(f["id"], bool) and isinstance(f["relation"], str) for f in family):
+                errors.append(f"{label}: \"family\" should be a non-empty list of {{\"id\", \"relation\"}}")
+            else:
+                for f in family:
+                    if f["relation"] not in FAMILY_RELATIONS:
+                        errors.append(f"{label}: family relation {f['relation']!r} isn't one of FAMILY_RELATIONS")
+                relatives = [f["id"] for f in family]
+                if len(set(relatives)) != len(relatives):
+                    errors.append(f"{label}: a relative is listed twice in \"family\"")
+                if cid in relatives:
+                    errors.append(f"{label}: lists themselves in \"family\"")
+                families[cid] = (label, set(relatives))
         if "image" in character:
             image = character["image"]
             expected = f"images/characters/{url_slug(name)}.webp" if is_text(name) else None
@@ -502,6 +532,14 @@ def check_characters(items, errors, warnings):
             errors.append(f"{label}: missing \"description\"")
         elif len(description) > DESCRIPTION_MAX:
             warnings.append(f"{label}: description is {len(description)} characters; keep it to {DESCRIPTION_MAX}")
+
+    # Every family link exists and is returned on the relative's own entry
+    for cid, (label, relatives) in families.items():
+        for rid in sorted(relatives, key=str):
+            if rid not in ids:
+                errors.append(f"{label}: \"family\" names id {rid!r}, which isn't in js/characters.js")
+            elif cid not in families.get(rid, (None, set()))[1]:
+                errors.append(f"{label}: lists id {rid} in \"family\", but that character doesn't list them back")
 
     for item in items:
         if "characters" not in item:

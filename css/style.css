@@ -3923,6 +3923,16 @@ a.reading-title {
     content: ',';
 }
 
+/* A character page's Family row: "Arbaaz Mir (father), Pyara Kaur
+   (mother)"; each relative is one item of the wrapping .modal-meta-value */
+.character-relative:not(:last-child)::after {
+    content: ',';
+}
+
+.character-relation {
+    color: var(--text-3);
+}
+
 @media (max-width: 768px) {
     #charactersView {
         padding: 1rem 1rem 3rem;

@@ -40,7 +40,9 @@
    - batch 8 (2026-10-31): Rogue's Colonial Brotherhood and Unity's Paris
      (ids 123-131);
    - batch 9 (2026-10-31): Mirage's Anbar, Alamut and Baghdad (ids
-     132-139).
+     132-139);
+   - batch 10 (2026-11-01): Syndicate's London, and the Frye and Mir
+     families (ids 140-155).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -96,6 +98,13 @@
                game (the card shows it instead of a games count); optional
                for the others (Juhani Otso Berg is in games and comics).
                Search finds it
+     family    relatives who are characters too, as {"id", "relation"}:
+               what the relative is to this character ("father", "twin
+               sister", "great-niece"; the list is FAMILY_RELATIONS in
+               tools/validate-catalog.py). Optional. Both sides list each
+               other, so every page reads right (Jacob: Ethan Frye
+               (father); Ethan: Jacob Frye (son)); the validator checks
+               it. The page shows a Family row of links
      description  one or two spoiler-free sentences, 300 characters at
                most, written for ACDb (never copied from the wiki): who
                they are when the player meets them, not what happens to
@@ -259,6 +268,33 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   Batch 10 (four more researchers, 2026-11-01), settled as follows:
+   - Scope: two researchers listed everyone in Syndicate and its DLCs; the
+     owner chose their six, the eight real people they work with, and
+     Ethan Frye and Pyara Kaur. Left for later: the main targets (Ferris,
+     Brewster, Elliotson, Millner, Twopenny, Cardigan), the allies (Clara
+     O'Dea, Robert Topping, Agnes MacBean, George Westhouse), Churchill,
+     the Master Spy, Nellie, Brinley Ellsworth and the modern day.
+   - Jayadeep Mir is Henry Green (already here), so he gains the novels'
+     name "The Ghost" (the Penguin blurb, Wikipedia; not used in the game)
+     and Underworld, not a second entry.
+   - Sides: Lucy Thorne is a Templar from her first scene. Pearl Attaway
+     is "other" and her Templar side stays out: a twist (as for Ahmet).
+     Maxwell Roth is an ally of the Order, never a member. Pyara Kaur is
+     an ally (the wiki alone calls her an Assassin).
+   - Ethan Frye is in one game in person: the end of Chronicles: India,
+     where Arbaaz hands him the Koh-i-Noor (Wikipedia, the wiki). In
+     Syndicate he is only mentioned. His birth year is the wiki's alone,
+     so it is left out; Pyara's is unknown.
+   - Underworld (Wikipedia, the Penguin blurb, readers' reviews): Henry,
+     Ethan, Abberline and Evie are its main characters; Arbaaz and Pyara
+     are in its flashbacks (the wiki and the owner). Pyara and Arbaaz meet
+     in the graphic novel Brahman. Abberline is in Locus (its own blurb).
+   - Births from the wiki alone, as the game's database has them: Pearl
+     1833, Ned 1840. Ned Wynert is a trans man; his birth name is left
+     out.
+   - Family: Arbaaz and Pyara married (the wiki; the owner); Henry is
+     their son (Syndicate's database). Lydia is Jacob's granddaughter.
    Batch 9 (two more researchers, 2026-10-31), settled as follows; both
    corrected the owner's brief in the same places:
    - Names: Fuladh, as Ubisoft and the game call him; his full name, from
@@ -387,6 +423,12 @@
      (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
      Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
      out.
+   Batch 10 portraits, all from the Assassin's Creed Wiki: Syndicate
+   renders of Lucy Thorne, Bell, Dickens, Darwin, Marx, Nightingale and
+   Queen Victoria; its database portraits of Abberline, Disraeli, Mary
+   Anne and Duleep Singh; cutscene close-ups of Pearl Attaway, Maxwell
+   Roth and Ned Wynert; Pyara's Chronicles: India model. Ethan Frye has
+   no official art (his one scene shows him from behind): the emblem.
    Batch 9 portraits, all from the Assassin's Creed Wiki: Mirage's painted
    codex portraits, the style of Roshan's (the three Banu Musa cropped
    from their shared codex painting). The sharper 3D renders, promo
@@ -850,6 +892,7 @@ const CHARACTERS = [
     "year": 1868,
     "image": "images/characters/jacob-frye.webp",
     "games": ["Assassin's Creed Syndicate"],
+    "family": [{"id": 154, "relation": "father"}, {"id": 39, "relation": "twin sister"}, {"id": 82, "relation": "granddaughter"}],
     "description": "Evie's twin brother, a brash and charming Assassin who arrives in Victorian London set on taking the city back from its gangs one street at a time."
   },
   {
@@ -861,6 +904,7 @@ const CHARACTERS = [
     "year": 1868,
     "image": "images/characters/evie-frye.webp",
     "games": ["Assassin's Creed Syndicate"],
+    "family": [{"id": 154, "relation": "father"}, {"id": 38, "relation": "twin brother"}, {"id": 82, "relation": "great-niece"}],
     "description": "Jacob's twin sister, a patient and clever Assassin who comes to London in search of a Piece of Eden rather than a fight with the gangs."
   },
   {
@@ -877,13 +921,15 @@ const CHARACTERS = [
   {
     "id": 41,
     "name": "Henry Green",
-    "aka": ["Jayadeep Mir"],
+    "aka": ["Jayadeep Mir", "The Ghost"],
     "group": "assassin",
     "historical": false,
     "born": "1843",
     "year": 1868,
     "image": "images/characters/henry-green.webp",
     "games": ["Assassin's Creed Syndicate"],
+    "stories": "Novel: Underworld",
+    "family": [{"id": 43, "relation": "father"}, {"id": 155, "relation": "mother"}],
     "description": "The quiet keeper of the Assassins' bureau in London, an antiques dealer born in India who becomes the Frye twins' closest ally in the city."
   },
   {
@@ -905,6 +951,8 @@ const CHARACTERS = [
     "year": 1841,
     "image": "images/characters/arbaaz-mir.webp",
     "games": ["Assassin's Creed Chronicles: India"],
+    "stories": "Graphic novel: Brahman; novel: Underworld",
+    "family": [{"id": 155, "relation": "wife"}, {"id": 41, "relation": "son"}],
     "description": "An Assassin of the Indian Brotherhood in the Sikh Empire of the 1840s, caught between two empires as he guards a precious relic."
   },
   {
@@ -1352,6 +1400,7 @@ const CHARACTERS = [
     "year": 1916,
     "image": "images/characters/lydia-frye.webp",
     "games": ["Assassin's Creed Syndicate"],
+    "family": [{"id": 38, "relation": "grandfather"}, {"id": 39, "relation": "great-aunt"}],
     "description": "Jacob Frye's granddaughter, a British Assassin in London during the First World War, who works with Winston Churchill to root out enemy spies in Syndicate's 1916 memories."
   },
   {
@@ -2004,5 +2053,186 @@ const CHARACTERS = [
     "image": "images/characters/ali-ibn-muhammad.webp",
     "games": ["Assassin's Creed Mirage"],
     "description": "The fiery leader of the Zanj, enslaved workers rising against their masters, and a useful but uneasy ally of the Hidden Ones in Baghdad."
+  },
+  {
+    "id": 140,
+    "name": "Lucy Thorne",
+    "group": "templar",
+    "historical": false,
+    "born": "1837",
+    "year": 1868,
+    "image": "images/characters/lucy-thorne.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "Crawford Starrick's cold, sharp-minded lieutenant, a scholar of the occult hunting for a Piece of Eden hidden somewhere in London."
+  },
+  {
+    "id": 141,
+    "name": "Pearl Attaway",
+    "group": "other",
+    "historical": false,
+    "born": "1833",
+    "year": 1868,
+    "image": "images/characters/pearl-attaway.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "The shrewd owner of Attaway Transport, whose omnibuses are locked in a ruthless war for London's roads, and who hires Jacob to help her win it."
+  },
+  {
+    "id": 142,
+    "name": "Maxwell Roth",
+    "group": "other",
+    "historical": false,
+    "year": 1868,
+    "image": "images/characters/maxwell-roth.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "The flamboyant leader of the Blighters, a lover of theatre and chaos who invites Jacob to the Alhambra music hall with an offer."
+  },
+  {
+    "id": 143,
+    "name": "Alexander Graham Bell",
+    "group": "other",
+    "historical": true,
+    "born": "1847",
+    "year": 1868,
+    "image": "images/characters/alexander-graham-bell.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "A young Scottish inventor and friend of Henry Green, who builds the Frye twins' gadgets while he dreams of sending voices down a wire."
+  },
+  {
+    "id": 144,
+    "name": "Frederick Abberline",
+    "group": "other",
+    "historical": true,
+    "born": "1843",
+    "year": 1868,
+    "image": "images/characters/frederick-abberline.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "stories": "Novel: Underworld; comic: Locus",
+    "description": "A Whitechapel police sergeant who quietly trades favours with the Frye twins against London's gangs, and who returns as an inspector in 1888."
+  },
+  {
+    "id": 145,
+    "name": "Ned Wynert",
+    "group": "other",
+    "historical": false,
+    "born": "1840",
+    "year": 1868,
+    "image": "images/characters/ned-wynert.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "An American businessman with a cargo and smuggling operation on the Thames, who hires the twins to raid shipments and trains."
+  },
+  {
+    "id": 146,
+    "name": "Charles Dickens",
+    "group": "other",
+    "historical": true,
+    "born": "1812",
+    "year": 1868,
+    "image": "images/characters/charles-dickens.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "The celebrated novelist and a member of the Ghost Club, who asks the twins to look into London's strangest ghost stories."
+  },
+  {
+    "id": 147,
+    "name": "Charles Darwin",
+    "group": "other",
+    "historical": true,
+    "born": "1809",
+    "year": 1868,
+    "image": "images/characters/charles-darwin.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "The famous naturalist, elderly but as curious as ever, who turns detective to expose a dangerous patent medicine."
+  },
+  {
+    "id": 148,
+    "name": "Karl Marx",
+    "group": "other",
+    "historical": true,
+    "born": "1818",
+    "year": 1868,
+    "image": "images/characters/karl-marx.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "The exiled German philosopher, organising London's workers, who asks the twins to protect his meetings without bloodshed."
+  },
+  {
+    "id": 149,
+    "name": "Florence Nightingale",
+    "group": "other",
+    "historical": true,
+    "born": "1820",
+    "year": 1868,
+    "image": "images/characters/florence-nightingale.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "The famous nurse of the Crimean War, now fighting the poisoned medicines that are flooding London's hospitals."
+  },
+  {
+    "id": 150,
+    "name": "Benjamin Disraeli",
+    "group": "other",
+    "historical": true,
+    "born": "1804",
+    "year": 1868,
+    "image": "images/characters/benjamin-disraeli.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "family": [{"id": 151, "relation": "wife"}],
+    "description": "The newly appointed Prime Minister, a sharp and witty statesman whom someone in London wants dead."
+  },
+  {
+    "id": 151,
+    "name": "Mary Anne Disraeli",
+    "group": "other",
+    "historical": true,
+    "born": "1792",
+    "year": 1868,
+    "image": "images/characters/mary-anne-disraeli.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "family": [{"id": 150, "relation": "husband"}],
+    "description": "Disraeli's lively, sharp-tongued wife, who insists on joining Jacob in the hunt for the plotters against her husband."
+  },
+  {
+    "id": 152,
+    "name": "Queen Victoria",
+    "group": "other",
+    "historical": true,
+    "born": "1819",
+    "year": 1868,
+    "image": "images/characters/queen-victoria.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "The Queen of the United Kingdom, monarch of an empire at the height of its power, who comes to rely on the Frye twins."
+  },
+  {
+    "id": 153,
+    "name": "Duleep Singh",
+    "aka": ["Dalip Singh"],
+    "group": "other",
+    "historical": true,
+    "born": "1838",
+    "year": 1868,
+    "image": "images/characters/duleep-singh.webp",
+    "games": ["Assassin's Creed Syndicate"],
+    "description": "The last Maharaja of the Sikh Empire, living in exile in England as a friend of the Queen, who quietly helps the Assassins."
+  },
+  {
+    "id": 154,
+    "name": "Ethan Frye",
+    "group": "assassin",
+    "historical": false,
+    "year": 1841,
+    "games": ["Assassin's Creed Chronicles: India"],
+    "stories": "Novel: Underworld",
+    "family": [{"id": 38, "relation": "son"}, {"id": 39, "relation": "daughter"}],
+    "description": "A Master Assassin of the British Brotherhood and the father of Jacob and Evie Frye, to whom Arbaaz Mir entrusts a famous diamond."
+  },
+  {
+    "id": 155,
+    "name": "Pyara Kaur",
+    "aka": ["Princess Pyara Kaur"],
+    "group": "other",
+    "historical": false,
+    "year": 1841,
+    "image": "images/characters/pyara-kaur.webp",
+    "games": ["Assassin's Creed Chronicles: India"],
+    "stories": "Graphic novel: Brahman; novel: Underworld",
+    "family": [{"id": 43, "relation": "husband"}, {"id": 41, "relation": "son"}],
+    "description": "A Sikh princess, granddaughter of Maharaja Ranjit Singh, and the woman the Assassin Arbaaz Mir has sworn to protect."
   }
 ]

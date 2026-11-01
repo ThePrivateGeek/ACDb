@@ -2268,7 +2268,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [41]
+    "characters": [39, 41, 43, 144, 154, 155]
   },
   {
     "id": 214,
@@ -3086,7 +3086,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
     "read": "08. AC - Locus/AC Locus 02 Last Descendants 2016",
-    "characters": [73]
+    "characters": [73, 144]
   },
   {
     "id": 280,
@@ -3125,7 +3125,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
     "collects": [278, 279, 280, 281],
-    "characters": [39, 41, 73]
+    "characters": [39, 41, 73, 144]
   },
   {
     "id": 283,
@@ -3880,7 +3880,7 @@ const AC_DATABASE = [
     "contents": "Standalone graphic novel",
     "type": "Graphic Novel",
     "read": "03. 04/04 AC Brahman 2013",
-    "characters": [43]
+    "characters": [43, 155]
   },
   {
     "id": 342,
@@ -5817,7 +5817,8 @@ const AC_DATABASE = [
     "description": "Issue #46 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #46 and figurine of Frederick Abberline",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [144]
   },
   {
     "id": 518,
