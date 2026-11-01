@@ -2279,7 +2279,7 @@ const AC_DATABASE = [
     "description": "Abstergo employee Simon Hathaway relives the memories of Joan of Arc's companion-at-arms, exploring the role of a Sword of Eden in the Hundred Years' War. By Christie Golden.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [75]
+    "characters": [75, 157, 158]
   },
   {
     "id": 215,
@@ -2291,7 +2291,7 @@ const AC_DATABASE = [
     "contents": "Premium hardcover edition features exclusive art sketches and behind the scenes interviews, as well as a special code to unlock Assassin's Creed rewards through Ubisoft Club's loyalty program.",
     "type": "Novel",
     "collects": [214],
-    "characters": [75]
+    "characters": [75, 157, 158]
   },
   {
     "id": 216,
@@ -2303,7 +2303,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Assassin's Creed: Last Descendants",
-    "characters": [73, 76, 77]
+    "characters": [73, 76, 77, 158]
   },
   {
     "id": 217,
@@ -2315,7 +2315,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Assassin's Creed: Last Descendants",
-    "characters": [76, 77]
+    "characters": [76, 77, 158]
   },
   {
     "id": 218,
@@ -2327,7 +2327,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Assassin's Creed: Last Descendants",
-    "characters": [76, 77]
+    "characters": [76, 77, 158]
   },
   {
     "id": 219,
@@ -3125,7 +3125,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
     "collects": [278, 279, 280, 281],
-    "characters": [39, 41, 73, 144]
+    "characters": [39, 41, 73, 144, 158]
   },
   {
     "id": 283,
@@ -4638,7 +4638,7 @@ const AC_DATABASE = [
     "description": "Official novelization of the 2016 Assassin's Creed film starring Michael Fassbender. Follows Callum Lynch as he relives the memories of his ancestor Aguilar during the Spanish Inquisition.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [57, 58]
+    "characters": [57, 58, 157]
   },
   {
     "id": 413,
@@ -5580,7 +5580,8 @@ const AC_DATABASE = [
     "description": "Issue #26 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #26 and figurine of Jupiter",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [159]
   },
   {
     "id": 498,

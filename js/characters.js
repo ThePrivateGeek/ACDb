@@ -9,7 +9,10 @@
 
    Scope: named characters who appear in person (on screen, speaking or
    playable, in the story or a story DLC) in a main, spin-off or handheld
-   game. Isu who appear as projections count. In: playable characters,
+   game. Isu who appear as projections count, and so do the Isu of the
+   Staff's simulations in Odyssey's The Fate of Atlantis, the only place
+   they appear (the simulations rule under "games" is about characters
+   who are real elsewhere). In: playable characters,
    main antagonists and the targets around them, mentors, recurring
    allies, Isu, modern-day characters and the real historical people the
    player meets. Out: unnamed characters, one-scene named characters with
@@ -43,7 +46,9 @@
      132-139);
    - batch 10 (2026-11-01): Syndicate's London, and the Frye and Mir
      families (ids 140-155);
-   - 2026-11-01: Unity's Marquis de Sade (id 156).
+   - 2026-11-01: Unity's Marquis de Sade (id 156);
+   - batch 11 (2026-11-01): Abstergo's Alan Rikkin and Victoria Bibeau,
+     and seven Isu (ids 157-165).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -269,6 +274,32 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   Batch 11 (two more researchers, 2026-11-01), settled as follows:
+   - Alan Rikkin is in one game in person: a short scene in Assassin's
+     Creed (2012), hearing Vidic's report (the wiki; Wikipedia: he
+     "appeared in the first game"); everywhere else he is in emails and
+     mentions. The film and Heresy are his stories. His 1951 birth is the
+     wiki's alone ("around 1951"), so it is left out.
+   - Victoria Bibeau: an Assassin in Odyssey, Layla's team in 2018, and
+     Abstergo's psychiatrist in the books before that (her first
+     appearance, Last Descendants, set in 2016, hence the year). Her
+     death in The Fate of Atlantis stays out.
+   - The Isu take -75000 like Juno and Minerva, and no birth year.
+     Jupiter: Revelations (his message to Desmond) and AC III's Grand
+     Temple holograms; his Valhalla role as Suttungr is left out, a
+     reveal (and the identity is the wiki's alone). Aletheia: Odyssey;
+     her Valhalla role, under another name, is a reveal too and left
+     out. Aita: AC III's visions and Judgment of Atlantis; his Sages and
+     what Juno does for him stay out. Hermes, Persephone, Hades and
+     Poseidon: The Fate of Atlantis only (statues, paintings and
+     mentions elsewhere). Every episode's ending stays out.
+   - Names: Jupiter is also Tinia (Minerva's name for him) and Zeus;
+     Persephone is also Kore. Myth names that the games don't use
+     (Mercury, Pluto, Neptune, Veritas) are left out; Aita is not Hades.
+   - Family: Juno and Aita married (Wikipedia, the wiki). Hades and
+     Persephone married (the wiki; the episode's own story). Left out as
+     the wiki's alone or myth: Hades, Poseidon and Zeus as brothers,
+     Jupiter as Persephone's father, Juno and Minerva as his sisters.
    The Marquis de Sade (two more researchers, 2026-11-01): neither side.
    The wiki's infobox lists "Assassins" among his affiliations, but
    nothing in the game or the database makes him a member; he is a
@@ -447,6 +478,11 @@
      (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
      Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
      out.
+   Batch 11 portraits, all from the Assassin's Creed Wiki: the Fate of
+   Atlantis render of Aletheia; studio renders of Hermes's and Victoria
+   Bibeau's Odyssey models; AC III's render of Jupiter; cutscene close-ups
+   of Aita, Poseidon, Persephone and Hades; Alan Rikkin's only in-game
+   look, a profile from Assassin's Creed's Abstergo lab.
    The Marquis de Sade's portrait is the wiki's studio render of his
    Unity model ("Development artwork"), in his white wig.
    Batch 10 portraits, all from the Assassin's Creed Wiki: Syndicate
@@ -785,6 +821,7 @@ const CHARACTERS = [
     "year": -75000,
     "image": "images/characters/juno.webp",
     "games": ["Assassin's Creed Brotherhood", "Assassin's Creed III", "Assassin's Creed IV: Black Flag", "Assassin's Creed Syndicate", "Assassin's Creed Valhalla"],
+    "family": [{"id": 161, "relation": "husband"}],
     "description": "An Isu scientist from the age before the great catastrophe, whose voice reaches Desmond across thousands of years from the vaults her people left behind."
   },
   {
@@ -2319,5 +2356,102 @@ const CHARACTERS = [
     "image": "images/characters/marquis-de-sade.webp",
     "games": ["Assassin's Creed Unity"],
     "description": "The notorious libertine writer and aristocrat, a fellow prisoner of Arno's in the Bastille, who later becomes his mocking, self-serving ally, trading information for favours."
+  },
+  {
+    "id": 157,
+    "name": "Alan Rikkin",
+    "group": "templar",
+    "historical": false,
+    "year": 2012,
+    "image": "images/characters/alan-rikkin.webp",
+    "games": ["Assassin's Creed"],
+    "stories": "Film: Assassin's Creed (2016); novel: Heresy",
+    "description": "The chief executive of Abstergo Industries, who keeps a close eye on its Animus research, from Desmond Miles's sessions to Callum Lynch's in the 2016 film."
+  },
+  {
+    "id": 158,
+    "name": "Victoria Bibeau",
+    "group": "assassin",
+    "historical": false,
+    "year": 2016,
+    "image": "images/characters/victoria-bibeau.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "stories": "Novels: Last Descendants trilogy, Heresy; comic: Locus",
+    "description": "A psychiatrist and expert on the Bleeding Effect, once of Abstergo, who later joins Layla Hassan's Assassin team to watch over her health in the Animus."
+  },
+  {
+    "id": 159,
+    "name": "Jupiter",
+    "aka": ["Tinia", "Zeus"],
+    "group": "isu",
+    "historical": false,
+    "year": -75000,
+    "image": "images/characters/jupiter.webp",
+    "games": ["Assassin's Creed Revelations", "Assassin's Creed III"],
+    "description": "A leader of the Isu, the First Civilization, whose message reaches Desmond across thousands of years with word of the hidden temples his people left behind."
+  },
+  {
+    "id": 160,
+    "name": "Aletheia",
+    "group": "isu",
+    "historical": false,
+    "year": -75000,
+    "image": "images/characters/aletheia.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "description": "An Isu whose mind lives on in the Staff of Hermes, guiding the Staff's keeper, Kassandra, toward the secrets of Atlantis."
+  },
+  {
+    "id": 161,
+    "name": "Aita",
+    "group": "isu",
+    "historical": false,
+    "year": -75000,
+    "image": "images/characters/aita.webp",
+    "games": ["Assassin's Creed III", "Assassin's Creed Odyssey"],
+    "family": [{"id": 25, "relation": "wife"}],
+    "description": "An Isu scientist and Juno's husband, glimpsed in visions of the First Civilization's last days."
+  },
+  {
+    "id": 162,
+    "name": "Hermes Trismegistus",
+    "group": "isu",
+    "historical": false,
+    "year": -75000,
+    "image": "images/characters/hermes-trismegistus.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "description": "The Isu craftsman who gave the Staff of Hermes its name, and who offers to teach Kassandra its powers in the fields of Elysium."
+  },
+  {
+    "id": 163,
+    "name": "Poseidon",
+    "group": "isu",
+    "historical": false,
+    "year": -75000,
+    "image": "images/characters/poseidon.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "description": "The Isu king of Atlantis, who makes Kassandra a judge, a dikastes, of his city."
+  },
+  {
+    "id": 164,
+    "name": "Persephone",
+    "aka": ["Kore"],
+    "group": "isu",
+    "historical": false,
+    "year": -75000,
+    "image": "images/characters/persephone.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "family": [{"id": 165, "relation": "husband"}],
+    "description": "The Isu queen of Elysium, a seemingly perfect paradise that she rules with an iron fist."
+  },
+  {
+    "id": 165,
+    "name": "Hades",
+    "group": "isu",
+    "historical": false,
+    "year": -75000,
+    "image": "images/characters/hades.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "family": [{"id": 164, "relation": "wife"}],
+    "description": "The Isu lord of the Underworld, who sets Kassandra to work restoring order in his realm."
   }
 ]
