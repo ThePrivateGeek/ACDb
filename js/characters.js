@@ -49,7 +49,9 @@
    - 2026-11-01: Unity's Marquis de Sade (id 156);
    - batch 11 (2026-11-01): Abstergo's Alan Rikkin and Victoria Bibeau,
      and seven Isu (ids 157-165);
-   - batch 12 (2026-11-01): Origins' Egypt and Rome (ids 166-172).
+   - batch 12 (2026-11-01): Origins' Egypt and Rome (ids 166-172);
+   - batch 13 (2026-11-01): Odyssey's Greece and Valhalla's Norway and
+     England (ids 173-191).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -275,6 +277,39 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   Batch 13 (four more researchers, two per game, 2026-11-01), settled
+   as follows:
+   - Sides: everyone is "other" but Darius, whom the Assassins honour as
+     one of their own (his statue is in Monteriggioni's sanctuary): his
+     DLC shows him with a hidden blade against the Order of the Ancients.
+     Aspasia, Alfred and Fulke stay "other" with their Orders left out:
+     late reveals (as for Ahmet). Dag never joins anything.
+   - Kassandra's family: Myrrine is her mother and Nikolaos her
+     stepfather (he tells her early, in chapter 2). Alexios stays
+     unlinked (the Deimos twist), and so does Pythagoras, whose first
+     scene reveals he is her father. Perikles and Aspasia were partners,
+     not married (Wikipedia), and the list has no word for it.
+   - Births: the game gives none (Odyssey and Valhalla have no
+     database dates). Real ones only: Herodotos c. 484, Sokrates c. 470,
+     Perikles c. 495, Aspasia c. 470, Pythagoras c. 570 BCE; Alfred
+     c. 849 (Asser). The wiki's Phoibe c. 443 BCE and the sons of
+     Ragnar's are left out.
+   - Years first seen: the Odyssey cast 431 BCE, as Kassandra (Myrrine
+     and Nikolaos are in its Taygetos flashback too); Darius 429 BCE;
+     Pythagoras 422 BCE (the wiki). Valhalla: Styrbjorn 855, the feast
+     where Eivor joins his family, as Eivor; Randvi, Dag and Valka 872;
+     Ivarr and Ubba 873; Alfred and Fulke 874 (the arc order is the
+     player's; The Saga Stone is the usual first); Halfdan 876.
+   - The sons of Ragnar are listed as brothers: the wiki alone makes
+     Halfdan a half-brother.
+   - Not counted: Rebellion (mobile) for Myrrine, Sokrates, Darius,
+     Randvi and Valka; Project Legacy (browser) for Pythagoras; the
+     Discovery Tours. Stories: the Odyssey novel for all but Darius;
+     Geirmund's Saga, Blood Brothers, Song of Glory and Sword of the White
+     Horse as the researchers found them.
+   - Kept out: the Phoenix, Deimos, the Ghost of Kosmos, Artabanus, the
+     Grand Maegester and the Instrument, Halfdan's and Svala's Isu
+     selves, the romances, and every death.
    Batch 12 (two more researchers, 2026-11-01), settled as follows:
    - Sides: Lucius Septimius is named as one of the Order of the
      Ancients early (Way of the Gabiniani), so he is a Templar. Flavius
@@ -506,6 +541,12 @@
      (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
      Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
      out.
+   Batch 13 portraits, all from the Assassin's Creed Wiki: Ubisoft's
+   promo art of Barnabas, Herodotos and Alfred (cropped below the
+   lettering) and its render of Ivarr; model renders of Phoibe,
+   Pythagoras, Sokrates, Perikles and Aspasia (her own look, not the
+   Ghost's); cutscene close-ups of Myrrine, Nikolaos, Darius, Randvi,
+   Ubba, Halfdan, Fulke, Dag, Styrbjorn (the prologue) and Valka.
    Batch 12 portraits, all from the Assassin's Creed Wiki: Ubisoft's
    render of Septimius (helmeted, as he always is); in-game close-ups of
    Flavius, Ptolemy XIII, Apollodorus and Khemu; cutscenes of Brutus and
@@ -914,6 +955,7 @@ const CHARACTERS = [
     "year": -431,
     "image": "images/characters/kassandra.webp",
     "games": ["Assassin's Creed Odyssey", "Assassin's Creed Valhalla"],
+    "family": [{"id": 173, "relation": "mother"}, {"id": 174, "relation": "stepfather"}],
     "description": "A Spartan-born mercenary, or misthios, scraping a living on the island of Kephallonia when the Peloponnesian War and the search for her family pull her across the Greek world."
   },
   {
@@ -937,7 +979,7 @@ const CHARACTERS = [
     "year": 855,
     "image": "images/characters/eivor-varinsdottir.webp",
     "games": ["Assassin's Creed Valhalla"],
-    "family": [{"id": 33, "relation": "foster brother"}],
+    "family": [{"id": 190, "relation": "adoptive father"}, {"id": 33, "relation": "foster brother"}],
     "description": "A fierce Viking raider of the Raven Clan who leaves Norway with her brother Sigurd to carve out a new home for their people in ninth-century England."
   },
   {
@@ -949,7 +991,7 @@ const CHARACTERS = [
     "year": 855,
     "image": "images/characters/sigurd-styrbjornsson.webp",
     "games": ["Assassin's Creed Valhalla"],
-    "family": [{"id": 32, "relation": "foster sister"}],
+    "family": [{"id": 190, "relation": "father"}, {"id": 183, "relation": "wife"}, {"id": 32, "relation": "foster sister"}],
     "description": "Eivor's adoptive brother and the son of a Norwegian jarl, a proud and restless leader who brings his clan across the sea to settle in England."
   },
   {
@@ -2567,5 +2609,233 @@ const CHARACTERS = [
     "games": ["Assassin's Creed Origins"],
     "stories": "Comic: Origins",
     "description": "A Roman senator and general who comes to Alexandria with Brutus as one of Aya's Roman allies."
+  },
+  {
+    "id": 173,
+    "name": "Myrrine",
+    "group": "other",
+    "historical": false,
+    "year": -431,
+    "image": "images/characters/myrrine.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "stories": "Novel: Odyssey",
+    "family": [{"id": 174, "relation": "husband"}, {"id": 30, "relation": "daughter"}],
+    "description": "A Spartan noblewoman, daughter of King Leonidas and Kassandra's mother, lost to her since a family tragedy on Mount Taygetos."
+  },
+  {
+    "id": 174,
+    "name": "Nikolaos",
+    "aka": ["The Wolf of Sparta"],
+    "group": "other",
+    "historical": false,
+    "year": -431,
+    "image": "images/characters/nikolaos.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "stories": "Novel: Odyssey",
+    "family": [{"id": 173, "relation": "wife"}, {"id": 30, "relation": "stepdaughter"}],
+    "description": "A feared Spartan general known as the Wolf of Sparta, the man who raised Kassandra, and the target of her first great contract."
+  },
+  {
+    "id": 175,
+    "name": "Barnabas",
+    "group": "other",
+    "historical": false,
+    "year": -431,
+    "image": "images/characters/barnabas.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "stories": "Novel: Odyssey",
+    "description": "A good-natured, one-eyed and very superstitious sea captain, who gives Kassandra his ship, the Adrestia, and its crew."
+  },
+  {
+    "id": 176,
+    "name": "Herodotos",
+    "aka": ["Herodotus"],
+    "group": "other",
+    "historical": true,
+    "born": "c. 484 BCE",
+    "year": -431,
+    "image": "images/characters/herodotos.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "stories": "Novel: Odyssey",
+    "description": "The travelling historian and storyteller, the Father of History, who befriends Kassandra at Delphi and chronicles her journey."
+  },
+  {
+    "id": 177,
+    "name": "Phoibe",
+    "group": "other",
+    "historical": false,
+    "year": -431,
+    "image": "images/characters/phoibe.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "stories": "Novel: Odyssey",
+    "description": "A lively orphan girl on Kephallonia, who looks up to Kassandra as a big sister and dreams of adventures of her own."
+  },
+  {
+    "id": 178,
+    "name": "Pythagoras",
+    "group": "other",
+    "historical": true,
+    "born": "c. 570 BCE",
+    "year": -422,
+    "image": "images/characters/pythagoras.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "stories": "Novel: Odyssey",
+    "description": "The legendary philosopher and mathematician of Samos, long believed dead, whose path crosses Kassandra's late in her journey."
+  },
+  {
+    "id": 179,
+    "name": "Sokrates",
+    "aka": ["Socrates"],
+    "group": "other",
+    "historical": true,
+    "born": "c. 470 BCE",
+    "year": -431,
+    "image": "images/characters/sokrates.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "stories": "Novel: Odyssey",
+    "description": "Athens' barefoot philosopher, who loves to answer every question with another and to tangle Kassandra in moral dilemmas."
+  },
+  {
+    "id": 180,
+    "name": "Perikles",
+    "aka": ["Pericles"],
+    "group": "other",
+    "historical": true,
+    "born": "c. 495 BCE",
+    "year": -431,
+    "image": "images/characters/perikles.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "stories": "Novel: Odyssey",
+    "description": "The statesman who leads Athens into its war with Sparta, and hosts the city's most famous symposium."
+  },
+  {
+    "id": 181,
+    "name": "Aspasia",
+    "group": "other",
+    "historical": true,
+    "born": "c. 470 BCE",
+    "year": -431,
+    "image": "images/characters/aspasia.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "stories": "Novel: Odyssey",
+    "description": "Perikles' sharp and influential companion, at the heart of Athens' circle of thinkers and politicians, who helps Kassandra search for her mother."
+  },
+  {
+    "id": 182,
+    "name": "Darius",
+    "group": "assassin",
+    "historical": false,
+    "year": -429,
+    "image": "images/characters/darius.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "description": "A Persian renegade in hiding, the legendary killer of King Xerxes and the first known wielder of a hidden blade, hunted by a shadowy order."
+  },
+  {
+    "id": 183,
+    "name": "Randvi",
+    "group": "other",
+    "historical": false,
+    "year": 872,
+    "image": "images/characters/randvi.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "stories": "Novel: Geirmund's Saga",
+    "family": [{"id": 33, "relation": "husband"}],
+    "description": "Sigurd's wife and the Raven Clan's shrewd counsellor, who keeps the clan's affairs and its map of alliances in order."
+  },
+  {
+    "id": 184,
+    "name": "Ivarr",
+    "aka": ["Ivarr the Boneless", "Ivar the Boneless"],
+    "group": "other",
+    "historical": true,
+    "year": 873,
+    "image": "images/characters/ivarr.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "stories": "Comic: Blood Brothers",
+    "family": [{"id": 185, "relation": "brother"}, {"id": 186, "relation": "brother"}],
+    "description": "The wild and unpredictable son of Ragnar Lothbrok, who welcomes the Raven Clan into the Danish fight for Mercia."
+  },
+  {
+    "id": 185,
+    "name": "Ubba",
+    "aka": ["Ubba Ragnarsson"],
+    "group": "other",
+    "historical": true,
+    "year": 873,
+    "image": "images/characters/ubba.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "family": [{"id": 184, "relation": "brother"}, {"id": 186, "relation": "brother"}],
+    "description": "The steadiest of Ragnar Lothbrok's sons, a Danish commander in England who dreams of a lasting peace between Danes and Saxons."
+  },
+  {
+    "id": 186,
+    "name": "Halfdan",
+    "aka": ["Halfdan Ragnarsson"],
+    "group": "other",
+    "historical": true,
+    "year": 876,
+    "image": "images/characters/halfdan.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "stories": "Novel: Geirmund's Saga; comic: Blood Brothers",
+    "family": [{"id": 184, "relation": "brother"}, {"id": 185, "relation": "brother"}],
+    "description": "The eldest of Ragnar Lothbrok's sons, a seasoned war-leader who calls on Eivor to help him hold Northumbria."
+  },
+  {
+    "id": 187,
+    "name": "Alfred the Great",
+    "aka": ["Aelfred", "King Alfred"],
+    "group": "other",
+    "historical": true,
+    "born": "c. 849",
+    "year": 874,
+    "image": "images/characters/alfred-the-great.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "stories": "Novel: Geirmund's Saga; comic: Blood Brothers",
+    "description": "The proud and pious King of Wessex, the last Saxon king standing against the Danish invasion of England."
+  },
+  {
+    "id": 188,
+    "name": "Fulke",
+    "group": "other",
+    "historical": false,
+    "year": 874,
+    "image": "images/characters/fulke.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "description": "A Frankish scholar of holy relics, imprisoned for heresy at St Albanes, whose strange beliefs fascinate Sigurd."
+  },
+  {
+    "id": 189,
+    "name": "Dag",
+    "group": "other",
+    "historical": false,
+    "year": 872,
+    "image": "images/characters/dag.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "stories": "Comic: Song of Glory",
+    "description": "A gruff veteran of the Raven Clan and Sigurd's old friend, who fights at Eivor's side but keeps a wary eye on her."
+  },
+  {
+    "id": 190,
+    "name": "Styrbjorn",
+    "aka": ["King Styrbjorn"],
+    "group": "other",
+    "historical": false,
+    "year": 855,
+    "image": "images/characters/styrbjorn.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "stories": "Comic: Song of Glory; novel: Geirmund's Saga",
+    "family": [{"id": 33, "relation": "son"}, {"id": 32, "relation": "adopted daughter"}],
+    "description": "The ageing king of the Raven Clan, who took the orphaned Eivor into his family and raised her alongside his son Sigurd."
+  },
+  {
+    "id": 191,
+    "name": "Valka",
+    "group": "other",
+    "historical": false,
+    "year": 872,
+    "image": "images/characters/valka.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "stories": "Novel: Sword of the White Horse",
+    "description": "The Raven Clan's seer, whose potions and rituals help Eivor make sense of her troubling dreams."
   }
 ]

@@ -2349,7 +2349,8 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Novelization following the Eagle Bearer during the Peloponnesian War in ancient Greece, uncovering the Cult of Kosmos and her family's legacy. By Gordon Doherty.",
     "contents": "Paperback novel",
-    "type": "Novel"
+    "type": "Novel",
+    "characters": [173, 174, 175, 176, 177, 178, 179, 180, 181]
   },
   {
     "id": 221,
@@ -2360,7 +2361,7 @@ const AC_DATABASE = [
     "description": "Geirmund's Saga is a tie-in novel to Assassin's Creed Valhalla. Follows Norse warrior Geirmund Hel-hide during the Viking invasion of England, offering a parallel story to the game's events. By Matthew Kirby.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [80]
+    "characters": [80, 183, 186, 187, 190]
   },
   {
     "id": 222,
@@ -2418,7 +2419,7 @@ const AC_DATABASE = [
     "description": "Sword of the White Horse is a tie-in novel and sequel to Assassin's Creed Valhalla. Follows Niamh, a blind Norse-Gaelic woman and Hidden One, in the court of King Alfred's Wessex, as she protects a sacred artifact. By Elsa Sjunneson.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [81]
+    "characters": [81, 191]
   },
   {
     "id": 227,
@@ -3580,7 +3581,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed Valhalla: Song of Glory",
     "collects": [314, 315, 316],
-    "characters": [32, 33]
+    "characters": [32, 33, 189, 190]
   },
   {
     "id": 318,
@@ -3591,7 +3592,8 @@ const AC_DATABASE = [
     "description": "Not long before the exploits of Eivor Wolf-Kissed, Jarl Stensson and his [sons], Ulf and Björn, make their way to England at the behest of Halfdan Ragnarsson and Ivarr the Boneless. Filled with excitement, confidence and bloodlust, the [two] brothers are eager to go to war against Aelfred the Great and his Anglo Saxon army. But they would do well not to underestimate what awaits them on those green shores. Published by Tokyopop.",
     "contents": "Standalone graphic novel",
     "type": "Graphic Novel",
-    "read": "14. AC Valhalla/AC Valhalla_ Blood Brothers 2021"
+    "read": "14. AC Valhalla/AC Valhalla_ Blood Brothers 2021",
+    "characters": [184, 186, 187]
   },
   {
     "id": 319,
@@ -5960,7 +5962,8 @@ const AC_DATABASE = [
     "description": "Issue #58 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #58 and figurine of Barnabas",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [175]
   },
   {
     "id": 530,
@@ -5994,7 +5997,8 @@ const AC_DATABASE = [
     "description": "Issue #61 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #61 and figurine of Herodotos",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [176]
   },
   {
     "id": 533,
@@ -6017,7 +6021,8 @@ const AC_DATABASE = [
     "description": "Issue #63 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #63 and figurine of Aspasia",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [181]
   },
   {
     "id": 535,
@@ -6052,7 +6057,8 @@ const AC_DATABASE = [
     "description": "Issue #66 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #66 and figurine of Darius",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [182]
   },
   {
     "id": 538,
