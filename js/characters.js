@@ -53,7 +53,10 @@
    - batch 13 (2026-11-01): Odyssey's Greece and Valhalla's Norway and
      England (ids 173-191);
    - batch 14 (2026-11-01): the 2016 film's Sofia Rikkin and Joseph Lynch
-     (ids 192-193).
+     (ids 192-193);
+   - batch 15 (2026-11-01): Baptiste, Darim, Duncan Walpole, Jacques de
+     Molay, Leonidas, Ojeda, and Tsuyu and Alvaro of the manga Tales of
+     Iga (ids 194-201).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -279,6 +282,24 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   Batch 15 (one more researcher, 2026-11-01; the wiki through its
+   accesstheanimus mirror, Fandom was down):
+   - Tsuyu (Fujibayashi Tsuyu) is Naoe's mother: seen in the base game's
+     flashbacks and in person in Claws of Awaji (Xbox Wire names her), so
+     she counts for Shadows. Alvaro (Catarribera on the wiki) is only a
+     voice and a journal in the game, so he is a manga character; he has
+     nothing to do with Abstergo's Alvaro Gramatica. Kept out: why he
+     left the Spanish Brotherhood, and Tsuyu's later life.
+   - Darim: born 1195 per the wiki, citing The Secret Crusade; his comic
+     is Reflections #2, which the wiki and Titan's own blurb for #4 back.
+     The mobile games (Recollection, Memories) and Rebellion (Leonidas,
+     Ojeda) don't count.
+   - Baptiste is filed as a Templar, like Shay: a former Assassin who
+     sides with the Templars. Duncan Walpole stays an Assassin: he dies
+     before he can defect. No official births for either, nor for Ojeda.
+   - Jacques de Molay: born c. 1244 (historians give 1240-1250); only a
+     mention in Heresy. Leonidas: Kassandra's grandfather is no spoiler
+     (Ubisoft's marketing says so); he is only named in the Odyssey novel.
    Batch 14 (two more researchers, 2026-11-01): Sofia Rikkin and Joseph
    Lynch are in the film and its novelization only (Sofia is only a voice
    on the phone in Heresy, and an email name in Origins). Sofia is a
@@ -553,6 +574,14 @@
      (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
      Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
      out.
+   Batch 15 portraits, all from the Assassin's Creed Wiki (the owner
+   picked Baptiste's, Jacques', Ojeda's and Tsuyu's): Liberation's
+   database render of Baptiste, a Revelations still of Darim, Unity's
+   render of Jacques de Molay, the Black Flag render of Duncan, Odyssey's
+   bust render of Leonidas, the film's character-poster cut-out of Ojeda,
+   Tsuyu's Claws of Awaji database render, and a manga panel of Alvaro,
+   the only one there is (313 px wide, a little soft). Baptiste, Jacques
+   and Tsuyu are scaled up from small renders.
    Batch 14 portraits, from the film like Callum's: Sofia's official
    character poster (a cut-out), and a still of Joseph at Abstergo.
    Batch 13 portraits, all from the Assassin's Creed Wiki: Ubisoft's
@@ -641,7 +670,7 @@ const CHARACTERS = [
     "year": 1189,
     "image": "images/characters/altair-ibn-laahad.webp",
     "games": ["Assassin's Creed", "Assassin's Creed: Altaïr's Chronicles", "Assassin's Creed II", "Assassin's Creed: Bloodlines", "Assassin's Creed Revelations"],
-    "family": [{"id": 87, "relation": "wife"}, {"id": 3, "relation": "descendant"}],
+    "family": [{"id": 87, "relation": "wife"}, {"id": 195, "relation": "son"}, {"id": 3, "relation": "descendant"}],
     "description": "A gifted but arrogant Assassin of the Levantine Brotherhood during the Third Crusade, stripped of his rank and sent to earn it back by hunting nine men across Damascus, Acre and Jerusalem."
   },
   {
@@ -969,7 +998,7 @@ const CHARACTERS = [
     "year": -431,
     "image": "images/characters/kassandra.webp",
     "games": ["Assassin's Creed Odyssey", "Assassin's Creed Valhalla"],
-    "family": [{"id": 173, "relation": "mother"}, {"id": 174, "relation": "stepfather"}],
+    "family": [{"id": 173, "relation": "mother"}, {"id": 174, "relation": "stepfather"}, {"id": 198, "relation": "grandfather"}],
     "description": "A Spartan-born mercenary, or misthios, scraping a living on the island of Kephallonia when the Peloponnesian War and the search for her family pull her across the Greek world."
   },
   {
@@ -1148,6 +1177,7 @@ const CHARACTERS = [
     "year": 1579,
     "image": "images/characters/naoe.webp",
     "games": ["Assassin's Creed Shadows"],
+    "family": [{"id": 200, "relation": "mother"}],
     "description": "A young shinobi of Iga, the daughter of Fujibayashi Nagato, trained in stealth and the blade as war closes in on her home province."
   },
   {
@@ -1645,7 +1675,7 @@ const CHARACTERS = [
     "image": "images/characters/maria-thorpe.webp",
     "games": ["Assassin's Creed", "Assassin's Creed II", "Assassin's Creed: Bloodlines", "Assassin's Creed Revelations"],
     "stories": "Novel: The Secret Crusade",
-    "family": [{"id": 2, "relation": "husband"}],
+    "family": [{"id": 2, "relation": "husband"}, {"id": 195, "relation": "son"}],
     "description": "An English Templar in Robert de Sablé's service, sharp-tongued and handy with a sword, who crosses paths with Altaïr in Jerusalem during the Third Crusade."
   },
   {
@@ -2634,7 +2664,7 @@ const CHARACTERS = [
     "image": "images/characters/myrrine.webp",
     "games": ["Assassin's Creed Odyssey"],
     "stories": "Novel: Odyssey",
-    "family": [{"id": 174, "relation": "husband"}, {"id": 30, "relation": "daughter"}],
+    "family": [{"id": 198, "relation": "father"}, {"id": 174, "relation": "husband"}, {"id": 30, "relation": "daughter"}],
     "description": "A Spartan noblewoman, daughter of King Leonidas and Kassandra's mother, lost to her since a family tragedy on Mount Taygetos."
   },
   {
@@ -2879,5 +2909,99 @@ const CHARACTERS = [
     "stories": "Film: Assassin's Creed (2016)",
     "family": [{"id": 57, "relation": "son"}],
     "description": "Callum Lynch's father, an Irish-born Assassin of the modern Brotherhood whom his son has not seen since he was a boy."
+  },
+  {
+    "id": 194,
+    "name": "Baptiste",
+    "group": "templar",
+    "historical": false,
+    "year": 1765,
+    "image": "images/characters/baptiste.webp",
+    "games": ["Assassin's Creed III: Liberation"],
+    "description": "A former Assassin of Saint-Domingue turned voodoo cult leader in the bayou, who has thrown in his lot with the Templars and stands in Aveline's way."
+  },
+  {
+    "id": 195,
+    "name": "Darim Ibn-La'Ahad",
+    "group": "assassin",
+    "historical": false,
+    "born": "1195",
+    "year": 1227,
+    "image": "images/characters/darim-ibn-laahad.webp",
+    "games": ["Assassin's Creed Revelations"],
+    "stories": "Novel: The Secret Crusade; comic: Reflections",
+    "family": [{"id": 2, "relation": "father"}, {"id": 87, "relation": "mother"}],
+    "description": "Altaïr and Maria's elder son, a skilled archer who grows up in Masyaf and follows his father on his travels far beyond the Levant."
+  },
+  {
+    "id": 196,
+    "name": "Duncan Walpole",
+    "group": "assassin",
+    "historical": false,
+    "year": 1715,
+    "image": "images/characters/duncan-walpole.webp",
+    "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
+    "stories": "Novel: Black Flag",
+    "description": "An Assassin deserting the Brotherhood with secrets to sell to the Templars, whose fateful duel with Edward Kenway sets the young pirate on a new course."
+  },
+  {
+    "id": 197,
+    "name": "Jacques de Molay",
+    "group": "templar",
+    "historical": true,
+    "born": "c. 1244",
+    "year": 1307,
+    "image": "images/characters/jacques-de-molay.webp",
+    "games": ["Assassin's Creed Unity"],
+    "description": "The last Grand Master of the Knights Templar, guardian of the Order's deepest secrets as the King of France moves against it in 1307."
+  },
+  {
+    "id": 198,
+    "name": "Leonidas",
+    "aka": ["Leonidas I", "King Leonidas"],
+    "group": "other",
+    "historical": true,
+    "born": "c. 540 BCE",
+    "year": -480,
+    "image": "images/characters/leonidas.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "family": [{"id": 173, "relation": "daughter"}, {"id": 30, "relation": "granddaughter"}],
+    "description": "The Spartan king who holds the pass at Thermopylae against the Persian army, wielding the spear his descendants will one day carry. Kassandra's grandfather."
+  },
+  {
+    "id": 199,
+    "name": "Ojeda",
+    "group": "templar",
+    "historical": false,
+    "year": 1492,
+    "image": "images/characters/ojeda.webp",
+    "games": [],
+    "stories": "Film: Assassin's Creed (2016)",
+    "description": "Torquemada's towering enforcer in the Spanish Inquisition, who hunts Aguilar and María through the streets of Granada."
+  },
+  {
+    "id": 200,
+    "name": "Tsuyu",
+    "aka": ["Fujibayashi Tsuyu"],
+    "group": "assassin",
+    "historical": false,
+    "year": 1561,
+    "image": "images/characters/tsuyu.webp",
+    "games": ["Assassin's Creed Shadows"],
+    "stories": "Manga: Tales of Iga",
+    "family": [{"id": 45, "relation": "daughter"}],
+    "description": "A young woman of Iga taken under the wing of the Spanish Assassin Alvaro, who trains as a shinobi and fights beside him against the Templars. Naoe's mother."
+  },
+  {
+    "id": 201,
+    "name": "Alvaro",
+    "aka": ["Alvaro Catarribera"],
+    "group": "assassin",
+    "historical": false,
+    "year": 1561,
+    "image": "images/characters/alvaro.webp",
+    "games": [],
+    "stories": "Manga: Tales of Iga",
+    "description": "A Spanish Assassin far from home, who comes to Iga with his apprentice Tsuyu to seek the help of its legendary shinobi against the Templars."
   }
 ]

@@ -1142,7 +1142,8 @@ const AC_DATABASE = [
     "category": "Replica/Prop",
     "description": "Official 60cm replica of the Broken Spear of Leonidas from Odyssey.",
     "contents": "60cm replica Broken Spear of Leonidas",
-    "type": "Replica"
+    "type": "Replica",
+    "characters": [198]
   },
   {
     "id": 107,
@@ -1886,7 +1887,8 @@ const AC_DATABASE = [
     "category": "Figurine",
     "description": "Funko Pop! vinyl figure of Ojeda from the Assassin's Creed movie.",
     "contents": "Pop! vinyl figure",
-    "type": "Funko Pop"
+    "type": "Funko Pop",
+    "characters": [199]
   },
   {
     "id": 179,
@@ -2208,7 +2210,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [2, 84, 85, 86, 87, 88]
+    "characters": [2, 84, 85, 86, 87, 88, 195]
   },
   {
     "id": 209,
@@ -2244,7 +2246,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [14]
+    "characters": [14, 196]
   },
   {
     "id": 212,
@@ -3347,7 +3349,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Reflections",
     "read": "11/AC Reflections 2017 (2)",
-    "characters": [2]
+    "characters": [2, 195]
   },
   {
     "id": 300,
@@ -4641,7 +4643,7 @@ const AC_DATABASE = [
     "description": "Official novelization of the 2016 Assassin's Creed film starring Michael Fassbender. Follows Callum Lynch as he relives the memories of his ancestor Aguilar during the Spanish Inquisition.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [57, 58, 157, 192, 193]
+    "characters": [57, 58, 157, 192, 193, 199]
   },
   {
     "id": 413,
@@ -5155,7 +5157,8 @@ const AC_DATABASE = [
     "description": "Caught in a secret war between the Templar Order and the Assassin Brotherhood, feudal Japan becomes a battleground for Assassins and shinobi alike!\n\nThrough its devious machinations, the Templar Order has increased its influence all over Japan, but hope has come to Iga. An Assassin and his young apprentice have come to the birthplace of ninjutsu seeking aid from legendary shinobi like Hattori Hanzo and Momochi Sandayu in their fight for justice.\n\nThere is one way to stem the tide of the Templars: one must live in the darkness but serve the light. Assassin’s Creed Shadows: Tales of Iga is the story of the ninja who protect Japan.",
     "contents": "192 pages manga",
     "type": "Manga",
-    "series": "Assassin's Creed Shadows: Tales of Iga"
+    "series": "Assassin's Creed Shadows: Tales of Iga",
+    "characters": [200, 201]
   },
     {
     "id": 461,
@@ -5440,7 +5443,8 @@ const AC_DATABASE = [
     "description": "Issue #14 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #14 and figurine of Duncan Walpole",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [196]
   },
   {
     "id": 486,
@@ -6164,7 +6168,8 @@ const AC_DATABASE = [
     "description": "Issue #75 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #75 and figurine of Jacques de Molay",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [197]
   },
   {
     "id": 547,
@@ -6199,7 +6204,8 @@ const AC_DATABASE = [
     "description": "Issue #78 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #78 and figurine of Baptiste",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [194]
   },
   {
     "id": 550,
@@ -6222,7 +6228,8 @@ const AC_DATABASE = [
     "description": "Issue #80 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #80 and figurine of Darim Ibn-La'Ahad",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [195]
   },
   {
     "id": 552,
@@ -7213,7 +7220,8 @@ const AC_DATABASE = [
     "description": "Volume 2 (chapters 9-20). The shinobi war for Iga continues in 1561, from the Imagawa mansion in Mikawa to the mountains of Iga, and a flashback to 1541 shows how Tsuyu met Alvaro. Story and art by regujic. English edition by VIZ Media, scheduled for November 17, 2026; first published in Japanese by Kodansha (March 2026).",
     "contents": "208 pages manga",
     "type": "Manga",
-    "series": "Assassin's Creed Shadows: Tales of Iga"
+    "series": "Assassin's Creed Shadows: Tales of Iga",
+    "characters": [200, 201]
   },
   {
     "id": 644,
