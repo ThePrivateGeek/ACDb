@@ -295,6 +295,20 @@
      out.
    - Family: Arbaaz and Pyara married (the wiki; the owner); Henry is
      their son (Syndicate's database). Lydia is Jacob's granddaughter.
+   Families (2026-11-01), filled in from the facts settled above: the
+   Auditore, the Kenways, the Fryes, the Mirs, the Borgia, the de la
+   Serres with Arno (adopted), Aveline and her stepmother, Bayek and Aya,
+   Eivor and her foster brother Sigurd, the Pazzi, Suleiman and his uncle
+   Ahmet, Qabiha and her son, the Banu Musa, the Boldens, the Disraelis,
+   and the ancestors the modern-day characters relive ("ancestor" and
+   "descendant": Desmond's six, Callum's Aguilar, Charlotte's Tom
+   Stoddard, Daniel Cross's Nikolai Orelov, Jonathan Hawk's Numa).
+   Altaïr and Maria, and Ezio and Sofia, are shown as married (the end of
+   their stories, widely known from Revelations and Embers). Kassandra and
+   Alexios are left unlinked: that they are siblings is part of
+   Odyssey's reveal about Deimos, which stays out. Haytham and
+   Kaniehtí:io are each linked to their son, not to each other (there is
+   no word for "partner" in FAMILY_RELATIONS).
    Batch 9 (two more researchers, 2026-10-31), settled as follows; both
    corrected the owner's brief in the same places:
    - Names: Fuladh, as Ubisoft and the game call him; his full name, from
@@ -480,6 +494,7 @@ const CHARACTERS = [
     "year": 1459,
     "image": "images/characters/ezio-auditore-da-firenze.webp",
     "games": ["Assassin's Creed II", "Assassin's Creed II: Discovery", "Assassin's Creed Brotherhood", "Assassin's Creed Revelations"],
+    "family": [{"id": 11, "relation": "father"}, {"id": 89, "relation": "mother"}, {"id": 90, "relation": "brother"}, {"id": 12, "relation": "sister"}, {"id": 10, "relation": "uncle"}, {"id": 13, "relation": "wife"}, {"id": 3, "relation": "descendant"}],
     "description": "A young Florentine nobleman whose carefree life ends when his family is betrayed. Trained by his uncle Mario, he grows into a master Assassin who will one day lead the Brotherhood in Italy."
   },
   {
@@ -491,6 +506,7 @@ const CHARACTERS = [
     "year": 1189,
     "image": "images/characters/altair-ibn-laahad.webp",
     "games": ["Assassin's Creed", "Assassin's Creed: Altaïr's Chronicles", "Assassin's Creed II", "Assassin's Creed: Bloodlines", "Assassin's Creed Revelations"],
+    "family": [{"id": 87, "relation": "wife"}, {"id": 3, "relation": "descendant"}],
     "description": "A gifted but arrogant Assassin of the Levantine Brotherhood during the Third Crusade, stripped of his rank and sent to earn it back by hunting nine men across Damascus, Acre and Jerusalem."
   },
   {
@@ -502,6 +518,7 @@ const CHARACTERS = [
     "year": 2012,
     "image": "images/characters/desmond-miles.webp",
     "games": ["Assassin's Creed", "Assassin's Creed II", "Assassin's Creed Brotherhood", "Assassin's Creed Revelations", "Assassin's Creed III", "Assassin's Creed Valhalla"],
+    "family": [{"id": 52, "relation": "father"}, {"id": 70, "relation": "ancestor"}, {"id": 2, "relation": "ancestor"}, {"id": 1, "relation": "ancestor"}, {"id": 14, "relation": "ancestor"}, {"id": 15, "relation": "ancestor"}, {"id": 16, "relation": "ancestor"}],
     "description": "A bartender descended from a long line of Assassins, taken by Abstergo Industries in 2012 and made to relive his ancestors' memories in a machine called the Animus."
   },
   {
@@ -525,6 +542,7 @@ const CHARACTERS = [
     "year": 1476,
     "image": "images/characters/rodrigo-borgia.webp",
     "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood"],
+    "family": [{"id": 6, "relation": "son"}, {"id": 7, "relation": "daughter"}],
     "description": "The Spanish cardinal who became Pope Alexander VI, here the Grand Master of the Templar Order in Italy and a patient, ruthless schemer."
   },
   {
@@ -536,6 +554,7 @@ const CHARACTERS = [
     "year": 1500,
     "image": "images/characters/cesare-borgia.webp",
     "games": ["Assassin's Creed Brotherhood"],
+    "family": [{"id": 5, "relation": "father"}, {"id": 7, "relation": "sister"}],
     "description": "Son of Rodrigo Borgia and captain-general of the papal armies, a ruthless commander who means to unite Italy under his own rule."
   },
   {
@@ -547,6 +566,7 @@ const CHARACTERS = [
     "year": 1500,
     "image": "images/characters/lucrezia-borgia.webp",
     "games": ["Assassin's Creed Brotherhood"],
+    "family": [{"id": 5, "relation": "father"}, {"id": 6, "relation": "brother"}],
     "description": "Daughter of Rodrigo Borgia and sister of Cesare, a sharp and dangerous figure at the papal court in Rome."
   },
   {
@@ -580,6 +600,7 @@ const CHARACTERS = [
     "year": 1476,
     "image": "images/characters/mario-auditore.webp",
     "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood"],
+    "family": [{"id": 11, "relation": "brother"}, {"id": 90, "relation": "nephew"}, {"id": 1, "relation": "nephew"}, {"id": 12, "relation": "niece"}],
     "description": "Ezio's uncle, a gruff condottiere who runs the family's villa at Monteriggioni and teaches his nephew how to fight."
   },
   {
@@ -591,6 +612,7 @@ const CHARACTERS = [
     "year": 1459,
     "image": "images/characters/giovanni-auditore-da-firenze.webp",
     "games": ["Assassin's Creed II"],
+    "family": [{"id": 89, "relation": "wife"}, {"id": 90, "relation": "son"}, {"id": 1, "relation": "son"}, {"id": 12, "relation": "daughter"}, {"id": 10, "relation": "brother"}],
     "description": "Ezio's father, a respected Florentine banker who leads a secret second life in the service of the Assassins."
   },
   {
@@ -602,6 +624,7 @@ const CHARACTERS = [
     "year": 1476,
     "image": "images/characters/claudia-auditore-da-firenze.webp",
     "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood"],
+    "family": [{"id": 11, "relation": "father"}, {"id": 89, "relation": "mother"}, {"id": 90, "relation": "brother"}, {"id": 1, "relation": "brother"}, {"id": 10, "relation": "uncle"}],
     "description": "Ezio's younger sister, quick-witted and capable, who keeps the family's affairs in order and refuses to be left on the sidelines."
   },
   {
@@ -613,6 +636,7 @@ const CHARACTERS = [
     "year": 1511,
     "image": "images/characters/sofia-sartor.webp",
     "games": ["Assassin's Creed Revelations"],
+    "family": [{"id": 1, "relation": "husband"}],
     "description": "A Venetian bookseller in Constantinople who helps Ezio track down the keys to the library of Altaïr."
   },
   {
@@ -624,6 +648,7 @@ const CHARACTERS = [
     "year": 1715,
     "image": "images/characters/edward-kenway.webp",
     "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
+    "family": [{"id": 15, "relation": "son"}, {"id": 16, "relation": "grandson"}, {"id": 3, "relation": "descendant"}],
     "description": "A Welsh privateer turned pirate captain in the Caribbean, more interested in fortune and fame than in the war between Assassins and Templars he stumbles into."
   },
   {
@@ -635,6 +660,7 @@ const CHARACTERS = [
     "year": 1754,
     "image": "images/characters/haytham-kenway.webp",
     "games": ["Assassin's Creed III", "Assassin's Creed IV: Black Flag", "Assassin's Creed Rogue"],
+    "family": [{"id": 14, "relation": "father"}, {"id": 16, "relation": "son"}, {"id": 3, "relation": "descendant"}],
     "description": "Son of Edward Kenway, raised in London and trained from childhood with the sword. He sails to the American colonies to build the Templar Order there."
   },
   {
@@ -647,6 +673,7 @@ const CHARACTERS = [
     "year": 1760,
     "image": "images/characters/ratonhnhake-ton.webp",
     "games": ["Assassin's Creed III", "Assassin's Creed III: Liberation"],
+    "family": [{"id": 15, "relation": "father"}, {"id": 112, "relation": "mother"}, {"id": 14, "relation": "grandfather"}, {"id": 3, "relation": "descendant"}],
     "description": "A Kanien'kehá:ka (Mohawk) man who takes the name Connor and joins the Assassins to protect his people during the American Revolution."
   },
   {
@@ -680,6 +707,7 @@ const CHARACTERS = [
     "year": 1765,
     "image": "images/characters/aveline-de-grandpre.webp",
     "games": ["Assassin's Creed III: Liberation", "Assassin's Creed IV: Black Flag"],
+    "family": [{"id": 120, "relation": "stepmother"}],
     "description": "Daughter of a French merchant and an enslaved woman, raised in New Orleans, who moves between three personas to fight injustice in Louisiana."
   },
   {
@@ -756,6 +784,7 @@ const CHARACTERS = [
     "year": -49,
     "image": "images/characters/bayek-of-siwa.webp",
     "games": ["Assassin's Creed Origins"],
+    "family": [{"id": 27, "relation": "wife"}],
     "description": "One of the last Medjay, sworn protectors of Egypt's people, who leaves his village of Siwa to hunt down the masked men who tore his family apart."
   },
   {
@@ -768,6 +797,7 @@ const CHARACTERS = [
     "year": -48,
     "image": "images/characters/aya.webp",
     "games": ["Assassin's Creed Origins"],
+    "family": [{"id": 26, "relation": "husband"}],
     "description": "Bayek's wife, a sharp and determined warrior from Alexandria who carries their fight against a secret order from the banks of the Nile to the heart of Rome."
   },
   {
@@ -825,6 +855,7 @@ const CHARACTERS = [
     "year": 855,
     "image": "images/characters/eivor-varinsdottir.webp",
     "games": ["Assassin's Creed Valhalla"],
+    "family": [{"id": 33, "relation": "foster brother"}],
     "description": "A fierce Viking raider of the Raven Clan who leaves Norway with her brother Sigurd to carve out a new home for their people in ninth-century England."
   },
   {
@@ -836,6 +867,7 @@ const CHARACTERS = [
     "year": 855,
     "image": "images/characters/sigurd-styrbjornsson.webp",
     "games": ["Assassin's Creed Valhalla"],
+    "family": [{"id": 32, "relation": "foster sister"}],
     "description": "Eivor's adoptive brother and the son of a Norwegian jarl, a proud and restless leader who brings his clan across the sea to settle in England."
   },
   {
@@ -870,6 +902,7 @@ const CHARACTERS = [
     "year": 1776,
     "image": "images/characters/arno-dorian.webp",
     "games": ["Assassin's Creed Rogue", "Assassin's Creed Unity"],
+    "family": [{"id": 130, "relation": "adoptive father"}],
     "description": "A charming young Frenchman raised in a noble household at Versailles, who is drawn into the Assassins' fight amid the chaos of the French Revolution."
   },
   {
@@ -881,6 +914,7 @@ const CHARACTERS = [
     "year": 1776,
     "image": "images/characters/elise-de-la-serre.webp",
     "games": ["Assassin's Creed Unity"],
+    "family": [{"id": 130, "relation": "father"}],
     "description": "Arno's childhood love, the fearless and headstrong daughter of a Templar Grand Master, who meets the Revolution with a sword in her hand."
   },
   {
@@ -963,6 +997,7 @@ const CHARACTERS = [
     "year": 1918,
     "image": "images/characters/nikolai-orelov.webp",
     "games": ["Assassin's Creed Chronicles: Russia"],
+    "family": [{"id": 67, "relation": "descendant"}],
     "description": "A weary Russian Assassin in 1918, as revolution sweeps the country, who takes on one last mission before he hopes to start a new life with his family."
   },
   {
@@ -1054,6 +1089,7 @@ const CHARACTERS = [
     "year": 2012,
     "image": "images/characters/william-miles.webp",
     "games": ["Assassin's Creed Revelations", "Assassin's Creed III", "Assassin's Creed Origins"],
+    "family": [{"id": 3, "relation": "son"}],
     "description": "Desmond's father and a leader of the modern-day Assassins, a stern and demanding man who puts the Brotherhood first."
   },
   {
@@ -1116,6 +1152,7 @@ const CHARACTERS = [
     "image": "images/characters/callum-lynch.webp",
     "games": [],
     "stories": "Film: Assassin's Creed (2016)",
+    "family": [{"id": 58, "relation": "ancestor"}],
     "description": "A death-row prisoner who is taken by Abstergo and made to relive the memories of his ancestor Aguilar in the Animus."
   },
   {
@@ -1127,6 +1164,7 @@ const CHARACTERS = [
     "image": "images/characters/aguilar-de-nerha.webp",
     "games": [],
     "stories": "Film: Assassin's Creed (2016)",
+    "family": [{"id": 57, "relation": "descendant"}],
     "description": "An Assassin in fifteenth-century Andalusia, sworn to keep the Apple of Eden out of the hands of the Spanish Inquisition."
   },
   {
@@ -1150,6 +1188,7 @@ const CHARACTERS = [
     "image": "images/characters/charlotte-de-la-cruz.webp",
     "games": [],
     "stories": "Comics: Assassins, Uprising",
+    "family": [{"id": 62, "relation": "ancestor"}],
     "description": "An overqualified office worker in San Diego whose obsession with conspiracy theories leads her straight into the Assassins' secret war."
   },
   {
@@ -1174,6 +1213,7 @@ const CHARACTERS = [
     "image": "images/characters/tom-stoddard.webp",
     "games": [],
     "stories": "Comics: Assassins",
+    "family": [{"id": 60, "relation": "descendant"}],
     "description": "A seasoned Assassin in 1692 Salem, an ancestor of Charlotte de la Cruz, caught up in the witch trials as hysteria grips the town."
   },
   {
@@ -1208,6 +1248,7 @@ const CHARACTERS = [
     "image": "images/characters/albert-bolden.webp",
     "games": [],
     "stories": "Comics: Templars, Uprising",
+    "family": [{"id": 66, "relation": "son"}],
     "description": "A jazz trumpeter from Baltimore and a Templar in 1920s Shanghai, caught up in a struggle to root out corruption within the Order."
   },
   {
@@ -1221,6 +1262,7 @@ const CHARACTERS = [
     "image": "images/characters/andre-bolden.webp",
     "games": [],
     "stories": "Comics: Templars, Uprising",
+    "family": [{"id": 65, "relation": "father"}],
     "description": "Albert Bolden's son, an older man in 2016 whose family memories suddenly become of great interest to Abstergo."
   },
   {
@@ -1233,6 +1275,7 @@ const CHARACTERS = [
     "image": "images/characters/daniel-cross.webp",
     "games": ["Assassin's Creed III"],
     "stories": "Comics: The Fall, The Chain",
+    "family": [{"id": 44, "relation": "ancestor"}],
     "description": "A troubled drifter plagued by visions of his ancestor Nikolai Orelov, who is drawn into the war between the Assassins and the Templars."
   },
   {
@@ -1244,6 +1287,7 @@ const CHARACTERS = [
     "image": "images/characters/jonathan-hawk.webp",
     "games": [],
     "stories": "Graphic novels: Accipiter, Hawk, El Cakr, Leila",
+    "family": [{"id": 69, "relation": "ancestor"}],
     "description": "A London Assassin and a friend of Desmond Miles, sent to find a powerful ancient sceptre through the memories of his ancestor."
   },
   {
@@ -1256,6 +1300,7 @@ const CHARACTERS = [
     "image": "images/characters/numa-alkhamsin.webp",
     "games": [],
     "stories": "Graphic novels: Hawk, El Cakr, Leila",
+    "family": [{"id": 68, "relation": "descendant"}],
     "description": "An elite Assassin of the Egyptian Brotherhood in the fourteenth century, known as El Cakr, the Hawk, who guards a powerful ancient sceptre."
   },
   {
@@ -1267,6 +1312,7 @@ const CHARACTERS = [
     "image": "images/characters/aquilus.webp",
     "games": [],
     "stories": "Graphic novels: Desmond, Aquilus, Accipiter (the Ankh of Isis trilogy)",
+    "family": [{"id": 3, "relation": "descendant"}],
     "description": "An Assassin of the third-century Roman Empire, one of Desmond Miles' ancestors, whose memories hold the secret of an ancient artefact."
   },
   {
@@ -1461,6 +1507,7 @@ const CHARACTERS = [
     "image": "images/characters/maria-thorpe.webp",
     "games": ["Assassin's Creed", "Assassin's Creed II", "Assassin's Creed: Bloodlines", "Assassin's Creed Revelations"],
     "stories": "Novel: The Secret Crusade",
+    "family": [{"id": 2, "relation": "husband"}],
     "description": "An English Templar in Robert de Sablé's service, sharp-tongued and handy with a sword, who crosses paths with Altaïr in Jerusalem during the Third Crusade."
   },
   {
@@ -1485,6 +1532,7 @@ const CHARACTERS = [
     "image": "images/characters/maria-auditore-da-firenze.webp",
     "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood"],
     "stories": "Short film: Assassin's Creed: Lineage",
+    "family": [{"id": 11, "relation": "husband"}, {"id": 90, "relation": "son"}, {"id": 1, "relation": "son"}, {"id": 12, "relation": "daughter"}],
     "description": "Ezio's mother, a gracious Florentine noblewoman and patron of artists, and the warm heart of the Auditore household."
   },
   {
@@ -1497,6 +1545,7 @@ const CHARACTERS = [
     "image": "images/characters/federico-auditore-da-firenze.webp",
     "games": ["Assassin's Creed II"],
     "stories": "Short film: Assassin's Creed: Lineage",
+    "family": [{"id": 11, "relation": "father"}, {"id": 89, "relation": "mother"}, {"id": 1, "relation": "brother"}, {"id": 12, "relation": "sister"}, {"id": 10, "relation": "uncle"}],
     "description": "Ezio's carefree older brother, quick with a joke and a fist, who leads him on races across the rooftops of Florence."
   },
   {
@@ -1533,6 +1582,7 @@ const CHARACTERS = [
     "year": 1478,
     "image": "images/characters/jacopo-de-pazzi.webp",
     "games": ["Assassin's Creed II"],
+    "family": [{"id": 94, "relation": "nephew"}],
     "description": "The ageing head of the powerful Pazzi banking family, the Medici's great rivals for control of Florence."
   },
   {
@@ -1544,6 +1594,7 @@ const CHARACTERS = [
     "year": 1478,
     "image": "images/characters/francesco-de-pazzi.webp",
     "games": ["Assassin's Creed II"],
+    "family": [{"id": 93, "relation": "uncle"}],
     "description": "Jacopo's hot-headed nephew and Vieri's father, a Pazzi banker who burns with resentment of the Medici."
   },
   {
@@ -1611,6 +1662,7 @@ const CHARACTERS = [
     "year": 1511,
     "image": "images/characters/suleiman.webp",
     "games": ["Assassin's Creed Revelations"],
+    "family": [{"id": 101, "relation": "uncle"}],
     "description": "The Sultan's seventeen-year-old grandson, a curious and thoughtful young prince eager to learn everything Constantinople can teach him."
   },
   {
@@ -1623,6 +1675,7 @@ const CHARACTERS = [
     "year": 1511,
     "image": "images/characters/ahmet.webp",
     "games": ["Assassin's Creed Revelations"],
+    "family": [{"id": 100, "relation": "nephew"}],
     "description": "The Sultan's eldest son and favoured heir, Suleiman's uncle, a polished and persuasive prince with his eye on the Ottoman throne."
   },
   {
@@ -1748,6 +1801,7 @@ const CHARACTERS = [
     "year": 1754,
     "image": "images/characters/kaniehti-io.webp",
     "games": ["Assassin's Creed III"],
+    "family": [{"id": 16, "relation": "son"}],
     "description": "A Kanien'kehá:ka (Mohawk) woman fighting to protect her people's land, who crosses paths with Haytham Kenway in 1754."
   },
   {
@@ -1838,6 +1892,7 @@ const CHARACTERS = [
     "year": 1765,
     "image": "images/characters/madeleine-de-lisle.webp",
     "games": ["Assassin's Creed III: Liberation"],
+    "family": [{"id": 19, "relation": "stepdaughter"}],
     "description": "Aveline's elegant, well-connected stepmother, the wife of the wealthy New Orleans merchant Philippe de Grandpré."
   },
   {
@@ -1950,6 +2005,7 @@ const CHARACTERS = [
     "year": 1776,
     "image": "images/characters/francois-de-la-serre.webp",
     "games": ["Assassin's Creed Unity"],
+    "family": [{"id": 37, "relation": "daughter"}, {"id": 36, "relation": "adopted son"}],
     "description": "A nobleman of Versailles and Élise's father, who takes the orphaned young Arno into his family."
   },
   {
@@ -1996,6 +2052,7 @@ const CHARACTERS = [
     "year": 862,
     "image": "images/characters/abu-jafar-muhammad-ibn-musa.webp",
     "games": ["Assassin's Creed Mirage"],
+    "family": [{"id": 135, "relation": "brother"}, {"id": 136, "relation": "brother"}],
     "description": "One of the three Banu Musa brothers, scholars of Baghdad's House of Wisdom, who crafts and upgrades the Hidden Ones' tools for Basim."
   },
   {
@@ -2007,6 +2064,7 @@ const CHARACTERS = [
     "year": 862,
     "image": "images/characters/ahmad-ibn-musa.webp",
     "games": ["Assassin's Creed Mirage"],
+    "family": [{"id": 134, "relation": "brother"}, {"id": 136, "relation": "brother"}],
     "description": "One of the three Banu Musa brothers of Baghdad's House of Wisdom, an inventor with a gift for ingenious machines who works with the Hidden Ones."
   },
   {
@@ -2019,6 +2077,7 @@ const CHARACTERS = [
     "year": 862,
     "image": "images/characters/al-hasan-ibn-musa.webp",
     "games": ["Assassin's Creed Mirage"],
+    "family": [{"id": 134, "relation": "brother"}, {"id": 135, "relation": "brother"}],
     "description": "One of the three Banu Musa brothers, a scholar and engineer of the House of Wisdom who keeps a workshop for the Hidden Ones at Alamut."
   },
   {
@@ -2029,6 +2088,7 @@ const CHARACTERS = [
     "year": 862,
     "image": "images/characters/qabiha.webp",
     "games": ["Assassin's Creed Mirage"],
+    "family": [{"id": 138, "relation": "son"}],
     "description": "The mother of the murdered caliph's young son, who runs the harem in Baghdad and wields quiet influence at the Abbasid court."
   },
   {
@@ -2041,6 +2101,7 @@ const CHARACTERS = [
     "year": 861,
     "image": "images/characters/abu-abdallah.webp",
     "games": ["Assassin's Creed Mirage"],
+    "family": [{"id": 137, "relation": "mother"}],
     "description": "The young son of Caliph al-Mutawakkil and Qabiha, an Abbasid prince who will one day rule as Caliph al-Mu'tazz."
   },
   {
