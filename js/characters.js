@@ -42,7 +42,8 @@
    - batch 9 (2026-10-31): Mirage's Anbar, Alamut and Baghdad (ids
      132-139);
    - batch 10 (2026-11-01): Syndicate's London, and the Frye and Mir
-     families (ids 140-155).
+     families (ids 140-155);
+   - 2026-11-01: Unity's Marquis de Sade (id 156).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -268,6 +269,15 @@
    - Left out with one source only: the comic Assassin's Creed 1: Desmond
      (Al Mualim, Malik), Maria in the Revelations novel and the comic
      Reflections.
+   The Marquis de Sade (two more researchers, 2026-11-01): neither side.
+   The wiki's infobox lists "Assassins" among his affiliations, but
+   nothing in the game or the database makes him a member; he is a
+   self-serving ally. Born 1740 (Wikipedia, Britannica, the database).
+   First seen in 1789: a cameo in his Bastille cell as Arno is led past
+   (the wiki's transcript of "Imprisoned" alone, matching the real de
+   Sade shouting from his window that July); he meets Arno in 1791 and is
+   in Dead Kings. Not in Bowden's novel (its character list); no comics.
+   His title as the new King of Beggars stays out (a plot turn).
    Batch 10 (four more researchers, 2026-11-01), settled as follows:
    - Scope: two researchers listed everyone in Syndicate and its DLCs; the
      owner chose their six, the eight real people they work with, and
@@ -437,6 +447,8 @@
      (VR games are out of scope). Stories: Lineage (Wikipedia's cast) for
      Maria, Federico, Lorenzo and Uberto; the novels (wiki only) are left
      out.
+   The Marquis de Sade's portrait is the wiki's studio render of his
+   Unity model ("Development artwork"), in his white wig.
    Batch 10 portraits, all from the Assassin's Creed Wiki: Syndicate
    renders of Lucy Thorne, Bell, Dickens, Darwin, Marx, Nightingale and
    Queen Victoria; its database portraits of Abberline, Disraeli, Mary
@@ -2295,5 +2307,17 @@ const CHARACTERS = [
     "stories": "Graphic novel: Brahman; novel: Underworld",
     "family": [{"id": 43, "relation": "husband"}, {"id": 41, "relation": "son"}],
     "description": "A Sikh princess, granddaughter of Maharaja Ranjit Singh, and the woman the Assassin Arbaaz Mir has sworn to protect."
+  },
+  {
+    "id": 156,
+    "name": "Marquis de Sade",
+    "aka": ["Donatien Alphonse François de Sade"],
+    "group": "other",
+    "historical": true,
+    "born": "1740",
+    "year": 1789,
+    "image": "images/characters/marquis-de-sade.webp",
+    "games": ["Assassin's Creed Unity"],
+    "description": "The notorious libertine writer and aristocrat, a fellow prisoner of Arno's in the Bastille, who later becomes his mocking, self-serving ally, trading information for favours."
   }
 ]
