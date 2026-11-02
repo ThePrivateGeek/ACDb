@@ -30,6 +30,25 @@
         }
     };
 
+    // ---- Small copies of item images ----
+    // Cards and reading-order covers show an item's first image small, so they
+    // load its copy in images/thumbs/ when tools/build-thumbs.py made one
+    // (js/thumbs.js lists them). The full path goes in data-full, for
+    // loadFullImage to fall back to if the copy fails to load.
+    function thumbSrcAttrs(path) {
+        if (typeof AC_THUMBS === 'undefined' || !AC_THUMBS.has(path)) return `src="${escapeHTML(path)}"`;
+        return `src="${escapeHTML('images/thumbs/' + path.slice('images/'.length))}" data-full="${escapeHTML(path)}"`;
+    }
+
+    // Returns false when the image wasn't a copy (so it's really broken).
+    function loadFullImage(img) {
+        const full = img.dataset.full;
+        if (!full) return false;
+        delete img.dataset.full;
+        img.src = full;
+        return true;
+    }
+
     function debounce(fn, delay) {
         let timer;
         return function (...args) {
@@ -251,6 +270,8 @@
     // Expose on namespace
     A.escapeHTML = escapeHTML;
     A.store = store;
+    A.thumbSrcAttrs = thumbSrcAttrs;
+    A.loadFullImage = loadFullImage;
     A.debounce = debounce;
     A.formatCondition = formatCondition;
     A.slugify = slugify;

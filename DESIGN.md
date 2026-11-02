@@ -415,6 +415,7 @@ None of these are optional for new UI:
   - Item images use `alt` with the item name.
   - Covers next to a visible title use `alt=""`.
   - Images below the first screen get `loading="lazy"`.
+  - Anywhere an item's first image is shown small (cards, reading-order covers), build the `<img>` with `A.thumbSrcAttrs(path)` so it loads the small copy from `images/thumbs/`, and send its `error` event to `A.loadFullImage(img)` so a missing copy falls back to the full image. The item window and lightbox show the full image.
 - **Numbers:** lining figures are set site-wide (`font-variant-numeric: lining-nums` on `body`, and form controls inherit it). Don't override it.
 
 ## 11. Allowed exceptions

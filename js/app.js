@@ -732,7 +732,7 @@ window.ACDB = window.ACDB || {};
 
         const thumbPath = Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : null;
         const imageHTML = thumbPath
-            ? `<img src="${escapeHTML(thumbPath)}" alt="${escapeHTML(item.name)}" loading="lazy">
+            ? `<img ${ACDB.thumbSrcAttrs(thumbPath)} alt="${escapeHTML(item.name)}" loading="lazy">
                <svg viewBox="0 0 100 100" class="placeholder-icon" style="display:none;">
                    <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/>
                </svg>`
@@ -769,10 +769,12 @@ window.ACDB = window.ACDB || {};
             </div>
         `;
 
-        // Handle broken images — show placeholder SVG
+        // Handle broken images: a missing small copy falls back to the full
+        // image, anything else shows the placeholder SVG
         const cardImg = card.querySelector('.card-image img');
         if (cardImg) {
             cardImg.addEventListener('error', function () {
+                if (ACDB.loadFullImage(this)) return;
                 this.style.display = 'none';
                 this.nextElementSibling.style.display = 'flex';
             });

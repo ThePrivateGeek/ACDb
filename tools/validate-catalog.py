@@ -56,6 +56,10 @@ Checks:
   worker     the highest item id is within CATALOG_MAX_ID in
              worker/acdb-worker.js (the Worker counts no higher ids towards
              the leaderboard); a warning when fewer than 25 ids are left
+  thumbs     every card image (each item's first image) has an up-to-date
+             entry from tools/build-thumbs.py, and its small copy when it
+             has one; js/thumbs.js matches images/thumbs/manifest.json; a
+             warning for copies no card uses
 """
 from __future__ import annotations
 
@@ -84,6 +88,12 @@ CEILING_WARN_MARGIN = 25
 _spec = importlib.util.spec_from_file_location("share_pages", ROOT / "tools" / "build-share-pages.py")
 share_pages = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(share_pages)
+
+# And the thumbnail builder's paths and fingerprints (it loads Pillow only
+# when it makes a copy, so the validator doesn't need Pillow).
+_spec = importlib.util.spec_from_file_location("thumbs", ROOT / "tools" / "build-thumbs.py")
+thumbs = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(thumbs)
 
 REQUIRED = {
     "id": int,
@@ -632,6 +642,36 @@ def check_worker_ceiling(highest_id, errors, warnings):
         warnings.append(f"item ids are close to the Worker's ceiling: {advice}")
 
 
+def check_thumbs(images, errors, warnings):
+    advice = "run python3 tools/build-thumbs.py"
+    manifest = thumbs.load_manifest()
+    if manifest.get("settings") != thumbs.SETTINGS:
+        errors.append(f"card thumbnails are missing or were made with other settings: {advice}")
+        return
+    entries = manifest["images"]
+    cards = {paths[0] for paths in images.values() if paths}
+    stale = []
+    for rel in sorted(cards):
+        if not (ROOT / rel).is_file():
+            continue  # reported with the item
+        entry = entries.get(rel)
+        if (not entry or entry["source"] != thumbs.fingerprint(rel)
+                or (entry["thumb"] and not (ROOT / thumbs.thumb_path(rel)).is_file())):
+            stale.append(rel)
+    if stale:
+        shown = ", ".join(stale[:3]) + (f" and {len(stale) - 3} more" if len(stale) > 3 else "")
+        errors.append(f"{len(stale)} card image(s) new, replaced or missing their small copy ({shown}): {advice}")
+    with_thumb = {rel for rel, entry in entries.items() if entry["thumb"]}
+    if thumbs.read_thumbs_js() != with_thumb:
+        errors.append(f"js/thumbs.js doesn't match images/thumbs/manifest.json: {advice}")
+    leftovers = sorted(set(entries) - cards)
+    wanted = {thumbs.thumb_path(rel) for rel in with_thumb}
+    strays = sorted(p.relative_to(ROOT).as_posix() for p in thumbs.THUMBS_DIR.rglob("*.webp")
+                    if p.relative_to(ROOT).as_posix() not in wanted)
+    if leftovers or strays:
+        warnings.append(f"images/thumbs/ has copies or entries no card uses ({', '.join((leftovers + strays)[:3])}): {advice}")
+
+
 def main():
     errors, warnings = [], []
     items = share_pages.load_database()
@@ -740,6 +780,7 @@ def main():
     check_collects(items, errors)
     check_slug_aliases(items, errors, warnings)
     check_worker_ceiling(highest_id, errors, warnings)
+    check_thumbs(images, errors, warnings)
 
     for w in warnings:
         print(f"warning: {w}")

@@ -48,6 +48,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
   - Images are WebP, in `images/<subdir>/`.
   - Gallery images are `name_01.webp`, `name_02.webp`, and so on.
   - If you're given a jpg or png, convert it first with `python3 tools/convert-to-webp.py`.
+  - Cards and reading-order covers load a small copy of an item's first image from `images/thumbs/` (made by `tools/build-thumbs.py`, listed in `js/thumbs.js`). Never edit those by hand; rerun the tool.
 - **Read links:**
   - `read` holds an Internet Archive book *path*, not a URL; `readUrl()` builds the link.
   - Parentheses must be encoded as `%28` and `%29`.
@@ -66,6 +67,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
 | `python3 tools/validate-catalog.py` | After any data change. It also runs as the pre-commit hook (`git config core.hooksPath .githooks`). Fix reported entries; don't skip the hook. |
 | `python3 tools/build-share-pages.py` | After adding, renaming or removing items (writes `s/<slug>.html` share pages) |
 | `python3 tools/build-images.py` | After adding or removing gallery images (`_NN.webp`) |
+| `python3 tools/build-thumbs.py` | After adding, replacing or removing item images: writes the small card copies in `images/thumbs/` and `js/thumbs.js` (only redoes what changed; the validator fails until it's run) |
 | `python3 tools/flag-large-images.py` | Sanity check after adding images |
 | `python3 tools/make-portrait.py <image> <slug> --box L,T,W` | A character portrait: crops a 3:4 box and writes `images/characters/<slug>.webp` (300x400); then set the character's `image` |
 | `node tools/test-sync-merge.mjs` | After touching the sync merge rules in `js/sync.js` |

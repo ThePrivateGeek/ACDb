@@ -392,7 +392,7 @@
                 <li class="reading-entry${data.hasRead ? ' read' : ''}" data-entry="${item.id}" value="${idx + 1}">
                     <span class="reading-num">${idx + 1}</span>
                     <button class="reading-cover" data-open="${item.id}" aria-label="Open ${esc(item.name)}">
-                        ${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy">` : ''}
+                        ${thumb ? `<img ${A.thumbSrcAttrs(thumb)} alt="" loading="lazy">` : ''}
                     </button>
                     <div class="reading-info">
                         <button class="reading-title" data-open="${item.id}" title="${esc(item.name)}">${esc(shortTitle(item))}</button>
@@ -569,7 +569,7 @@
                 </ol>
             </nav>
             <div class="series-head">
-                <span class="series-head-cover">${thumb ? `<img src="${esc(thumb)}" alt="">` : ''}</span>
+                <span class="series-head-cover">${thumb ? `<img ${A.thumbSrcAttrs(thumb)} alt="">` : ''}</span>
                 <div class="series-head-body">
                     <h3 class="series-head-title">${esc(series.label)}</h3>
                     <p class="series-head-meta">${meta}</p>
@@ -620,7 +620,7 @@
             return `
                 <li>
                     <a class="series-row${done ? ' done' : ''}" href="${seriesHash(series)}" title="${esc(series.name)}">
-                        <span class="series-cover">${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy">` : ''}</span>
+                        <span class="series-cover">${thumb ? `<img ${A.thumbSrcAttrs(thumb)} alt="" loading="lazy">` : ''}</span>
                         <span class="series-info">
                             <span class="series-name">${esc(series.label)}</span>
                             <span class="series-meta">${esc(kinds.charAt(0).toUpperCase() + kinds.slice(1))}${when ? ` · ${esc(when)}` : ''}</span>
@@ -717,6 +717,12 @@
         if (fold.open) open.add(fold.dataset.section);
         else open.delete(fold.dataset.section);
         updateFoldAll();
+    }, true);
+
+    // A cover's small copy failed to load: use the full image. Error events
+    // don't bubble either.
+    content.addEventListener('error', (e) => {
+        if (e.target.tagName === 'IMG') A.loadFullImage(e.target);
     }, true);
 
     content.addEventListener('change', (e) => {

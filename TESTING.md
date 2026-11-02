@@ -65,6 +65,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Each card shows its item id (e.g. `#14` for the Assassin's Creed III Freedom Edition) in a grey pill at the right end of the gold game line; a long game name ("Assassin's Creed IV: Black Flag") wraps in full with the pill on its first line
 - [ ] List view works (toggle button). On wide screens each row ends with the year then the id pill, and both line up in straight columns down the list whatever the type, condition or Owned/Wishlist/Read badges (which sit between the title and the year). On phones the id stays at the end of the game line (clear of the NEW sticker)
 - [ ] Cards with images display correctly (top crop)
+- [ ] Card images and reading-order covers load the small copy from `images/thumbs/` when `js/thumbs.js` lists the image (DevTools → Network, filter "thumbs"); the item window and lightbox load the full image. If a copy is missing (block its URL in DevTools), the card loads the full image instead of the placeholder
 - [ ] Cards without images show AC logo placeholder
 - [ ] Owned badge shows on owned items
 - [ ] Wishlist badge shows on wishlist items; Read badge on read books
@@ -176,7 +177,7 @@ The catalogue's categories are the Category options of the "Suggest a missing it
 - [ ] With no search text, a filter that matches nothing (e.g. Wishlist with an empty wishlist) shows the empty state *without* the suggest line
 - [ ] Footer **Suggest a missing item** opens the same form, empty
 - [ ] Leaderboard and profile dates read like "9 Oct 2026", as in the reading view
-- [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, share pages, and the old slugs in `js/slug-aliases.js`. For `js/games.js` it checks each game's kind, developer, platforms (known names, in the validator's `PLATFORMS` order), description (a warning past 300 characters), re-releases and URL slug, and each DLC's type; a lore place (`marker`) only on expansions and story DLCs of main, spin-off and handheld games with a year. For `js/characters.js` it checks each character's id (unique, each new one higher), name and URL slug, side, year, games (from `js/games.js`, main, spin-off or handheld only, in release order) and description (a warning past 300 characters), and that every item's `characters` lists existing ids, each once
+- [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, share pages, and the old slugs in `js/slug-aliases.js`. For `js/games.js` it checks each game's kind, developer, platforms (known names, in the validator's `PLATFORMS` order), description (a warning past 300 characters), re-releases and URL slug, and each DLC's type; a lore place (`marker`) only on expansions and story DLCs of main, spin-off and handheld games with a year. For `js/characters.js` it checks each character's id (unique, each new one higher), name and URL slug, side, year, games (from `js/games.js`, main, spin-off or handheld only, in release order) and description (a warning past 300 characters), and that every item's `characters` lists existing ids, each once. It fails when a card image is new or replaced and `python3 tools/build-thumbs.py` hasn't been run since
 - [ ] Collection data keyed by item id under `acdb_collection_v2`, each entry with an `updatedAt` edit time once edited; a name-keyed `acdb_collection` from before ids is migrated once on load (unmatched keys are dropped) and kept as a backup until 2027-01-03, after which it is removed from browsers that have `acdb_collection_v2`
 - [ ] Saved entries are normalized on load the way the Worker stores them (an unknown `condition` becomes blank, the edit time is kept); a saved collection that isn't valid JSON is copied to `acdb_collection_unreadable` and the site starts with an empty one
 - [ ] Storage blocked (DevTools → Application → Storage, or a browser set to block site data): the site still loads, an item link (`#<slug>`) opens the item, and the first edit shows "Couldn't save in this browser…" once
@@ -317,6 +318,6 @@ The Characters tab (`#characters`, `js/characters-view.js`) lists `js/characters
 - [ ] Page loads without errors
 - [ ] `python3 tools/validate-catalog.py` reports OK
 - [ ] New item appears in grid
-- [ ] New item's image displays
+- [ ] New item's image displays (after `python3 tools/build-thumbs.py`)
 - [ ] Filters show updated counts
 - [ ] Footer item count is correct

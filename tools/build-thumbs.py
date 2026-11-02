@@ -1,0 +1,209 @@
+#!/usr/bin/env python3
+"""
+build-thumbs.py - make the small copies of item images that cards show.
+
+Cards show each item's first image in a box about 360 x 200 px (reading-order
+covers are smaller still), but the image itself is often far bigger: some are
+over 4000 px wide and 1 MB. This makes a small WebP copy of each item's first
+image in js/images.js, under the same path in images/thumbs/:
+
+    images/statues/foo.webp  ->  images/thumbs/statues/foo.webp
+
+The item window, its gallery and the share pages keep the full images.
+
+A copy is kept only when it is at most half the size of the original (many
+originals are small already). js/thumbs.js lists the images that have a copy;
+the site loads the full image for the rest, and for any copy that fails to load.
+
+Run after adding, replacing or removing item images:
+
+    python3 tools/build-thumbs.py
+
+Only what changed is redone. images/thumbs/manifest.json keeps a fingerprint
+of each original, so a picture replaced under the same file name gets a new
+copy, and copies of images no card shows any more are deleted. Changing
+SETTINGS below remakes every copy. tools/validate-catalog.py fails when this
+needs running.
+
+Needs Pillow (pip install -r tools/requirements.txt).
+"""
+
+import hashlib
+import importlib.util
+import json
+import os
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+IMAGES_JS = ROOT / "js" / "images.js"
+THUMBS_JS = ROOT / "js" / "thumbs.js"
+THUMBS_DIR = ROOT / "images" / "thumbs"
+MANIFEST = THUMBS_DIR / "manifest.json"
+
+# Cards are up to about 360 x 200 CSS px and the image covers the box, top
+# first, so a copy is at least 600 px wide and 400 px tall: sharp on phones,
+# and wide images aren't blurred by the 200 px height. Never enlarged.
+SETTINGS = {"width": 600, "height": 400, "quality": 75, "method": 6}
+
+STR = r'"((?:[^"\\]|\\.)*)"'
+
+
+def fail(msg):
+    print(f"ERROR: {msg}", file=sys.stderr)
+    sys.exit(1)
+
+
+def thumb_path(rel):
+    """images/statues/foo.webp -> images/thumbs/statues/foo.webp"""
+    return "images/thumbs/" + rel[len("images/"):]
+
+
+def fingerprint(rel):
+    return hashlib.sha256((ROOT / rel).read_bytes()).hexdigest()[:16]
+
+
+def load_manifest():
+    if not MANIFEST.is_file():
+        return {"settings": None, "images": {}}
+    return json.loads(MANIFEST.read_text(encoding="utf-8"))
+
+
+def read_thumbs_js():
+    """The image paths js/thumbs.js lists."""
+    if not THUMBS_JS.is_file():
+        return set()
+    text = THUMBS_JS.read_text(encoding="utf-8")
+    return set(re.findall(STR, text[text.find("new Set(["):]))
+
+
+def card_images():
+    """The first image of every mapping in js/images.js, in file order, read
+    with the gallery builder's parser so the two tools agree."""
+    spec = importlib.util.spec_from_file_location("build_images", ROOT / "tools" / "build-images.py")
+    build_images = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(build_images)
+    _, items, _ = build_images.parse(IMAGES_JS.read_text(encoding="utf-8"))
+    return list(dict.fromkeys(item["base"] for item in items if item["kind"] == "entry"))
+
+
+def make_thumb(src):
+    from PIL import Image, ImageOps
+    import io
+
+    with Image.open(src) as im:
+        icc = im.info.get("icc_profile")
+        im = ImageOps.exif_transpose(im)
+        if im.mode not in ("RGB", "RGBA"):
+            im = im.convert("RGBA" if "A" in im.mode or "transparency" in im.info else "RGB")
+        w, h = im.size
+        scale = max(SETTINGS["width"] / w, SETTINGS["height"] / h)
+        if scale < 1:
+            im = im.resize((max(1, round(w * scale)), max(1, round(h * scale))), Image.Resampling.LANCZOS)
+        out = io.BytesIO()
+        extra = {"icc_profile": icc} if icc else {}
+        im.save(out, "WEBP", quality=SETTINGS["quality"], method=SETTINGS["method"], **extra)
+        return out.getvalue()
+
+
+def line_ending_for(path):
+    """Keep a file's line endings; new files get the platform's (CRLF on
+    Windows, matching a core.autocrlf checkout)."""
+    if path.is_file():
+        return "\r\n" if b"\r\n" in path.read_bytes() else "\n"
+    return "\r\n" if os.name == "nt" else "\n"
+
+
+def write_if_changed(path, text):
+    data = text.replace("\n", line_ending_for(path)).encode("utf-8")
+    if path.is_file() and path.read_bytes() == data:
+        return False
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(data)
+    return True
+
+
+def manifest_text(entries):
+    """JSON with one line per image, so a changed image is a one-line diff."""
+    rows = [f"    {json.dumps(rel, ensure_ascii=False)}: {json.dumps(entries[rel], sort_keys=True)}"
+            for rel in sorted(entries)]
+    return ("{\n"
+            f'  "settings": {json.dumps(SETTINGS)},\n'
+            '  "images": {\n' + ",\n".join(rows) + "\n  }\n}\n")
+
+
+def thumbs_js_text(paths):
+    lines = [
+        "// Generated by tools/build-thumbs.py: don't edit by hand, rerun the tool.",
+        "// Item images that have a small copy in images/thumbs/ (same path after",
+        "// \"images/\"). Cards and reading-order covers load the copy (js/utils.js).",
+        "const AC_THUMBS = new Set([",
+    ]
+    lines += [f"    {json.dumps(p, ensure_ascii=False)}," for p in sorted(paths)]
+    lines.append("]);")
+    return "\n".join(lines) + "\n"
+
+
+def main():
+    if not IMAGES_JS.is_file():
+        fail(f"Not found: {IMAGES_JS}")
+
+    manifest = load_manifest()
+    old = manifest["images"] if manifest.get("settings") == SETTINGS else {}
+    entries = {}
+    missing = []
+    made = 0
+
+    for rel in card_images():
+        if not rel.startswith("images/") or rel.startswith("images/thumbs/"):
+            fail(f"js/images.js: a card image must be under images/ (and not images/thumbs/): {rel}")
+        src = ROOT / rel
+        if not src.is_file():
+            missing.append(rel)
+            continue
+        source = fingerprint(rel)
+        entry = old.get(rel)
+        thumb = ROOT / thumb_path(rel)
+        if entry and entry["source"] == source and entry["thumb"] == thumb.is_file():
+            entries[rel] = entry
+            continue
+        data = make_thumb(src)
+        keep = len(data) * 2 <= src.stat().st_size
+        if keep:
+            thumb.parent.mkdir(parents=True, exist_ok=True)
+            thumb.write_bytes(data)
+        entries[rel] = {"source": source, "thumb": keep}
+        made += 1
+
+    with_thumb = {rel for rel, e in entries.items() if e["thumb"]}
+    wanted = {thumb_path(rel) for rel in with_thumb}
+    removed = 0
+    if THUMBS_DIR.is_dir():
+        for path in sorted(THUMBS_DIR.rglob("*.webp")):
+            if path.relative_to(ROOT).as_posix() not in wanted:
+                path.unlink()
+                removed += 1
+        for folder in sorted((p for p in THUMBS_DIR.rglob("*") if p.is_dir()), reverse=True):
+            if not any(folder.iterdir()):
+                folder.rmdir()
+
+    changed = [p.relative_to(ROOT).as_posix() for p, text in
+               ((MANIFEST, manifest_text(entries)), (THUMBS_JS, thumbs_js_text(with_thumb)))
+               if write_if_changed(p, text)]
+
+    full = sum((ROOT / rel).stat().st_size for rel in entries)
+    served = sum((ROOT / (thumb_path(rel) if rel in with_thumb else rel)).stat().st_size for rel in entries)
+    print(f"{len(with_thumb)} of {len(entries)} card images have a small copy "
+          f"({made} made or remade, {removed} removed, {len(entries) - made} unchanged).")
+    print(f"Every card viewed: {served / 1e6:.1f} MB instead of {full / 1e6:.1f} MB.")
+    if changed:
+        print("Updated " + ", ".join(changed) + ".")
+    if missing:
+        print(f"\nWARNING: {len(missing)} card image(s) in js/images.js not found on disk:", file=sys.stderr)
+        for p in missing:
+            print(f"  - {p}", file=sys.stderr)
+
+
+if __name__ == "__main__":
+    main()

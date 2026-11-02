@@ -29,7 +29,8 @@ It warns (but does not crash) about two kinds of drift between images.js and dis
     1. Missing: a base image referenced in images.js that doesn't exist on disk.
     2. Orphan: an image file under images/<subdir>/ that isn't referenced by any
        entry. Top-level images/ files (e.g. acdb-og.jpg, README screenshots) are
-       ignored — orphan scanning only recurses into subdirectories. The check is
+       ignored — orphan scanning only recurses into subdirectories, except
+       images/thumbs/ (tools/build-thumbs.py checks its own). The check is
        case-sensitive, matching GitHub Pages, so a foo.WEBP on disk that images.js
        spells foo.webp will be flagged.
 """
@@ -198,7 +199,7 @@ def find_orphans(claimed):
     """
     orphans = []
     for sub in sorted(IMAGES_DIR.iterdir()):
-        if not sub.is_dir():
+        if not sub.is_dir() or sub.name == "thumbs":  # tools/build-thumbs.py's small copies
             continue
         for path in sorted(sub.rglob("*")):
             if not path.is_file():
