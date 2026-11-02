@@ -2352,7 +2352,7 @@ const AC_DATABASE = [
     "description": "Novelization following the Eagle Bearer during the Peloponnesian War in ancient Greece, uncovering the Cult of Kosmos and her family's legacy. By Gordon Doherty.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [173, 174, 175, 176, 177, 178, 179, 180, 181]
+    "characters": [30, 173, 174, 175, 176, 177, 178, 179, 180, 181]
   },
   {
     "id": 221,
@@ -6198,7 +6198,7 @@ const AC_DATABASE = [
   {
     "id": 549,
     "name": "Hachette Issue #78 Baptiste",
-    "game": "Assassin's Creed IV: Black Flag",
+    "game": "Assassin's Creed III: Liberation",
     "year": 2020,
     "category": "Art & Reference",
     "description": "Issue #78 of Hachette Assassin's Creed: The Official Collection Magazine.",

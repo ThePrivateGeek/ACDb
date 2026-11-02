@@ -3196,7 +3196,7 @@ a.reading-title {
     margin-bottom: 0.5rem;
 }
 
-/* ---- Game DLC rows (the game dialog, js/games-view.js) ---- */
+/* ---- Game DLC rows (a game's page, js/games-view.js) ---- */
 .game-dlc-group + .game-dlc-group {
     margin-top: var(--s4);
 }
@@ -3600,59 +3600,52 @@ a.reading-title {
     text-align: center;
 }
 
-/* The game dialog: the item modal's frame (.modal, .modal-content,
-   .modal-details) with a box-art column on the left. It stacks at 1024px
-   with the item modal (.modal-content's !important rule). */
-.game-modal .modal-content {
-    grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+/* A game's page: the character page's header card (.character-head) with
+   the box art in the portrait's place, then its characters (the character
+   page's compact rows), its DLCs and its items */
+.game-head-cover {
+    display: block;
+    grid-row: span 4;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: var(--r-md);
 }
 
-.game-modal-cover {
-    padding: var(--s6);
-}
-
-.game-modal-cover img,
-.game-modal-nocover {
+.game-head-cover img {
     display: block;
     width: 100%;
-    max-width: 320px;
-    aspect-ratio: 3 / 4;
+    height: 100%;
     object-fit: cover;
-    border-radius: var(--r-md);
-    box-shadow: var(--shadow-pop);
 }
 
-.game-modal-nocover {
-    display: grid;
-}
-
-.game-modal-nocover svg {
-    width: 30%;
+.game-head-cover.game-nocover svg {
+    width: 40%;
     height: auto;
 }
 
-.game-modal .modal-meta {
-    margin-bottom: var(--s4);
-}
-
-.game-modal-links {
+.game-head-links {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--s2) var(--s5);
-    margin-bottom: var(--s5);
+    margin-top: var(--s4);
     font-size: var(--fs-md);
 }
 
-.game-modal-dlcs {
-    margin-bottom: var(--s3);
+/* The cast: a character page's game rows, with a portrait in the cover's place */
+.game-character {
+    grid-template-columns: 48px minmax(0, 1fr);
 }
 
-@media (max-width: 1024px) {
-    /* Stacked: a smaller cover, so the details start within the first screen */
-    .game-modal-cover img,
-    .game-modal-nocover {
-        max-width: 200px;
-    }
+/* "Show all N characters" folds a long cast on phones only */
+.game-cast-more {
+    display: none;
+}
+
+/* The DLCs run in columns on wide screens */
+.game-dlcs .game-dlc-list {
+    grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
+    gap: var(--s3) var(--s5);
 }
 
 @media (max-width: 768px) {
@@ -3877,7 +3870,8 @@ a.reading-title {
     font-size: var(--fs-sm);
 }
 
-/* The games they appear in: compact rows like the game dialog's DLCs */
+/* The games they appear in (and a game's characters): compact rows like a
+   game page's DLCs */
 .character-games {
     list-style: none;
     display: grid;
@@ -3950,8 +3944,30 @@ a.reading-title {
     }
 
     .character-head .character-description,
-    .character-head .character-progress {
+    .character-head .character-progress,
+    .game-head .game-head-links {
         grid-column: 1 / -1;
+    }
+
+    /* The facts are long (platforms, re-releases): they run full width
+       under the cover */
+    .game-head {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .game-head-cover {
+        grid-row: auto;
+        width: 96px;
+        margin-bottom: var(--s3);
+    }
+
+    .game-cast.is-folded > li:nth-child(n + 7) {
+        display: none;
+    }
+
+    .game-cast.is-folded + .game-cast-more {
+        display: inline-flex;
+        margin-top: var(--s3);
     }
 }
 

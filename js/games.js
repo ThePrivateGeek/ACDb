@@ -58,7 +58,7 @@
      type      "expansion" (adds a map or region, or is a headline Season
                Pass campaign; free or paid), "story" (missions in the
                existing world), "mode" (a game mode, e.g. River Raids) or
-               "discovery-tour". The game dialog groups DLCs by type.
+               "discovery-tour". A game's page groups DLCs by type.
      year      start year; required with "marker"
      marker    true when the DLC is set in another period than its game:
                it then gets its own place in the lore (expansions and

@@ -704,8 +704,8 @@ window.ACDB = window.ACDB || {};
             e.preventDefault();
             if (card.closest('#profileItemsGrid')) {
                 ACDB.openReadOnlyModal(item.id);
-            } else if (card.closest('#charactersView')) {
-                // A character's items open over their page
+            } else if (card.closest('#charactersView, #gamesView')) {
+                // A character's or a game's items open over their page
                 ACDB.openModalOverView(item.id);
             } else {
                 openModal(item.id);
@@ -890,39 +890,24 @@ window.ACDB = window.ACDB || {};
         history.back();
     }
 
-    // Same pattern for the game dialog opened over another view (a game row
-    // in Complete Lore): back closes it and leaves the view where it was.
-    let gameDialogPushed = false;
-    let gameDialogPushedHash = '';
-
-    function pushGameDialogState() {
-        gameDialogPushedHash = window.location.hash;
-        history.pushState(null, '', window.location.href);
-        gameDialogPushed = true;
+    // Back to where you were: following a link saves the scroll position
+    // and the link in the history entry being left, and coming back to it
+    // (Back, Forward) restores both. Pages that link to each other (a game
+    // row in Complete Lore, a game on a character's page) rely on it.
+    function rememberPlace(e) {
+        const link = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!link) return;
+        history.replaceState({ ...(history.state || {}), scrollY: window.scrollY, link: link.getAttribute('href') }, '');
     }
 
-    function popGameDialogState() {
-        if (!gameDialogPushed) return;
-        clearGameDialogState();
-        suppressNextPopstate = true;
-        history.back();
-    }
-
-    function isGameDialogPushed() {
-        return gameDialogPushed;
-    }
-
-    function clearGameDialogState() {
-        gameDialogPushed = false;
-        gameDialogPushedHash = '';
-    }
-
-    // The Games view's own address: #games, or #games/<slug> with a game
-    // open. Like setHash/clearHash for items, opening and closing push.
-    function setGamesHash(slug) {
-        suppressHashChange = true;
-        history.pushState(null, '', slug ? '#games/' + slug : '#games');
-        suppressHashChange = false;
+    function restorePlace() {
+        const place = history.state;
+        if (!place || typeof place.scrollY !== 'number') return;
+        window.scrollTo({ top: place.scrollY, behavior: 'instant' });
+        if (!place.link) return;
+        const link = [...document.querySelectorAll('a[href]')].find(a =>
+            a.getAttribute('href') === place.link && a.tabIndex !== -1 && a.getClientRects().length > 0);
+        if (link) link.focus({ preventScroll: true });
     }
 
     function handleHash() {
@@ -946,18 +931,8 @@ window.ACDB = window.ACDB || {};
             if (hashUnchanged) return;
         }
 
-        // The same for a game dialog opened over a view
-        if (gameDialogPushed && ACDB.isGameDialogOpen()) {
-            const hashUnchanged = window.location.hash === gameDialogPushedHash;
-            ACDB.closeGameDialog({ silent: true });
-            if (hashUnchanged) return;
-        }
-
         const hash = window.location.hash.slice(1);
 
-        // Any route but another game's address closes an open game dialog
-        // (back from #games/<slug> to #games included)
-        if (ACDB.isGameDialogOpen() && !/^games\/./.test(hash)) ACDB.closeGameDialog({ silent: true });
         if (!hash) {
             // Hash cleared (back button) — close modal if open, show main content.
             // Use skipClearHash so closeModal doesn't re-push history state.
@@ -986,13 +961,15 @@ window.ACDB = window.ACDB || {};
         if (hash === 'reading' || hash.startsWith('reading/')) {
             if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true });
             ACDB.showReadingOrder(hash.slice('reading/'.length) || null);
+            restorePlace();
             return;
         }
 
-        // Games view (#games; #games/<slug> opens a game)
+        // Games view (#games; #games/<slug> is a game's page)
         if (hash === 'games' || hash.startsWith('games/')) {
             if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true });
             ACDB.showGames(hash.slice('games/'.length) || null);
+            restorePlace();
             return;
         }
 
@@ -1000,6 +977,7 @@ window.ACDB = window.ACDB || {};
         if (hash === 'characters' || hash.startsWith('characters/')) {
             if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true });
             ACDB.showCharacters(hash.slice('characters/'.length) || null);
+            restorePlace();
             return;
         }
 
@@ -1057,6 +1035,7 @@ window.ACDB = window.ACDB || {};
 
         // Filters
         // URL hash routing (back button support)
+        document.addEventListener('click', rememberPlace, true);
         window.addEventListener('popstate', () => {
             if (suppressNextPopstate) {
                 suppressNextPopstate = false;
@@ -1360,8 +1339,6 @@ window.ACDB = window.ACDB || {};
                     closeShareModal();
                 } else if (dom.devToolOverlay.classList.contains('active')) {
                     closeDevTool();
-                } else if (ACDB.isGameDialogOpen()) {
-                    ACDB.closeGameDialog();
                 } else if (dom.modalOverlay.classList.contains('active')) {
                     closeModal();
                 }
@@ -1708,11 +1685,6 @@ window.ACDB = window.ACDB || {};
     A.handleHash = handleHash;
     A.pushReadOnlyHistoryState = pushReadOnlyHistoryState;
     A.popReadOnlyHistoryState = popReadOnlyHistoryState;
-    A.pushGameDialogState = pushGameDialogState;
-    A.popGameDialogState = popGameDialogState;
-    A.isGameDialogPushed = isGameDialogPushed;
-    A.clearGameDialogState = clearGameDialogState;
-    A.setGamesHash = setGamesHash;
     A.pushLightboxHistoryState = pushLightboxHistoryState;
     A.popLightboxHistoryState = popLightboxHistoryState;
 

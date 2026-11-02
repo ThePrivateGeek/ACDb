@@ -6,7 +6,7 @@
    as a card, A to Z or in story order (under era headings), with search
    and faction and game chips. #characters/<slug> is a character's page:
    who they are, the games they appear in and their items in the
-   collection. */
+   collection; its games link to their pages on the Games tab. */
 
 (function () {
     'use strict';
@@ -316,7 +316,7 @@
         const slug = A.gameUrlSlug(game);
         return `
             <li>
-                <a class="character-game" href="#games/${slug}" data-game-dialog="${esc(game.name)}">
+                <a class="character-game" href="#games/${slug}">
                     <span class="game-dlc-cover">${game.image ? `<img src="${esc(game.image)}" alt="" loading="lazy">` : A.GAME_ICON}</span>
                     <span class="game-dlc-body">
                         <span class="game-kind">${esc(A.gameKindLine(game))}</span>
@@ -325,6 +325,28 @@
                     </span>
                 </a>
             </li>`;
+    }
+
+    // A game page's cast (js/games-view.js): the same compact rows, with a
+    // small portrait, the side, the name and "Born 1459 · Renaissance"
+    function characterRowHTML(character) {
+        const esc = A.escapeHTML;
+        const kind = kindLine(character);
+        return `
+            <li>
+                <a class="character-game game-character" href="#characters/${characterSlug(character)}">
+                    ${portraitHTML(character, 'game-character-portrait', true)}
+                    <span class="game-dlc-body">
+                        ${kind ? `<span class="game-kind">${esc(kind)}</span>` : ''}
+                        <span class="game-dlc-name">${esc(character.name)}</span>
+                        <span class="reading-meta"><span>${esc(bornLine(character))}</span></span>
+                    </span>
+                </a>
+            </li>`;
+    }
+
+    function charactersOfGame(name) {
+        return CHARACTERS.filter(c => c.games.includes(name)).sort(byName);
     }
 
     function pageHTML(character) {
@@ -456,11 +478,11 @@
         render(changed);
         restoreChipRows(chipScrolls);
         if (slug) {
-            if (prevSlug !== slug) window.scrollTo(0, 0);
+            if (prevSlug !== slug) window.scrollTo({ top: 0, behavior: 'instant' });
         } else if (prevSlug) {
-            window.scrollTo(0, listScroll);
+            window.scrollTo({ top: listScroll, behavior: 'instant' });
         } else if (!wasVisible) {
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'instant' });
         }
         if (!changed || !focusWasHere) return;
         // The link that was clicked is gone: move focus to what replaced it
@@ -489,15 +511,6 @@
     });
 
     content.addEventListener('click', (e) => {
-        // A game row opens the game's dialog over the page (closing it
-        // returns here, as from Complete Lore); a modified click still
-        // opens the Games tab in a new tab
-        const gameLink = e.target.closest('[data-game-dialog]');
-        if (gameLink && e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey) {
-            e.preventDefault();
-            A.openGameDialog(GAMES.find(g => g.name === gameLink.dataset.gameDialog), { overView: true, opener: gameLink });
-            return;
-        }
         const modeBtn = e.target.closest('[data-characters-mode]');
         if (modeBtn) {
             setMode(modeBtn.dataset.charactersMode);
@@ -545,6 +558,8 @@
     A.refreshCharactersView = refreshCharactersView;
     A.characterSlug = characterSlug;
     A.findCharacterById = findCharacterById;
+    A.charactersOfGame = charactersOfGame;   // a game's page (js/games-view.js)
+    A.characterRowHTML = characterRowHTML;
     A.isCharacterPageOpen = (character) => isVisible() && currentSlug === characterSlug(character);
 
 })();

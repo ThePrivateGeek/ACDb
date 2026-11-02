@@ -171,7 +171,7 @@
         });
     }
 
-    // A game's stories in Complete Lore, for links from the game dialog:
+    // A game's stories in Complete Lore, for links from the game's page:
     // { count, hash } (the order's game filter), or null when it has none.
     function loreLinkFor(name) {
         const lore = READING_ORDERS[0];
@@ -413,12 +413,12 @@
         };
 
         // A game or DLC: a marker between the books, unnumbered and not
-        // counted. It opens the game's dialog over the list (a DLC's row
-        // highlights the DLC); the link also works on its own (new tab).
+        // counted. It links to the game's page (a DLC's row highlights the
+        // DLC there).
         const gameRowHTML = (game) => {
             const href = `#games/${A.slugify(game.game)}`;
             const label = game.dlc ? `Story DLC · ${gameLabel(game.game)}` : 'Game';
-            const data = `data-game-dialog="${esc(game.game)}"${game.dlc ? ` data-dlc="${esc(game.name)}"` : ''}`;
+            const data = `data-game-row="${esc(game.game)}"${game.dlc ? ` data-dlc="${esc(game.name)}"` : ''}`;
             // A DLC without a cover of its own (free updates) keeps the icon
             const picture = game.image
                 ? `<a class="reading-cover reading-game-cover" href="${href}" ${data} aria-label="${esc(game.name)}: open the game" tabindex="-1"><img src="${esc(game.image)}" alt="" loading="lazy"></a>`
@@ -697,13 +697,11 @@
             flashRow(content.querySelector(`[data-entry="${jumpBtn.dataset.jump}"]`));
             return;
         }
-        // A game row opens the game's dialog over the list, like a book's
-        // title opens its item; a modified click still opens a new tab.
-        const gameLink = e.target.closest('[data-game-dialog]');
-        if (gameLink && e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey) {
-            e.preventDefault();
-            A.openGameDialog(GAMES.find(g => g.name === gameLink.dataset.gameDialog),
-                { overView: true, dlc: gameLink.dataset.dlc || null, opener: gameLink });
+        // A game row is a plain link to the game's page (Back returns to
+        // this spot in the list); a DLC's row also highlights the DLC there
+        const gameLink = e.target.closest('[data-game-row]');
+        if (gameLink) {
+            if (e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey) A.highlightDlcOnArrival(gameLink.dataset.dlc);
             return;
         }
         const openBtn = e.target.closest('[data-open]');
