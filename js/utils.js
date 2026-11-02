@@ -67,25 +67,6 @@
         return ARCHIVE_ITEM_URL + encodeArchivePath(read) + '/mode/2up';
     }
 
-    // Inverse of readUrl, for the dev tool: turns a reader URL copied from
-    // the address bar back into a book path. Other input is returned trimmed.
-    // While reading, the address grows a page and view mode
-    // (".../page/n4/mode/2up"), so both are dropped along with any query.
-    function readPathFromUrl(input) {
-        const value = input.trim();
-        if (!value.startsWith(ARCHIVE_ITEM_URL)) return value;
-        const path = value.slice(ARCHIVE_ITEM_URL.length)
-            .replace(/[?#].*$/, '')
-            .replace(/\/mode\/[^/]*$/, '')
-            .replace(/\/page\/[^/]*$/, '')
-            .replace(/\/$/, '');
-        try {
-            return decodeURIComponent(path);
-        } catch (e) {
-            return path;
-        }
-    }
-
     // 'smooth', or 'auto' for visitors who asked for reduced motion (CSS
     // can't reach scrolls started from script).
     function scrollBehavior() {
@@ -262,7 +243,6 @@
     A.showCelebration = showCelebration;
     A.launchConfetti = launchConfetti;
     A.readUrl = readUrl;
-    A.readPathFromUrl = readPathFromUrl;
     A.isReadable = isReadable;
     A.formatReleased = formatReleased;
     A.eraOf = eraOf;

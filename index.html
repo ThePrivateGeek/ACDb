@@ -209,10 +209,6 @@
                 <button id="viewList" class="seg-btn view-btn" title="List View" aria-label="List view" aria-pressed="false">
                     <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="17" width="18" height="3" rx="1"/></svg>
                 </button>
-                <button id="addItemBtn" class="btn btn-secondary add-item-btn" title="Add Custom Item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                    <span>Add Item</span>
-                </button>
             </div>
         </div>
     </div>
@@ -451,107 +447,6 @@
         <div class="lightbox-counter" id="lightboxCounter"></div>
     </div>
 
-    <!-- Dev Tool Modal -->
-    <div class="modal-overlay" id="devToolOverlay">
-        <div class="modal dev-tool-modal" id="devToolModal">
-            <button class="icon-btn modal-close" id="devToolClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-            <div class="dev-tool-content">
-                <h2 class="add-modal-title">Code Generator</h2>
-                <p class="add-modal-subtitle">Generate database.js and images.js entries</p>
-                <div class="dev-tool-layout">
-                    <div class="dev-tool-form">
-                        <div class="form-row">
-                            <label for="devName">Item Name *</label>
-                            <input type="text" id="devName" placeholder="e.g. Assassin's Creed Valhalla Ragnarök Edition">
-                        </div>
-                        <div class="form-row">
-                            <label class="toggle-label">
-                                <span>Game *</span>
-                                <label class="toggle-label-mini">
-                                    <span>New</span>
-                                    <div class="toggle-switch">
-                                        <input type="checkbox" id="devNewGame">
-                                        <span class="toggle-slider"></span>
-                                    </div>
-                                </label>
-                            </label>
-                            <select id="devGame">
-                                <option value="">Select game...</option>
-                            </select>
-                            <div id="devNewGameFields" style="display:none;">
-                                <input type="text" id="devNewGameName" placeholder="Full name, e.g. Assassin's Creed Hexe">
-                                <input type="text" id="devNewGameShort" placeholder="Short name for timeline, e.g. Hexe" style="margin-top:0.35rem;">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <label for="devYear">Year *</label>
-                            <input type="number" id="devYear" min="2007" max="2030" placeholder="2024">
-                        </div>
-                        <div class="form-row-group">
-                            <div class="form-row">
-                                <label for="devCategory">Category *</label>
-                                <select id="devCategory">
-                                    <option value="">Select category...</option>
-                                    <option value="Collector's Edition">Collector's Edition</option>
-                                    <option value="Special Edition">Special Edition</option>
-                                    <option value="Statue">Statue</option>
-                                    <option value="Figurine">Figurine</option>
-                                    <option value="Action Figure">Action Figure</option>
-                                    <option value="Art & Reference">Art & Reference</option>
-                                    <option value="Steelbook">Steelbook</option>
-                                    <option value="Replica/Prop">Replica/Prop</option>
-                                    <option value="Novel">Novel</option>
-                                    <option value="Comic Book">Comic Book</option>
-                                    <option value="Board & Card Games">Board & Card Games</option>
-                                    <option value="Puzzles">Puzzles</option>
-                                    <option value="Music">Music</option>
-                                    <option value="Drinkware">Drinkware</option>
-                                    <option value="Home Decor">Home Decor</option>
-                                    <option value="Jewelry & Accessories">Jewelry & Accessories</option>
-                                    <option value="Tech & Gadgets">Tech & Gadgets</option>
-                                </select>
-                            </div>
-                            <div class="form-row">
-                                <label for="devType">Type</label>
-                                <select id="devType">
-                                    <option value="">Select type...</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <label for="devSeries">Series</label>
-                            <input type="text" id="devSeries" list="devSeriesList" placeholder="Optional, e.g. Assassin's Creed: Assassins" autocomplete="off">
-                            <datalist id="devSeriesList"></datalist>
-                        </div>
-                        <div class="form-row">
-                            <label for="devDescription">Description</label>
-                            <textarea id="devDescription" rows="2" placeholder="Brief description..."></textarea>
-                        </div>
-                        <div class="form-row">
-                            <label for="devContents">Contents</label>
-                            <textarea id="devContents" rows="2" placeholder="What's included..."></textarea>
-                        </div>
-                        <div class="form-row">
-                            <label for="devRead">Read Link</label>
-                            <input type="text" id="devRead" placeholder="Optional: archive.org reader URL or book path, e.g. 07. AC Templars/AC Templars 2016 (3)">
-                        </div>
-                        <div class="form-row">
-                            <label for="devImagePath">Image Path</label>
-                            <input type="text" id="devImagePath" placeholder="images/statues/my-item.jpg">
-                        </div>
-                    </div>
-                    <div class="dev-tool-preview">
-                        <div class="dev-preview-header">
-                            <span>Generated Code</span>
-                            <button id="devCopyCode" class="btn btn-sm btn-primary">Copy Code</button>
-                        </div>
-                        <textarea id="devCodeOutput" readonly rows="20" placeholder="Fill in the form to generate code..."></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Share Modal -->
     <div class="modal-overlay" id="shareModalOverlay">
         <div class="modal share-modal">
@@ -733,7 +628,6 @@
     <script src="js/modal.js"></script>
     <script src="js/stats.js"></script>
     <script src="js/collection.js"></script>
-    <script src="js/devtool.js"></script>
     <script src="js/sync.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/sharing.js"></script>

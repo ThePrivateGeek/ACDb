@@ -39,8 +39,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
   - In `images.js`, insert in the right labelled section (Collector's Editions, Comics, Statues, Novels…) next to similar items, not at the end.
 - **Field values must match:**
   - `game` values must match `SHORT_GAME_NAMES` in `js/app.js`.
-  - Categories must match the dev tool list in `index.html`.
-  - If the category list changes, update the dropdown in `.github/ISSUE_TEMPLATE/missing-item.yml` too.
+  - Categories must match the Category list in `.github/ISSUE_TEMPLATE/missing-item.yml`. The validator reads its categories from there ("Not sure" isn't one), so a new category goes into that form first.
 - **Renaming an item** keeps the collection safe, but you must:
   - update its `images.js` key;
   - add old slug → id in `js/slug-aliases.js` (never remove alias entries);

@@ -287,7 +287,7 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
   A dialog with an address pushes it on open and pushes the view's address on close, like the item modal. Opened over another view, it pushes a duplicate history entry instead, so Back closes it (`ACDB.pushReadOnlyHistoryState` for the item modal).
 - Esc is handled in one place, the `keydown` listener in `initEvents()` in `js/app.js`, in priority order (account menu, lightbox, dropdown, then dialogs). **Add a new dialog there**; don't add a second Esc listener.
 - Esc, the overlay and the close button all close it, **unless a choice is required** (the first sign-in merge dialog has no close button and ignores Esc and overlay clicks).
-- Sizes: `.share-modal` is 480 px, for small dialogs. The item modal is 980 px; the item modal grows to 1300 px for a landscape image. The dev tool is 1100 px.
+- Sizes: `.share-modal` is 480 px, for small dialogs. The item modal is 980 px; the item modal grows to 1300 px for a landscape image.
 - A share button uses `ACDB.shareLink({ title, text, url })`: the native share sheet on touch devices (`ACDB.canWebShare`, which also decides its label, "Share this …"), otherwise copy and "Link copied!".
 - In a long scrolling dialog, keep close (and share) reachable with the sticky `.modal-actions` bar.
 - Actions go bottom right in `.form-actions`, with the primary last and danger on the far left.
@@ -430,7 +430,7 @@ These keep literal values on purpose. Don't "fix" them, and don't copy them else
 
 Older code that doesn't meet this book yet. Fix it when you're working on that screen anyway; don't spread it:
 
-- The item, share and dev-tool dialogs lack `role="dialog" aria-modal="true" aria-labelledby` (the merge dialog has them), and they don't trap focus or return it to the opener on close. Section 6, Dialogs, lists what a dialog needs.
+- The item and share dialogs lack `role="dialog" aria-modal="true" aria-labelledby` (the merge dialog has them), and they don't trap focus or return it to the opener on close. Section 6, Dialogs, lists what a dialog needs.
 - A header-nav click while a dialog is open over a view (the item modal over a reading order or a page) leaves its duplicate history entry behind, so Back takes one extra step.
 - Some per-view rules still use literal `rem` values for padding and margin instead of `--s*` tokens. New rules use tokens.
 - Views switch with `style.display` (from before the `[hidden]` rule). New parts use `hidden`.

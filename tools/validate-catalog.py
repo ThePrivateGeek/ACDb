@@ -17,7 +17,8 @@ Checks:
   names      present and unique; no two names produce the same URL slug
   fields     required fields present with the right type
   values     game is on the timeline (SHORT_GAME_NAMES in js/app.js), category
-             is one the dev tool offers (index.html), year is plausible
+             is one the "Suggest a missing item" form offers
+             (.github/ISSUE_TEMPLATE/missing-item.yml), year is plausible
   images     every item has a mapping in js/images.js, every mapped file
              exists, and no mapping points at an item that doesn't exist
   read       archive paths are plain (unencoded) and readLang only appears
@@ -66,7 +67,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 APP_JS = ROOT / "js" / "app.js"
 IMAGES_JS = ROOT / "js" / "images.js"
-INDEX_HTML = ROOT / "index.html"
+ISSUE_FORM = ROOT / ".github" / "ISSUE_TEMPLATE" / "missing-item.yml"
 SHARE_DIR = ROOT / "s"
 UTILS_JS = ROOT / "js" / "utils.js"
 READING_ORDERS_JS = ROOT / "js" / "reading-orders.js"
@@ -142,13 +143,19 @@ def load_game_names():
     return set(re.findall(r'^\s*' + STR + r'\s*:', m.group(1), re.M))
 
 
+# The catalogue's categories are the ones the "Suggest a missing item" form
+# offers visitors, so the two can't drift apart ("Not sure" is the form's
+# own way out, not a category)
 def load_categories():
-    text = INDEX_HTML.read_text(encoding="utf-8")
-    m = re.search(r'<select id="devCategory">(.*?)</select>', text, re.S)
+    text = ISSUE_FORM.read_text(encoding="utf-8")
+    m = re.search(r"^\s*id: category\s*$(.*?)^\s*validations:", text, re.S | re.M)
     if not m:
-        raise SystemExit("validate-catalog: could not find the devCategory list in index.html")
-    values = re.findall(r'<option value="([^"]+)"', m.group(1))
-    return {v.replace("&amp;", "&") for v in values}
+        raise SystemExit("validate-catalog: could not find the category list in " + str(ISSUE_FORM.relative_to(ROOT)))
+    values = {v.strip().strip("'\"") for v in re.findall(r"^\s*- (.+)$", m.group(1), re.M)}
+    values.discard("Not sure")
+    if not values:
+        raise SystemExit("validate-catalog: the category list in " + str(ISSUE_FORM.relative_to(ROOT)) + " is empty")
+    return values
 
 
 def load_image_mappings():
@@ -663,7 +670,7 @@ def main():
         if isinstance(item.get("game"), str) and item["game"] not in games:
             errors.append(f"{label}: game \"{item['game']}\" is not in SHORT_GAME_NAMES (js/app.js)")
         if isinstance(item.get("category"), str) and item["category"] not in categories:
-            errors.append(f"{label}: category \"{item['category']}\" is not one of the dev tool's categories")
+            errors.append(f"{label}: category \"{item['category']}\" is not one of the categories in the missing-item form (.github/ISSUE_TEMPLATE/missing-item.yml)")
         year = item.get("year")
         if isinstance(year, int) and not (FIRST_YEAR <= year <= max_year):
             errors.append(f"{label}: year {year} is outside {FIRST_YEAR}-{max_year}")

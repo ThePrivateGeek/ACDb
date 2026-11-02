@@ -65,7 +65,7 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 
 Your collection is stored in your browser's LocalStorage. Unless you sign in or share, nothing is sent to any server. You can back up your data anytime with **Back up to file** in the account menu (top right), and restore it with **Restore from file**. Filters are remembered between visits.
 
-Every entry in `js/database.js` carries a permanent numeric `id`, and collections, exports, and shared profiles are keyed by it, so item names can be corrected without affecting anyone's data. Item links are made from the name, so when an item is renamed, add its old slug to `js/slug-aliases.js`: old links then still open the item (the address switches to the new slug), and the share page builder keeps a page at the old `s/` address. New entries take the next unused number (the dev tool fills it in); an id is never changed or reused, even if its item is removed. Collections saved before ids existed are migrated once on load; entries whose name no longer matches an item are dropped. The old name-keyed copy stays in LocalStorage as a backup until January 2027, when it is deleted automatically.
+Every entry in `js/database.js` carries a permanent numeric `id`, and collections, exports, and shared profiles are keyed by it, so item names can be corrected without affecting anyone's data. Item links are made from the name, so when an item is renamed, add its old slug to `js/slug-aliases.js`: old links then still open the item (the address switches to the new slug), and the share page builder keeps a page at the old `s/` address. New entries take the next unused number; an id is never changed or reused, even if its item is removed. Collections saved before ids existed are migrated once on load; entries whose name no longer matches an item are dropped. The old name-keyed copy stays in LocalStorage as a backup until January 2027, when it is deleted automatically.
 
 Just open the site, browse the database, and click any item to track it in your collection.
 
@@ -130,7 +130,6 @@ js/
   reading.js     — reading order view and the item modal's reading order line
   games-view.js  — Games tab: release grid, story timeline, game pages
   characters-view.js — Characters tab: A–Z and story order, character pages
-  devtool.js     — admin code generator
   app.js         — filters, rendering, routing, events, init
 css/
   style.css      — design tokens and shared components first, then per-view styles

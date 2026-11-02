@@ -22,7 +22,6 @@ window.ACDB = window.ACDB || {};
     const API_URL = 'https://api.acdb.workers.dev';
     const SHARE_TOKEN_KEY = 'acdb_share_token';
     const SHARE_NAME_KEY = 'acdb_share_name';
-    const isAdmin = localStorage.getItem('acdb_admin') === 'true';
 
     let collection = loadCollection();
 
@@ -213,10 +212,6 @@ window.ACDB = window.ACDB || {};
         statsByCategory: document.getElementById('statsByCategory'),
         statsByCondition: document.getElementById('statsByCondition'),
         statsReading: document.getElementById('statsReading'),
-        // Dev Tool
-        addItemBtn: document.getElementById('addItemBtn'),
-        devToolOverlay: document.getElementById('devToolOverlay'),
-        devToolClose: document.getElementById('devToolClose'),
     };
 
     // ---- Collection Persistence ----
@@ -782,10 +777,6 @@ window.ACDB = window.ACDB || {};
     const galleryNext = ACDB.galleryNext;
     const lightbox = ACDB.lightbox;
 
-    // ---- Dev Tool — moved to devtool.js ----
-    const openDevTool = ACDB.openDevTool;
-    const closeDevTool = ACDB.closeDevTool;
-    const generateCode = ACDB.generateCode;
 
 
     // Number of active filter values, on the phone "Filters" button. Also marks
@@ -1414,8 +1405,6 @@ window.ACDB = window.ACDB || {};
                     openDropdown.classList.remove('open');
                 } else if (document.getElementById('shareModalOverlay').classList.contains('active')) {
                     closeShareModal();
-                } else if (dom.devToolOverlay.classList.contains('active')) {
-                    closeDevTool();
                 } else if (dom.modalOverlay.classList.contains('active')) {
                     closeModal();
                 }
@@ -1582,36 +1571,6 @@ window.ACDB = window.ACDB || {};
                 clearHash();
             }
         });
-        // Dev Tool
-        dom.addItemBtn.addEventListener('click', openDevTool);
-        dom.devToolClose.addEventListener('click', closeDevTool);
-        dom.devToolOverlay.addEventListener('click', (e) => {
-            if (e.target === dom.devToolOverlay) closeDevTool();
-        });
-
-        // Dev Tool — live code generation on any input change
-        const devFields = ['devName', 'devGame', 'devYear', 'devCategory', 'devType', 'devSeries',
-            'devDescription', 'devContents', 'devRead', 'devImagePath', 'devNewGameName', 'devNewGameShort'];
-        devFields.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.addEventListener('input', generateCode);
-            if (el && el.tagName === 'SELECT') el.addEventListener('change', generateCode);
-        });
-
-        // New Game toggle
-        document.getElementById('devNewGame').addEventListener('change', (e) => {
-            const isNew = e.target.checked;
-            document.getElementById('devGame').style.display = isNew ? 'none' : '';
-            document.getElementById('devNewGameFields').style.display = isNew ? '' : 'none';
-            generateCode();
-        });
-
-        // Copy Code button
-        document.getElementById('devCopyCode').addEventListener('click', () => {
-            const code = document.getElementById('devCodeOutput').value;
-            if (!code) return;
-            navigator.clipboard.writeText(code).then(() => showToast('Code copied to clipboard!', 'success'));
-        });
 
         // Collection field interdependencies
         dom.modalOwned.addEventListener('change', () => {
@@ -1674,11 +1633,6 @@ window.ACDB = window.ACDB || {};
         // anything reads the hash.
         ACDB.consumeAuthRedirect();
 
-        // Hide admin-only buttons for public visitors
-        if (!isAdmin) {
-            dom.addItemBtn.style.display = 'none';
-        }
-
         // The toolbar sticks just under the header, whose height changes with
         // the layout (tabs wrap to their own row on narrower screens).
         const header = document.querySelector('.main-header');
@@ -1716,7 +1670,6 @@ window.ACDB = window.ACDB || {};
     A.SHARE_NAME_KEY = SHARE_NAME_KEY;
     A.SHORT_GAME_NAMES = SHORT_GAME_NAMES;
     A.GAME_ORDER = GAME_ORDER;
-    A.isAdmin = isAdmin;
 
     // ---- Expose shared state & functions for other modules ----
     A.dom = dom;

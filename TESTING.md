@@ -149,18 +149,11 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Back from a game's page returns to where you came from, scrolled where you were, with focus on the link you followed: the Games list, Complete Lore, a character's page
 - [ ] `#characters` opens the Characters tab; `#characters/ezio-auditore-da-firenze` opens Ezio's page; `#characters/nope` shows the list and the address becomes `#characters`
 
-## 14. Admin / Dev Tool
-- [ ] `localStorage.setItem('acdb_admin', 'true')` shows "Add Item" button
-- [ ] Clicking "Add Item" opens the Code Generator
-- [ ] Game dropdown populates with all games
-- [ ] Type dropdown populates with all types
-- [ ] "New" game toggle shows/hides game input fields
-- [ ] Code preview updates live as you type
-- [ ] Generated entry starts with `"id"`, set to one more than the highest id in use
-- [ ] Read Link field adds a `"read"` line after `"series"`. Pasting an archive.org reader URL from the anthology emits the plain book path, e.g. `07. AC Templars/AC Templars 2016 (3)`
-- [ ] New game generates app.js code entries
-- [ ] "Copy Code" copies to clipboard with toast
-- [ ] Escape closes the dev tool
+## 14. Category list
+The catalogue's categories are the Category options of the "Suggest a missing item" form (`.github/ISSUE_TEMPLATE/missing-item.yml`); `tools/validate-catalog.py` reads them from there.
+- [ ] `python3 tools/validate-catalog.py` passes: every item's category is one of the form's 17 ("Not sure" is not a category)
+- [ ] Taking a category out of the form (try Music, then put it back) makes the validator report each item that uses it
+- [ ] The site has no "Add Item" button or code generator (retired 2 Nov 2026), even with an old `acdb_admin` flag in localStorage
 
 ## 15. Responsive / Mobile
 - [ ] Phones: search on top, then **Filters** and the grid/list control; Filters opens the seven filters below (closed on load). With filters set, the button shows how many (two games + Owned Only = 3) and turns gold while open; desktop shows the filters as before
@@ -282,7 +275,6 @@ The Games tab (`#games`, `js/games-view.js`) lists `js/games.js`. Counts below a
 - [ ] An item card on a page opens the item modal over it (the address stays `#games/<slug>`); ticking Owned updates the card and the owned bar; Back, Esc or ✕ closes the modal and the page stays
 - [ ] Phone: a 96px cover sits above the facts, which run full width; a cast of more than six shows six rows and "Show all N characters" (Black Flag: 18), which shows the rest and moves focus to the seventh (it stays open when the page refreshes after a change to the collection); above 768px the whole cast always shows, with no button
 - [ ] Signed in: the header, the account menu and the sync banner behave as on the other tabs (the banner only shows on the collection)
-- [ ] A dev-tool edit with the Games tab open updates the item counts on the cards
 
 ## 21. Characters
 The Characters tab (`#characters`, `js/characters-view.js`) lists `js/characters.js`. Counts below are for today's data (201 characters, 483 tagged items).
