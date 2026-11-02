@@ -22,6 +22,23 @@ Workers & Pages → the ACDb worker → **Edit code** → replace everything wit
 `acdb-worker.js` → **Deploy**. Changing a variable or binding also needs its own **Deploy**/**Save**
 in the settings screen.
 
+Before deploying, run `node tools/test-worker.mjs` from the repo root (it runs the Worker locally
+against the schema in `migrations/`; nothing is sent anywhere). Every response carries the deployed
+version in an `acdb-worker` header, which is `WORKER_VERSION` at the top of `acdb-worker.js`; change it
+with every deploy. To see which version is live:
+```
+curl.exe -sI https://api.acdb.workers.dev/leaderboard
+```
+→ a line `acdb-worker: 2026-11-02` (no such line: the live Worker is older than 2 Nov 2026).
+
+## Catalog ceiling (`CATALOG_MAX_ID`)
+
+Profiles count only item ids up to `CATALOG_MAX_ID` (800 as of 2 Nov 2026, when the highest id was 678),
+so made-up ids can't lift anyone up the leaderboard. Higher ids are still stored and synced, they just
+don't count. `python3 tools/validate-catalog.py` warns when the catalog's highest id is within 25 of it
+and fails above it. Then raise it (about 100 to 150 above the highest id), change `WORKER_VERSION` and
+deploy.
+
 ## Phase 1 — D1 database (one time)
 
 1. **Create the database.** Storage & Databases → D1 SQL Database → **Create** → name `acdb` → Create.
@@ -94,6 +111,57 @@ The full sign-in round trip is tested from the site itself once the client code 
    Google account can sign in (no verification needed: the app only asks for `openid` and email).
 2. Merge `feature/cloud-sync` into `main` and push. GitHub Pages publishes the site within a minute or two.
 3. Check on the live site: sign in with an account that is **not** a test user; `privacy.html` loads.
+
+## Leaderboard limits (2 Nov 2026)
+
+What changed: owned items count each id once and only up to `CATALOG_MAX_ID`; request bodies must be
+`application/json` (so other sites can't post to the API from a visitor's browser) and small (64 KB, 8 MB
+for a sync push); the rate limiter writes nothing to D1 once a visitor is over the limit and remembers
+that in memory; profile lookups and name checks are limited to 600 an hour per IP in memory; the
+leaderboard returns the top 100 and each Worker instance keeps it for a minute. No schema change.
+
+1. Deploy `acdb-worker.js` as above.
+2. Smoke test:
+   ```
+   curl.exe -sI https://api.acdb.workers.dev/leaderboard
+   ```
+   → `acdb-worker: 2026-11-02`
+   ```
+   curl.exe -s -X POST https://api.acdb.workers.dev/share -H "Content-Type: text/plain" -d "{}"
+   ```
+   → `{"error":"Send the request body as application/json."}`
+   ```
+   curl.exe -s -X POST https://api.acdb.workers.dev/share -H "Content-Type: application/json" -d "{}"
+   ```
+   → `{"error":"Display name must be 5-25 characters ..."}`. Neither creates anything. Then on the site:
+   the leaderboard and a profile load, and an edit while signed in still syncs (green dot).
+3. Look for profiles whose count is higher than the new rules allow (made-up ids, duplicates). In the
+   D1 console:
+   ```sql
+   SELECT display_name, owned_count, sub IS NOT NULL AS linked,
+     CASE WHEN sub IS NULL
+       THEN (SELECT COUNT(DISTINCT value) FROM json_each(owned_items)
+             WHERE value GLOB '[1-9]*' AND value NOT GLOB '*[^0-9]*' AND CAST(value AS INTEGER) <= 800)
+       ELSE (SELECT COUNT(*) FROM items WHERE items.sub = profiles.sub AND owned = 1 AND item_id <= 800)
+     END AS fair_count
+   FROM profiles
+   WHERE owned_count > fair_count
+     AND NOT (sub IS NULL AND EXISTS (SELECT 1 FROM json_each(owned_items) WHERE value GLOB '*[^0-9]*'))
+   ORDER BY owned_count DESC;
+   ```
+   No rows: nothing to do. Otherwise, recount (profiles stored with item names before ids existed are
+   left alone; a linked profile is also recounted on its next sync):
+   ```sql
+   UPDATE profiles SET owned_count = (
+     SELECT COUNT(DISTINCT value) FROM json_each(profiles.owned_items)
+     WHERE value GLOB '[1-9]*' AND value NOT GLOB '*[^0-9]*' AND CAST(value AS INTEGER) <= 800)
+   WHERE sub IS NULL
+     AND NOT EXISTS (SELECT 1 FROM json_each(profiles.owned_items) WHERE value GLOB '*[^0-9]*');
+   UPDATE profiles SET owned_count = (
+     SELECT COUNT(*) FROM items WHERE items.sub = profiles.sub AND owned = 1 AND item_id <= 800)
+   WHERE sub IS NOT NULL;
+   ```
+   An obvious spam profile can be deleted instead: `DELETE FROM profiles WHERE name_lower = '<name>';`
 
 ## Cleanup after the move to D1
 

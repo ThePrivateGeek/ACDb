@@ -1,5 +1,5 @@
 // ACDb - Cloudflare Worker API
-// Handles collection sharing and leaderboard
+// Public profiles and the leaderboard, Google sign-in, and collection sync
 //
 // Bindings (dashboard → Worker → Settings → Bindings):
 //   DB    D1 database "acdb" (schema: worker/migrations/)
@@ -10,6 +10,10 @@
 //   GOOGLE_CLIENT_SECRET  secret: that client's secret
 // Cron trigger: daily (e.g. "0 3 * * *") cleans up expired rows.
 // See worker/README.md for the deploy runbook.
+
+// Sent on every response as the ACDb-Worker header, so the live version can
+// be checked with curl. Change it with every deploy.
+const WORKER_VERSION = '2026-11-02';
 
 const SITE_URL = 'https://acdb.theprivategeek.com';
 const ALLOWED_ORIGINS = [
@@ -26,8 +30,17 @@ function corsHeaders(request) {
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     'Access-Control-Max-Age': '86400',
     'Vary': 'Origin',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'ACDb-Worker': WORKER_VERSION
   };
+}
+
+// Thrown to answer with an error status; the fetch handler turns it into JSON.
+class HttpError extends Error {
+  constructor(status, message) {
+    super(message);
+    this.status = status;
+  }
 }
 
 // Handle CORS preflight
@@ -43,10 +56,42 @@ function json(request, data, status = 200, extraHeaders = {}) {
   });
 }
 
+// Request bodies are small except a sync push: 200 changes with 5000-character
+// notes stay well under the larger limit even when every character is escaped.
+const MAX_BODY_BYTES = 64 * 1024;
+const MAX_PUSH_BODY_BYTES = 8 * 1024 * 1024;
+
 // Parse a JSON request body; null when it is missing or malformed.
-async function readJson(request) {
+// Only application/json is accepted: another site can make a browser send that
+// only after a CORS preflight, which only the site's own origins pass. A body
+// over maxBytes is refused without reading the rest of it.
+async function readJson(request, maxBytes = MAX_BODY_BYTES) {
+  const type = (request.headers.get('Content-Type') || '').split(';')[0].trim().toLowerCase();
+  if (type !== 'application/json') throw new HttpError(415, 'Send the request body as application/json.');
+  if (Number(request.headers.get('Content-Length')) > maxBytes) throw new HttpError(413, 'Request body is too large.');
+  if (!request.body) return null;
+
+  const reader = request.body.getReader();
+  const chunks = [];
+  let size = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    size += value.byteLength;
+    if (size > maxBytes) {
+      await reader.cancel();
+      throw new HttpError(413, 'Request body is too large.');
+    }
+    chunks.push(value);
+  }
+  const bytes = new Uint8Array(size);
+  let offset = 0;
+  for (const chunk of chunks) {
+    bytes.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
   try {
-    return await request.json();
+    return JSON.parse(new TextDecoder().decode(bytes));
   } catch {
     return null;
   }
@@ -69,18 +114,35 @@ function isValidName(name) {
   return /^[a-zA-Z0-9_-]{5,25}$/.test(name);
 }
 
-// Validate ownedItems: array of non-empty strings, bounded in count and length
+// Item ids. Anything up to MAX_ITEM_ID is stored, but only ids up to
+// CATALOG_MAX_ID count towards a profile's owned total, so made-up ids can't
+// lift anyone up the leaderboard. Keep CATALOG_MAX_ID a little above the
+// highest id in js/database.js: tools/validate-catalog.py warns when the
+// catalog gets close. Raising it needs a Worker deploy.
+const CATALOG_MAX_ID = 800;
+const MAX_ITEM_ID = 100000;
+const ITEM_ID_FORMAT = /^[1-9]\d{0,5}$/;
+
+// Owned items of a token-owned profile: item ids sent as strings. Duplicates
+// are dropped. Returns { items, count } or { error }.
 const MAX_OWNED_ITEMS = 2000;
-const MAX_ITEM_NAME_LENGTH = 200;
-function validateOwnedItems(ownedItems) {
-  if (!Array.isArray(ownedItems)) return 'ownedItems must be an array.';
-  if (ownedItems.length > MAX_OWNED_ITEMS) return `ownedItems exceeds maximum of ${MAX_OWNED_ITEMS}.`;
-  for (const name of ownedItems) {
-    if (typeof name !== 'string' || name.length === 0) return 'ownedItems must contain non-empty strings.';
-    if (name.length > MAX_ITEM_NAME_LENGTH) return `ownedItems entry exceeds ${MAX_ITEM_NAME_LENGTH} characters.`;
+function parseOwnedItems(ownedItems) {
+  if (!Array.isArray(ownedItems)) return { error: 'ownedItems must be an array.' };
+  if (ownedItems.length > MAX_OWNED_ITEMS) return { error: `ownedItems exceeds maximum of ${MAX_OWNED_ITEMS}.` };
+  const ids = new Set();
+  for (const ref of ownedItems) {
+    if (typeof ref !== 'string' || !ITEM_ID_FORMAT.test(ref) || Number(ref) > MAX_ITEM_ID) {
+      return { error: 'ownedItems must contain item ids.' };
+    }
+    ids.add(ref);
   }
-  return null;
+  const items = [...ids];
+  return { items, count: items.filter(ref => Number(ref) <= CATALOG_MAX_ID).length };
 }
+
+// The owned total of a profile linked to account ?1, for use inside a query.
+// CATALOG_MAX_ID is a number constant, so writing it into the SQL is safe.
+const LINKED_OWNED_COUNT = `(SELECT COUNT(*) FROM items WHERE sub = ?1 AND owned = 1 AND item_id <= ${CATALOG_MAX_ID})`;
 
 // ---- Accounts: sign-in with Google and sessions ----
 // The site sends the user to Google's consent screen (OAuth 2.0 authorization
@@ -135,25 +197,71 @@ async function shareFor(env, sub) {
 }
 
 // ---- Rate limiting ----
-// Fixed one-hour window per key, counted in D1 (one row write per check).
+// Fixed one-hour window per key, counted in D1: one row write per allowed
+// request, none once the key is over its limit. Each Worker instance also
+// remembers the counts it has seen, so a key it already knows is over the
+// limit is turned away without touching D1.
 function hourBucket(ms) {
   return Math.floor(ms / 3600000);
 }
 
+const recentCounts = new Map();   // key -> { window, count }, this instance only
+const MAX_RECENT_COUNTS = 10000;
+
+function rememberCount(key, window, count) {
+  if (recentCounts.size >= MAX_RECENT_COUNTS && !recentCounts.has(key)) {
+    for (const [k, seen] of recentCounts) if (seen.window !== window) recentCounts.delete(k);
+    if (recentCounts.size >= MAX_RECENT_COUNTS) recentCounts.clear();
+  }
+  recentCounts.set(key, { window, count });
+}
+
 async function checkRateLimit(env, key, limit) {
+  const window = hourBucket(Date.now());
+  const seen = recentCounts.get(key);
+  if (seen && seen.window === window && seen.count >= limit) return false;
+
   const row = await env.DB.prepare(
     `INSERT INTO rate_limits (key, window_start, count) VALUES (?1, ?2, 1)
      ON CONFLICT(key) DO UPDATE SET
        count = CASE WHEN rate_limits.window_start = excluded.window_start THEN rate_limits.count + 1 ELSE 1 END,
        window_start = excluded.window_start
+     WHERE rate_limits.window_start <> excluded.window_start OR rate_limits.count < ?3
      RETURNING count`
-  ).bind(key, hourBucket(Date.now())).first();
-  return row.count <= limit;
+  ).bind(key, window, limit).first();
+  // No row back: the window is already full, so nothing was written.
+  rememberCount(key, window, row ? row.count : limit);
+  return !!row;
+}
+
+// Public reads (profiles, name checks) are limited in memory only, per Worker
+// instance: a D1 counter would cost a write for every read it protects.
+const READ_LIMIT = 600;   // per IP per hour
+
+function checkReadLimit(ip) {
+  const key = `read:${ip}`;
+  const window = hourBucket(Date.now());
+  const seen = recentCounts.get(key);
+  const count = seen && seen.window === window ? seen.count + 1 : 1;
+  if (count > READ_LIMIT) return false;
+  rememberCount(key, window, count);
+  return true;
 }
 
 // ---- Profile store ----
 // Times are epoch ms in and ISO strings out (the API's lastUpdated format).
 // D1 keeps only a SHA-256 hash of each profile's edit token.
+
+// Each Worker instance keeps the leaderboard for a minute (browsers cache it
+// for as long) and drops it when it changes a profile itself.
+const LEADERBOARD_SIZE = 100;
+const LEADERBOARD_TTL = 60 * 1000;
+let leaderboardCache = null;   // { at, profiles }
+
+function profilesChanged() {
+  leaderboardCache = null;
+}
+
 const d1Profiles = {
   async nameExists(env, nameLower) {
     return !!(await env.DB.prepare('SELECT 1 FROM profiles WHERE name_lower = ?')
@@ -161,21 +269,25 @@ const d1Profiles = {
   },
 
   // Returns false when the name is already taken.
-  async create(env, { nameLower, displayName, token, ownedItems, now }) {
+  async create(env, { nameLower, displayName, token, owned, now }) {
     const result = await env.DB.prepare(
       `INSERT INTO profiles (name_lower, display_name, legacy_token_hash, owned_items, owned_count, last_updated)
        VALUES (?, ?, ?, ?, ?, ?)
        ON CONFLICT DO NOTHING`
-    ).bind(nameLower, displayName, await sha256Hex(token), JSON.stringify(ownedItems), ownedItems.length, now).run();
-    return result.meta.changes === 1;
+    ).bind(nameLower, displayName, await sha256Hex(token), JSON.stringify(owned.items), owned.count, now).run();
+    if (result.meta.changes !== 1) return false;
+    profilesChanged();
+    return true;
   },
 
   // Returns false when no profile has this token.
-  async updateByToken(env, token, ownedItems, now) {
+  async updateByToken(env, token, owned, now) {
     const result = await env.DB.prepare(
       'UPDATE profiles SET owned_items = ?, owned_count = ?, last_updated = ? WHERE legacy_token_hash = ?'
-    ).bind(JSON.stringify(ownedItems), ownedItems.length, now, await sha256Hex(token)).run();
-    return result.meta.changes === 1;
+    ).bind(JSON.stringify(owned.items), owned.count, now, await sha256Hex(token)).run();
+    if (result.meta.changes !== 1) return false;
+    profilesChanged();
+    return true;
   },
 
   async getByName(env, nameLower) {
@@ -201,11 +313,12 @@ const d1Profiles = {
     };
   },
 
+  // The top LEADERBOARD_SIZE profiles
   async leaderboard(env) {
     // Ties break alphabetically, the order the old KV store listed them in
     const { results } = await env.DB.prepare(
-      'SELECT display_name, owned_count, last_updated FROM profiles ORDER BY owned_count DESC, name_lower'
-    ).all();
+      'SELECT display_name, owned_count, last_updated FROM profiles ORDER BY owned_count DESC, name_lower LIMIT ?'
+    ).bind(LEADERBOARD_SIZE).all();
     return results.map(row => ({
       displayName: row.display_name,
       ownedCount: row.owned_count,
@@ -217,7 +330,9 @@ const d1Profiles = {
   async deleteByToken(env, token) {
     const result = await env.DB.prepare('DELETE FROM profiles WHERE legacy_token_hash = ?')
       .bind(await sha256Hex(token)).run();
-    return result.meta.changes === 1;
+    if (result.meta.changes !== 1) return false;
+    profilesChanged();
+    return true;
   }
 };
 
@@ -226,11 +341,8 @@ const d1Profiles = {
 // POST /share - Create a new shared profile. Signed out: a token-owned
 // snapshot of ownedItems. Signed in (Bearer session): a profile linked to the
 // account, which follows the synced collection and ignores ownedItems.
+// Requests are checked before the rate limit, so invalid ones cost no D1 write.
 async function handleShare(request, env, ip) {
-  if (!(await checkRateLimit(env, `write:${ip}`, 10))) {
-    return json(request, { error: 'Rate limit exceeded. Try again later.' }, 429);
-  }
-
   const body = await readJson(request);
   if (!body) return json(request, { error: 'Invalid JSON body.' }, 400);
   const { displayName, ownedItems } = body;
@@ -239,14 +351,19 @@ async function handleShare(request, env, ip) {
     return json(request, { error: 'Display name must be 5-25 characters (letters, numbers, hyphens, underscores).' }, 400);
   }
 
-  if (bearerToken(request)) return createLinkedProfile(request, env, displayName);
+  const linked = !!bearerToken(request);
+  const owned = linked ? null : parseOwnedItems(ownedItems);
+  if (owned && owned.error) return json(request, { error: owned.error }, 400);
 
-  const ownedError = validateOwnedItems(ownedItems);
-  if (ownedError) return json(request, { error: ownedError }, 400);
+  if (!(await checkRateLimit(env, `write:${ip}`, 10))) {
+    return json(request, { error: 'Rate limit exceeded. Try again later.' }, 429);
+  }
+
+  if (linked) return createLinkedProfile(request, env, displayName);
 
   const nameLower = displayName.toLowerCase();
   const token = generateToken();
-  const created = await d1Profiles.create(env, { nameLower, displayName, token, ownedItems, now: Date.now() });
+  const created = await d1Profiles.create(env, { nameLower, displayName, token, owned, now: Date.now() });
   if (!created) {
     return json(request, { error: 'Display name is already taken.' }, 409);
   }
@@ -256,10 +373,6 @@ async function handleShare(request, env, ip) {
 
 // PUT /update - Update an existing shared profile
 async function handleUpdate(request, env, ip) {
-  if (!(await checkRateLimit(env, `write:${ip}`, 10))) {
-    return json(request, { error: 'Rate limit exceeded. Try again later.' }, 429);
-  }
-
   const authToken = request.headers.get('Authorization');
   if (!authToken) {
     return json(request, { error: 'Missing authorization token.' }, 401);
@@ -270,22 +383,25 @@ async function handleUpdate(request, env, ip) {
 
   const body = await readJson(request);
   if (!body) return json(request, { error: 'Invalid JSON body.' }, 400);
-  const { ownedItems } = body;
+  const owned = parseOwnedItems(body.ownedItems);
+  if (owned.error) return json(request, { error: owned.error }, 400);
 
-  const ownedError = validateOwnedItems(ownedItems);
-  if (ownedError) return json(request, { error: ownedError }, 400);
+  if (!(await checkRateLimit(env, `write:${ip}`, 10))) {
+    return json(request, { error: 'Rate limit exceeded. Try again later.' }, 429);
+  }
 
   const now = Date.now();
-  const updated = await d1Profiles.updateByToken(env, authToken, ownedItems, now);
+  const updated = await d1Profiles.updateByToken(env, authToken, owned, now);
   if (!updated) {
     return json(request, { error: 'Profile not found. Token may be invalid.' }, 404);
   }
 
-  return json(request, { success: true, ownedCount: ownedItems.length, lastUpdated: new Date(now).toISOString() });
+  return json(request, { success: true, ownedCount: owned.count, lastUpdated: new Date(now).toISOString() });
 }
 
 // GET /profile/:name - View a public profile
-async function handleGetProfile(request, env, path) {
+async function handleGetProfile(request, env, path, ip) {
+  if (!checkReadLimit(ip)) return json(request, { error: 'Too many requests. Try again later.' }, 429);
   const nameLower = path.replace('/profile/', '').toLowerCase();
   const profile = isValidName(nameLower) ? await d1Profiles.getByName(env, nameLower) : null;
   if (!profile) {
@@ -295,14 +411,18 @@ async function handleGetProfile(request, env, path) {
   return json(request, profile);
 }
 
-// GET /leaderboard - Get all profiles sorted by owned count
+// GET /leaderboard - The top profiles by owned count
 async function handleLeaderboard(request, env) {
-  const profiles = await d1Profiles.leaderboard(env);
-  return json(request, { profiles }, 200, { 'Cache-Control': 'public, max-age=60' });
+  const now = Date.now();
+  if (!leaderboardCache || now - leaderboardCache.at >= LEADERBOARD_TTL) {
+    leaderboardCache = { at: now, profiles: await d1Profiles.leaderboard(env) };
+  }
+  return json(request, { profiles: leaderboardCache.profiles }, 200, { 'Cache-Control': 'public, max-age=60' });
 }
 
 // GET /check-name/:name - Check if a display name is available
-async function handleCheckName(request, env, path) {
+async function handleCheckName(request, env, path, ip) {
+  if (!checkReadLimit(ip)) return json(request, { error: 'Too many requests. Try again later.' }, 429);
   const nameLower = path.replace('/check-name/', '').toLowerCase();
   if (!isValidName(nameLower)) {
     return json(request, { available: false, error: 'Invalid name format.' });
@@ -323,6 +443,7 @@ async function handleDeleteProfile(request, env) {
     if (!user) return sessionExpired(request);
     const result = await env.DB.prepare('DELETE FROM profiles WHERE sub = ?').bind(user.sub).run();
     if (result.meta.changes === 0) return json(request, { error: 'Profile not found.' }, 404);
+    profilesChanged();
     return json(request, { success: true, message: 'Profile deleted.' });
   }
 
@@ -341,16 +462,15 @@ async function handleGoogleAuth(request, env, ip) {
   if (!env.GOOGLE_CLIENT_ID || !env.GOOGLE_CLIENT_SECRET) {
     return json(request, { error: 'Sign-in is not configured.' }, 503);
   }
-  if (!(await checkRateLimit(env, `auth:${ip}`, 20))) {
-    return json(request, { error: 'Too many sign-in attempts. Try again later.' }, 429);
-  }
-
   const body = await readJson(request);
   const { code, codeVerifier, redirectUri } = body || {};
   if (typeof code !== 'string' || code.length === 0 || code.length > 2048
       || typeof codeVerifier !== 'string' || !/^[A-Za-z0-9._~-]{43,128}$/.test(codeVerifier)
       || !REDIRECT_URIS.includes(redirectUri)) {
     return json(request, { error: 'Invalid sign-in request.' }, 400);
+  }
+  if (!(await checkRateLimit(env, `auth:${ip}`, 20))) {
+    return json(request, { error: 'Too many sign-in attempts. Try again later.' }, 429);
   }
 
   const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
@@ -428,7 +548,6 @@ async function handleLogout(request, env) {
 // Each push bumps users.seq and stamps the rows it changed with it, so a
 // pull only has to ask for rows with seq > the cursor it last saw.
 const MAX_CHANGES_PER_PUSH = 200;
-const MAX_ITEM_ID = 100000;          // the catalog is ~650 ids today
 const MAX_ROWS_PER_USER = 5000;
 const MAX_NOTES_LENGTH = 5000;
 const MAX_FUTURE_SKEW = 5 * 60 * 1000;
@@ -489,7 +608,7 @@ async function handlePutCollection(request, env) {
     return json(request, { error: 'Too many changes. Try again later.' }, 429);
   }
 
-  const body = await readJson(request);
+  const body = await readJson(request, MAX_PUSH_BODY_BYTES);
   const changes = body && body.changes;
   if (!Array.isArray(changes) || changes.length > MAX_CHANGES_PER_PUSH) {
     return json(request, { error: `changes must be an array of at most ${MAX_CHANGES_PER_PUSH}.` }, 400);
@@ -538,13 +657,14 @@ async function handlePutCollection(request, env) {
   // Keep a linked public profile's count current (no-op when there is none).
   statements.push(env.DB.prepare(
     `UPDATE profiles SET
-       owned_count = (SELECT COUNT(*) FROM items WHERE sub = ?1 AND owned = 1),
+       owned_count = ${LINKED_OWNED_COUNT},
        last_updated = ?2
      WHERE sub = ?1`
   ).bind(user.sub, now));
   statements.push(env.DB.prepare('SELECT seq FROM users WHERE sub = ?').bind(user.sub));
 
   const results = await env.DB.batch(statements);
+  if (results[results.length - 2].meta.changes > 0) profilesChanged();
   const cursor = results[results.length - 1].results[0].seq;
   return json(request, { success: true, cursor, serverTime: now });
 }
@@ -583,6 +703,7 @@ async function handleAccountDelete(request, env) {
     env.DB.prepare('DELETE FROM users WHERE sub = ?').bind(user.sub),
     env.DB.prepare('DELETE FROM rate_limits WHERE key = ?').bind(`push:${user.sub}`)
   ]);
+  profilesChanged();
   return json(request, { success: true });
 }
 
@@ -603,12 +724,13 @@ async function createLinkedProfile(request, env, displayName) {
   const nameLower = displayName.toLowerCase();
   const result = await env.DB.prepare(
     `INSERT INTO profiles (name_lower, display_name, sub, owned_count, last_updated)
-     VALUES (?1, ?2, ?3, (SELECT COUNT(*) FROM items WHERE sub = ?3 AND owned = 1), ?4)
+     VALUES (?2, ?3, ?1, ${LINKED_OWNED_COUNT}, ?4)
      ON CONFLICT DO NOTHING`
-  ).bind(nameLower, displayName, user.sub, Date.now()).run();
+  ).bind(user.sub, nameLower, displayName, Date.now()).run();
   if (result.meta.changes === 0) {
     return json(request, { error: 'Display name is already taken.' }, 409);
   }
+  profilesChanged();
 
   return json(request, { success: true, displayName, shareUrl: `${SITE_URL}/#profile/${nameLower}` });
 }
@@ -636,10 +758,11 @@ async function handleClaimProfile(request, env) {
   await env.DB.prepare(
     `UPDATE profiles SET
        sub = ?1, legacy_token_hash = NULL, owned_items = NULL,
-       owned_count = (SELECT COUNT(*) FROM items WHERE sub = ?1 AND owned = 1),
+       owned_count = ${LINKED_OWNED_COUNT},
        last_updated = ?2
      WHERE name_lower = ?3`
   ).bind(user.sub, Date.now(), profile.name_lower).run();
+  profilesChanged();
 
   return json(request, { success: true, displayName: profile.display_name });
 }
@@ -656,9 +779,9 @@ export default {
     try {
       if (path === '/share' && method === 'POST') return await handleShare(request, env, ip);
       if (path === '/update' && method === 'PUT') return await handleUpdate(request, env, ip);
-      if (path.startsWith('/profile/') && method === 'GET') return await handleGetProfile(request, env, path);
+      if (path.startsWith('/profile/') && method === 'GET') return await handleGetProfile(request, env, path, ip);
       if (path === '/leaderboard' && method === 'GET') return await handleLeaderboard(request, env);
-      if (path.startsWith('/check-name/') && method === 'GET') return await handleCheckName(request, env, path);
+      if (path.startsWith('/check-name/') && method === 'GET') return await handleCheckName(request, env, path, ip);
       if (path === '/profile' && method === 'DELETE') return await handleDeleteProfile(request, env);
       if (path === '/profile/claim' && method === 'POST') return await handleClaimProfile(request, env);
 
@@ -672,6 +795,7 @@ export default {
 
       return json(request, { error: 'Not found.' }, 404);
     } catch (err) {
+      if (err instanceof HttpError) return json(request, { error: err.message }, err.status);
       console.error(err);
       return json(request, { error: 'Internal server error.' }, 500);
     }

@@ -184,6 +184,8 @@ The catalogue's categories are the Category options of the "Suggest a missing it
 - [ ] Export includes `id` and `name`; Import accepts both new exports (by id) and old ones (by name)
 - [ ] Shared profiles upload item ids; profiles uploaded before ids (item names) still display. Profiles and the leaderboard are served from D1
 - [ ] `node tools/test-sync-merge.mjs` passes (cloud-sync merge rules, and that the Worker's `sanitizeItemData` keeps the client's normalized values unchanged)
+- [ ] `node tools/test-worker.mjs` passes (runs the Worker against a local copy of the D1 schema: request bodies must be JSON and not oversized; owned items count each id once and only ids up to `CATALOG_MAX_ID`; write and read rate limits; the top-100 leaderboard and its one-minute memory; and that sync, sign-in, profiles, export and account delete still work)
+- [ ] After a Worker deploy, `curl.exe -sI https://api.acdb.workers.dev/leaderboard` shows `acdb-worker:` with the `WORKER_VERSION` in `worker/acdb-worker.js`
 - [ ] Read links still open a book: archive.org returns 200 even for a missing book, so open a few (especially ones with parentheses in the path) and check the reader shows a cover, not an empty item page
 
 ## 17. Account & Cloud Sync
@@ -203,6 +205,8 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Not published: header shows **Publish collection**; its window reads "Publish Your Collection" / "Get a public page to show friends, and a spot on the Leaderboard"; after publishing the button leaves the header and **My public profile** appears in the account menu, opening "Your Public Profile"
 - [ ] Leaderboard, not published: "Want to be on here? **Join the Leaderboard**" sits above the list and opens the publish window without leaving the leaderboard, which refreshes after publishing ("You're on the board as …")
 - [ ] Publish while signed in: the profile is created without a token; the manage window has no Update button and says it updates automatically; owning more items updates the profile and leaderboard
+- [ ] The leaderboard lists the top 100; when your profile is published but not among them, the line above the list reads "The board shows the top 100. Your profile: <name>" (linked). No percentage on the leaderboard or a profile goes above 100%, and a profile shows each item once
+- [ ] Publish window: when the name check fails (offline, or the Worker answers with an error), it says "Could not check. Try again." rather than "Already taken"; a profile that fails to load for any reason other than 404 says "Error loading profile"
 - [ ] Signing in on a browser that shared a profile before sign-in existed links that profile (toast) and it starts updating automatically
 - [ ] **Download all account data** downloads `acdb-account-<date>.json`
 - [ ] **Sign out**: the grid shows nothing owned; signing in again brings everything back

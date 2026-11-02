@@ -18,7 +18,7 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 - **Item card** — full details, photos, your collection fields and, for books, reading status and reading order position. Items that show a character link to that character's page. The category, type, game and series in the card are one-click filters, and the share and close buttons stay in reach while you scroll
 - **Cloud sync (optional)** — sign in with Google to keep your collection in your account and see it on every device you use. Changes sync within seconds, work offline and catch up later, and signing out clears the browser you used
 - **Publish your collection** — get a public profile page (unique URL and display name) and a spot on the leaderboard. When you're signed in, your profile updates automatically
-- **Collector's Leaderboard** — see how your collection stacks up against other collectors, ranked by items owned, and open anyone's public profile to browse what they own. Each collector is a card with their rank, item count, completion and a progress bar, in one centred column
+- **Collector's Leaderboard** — see how your collection stacks up against the top 100 collectors, ranked by items owned, and open anyone's public profile to browse what they own. Each collector is a card with their rank, item count, completion and a progress bar, in one centred column
 - **Cascading filters** — multi-select by game, category, type, series and character. Filters cascade: selecting a game narrows categories, selecting a category narrows types, selecting a type narrows series, and the Characters list only offers the characters shown by the items above it (pick Valhalla and it lists Valhalla's). Its search ignores accents and knows other names ("connor" finds Ratonhnhaké:ton), and picking two characters shows the items with either. A character's page has a "Show in the collection" link that opens the grid filtered to them. Filters persist across page reloads, and any filter you've set is outlined in gold so you can see at a glance what's narrowing the list
 - **Series browsing** — comics, graphic novels, manga, novel lines, and the Hachette partwork carry a `series` field (e.g. *Assassin's Creed: Assassins*) that groups single issues with the trade paperbacks that collect them, and can span types (the *Last Descendants* novels and the *Locus* comic share one series). The Series dropdown only appears when the current selection contains series items, and the series line in an item's card is a one-click filter to the whole run
 - **Read online** — comics, graphic novels, and manga with a free scan in the [Internet Archive's Assassin's Creed anthology](https://archive.org/details/assassins-creed-graphic-novels-and-comics-anthology) show a "Read on Internet Archive" button in their item card. The entry's optional `read` field holds the book's path inside that collection, unencoded as the archive names it (e.g. `07. AC Templars/AC Templars 2016 (3)`), and `readUrl` in `js/utils.js` builds the link; a full `https://` URL is used as-is for books hosted elsewhere. An optional `readLang` (e.g. `"fr"`) marks a scan in a different language and adds a tag such as "(Fr)" to the button. collected editions only get one when the archive holds a scan of the collection itself, not just its single issues
@@ -146,8 +146,11 @@ tools/
   validate-catalog.py — checks database.js, images.js, reading-orders.js and
                    games.js (ids, names, fields, games, categories, images,
                    read links, share pages, slug aliases, reading order entries,
-                   game data, characters and their portraits)
+                   game data, characters and their portraits, and that the
+                   Worker's CATALOG_MAX_ID is above the highest item id)
   test-sync-merge.mjs — tests for the sync merge rules (node tools/test-sync-merge.mjs)
+  test-worker.mjs — tests for the Worker against a local copy of the D1 schema
+                   (node tools/test-worker.mjs)
   make-portrait.py — crops a character image to a 300x400 WebP portrait in
                    images/characters/ (python3 tools/make-portrait.py <image> <slug> --box L,T,W)
 .githooks/

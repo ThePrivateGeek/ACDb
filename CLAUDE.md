@@ -22,7 +22,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
   - Scripts, images and API calls are limited to the site itself, `api.acdb.workers.dev` and Cloudflare's analytics beacon.
   - Fonts come only from Google Fonts.
   - Anything new from outside needs a CSP change and the owner's OK.
-- **The Cloudflare Worker is not deployed from the repo.** `worker/acdb-worker.js` is the source, but the owner pastes it into the Cloudflare dashboard by hand, and D1 schema changes are run in the D1 console. After any Worker change, tell the owner it needs deploying. Production may lag the file. Keep the Worker a single file with no npm dependencies. The runbook is in `worker/README.md`.
+- **The Cloudflare Worker is not deployed from the repo.** `worker/acdb-worker.js` is the source, but the owner pastes it into the Cloudflare dashboard by hand, and D1 schema changes are run in the D1 console. After any Worker change, change its `WORKER_VERSION`, run `node tools/test-worker.mjs`, and tell the owner it needs deploying. Production may lag the file; the live version is in the `acdb-worker` response header. Keep the Worker a single file with no npm dependencies. The runbook is in `worker/README.md`.
 - **Privacy promise** (`privacy.html`): no ads, no advertising trackers, no analytics cookies (Cloudflare Web Analytics only). Collections live in localStorage (`acdb_collection_v2`), plus D1 when the visitor is signed in. New stored or sent data must be added to `privacy.html`.
 
 ## Catalog data (`js/database.js`, `js/images.js`)
@@ -69,6 +69,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
 | `python3 tools/flag-large-images.py` | Sanity check after adding images |
 | `python3 tools/make-portrait.py <image> <slug> --box L,T,W` | A character portrait: crops a 3:4 box and writes `images/characters/<slug>.webp` (300x400); then set the character's `image` |
 | `node tools/test-sync-merge.mjs` | After touching the sync merge rules in `js/sync.js` |
+| `node tools/test-worker.mjs` | After any change to `worker/acdb-worker.js` (runs it locally against the D1 schema; nothing reaches production) |
 
 ## Environment
 

@@ -53,6 +53,9 @@ Checks:
              links other characters by id with a relation (FAMILY_RELATIONS),
              and each link is returned on the relative's own entry. An
              item's "characters" lists existing character ids, each once
+  worker     the highest item id is within CATALOG_MAX_ID in
+             worker/acdb-worker.js (the Worker counts no higher ids towards
+             the leaderboard); a warning when fewer than 25 ids are left
 """
 from __future__ import annotations
 
@@ -73,6 +76,8 @@ UTILS_JS = ROOT / "js" / "utils.js"
 READING_ORDERS_JS = ROOT / "js" / "reading-orders.js"
 GAMES_JS = ROOT / "js" / "games.js"
 CHARACTERS_JS = ROOT / "js" / "characters.js"
+WORKER_JS = ROOT / "worker" / "acdb-worker.js"
+CEILING_WARN_MARGIN = 25
 
 # Reuse the share-page builder's database parser and slug logic so all the
 # tools agree on how database.js is read and how slugs are made.
@@ -612,6 +617,21 @@ def series_key(name):
     return re.sub(r"[^a-z0-9]+", "", name.lower())
 
 
+def check_worker_ceiling(highest_id, errors, warnings):
+    match = re.search(r"^const CATALOG_MAX_ID = (\d+);", WORKER_JS.read_text(encoding="utf-8"), re.M)
+    if not match:
+        errors.append("worker/acdb-worker.js: CATALOG_MAX_ID not found")
+        return
+    ceiling = int(match.group(1))
+    advice = (f"raise CATALOG_MAX_ID ({ceiling}) in worker/acdb-worker.js, change WORKER_VERSION, "
+              "and deploy the Worker (worker/README.md)")
+    if highest_id > ceiling:
+        errors.append(f"item id {highest_id} is above the Worker's CATALOG_MAX_ID, so the leaderboard "
+                      f"won't count it: {advice}")
+    elif highest_id > ceiling - CEILING_WARN_MARGIN:
+        warnings.append(f"item ids are close to the Worker's ceiling: {advice}")
+
+
 def main():
     errors, warnings = [], []
     items = share_pages.load_database()
@@ -719,6 +739,7 @@ def main():
     check_characters(items, errors, warnings)
     check_collects(items, errors)
     check_slug_aliases(items, errors, warnings)
+    check_worker_ceiling(highest_id, errors, warnings)
 
     for w in warnings:
         print(f"warning: {w}")

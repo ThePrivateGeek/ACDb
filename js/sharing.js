@@ -8,6 +8,8 @@
     window.ACDB = window.ACDB || {};
     const A = window.ACDB;
 
+    const LEADERBOARD_SIZE = 100;     // the Worker's LEADERBOARD_SIZE
+
     let nameCheckTimer = null;
     let profileFromLeaderboard = false;
 
@@ -142,6 +144,7 @@
 
         try {
             const res = await fetch(`${A.API_URL}/check-name/${encodeURIComponent(name)}`);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const data = await res.json();
             if (data.available) {
                 status.textContent = 'Available!';
@@ -284,6 +287,13 @@
     }
 
     // ---- Profile View ----
+    // A profile's completion in whole percent. The Worker only counts ids up
+    // to its catalog ceiling, which sits a little above the catalog, so the
+    // count can pass the catalog's size; the percentage stops at 100.
+    function completion(ownedCount) {
+        return Math.min(100, Math.round((Number(ownedCount) / AC_DATABASE.length) * 100));
+    }
+
     // Highlight the header tab for the visible view (null: none, e.g. a profile).
     function setActiveNav(view) {
         document.querySelectorAll('.main-nav-link').forEach(link => {
@@ -348,11 +358,11 @@
         try {
             const res = await fetch(`${A.API_URL}/profile/${encodeURIComponent(name)}`);
             if (!res.ok) {
-                document.getElementById('profileName').textContent = 'Profile not found';
+                document.getElementById('profileName').textContent = res.status === 404 ? 'Profile not found' : 'Error loading profile';
                 return;
             }
             const data = await res.json();
-            const pct = Math.round((data.ownedCount / AC_DATABASE.length) * 100);
+            const pct = completion(data.ownedCount);
             const updated = A.formatDate(data.lastUpdated);
 
             document.getElementById('profileName').textContent = data.displayName;
@@ -362,10 +372,11 @@
             document.getElementById('profilePct').innerHTML = `<span class="profile-stat">${pct}%</span> complete`;
             document.getElementById('profileUpdated').textContent = `Updated ${updated}`;
 
-            // Render owned items as cards
+            // Render owned items as cards (once each: profiles saved before the
+            // Worker dropped duplicates may list an item more than once)
             const grid = document.getElementById('profileItemsGrid');
             const fragment = document.createDocumentFragment();
-            data.ownedItems.forEach(ref => {
+            new Set(data.ownedItems).forEach(ref => {
                 const item = A.findItemByRef(ref);
                 if (item) {
                     const card = A.createCard(item);
@@ -414,7 +425,7 @@
             // decoration; hidden words give the bare figures their meaning.
             data.profiles.forEach((profile, idx) => {
                 const rank = idx + 1;
-                const pct = Math.round((profile.ownedCount / AC_DATABASE.length) * 100);
+                const pct = completion(profile.ownedCount);
                 const updated = A.formatDate(profile.lastUpdated);
                 const rankClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
 
@@ -424,12 +435,19 @@
                         <span class="medal ${rankClass}" aria-hidden="true">${rank}</span>
                         <span class="lb-name">${A.escapeHTML(profile.displayName)}</span>
                         <span class="lb-date">Updated ${updated}</span>
-                        <span class="lb-count">${profile.ownedCount}<span class="sr-only"> items owned,</span></span>
+                        <span class="lb-count">${Number(profile.ownedCount)}<span class="sr-only"> items owned,</span></span>
                         <span class="lb-pct">${pct}%<span class="sr-only"> complete</span></span>
-                        <span class="progress lb-bar" aria-hidden="true"><span class="progress-fill" style="width:${Math.min(pct, 100)}%"></span></span>
+                        <span class="progress lb-bar" aria-hidden="true"><span class="progress-fill" style="width:${pct}%"></span></span>
                     </a>`;
                 list.appendChild(li);
             });
+
+            // The Worker sends the top 100 only
+            const name = getShareName();
+            if (name && data.profiles.length >= LEADERBOARD_SIZE
+                && !data.profiles.some(profile => profile.displayName.toLowerCase() === name.toLowerCase())) {
+                ctaEl.innerHTML = `The board shows the top ${LEADERBOARD_SIZE}. Your profile: <a class="link" href="#profile/${name.toLowerCase()}">${A.escapeHTML(name)}</a>`;
+            }
 
         } catch {
             document.getElementById('leaderboardBody').innerHTML = '<li class="leaderboard-loading">Error loading leaderboard</li>';
