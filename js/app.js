@@ -37,6 +37,7 @@ window.ACDB = window.ACDB || {};
     let selectedCategories = new Set();
     let selectedTypes = new Set();
     let selectedSeries = new Set();
+    let selectedCharacters = new Set();   // character ids, as strings (checkbox values)
     let statsSortMode = 'percent'; // 'percent', 'count', or 'timeline'
     let lastBarSortMode = 'percent'; // last non-timeline mode — used for non-game panels
     // currentItemId, galleryImages, galleryIndex — owned by modal.js
@@ -49,12 +50,13 @@ window.ACDB = window.ACDB || {};
             case 'category': return selectedCategories;
             case 'type': return selectedTypes;
             case 'series': return selectedSeries;
+            case 'character': return selectedCharacters;
             default: throw new Error(`Unknown filter kind: ${kind}`);
         }
     }
 
     function clearAllSelections() {
-        ['game', 'category', 'type', 'series'].forEach(kind => selectionSetFor(kind).clear());
+        ['game', 'category', 'type', 'series', 'character'].forEach(kind => selectionSetFor(kind).clear());
     }
 
     // The top N entries by year (highest first) get a "NEW" sticker, matching
@@ -154,6 +156,7 @@ window.ACDB = window.ACDB || {};
         filterCategory: document.getElementById('filterCategory'),
         filterType: document.getElementById('filterType'),
         filterSeries: document.getElementById('filterSeries'),
+        filterCharacter: document.getElementById('filterCharacter'),
         filterOwned: document.getElementById('filterOwned'),
         sortBy: document.getElementById('sortBy'),
         viewGrid: document.getElementById('viewGrid'),
@@ -313,7 +316,8 @@ window.ACDB = window.ACDB || {};
             label.textContent = placeholder;
             multiSelectEl.classList.remove('has-selection');
         } else if (selected.size === 1) {
-            label.textContent = [...selected][0];
+            const option = multiSelectEl.querySelector('.multi-select-option input:checked');
+            label.textContent = option?.closest('.multi-select-option').dataset.name || [...selected][0];
             multiSelectEl.classList.add('has-selection');
         } else {
             const noun = placeholder.replace('All ', '');
@@ -370,10 +374,14 @@ window.ACDB = window.ACDB || {};
         updateMultiSelectLabel(multiSelectEl);
     }
 
-    // Build one "☐ Value (count)" row for a multi-select dropdown.
-    function createMultiSelectOption(value, count) {
+    // Build one "☐ Value (count)" row for a multi-select dropdown. `name`
+    // is shown when the value isn't readable (a character's id); `also`
+    // is extra text the dropdown's search matches (a character's other names).
+    function createMultiSelectOption(value, count, name = value, also = '') {
         const label = document.createElement('label');
         label.className = 'multi-select-option';
+        label.dataset.name = name;
+        label.dataset.search = searchKey(`${name} ${also}`);
         const cb = document.createElement('input');
         cb.type = 'checkbox';
         cb.value = value;
@@ -381,7 +389,7 @@ window.ACDB = window.ACDB || {};
         check.className = 'multi-select-check';
         const text = document.createElement('span');
         text.className = 'multi-select-text';
-        text.textContent = `${value} (${count})`;
+        text.textContent = `${name} (${count})`;
         label.appendChild(cb);
         label.appendChild(check);
         label.appendChild(text);
@@ -446,11 +454,33 @@ window.ACDB = window.ACDB || {};
         dom.filterSeries.hidden = seriesNames.length === 0;
     }
 
+    // The characters the items above show (an item's "characters" field
+    // lists several), A to Z, with how many of those items show each. Like
+    // the series, it's after every other filter, so it narrows nothing above
+    // it, and it hides when none of those items has a character.
+    function populateCharacterFilter() {
+        const optionsContainer = dom.filterCharacter.querySelector('.multi-select-options');
+        optionsContainer.innerHTML = '';
+        const counts = new Map();
+        getItemsUpstreamOf('character').forEach(item => (item.characters || []).forEach(id => {
+            counts.set(id, (counts.get(id) || 0) + 1);
+        }));
+        const shown = CHARACTERS.filter(c => counts.has(c.id))
+            .sort((a, b) => searchKey(a.name).localeCompare(searchKey(b.name), 'en'));
+        const ids = new Set(shown.map(c => String(c.id)));
+        selectedCharacters.forEach(id => { if (!ids.has(id)) selectedCharacters.delete(id); });
+        shown.forEach(c => optionsContainer.appendChild(
+            createMultiSelectOption(String(c.id), counts.get(c.id), c.name, (c.aka || []).join(' '))));
+        setMultiSelectValues(dom.filterCharacter, selectedCharacters);
+        dom.filterCharacter.hidden = shown.length === 0;
+    }
+
     // Re-run every cascading dropdown below the game filter.
     function populateDependentFilters() {
         populateCategoryFilter();
         populateTypeFilter();
         populateSeriesFilter();
+        populateCharacterFilter();
     }
 
     function syncTimelineToSelectedGames() {
@@ -514,12 +544,33 @@ window.ACDB = window.ACDB || {};
     }
 
     // ---- Render Items ----
+    // Search text: case, accents and apostrophes ignored ("altair" finds
+    // Altaïr, "obrien" O'Brien), as on the Games and Characters tabs
+    function searchKey(text) {
+        return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/['‘’ʿʾ]/g, '');
+    }
+
+    // What the search looks through, per item: its own fields and the names
+    // (and other names) of the characters it shows, so "connor" finds
+    // Ratonhnhaké:ton's items. The catalogue is static, so it's built once.
+    let haystacks = null;
+    function haystackOf(item) {
+        if (!haystacks) {
+            const names = new Map(CHARACTERS.map(c => [c.id, [c.name, ...(c.aka || [])].join(' ')]));
+            haystacks = new Map(AC_DATABASE.map(i => [i.id, searchKey(
+                `${i.name} ${i.game} ${i.year} ${i.category} ${i.description} ${i.contents} ${i.type} ${i.series || ''} `
+                + (i.characters || []).map(id => names.get(id) || '').join(' '))]));
+        }
+        return haystacks.get(item.id) || '';
+    }
+
     function getFilteredItems() {
-        const search = dom.searchInput.value.toLowerCase().trim();
+        const search = searchKey(dom.searchInput.value.trim());
         const gameFilters = getSelectedValues(dom.filterGame);
         const categoryFilters = getSelectedValues(dom.filterCategory);
         const typeFilters = getSelectedValues(dom.filterType);
         const seriesFilters = getSelectedValues(dom.filterSeries);
+        const characterFilters = getSelectedValues(dom.filterCharacter);
         const ownedFilter = dom.filterOwned.value;
 
         const sortValue = dom.sortBy.value;
@@ -527,7 +578,7 @@ window.ACDB = window.ACDB || {};
         let results = AC_DATABASE.filter(item => {
             // Search — AND-match each whitespace-separated token across all fields
             if (search) {
-                const haystack = `${item.name} ${item.game} ${item.year} ${item.category} ${item.description} ${item.contents} ${item.type} ${item.series || ''}`.toLowerCase();
+                const haystack = haystackOf(item);
                 const tokens = search.split(/\s+/);
                 if (!tokens.every(t => haystack.includes(t))) return false;
             }
@@ -539,6 +590,8 @@ window.ACDB = window.ACDB || {};
             if (typeFilters.size > 0 && !typeFilters.has(item.type)) return false;
             // Series (empty set = all; items without a series never match a selection)
             if (seriesFilters.size > 0 && !seriesFilters.has(item.series)) return false;
+            // Characters (empty set = all; an item showing any of them matches)
+            if (characterFilters.size > 0 && !(item.characters || []).some(id => characterFilters.has(String(id)))) return false;
             // Owned / read status. The read filters and "Missing Stories"
             // only ever show story publications, the only items with a read
             // status.
@@ -742,7 +795,7 @@ window.ACDB = window.ACDB || {};
         dom.searchInput.classList.toggle('is-set', dom.searchInput.value.trim() !== '');
         dom.filterOwned.classList.toggle('is-set', dom.filterOwned.value !== '');
         const count = selectedGames.size + selectedCategories.size + selectedTypes.size
-            + selectedSeries.size + (dom.filterOwned.value ? 1 : 0);
+            + selectedSeries.size + selectedCharacters.size + (dom.filterOwned.value ? 1 : 0);
         const badge = document.getElementById('filtersCount');
         badge.textContent = count;
         badge.hidden = count === 0;
@@ -757,6 +810,7 @@ window.ACDB = window.ACDB || {};
             categories: [...selectedCategories],
             types: [...selectedTypes],
             series: [...selectedSeries],
+            characters: [...selectedCharacters],
             owned: dom.filterOwned.value,
             sort: dom.sortBy.value
         };
@@ -790,6 +844,10 @@ window.ACDB = window.ACDB || {};
                 selectedSeries = new Set(filters.series);
             }
             populateSeriesFilter();
+            if (filters.characters && filters.characters.length > 0) {
+                selectedCharacters = new Set(filters.characters.map(String));
+            }
+            populateCharacterFilter();
             if (filters.owned) dom.filterOwned.value = filters.owned;
             if (filters.sort) dom.sortBy.value = filters.sort;
         } catch { /* ignore corrupt data */ }
@@ -1151,6 +1209,7 @@ window.ACDB = window.ACDB || {};
             clearMultiSelect(dom.filterCategory);
             populateTypeFilter();
             populateSeriesFilter();
+            populateCharacterFilter();
             renderItems();
         });
         dom.filterType.querySelector('.multi-select-clear').addEventListener('click', (e) => {
@@ -1158,12 +1217,20 @@ window.ACDB = window.ACDB || {};
             selectedTypes.clear();
             clearMultiSelect(dom.filterType);
             populateSeriesFilter();
+            populateCharacterFilter();
             renderItems();
         });
         dom.filterSeries.querySelector('.multi-select-clear').addEventListener('click', (e) => {
             e.stopPropagation();
             selectedSeries.clear();
             clearMultiSelect(dom.filterSeries);
+            populateCharacterFilter();
+            renderItems();
+        });
+        dom.filterCharacter.querySelector('.multi-select-clear').addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedCharacters.clear();
+            clearMultiSelect(dom.filterCharacter);
             renderItems();
         });
 
@@ -1217,6 +1284,7 @@ window.ACDB = window.ACDB || {};
             updateMultiSelectLabel(dom.filterCategory);
             populateTypeFilter();
             populateSeriesFilter();
+            populateCharacterFilter();
             renderItems();
         });
 
@@ -1224,24 +1292,33 @@ window.ACDB = window.ACDB || {};
             selectedTypes = getSelectedValues(dom.filterType);
             updateMultiSelectLabel(dom.filterType);
             populateSeriesFilter();
+            populateCharacterFilter();
             renderItems();
         });
 
         dom.filterSeries.querySelector('.multi-select-options').addEventListener('change', () => {
             selectedSeries = getSelectedValues(dom.filterSeries);
             updateMultiSelectLabel(dom.filterSeries);
+            populateCharacterFilter();
             renderItems();
         });
 
-        // Search box inside a dropdown (types, series) — narrows the visible
-        // options as you type without closing the dropdown.
+        dom.filterCharacter.querySelector('.multi-select-options').addEventListener('change', () => {
+            selectedCharacters = getSelectedValues(dom.filterCharacter);
+            updateMultiSelectLabel(dom.filterCharacter);
+            renderItems();
+        });
+
+        // Search box inside a dropdown (types, series, characters) — narrows
+        // the visible options as you type without closing the dropdown.
+        // Accents and apostrophes don't matter, and a character is also
+        // found by another name ("connor").
         document.querySelectorAll('.multi-select-search').forEach(searchEl => {
             const multiSelectEl = searchEl.closest('.multi-select');
             searchEl.addEventListener('input', () => {
-                const query = searchEl.value.toLowerCase();
+                const query = searchKey(searchEl.value.trim());
                 multiSelectEl.querySelectorAll('.multi-select-option').forEach(opt => {
-                    const text = opt.querySelector('.multi-select-text').textContent.toLowerCase();
-                    opt.style.display = text.includes(query) ? '' : 'none';
+                    opt.style.display = opt.dataset.search.includes(query) ? '' : 'none';
                 });
             });
             searchEl.addEventListener('click', (e) => e.stopPropagation());
@@ -1653,6 +1730,7 @@ window.ACDB = window.ACDB || {};
     A.setSelectedTypes = (s) => { selectedTypes = s; };
     A.getSelectedSeries = () => selectedSeries;
     A.setSelectedSeries = (s) => { selectedSeries = s; };
+    A.getSelectedCharacters = () => selectedCharacters;
     A.getStatsSortMode = () => statsSortMode;
     A.setStatsSortMode = (m) => { statsSortMode = m; };
     A.getLastBarSortMode = () => lastBarSortMode;

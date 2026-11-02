@@ -21,6 +21,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Clear button resets search and shows all items
 - [ ] Result count updates as you type
 - [ ] "Nothing is true..." message shows for zero results
+- [ ] Search also matches the characters an item shows, by any of their names: "connor" finds all 30 items tagged Ratonhnhaké:ton (33 results), "eagle bearer" 7, "blackbeard" 7; accents and apostrophes don't matter ("altair" finds Altaïr's items)
 
 ## 3. Filters
 - [ ] Game multi-select — check a game, items filter
@@ -29,14 +30,17 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Series multi-select — check "Assassin's Creed: Assassins", exactly 17 items show (14 issues + 3 volumes)
 - [ ] Series can span types — "Assassin's Creed: Last Descendants" shows 3 novels + 5 Locus comics (8 items)
 - [ ] Series dropdown is visible with no filters set, and disappears when a category with no series is selected (e.g. Statue)
+- [ ] Characters dropdown ("All Characters", after Series): the 126 characters with items, A–Z with counts (Abbas Sofian (1) first). Opening it puts focus in its search; "connor" finds Ratonhnhaké:ton (30), "altair" Altaïr. Ezio shows 62 items and the label "Ezio Auditore da Firenze"; adding Adéwalé reads "2 Characters" and shows the 65 items with either. Picking Valhalla as the game leaves only Valhalla's 13 characters and drops picks not among them. It counts in the phone Filters badge, survives a reload, and "Clear search and filters" and the logo reset it
+- [ ] A character's page with items has "Show in the collection →" (Kassandra: the grid with her 7 items, the Characters filter set to her); Back returns to her page. A character with no items (Lucrezia) has no link
 - [ ] Owned filter — "Owned Only", "Not Owned", "Wishlist" all work
 - [ ] "Missing Stories" — only story publications you have in no edition, each story once: owning Origins Special Edition hides Origins #1–4 and the Origins (Comic) volume; owning The Fall #1–3 hides the Fall & Chain Collected Edition and Subject 4 but shows The Chain; owning nothing of Uprising shows Vols. 1–3 and none of its issues. The count reads "Showing N missing stories"; the choice survives a reload
 - [ ] Read filters — "Read" shows only items marked read; "Not Read" shows only unread story publications (164 total with nothing read), never statues or art books
 - [ ] Sort — Default, Year asc/desc, Name A-Z/Z-A, Recently Added
 - [ ] Filters cascade: selecting a game narrows Category options, selecting a category narrows Type options, selecting a type narrows Series options
 - [ ] Clear (x) button on each multi-select resets that filter
-- [ ] A filter with a value (search text, a ticked game/category/type/series, a status other than "All Items") has a gold edge and a faint gold tint; untouched filters and Sort stay plain. Holds after a reload, clears with "Clear search and filters" and the logo, and the status dropdown's option list stays dark
-- [ ] Type and Series search boxes filter options as you type
+- [ ] A filter with a value (search text, a ticked game/category/type/series/character, a status other than "All Items") has a gold edge and a faint gold tint; untouched filters and Sort stay plain. Holds after a reload, clears with "Clear search and filters" and the logo, and the status dropdown's option list stays dark
+- [ ] Type, Series and Characters search boxes filter options as you type, ignoring accents and apostrophes
+- [ ] Toolbar: at 1600px the search, all the filters, Sort and the grid/list control fit on one row; at 1520px and below the search shares its row with the grid/list control and the filters get the row below (at 1000px Sort wraps onto a third)
 
 ## 4. Filter Persistence
 - [ ] Set some filters, refresh the page — filters are restored
@@ -159,7 +163,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Escape closes the dev tool
 
 ## 15. Responsive / Mobile
-- [ ] Phones: search on top, then **Filters** and the grid/list control; Filters opens the six filters below (closed on load). With filters set, the button shows how many (two games + Owned Only = 3) and turns gold while open; desktop shows the filters as before
+- [ ] Phones: search on top, then **Filters** and the grid/list control; Filters opens the seven filters below (closed on load). With filters set, the button shows how many (two games + Owned Only = 3) and turns gold while open; desktop shows the filters as before
 - [ ] Filters stack vertically on mobile once opened
 - [ ] Cards switch to single column on small screens
 - [ ] Modal switches to single column layout below 1024px

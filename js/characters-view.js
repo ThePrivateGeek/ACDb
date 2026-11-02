@@ -391,6 +391,7 @@
                     <div class="modal-meta">${meta}</div>
                 </div>
                 <p class="character-description">${esc(character.description)}</p>
+                ${items.length ? `<div class="head-card-links"><button class="link" data-character-catalog="${character.id}">Show in the collection &rarr;</button></div>` : ''}
                 ${progress}
             </div>
             ${games.length ? `
@@ -511,6 +512,15 @@
     });
 
     content.addEventListener('click', (e) => {
+        // "Show in the collection": the grid filtered to this character
+        // (Back returns to the page)
+        const catalog = e.target.closest('[data-character-catalog]');
+        if (catalog) {
+            history.pushState(null, '', window.location.pathname + window.location.search);
+            A.showMainContent();
+            A.applyExclusiveFilter('character', catalog.dataset.characterCatalog);
+            return;
+        }
         const modeBtn = e.target.closest('[data-characters-mode]');
         if (modeBtn) {
             setMode(modeBtn.dataset.charactersMode);

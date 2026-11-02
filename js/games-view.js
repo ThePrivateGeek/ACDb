@@ -391,7 +391,7 @@
                     <div class="modal-meta">${meta}</div>
                 </div>
                 <p class="character-description">${esc(game.description)}</p>
-                <div class="game-head-links">${links}</div>
+                <div class="head-card-links">${links}</div>
                 ${progress}
             </div>
             ${cast.length ? `
