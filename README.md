@@ -31,7 +31,7 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 - **Shareable item links** — each item has a unique URL. Ctrl+click or right-click to open in a new tab. Browser back button closes the modal. The share button in the item modal opens the native share sheet on mobile (copies the link on desktop); shared links unfurl with the item's own image and description in Slack/Discord/social media
 - **Game timeline** — quick-access chips for every game from AC1 to Shadows, plus Black Flag Resynced, the movie and general merchandise. Pick several to combine them; the Games filter follows along
 - **Search** — instant search across item names, games, years, categories, types, series, descriptions and contents, and the names of the characters an item shows (other names included, so "connor" or "eagle bearer" find their items), with a result count. Accents and apostrophes don't matter ("altair" finds Altaïr). Every word you type must match, so "ezio statue" finds Ezio statues. When nothing matches, one button clears the search and filters
-- **Back up / Restore** — save your collection as a JSON file from the account menu and restore it on another device
+- **Back up / Restore** — save your collection as a JSON file from the account menu and restore it on another device (Restore also takes the file from **Download all account data**)
 - **Static site** — the database and collection tracking run entirely in the browser (LocalStorage); a small Cloudflare Worker handles sign-in, sync and sharing
 - **Responsive** — works on desktop, tablet, and mobile with touch swipe support. On phones the filters fold behind a **Filters** button that shows how many are active
 - **One design language** — the dark Animus-inspired look with gold for actions and progress, green for owned, purple for read and blue for wishlist, the same on every screen (see [Design system](#design-system))
@@ -119,8 +119,8 @@ js/
   games.js       — the games and their DLCs (Games tab, game rows in Complete Lore)
   characters.js  — the characters (Characters tab), with permanent ids that
                    items point at from their "characters" field
-  utils.js       — shared utilities (toast, escapeHTML, slugify, release dates,
-                   focus trap, share links, etc.)
+  utils.js       — shared utilities (toast, escapeHTML, LocalStorage wrapper,
+                   slugify, release dates, focus trap, share links, etc.)
   modal.js       — item modal, gallery, lightbox
   stats.js       — stats dashboard, completion celebration
   collection.js  — export/import

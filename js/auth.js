@@ -27,18 +27,7 @@
         + '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>';
     const CHEVRON = '<svg class="account-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
 
-    // ---- Storage helpers (LocalStorage can be blocked or full) ----
-    const store = {
-        get(key) {
-            try { return localStorage.getItem(key); } catch { return null; }
-        },
-        set(key, value) {
-            try { localStorage.setItem(key, value); } catch { /* ignore */ }
-        },
-        remove(key) {
-            try { localStorage.removeItem(key); } catch { /* ignore */ }
-        }
-    };
+    const store = A.store;
 
     function storageWorks() {
         try {
@@ -230,6 +219,22 @@
     // ---- Sign-out / account ----
     async function signOut() {
         closeAccountMenu();
+        const account = getAccount();
+        // Until this device's first sync has finished (offline since signing
+        // in, or the server failed), its collection is not in the account:
+        // keep it, as if the visitor had never signed in.
+        if (!account || A.getSyncOwner() !== account.id) {
+            try {
+                await authFetch('/auth/logout', { method: 'POST' });
+            } catch { /* the session expires on its own */ }
+            clearSignedInState();
+            A.stopSync();
+            A.updateShareButton();
+            renderAccountUI();
+            A.showToast("Signed out. This browser's collection hadn't synced yet, so it's still here.");
+            return;
+        }
+
         const unsent = await A.flushSync({ timeoutMs: 5000 });
         if (unsent > 0 && !confirm(`${unsent} change${unsent === 1 ? '' : 's'} haven't reached your account yet (you seem to be offline).\n\nSign out anyway and lose ${unsent === 1 ? 'it' : 'them'}?`)) {
             return;

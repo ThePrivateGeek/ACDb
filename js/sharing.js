@@ -31,7 +31,7 @@
 
     function getShareName() {
         if (A.isSignedIn()) return (A.getAccount() || {}).shareName || null;
-        return localStorage.getItem(A.SHARE_TOKEN_KEY) ? localStorage.getItem(A.SHARE_NAME_KEY) : null;
+        return A.store.get(A.SHARE_TOKEN_KEY) ? A.store.get(A.SHARE_NAME_KEY) : null;
     }
 
     function isShared() {
@@ -190,8 +190,8 @@
                 if (signedIn) {
                     A.setShareName(data.displayName);
                 } else {
-                    localStorage.setItem(A.SHARE_TOKEN_KEY, data.token);
-                    localStorage.setItem(A.SHARE_NAME_KEY, data.displayName);
+                    A.store.set(A.SHARE_TOKEN_KEY, data.token);
+                    A.store.set(A.SHARE_NAME_KEY, data.displayName);
                 }
 
                 // Show success
@@ -213,7 +213,7 @@
     }
 
     async function performUpdate(owned) {
-        const token = localStorage.getItem(A.SHARE_TOKEN_KEY);
+        const token = A.store.get(A.SHARE_TOKEN_KEY);
         if (!token) return;
 
         const updateBtn = document.getElementById('shareUpdateBtn');
@@ -248,7 +248,7 @@
 
     async function deleteProfile() {
         const linked = hasLinkedProfile();
-        const token = localStorage.getItem(A.SHARE_TOKEN_KEY);
+        const token = A.store.get(A.SHARE_TOKEN_KEY);
         if (!linked && !token) return;
 
         const deleteBtn = document.getElementById('shareDeleteBtn');
@@ -265,8 +265,8 @@
                 if (linked) {
                     A.setShareName(null);
                 } else {
-                    localStorage.removeItem(A.SHARE_TOKEN_KEY);
-                    localStorage.removeItem(A.SHARE_NAME_KEY);
+                    A.store.remove(A.SHARE_TOKEN_KEY);
+                    A.store.remove(A.SHARE_NAME_KEY);
                 }
                 updateShareButton();
                 closeShareModal();
@@ -439,9 +439,9 @@
     // After signing in: link this browser's token-owned profile (if any) to
     // the account, so it follows the synced collection from now on.
     async function claimLegacyProfile() {
-        const legacyToken = localStorage.getItem(A.SHARE_TOKEN_KEY);
+        const legacyToken = A.store.get(A.SHARE_TOKEN_KEY);
         if (!legacyToken || !A.isSignedIn()) return;
-        const legacyName = localStorage.getItem(A.SHARE_NAME_KEY);
+        const legacyName = A.store.get(A.SHARE_NAME_KEY);
         try {
             const res = await A.authFetch('/profile/claim', {
                 method: 'POST',
@@ -450,14 +450,14 @@
             });
             const data = await res.json().catch(() => ({}));
             if (res.ok && data.success) {
-                localStorage.removeItem(A.SHARE_TOKEN_KEY);
-                localStorage.removeItem(A.SHARE_NAME_KEY);
+                A.store.remove(A.SHARE_TOKEN_KEY);
+                A.store.remove(A.SHARE_NAME_KEY);
                 A.setShareName(data.displayName);
                 A.showToast(`Your public profile ${data.displayName} now updates automatically.`, 'success');
             } else if (res.status === 404) {
                 // The profile was deleted elsewhere; the token is useless now.
-                localStorage.removeItem(A.SHARE_TOKEN_KEY);
-                localStorage.removeItem(A.SHARE_NAME_KEY);
+                A.store.remove(A.SHARE_TOKEN_KEY);
+                A.store.remove(A.SHARE_NAME_KEY);
             } else if (data.code === 'has_profile') {
                 // Keep the token so that profile can still be managed when signed out.
                 A.setShareName(data.displayName);

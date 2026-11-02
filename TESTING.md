@@ -134,6 +134,10 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] **Restore from file** — select the exported file, data restores
 - [ ] Toast shows "Imported X of Y items"
 - [ ] Import with invalid file shows error toast
+- [ ] **Restore from file** also takes the file from **Download all account data** (entries under `items`)
+- [ ] Restoring a backup made before reading tracking (no `hasRead`/`readDate`) keeps the books you've marked read; items the file doesn't change keep their edit time
+- [ ] A file with junk entries (`null`, unknown ids or names) imports the rest; an invalid value (a `condition` of `<img src=x onerror=alert(1)>`, a 9000-character note) is stored blank or trimmed and runs nothing
+- [ ] Signed in: a file that changes items asks first ("This file changes N items in your account…"); Cancel changes nothing; a file that changes nothing doesn't ask
 - [ ] Export never contains `updatedAt` (sync bookkeeping stays out of export files)
 
 ## 13. URL Hash Routing
@@ -174,9 +178,12 @@ The catalogue's categories are the Category options of the "Suggest a missing it
 - [ ] Leaderboard and profile dates read like "9 Oct 2026", as in the reading view
 - [ ] `python3 tools/validate-catalog.py` reports OK (it also runs automatically as the pre-commit hook). It covers unique ids and names, required fields, known games and categories, image mappings and files, read links, share pages, and the old slugs in `js/slug-aliases.js`. For `js/games.js` it checks each game's kind, developer, platforms (known names, in the validator's `PLATFORMS` order), description (a warning past 300 characters), re-releases and URL slug, and each DLC's type; a lore place (`marker`) only on expansions and story DLCs of main, spin-off and handheld games with a year. For `js/characters.js` it checks each character's id (unique, each new one higher), name and URL slug, side, year, games (from `js/games.js`, main, spin-off or handheld only, in release order) and description (a warning past 300 characters), and that every item's `characters` lists existing ids, each once
 - [ ] Collection data keyed by item id under `acdb_collection_v2`, each entry with an `updatedAt` edit time once edited; a name-keyed `acdb_collection` from before ids is migrated once on load (unmatched keys are dropped) and kept as a backup until 2027-01-03, after which it is removed from browsers that have `acdb_collection_v2`
+- [ ] Saved entries are normalized on load the way the Worker stores them (an unknown `condition` becomes blank, the edit time is kept); a saved collection that isn't valid JSON is copied to `acdb_collection_unreadable` and the site starts with an empty one
+- [ ] Storage blocked (DevTools → Application → Storage, or a browser set to block site data): the site still loads, an item link (`#<slug>`) opens the item, and the first edit shows "Couldn't save in this browser…" once
+- [ ] No CSP errors in the console on `index.html` and `privacy.html` (`script-src` has no `'unsafe-inline'`); on the live site the Cloudflare beacon still loads
 - [ ] Export includes `id` and `name`; Import accepts both new exports (by id) and old ones (by name)
 - [ ] Shared profiles upload item ids; profiles uploaded before ids (item names) still display. Profiles and the leaderboard are served from D1
-- [ ] `node tools/test-sync-merge.mjs` passes (cloud-sync merge rules)
+- [ ] `node tools/test-sync-merge.mjs` passes (cloud-sync merge rules, and that the Worker's `sanitizeItemData` keeps the client's normalized values unchanged)
 - [ ] Read links still open a book: archive.org returns 200 even for a missing book, so open a few (especially ones with parentheses in the path) and check the reader shows a cover, not an empty item page
 
 ## 17. Account & Cloud Sync
@@ -199,6 +206,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Signing in on a browser that shared a profile before sign-in existed links that profile (toast) and it starts updating automatically
 - [ ] **Download all account data** downloads `acdb-account-<date>.json`
 - [ ] **Sign out**: the grid shows nothing owned; signing in again brings everything back
+- [ ] Sign out before the first sync has finished (sign in on a browser with a collection while DevTools blocks `api.acdb.workers.dev`): the collection stays, the toast says it "hadn't synced yet, so it's still here", and nothing is pulled in afterwards
 - [ ] **Delete account**: confirm dialog; afterwards signed out, the collection is still in the browser, and the public profile is gone
 - [ ] `privacy.html` opens from the footer and the account menu, and looks right on mobile
 - [ ] Fresh private window: no requests to `accounts.google.com` until Sign in is clicked (Network tab; `fonts.googleapis.com` is the site's fonts and was always there)

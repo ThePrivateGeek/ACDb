@@ -57,6 +57,34 @@ check(!S.isEmpty({ hasRead: true }), 'read-only item is not empty');
     check(n.hasRead === true && n.readDate === '2026-10-06', 'normalize keeps read fields', n);
 }
 {
+    // Values the Worker would refuse become blank, so markup from a crafted
+    // backup file never reaches storage.
+    const n = S.normalize({ condition: '<img src=x onerror=alert(1)>', copies: '-3', pricePaid: '1'.repeat(21), acquiredDate: 'yesterday', notes: 42, readDate: '2026-1-6' });
+    check(n.condition === '' && n.copies === 0 && n.pricePaid === '' && n.acquiredDate === '' && n.notes === '' && n.readDate === '', 'normalize blanks invalid values', n);
+    check(S.normalize({ condition: 'Mint' }).condition === '' && S.normalize({ condition: 'near-mint' }).condition === 'near-mint', 'normalize keeps only known conditions');
+    check(S.normalize({ copies: 5000 }).copies === 999 && S.normalize({ copies: '2' }).copies === 2, 'normalize clamps copies');
+    check(S.normalize({ notes: 'x'.repeat(6000) }).notes.length === 5000, 'normalize trims long notes');
+}
+{
+    // normalize's output must pass the Worker's sanitizeItemData unchanged,
+    // or a device keeps values its other devices never get.
+    const workerSource = readFileSync(fileURLToPath(new URL('../worker/acdb-worker.js', import.meta.url)), 'utf8');
+    const rules = workerSource.match(/const MAX_NOTES_LENGTH[\s\S]*?\nfunction sanitizeItemData[\s\S]*?\n}\r?\n/);
+    check(rules, 'found sanitizeItemData in the Worker');
+    if (rules) {
+        const sanitize = vm.runInNewContext(rules[0] + '; sanitizeItemData');
+        const samples = [
+            {}, owned(1), { ...owned(1), condition: 'mint', copies: 3, pricePaid: '19.99', acquiredDate: '2026-01-02', notes: 'Signed', hasRead: true, readDate: '2026-02-03' },
+            { owned: 'yes', copies: '7', pricePaid: 12.5, condition: 'MINT', notes: 'y'.repeat(9000), acquiredDate: '2026-13-01x' },
+            { copies: 2.7, pricePaid: null, hasBox: 1, readDate: 20260101 },
+        ];
+        samples.forEach((sample, i) => {
+            const n = S.normalize(sample);
+            check(JSON.stringify(sanitize(n)) === JSON.stringify(n), `Worker keeps normalized sample ${i}`, { n, worker: sanitize(n) });
+        });
+    }
+}
+{
     // Read but not owned (e.g. read on the Internet Archive) still syncs up.
     const r = S.mergeFirstSync({ 9: { ...blank(50), hasRead: true } }, [], 'newest', NOW);
     check(r.toPush.includes('9') && r.merged[9].hasRead, 'read-only device item pushed', r.merged[9]);

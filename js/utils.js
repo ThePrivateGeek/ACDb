@@ -8,11 +8,27 @@
     window.ACDB = window.ACDB || {};
     const A = window.ACDB;
 
+    // Quotes too, because the result also goes into attribute values.
+    const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+
     function escapeHTML(str) {
-        const div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML;
+        return (str == null ? '' : String(str)).replace(/[&<>"']/g, ch => HTML_ESCAPES[ch]);
     }
+
+    // ---- LocalStorage (it can be blocked, or full) ----
+    // Reads return null and writes do nothing when storage fails; `set`
+    // returns whether the value was saved.
+    const store = {
+        get(key) {
+            try { return localStorage.getItem(key); } catch { return null; }
+        },
+        set(key, value) {
+            try { localStorage.setItem(key, value); return true; } catch { return false; }
+        },
+        remove(key) {
+            try { localStorage.removeItem(key); } catch { /* ignore */ }
+        }
+    };
 
     function debounce(fn, delay) {
         let timer;
@@ -234,6 +250,7 @@
 
     // Expose on namespace
     A.escapeHTML = escapeHTML;
+    A.store = store;
     A.debounce = debounce;
     A.formatCondition = formatCondition;
     A.slugify = slugify;

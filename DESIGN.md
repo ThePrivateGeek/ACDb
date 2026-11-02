@@ -359,12 +359,14 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
    - Add your view to `showMainContent()` and to the other `show…` functions, so it hides when someone navigates away.
    - If it's a top-level section, add a `.main-nav-link` with `data-view="foo"` to the header nav.
 5. **Rendering:**
-   - Build HTML with template strings and **pass every piece of data through `ACDB.escapeHTML`** (reading.js aliases it as `esc`).
+   - Build HTML with template strings and **pass every piece of data through `ACDB.escapeHTML`** (reading.js aliases it as `esc`). It escapes quotes too, so it is safe inside attribute values.
+   - No inline `<script>` blocks or `on…=` attributes: the CSP has no `'unsafe-inline'` for scripts, so they won't run. Attach listeners from JS.
    - Put inline styles only on dynamic values (bar widths).
    - Show and hide parts with the `hidden` attribute or `style.display = ''`. Never set `display: block` on something whose CSS uses grid or flex.
 6. **Code:**
    - New code lives in its own file wrapped in an IIFE (`(function () { 'use strict'; const A = window.ACDB; … })()`) and exports through `A.foo = foo` at the bottom.
    - The file gets a `<script>` tag in `index.html` before `app.js` (load order matters).
+   - Read and write LocalStorage through `ACDB.store` (`get`, `set`, `remove`), never `localStorage` directly: storage can be blocked or full, and an exception there must not stop the page.
    - New CSS goes in its own `/* ---- Foo View ---- */` block in `style.css`, near related views, using tokens only.
 7. **Docs:**
    - Add a section to `TESTING.md` and a feature bullet to the README.

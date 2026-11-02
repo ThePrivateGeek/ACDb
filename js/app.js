@@ -18,6 +18,7 @@ window.ACDB = window.ACDB || {};
     const STORAGE_KEY = 'acdb_collection_v2';
     const LEGACY_STORAGE_KEY = 'acdb_collection';
     const LEGACY_BACKUP_EXPIRES = Date.parse('2027-01-03');
+    const UNREADABLE_KEY = 'acdb_collection_unreadable';   // a saved collection that failed to parse
     const FILTERS_KEY = 'acdb_filters';
     const API_URL = 'https://api.acdb.workers.dev';
     const SHARE_TOKEN_KEY = 'acdb_share_token';
@@ -215,6 +216,19 @@ window.ACDB = window.ACDB || {};
     };
 
     // ---- Collection Persistence ----
+    // Entries are normalized on load (sync.js), so whatever reached storage
+    // (an old import, a hand edit) has the shape the rest of the app expects
+    // and holds no markup. Edit times are kept as they are.
+    function cleanCollection(raw) {
+        const clean = {};
+        Object.entries(raw).forEach(([id, data]) => {
+            if (!data || typeof data !== 'object') return;
+            clean[id] = ACDB.normalizeItemData(data);
+            if (Number.isFinite(data.updatedAt)) clean[id].updatedAt = data.updatedAt;
+        });
+        return clean;
+    }
+
     function loadCollection() {
         let data;
         try {
@@ -223,22 +237,29 @@ window.ACDB = window.ACDB || {};
             return {};
         }
         if (data !== null) {
+            let parsed = null;
             try {
-                return JSON.parse(data);
-            } catch {
-                return {};
-            }
+                parsed = JSON.parse(data);
+            } catch { /* handled below */ }
+            if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) return cleanCollection(parsed);
+            // Unreadable: set the raw text aside before the next save replaces it.
+            ACDB.store.set(UNREADABLE_KEY, data);
+            return {};
         }
         // First load with id keys: migrate the name-keyed collection once.
-        const migrated = migrateLegacyCollection();
-        try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
-        } catch { /* storage unavailable: keep working in memory */ }
+        const migrated = cleanCollection(migrateLegacyCollection());
+        ACDB.store.set(STORAGE_KEY, JSON.stringify(migrated));
         return migrated;
     }
 
+    // A failed save (storage full or blocked) keeps the edit in memory, where
+    // sync can still send it; say so once.
+    let saveFailureShown = false;
+
     function saveCollection() {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(collection));
+        if (ACDB.store.set(STORAGE_KEY, JSON.stringify(collection)) || saveFailureShown) return;
+        saveFailureShown = true;
+        ACDB.showToast("Couldn't save in this browser. Use Back up to file to keep your changes.", 'error');
     }
 
     function getItemData(id) {
@@ -294,6 +315,17 @@ window.ACDB = window.ACDB || {};
         collection[id] = { ...data, updatedAt: ACDB.syncNow() };
         saveCollection();
         ACDB.onLocalChange(id);
+    }
+
+    // Many edits at once (import): one save and one sync nudge.
+    // `changes` maps item id -> data.
+    function setItemsData(changes) {
+        const updatedAt = ACDB.syncNow();
+        Object.entries(changes).forEach(([id, data]) => {
+            collection[id] = { ...data, updatedAt };
+        });
+        saveCollection();
+        ACDB.onLocalChange();
     }
 
     // ---- Multi-Select Helpers ----
@@ -695,7 +727,7 @@ window.ACDB = window.ACDB || {};
         card.dataset.id = item.id;
 
         const conditionHTML = data.condition
-            ? `<span class="badge card-condition condition-${data.condition}">${formatCondition(data.condition)}</span>`
+            ? `<span class="badge card-condition condition-${escapeHTML(data.condition)}">${escapeHTML(formatCondition(data.condition))}</span>`
             : '';
 
         const thumbPath = Array.isArray(item.image) && item.image.length > 0 ? item.image[0] : null;
@@ -805,7 +837,7 @@ window.ACDB = window.ACDB || {};
             owned: dom.filterOwned.value,
             sort: dom.sortBy.value
         };
-        localStorage.setItem(FILTERS_KEY, JSON.stringify(filters));
+        ACDB.store.set(FILTERS_KEY, JSON.stringify(filters));
     }
 
     function restoreFilters() {
@@ -1693,6 +1725,7 @@ window.ACDB = window.ACDB || {};
     A.saveCollection = saveCollection;
     A.getItemData = getItemData;
     A.setItemData = setItemData;
+    A.setItemsData = setItemsData;
     A.findItemByRef = findItemByRef;
     A.coveringItem = coveringItem;
     A.renderItems = renderItems;

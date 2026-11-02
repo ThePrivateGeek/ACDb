@@ -99,7 +99,7 @@
                 const row = document.createElement('div');
                 row.className = 'stats-bar-row';
                 row.innerHTML = `
-                    <span class="stats-bar-label">${label}</span>
+                    <span class="stats-bar-label">${A.escapeHTML(label)}</span>
                     <span class="stats-bar-value">${count}</span>
                 `;
                 dom.statsByCondition.appendChild(row);

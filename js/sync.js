@@ -34,22 +34,33 @@
     const LEGACY_STAMP = 1;
 
     const FIELDS = ['owned', 'wishlist', 'hasBox', 'condition', 'copies', 'pricePaid', 'acquiredDate', 'notes', 'hasRead', 'readDate'];
+    const CONDITIONS = ['mint', 'near-mint', 'excellent', 'good', 'fair', 'poor'];
+    const DATE_FORMAT = /^\d{4}-\d{2}-\d{2}$/;
+    const MAX_PRICE_LENGTH = 20;
+    const MAX_NOTES_LENGTH = 5000;     // also the notes box's maxlength
 
     // ---- Pure helpers (exercised by tools/test-sync-merge.mjs) ----
 
+    // The one shape of a saved item. Loose input (strings from old backups,
+    // numbers for prices) is coerced; anything the Worker's sanitizeItemData
+    // would refuse becomes blank (long notes are trimmed to fit), so this
+    // device keeps exactly what its other devices receive, and a crafted
+    // backup file can't store markup.
     function normalize(d) {
         d = d || {};
+        const copies = parseInt(d.copies, 10);
+        const price = d.pricePaid == null ? '' : String(d.pricePaid);
         return {
             owned: !!d.owned,
             wishlist: !!d.wishlist,
             hasBox: !!d.hasBox,
-            condition: d.condition || '',
-            copies: parseInt(d.copies, 10) || 0,
-            pricePaid: d.pricePaid == null ? '' : String(d.pricePaid),
-            acquiredDate: d.acquiredDate || '',
-            notes: d.notes || '',
+            condition: CONDITIONS.includes(d.condition) ? d.condition : '',
+            copies: copies > 0 ? Math.min(copies, 999) : 0,
+            pricePaid: price.length <= MAX_PRICE_LENGTH ? price : '',
+            acquiredDate: DATE_FORMAT.test(d.acquiredDate) ? d.acquiredDate : '',
+            notes: typeof d.notes === 'string' ? d.notes.slice(0, MAX_NOTES_LENGTH) : '',
             hasRead: !!d.hasRead,
-            readDate: d.readDate || ''
+            readDate: DATE_FORMAT.test(d.readDate) ? d.readDate : ''
         };
     }
 
@@ -377,11 +388,19 @@
         } catch { /* best effort */ }
     }
 
+    // Still signed in to `account`? Signing out (here or in another tab)
+    // while the first sync waits must not pull the account's data back in.
+    function signedInAs(account) {
+        const current = A.isSignedIn() ? A.getAccount() : null;
+        return !!current && current.id === account.id;
+    }
+
     async function firstSync(account) {
         setStatus('syncing');
         const res = await A.authFetch('/collection?since=0');
         if (!res.ok) throw httpError(res);
         const body = await res.json();
+        if (!signedInAs(account)) return null;
         noteServerTime(body.serverTime);
 
         const local = A.getCollection();
@@ -401,7 +420,10 @@
             const remoteCount = countNonEmpty(body.items.map(r => r.data));
             const conflicts = countConflicts(local, body.items);
             let strategy = 'newest';
-            if (conflicts > 0) strategy = await askMergeStrategy({ localCount, remoteCount, conflicts });
+            if (conflicts > 0) {
+                strategy = await askMergeStrategy({ localCount, remoteCount, conflicts });
+                if (!signedInAs(account)) return null;
+            }
             if (localCount > 0) saveBackup(local);
             result = mergeFirstSync(local, body.items, strategy, now);
         }
@@ -513,6 +535,12 @@
     A.resetSync = resetSync;
     A.getSyncStatus = () => status;
     A.getPendingCount = pendingCount;
+    // Whose collection this device holds: the account id once a first sync
+    // has merged it, else null (or another account's id, see firstSync).
+    A.getSyncOwner = () => loadState().owner;
+    A.ITEM_FIELDS = FIELDS;
+    A.normalizeItemData = normalize;
+    A.sameItemData = sameData;
     A.syncInternals = { normalize, sameData, isEmpty, unsentIds, applyRemote, countConflicts, mergeFirstSync, LEGACY_STAMP };
 
 })();
