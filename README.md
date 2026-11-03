@@ -189,6 +189,14 @@ Run the check by hand with `python3 tools/validate-catalog.py`, and skip the hoo
 
 The version is shown in the footer (`index.html`); releases from 3.0 on are tagged in git (`v3.0`).
 
+- **4.0** (3 Nov 2026)
+  - **Games:** a Games tab with every released Assassin's Creed game (42 games and 71 DLCs) in release order or story order. Each game has its own page with its box art, platforms, re-releases, DLCs, characters and items. Games and story DLCs also take their place in Complete Lore.
+  - **Characters:** a Characters tab with 201 characters and their portraits, A–Z or in story order, filtered by side or by game. Each character has a page with their family, their games and their items.
+  - **Everything linked:** items link to the characters they show, characters to their games, and games back to their characters, items and stories. The collection has a Characters filter, and search finds items by the characters in them (other names too, so "connor" works) and ignores accents.
+  - **Collection:** Missing Stories lists the stories you have in no edition. Every item shows its permanent id, filters you've set are outlined in gold, the Other category is split into seven, and you can suggest a missing item. 31 new items (678 in all).
+  - **Leaderboard:** each collector is a card, on every screen size.
+  - **Faster:** cards load small copies of the photos (a full scroll downloads about a third as much), and ticking Owned on a phone takes 0.1 s instead of about 2 s.
+  - **Safer:** signing out before your first sync keeps your collection, Restore takes the account download and keeps what the file leaves out, and the site's security policy is stricter.
 - **3.0** (10 Oct 2026)
   - **Reading:** a Read status (with finished date) for novels, comics, graphic novels, manga and gamebooks; marking a collected edition read marks its issues read.
   - **Reading orders:** a Reading Order section with Complete Lore (120 canon stories in story order, foldable eras, a filter by game), Oliver Bowden Novels and Non-canon Stories. By Series has a page per series with progress, Up next and links to the previous and next series.
