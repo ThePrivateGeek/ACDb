@@ -152,14 +152,16 @@ tools/
                    games.js (ids, names, fields, games, categories, images,
                    read links, share pages, slug aliases, reading order entries,
                    game data, characters and their portraits, and that the
-                   Worker's CATALOG_MAX_ID is above the highest item id, and
-                   that card thumbnails are up to date)
+                   Worker's CATALOG_MAX_ID is above the highest item id, that
+                   card thumbnails are up to date, and that new images are at
+                   most 1600x2400)
   build-thumbs.py — makes the small card copies of item images in images/thumbs/
                    (python3 tools/build-thumbs.py after adding or replacing images)
   build-images.py — rebuilds the gallery arrays in images.js from the _01, _02...
                    files on disk, and lists missing and unused images
   build-share-pages.py — writes the s/<slug>.html share pages
-  convert-to-webp.py — converts JPG/PNG item images to WebP
+  convert-to-webp.py — converts JPG/PNG item images to WebP, and shrinks new
+                   images to at most 1600x2400
   flag-large-images.py — lists image files over 1 MB (or --threshold-mb N)
   rewrite-images-js-to-webp.py — the one-time switch of images.js paths to
                    .webp (22 Apr 2026); kept for reference

@@ -48,6 +48,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
   - Images are WebP, in `images/<subdir>/`.
   - Gallery images are `name_01.webp`, `name_02.webp`, and so on.
   - If you're given a jpg or png, convert it first with `python3 tools/convert-to-webp.py`.
+  - New images are at most 1600x2400 px. `convert-to-webp.py` shrinks conversions and any new or replaced `.webp` that is bigger; the validator blocks a commit with a bigger new image. Images already committed are never re-saved (it would add a second copy to the git history).
   - Cards and reading-order covers load a small copy of an item's first image from `images/thumbs/` (made by `tools/build-thumbs.py`, listed in `js/thumbs.js`). Never edit those by hand; rerun the tool.
 - **Read links:**
   - `read` holds an Internet Archive book *path*, not a URL; `readUrl()` builds the link.

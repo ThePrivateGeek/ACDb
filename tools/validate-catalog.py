@@ -60,6 +60,9 @@ Checks:
              entry from tools/build-thumbs.py, and its small copy when it
              has one; js/thumbs.js matches images/thumbs/manifest.json; a
              warning for copies no card uses
+  sizes      a new or replaced image under images/ (content not in the last
+             commit) is at most 1600x2400 (MAX_WIDTH, MAX_HEIGHT in
+             tools/convert-to-webp.py, which shrinks it)
 """
 from __future__ import annotations
 
@@ -94,6 +97,11 @@ _spec.loader.exec_module(share_pages)
 _spec = importlib.util.spec_from_file_location("thumbs", ROOT / "tools" / "build-thumbs.py")
 thumbs = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(thumbs)
+
+# And the converter's size limit for new images, and how it finds them.
+_spec = importlib.util.spec_from_file_location("converter", ROOT / "tools" / "convert-to-webp.py")
+converter = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(converter)
 
 REQUIRED = {
     "id": int,
@@ -672,6 +680,39 @@ def check_thumbs(images, errors, warnings):
         warnings.append(f"images/thumbs/ has copies or entries no card uses ({', '.join((leftovers + strays)[:3])}): {advice}")
 
 
+def webp_size(path):
+    """(width, height) read from a WebP file's header, or None."""
+    with open(path, "rb") as f:
+        head = f.read(30)
+    if len(head) < 30 or head[:4] != b"RIFF" or head[8:12] != b"WEBP":
+        return None
+    chunk = head[12:16]
+    if chunk == b"VP8 ":   # lossy
+        return int.from_bytes(head[26:28], "little") & 0x3FFF, int.from_bytes(head[28:30], "little") & 0x3FFF
+    if chunk == b"VP8L":   # lossless
+        bits = int.from_bytes(head[21:25], "little")
+        return (bits & 0x3FFF) + 1, ((bits >> 14) & 0x3FFF) + 1
+    if chunk == b"VP8X":   # extended (alpha, colour profile, animation)
+        return int.from_bytes(head[24:27], "little") + 1, int.from_bytes(head[27:30], "little") + 1
+    return None
+
+
+def check_new_image_sizes(errors, warnings):
+    paths = converter.uncommitted_images()
+    if paths is None:
+        return  # no git to compare with
+    limit_w, limit_h = converter.MAX_WIDTH, converter.MAX_HEIGHT
+    for rel in paths:
+        if not rel.lower().endswith(".webp"):
+            continue
+        size = webp_size(ROOT / rel)
+        if size is None:
+            warnings.append(f"{rel}: can't read its size (not a WebP file?)")
+        elif size[0] > limit_w or size[1] > limit_h:
+            errors.append(f"{rel} is {size[0]}x{size[1]}; new images are at most {limit_w}x{limit_h}: "
+                          "run python3 tools/convert-to-webp.py to shrink it")
+
+
 def main():
     errors, warnings = [], []
     items = share_pages.load_database()
@@ -781,6 +822,7 @@ def main():
     check_slug_aliases(items, errors, warnings)
     check_worker_ceiling(highest_id, errors, warnings)
     check_thumbs(images, errors, warnings)
+    check_new_image_sizes(errors, warnings)
 
     for w in warnings:
         print(f"warning: {w}")

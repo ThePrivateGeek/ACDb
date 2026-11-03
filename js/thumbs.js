@@ -183,7 +183,6 @@ const AC_THUMBS = new Set([
     "images/other/ac-3-promo-bracelet.webp",
     "images/other/ac-3-promo-usb-stick.webp",
     "images/other/ac-assassin-or-templar.webp",
-    "images/other/ac-bf-resynced-nine-men-morris.webp",
     "images/other/ac-bov-creed-vs-crows.webp",
     "images/other/ac-bov-roma.webp",
     "images/other/ac-bov-tokyo-xxi.webp",
