@@ -39,7 +39,7 @@ SLUG_ALIASES_JS = ROOT / "js" / "slug-aliases.js"
 OUT_DIR = ROOT / "s"
 
 SITE = "https://acdb.theprivategeek.com"
-FALLBACK_IMAGE = "images/acdb-og-v3.jpg"
+FALLBACK_IMAGE = "images/acdb-og-v4.jpg"
 
 STR = r'"((?:[^"\\]|\\.)*)"'
 RE_IMG_ENTRY_INLINE = re.compile(r'^\s*' + STR + r'\s*:\s*\[(.*)\]\s*,?\s*$')

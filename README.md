@@ -55,9 +55,25 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 
 <p><img src="images/readme/series.webp" alt="Blade of Shao Jun series page" width="100%"></p>
 
-**On a phone**: the collection with filters folded away, Complete Lore, a series page and an item card.
+**Games**: every released game in release order, with chips for main games, spin-offs, handheld, mobile, browser and VR.
 
-<p><img src="images/readme/phone.webp" alt="Four phone screens: collection, reading order, series page, item card" width="100%"></p>
+<p><img src="images/readme/games.webp" alt="Games tab with box art for the main games in release order" width="100%"></p>
+
+**A game's page**: its facts, re-releases, links to its stories and items, how many you own, and its characters.
+
+<p><img src="images/readme/game.webp" alt="Assassin's Creed II game page with its characters" width="100%"></p>
+
+**Characters**: a who's who with portraits, narrowed here to the characters of Assassin's Creed II.
+
+<p><img src="images/readme/characters.webp" alt="Characters tab filtered to Assassin's Creed II" width="100%"></p>
+
+**A character's page**: their family as links, the games they appear in and their items in the collection.
+
+<p><img src="images/readme/character.webp" alt="Ezio Auditore da Firenze character page with family, games and items" width="100%"></p>
+
+**On a phone**: the collection with filters folded away, Complete Lore, a game's page and a character's page.
+
+<p><img src="images/readme/phone.webp" alt="Four phone screens: collection, reading order, game page, character page" width="100%"></p>
 
 ## How It Works
 
