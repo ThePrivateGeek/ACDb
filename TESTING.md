@@ -109,6 +109,8 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Acquired date field saves
 - [ ] Notes field saves (with debounce)
 - [ ] All changes persist after closing modal and reopening
+- [ ] Each change updates just that item's card behind the modal (badges, condition, green border), the header's owned count and the "· N owned" line, with no visible redraw of the grid; on a phone (or DevTools CPU 4x slowdown) ticking Owned feels instant. With a status filter set (Owned, Not owned, Wishlist, Read, Missing Stories) the list redraws, so a card that no longer matches drops out
+- [ ] One click is one save: DevTools → Application → Local Storage, `acdb_collection_v2` changes once per click (typing in Copies saves as you type)
 - [ ] Reading section shows for novels, comic books, graphic novels, manga, gamebooks; hidden for everything else (statues, art books, magazines)
 - [ ] Setting a Finished date auto-toggles Read on; toggling Read off clears the date
 - [ ] Toggling Owned off leaves Read and Finished untouched

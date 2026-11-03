@@ -389,27 +389,31 @@
             readDate: dom.modalHasRead.checked ? dom.modalReadDate.value : ''
         };
         const before = A.getItemData(currentItemId);
+        // Nothing new (a Copies change after typing already saved the number)
+        if (Object.keys(data).every(key => data[key] === before[key])) return;
         A.setItemData(currentItemId, data);
+        const changed = [currentItemId];
         // Reading a collected edition means reading what it collects.
-        if (data.hasRead && !before.hasRead) creditCollectedParts(currentItemId, data.readDate);
-        A.renderItems();
+        if (data.hasRead && !before.hasRead) changed.push(...creditCollectedParts(currentItemId, data.readDate));
+        A.refreshItems(changed);
         if (data.owned && !before.owned) A.checkCompletionCelebration();
     }
 
     // Marks the parts of a collected edition (its "collects" list) as read.
     // Only ever adds: parts already read keep their own date, and unmarking
-    // the collection leaves the parts alone.
+    // the collection leaves the parts alone. Returns the ids it marked.
     function creditCollectedParts(id, readDate) {
         const item = AC_DATABASE.find(i => i.id === id);
-        if (!item || !item.collects) return;
-        let marked = 0;
+        if (!item || !item.collects) return [];
+        const marked = [];
         item.collects.forEach(partId => {
             const part = A.getItemData(partId);
             if (part.hasRead) return;
             A.setItemData(partId, { ...part, hasRead: true, readDate: part.readDate || readDate || '' });
-            marked++;
+            marked.push(partId);
         });
-        if (marked > 0) A.showToast(`Also marked ${marked} of the ${collectedNoun(item)} it collects as read`, 'success');
+        if (marked.length > 0) A.showToast(`Also marked ${marked.length} of the ${collectedNoun(item)} it collects as read`, 'success');
+        return marked;
     }
 
     // "issues", "volumes", "novel" or "comics", for the hint and the toast.

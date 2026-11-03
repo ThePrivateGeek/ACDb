@@ -741,7 +741,7 @@
         const id = Number(toggle.dataset.read);
         const data = A.getItemData(id);
         A.setItemData(id, { ...data, hasRead: toggle.checked, readDate: toggle.checked ? (data.readDate || '') : '' });
-        A.renderItems();   // also re-renders this view
+        A.refreshItems([id]);   // also re-renders this view
     });
 
     // ---- Item modal: "Reading order" line ----

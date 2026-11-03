@@ -671,7 +671,55 @@ window.ACDB = window.ACDB || {};
     function renderItems() {
         const items = getFilteredItems();
         dom.itemsContainer.innerHTML = '';
+        updateResultsCount(items);
 
+        const fragment = document.createDocumentFragment();
+        items.forEach(item => {
+            fragment.appendChild(createCard(item));
+        });
+        dom.itemsContainer.appendChild(fragment);
+
+        updateStats();
+        updateFilterCount();
+        saveFilters();
+        ACDB.renderSyncBanner();
+        ACDB.refreshReadingView();
+        ACDB.refreshGamesView();
+        ACDB.refreshCharactersView();
+    }
+
+    // After an edit to a few items (the item window, a Read switch): update
+    // their cards instead of redrawing all of them. An edit can only add or
+    // drop cards when the status filter is set (owned, wishlist, read,
+    // Missing Stories), so then the whole list is redrawn.
+    function refreshItems(ids) {
+        if (dom.filterOwned.value) {
+            renderItems();
+            return;
+        }
+        ids.forEach(id => {
+            const card = dom.itemsContainer.querySelector(`.item-card[data-id="${id}"]`);
+            const item = card && AC_DATABASE.find(i => i.id === id);
+            if (item) updateCard(card, createCard(item));
+        });
+        updateResultsCount(getFilteredItems());   // "· 3 owned"
+        updateStats();
+        ACDB.renderSyncBanner();
+        ACDB.refreshReadingView();
+        ACDB.refreshGamesView();
+        ACDB.refreshCharactersView();
+    }
+
+    // Copy what an edit can change (the status class, the Owned/Wishlist/Read
+    // badges, the condition) from a freshly made card. Swapping the whole
+    // card would make the browser lay out the entire grid again (about 0.1 s
+    // on a phone), and this keeps the loaded image too.
+    function updateCard(card, fresh) {
+        card.className = fresh.className;
+        ['.card-badges', '.card-footer'].forEach(sel => card.querySelector(sel).replaceWith(fresh.querySelector(sel)));
+    }
+
+    function updateResultsCount(items) {
         if (items.length === 0) {
             dom.noResults.style.display = '';   // the stylesheet's centred grid
             dom.resultsCount.textContent = '';
@@ -701,20 +749,6 @@ window.ACDB = window.ACDB || {};
                 }
             }
         }
-
-        const fragment = document.createDocumentFragment();
-        items.forEach(item => {
-            fragment.appendChild(createCard(item));
-        });
-        dom.itemsContainer.appendChild(fragment);
-
-        updateStats();
-        updateFilterCount();
-        saveFilters();
-        ACDB.renderSyncBanner();
-        ACDB.refreshReadingView();
-        ACDB.refreshGamesView();
-        ACDB.refreshCharactersView();
     }
 
     function createCard(item) {
@@ -1471,13 +1505,15 @@ window.ACDB = window.ACDB || {};
             }
         });
 
-        // Modal collection controls - auto-save on change
-        const autoSaveControls = [dom.modalOwned, dom.modalWishlist, dom.modalHasBox, dom.modalCondition, dom.modalPricePaid, dom.modalAcquiredDate];
-        autoSaveControls.forEach(el => {
+        // Modal collection controls auto-save, one listener per control: it
+        // applies the field rules (see "Collection field interdependencies"
+        // below), then saves once.
+        [dom.modalWishlist, dom.modalPricePaid, dom.modalAcquiredDate].forEach(el => {
             el.addEventListener('change', saveModalData);
         });
 
-        dom.modalCopies.addEventListener('change', saveModalData);
+        // Copies saves as you type; its ownership rules wait for the finished
+        // number (the change listener below).
         dom.modalCopies.addEventListener('input', saveModalData);
 
         dom.modalNotes.addEventListener('input', debounce(saveModalData, 500));
@@ -1501,11 +1537,7 @@ window.ACDB = window.ACDB || {};
                 dom.modalCopies.value = val - 1;
                 if (val - 1 === 0) {
                     dom.modalOwned.checked = false;
-                    dom.modalHasBox.checked = false;
-                    dom.modalCondition.value = '';
-                    dom.modalPricePaid.value = '';
-                    dom.modalAcquiredDate.value = '';
-                    dom.modalNotes.value = '';
+                    clearCopyDetails();
                 }
                 saveModalData();
             }
@@ -1606,59 +1638,60 @@ window.ACDB = window.ACDB || {};
             }
         });
 
-        // Collection field interdependencies
+        // Collection field interdependencies: owning means at least one copy
+        // and un-owning clears the copy's details; a condition, a box or a
+        // copy count means owned.
+        function markOwned() {
+            dom.modalOwned.checked = true;
+            if (parseInt(dom.modalCopies.value) === 0) {
+                dom.modalCopies.value = 1;
+            }
+        }
+
         dom.modalOwned.addEventListener('change', () => {
             if (dom.modalOwned.checked && parseInt(dom.modalCopies.value) === 0) {
                 dom.modalCopies.value = 1;
             }
             if (!dom.modalOwned.checked) {
                 dom.modalCopies.value = 0;
-                dom.modalHasBox.checked = false;
-                dom.modalCondition.value = '';
-                dom.modalPricePaid.value = '';
-                dom.modalAcquiredDate.value = '';
-                dom.modalNotes.value = '';
+                clearCopyDetails();
             }
             saveModalData();
         });
 
         dom.modalCondition.addEventListener('change', () => {
-            if (dom.modalCondition.value && !dom.modalOwned.checked) {
-                dom.modalOwned.checked = true;
-                if (parseInt(dom.modalCopies.value) === 0) {
-                    dom.modalCopies.value = 1;
-                }
-                saveModalData();
-            }
+            if (dom.modalCondition.value && !dom.modalOwned.checked) markOwned();
+            saveModalData();
         });
 
         dom.modalHasBox.addEventListener('change', () => {
-            if (dom.modalHasBox.checked && !dom.modalOwned.checked) {
-                dom.modalOwned.checked = true;
-                if (parseInt(dom.modalCopies.value) === 0) {
-                    dom.modalCopies.value = 1;
-                }
-                saveModalData();
-            }
+            if (dom.modalHasBox.checked && !dom.modalOwned.checked) markOwned();
+            saveModalData();
         });
 
-        // Copies +/- already handled above; add ownership trigger for manual input
+        // A typed copy count (the +/- buttons have their own rules above).
+        // Typing saved the number already, so unless a rule changed
+        // something, saveModalData finds nothing new and skips.
         dom.modalCopies.addEventListener('change', () => {
             const val = parseInt(dom.modalCopies.value) || 0;
             if (val > 0 && !dom.modalOwned.checked) {
                 dom.modalOwned.checked = true;
-                saveModalData();
             }
             if (val === 0 && dom.modalOwned.checked) {
                 dom.modalOwned.checked = false;
-                dom.modalHasBox.checked = false;
-                dom.modalCondition.value = '';
-                dom.modalPricePaid.value = '';
-                dom.modalAcquiredDate.value = '';
-                dom.modalNotes.value = '';
-                saveModalData();
+                clearCopyDetails();
             }
+            saveModalData();
         });
+    }
+
+    // Un-owning an item clears what describes the copy you had.
+    function clearCopyDetails() {
+        dom.modalHasBox.checked = false;
+        dom.modalCondition.value = '';
+        dom.modalPricePaid.value = '';
+        dom.modalAcquiredDate.value = '';
+        dom.modalNotes.value = '';
     }
 
     // ---- Initialize ----
@@ -1731,6 +1764,7 @@ window.ACDB = window.ACDB || {};
     A.findItemByRef = findItemByRef;
     A.coveringItem = coveringItem;
     A.renderItems = renderItems;
+    A.refreshItems = refreshItems;
     A.createItemCard = createCard;   // a character's items (js/characters-view.js)
     A.createCard = createCard;
     A.getFilteredItems = getFilteredItems;
