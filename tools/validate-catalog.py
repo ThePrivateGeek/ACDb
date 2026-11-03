@@ -792,4 +792,8 @@ def main():
 
 
 if __name__ == "__main__":
+    # Windows sends piped output (Git Bash, the pre-commit hook) as cp1252,
+    # which can't print names like "Tantō"
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     sys.exit(main())
