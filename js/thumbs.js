@@ -248,6 +248,7 @@ const AC_THUMBS = new Set([
     "images/other/ubi-workshop-master-assassin-ring.webp",
     "images/other/ubi-workshop-rooks-necklace.webp",
     "images/other/ubi-workshop-templar-ring.webp",
+    "images/other/ubisoft-assassins-creed-mirage-hidden-blade-replica.webp",
     "images/other/ubisoft-star-player-mentors-guild-medal.webp",
     "images/other/valhalla-bundle-eivor-blade-dice.webp",
     "images/other/valhalla-hidden-blade-replica.webp",

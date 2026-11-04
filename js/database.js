@@ -7624,4 +7624,15 @@ const AC_DATABASE = [
     "type": "Ubicollectibles",
     "characters": [1]
   },
+  {
+    "id": 680,
+    "name": "DPI Merchandising Hidden Blade Gauntlet Replica (Mirage)",
+    "game": "Assassin's Creed Mirage",
+    "year": 2023,
+    "category": "Replica/Prop",
+    "description": "Officially licensed life-size replica of Basim's hidden blade from Assassin's Creed Mirage, made by DPI Merchandising and sold as \"Assassin's Creed Mirage Hidden Blade Replica\". The sculpted brown bracer has gold filigree around the blade, green beads, crossed cords and a red cloth sash, with an engraved gold plate on the back of the arm. The soft vinyl blade is spring-loaded and retracts, and adjustable straps fit it to the forearm. Released in 2023 at about $80. UPC 840316406536.",
+    "contents": "Hidden blade gauntlet replica",
+    "type": "Replica",
+    "characters": [34]
+  },
 ];

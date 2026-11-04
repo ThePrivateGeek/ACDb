@@ -329,6 +329,13 @@ const AC_IMAGES = {
         "images/other/mcfarlane-hidden-blade-syndicate_01.webp",
     ],
     "McFarlane Toys Aguilar's Hidden Blade (Movie)": ["images/other/mcfarlane-hidden-blade-movie.webp"],
+    "DPI Merchandising Hidden Blade Gauntlet Replica (Mirage)": [
+        "images/other/ubisoft-assassins-creed-mirage-hidden-blade-replica.webp",
+        "images/other/ubisoft-assassins-creed-mirage-hidden-blade-replica_01.webp",
+        "images/other/ubisoft-assassins-creed-mirage-hidden-blade-replica_02.webp",
+        "images/other/ubisoft-assassins-creed-mirage-hidden-blade-replica_03.webp",
+        "images/other/ubisoft-assassins-creed-mirage-hidden-blade-replica_04.webp",
+    ],
     "Assassins Creed Syndicate Official Press Promo Power Bank Cane Handle": [
         "images/other/syndicate-cane-handle-power-bank.webp",
         "images/other/syndicate-cane-handle-power-bank_01.webp",
