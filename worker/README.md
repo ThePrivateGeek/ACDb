@@ -42,12 +42,13 @@ deploy.
 ## Phase 1 — D1 database (one time)
 
 1. **Create the database.** Storage & Databases → D1 SQL Database → **Create** → name `acdb` → Create.
-2. **Create the tables.** Open `acdb` → **Console** → paste all of `migrations/0001_init.sql` → **Execute**.
+2. **Create the tables.** Open `acdb` → **Console** → paste all of `migrations/0001_init.sql` → **Execute**,
+   then each later file in `migrations/` in name order (`0002_game_progress.sql`, …).
    If the console only runs the first statement, run each `CREATE` one at a time. Check:
    ```sql
    SELECT name FROM sqlite_master WHERE type IN ('table', 'index') ORDER BY name;
    ```
-   Expected tables: `items`, `profiles`, `rate_limits`, `sessions`, `users`.
+   Expected tables: `game_progress`, `items`, `profiles`, `rate_limits`, `sessions`, `users`.
 3. **Bind it.** Worker → Settings → **Bindings** → Add → D1 database → variable name `DB` → `acdb`.
 4. **Cron.** Worker → Settings → **Trigger events / Cron Triggers** → Add → `0 3 * * *`.
 
@@ -162,6 +163,34 @@ leaderboard returns the top 100 and each Worker instance keeps it for a minute. 
    WHERE sub IS NOT NULL;
    ```
    An obvious spam profile can be deleted instead: `DELETE FROM profiles WHERE name_lower = '<name>';`
+
+## Played games (4 Nov 2026)
+
+What changed: visitors mark games and DLCs as played (ids from `js/games.js`), and signed-in visitors'
+ticks sync like the collection, in a new table `game_progress`. `GET /collection` takes `gamesSince` and
+then also returns `games`; `PUT /collection` takes `games` next to `changes` and answers `gamesSaved`;
+`/account/export` lists them and `DELETE /account` removes them. A push of only games no longer touches
+the linked profile's update date. Game ids go up to `MAX_GAME_ID` (1000; the validator checks it), which
+also caps each account at 1000 game rows.
+
+Order matters: table first, then the Worker, then the site.
+
+1. D1 console: paste all of `migrations/0002_game_progress.sql` → **Execute**. Check:
+   ```sql
+   SELECT name FROM sqlite_master WHERE name LIKE 'game_progress%';
+   ```
+   → `game_progress` and `game_progress_sub_seq`.
+2. Deploy `acdb-worker.js` as above, then:
+   ```
+   curl.exe -sI https://api.acdb.workers.dev/leaderboard
+   ```
+   → `acdb-worker: 2026-11-04`
+3. Push the site. Signed in, tick a game on one device and see it on another; **Download all account
+   data** now has a `games` list.
+
+If the site goes live before the Worker, nothing breaks: the old Worker ignores `games`, the site sees
+no `gamesSaved` and keeps the ticks in the browser as unsent (they count in the sign-out warning), and
+sends them once the new Worker answers.
 
 ## Cleanup after the move to D1
 

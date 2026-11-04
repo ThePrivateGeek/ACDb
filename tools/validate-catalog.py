@@ -33,7 +33,9 @@ Checks:
              a readable type (READABLE_TYPES in js/utils.js), at most once
              per order, with a setting and a valid release date; years
              (needed for era headings) never go backwards
-  games      js/games.js: every game is listed once, in release order, with
+  games      js/games.js: every game and DLC has a permanent id as its first
+             key, unique across games and DLCs. Every game is listed once,
+             in release order, with
              a kind (GAME_KINDS), a developer, its platforms (from PLATFORMS,
              in that order), a description, a setting and a valid release
              date; a start year unless it is a mobile, browser or VR game;
@@ -55,7 +57,9 @@ Checks:
              item's "characters" lists existing character ids, each once
   worker     the highest item id is within CATALOG_MAX_ID in
              worker/acdb-worker.js (the Worker counts no higher ids towards
-             the leaderboard); a warning when fewer than 25 ids are left
+             the leaderboard); a warning when fewer than 25 ids are left.
+             Likewise the highest game id and MAX_GAME_ID (the Worker syncs
+             no played progress for higher ids)
   thumbs     every card image (each item's first image) has an up-to-date
              entry from tools/build-thumbs.py, and its small copy when it
              has one; js/thumbs.js matches images/thumbs/manifest.json; a
@@ -136,9 +140,9 @@ PLATFORMS = (
     "Facebook", "Browser", "Meta Quest", "Location-based",
 )
 DESCRIPTION_MAX = 300
-GAME_FIELDS = {"name", "kind", "developer", "platforms", "image", "year", "setting", "released",
+GAME_FIELDS = {"id", "name", "kind", "developer", "platforms", "image", "year", "setting", "released",
                "releasedPrecision", "rereleases", "remakeOf", "description", "dlcs"}
-DLC_FIELDS = {"name", "type", "image", "year", "setting", "released", "releasedPrecision",
+DLC_FIELDS = {"id", "name", "type", "image", "year", "setting", "released", "releasedPrecision",
               "marker", "note", "episodes"}
 CHARACTER_GROUPS = {"assassin", "templar", "isu", "other"}
 CHARACTER_FIELDS = {"id", "name", "aka", "group", "historical", "born", "year", "image", "games", "stories",
@@ -359,12 +363,30 @@ def check_game_facts(label, game, errors, warnings):
                 check_released(rlabel, rr, errors)
 
 
+def check_game_id(label, entry, ids, errors):
+    """A game's or DLC's permanent id: a positive whole number, first, unique
+    across games and DLCs. No order rule: a new DLC of an old game sits
+    mid-list with the next id."""
+    gid = entry.get("id")
+    if not isinstance(gid, int) or isinstance(gid, bool) or gid <= 0:
+        errors.append(f"{label}: \"id\" should be a positive whole number, got {gid!r}")
+        return
+    if next(iter(entry)) != "id":
+        errors.append(f"{label}: \"id\" should be the first key")
+    if gid in ids:
+        errors.append(f"{label}: id {gid} is also {ids[gid]!r}'s; a new game or DLC takes the highest id + 1")
+    else:
+        ids[gid] = entry.get("name")
+
+
 def check_games(errors, warnings):
+    """Returns the highest game or DLC id, for check_game_id_ceiling."""
     timeline = load_game_names() - {"General", "Assassin's Creed (Movie)"}
     games = load_games()
     names = [g.get("name") for g in games]
     seen = set()
     slugs = {}
+    ids = {}
     previous = None
     for game in games:
         name = game.get("name")
@@ -372,6 +394,7 @@ def check_games(errors, warnings):
         for field in game:
             if field not in GAME_FIELDS:
                 warnings.append(f"{label}: unknown field \"{field}\"")
+        check_game_id(label, game, ids, errors)
         if name in seen:
             errors.append(f"{label}: listed twice")
         seen.add(name)
@@ -410,6 +433,7 @@ def check_games(errors, warnings):
             for field in dlc:
                 if field not in DLC_FIELDS:
                     warnings.append(f"{dlabel}: unknown field \"{field}\"")
+            check_game_id(dlabel, dlc, ids, errors)
             if not isinstance(dlc.get("name"), str) or not dlc["name"].strip():
                 errors.append(f"{label}: a DLC has no name")
             elif dlc["name"] in dlc_names:
@@ -448,6 +472,7 @@ def check_games(errors, warnings):
                         errors.append(f"{dlabel}: \"released\" should be the first episode's date")
             if dlc.get("marker") and remake_of:
                 errors.append(f"{dlabel}: a remake's DLC can't have a place in the lore (its original has it)")
+    return max(ids, default=0)
 
 
 def url_slug(name):
@@ -650,6 +675,22 @@ def check_worker_ceiling(highest_id, errors, warnings):
         warnings.append(f"item ids are close to the Worker's ceiling: {advice}")
 
 
+def check_game_id_ceiling(highest_id, errors, warnings):
+    """The Worker stores played progress only for game ids up to MAX_GAME_ID."""
+    match = re.search(r"^const MAX_GAME_ID = (\d+);", WORKER_JS.read_text(encoding="utf-8"), re.M)
+    if not match:
+        errors.append("worker/acdb-worker.js: MAX_GAME_ID not found")
+        return
+    ceiling = int(match.group(1))
+    advice = (f"raise MAX_GAME_ID ({ceiling}) in worker/acdb-worker.js, change WORKER_VERSION, "
+              "and deploy the Worker (worker/README.md)")
+    if highest_id > ceiling:
+        errors.append(f"game id {highest_id} is above the Worker's MAX_GAME_ID, so its played "
+                      f"progress can't sync: {advice}")
+    elif highest_id > ceiling - CEILING_WARN_MARGIN:
+        warnings.append(f"game ids are close to the Worker's ceiling: {advice}")
+
+
 def check_thumbs(images, errors, warnings):
     advice = "run python3 tools/build-thumbs.py"
     manifest = thumbs.load_manifest()
@@ -816,11 +857,12 @@ def main():
             warnings.append("series spelled more than one way: " + " / ".join(f'"{s}"' for s in sorted(spellings)))
 
     check_reading_orders(items, errors, warnings)
-    check_games(errors, warnings)
+    highest_game_id = check_games(errors, warnings)
     check_characters(items, errors, warnings)
     check_collects(items, errors)
     check_slug_aliases(items, errors, warnings)
     check_worker_ceiling(highest_id, errors, warnings)
+    check_game_id_ceiling(highest_game_id, errors, warnings)
     check_thumbs(images, errors, warnings)
     check_new_image_sizes(errors, warnings)
 

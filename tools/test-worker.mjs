@@ -5,13 +5,14 @@
 //   node tools/test-worker.mjs [path/to/worker.js]
 //
 // Runs the Worker's fetch handler in Node against an in-memory SQLite database
-// built from worker/migrations/ (a small stand-in for D1 over node:sqlite, so
+// built from every file in worker/migrations/, in name order, as D1 has them
+// (a small stand-in for D1 over node:sqlite, so
 // it needs Node 22.13 or later). Nothing is sent anywhere. Each fresh import
 // of the Worker stands for a new Worker instance with empty memory.
 // Prints "N passed" and exits non-zero on failure.
 
 import { DatabaseSync } from 'node:sqlite';
-import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -19,7 +20,9 @@ import { createHash } from 'node:crypto';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const workerPath = resolve(process.argv[2] || join(ROOT, 'worker', 'acdb-worker.js'));
-const schema = readFileSync(join(ROOT, 'worker', 'migrations', '0001_init.sql'), 'utf8');
+const migrations = join(ROOT, 'worker', 'migrations');
+const schema = readdirSync(migrations).filter(f => f.endsWith('.sql')).sort()
+    .map(f => readFileSync(join(migrations, f), 'utf8')).join('\n');
 const catalogIds = [...readFileSync(join(ROOT, 'js', 'database.js'), 'utf8').matchAll(/"id":\s*(\d+)/g)].map(m => m[1]);
 const dir = mkdtempSync(join(tmpdir(), 'acdb-worker-'));
 const modFile = join(dir, 'worker.mjs');
@@ -305,6 +308,85 @@ const change = (id, data, updatedAt = Date.now()) => ({ id, data: { owned: true,
     const t2 = (await call(w, env, req('/share', { method: 'POST', body: { displayName: 'DeleteMe1', ownedItems: ['1'] }, ip: '5.5.5.6' }))).data.token;
     r = await call(w, env, req('/profile', { method: 'DELETE', headers: { Authorization: t2 } }));
     check('token profile delete works', r.status === 200 && !profileRow(env, 'DeleteMe1'));
+}
+
+// ---------------------------------------------------------------- played games
+{
+    const env = { DB: makeD1() };
+    const w = await freshWorker();
+    addSession(env, 'sub-g', 'tok-g');
+    const auth = { Authorization: 'Bearer tok-g' };
+    const put = body => call(w, env, req('/collection', { method: 'PUT', body, headers: auth }));
+    const get = query => call(w, env, req('/collection' + query, { headers: auth }));
+    const game = (id, data, updatedAt = Date.now()) => ({ id, data: { played: true, ...data }, updatedAt });
+    const gameRow = id => env.DB.db.prepare("SELECT * FROM game_progress WHERE sub = 'sub-g' AND game_id = ?").get(id);
+    const seqOf = () => env.DB.db.prepare("SELECT seq FROM users WHERE sub = 'sub-g'").get().seq;
+
+    let r = await get('?since=0&gamesSince=0');
+    check('a new account pulls an empty games list', r.status === 200 && Array.isArray(r.data.games) && r.data.games.length === 0, JSON.stringify(r.data));
+    const before = seqOf();
+    r = await put({ changes: [], games: [game(5, { playedDate: '2026-11-04' }, 1000), game(7, {}, 1000)] });
+    check('a games-only push is saved and says so', r.status === 200 && r.data.gamesSaved === true && seqOf() === before + 1, `${r.status} ${JSON.stringify(r.data)}`);
+    let row = gameRow(5);
+    check('the game row holds its data and stamp', row && JSON.parse(row.data).played === true && JSON.parse(row.data).playedDate === '2026-11-04' && row.updated_at === 1000 && row.seq === before + 1, JSON.stringify(row));
+    check('games never land in items', count(env, "SELECT COUNT(*) n FROM items WHERE sub = 'sub-g'") === 0);
+
+    r = await get('?since=0&gamesSince=0');
+    check('a pull with gamesSince returns the games', r.data.games.length === 2 && r.data.games.some(g => g.id === 5 && g.data.played && g.updatedAt === 1000), JSON.stringify(r.data.games));
+    r = await get('?since=0');
+    check('a pull without gamesSince has no games key (old pages)', r.status === 200 && !('games' in r.data));
+    r = await get(`?since=${seqOf()}&gamesSince=${seqOf()}`);
+    check('a pull at the current cursor returns no games', r.data.games.length === 0);
+    r = await get(`?since=${seqOf()}&gamesSince=0`);
+    check('the games cursor is separate from the item cursor', r.data.items.length === 0 && r.data.games.length === 2);
+    r = await get('?since=0&gamesSince=99999');
+    check('a games cursor past the account resets to 0', r.data.games.length === 2);
+
+    r = await put({ changes: [], games: [game(5, { played: false }, 900)] });
+    check('an older game edit does not overwrite a newer one', r.status === 200 && JSON.parse(gameRow(5).data).played === true);
+    r = await put({ changes: [], games: [game(5, { played: false }, 2000)] });
+    check('a newer game edit wins', JSON.parse(gameRow(5).data).played === false && gameRow(5).updated_at === 2000);
+    r = await put({ changes: [], games: [{ id: 9, data: { played: 'yes', playedDate: '4 Nov', junk: '<b>' }, updatedAt: 3000 }] });
+    check('game fields are sanitized', r.status === 200 && gameRow(9).data === '{"played":false,"playedDate":""}', gameRow(9) && gameRow(9).data);
+    r = await put({ changes: [], games: [game(11, {}, 10), game(11, { played: false }, 20)] });
+    check('the newest of two edits to one game in a push wins', JSON.parse(gameRow(11).data).played === false);
+
+    const rows = count(env, 'SELECT COUNT(*) n FROM game_progress');
+    const bad = [['id 0', [game(0)]], ['id 1001', [game(1001)]], ['a fractional id', [game(1.5)]], ['a string id', [{ ...game(1), id: '1' }]],
+        ['an array as data', [{ id: 1, data: [], updatedAt: 1 }]], ['no updatedAt', [{ id: 1, data: {} }]], ['201 entries', Array.from({ length: 201 }, (_, i) => game(i + 1))]];
+    for (const [label, games] of bad) {
+        r = await put({ changes: [], games });
+        check(`a game push with ${label} is 400`, r.status === 400, `${r.status}`);
+    }
+    r = await put({ changes: [], games: 'all' });
+    check('games that are not an array is 400', r.status === 400);
+    r = await put({ changes: [change(1)], games: [game(0)] });
+    check('a bad game entry rejects the whole push, items too', r.status === 400 && count(env, "SELECT COUNT(*) n FROM items WHERE sub = 'sub-g'") === 0);
+    check('rejected pushes wrote no game rows', count(env, 'SELECT COUNT(*) n FROM game_progress') === rows);
+    r = await put({ changes: [], games: [game(1000)] });
+    check('id 1000 (MAX_GAME_ID) is accepted', r.status === 200 && gameRow(1000));
+
+    r = await put({ changes: [change(3)], games: [game(12)] });
+    const itemSeq = env.DB.db.prepare("SELECT seq FROM items WHERE sub = 'sub-g' AND item_id = 3").get().seq;
+    check('a push with items and games stores both under one seq', r.status === 200 && r.data.gamesSaved && itemSeq === gameRow(12).seq, `${itemSeq} ${gameRow(12).seq}`);
+    r = await put({ changes: [change(4)] });
+    check('a push without games does not claim gamesSaved', r.status === 200 && !('gamesSaved' in r.data));
+
+    // A linked profile follows items only
+    await call(w, env, req('/share', { method: 'POST', body: { displayName: 'GamerOne' }, headers: auth }));
+    env.DB.db.prepare("UPDATE profiles SET last_updated = 1 WHERE name_lower = 'gamerone'").run();
+    await put({ changes: [], games: [game(13)] });
+    check('a games-only push leaves the profile\'s update date alone', profileRow(env, 'GamerOne').last_updated === 1);
+    await put({ changes: [change(5)] });
+    check('an item push still updates the profile', profileRow(env, 'GamerOne').last_updated > 1 && profileRow(env, 'GamerOne').owned_count === 3, JSON.stringify(profileRow(env, 'GamerOne')));
+
+    r = await call(w, env, req('/account/export', { headers: auth }));
+    const exported = r.data.games || [];
+    check('/account/export lists the games', r.status === 200 && exported.length === count(env, "SELECT COUNT(*) n FROM game_progress WHERE sub = 'sub-g'")
+        && exported.some(g => g.id === 9 && g.played === false && g.playedDate === '' && /^\d{4}-/.test(g.updatedAt)), JSON.stringify(exported.slice(0, 3)));
+
+    r = await call(w, env, req('/account', { method: 'DELETE', headers: auth }));
+    check('account delete removes the game rows', r.status === 200 && count(env, "SELECT COUNT(*) n FROM game_progress WHERE sub = 'sub-g'") === 0);
 }
 
 // ---------------------------------------------------------------- sign-in

@@ -6,7 +6,8 @@
    order (a grid) or story order (a timeline under era headings, with the
    DLCs that have their own place in the lore), with search and kind chips.
    #games/<slug> is a game's page: its facts, characters, DLCs and items in
-   the collection. */
+   the collection. Visitors mark games and DLCs as played on a game's page
+   (js/game-progress.js keeps it); the list shows it on the cards. */
 
 (function () {
     'use strict';
@@ -102,6 +103,21 @@
         return `${n} ${n === 1 ? one : many}`;
     }
 
+    // A played game or DLC on a card or row (they're links, so no switch)
+    const PLAYED_BADGE = '<span class="badge badge-read">Played</span>';
+
+    const CHECK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+    // A DLC's Played tick, in front of its cover: the list reads as a checklist
+    function playedCheckHTML(id, name) {
+        const esc = A.escapeHTML;
+        return `
+            <span class="list-check list-check-read">
+                <input type="checkbox" data-played="${id}" aria-label="Played: ${esc(name)}"${A.isPlayed(id) ? ' checked' : ''}>
+                <span class="list-check-mark">${CHECK_ICON}</span>
+            </span>`;
+    }
+
     function shortName(name) {
         return (A.SHORT_GAME_NAMES && A.SHORT_GAME_NAMES[name]) || name;
     }
@@ -182,7 +198,18 @@
                     <button class="btn btn-secondary btn-sm" data-games-clear>Clear search and filters</button>
                 </div>`;
         }
-        return getMode() === 'story' ? timelineHTML(games) : gridHTML(games);
+        return playedHTML(games) + (getMode() === 'story' ? timelineHTML(games) : gridHTML(games));
+    }
+
+    // How many of the games shown (the kind chip and search apply) are played
+    function playedHTML(games) {
+        const played = games.filter(game => A.isPlayed(game.id)).length;
+        const pct = Math.round(played / games.length * 100);
+        return `
+            <div class="reading-progress games-progress">
+                <span class="progress-count reading-progress-text">${played} / ${games.length} played</span>
+                <span class="progress" aria-hidden="true"><span class="progress-fill" style="width:${Math.min(pct, 100)}%"></span></span>
+            </div>`;
     }
 
     function coverHTML(image, cls, lazy = true) {
@@ -198,13 +225,14 @@
         const tiles = games.map(game => {
             const slug = A.gameUrlSlug(game);
             const items = itemCount(game.name);
-            const pills = [
+            const played = A.isPlayed(game.id);
+            const pills = (played ? PLAYED_BADGE : '') + [
                 game.dlcs.length ? count(game.dlcs.length, 'DLC', 'DLCs') : '',
                 items ? count(items, 'item', 'items') : ''
             ].filter(Boolean).map(text => `<span class="badge badge-plain">${text}</span>`).join('');
             return `
                 <li>
-                    <a class="game-tile" href="#games/${slug}" data-game-slug="${slug}">
+                    <a class="game-tile${played ? ' played' : ''}" href="#games/${slug}" data-game-slug="${slug}">
                         ${coverHTML(game.image, 'game-tile-cover')}
                         <span class="game-tile-body">
                             <span class="game-kind">${esc(kindLine(game))}</span>
@@ -262,7 +290,9 @@
         const lore = A.loreLinkFor(game.name);
         const shown = game.dlcs.slice(0, 3).map(dlc => `<span class="badge badge-plain">${esc(dlc.name)}</span>`);
         if (game.dlcs.length > 3) shown.push(`<span class="badge badge-plain">+${game.dlcs.length - 3} more</span>`);
+        const played = A.isPlayed(game.id);
         const counts = [
+            played ? PLAYED_BADGE : '',
             lore ? `<span><b>${lore.count}</b> ${lore.count === 1 ? 'story' : 'stories'}</span>` : '',
             items ? `<span><b>${items}</b> ${items === 1 ? 'item' : 'items'}</span>` : ''
         ].join('');
@@ -270,7 +300,7 @@
             <li class="games-tl-row">
                 <span class="games-tl-year">${game.year == null ? '' : A.yearLabel(game.year)}</span>
                 <span class="games-tl-dot" aria-hidden="true"></span>
-                <a class="games-tl-card" href="#games/${slug}" data-game-slug="${slug}">
+                <a class="games-tl-card${played ? ' played' : ''}" href="#games/${slug}" data-game-slug="${slug}">
                     ${coverHTML(game.image, 'games-tl-cover')}
                     <span class="games-tl-body">
                         <span class="game-kind">${esc(kindLine(game))}</span>
@@ -287,17 +317,19 @@
     function dlcRowHTML({ game, dlc }) {
         const esc = A.escapeHTML;
         const slug = A.gameUrlSlug(game);
+        const played = A.isPlayed(dlc.id);
         return `
             <li class="games-tl-row">
                 <span class="games-tl-year">${A.yearLabel(dlc.year)}</span>
                 <span class="games-tl-dot games-tl-dot-dlc" aria-hidden="true"></span>
-                <a class="games-tl-dlc" href="#games/${slug}" data-game-slug="${slug}" data-dlc="${esc(dlc.name)}">
+                <a class="games-tl-dlc${played ? ' played' : ''}" href="#games/${slug}" data-game-slug="${slug}" data-dlc="${esc(dlc.name)}">
                     ${coverHTML(dlc.image, 'game-dlc-cover')}
                     <span class="games-tl-body">
                         <span class="game-kind">Story DLC · ${esc(shortName(game.name))}</span>
                         <span class="games-tl-dlc-name">${esc(dlc.name)}</span>
                         <span class="games-tl-meta"><span>${esc(setText(dlc.setting))}</span><span>Released ${A.formatReleased(dlc)}</span></span>
                     </span>
+                    ${played ? PLAYED_BADGE : ''}
                 </a>
             </li>`;
     }
@@ -318,6 +350,7 @@
             : '';
         return `
             <li class="game-dlc" data-dlc="${esc(dlc.name)}">
+                ${playedCheckHTML(dlc.id, dlc.name)}
                 <span class="game-dlc-cover">${dlc.image ? `<img src="${esc(dlc.image)}" alt="" loading="lazy">` : A.GAME_ICON}</span>
                 <span class="game-dlc-body">
                     <span class="game-dlc-name">${esc(dlc.name)}</span>
@@ -356,6 +389,20 @@
             items.length ? `<button class="link" data-game-catalog="${esc(game.name)}">Show in the collection &rarr;</button>` : '',
             `<button class="btn btn-quiet btn-sm" data-game-share>${SHARE_ICON}${A.canWebShare ? 'Share this game' : 'Copy link'}</button>`
         ].join('');
+        // Played, with the date they finished it, and how many DLCs
+        const played = A.getGameProgress(game.id);
+        const dlcsPlayed = game.dlcs.filter(dlc => A.isPlayed(dlc.id)).length;
+        const playedRow = `
+            <div class="game-played">
+                <label class="toggle-label">Played
+                    <span class="toggle-switch toggle-read"><input type="checkbox" data-played="${game.id}" aria-label="Played: ${esc(game.name)}"${played.played ? ' checked' : ''}><span class="toggle-slider"></span></span>
+                </label>
+                <span class="game-played-date"${played.played ? '' : ' hidden'}>
+                    <label for="gamePlayedDate">Finished</label>
+                    <input type="date" id="gamePlayedDate" class="modal-date-input" data-played-date="${game.id}" value="${esc(played.playedDate)}">
+                </span>
+                ${game.dlcs.length ? `<span class="game-played-dlcs"><span class="progress-count">${dlcsPlayed} / ${game.dlcs.length}</span> DLCs played</span>` : ''}
+            </div>`;
         const progress = items.length ? `
             <div class="character-progress">
                 <span class="progress" aria-hidden="true"><span class="progress-fill" style="width:${Math.min(pct, 100)}%"></span></span>
@@ -392,6 +439,7 @@
                 </div>
                 <p class="character-description">${esc(game.description)}</p>
                 <div class="head-card-links">${links}</div>
+                ${playedRow}
                 ${progress}
             </div>
             ${cast.length ? `
@@ -592,6 +640,24 @@
             currentKind = '';
             rerender();
             document.getElementById('gamesSearch').focus();
+        }
+    });
+
+    // Played switches (the game and its DLCs) and the finished date
+    content.addEventListener('change', (e) => {
+        const toggle = e.target.closest('[data-played]');
+        if (toggle) {
+            const id = Number(toggle.dataset.played);
+            const current = A.getGameProgress(id);
+            // Switching off forgets the date; switching on keeps one already set
+            A.setGameProgress(id, { played: toggle.checked, playedDate: toggle.checked ? current.playedDate : '' });
+            return;
+        }
+        const date = e.target.closest('[data-played-date]');
+        if (date) {
+            const id = Number(date.dataset.playedDate);
+            if (!A.isPlayed(id)) return;
+            A.setGameProgress(id, { played: true, playedDate: date.value });
         }
     });
 

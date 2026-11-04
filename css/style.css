@@ -2611,6 +2611,64 @@ textarea:focus-visible {
     background: var(--surface-page);
 }
 
+/* Check: a round tick for ticking rows in a list (a game page's DLCs). The
+   real checkbox covers it, like the switch's; colour variants by meaning */
+.list-check {
+    position: relative;
+    display: block;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.list-check input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.list-check-mark {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--line-strong);
+    border-radius: 50%;
+    color: transparent;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.list-check-mark svg {
+    width: 16px;
+    height: 16px;
+}
+
+.list-check input:hover + .list-check-mark {
+    border-color: var(--gold-deep);
+}
+
+.list-check input:focus-visible + .list-check-mark {
+    outline: var(--focus);
+    outline-offset: 2px;
+}
+
+.list-check input:checked + .list-check-mark {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--surface-page);
+}
+
+.list-check-read input:checked + .list-check-mark {
+    background: var(--read);
+    border-color: var(--read);
+}
+
 .modal-select {
     padding: 0.5rem 2rem 0.5rem 0.75rem;
     background: var(--surface-bar);
@@ -2968,7 +3026,9 @@ textarea:focus-visible {
     transition: var(--transition);
 }
 
-.reading-entry.read {
+/* Read, or for a game row played: purple means "been through this story" */
+.reading-entry.read,
+.reading-entry-game.played {
     border-color: var(--read-edge);
 }
 
@@ -3127,11 +3187,11 @@ textarea:focus-visible {
 }
 
 /* Games among the books: a compact marker row, indented to start under the
-   book covers like the Games tab's DLC rows, with a gold kind line on top
-   and no number or Read switch. The gold stripe is a background, not a
-   box-shadow, so the flash doesn't hide it */
+   book covers like the Games tab's DLC rows, with a gold kind line on top,
+   no number, and a Played switch where a book has Read. The gold stripe is
+   a background, not a box-shadow, so the flash doesn't hide it */
 .reading-entry-game {
-    grid-template-columns: 36px minmax(0, 1fr);
+    grid-template-columns: 36px minmax(0, 1fr) auto;
     gap: var(--s3);
     margin-left: calc(2.5rem + var(--s4));
     padding: var(--s2) var(--s4) var(--s2) var(--s3);
@@ -3216,7 +3276,7 @@ a.reading-title {
 
 .game-dlc {
     display: grid;
-    grid-template-columns: 36px minmax(0, 1fr);
+    grid-template-columns: 28px 36px minmax(0, 1fr);
     align-items: start;
     gap: var(--s3);
     border-radius: var(--r-sm);   /* rounds the highlight ring (.flash) */
@@ -3259,6 +3319,11 @@ a.reading-title {
 
 .game-dlc .reading-meta {
     margin-top: 0.1rem;
+}
+
+/* The DLC's Played tick, level with its cover */
+.game-dlc .list-check {
+    align-self: center;
 }
 
 .game-dlc-episodes {
@@ -3348,6 +3413,19 @@ a.reading-title {
     border-color: var(--gold-deep);
     box-shadow: var(--glow-card);
     background: var(--surface-card-hover);
+}
+
+/* Played (purple, like read): the edge, plus a "Played" badge in the card */
+.game-tile.played,
+.games-tl-card.played,
+.games-tl-dlc.played {
+    border-color: var(--read-edge);
+}
+
+.game-tile.played:hover,
+.games-tl-card.played:hover,
+.games-tl-dlc.played:hover {
+    border-color: var(--read);
 }
 
 /* overflow: hidden keeps the 3:4 box when a cover's own shape is taller */
@@ -3570,7 +3648,7 @@ a.reading-title {
    in Complete Lore, indented under the rail */
 .games-tl-dlc {
     display: grid;
-    grid-template-columns: 36px minmax(0, 1fr);
+    grid-template-columns: 36px minmax(0, 1fr) auto;
     align-items: center;
     gap: var(--s3);
     margin-left: var(--s5);
@@ -3607,7 +3685,7 @@ a.reading-title {
    page's compact rows), its DLCs and its items */
 .game-head-cover {
     display: block;
-    grid-row: span 4;
+    grid-row: span 5;   /* facts, description, links, Played, owned bar */
     aspect-ratio: 3 / 4;
     overflow: hidden;
     border-radius: var(--r-md);
@@ -3623,6 +3701,50 @@ a.reading-title {
 .game-head-cover.game-nocover svg {
     width: 40%;
     height: auto;
+}
+
+/* A game page's Played row: the switch, the date they finished it (while
+   played) and how many of its DLCs are played */
+.game-played {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s3) var(--s5);
+    margin-top: var(--s4);
+    color: var(--text-2);
+    font-size: var(--fs-md);
+}
+
+.game-played .toggle-label {
+    width: auto;
+    gap: var(--s3);
+}
+
+.game-played-date {
+    display: flex;
+    align-items: center;
+    gap: var(--s2);
+}
+
+.game-played-date label {
+    color: var(--text-3);
+    font-size: var(--fs-sm);
+}
+
+.game-played-dlcs {
+    color: var(--text-3);
+    font-size: var(--fs-sm);
+}
+
+.game-played-dlcs .progress-count {
+    color: var(--text-2);
+}
+
+/* The Games tab's "N / M played" bar, above the cards (as wide as a
+   header card's owned bar) */
+.games-progress {
+    max-width: 420px;
+    margin-bottom: var(--s4);
 }
 
 /* A header card's links (a game's or a character's page): Complete Lore,
@@ -4180,7 +4302,7 @@ a.reading-title {
     }
 
     .reading-entry-game {
-        grid-template-columns: 36px minmax(0, 1fr);
+        grid-template-columns: 36px minmax(0, 1fr) auto;
         margin-left: calc(2rem + 0.6rem);
         padding: var(--s2) 0.75rem var(--s2) var(--s3);
     }

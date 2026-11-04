@@ -250,6 +250,7 @@
         store.remove('acdb_collection');   // pre-id backup (see app.js), already in the account
         A.setCollection({});
         A.saveCollection();
+        A.clearGamesProgress();
         A.renderItems();
         A.updateShareButton();
         renderAccountUI();

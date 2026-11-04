@@ -1,8 +1,9 @@
 // ACDb - Cloudflare Worker API
 // Public profiles and the leaderboard, Google sign-in, and collection sync
+// (items and played games)
 //
 // Bindings (dashboard → Worker → Settings → Bindings):
-//   DB    D1 database "acdb" (schema: worker/migrations/)
+//   DB    D1 database "acdb" (schema: worker/migrations/, applied in order)
 //   ACDB  KV namespace: the pre-D1 profile store, no longer read. Kept for now
 //         as a frozen backup; it holds raw edit tokens, so delete it in time.
 // Variables and secrets (dashboard → Worker → Settings → Variables and Secrets):
@@ -13,7 +14,7 @@
 
 // Sent on every response as the ACDb-Worker header, so the live version can
 // be checked with curl. Change it with every deploy.
-const WORKER_VERSION = '2026-11-02';
+const WORKER_VERSION = '2026-11-04';
 
 const SITE_URL = 'https://acdb.theprivategeek.com';
 const ALLOWED_ORIGINS = [
@@ -547,11 +548,22 @@ async function handleLogout(request, env) {
 // Last writer wins per item, by the client's (skew-corrected) edit time.
 // Each push bumps users.seq and stamps the rows it changed with it, so a
 // pull only has to ask for rows with seq > the cursor it last saw.
+//
+// Played games and DLCs (game_progress) ride along in the same requests:
+// a push may carry `games` next to `changes`, and a pull that sends
+// `gamesSince` gets `games` back. They have their own cursor on the client,
+// because a page from before games existed moves the item cursor without
+// reading them. Pages that never mention games cost nothing extra.
 const MAX_CHANGES_PER_PUSH = 200;
 const MAX_ROWS_PER_USER = 5000;
 const MAX_NOTES_LENGTH = 5000;
 const MAX_FUTURE_SKEW = 5 * 60 * 1000;
 const CONDITIONS = new Set(['', 'mint', 'near-mint', 'excellent', 'good', 'fair', 'poor']);
+const DATE_FORMAT = /^\d{4}-\d{2}-\d{2}$/;
+// Game and DLC ids (js/games.js). The ceiling also caps each account at
+// MAX_GAME_ID game rows, so no row count is needed. Keep it above the
+// highest id in js/games.js: tools/validate-catalog.py checks it.
+const MAX_GAME_ID = 1000;
 
 // Coerce to the 10 known fields; unknown keys are dropped. Structural problems
 // reject the whole request, field-level junk is coerced, so a client is never
@@ -572,35 +584,72 @@ function sanitizeItemData(d) {
   };
 }
 
-// GET /collection?since=<cursor> - rows changed after the cursor
+// The two fields of a played game or DLC, coerced like an item's.
+function sanitizeGameData(d) {
+  return {
+    played: d.played === true,
+    playedDate: DATE_FORMAT.test(d.playedDate) ? d.playedDate : ''
+  };
+}
+
+// One change per id from a pushed list, the newest winning: Map id ->
+// {data, updatedAt}, or null when an entry is malformed.
+function latestChanges(list, maxId, sanitize, now) {
+  const latest = new Map();
+  for (const change of list) {
+    const { id, data, updatedAt } = change || {};
+    if (!Number.isInteger(id) || id < 1 || id > maxId
+        || !data || typeof data !== 'object' || Array.isArray(data)
+        || typeof updatedAt !== 'number' || !Number.isFinite(updatedAt) || updatedAt < 0) {
+      return null;
+    }
+    const stamp = Math.min(Math.floor(updatedAt), now + MAX_FUTURE_SKEW);
+    const previous = latest.get(id);
+    if (!previous || stamp > previous.updatedAt) latest.set(id, { data: sanitize(data), updatedAt: stamp });
+  }
+  return latest;
+}
+
+// GET /collection?since=<cursor>[&gamesSince=<cursor>] - rows changed after
+// the cursor; with gamesSince, also the played games changed after that one
 async function handleGetCollection(request, env, url) {
   const user = await authenticate(request, env);
   if (!user) return sessionExpired(request);
 
-  const read = since => env.DB.batch([
+  const cursorParam = name => Math.max(0, parseInt(url.searchParams.get(name), 10) || 0);
+  const withGames = url.searchParams.has('gamesSince');
+  const read = (since, gamesSince) => env.DB.batch([
     env.DB.prepare('SELECT seq FROM users WHERE sub = ?').bind(user.sub),
     env.DB.prepare('SELECT item_id, data, updated_at FROM items WHERE sub = ? AND seq > ? ORDER BY seq')
-      .bind(user.sub, since)
+      .bind(user.sub, since),
+    ...(withGames ? [env.DB.prepare('SELECT game_id, data, updated_at FROM game_progress WHERE sub = ? AND seq > ? ORDER BY seq')
+      .bind(user.sub, gamesSince)] : [])
   ]);
 
-  let since = Math.max(0, parseInt(url.searchParams.get('since'), 10) || 0);
-  let [seqResult, itemsResult] = await read(since);
+  let since = cursorParam('since');
+  let gamesSince = cursorParam('gamesSince');
+  let [seqResult, itemsResult, gamesResult] = await read(since, gamesSince);
   const cursor = seqResult.results[0].seq;
-  if (since > cursor) {
+  if (since > cursor || gamesSince > cursor) {
     // Cursor from before the account was deleted and recreated: start over.
-    since = 0;
-    [seqResult, itemsResult] = await read(0);
+    if (since > cursor) since = 0;
+    if (gamesSince > cursor) gamesSince = 0;
+    [seqResult, itemsResult, gamesResult] = await read(since, gamesSince);
   }
 
+  const rows = (result, idColumn) => result.results.map(row => ({ id: row[idColumn], data: JSON.parse(row.data), updatedAt: row.updated_at }));
   return json(request, {
     cursor: seqResult.results[0].seq,
     full: since === 0,
-    items: itemsResult.results.map(row => ({ id: row.item_id, data: JSON.parse(row.data), updatedAt: row.updated_at })),
+    items: rows(itemsResult, 'item_id'),
+    ...(withGames ? { games: rows(gamesResult, 'game_id') } : {}),
     serverTime: Date.now()
   });
 }
 
-// PUT /collection {changes: [{id, data, updatedAt}]} - push local edits
+// PUT /collection {changes: [{id, data, updatedAt}], games?: [{id, data, updatedAt}]}
+// - push local edits. The answer says gamesSaved when the body had `games`,
+// so a client can tell this Worker from one that ignores them.
 async function handlePutCollection(request, env) {
   const user = await authenticate(request, env);
   if (!user) return sessionExpired(request);
@@ -613,20 +662,17 @@ async function handlePutCollection(request, env) {
   if (!Array.isArray(changes) || changes.length > MAX_CHANGES_PER_PUSH) {
     return json(request, { error: `changes must be an array of at most ${MAX_CHANGES_PER_PUSH}.` }, 400);
   }
+  const hasGames = body.games !== undefined;
+  if (hasGames && (!Array.isArray(body.games) || body.games.length > MAX_CHANGES_PER_PUSH)) {
+    return json(request, { error: `games must be an array of at most ${MAX_CHANGES_PER_PUSH}.` }, 400);
+  }
 
   const now = Date.now();
-  const latest = new Map();   // one change per id: the newest wins
-  for (const change of changes) {
-    const { id, data, updatedAt } = change || {};
-    if (!Number.isInteger(id) || id < 1 || id > MAX_ITEM_ID
-        || !data || typeof data !== 'object' || Array.isArray(data)
-        || typeof updatedAt !== 'number' || !Number.isFinite(updatedAt) || updatedAt < 0) {
-      return json(request, { error: 'Invalid change entry.' }, 400);
-    }
-    const stamp = Math.min(Math.floor(updatedAt), now + MAX_FUTURE_SKEW);
-    const previous = latest.get(id);
-    if (!previous || stamp > previous.updatedAt) latest.set(id, { data: sanitizeItemData(data), updatedAt: stamp });
-  }
+  // One change per id: the newest wins
+  const latest = latestChanges(changes, MAX_ITEM_ID, sanitizeItemData, now);
+  if (!latest) return json(request, { error: 'Invalid change entry.' }, 400);
+  const latestGames = hasGames ? latestChanges(body.games, MAX_GAME_ID, sanitizeGameData, now) : new Map();
+  if (!latestGames) return json(request, { error: 'Invalid game entry.' }, 400);
 
   if (latest.size > 0) {
     const ids = JSON.stringify([...latest.keys()]);
@@ -654,19 +700,32 @@ async function handlePutCollection(request, env) {
        WHERE excluded.updated_at > items.updated_at`
     ).bind(user.sub, id, JSON.stringify(data), data.owned ? 1 : 0, updatedAt));
   }
+  for (const [id, { data, updatedAt }] of latestGames) {
+    statements.push(env.DB.prepare(
+      `INSERT INTO game_progress (sub, game_id, data, updated_at, seq)
+       VALUES (?1, ?2, ?3, ?4, (SELECT seq FROM users WHERE sub = ?1))
+       ON CONFLICT (sub, game_id) DO UPDATE SET
+         data = excluded.data, updated_at = excluded.updated_at, seq = excluded.seq
+       WHERE excluded.updated_at > game_progress.updated_at`
+    ).bind(user.sub, id, JSON.stringify(data), updatedAt));
+  }
   // Keep a linked public profile's count current (no-op when there is none).
-  statements.push(env.DB.prepare(
-    `UPDATE profiles SET
-       owned_count = ${LINKED_OWNED_COUNT},
-       last_updated = ?2
-     WHERE sub = ?1`
-  ).bind(user.sub, now));
+  // Played games aren't on profiles, so a push of only games leaves it be.
+  const recount = latest.size > 0 || !hasGames;
+  if (recount) {
+    statements.push(env.DB.prepare(
+      `UPDATE profiles SET
+         owned_count = ${LINKED_OWNED_COUNT},
+         last_updated = ?2
+       WHERE sub = ?1`
+    ).bind(user.sub, now));
+  }
   statements.push(env.DB.prepare('SELECT seq FROM users WHERE sub = ?').bind(user.sub));
 
   const results = await env.DB.batch(statements);
-  if (results[results.length - 2].meta.changes > 0) profilesChanged();
+  if (recount && results[results.length - 2].meta.changes > 0) profilesChanged();
   const cursor = results[results.length - 1].results[0].seq;
-  return json(request, { success: true, cursor, serverTime: now });
+  return json(request, { success: true, cursor, ...(hasGames ? { gamesSaved: true } : {}), serverTime: now });
 }
 
 // GET /account/export - everything stored for this account
@@ -674,9 +733,10 @@ async function handleAccountExport(request, env) {
   const user = await authenticate(request, env);
   if (!user) return sessionExpired(request);
 
-  const [account, items] = await env.DB.batch([
+  const [account, items, games] = await env.DB.batch([
     env.DB.prepare('SELECT email, created_at FROM users WHERE sub = ?').bind(user.sub),
-    env.DB.prepare('SELECT item_id, data, updated_at FROM items WHERE sub = ? ORDER BY item_id').bind(user.sub)
+    env.DB.prepare('SELECT item_id, data, updated_at FROM items WHERE sub = ? ORDER BY item_id').bind(user.sub),
+    env.DB.prepare('SELECT game_id, data, updated_at FROM game_progress WHERE sub = ? ORDER BY game_id').bind(user.sub)
   ]);
   const row = account.results[0];
   const date = new Date().toISOString().slice(0, 10);
@@ -687,17 +747,24 @@ async function handleAccountExport(request, env) {
       id: item.item_id,
       ...JSON.parse(item.data),
       updatedAt: new Date(item.updated_at).toISOString()
+    })),
+    games: games.results.map(game => ({
+      id: game.game_id,
+      ...JSON.parse(game.data),
+      updatedAt: new Date(game.updated_at).toISOString()
     }))
   }, 200, { 'Content-Disposition': `attachment; filename="acdb-account-${date}.json"` });
 }
 
-// DELETE /account - remove the account, its collection, sessions and profile
+// DELETE /account - remove the account, its collection and played games,
+// sessions and profile
 async function handleAccountDelete(request, env) {
   const user = await authenticate(request, env);
   if (!user) return sessionExpired(request);
 
   await env.DB.batch([
     env.DB.prepare('DELETE FROM items WHERE sub = ?').bind(user.sub),
+    env.DB.prepare('DELETE FROM game_progress WHERE sub = ?').bind(user.sub),
     env.DB.prepare('DELETE FROM profiles WHERE sub = ?').bind(user.sub),
     env.DB.prepare('DELETE FROM sessions WHERE sub = ?').bind(user.sub),
     env.DB.prepare('DELETE FROM users WHERE sub = ?').bind(user.sub),

@@ -22,8 +22,8 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
   - Scripts, images and API calls are limited to the site itself, `api.acdb.workers.dev` and Cloudflare's analytics beacon.
   - Fonts come only from Google Fonts.
   - Anything new from outside needs a CSP change and the owner's OK.
-- **The Cloudflare Worker is not deployed from the repo.** `worker/acdb-worker.js` is the source, but the owner pastes it into the Cloudflare dashboard by hand, and D1 schema changes are run in the D1 console. After any Worker change, change its `WORKER_VERSION`, run `node tools/test-worker.mjs`, and tell the owner it needs deploying. Production may lag the file; the live version is in the `acdb-worker` response header. Keep the Worker a single file with no npm dependencies. The runbook is in `worker/README.md`.
-- **Privacy promise** (`privacy.html`): no ads, no advertising trackers, no analytics cookies (Cloudflare Web Analytics only). Collections live in localStorage (`acdb_collection_v2`), plus D1 when the visitor is signed in. New stored or sent data must be added to `privacy.html`.
+- **The Cloudflare Worker is not deployed from the repo.** `worker/acdb-worker.js` is the source, but the owner pastes it into the Cloudflare dashboard by hand, and D1 schema changes (`worker/migrations/`, run in name order) are run in the D1 console. After any Worker change, change its `WORKER_VERSION`, run `node tools/test-worker.mjs`, and tell the owner it needs deploying. Production may lag the file; the live version is in the `acdb-worker` response header. Keep the Worker a single file with no npm dependencies. The runbook is in `worker/README.md`.
+- **Privacy promise** (`privacy.html`): no ads, no advertising trackers, no analytics cookies (Cloudflare Web Analytics only). Collections live in localStorage (`acdb_collection_v2`, and played games in `acdb_games_v1`), plus D1 when the visitor is signed in. New stored or sent data must be added to `privacy.html`.
 
 ## Catalog data (`js/database.js`, `js/images.js`)
 
@@ -59,7 +59,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
   - Place each book by its main historical story (ignore frame stories).
   - `released` is the earliest worldwide release.
   - Verify settings and dates from two independent sources.
-- **Games** (`js/games.js`) are not catalog items and must never become items.
+- **Games** (`js/games.js`) are not catalog items and must never become items. Games and DLCs have permanent ids of their own (one sequence; a new one takes max id + 1 wherever it goes; never change or reuse one), because visitors' played progress points at them.
 
 ### Tools (run from the repo root, always with `python3`; `python` here is Python 2.7)
 

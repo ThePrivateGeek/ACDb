@@ -197,6 +197,51 @@ check(S.countConflicts({ 1: blank(1) }, []) === 0, 'countConflicts ignores devic
 check(S.unsentIds({ 1: owned(5), 2: owned(9), 3: owned() }, { 1: 5, 2: 3, 3: 1 }).join() === '2', 'unsentIds: only edits newer than confirmed');
 check(S.unsentIds({ 1: owned(5) }, {}).join() === '1', 'unsentIds: never-confirmed edit is unsent');
 
+// ---- Played games (the GAME codec) ----
+{
+    const G = S.GAME;
+    const played = (updatedAt, extra = {}) => ({ played: true, playedDate: '', ...extra, ...(updatedAt === undefined ? {} : { updatedAt }) });
+    const unplayed = (updatedAt) => ({ played: false, playedDate: '', ...(updatedAt === undefined ? {} : { updatedAt }) });
+    const n = S.normalizeGame({ played: 1, playedDate: '2026-11-04', junk: '<b>', updatedAt: 5 });
+    check(n.played === true && n.playedDate === '2026-11-04' && Object.keys(n).join() === 'played,playedDate', 'normalizeGame keeps only its two fields', n);
+    check(S.normalizeGame({ playedDate: '4 Nov 2026' }).playedDate === '' && S.normalizeGame(undefined).played === false, 'normalizeGame blanks a bad date and missing data');
+    check(S.isEmpty(unplayed(), G) && !S.isEmpty(played(), G), 'isEmpty with the game codec');
+    check(!S.sameData(played(), played(1, { playedDate: '2026-01-01' }), G), 'sameData sees a played date');
+
+    // normalizeGame's output must pass the Worker's sanitizeGameData unchanged
+    const workerSource = readFileSync(fileURLToPath(new URL('../worker/acdb-worker.js', import.meta.url)), 'utf8');
+    const rules = workerSource.match(/const DATE_FORMAT = .*\r?\n/);
+    const fn = workerSource.match(/\nfunction sanitizeGameData[\s\S]*?\n}\r?\n/);
+    check(rules && fn, 'found sanitizeGameData in the Worker');
+    if (rules && fn) {
+        const sanitize = vm.runInNewContext(rules[0] + fn[0] + '; sanitizeGameData');
+        [{}, played(), played(1, { playedDate: '2026-11-04' }), { played: 'yes', playedDate: 20261104 }, { played: true, playedDate: '2026-1-4' }].forEach((sample, i) => {
+            const g = S.normalizeGame(sample);
+            check(JSON.stringify(sanitize(g)) === JSON.stringify(g), `Worker keeps normalized game sample ${i}`, { g, worker: sanitize(g) });
+        });
+    }
+
+    let r = S.mergeFirstSync({ 5: played(100), 6: unplayed(100) }, [], 'newest', NOW, G);
+    check(r.toPush.join() === '5' && r.merged[5].played, 'game: a device-only played game is pushed, an unplayed one is not', r);
+    r = S.mergeFirstSync({ 5: played(300) }, [{ id: 5, data: unplayed(), updatedAt: 200 }], 'newest', NOW, G);
+    check(r.merged[5].played && r.toPush.includes('5'), 'game: newer device edit wins', r.merged[5]);
+    r = S.mergeFirstSync({ 5: unplayed(100) }, [{ id: 5, data: played(), updatedAt: 200 }], 'newest', NOW, G);
+    check(r.merged[5].played && !r.toPush.includes('5'), 'game: newer account edit wins', r.merged[5]);
+    r = S.mergeFirstSync({ 5: played(200) }, [{ id: 5, data: unplayed(), updatedAt: 200 }], 'newest', NOW, G);
+    check(r.merged[5].played && r.toPush.includes('5') && r.merged[5].updatedAt === 201, 'game tie: played device copy wins and is restamped', r.merged[5]);
+    r = S.mergeFirstSync({ 5: unplayed(200) }, [{ id: 5, data: played(), updatedAt: 200 }], 'newest', NOW, G);
+    check(r.merged[5].played && !r.toPush.includes('5'), 'game tie: played account copy wins', r.merged[5]);
+    r = S.mergeFirstSync({ 5: unplayed(100) }, [{ id: 5, data: played(), updatedAt: 900 }], 'device', NOW, G);
+    check(!r.merged[5].played && r.merged[5].updatedAt === NOW, 'game device strategy: device wins, restamped to now', r.merged[5]);
+    check(Object.keys(r.merged[5]).sort().join() === 'played,playedDate,updatedAt', 'game merge stores only game fields', r.merged[5]);
+
+    const local = {};
+    const synced = {};
+    S.applyRemote(local, synced, [{ id: 8, data: { played: true, owned: true }, updatedAt: 9 }], G);
+    check(local[8].played && !('owned' in local[8]) && synced[8] === 9, 'applyRemote with the game codec stores game fields only', local[8]);
+    check(S.countConflicts({ 1: played(1), 2: unplayed(1) }, [{ id: 1, data: played(), updatedAt: 5 }, { id: 2, data: played(), updatedAt: 5 }], G) === 1, 'countConflicts with the game codec');
+}
+
 // ---- mergeFirstSync bookkeeping ----
 {
     const local = { 1: owned(10), 2: owned(10, { notes: 'x' }), 3: blank(10), 5: owned(300, { notes: 'mine' }) };

@@ -4,7 +4,15 @@
 
    The games and their DLCs, for the Games tab (#games, js/games-view.js)
    and the game rows in orders with "gameMarkers" (Complete Lore). Games
-   are not catalog items: they have no id and no Read switch.
+   are not catalog items, but visitors mark games and DLCs as played
+   (js/game-progress.js), so each has a permanent id.
+
+   Ids: games and DLCs share one sequence. A new game or DLC takes the
+   highest id + 1, wherever it goes in the list (a new DLC of an old game
+   sits mid-list with a high id). Never change or reuse an id, even after
+   removing an entry: visitors' played progress and backups point at it.
+   Ids stay at or below MAX_GAME_ID in worker/acdb-worker.js
+   (tools/validate-catalog.py checks all of this).
 
    Scope: every released game (main games, spin-offs, handheld, mobile,
    browser and VR games; announced games wait for their release). DLCs are
@@ -16,6 +24,7 @@
    ("rereleases"). A remake is its own game ("remakeOf").
 
    Games (the list is in release order; keys in this order):
+     id        permanent id (see Ids above), always the first key
      name      the game's name exactly as the items' "game" field has it
                (SHORT_GAME_NAMES in js/app.js), so links to the collection
                and to Complete Lore's game filter work. Main games and
@@ -54,7 +63,8 @@
                characters at most
      dlcs      the game's DLCs, in release order
 
-   DLCs: name, setting, released, releasedPrecision as above, plus
+   DLCs: id (first, as above), name, setting, released, releasedPrecision
+   as above, plus
      type      "expansion" (adds a map or region, or is a headline Season
                Pass campaign; free or paid), "story" (missions in the
                existing world), "mode" (a game mode, e.g. River Raids) or
@@ -205,6 +215,7 @@
 
 const GAMES = [
   {
+    "id": 1,
     "name": "Assassin's Creed (mobile)",
     "kind": "mobile",
     "developer": "Gameloft",
@@ -218,6 +229,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 2,
     "name": "Assassin's Creed",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -230,6 +242,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 3,
     "name": "Assassin's Creed: Altaïr's Chronicles",
     "kind": "handheld",
     "developer": "Gameloft Bucharest",
@@ -242,6 +255,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 4,
     "name": "Assassin's Creed II (mobile)",
     "kind": "mobile",
     "developer": "Gameloft",
@@ -255,6 +269,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 5,
     "name": "Assassin's Creed II",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -266,14 +281,15 @@ const GAMES = [
     "rereleases": [{ "name": "The Ezio Collection", "released": "2016-11-15" }],
     "description": "Young Florentine noble Ezio Auditore da Firenze takes up the Assassins' cause after his family is betrayed, and follows a conspiracy across Renaissance Italy.",
     "dlcs": [
-      { "name": "Palazzo Medici", "type": "story", "setting": "During the main story", "released": "2009-11-17", "note": "Edition bonus level" },
-      { "name": "Santa Maria dei Frari", "type": "story", "setting": "During the main story", "released": "2009-11-17", "note": "Edition bonus level" },
-      { "name": "Arsenale di Venezia", "type": "story", "setting": "During the main story", "released": "2009-11-17", "note": "Edition bonus level" },
-      { "name": "The Battle of Forlì", "type": "story", "image": "images/games/dlc/the-battle-of-forli.webp", "setting": "1488", "released": "2010-01-28" },
-      { "name": "The Bonfire of the Vanities", "type": "story", "image": "images/games/dlc/the-bonfire-of-the-vanities.webp", "setting": "1497–1498", "released": "2010-02-18" }
+      { "id": 6, "name": "Palazzo Medici", "type": "story", "setting": "During the main story", "released": "2009-11-17", "note": "Edition bonus level" },
+      { "id": 7, "name": "Santa Maria dei Frari", "type": "story", "setting": "During the main story", "released": "2009-11-17", "note": "Edition bonus level" },
+      { "id": 8, "name": "Arsenale di Venezia", "type": "story", "setting": "During the main story", "released": "2009-11-17", "note": "Edition bonus level" },
+      { "id": 9, "name": "The Battle of Forlì", "type": "story", "image": "images/games/dlc/the-battle-of-forli.webp", "setting": "1488", "released": "2010-01-28" },
+      { "id": 10, "name": "The Bonfire of the Vanities", "type": "story", "image": "images/games/dlc/the-bonfire-of-the-vanities.webp", "setting": "1497–1498", "released": "2010-02-18" }
     ]
   },
   {
+    "id": 11,
     "name": "Assassin's Creed: Bloodlines",
     "kind": "handheld",
     "developer": "Griptonite Games",
@@ -286,6 +302,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 12,
     "name": "Assassin's Creed II: Discovery",
     "kind": "handheld",
     "developer": "Griptonite Games",
@@ -298,6 +315,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 13,
     "name": "Assassin's Creed II Multiplayer",
     "kind": "mobile",
     "developer": "Ubisoft",
@@ -309,6 +327,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 14,
     "name": "Assassin's Creed: Project Legacy",
     "kind": "browser",
     "developer": "Ubisoft",
@@ -320,6 +339,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 15,
     "name": "Assassin's Creed: Brotherhood (mobile)",
     "kind": "mobile",
     "developer": "Gameloft",
@@ -333,6 +353,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 16,
     "name": "Assassin's Creed Brotherhood",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -344,13 +365,14 @@ const GAMES = [
     "rereleases": [{ "name": "The Ezio Collection", "released": "2016-11-15" }],
     "description": "Ezio takes the fight to Rome, rebuilding the Assassin Brotherhood to break the Borgia family's hold on the city.",
     "dlcs": [
-      { "name": "The Copernicus Conspiracy", "type": "story", "image": "images/games/dlc/the-copernicus-conspiracy.webp", "setting": "1500", "released": "2010-11-16", "note": "PS3 exclusive at launch" },
-      { "name": "The Trajan Market", "type": "story", "setting": "During the main story", "released": "2010-11-16", "note": "Edition bonus level" },
-      { "name": "Liquid Gold (The Aqueducts)", "type": "story", "setting": "During the main story", "released": "2010-11-16", "note": "Edition bonus level" },
-      { "name": "The Da Vinci Disappearance", "type": "story", "image": "images/games/dlc/the-da-vinci-disappearance.webp", "setting": "1506", "released": "2011-03-08" }
+      { "id": 17, "name": "The Copernicus Conspiracy", "type": "story", "image": "images/games/dlc/the-copernicus-conspiracy.webp", "setting": "1500", "released": "2010-11-16", "note": "PS3 exclusive at launch" },
+      { "id": 18, "name": "The Trajan Market", "type": "story", "setting": "During the main story", "released": "2010-11-16", "note": "Edition bonus level" },
+      { "id": 19, "name": "Liquid Gold (The Aqueducts)", "type": "story", "setting": "During the main story", "released": "2010-11-16", "note": "Edition bonus level" },
+      { "id": 20, "name": "The Da Vinci Disappearance", "type": "story", "image": "images/games/dlc/the-da-vinci-disappearance.webp", "setting": "1506", "released": "2011-03-08" }
     ]
   },
   {
+    "id": 21,
     "name": "Assassin's Creed: Multiplayer Rearmed",
     "kind": "mobile",
     "developer": "Ubisoft",
@@ -363,6 +385,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 22,
     "name": "Assassin's Creed: Revelations (mobile)",
     "kind": "mobile",
     "developer": "Gameloft",
@@ -376,6 +399,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 23,
     "name": "Assassin's Creed Revelations",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -387,11 +411,12 @@ const GAMES = [
     "rereleases": [{ "name": "The Ezio Collection", "released": "2016-11-15" }],
     "description": "An ageing Ezio travels to Constantinople in search of the library Altaïr left behind, and finds the Ottoman capital caught in a new struggle with the Templars.",
     "dlcs": [
-      { "name": "Vlad the Impaler's Prison", "type": "story", "setting": "During the main story", "released": "2011-11-15", "note": "Edition bonus level" },
-      { "name": "The Lost Archive", "type": "story", "image": "images/games/dlc/the-lost-archive.webp", "setting": "Subject 16's memories", "released": "2012-02-28" }
+      { "id": 24, "name": "Vlad the Impaler's Prison", "type": "story", "setting": "During the main story", "released": "2011-11-15", "note": "Edition bonus level" },
+      { "id": 25, "name": "The Lost Archive", "type": "story", "image": "images/games/dlc/the-lost-archive.webp", "setting": "Subject 16's memories", "released": "2012-02-28" }
     ]
   },
   {
+    "id": 26,
     "name": "Assassin's Creed Recollection",
     "kind": "mobile",
     "developer": "Ubisoft Montreal",
@@ -403,6 +428,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 27,
     "name": "Assassin's Creed III",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -414,12 +440,12 @@ const GAMES = [
     "rereleases": [{ "name": "Assassin's Creed III Remastered", "released": "2019-03-29" }],
     "description": "Ratonhnhaké:ton, a young Mohawk man known as Connor, joins the Assassins in the years of the American Revolution, from the colonial frontier to Boston and New York.",
     "dlcs": [
-      { "name": "The Benedict Arnold Missions", "type": "story", "image": "images/games/dlc/the-benedict-arnold-missions.webp", "setting": "1780", "released": "2012-10-30", "note": "PS3 and PC only" },
-      { "name": "The Lost Mayan Ruins", "type": "story", "setting": "During the main story", "released": "2012-10-30", "note": "Edition mission, later in The Hidden Secrets Pack (2012)" },
-      { "name": "Ghost of War", "type": "story", "setting": "During the main story", "released": "2012-10-30", "note": "Edition mission, later in The Hidden Secrets Pack (2012)" },
-      { "name": "A Dangerous Secret", "type": "story", "setting": "During the main story", "released": "2012-10-30", "note": "Edition mission, later in The Hidden Secrets Pack (2012)" },
+      { "id": 28, "name": "The Benedict Arnold Missions", "type": "story", "image": "images/games/dlc/the-benedict-arnold-missions.webp", "setting": "1780", "released": "2012-10-30", "note": "PS3 and PC only" },
+      { "id": 29, "name": "The Lost Mayan Ruins", "type": "story", "setting": "During the main story", "released": "2012-10-30", "note": "Edition mission, later in The Hidden Secrets Pack (2012)" },
+      { "id": 30, "name": "Ghost of War", "type": "story", "setting": "During the main story", "released": "2012-10-30", "note": "Edition mission, later in The Hidden Secrets Pack (2012)" },
+      { "id": 31, "name": "A Dangerous Secret", "type": "story", "setting": "During the main story", "released": "2012-10-30", "note": "Edition mission, later in The Hidden Secrets Pack (2012)" },
       {
-        "name": "The Tyranny of King Washington", "type": "expansion", "image": "images/games/dlc/the-tyranny-of-king-washington.webp",
+        "id": 32, "name": "The Tyranny of King Washington", "type": "expansion", "image": "images/games/dlc/the-tyranny-of-king-washington.webp",
         "setting": "c. 1783 (alternate reality)",
         "released": "2013-02-19",
         "episodes": [
@@ -431,6 +457,7 @@ const GAMES = [
     ]
   },
   {
+    "id": 33,
     "name": "Assassin's Creed III: Liberation",
     "kind": "handheld",
     "developer": "Ubisoft Sofia",
@@ -447,6 +474,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 34,
     "name": "Assassin's Creed III (mobile)",
     "kind": "mobile",
     "developer": "Gameloft",
@@ -460,6 +488,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 35,
     "name": "Assassin's Creed IV: Black Flag",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -471,14 +500,15 @@ const GAMES = [
     "rereleases": [{ "name": "The Rebel Collection", "released": "2019-12-06" }],
     "description": "Welsh privateer Edward Kenway turns pirate in the golden age of piracy and stumbles into the war between Assassins and Templars across the Caribbean.",
     "dlcs": [
-      { "name": "Aveline", "type": "story", "image": "images/games/dlc/aveline.webp", "year": 1784, "setting": "1784", "released": "2013-10-29", "marker": true, "note": "PlayStation exclusive at launch" },
-      { "name": "Black Island", "type": "story", "setting": "During the main story", "released": "2013-10-29", "note": "Edition mission, later in the Illustrious Pirates Pack (2014)" },
-      { "name": "Mystery Island", "type": "story", "setting": "During the main story", "released": "2013-10-29", "note": "Edition mission, later in the Illustrious Pirates Pack (2014)" },
-      { "name": "Sacrifice Island", "type": "story", "setting": "During the main story", "released": "2013-10-29", "note": "Edition mission, later in the Illustrious Pirates Pack (2014)" },
-      { "name": "Freedom Cry", "type": "expansion", "image": "images/games/dlc/freedom-cry.webp", "year": 1735, "setting": "1735–1737", "released": "2013-12-17", "marker": true, "note": "Also sold standalone (2014)" }
+      { "id": 36, "name": "Aveline", "type": "story", "image": "images/games/dlc/aveline.webp", "year": 1784, "setting": "1784", "released": "2013-10-29", "marker": true, "note": "PlayStation exclusive at launch" },
+      { "id": 37, "name": "Black Island", "type": "story", "setting": "During the main story", "released": "2013-10-29", "note": "Edition mission, later in the Illustrious Pirates Pack (2014)" },
+      { "id": 38, "name": "Mystery Island", "type": "story", "setting": "During the main story", "released": "2013-10-29", "note": "Edition mission, later in the Illustrious Pirates Pack (2014)" },
+      { "id": 39, "name": "Sacrifice Island", "type": "story", "setting": "During the main story", "released": "2013-10-29", "note": "Edition mission, later in the Illustrious Pirates Pack (2014)" },
+      { "id": 40, "name": "Freedom Cry", "type": "expansion", "image": "images/games/dlc/freedom-cry.webp", "year": 1735, "setting": "1735–1737", "released": "2013-12-17", "marker": true, "note": "Also sold standalone (2014)" }
     ]
   },
   {
+    "id": 41,
     "name": "Assassin's Creed Pirates",
     "kind": "mobile",
     "developer": "Ubisoft Paris",
@@ -491,6 +521,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 42,
     "name": "Assassin's Creed Memories",
     "kind": "mobile",
     "developer": "GREE and PlayNext",
@@ -502,6 +533,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 43,
     "name": "Assassin's Creed Rogue",
     "kind": "main",
     "developer": "Ubisoft Sofia",
@@ -516,11 +548,12 @@ const GAMES = [
     ],
     "description": "During the Seven Years' War, the Assassin Shay Patrick Cormac turns against the Brotherhood and joins the Templars, sailing from the North Atlantic to colonial New York.",
     "dlcs": [
-      { "name": "The Siege of Fort de Sable", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Pre-order and edition mission" },
-      { "name": "The Armor of Sir Gunn's Quest", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Pre-order and edition mission" }
+      { "id": 44, "name": "The Siege of Fort de Sable", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Pre-order and edition mission" },
+      { "id": 45, "name": "The Armor of Sir Gunn's Quest", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Pre-order and edition mission" }
     ]
   },
   {
+    "id": 46,
     "name": "Assassin's Creed Unity",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -531,13 +564,14 @@ const GAMES = [
     "released": "2014-11-11",
     "description": "In Paris during the French Revolution, Arno Dorian joins the Assassins to find the truth behind a murder that changed his life.",
     "dlcs": [
-      { "name": "The Chemical Revolution", "type": "story", "image": "images/games/dlc/the-chemical-revolution.webp", "setting": "During the main story", "released": "2014-11-11", "note": "Edition mission, later in Secrets of the Revolution (2015)" },
-      { "name": "The American Prisoner", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Edition mission, later in Secrets of the Revolution (2015)" },
-      { "name": "Dead Kings", "type": "expansion", "image": "images/games/dlc/dead-kings.webp", "setting": "1794", "released": "2015-01-13" },
-      { "name": "Killed by Science", "type": "story", "setting": "During the main story", "released": "2015-01-20", "note": "In the Secrets of the Revolution pack" }
+      { "id": 47, "name": "The Chemical Revolution", "type": "story", "image": "images/games/dlc/the-chemical-revolution.webp", "setting": "During the main story", "released": "2014-11-11", "note": "Edition mission, later in Secrets of the Revolution (2015)" },
+      { "id": 48, "name": "The American Prisoner", "type": "story", "setting": "During the main story", "released": "2014-11-11", "note": "Edition mission, later in Secrets of the Revolution (2015)" },
+      { "id": 49, "name": "Dead Kings", "type": "expansion", "image": "images/games/dlc/dead-kings.webp", "setting": "1794", "released": "2015-01-13" },
+      { "id": 50, "name": "Killed by Science", "type": "story", "setting": "During the main story", "released": "2015-01-20", "note": "In the Secrets of the Revolution pack" }
     ]
   },
   {
+    "id": 51,
     "name": "Assassin's Creed Chronicles: China",
     "kind": "spin-off",
     "developer": "Climax Studios",
@@ -551,6 +585,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 52,
     "name": "Assassin's Creed Syndicate",
     "kind": "main",
     "developer": "Ubisoft Quebec",
@@ -561,15 +596,16 @@ const GAMES = [
     "released": "2015-10-23",
     "description": "Twins Jacob and Evie Frye arrive in Victorian London to free the city from Templar control, building a gang to take on the industrial powers of 1868.",
     "dlcs": [
-      { "name": "The Dreadful Crimes", "type": "story", "image": "images/games/dlc/the-dreadful-crimes.webp", "setting": "1868", "released": "2015-10-23", "note": "PS4 exclusive at launch" },
-      { "name": "A Long Night", "type": "story", "image": "images/games/dlc/a-long-night.webp", "setting": "1868", "released": "2015-10-23", "note": "Season Pass mission" },
-      { "name": "The Darwin and Dickens Conspiracy", "type": "story", "setting": "During the main story", "released": "2015-10-23", "note": "Pre-order mission, later in the Streets of London Pack (2016)" },
-      { "name": "Runaway Train", "type": "story", "setting": "During the main story", "released": "2015-10-23", "note": "Edition mission, later in the Streets of London Pack (2016)" },
-      { "name": "Jack the Ripper", "type": "expansion", "image": "images/games/dlc/jack-the-ripper.webp", "year": 1888, "setting": "1888", "released": "2015-12-15", "marker": true },
-      { "name": "The Last Maharaja", "type": "story", "image": "images/games/dlc/the-last-maharaja.webp", "setting": "1868", "released": "2016-03-01" }
+      { "id": 53, "name": "The Dreadful Crimes", "type": "story", "image": "images/games/dlc/the-dreadful-crimes.webp", "setting": "1868", "released": "2015-10-23", "note": "PS4 exclusive at launch" },
+      { "id": 54, "name": "A Long Night", "type": "story", "image": "images/games/dlc/a-long-night.webp", "setting": "1868", "released": "2015-10-23", "note": "Season Pass mission" },
+      { "id": 55, "name": "The Darwin and Dickens Conspiracy", "type": "story", "setting": "During the main story", "released": "2015-10-23", "note": "Pre-order mission, later in the Streets of London Pack (2016)" },
+      { "id": 56, "name": "Runaway Train", "type": "story", "setting": "During the main story", "released": "2015-10-23", "note": "Edition mission, later in the Streets of London Pack (2016)" },
+      { "id": 57, "name": "Jack the Ripper", "type": "expansion", "image": "images/games/dlc/jack-the-ripper.webp", "year": 1888, "setting": "1888", "released": "2015-12-15", "marker": true },
+      { "id": 58, "name": "The Last Maharaja", "type": "story", "image": "images/games/dlc/the-last-maharaja.webp", "setting": "1868", "released": "2016-03-01" }
     ]
   },
   {
+    "id": 59,
     "name": "Assassin's Creed Chronicles: India",
     "kind": "spin-off",
     "developer": "Climax Studios",
@@ -583,6 +619,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 60,
     "name": "Assassin's Creed Chronicles: Russia",
     "kind": "spin-off",
     "developer": "Climax Studios",
@@ -596,6 +633,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 61,
     "name": "Assassin's Creed Identity",
     "kind": "mobile",
     "developer": "Ubisoft Blue Byte",
@@ -606,10 +644,11 @@ const GAMES = [
     "released": "2016-02-25",
     "description": "An Assassin of the player's making joins Machiavelli's Brotherhood in Renaissance Italy and hunts the Crows, a gang that copies Assassin skills. An action RPG for phones; it shut down in 2021.",
     "dlcs": [
-      { "name": "Forlì – A Crimson Sunset", "type": "story", "setting": "The story's second act", "released": "2016-05-18" }
+      { "id": 62, "name": "Forlì – A Crimson Sunset", "type": "story", "setting": "The story's second act", "released": "2016-05-18" }
     ]
   },
   {
+    "id": 63,
     "name": "Assassin's Creed Unity: Arno's Chronicles",
     "kind": "mobile",
     "developer": "Ubisoft",
@@ -623,6 +662,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 64,
     "name": "Assassin's Creed Origins",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -633,14 +673,15 @@ const GAMES = [
     "released": "2017-10-27",
     "description": "In Ptolemaic Egypt, the Medjay Bayek of Siwa and his wife Aya hunt a secret order, laying the foundations of what will become the Assassin Brotherhood.",
     "dlcs": [
-      { "name": "Secrets of the First Pyramids", "type": "story", "image": "images/games/dlc/secrets-of-the-first-pyramids.webp", "setting": "During the main story", "released": "2017-10-27", "note": "Pre-order mission" },
-      { "name": "Ambush at Sea", "type": "story", "setting": "During the main story", "released": "2017-10-27", "note": "Deluxe Edition mission" },
-      { "name": "The Hidden Ones", "type": "expansion", "image": "images/games/dlc/the-hidden-ones.webp", "year": -38, "setting": "38 BCE", "released": "2018-01-23", "marker": true },
-      { "name": "Discovery Tour by Assassin's Creed: Ancient Egypt", "type": "discovery-tour", "image": "images/games/dlc/discovery-tour-by-assassins-creed-ancient-egypt.webp", "setting": "Ptolemaic Egypt", "released": "2018-02-20", "note": "Free update; also sold on its own for PC" },
-      { "name": "The Curse of the Pharaohs", "type": "expansion", "image": "images/games/dlc/the-curse-of-the-pharaohs.webp", "year": -38, "setting": "38 BCE", "released": "2018-03-13", "marker": true }
+      { "id": 65, "name": "Secrets of the First Pyramids", "type": "story", "image": "images/games/dlc/secrets-of-the-first-pyramids.webp", "setting": "During the main story", "released": "2017-10-27", "note": "Pre-order mission" },
+      { "id": 66, "name": "Ambush at Sea", "type": "story", "setting": "During the main story", "released": "2017-10-27", "note": "Deluxe Edition mission" },
+      { "id": 67, "name": "The Hidden Ones", "type": "expansion", "image": "images/games/dlc/the-hidden-ones.webp", "year": -38, "setting": "38 BCE", "released": "2018-01-23", "marker": true },
+      { "id": 68, "name": "Discovery Tour by Assassin's Creed: Ancient Egypt", "type": "discovery-tour", "image": "images/games/dlc/discovery-tour-by-assassins-creed-ancient-egypt.webp", "setting": "Ptolemaic Egypt", "released": "2018-02-20", "note": "Free update; also sold on its own for PC" },
+      { "id": 69, "name": "The Curse of the Pharaohs", "type": "expansion", "image": "images/games/dlc/the-curse-of-the-pharaohs.webp", "year": -38, "setting": "38 BCE", "released": "2018-03-13", "marker": true }
     ]
   },
   {
+    "id": 70,
     "name": "The Tower Assassin's Creed",
     "kind": "mobile",
     "developer": "Ketchapp",
@@ -652,6 +693,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 71,
     "name": "Escape the Lost Pyramid",
     "kind": "vr",
     "developer": "Ubisoft Blue Byte",
@@ -665,6 +707,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 72,
     "name": "Assassin's Creed: The Temple of Anubis",
     "kind": "vr",
     "developer": "Triotech",
@@ -678,6 +721,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 73,
     "name": "Assassin's Creed Odyssey",
     "kind": "main",
     "developer": "Ubisoft Quebec",
@@ -688,11 +732,11 @@ const GAMES = [
     "released": "2018-10-05",
     "description": "During the Peloponnesian War, a Spartan mercenary, Kassandra or Alexios, sails the Greek world to uncover a cult and find a lost family. The player chooses the hero.",
     "dlcs": [
-      { "name": "The Blind King", "type": "story", "image": "images/games/dlc/the-blind-king.webp", "setting": "During the main story", "released": "2018-10-05", "note": "Pre-order mission" },
-      { "name": "The Secrets of Greece", "type": "story", "image": "images/games/dlc/the-secrets-of-greece.webp", "setting": "During the main story", "released": "2018-10-05", "note": "Season Pass mission" },
-      { "name": "The Lost Tales of Greece", "type": "story", "image": "images/games/dlc/the-lost-tales-of-greece.webp", "setting": "431–422 BCE", "released": "2018-11-01", "releasedPrecision": "month", "note": "Free story quests, 2018–2019" },
+      { "id": 74, "name": "The Blind King", "type": "story", "image": "images/games/dlc/the-blind-king.webp", "setting": "During the main story", "released": "2018-10-05", "note": "Pre-order mission" },
+      { "id": 75, "name": "The Secrets of Greece", "type": "story", "image": "images/games/dlc/the-secrets-of-greece.webp", "setting": "During the main story", "released": "2018-10-05", "note": "Season Pass mission" },
+      { "id": 76, "name": "The Lost Tales of Greece", "type": "story", "image": "images/games/dlc/the-lost-tales-of-greece.webp", "setting": "431–422 BCE", "released": "2018-11-01", "releasedPrecision": "month", "note": "Free story quests, 2018–2019" },
       {
-        "name": "Legacy of the First Blade", "type": "expansion", "image": "images/games/dlc/legacy-of-the-first-blade.webp",
+        "id": 77, "name": "Legacy of the First Blade", "type": "expansion", "image": "images/games/dlc/legacy-of-the-first-blade.webp",
         "setting": "c. 429–425 BCE",
         "released": "2018-12-04",
         "episodes": [
@@ -702,7 +746,7 @@ const GAMES = [
         ]
       },
       {
-        "name": "The Fate of Atlantis", "type": "expansion", "image": "images/games/dlc/the-fate-of-atlantis.webp",
+        "id": 78, "name": "The Fate of Atlantis", "type": "expansion", "image": "images/games/dlc/the-fate-of-atlantis.webp",
         "setting": "422 BCE",
         "released": "2019-04-23",
         "episodes": [
@@ -711,12 +755,13 @@ const GAMES = [
           { "name": "Judgment of Atlantis", "released": "2019-07-16" }
         ]
       },
-      { "name": "Story Creator Mode", "type": "mode", "setting": "Players' own quests in the game's Greece", "released": "2019-06-10", "note": "Free update" },
-      { "name": "Discovery Tour by Assassin's Creed: Ancient Greece", "type": "discovery-tour", "image": "images/games/dlc/discovery-tour-by-assassins-creed-ancient-greece.webp", "setting": "Classical Greece", "released": "2019-09-10", "note": "Free update; also sold on its own for PC" },
-      { "name": "Crossover Stories: Those Who Are Treasured", "type": "story", "image": "images/games/dlc/crossover-stories.webp", "year": -421, "setting": "421 BCE", "released": "2021-12-14", "marker": true, "note": "Free update" }
+      { "id": 79, "name": "Story Creator Mode", "type": "mode", "setting": "Players' own quests in the game's Greece", "released": "2019-06-10", "note": "Free update" },
+      { "id": 80, "name": "Discovery Tour by Assassin's Creed: Ancient Greece", "type": "discovery-tour", "image": "images/games/dlc/discovery-tour-by-assassins-creed-ancient-greece.webp", "setting": "Classical Greece", "released": "2019-09-10", "note": "Free update; also sold on its own for PC" },
+      { "id": 81, "name": "Crossover Stories: Those Who Are Treasured", "type": "story", "image": "images/games/dlc/crossover-stories.webp", "year": -421, "setting": "421 BCE", "released": "2021-12-14", "marker": true, "note": "Free update" }
     ]
   },
   {
+    "id": 82,
     "name": "Assassin's Creed Rebellion",
     "kind": "mobile",
     "developer": "Behaviour Interactive",
@@ -727,12 +772,13 @@ const GAMES = [
     "released": "2018-11-21",
     "description": "Aguilar de Nerha's Spanish Brotherhood builds a fortress and recruits Assassins from across the series to fight the Inquisition's Templars. A free strategy RPG; off the stores since September 2026, its servers close in January 2027.",
     "dlcs": [
-      { "name": "Norway Campaign", "type": "story", "setting": "872", "released": "2021-03-10", "note": "Free update" },
-      { "name": "Caribbean Campaign", "type": "story", "setting": "Golden Age of Piracy", "released": "2021-06-22", "note": "Free update" },
-      { "name": "Naples Campaign", "type": "story", "setting": "1499", "released": "2021-09-21", "note": "Free update" }
+      { "id": 83, "name": "Norway Campaign", "type": "story", "setting": "872", "released": "2021-03-10", "note": "Free update" },
+      { "id": 84, "name": "Caribbean Campaign", "type": "story", "setting": "Golden Age of Piracy", "released": "2021-06-22", "note": "Free update" },
+      { "id": 85, "name": "Naples Campaign", "type": "story", "setting": "1499", "released": "2021-09-21", "note": "Free update" }
     ]
   },
   {
+    "id": 86,
     "name": "Beyond Medusa's Gate",
     "kind": "vr",
     "developer": "Ubisoft Blue Byte",
@@ -745,6 +791,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 87,
     "name": "Assassin's Creed Valhalla",
     "kind": "main",
     "developer": "Ubisoft Montreal",
@@ -755,21 +802,22 @@ const GAMES = [
     "released": "2020-11-10",
     "description": "Eivor leads a Viking clan from Norway to settle in England in the age of Alfred the Great, forging alliances and raiding across the Anglo-Saxon kingdoms.",
     "dlcs": [
-      { "name": "The Legend of Beowulf", "type": "story", "image": "images/games/dlc/the-legend-of-beowulf.webp", "setting": "873–878", "released": "2020-11-10", "note": "Season Pass quest" },
-      { "name": "The Way of the Berserker", "type": "story", "image": "images/games/dlc/the-way-of-the-berserker.webp", "setting": "During the main story", "released": "2020-11-10", "note": "Pre-order quest" },
-      { "name": "River Raids", "type": "mode", "setting": "During the main story", "released": "2021-02-16", "note": "Free update" },
-      { "name": "Wrath of the Druids", "type": "expansion", "image": "images/games/dlc/wrath-of-the-druids.webp", "year": 879, "setting": "c. 879", "released": "2021-05-13", "marker": true },
-      { "name": "Mastery Challenge", "type": "mode", "setting": "Animus trials", "released": "2021-06-15", "note": "Free update" },
-      { "name": "The Siege of Paris", "type": "expansion", "image": "images/games/dlc/the-siege-of-paris.webp", "year": 885, "setting": "c. 885", "released": "2021-08-12", "marker": true },
-      { "name": "Discovery Tour: Viking Age", "type": "discovery-tour", "image": "images/games/dlc/discovery-tour-viking-age.webp", "setting": "Viking Age Norway and England", "released": "2021-10-19", "note": "Free update; also sold on its own (PC 2021, consoles 2022)" },
-      { "name": "Tombs of the Fallen", "type": "mode", "setting": "During the main story", "released": "2021-11-09", "note": "Free update" },
-      { "name": "Crossover Stories: A Fated Encounter", "type": "story", "image": "images/games/dlc/crossover-stories.webp", "year": 887, "setting": "c. 887", "released": "2021-12-14", "marker": true, "note": "Free update" },
-      { "name": "Dawn of Ragnarök", "type": "expansion", "image": "images/games/dlc/dawn-of-ragnarok.webp", "setting": "Odin's memories", "released": "2022-03-10" },
-      { "name": "The Forgotten Saga", "type": "mode", "image": "images/games/dlc/the-forgotten-saga.webp", "setting": "Odin's memories", "released": "2022-08-02", "note": "Free update" },
-      { "name": "The Last Chapter", "type": "story", "image": "images/games/dlc/the-last-chapter.webp", "year": 889, "setting": "c. 889", "released": "2022-11-29", "marker": true, "note": "Free update" }
+      { "id": 88, "name": "The Legend of Beowulf", "type": "story", "image": "images/games/dlc/the-legend-of-beowulf.webp", "setting": "873–878", "released": "2020-11-10", "note": "Season Pass quest" },
+      { "id": 89, "name": "The Way of the Berserker", "type": "story", "image": "images/games/dlc/the-way-of-the-berserker.webp", "setting": "During the main story", "released": "2020-11-10", "note": "Pre-order quest" },
+      { "id": 90, "name": "River Raids", "type": "mode", "setting": "During the main story", "released": "2021-02-16", "note": "Free update" },
+      { "id": 91, "name": "Wrath of the Druids", "type": "expansion", "image": "images/games/dlc/wrath-of-the-druids.webp", "year": 879, "setting": "c. 879", "released": "2021-05-13", "marker": true },
+      { "id": 92, "name": "Mastery Challenge", "type": "mode", "setting": "Animus trials", "released": "2021-06-15", "note": "Free update" },
+      { "id": 93, "name": "The Siege of Paris", "type": "expansion", "image": "images/games/dlc/the-siege-of-paris.webp", "year": 885, "setting": "c. 885", "released": "2021-08-12", "marker": true },
+      { "id": 94, "name": "Discovery Tour: Viking Age", "type": "discovery-tour", "image": "images/games/dlc/discovery-tour-viking-age.webp", "setting": "Viking Age Norway and England", "released": "2021-10-19", "note": "Free update; also sold on its own (PC 2021, consoles 2022)" },
+      { "id": 95, "name": "Tombs of the Fallen", "type": "mode", "setting": "During the main story", "released": "2021-11-09", "note": "Free update" },
+      { "id": 96, "name": "Crossover Stories: A Fated Encounter", "type": "story", "image": "images/games/dlc/crossover-stories.webp", "year": 887, "setting": "c. 887", "released": "2021-12-14", "marker": true, "note": "Free update" },
+      { "id": 97, "name": "Dawn of Ragnarök", "type": "expansion", "image": "images/games/dlc/dawn-of-ragnarok.webp", "setting": "Odin's memories", "released": "2022-03-10" },
+      { "id": 98, "name": "The Forgotten Saga", "type": "mode", "image": "images/games/dlc/the-forgotten-saga.webp", "setting": "Odin's memories", "released": "2022-08-02", "note": "Free update" },
+      { "id": 99, "name": "The Last Chapter", "type": "story", "image": "images/games/dlc/the-last-chapter.webp", "year": 889, "setting": "c. 889", "released": "2022-11-29", "marker": true, "note": "Free update" }
     ]
   },
   {
+    "id": 100,
     "name": "Assassin's Creed: Freerunners",
     "kind": "browser",
     "developer": "Ubisoft Da Nang",
@@ -782,6 +830,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 101,
     "name": "Assassin's Creed Mirage",
     "kind": "main",
     "developer": "Ubisoft Bordeaux",
@@ -792,11 +841,12 @@ const GAMES = [
     "released": "2023-10-05",
     "description": "In ninth-century Baghdad, the street thief Basim Ibn Ishaq joins the Hidden Ones, in a smaller, stealth-focused return to the series' roots.",
     "dlcs": [
-      { "name": "The Forty Thieves", "type": "story", "image": "images/games/dlc/the-forty-thieves.webp", "setting": "During the main story", "released": "2023-10-05", "note": "Pre-order quest" },
-      { "name": "Valley of Memory", "type": "expansion", "image": "images/games/dlc/valley-of-memory.webp", "setting": "861", "released": "2025-11-18", "note": "Free update" }
+      { "id": 102, "name": "The Forty Thieves", "type": "story", "image": "images/games/dlc/the-forty-thieves.webp", "setting": "During the main story", "released": "2023-10-05", "note": "Pre-order quest" },
+      { "id": 103, "name": "Valley of Memory", "type": "expansion", "image": "images/games/dlc/valley-of-memory.webp", "setting": "861", "released": "2025-11-18", "note": "Free update" }
     ]
   },
   {
+    "id": 104,
     "name": "Assassin's Creed Nexus VR",
     "kind": "vr",
     "developer": "Red Storm Entertainment",
@@ -808,6 +858,7 @@ const GAMES = [
     "dlcs": []
   },
   {
+    "id": 105,
     "name": "Assassin's Creed Shadows",
     "kind": "main",
     "developer": "Ubisoft Quebec",
@@ -818,16 +869,17 @@ const GAMES = [
     "released": "2025-03-20",
     "description": "In Japan's Sengoku period, the shinobi Naoe and Yasuke, an African samurai in the service of Oda Nobunaga, are drawn together by a shared fight.",
     "dlcs": [
-      { "name": "Thrown to the Dogs", "type": "story", "image": "images/games/dlc/thrown-to-the-dogs.webp", "setting": "During the main story", "released": "2025-03-20", "note": "Pre-order quest, free for all from May 2025" },
-      { "name": "The Works of Luis Frois", "type": "story", "setting": "During the main story", "released": "2025-05-06", "note": "Free update" },
-      { "name": "A Critical Encounter", "type": "story", "setting": "During the main story", "released": "2025-06-25", "note": "Free update" },
-      { "name": "Claws of Awaji", "type": "expansion", "image": "images/games/dlc/claws-of-awaji.webp", "setting": "After the main story", "released": "2025-09-16" },
-      { "name": "Go with the Bo", "type": "story", "setting": "During the main story", "released": "2025-09-16", "note": "Free update" },
-      { "name": "A Puzzlement", "type": "story", "setting": "During the main story", "released": "2025-11-25", "note": "Free update" },
-      { "name": "Black Tides", "type": "story", "setting": "After the main story", "released": "2026-06-16", "note": "Free update" }
+      { "id": 106, "name": "Thrown to the Dogs", "type": "story", "image": "images/games/dlc/thrown-to-the-dogs.webp", "setting": "During the main story", "released": "2025-03-20", "note": "Pre-order quest, free for all from May 2025" },
+      { "id": 107, "name": "The Works of Luis Frois", "type": "story", "setting": "During the main story", "released": "2025-05-06", "note": "Free update" },
+      { "id": 108, "name": "A Critical Encounter", "type": "story", "setting": "During the main story", "released": "2025-06-25", "note": "Free update" },
+      { "id": 109, "name": "Claws of Awaji", "type": "expansion", "image": "images/games/dlc/claws-of-awaji.webp", "setting": "After the main story", "released": "2025-09-16" },
+      { "id": 110, "name": "Go with the Bo", "type": "story", "setting": "During the main story", "released": "2025-09-16", "note": "Free update" },
+      { "id": 111, "name": "A Puzzlement", "type": "story", "setting": "During the main story", "released": "2025-11-25", "note": "Free update" },
+      { "id": 112, "name": "Black Tides", "type": "story", "setting": "After the main story", "released": "2026-06-16", "note": "Free update" }
     ]
   },
   {
+    "id": 113,
     "name": "Assassin's Creed Black Flag Resynced",
     "kind": "main",
     "developer": "Ubisoft Singapore",

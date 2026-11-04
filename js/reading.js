@@ -413,9 +413,10 @@
         };
 
         // A game or DLC: a marker between the books, unnumbered and not
-        // counted. It links to the game's page (a DLC's row highlights the
-        // DLC there).
+        // counted, with a Played switch where a book has Read. It links to
+        // the game's page (a DLC's row highlights the DLC there).
         const gameRowHTML = (game) => {
+            const played = A.isPlayed(game.id);
             const href = `#games/${A.slugify(game.game)}`;
             const label = game.dlc ? `Story DLC · ${gameLabel(game.game)}` : 'Game';
             const data = `data-game-row="${esc(game.game)}"${game.dlc ? ` data-dlc="${esc(game.name)}"` : ''}`;
@@ -424,7 +425,7 @@
                 ? `<a class="reading-cover reading-game-cover" href="${href}" ${data} aria-label="${esc(game.name)}: open the game" tabindex="-1"><img src="${esc(game.image)}" alt="" loading="lazy"></a>`
                 : `<a class="reading-cover reading-game-icon" href="${href}" ${data} aria-label="${esc(game.name)}: open the game" tabindex="-1">${A.GAME_ICON}</a>`;
             return `
-                <li class="reading-entry reading-entry-game">
+                <li class="reading-entry reading-entry-game${played ? ' played' : ''}">
                     ${picture}
                     <div class="reading-info">
                         <span class="game-kind">${esc(label)}</span>
@@ -434,6 +435,13 @@
                             <span class="reading-released${mode === 'release' ? ' primary' : ''}">Released ${A.formatReleased(game)}</span>
                         </div>
                     </div>
+                    <label class="reading-toggle">
+                        <span class="reading-toggle-text">Played</span>
+                        <div class="toggle-switch toggle-read">
+                            <input type="checkbox" data-played="${game.id}" aria-label="Played: ${esc(game.name)}"${played ? ' checked' : ''}>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </label>
                 </li>`;
         };
 
@@ -734,6 +742,14 @@
         if (e.target.matches('[data-missing-only]')) {
             setMissingOnly(e.target.checked);
             render();
+            return;
+        }
+        // A game's or DLC's Played switch (js/game-progress.js re-renders)
+        const played = e.target.closest('[data-played]');
+        if (played) {
+            const id = Number(played.dataset.played);
+            const current = A.getGameProgress(id);
+            A.setGameProgress(id, { played: played.checked, playedDate: played.checked ? current.playedDate : '' });
             return;
         }
         const toggle = e.target.closest('[data-read]');
