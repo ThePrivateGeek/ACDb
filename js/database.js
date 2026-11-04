@@ -7613,4 +7613,15 @@ const AC_DATABASE = [
     "type": "Device Holder",
     "characters": [14]
   },
+  {
+    "id": 679,
+    "name": "Ubicollectibles Ezio Auditore Complete Figurine Set",
+    "game": "Assassin's Creed II",
+    "year": 2012,
+    "category": "Statue",
+    "description": "Official Ubisoft window box, sold as \"Ezio Auditore: Complete Figurine Set\", gathering four PVC figurines of Ezio from Assassin's Creed II, Brotherhood and Revelations: the white and black Assassin's Creed II figurines from the White and Black Editions, Ezio in his Brotherhood robes, and the older Ezio of Revelations in his grey hooded robes. Ubisoft SKU 23071.",
+    "contents": "White Ezio figurine (22 cm), Black Ezio figurine (22 cm), Brotherhood Ezio figurine (24 cm), Revelations Ezio figurine (22 cm)",
+    "type": "Ubicollectibles",
+    "characters": [1]
+  },
 ];

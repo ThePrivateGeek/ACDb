@@ -316,6 +316,7 @@ const AC_THUMBS = new Set([
     "images/statues/ubicollectibles-blackbeard-the-legendary-pirate.webp",
     "images/statues/ubicollectibles-edward-the-assassin-pirate.webp",
     "images/statues/ubicollectibles-evie-frye.webp",
+    "images/statues/ubicollectibles-ezio-complete-figurine-set.webp",
     "images/statues/ubicollectibles-ezio-leap-of-faith.webp",
     "images/statues/ubicollectibles-jacob-frye.webp",
     "images/statues/ubicollectibles-kassandra.webp",

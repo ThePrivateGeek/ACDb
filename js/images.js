@@ -218,6 +218,7 @@ const AC_IMAGES = {
     // ── Ubicollectibles Figurines ──
     "Ubicollectibles Ezio Leap of Faith Figurine": ["images/statues/ubicollectibles-ezio-leap-of-faith.webp"],
     "Ubicollectibles Ezio's Fury Statue (Brotherhood)": ["images/statues/ubicollectibles-ezios-fury-brotherhood.webp"],
+    "Ubicollectibles Ezio Auditore Complete Figurine Set": ["images/statues/ubicollectibles-ezio-complete-figurine-set.webp"],
     "Ubicollectibles Legacy Collection - Altair Bust": ["images/statues/ubicollectibles-legacy-altair-bust.webp"],
     "Ubicollectibles Legacy Collection - Ezio Bust": ["images/statues/ubicollectibles-legacy-ezio-bust.webp"],
     "Ubicollectibles Legacy Collection - Connor Bust": ["images/statues/ubicollectibles-legacy-connor-bust.webp"],
