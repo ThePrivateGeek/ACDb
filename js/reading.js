@@ -251,6 +251,12 @@
         return series.curated ? '#reading/' + series.curated.id : '#reading/' + SERIES_TAB.id + '/' + series.slug;
     }
 
+    // The page of a catalog series, or null when none of its books is in an order.
+    function seriesHashFor(name) {
+        const series = allSeries().find(s => s.name === name);
+        return series ? seriesHash(series) : null;
+    }
+
     // "12 comic books", "1 novel", "4 comic books and graphic novels"
     function countPhrase(count, types) {
         const words = types.map(t => (TYPE_NAMES[t] || [t.toLowerCase(), t.toLowerCase()])[count === 1 ? 0 : 1]);
@@ -815,5 +821,6 @@
     A.refreshReadingView = refreshReadingView;
     A.fillModalReadingOrder = fillModalReadingOrder;
     A.loreLinkFor = loreLinkFor;
+    A.seriesHashFor = seriesHashFor;
 
 })();

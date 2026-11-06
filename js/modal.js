@@ -73,6 +73,12 @@
             else el.title = 'Show all "' + el.textContent + '" items';
         });
 
+        // With no grid to filter, the series links to its reading page instead
+        // (the Hachette collection isn't in any order, so it has none).
+        const seriesHash = isOverView && item.series ? A.seriesHashFor(item.series) : null;
+        if (seriesHash) dom.modalSeries.href = seriesHash;
+        else dom.modalSeries.removeAttribute('href');
+
         A.fillModalReadingOrder(item, isReadOnlyOpen);
     }
 
@@ -431,6 +437,15 @@
         const link = e.target.closest('[data-character-id]');
         if (!link || !isOverView) return;
         if (A.isCharacterPageOpen(A.findCharacterById(Number(link.dataset.characterId)))) {
+            e.preventDefault();
+            closeModal();
+        }
+    });
+
+    // Opened over the page of the series it links to, the link just closes
+    // the modal, like the character and reading order links.
+    document.getElementById('modalSeries').addEventListener('click', (e) => {
+        if (isOverView && e.currentTarget.getAttribute('href') === window.location.hash) {
             e.preventDefault();
             closeModal();
         }

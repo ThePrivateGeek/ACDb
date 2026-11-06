@@ -2340,7 +2340,8 @@ textarea:focus-visible {
 }
 
 .modal-game.filter-link:hover,
-.modal-series.filter-link:hover {
+.modal-series.filter-link:hover,
+.modal-series[href]:hover {
     text-decoration: underline;
 }
 
@@ -2413,6 +2414,7 @@ textarea:focus-visible {
 .modal-series {
     color: var(--gold);
     font-weight: 600;
+    text-decoration: none;
 }
 
 .modal-series-count {

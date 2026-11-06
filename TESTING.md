@@ -251,7 +251,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 - [ ] Bowden's row opens `#reading/bowden`; pasting `#reading/series/oliver-bowden-novels` lands there too; an unknown series slug shows the list
 - [ ] "See the whole series in the collection" opens the grid filtered to that series (Uprising: 15 items, collected editions included)
 - [ ] Read toggle on a row marks the book read: purple border, "X / 9 read" and the bar update; the item's own modal shows Read too
-- [ ] Clicking a cover or title opens the full modal on top of the view; the address stays `#reading`; category/type/game/series aren't filter links there
+- [ ] Clicking a cover or title opens the full modal on top of the view; the address stays `#reading`; category/type/game aren't filter links there, and the series name is a gold link to its series page (Tab reaches it; on that series page it just closes the modal; Bowden's goes to `#reading/bowden`). The same goes for the modal over a character's or game's page, except that a Hachette Official Collection item's series stays plain text (no page)
 - [ ] In that modal: "Next: …" swaps to the next book in place; marking Read updates the list underneath; Esc, ✕ and browser back all close it and leave the view
 - [ ] Item modal from the grid: books in an order show "Reading order · <order> · N of M · Next: …" (position follows the chosen mode; the last book says "Last book"); Bowden novels show two lines (Complete Lore and Oliver Bowden Novels); clicking an order name opens that tab
 - [ ] No reading order line for items outside an order, or in read-only (profile/leaderboard) modals
