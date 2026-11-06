@@ -237,6 +237,8 @@
                 types,
                 nonCanon,
                 eras: eraSpan(entries),
+                // Reprints stay out of the list; the page names them instead.
+                editions: AC_DATABASE.filter(i => i.series === name && i.collects && !seen.has(i.id)),
                 curated: READING_ORDERS.find(o => o.name === name) || null
             };
         });
@@ -575,6 +577,11 @@
         const where = series.nonCanon ? 'outside the main continuity' : 'placed as in Complete Lore';
         const meta = [countPhrase(series.entries.length, series.types), series.nonCanon ? 'Non-canon' : series.eras, where]
             .filter(Boolean).map(esc).join(' · ');
+        const editions = series.editions.length === 0 ? '' : `
+                    <div class="series-head-editions">
+                        <span>Collected in</span>
+                        <ul>${series.editions.map(i => `<li><button class="link" data-open="${i.id}" title="${esc(i.name)}">${esc(shortTitle(i))}</button></li>`).join('')}</ul>
+                    </div>`;
         return `
             <nav aria-label="Breadcrumb">
                 <ol class="crumbs reading-crumbs">
@@ -586,7 +593,7 @@
                 <span class="series-head-cover">${thumb ? `<img ${A.thumbSrcAttrs(thumb)} alt="">` : ''}</span>
                 <div class="series-head-body">
                     <h3 class="series-head-title">${esc(series.label)}</h3>
-                    <p class="series-head-meta">${meta}</p>
+                    <p class="series-head-meta">${meta}</p>${editions}
                     ${progress}
                     <div class="series-head-actions">
                         ${upNext}

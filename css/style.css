@@ -2340,6 +2340,7 @@ textarea:focus-visible {
 }
 
 .modal-game.filter-link:hover,
+.modal-game[href]:hover,
 .modal-series.filter-link:hover,
 .modal-series[href]:hover {
     text-decoration: underline;
@@ -2395,6 +2396,7 @@ textarea:focus-visible {
 .modal-game {
     color: var(--gold);
     font-weight: 600;
+    text-decoration: none;
 }
 
 .modal-year {
@@ -4153,6 +4155,27 @@ a.reading-title {
 .series-head-meta {
     color: var(--text-2);
     font-size: var(--fs-sm);
+}
+
+/* "Collected in": the reprints the list leaves out */
+.series-head-editions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--s2);
+    color: var(--text-2);
+    font-size: var(--fs-sm);
+}
+
+.series-head-editions ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s1) var(--s4);
+    min-width: 0;
+    list-style: none;
+}
+
+.series-head-editions .link {
+    text-align: left;
 }
 
 .series-head .reading-progress {

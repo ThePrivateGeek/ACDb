@@ -17,6 +17,11 @@
     // controls work as usual, but the view and its hash stay underneath.
     let isOverView = false;
 
+    function setModalLink(el, hash) {
+        if (hash) el.href = hash;
+        else el.removeAttribute('href');
+    }
+
     function populateItemInfo(item) {
         const dom = A.dom;
         dom.modalBadge.textContent = item.category;
@@ -73,11 +78,12 @@
             else el.title = 'Show all "' + el.textContent + '" items';
         });
 
-        // With no grid to filter, the series links to its reading page instead
-        // (the Hachette collection isn't in any order, so it has none).
-        const seriesHash = isOverView && item.series ? A.seriesHashFor(item.series) : null;
-        if (seriesHash) dom.modalSeries.href = seriesHash;
-        else dom.modalSeries.removeAttribute('href');
+        // With no grid to filter, the game links to its page and the series to
+        // its reading page instead. "General" and the movie aren't games, and
+        // the Hachette collection isn't in any order, so they stay plain text.
+        const game = isOverView ? GAMES.find(g => g.name === item.game) : null;
+        setModalLink(dom.modalGame, game ? '#games/' + A.gameUrlSlug(game) : null);
+        setModalLink(dom.modalSeries, isOverView && item.series ? A.seriesHashFor(item.series) : null);
 
         A.fillModalReadingOrder(item, isReadOnlyOpen);
     }
@@ -442,13 +448,15 @@
         }
     });
 
-    // Opened over the page of the series it links to, the link just closes
-    // the modal, like the character and reading order links.
-    document.getElementById('modalSeries').addEventListener('click', (e) => {
-        if (isOverView && e.currentTarget.getAttribute('href') === window.location.hash) {
-            e.preventDefault();
-            closeModal();
-        }
+    // Opened over the page of the game or series it links to, the link just
+    // closes the modal, like the character and reading order links.
+    ['modalGame', 'modalSeries'].forEach(id => {
+        document.getElementById(id).addEventListener('click', (e) => {
+            if (isOverView && e.currentTarget.getAttribute('href') === window.location.hash) {
+                e.preventDefault();
+                closeModal();
+            }
+        });
     });
 
     // Expose on namespace
