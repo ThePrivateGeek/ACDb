@@ -56,7 +56,13 @@
      (ids 192-193);
    - batch 15 (2026-11-01): Baptiste, Darim, Duncan Walpole, Jacques de
      Molay, Leonidas, Ojeda, and Tsuyu and Alvaro of the manga Tales of
-     Iga (ids 194-201).
+     Iga (ids 194-201);
+   - the owner's request (2026-11-08): Sef Ibn-La'Ahad, Altaïr's younger
+     son (id 202), Ignacio Cardona of the comic Uprising (id 203), and a
+     Cultist of Kosmos standing for Odyssey's Cult (id 204); Arend
+     Schut-Cunningham of the comics Assassins and Uprising (id 205); the
+     Black Cross, the Templar title (id 206); Kiyoshi Takakura and
+     Giovanni Borgia of the comic Assassins (ids 207-208).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -133,6 +139,10 @@
    own weapons and gear; art prints and posters of them. Not: art books,
    soundtracks, guides, or items about a whole game.
 
+   Disputes: whenever sources disagree (a birth year, a side, a family
+   link, whether a game counts), flag it to the owner, who decides. Don't
+   settle it yourself, and record the owner's call in these notes.
+
    Sources: the Assassin's Creed Wiki, read through its Access the Animus
    mirror (Fandom refused automated reading), checked against Wikipedia
    (real people, game plots and casts), Ubisoft and the press. Two
@@ -194,7 +204,8 @@
      their stories leaves them (the same rule as Haytham). Quila and
      Tommy Greyling are allies, never sworn in. "The Black Cross" is kept
      out of every name: it is the 1927 arc's mystery and, for Otso Berg,
-     a later twist.
+     a later twist. The title has its own entry (id 206, 2026-11-08),
+     which names no holder.
    - year for a character in the games is still where a game first shows
      them (Vidic 2012, not Bloodstone's 1964; Berg 2014, Rogue); for the
      others, where their own story first shows them (Callum Lynch as a
@@ -294,6 +305,80 @@
      is Reflections #2, which the wiki and Titan's own blurb for #4 back.
      The mobile games (Recollection, Memories) and Rebellion (Leonidas,
      Ojeda) don't count.
+   - Sef (added 2026-11-08; the wiki through its accesstheanimus mirror):
+     in person only in The Secret Crusade, so a novel character; the wiki
+     has him mentioned only in Revelations and Black Flag. Born 1197 and
+     year 1197 from the wiki alone (citing the novel). No official art, so
+     the emblem. Desmond descends from him (the wiki alone, citing
+     Revelations' Abstergo files; the owner's call, 2026-11-08).
+   - Ignacio Cardona (added 2026-11-08; the wiki through its
+     accesstheanimus mirror, Access the Animus's issue summaries, Nerdly's
+     review of #5): in person in Uprising #5-#8, Charlotte's Animus
+     memories, first in Spain in April 1937; only mentioned in #9. An
+     anarchist following Durruti, on the Republican side. No source gives
+     a birth year, or how far back he is in Charlotte's line ("ancestor"
+     in all). The wiki's claim that #9-#12 go on with his memories is
+     left out (the summaries show none; the owner's call, 2026-11-08). Portrait: the wiki's cut-out of
+     Titan's painted art (credited to Titan Comics).
+   - Cultist of Kosmos (added 2026-11-08 at the owner's request, an
+     unnamed figure on purpose: one entry for the whole Cult, as Hachette's
+     figurine #60 is; the name is the UK edition's): a Templar, the
+     owner's call, as Hachette's issue #60 calls the Cult a forerunner of
+     the Templars. The wiki has it allied with the Order of the Ancients
+     rather than a branch of it, and says the Essential Guide stops short
+     of calling it a Templar forerunner; Wikipedia ties it to neither. Met in 431 BCE (Elpenor's job on
+     Kephallonia). Odyssey only: Legacy of the First Blade counts as its
+     game; Rebellion and Valhalla only mention the Cult. Portrait:
+     Ubisoft's render of a male cultist in the bearded, red-marked mask,
+     from the wiki.
+   - Arend Schut-Cunningham (added 2026-11-08; the wiki through its
+     accesstheanimus mirror, Access the Animus's issue summaries, Titan's
+     2016 press release, The Xbox Hub's review of Uprising #3): in no
+     game. Rogue has him as voice only (its audio logs of the 2014
+     Rotterdam job with Harlan), Syndicate's Jack the Ripper and Odyssey
+     mention him only. In person in Assassins #14 (2016, the first) and
+     Uprising #1-#6, #9, #11 and #12. Arend Schut before he married
+     Harlan Cunningham in 2015; Harlan is not a character here, so no
+     Family row. No birth year in any source. Portrait: Remko Troost's
+     concept art for Ubisoft, from the wiki.
+   - The Black Cross (added 2026-11-08 at the owner's request, for
+     Hachette's figurine #50; the wiki through its accesstheanimus mirror,
+     Access the Animus's Templars summaries, Hachette's #50 cover): a
+     Templar rank answering to the Inner Sanctum, held by one person at a
+     time from at least the 16th century. One entry for the title, like
+     the Cultist of Kosmos, so no holder is named (who wears it is the
+     Templars comic's mystery and Uprising's twist). Hachette's #50 is
+     the Uprising-era Black Cross, so the item is tagged with this entry
+     only. year 1927, where the Templars comic first shows the Black
+     Cross; its 1808 issue (#8) is a flashback (the owner's call,
+     2026-11-08). In no game: Fields of
+     Elysium and Shadows only mention it. Portrait: an Uprising panel of
+     the masked modern outfit the figurine shows (Ubisoft/Titan, from the
+     wiki).
+   - Kiyoshi Takakura (added 2026-11-08; the wiki through its
+     accesstheanimus mirror, Access the Animus's Assassins and Uprising
+     summaries, Titan's 2016 press release): in no game. Odyssey and its
+     DLCs have him as voice only (Layla's radio), Syndicate's Jack the
+     Ripper in a database entry, Initiates (web) as art; the Tokyo XXI
+     board game doesn't count. In person in Assassins #14 (2016, the
+     first) and Uprising #1-#6, #9, #11 and #12 (the wiki's footnotes
+     also cite #7, #8 and #10; the summaries and the wiki's own issue
+     pages don't show him there: left untagged, the owner's call), and
+     in the modern-day story of the manga Blade of Shao Jun, where he is
+     not a main character, so its volumes aren't tagged. No birth year in
+     any source. Portrait: the owner's pick, Brotherhood of Venice's
+     render of him with his katana (the board game's licensed art; the
+     comic panels are a profile or bloodied).
+   - Giovanni Borgia (added 2026-11-08; the wiki, Wikipedia, GoCollect's
+     Titan news): the real Infans Romanus (1498-1548), an Assassin in
+     the Titan comic Assassins #11-#13 (1516, ambushing Hiram Stoddard;
+     a 1515 flashback in #12; year 1516, the owner's call). His one game, Project Legacy, is a browser
+     game, so none counts (GoCollect's "Brotherhood" is Project Legacy, a
+     Brotherhood tie-in). Born 1498 (both). Family as the wiki has the
+     Assassin's Creed story (the owner's call): Lucrezia's son, raised by
+     Cesare as his own, Rodrigo's grandson. History disputes his parents
+     (Wikipedia: papal bulls name Cesare, then Alexander VI).
+     Portrait: Project Legacy's painted Ubisoft art.
    - Baptiste is filed as a Templar, like Shay: a former Assassin who
      sides with the Templars. Duncan Walpole stays an Assassin: he dies
      before he can defect. No official births for either, nor for Ojeda.
@@ -670,7 +755,7 @@ const CHARACTERS = [
     "year": 1189,
     "image": "images/characters/altair-ibn-laahad.webp",
     "games": ["Assassin's Creed", "Assassin's Creed: Altaïr's Chronicles", "Assassin's Creed II", "Assassin's Creed: Bloodlines", "Assassin's Creed Revelations"],
-    "family": [{"id": 87, "relation": "wife"}, {"id": 195, "relation": "son"}, {"id": 3, "relation": "descendant"}],
+    "family": [{"id": 87, "relation": "wife"}, {"id": 195, "relation": "son"}, {"id": 202, "relation": "son"}, {"id": 3, "relation": "descendant"}],
     "description": "A gifted but arrogant Assassin of the Levantine Brotherhood during the Third Crusade, stripped of his rank and sent to earn it back by hunting nine men across Damascus, Acre and Jerusalem."
   },
   {
@@ -682,7 +767,7 @@ const CHARACTERS = [
     "year": 2012,
     "image": "images/characters/desmond-miles.webp",
     "games": ["Assassin's Creed", "Assassin's Creed II", "Assassin's Creed Brotherhood", "Assassin's Creed Revelations", "Assassin's Creed III", "Assassin's Creed Valhalla"],
-    "family": [{"id": 52, "relation": "father"}, {"id": 70, "relation": "ancestor"}, {"id": 2, "relation": "ancestor"}, {"id": 1, "relation": "ancestor"}, {"id": 14, "relation": "ancestor"}, {"id": 15, "relation": "ancestor"}, {"id": 16, "relation": "ancestor"}],
+    "family": [{"id": 52, "relation": "father"}, {"id": 70, "relation": "ancestor"}, {"id": 2, "relation": "ancestor"}, {"id": 1, "relation": "ancestor"}, {"id": 14, "relation": "ancestor"}, {"id": 15, "relation": "ancestor"}, {"id": 16, "relation": "ancestor"}, {"id": 202, "relation": "ancestor"}],
     "description": "A bartender descended from a long line of Assassins, taken by Abstergo Industries in 2012 and made to relive his ancestors' memories in a machine called the Animus."
   },
   {
@@ -706,7 +791,7 @@ const CHARACTERS = [
     "year": 1476,
     "image": "images/characters/rodrigo-borgia.webp",
     "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood"],
-    "family": [{"id": 6, "relation": "son"}, {"id": 7, "relation": "daughter"}],
+    "family": [{"id": 6, "relation": "son"}, {"id": 7, "relation": "daughter"}, {"id": 208, "relation": "grandson"}],
     "description": "The Spanish cardinal who became Pope Alexander VI, here the Grand Master of the Templar Order in Italy and a patient, ruthless schemer."
   },
   {
@@ -718,7 +803,7 @@ const CHARACTERS = [
     "year": 1500,
     "image": "images/characters/cesare-borgia.webp",
     "games": ["Assassin's Creed Brotherhood"],
-    "family": [{"id": 5, "relation": "father"}, {"id": 7, "relation": "sister"}],
+    "family": [{"id": 5, "relation": "father"}, {"id": 7, "relation": "sister"}, {"id": 208, "relation": "nephew"}],
     "description": "Son of Rodrigo Borgia and captain-general of the papal armies, a ruthless commander who means to unite Italy under his own rule."
   },
   {
@@ -730,7 +815,7 @@ const CHARACTERS = [
     "year": 1500,
     "image": "images/characters/lucrezia-borgia.webp",
     "games": ["Assassin's Creed Brotherhood"],
-    "family": [{"id": 5, "relation": "father"}, {"id": 6, "relation": "brother"}],
+    "family": [{"id": 5, "relation": "father"}, {"id": 6, "relation": "brother"}, {"id": 208, "relation": "son"}],
     "description": "Daughter of Rodrigo Borgia and sister of Cesare, a sharp and dangerous figure at the papal court in Rome."
   },
   {
@@ -1356,7 +1441,7 @@ const CHARACTERS = [
     "image": "images/characters/charlotte-de-la-cruz.webp",
     "games": [],
     "stories": "Comics: Assassins, Uprising",
-    "family": [{"id": 62, "relation": "ancestor"}],
+    "family": [{"id": 62, "relation": "ancestor"}, {"id": 203, "relation": "ancestor"}],
     "description": "An overqualified office worker in San Diego whose obsession with conspiracy theories leads her straight into the Assassins' secret war."
   },
   {
@@ -1675,7 +1760,7 @@ const CHARACTERS = [
     "image": "images/characters/maria-thorpe.webp",
     "games": ["Assassin's Creed", "Assassin's Creed II", "Assassin's Creed: Bloodlines", "Assassin's Creed Revelations"],
     "stories": "Novel: The Secret Crusade",
-    "family": [{"id": 2, "relation": "husband"}, {"id": 195, "relation": "son"}],
+    "family": [{"id": 2, "relation": "husband"}, {"id": 195, "relation": "son"}, {"id": 202, "relation": "son"}],
     "description": "An English Templar in Robert de Sablé's service, sharp-tongued and handy with a sword, who crosses paths with Altaïr in Jerusalem during the Third Crusade."
   },
   {
@@ -2930,7 +3015,7 @@ const CHARACTERS = [
     "image": "images/characters/darim-ibn-laahad.webp",
     "games": ["Assassin's Creed Revelations"],
     "stories": "Novel: The Secret Crusade; comic: Reflections",
-    "family": [{"id": 2, "relation": "father"}, {"id": 87, "relation": "mother"}],
+    "family": [{"id": 2, "relation": "father"}, {"id": 87, "relation": "mother"}, {"id": 202, "relation": "brother"}],
     "description": "Altaïr and Maria's elder son, a skilled archer who grows up in Masyaf and follows his father on his travels far beyond the Levant."
   },
   {
@@ -3003,5 +3088,88 @@ const CHARACTERS = [
     "games": [],
     "stories": "Manga: Tales of Iga",
     "description": "A Spanish Assassin far from home, who comes to Iga with his apprentice Tsuyu to seek the help of its legendary shinobi against the Templars."
+  },
+  {
+    "id": 202,
+    "name": "Sef Ibn-La'Ahad",
+    "group": "assassin",
+    "historical": false,
+    "born": "1197",
+    "year": 1197,
+    "games": [],
+    "stories": "Novel: The Secret Crusade",
+    "family": [{"id": 2, "relation": "father"}, {"id": 87, "relation": "mother"}, {"id": 195, "relation": "brother"}, {"id": 3, "relation": "descendant"}],
+    "description": "Altaïr and Maria's younger son, raised in the Assassin tradition at Masyaf alongside his elder brother Darim."
+  },
+  {
+    "id": 203,
+    "name": "Ignacio Cardona",
+    "group": "assassin",
+    "historical": false,
+    "year": 1937,
+    "image": "images/characters/ignacio-cardona.webp",
+    "games": [],
+    "stories": "Comic: Uprising",
+    "family": [{"id": 60, "relation": "descendant"}],
+    "description": "An anarchist Assassin of the Spanish Brotherhood fighting for the Republic in the Civil War, whose memories of 1937 Barcelona his descendant Charlotte de la Cruz relives in the Animus."
+  },
+  {
+    "id": 204,
+    "name": "Cultist of Kosmos",
+    "aka": ["Cult of Kosmos"],
+    "group": "templar",
+    "historical": false,
+    "year": -431,
+    "image": "images/characters/cultist-of-kosmos.webp",
+    "games": ["Assassin's Creed Odyssey"],
+    "stories": "Novel: Odyssey",
+    "description": "A masked member of the Cult of Kosmos, the secret society steering the Peloponnesian War from the shadows, its members hidden among Greece's statesmen, generals and priests. Stands here for the whole Cult."
+  },
+  {
+    "id": 205,
+    "name": "Arend Schut-Cunningham",
+    "group": "assassin",
+    "historical": false,
+    "year": 2016,
+    "image": "images/characters/arend-schut-cunningham.webp",
+    "games": [],
+    "stories": "Comics: Assassins, Uprising",
+    "description": "A former mixed martial arts champion from Amsterdam turned Assassin, the muscle of the modern Brotherhood who fights beside Galina Voronina's cell. Husband of his old mentor, the Assassin Harlan Cunningham."
+  },
+  {
+    "id": 206,
+    "name": "The Black Cross",
+    "group": "templar",
+    "historical": false,
+    "year": 1927,
+    "image": "images/characters/the-black-cross.webp",
+    "games": [],
+    "stories": "Comics: Templars, Uprising",
+    "description": "The Templar Order's secret enforcer, a masked agent answering only to the Inner Sanctum, sent to root out corruption and traitors within the Order. A title passed down the centuries; this entry stands for all who carry it."
+  },
+  {
+    "id": 207,
+    "name": "Kiyoshi Takakura",
+    "group": "assassin",
+    "historical": false,
+    "year": 2016,
+    "image": "images/characters/kiyoshi-takakura.webp",
+    "games": [],
+    "stories": "Comics: Assassins, Uprising; manga: Blade of Shao Jun",
+    "description": "A former Osaka yakuza turned Assassin, a pilot and fighter of the modern Brotherhood who works hand in hand with Arend Schut-Cunningham alongside Galina Voronina's cell."
+  },
+  {
+    "id": 208,
+    "name": "Giovanni Borgia",
+    "aka": ["Infans Romanus"],
+    "group": "assassin",
+    "historical": true,
+    "born": "1498",
+    "year": 1516,
+    "image": "images/characters/giovanni-borgia.webp",
+    "games": [],
+    "stories": "Comics: Assassins",
+    "family": [{"id": 7, "relation": "mother"}, {"id": 6, "relation": "uncle"}, {"id": 5, "relation": "grandfather"}],
+    "description": "Born into the House of Borgia in Rome, the boy history calls the Infans Romanus, now grown into an Assassin of the Italian Brotherhood in the years after Ezio."
   }
 ]

@@ -2210,7 +2210,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [2, 84, 85, 86, 87, 88, 195]
+    "characters": [2, 84, 85, 86, 87, 88, 195, 202]
   },
   {
     "id": 209,
@@ -2842,7 +2842,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (11th)",
-    "characters": [60, 61]
+    "characters": [60, 61, 208]
   },
   {
     "id": 261,
@@ -2855,7 +2855,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (12th)",
-    "characters": [60, 61]
+    "characters": [60, 61, 208]
   },
   {
     "id": 262,
@@ -2868,7 +2868,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (13th)",
-    "characters": [60, 61]
+    "characters": [60, 61, 208]
   },
   {
     "id": 263,
@@ -2881,7 +2881,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (14th)",
-    "characters": [60, 61]
+    "characters": [60, 61, 205, 207]
   },
   {
     "id": 264,
@@ -2920,7 +2920,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "collects": [260, 261, 262, 263],
-    "characters": [60, 61]
+    "characters": [60, 61, 205, 207, 208]
   },
   {
     "id": 267,
@@ -3141,7 +3141,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (1)",
-    "characters": [60, 61]
+    "characters": [60, 61, 205, 207]
   },
   {
     "id": 284,
@@ -3154,7 +3154,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (2)",
-    "characters": [60, 61]
+    "characters": [60, 61, 205, 207]
   },
   {
     "id": 285,
@@ -3167,7 +3167,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (3)",
-    "characters": [60, 61]
+    "characters": [60, 61, 205, 207]
   },
   {
     "id": 286,
@@ -3180,7 +3180,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (4)",
-    "characters": [60, 61]
+    "characters": [60, 61, 205, 207]
   },
   {
     "id": 287,
@@ -3193,7 +3193,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (5)",
-    "characters": [60, 61]
+    "characters": [60, 61, 203, 205, 207]
   },
   {
     "id": 288,
@@ -3206,7 +3206,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (6)",
-    "characters": [60, 61]
+    "characters": [60, 61, 203, 205, 207]
   },
   {
     "id": 289,
@@ -3219,7 +3219,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (7)",
-    "characters": [60, 61]
+    "characters": [60, 61, 203]
   },
   {
     "id": 290,
@@ -3232,7 +3232,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (8)",
-    "characters": [60, 61]
+    "characters": [60, 61, 203]
   },
   {
     "id": 291,
@@ -3245,7 +3245,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (9)",
-    "characters": [60, 61]
+    "characters": [60, 61, 205, 207]
   },
   {
     "id": 292,
@@ -3271,7 +3271,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (11)",
-    "characters": [60, 61]
+    "characters": [60, 61, 205, 207]
   },
   {
     "id": 294,
@@ -3284,7 +3284,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (12)",
-    "characters": [60, 61]
+    "characters": [60, 61, 205, 207]
   },
   {
     "id": 295,
@@ -3297,7 +3297,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "collects": [283, 284, 285, 286],
-    "characters": [60, 61]
+    "characters": [60, 61, 205, 207]
   },
   {
     "id": 296,
@@ -3310,7 +3310,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "collects": [287, 288, 289, 290],
-    "characters": [60, 61]
+    "characters": [60, 61, 203, 205, 207]
   },
   {
     "id": 297,
@@ -3323,7 +3323,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "collects": [291, 292, 293, 294],
-    "characters": [60, 61]
+    "characters": [60, 61, 205, 207]
   },
   {
     "id": 298,
@@ -5755,7 +5755,8 @@ const AC_DATABASE = [
     "description": "Issue #40 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #40 and figurine of Giovanni Borgia",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [208]
   },
   {
     "id": 512,
@@ -5790,7 +5791,8 @@ const AC_DATABASE = [
     "description": "Issue #43 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #43 and figurine of Kiyoshi Takakura",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [207]
   },
   {
     "id": 515,
@@ -5872,7 +5874,8 @@ const AC_DATABASE = [
     "description": "Issue #50 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #50 and figurine of The Black Cross",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [206]
   },
   {
     "id": 522,
@@ -5931,7 +5934,8 @@ const AC_DATABASE = [
     "description": "Issue #55 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #55 and figurine of Arend Schut-Cunningham",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [205]
   },
   {
     "id": 527,
@@ -5983,14 +5987,15 @@ const AC_DATABASE = [
   },
   {
     "id": 531,
-    "name": "Hachette Issue #60 Cultista de Kosmos",
+    "name": "Hachette Issue #60 Cultist of Kosmos",
     "game": "Assassin's Creed Odyssey",
     "year": 2019,
     "category": "Art & Reference",
     "description": "Issue #60 of Hachette Assassin's Creed: The Official Collection Magazine.",
-    "contents": "Issue #60 and figurine of Cultista de Kosmos",
+    "contents": "Issue #60 and figurine of a Cultist of Kosmos",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [204]
   },
   {
     "id": 532,
@@ -6121,7 +6126,8 @@ const AC_DATABASE = [
     "description": "Issue #71 of Hachette Assassin's Creed: The Official Collection Magazine.",
     "contents": "Issue #71 and figurine of Ignacio Cardona",
     "type": "Magazine",
-    "series": "Assassin's Creed: The Official Collection (Hachette)"
+    "series": "Assassin's Creed: The Official Collection (Hachette)",
+    "characters": [203]
   },
   {
     "id": 543,

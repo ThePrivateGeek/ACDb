@@ -43,4 +43,6 @@ const SLUG_ALIASES = {
     "mcfarlane-toys-connor-with-mohawk-action-figure-series-3": 33, // now "McFarlane Toys Connor with Mohawk Action Figure (Series 2)"
     "mcfarlane-toys-connor-color-tops-collector-edition": 41, // now "McFarlane Toys Connor Action Figure (Color Tops Red Wave)"
     "mcfarlane-toys-aguilar-action-figure-movie-series": 186, // now "McFarlane Toys Aguilar Action Figure (Color Tops Blue Wave #12)"
+    // renamed 2026-11-08
+    "hachette-issue-60-cultista-de-kosmos": 531, // now "Hachette Issue #60 Cultist of Kosmos"
 };

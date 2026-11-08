@@ -1788,7 +1788,7 @@ const AC_IMAGES = {
         "images/hachette/hachette-issue-59-yusuf-tazim.webp",
         "images/hachette/hachette-issue-59-yusuf-tazim_01.webp",
     ],
-    "Hachette Issue #60 Cultista de Kosmos": [
+    "Hachette Issue #60 Cultist of Kosmos": [
         "images/hachette/hachette-issue-60-cultista-de-kosmos.webp",
         "images/hachette/hachette-issue-60-cultista-de-kosmos_01.webp",
     ],
