@@ -62,7 +62,9 @@
      Cultist of Kosmos standing for Odyssey's Cult (id 204); Arend
      Schut-Cunningham of the comics Assassins and Uprising (id 205); the
      Black Cross, the Templar title (id 206); Kiyoshi Takakura and
-     Giovanni Borgia of the comic Assassins (ids 207-208).
+     Giovanni Borgia of the comic Assassins (ids 207-208);
+   - the owner's request (2026-11-09): Niccolò and Maffeo Polo (ids
+     209-210).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -379,6 +381,24 @@
      Cesare as his own, Rodrigo's grandson. History disputes his parents
      (Wikipedia: papal bulls name Cesare, then Alexander VI).
      Portrait: Project Legacy's painted Ubisoft art.
+   - Niccolò and Maffeo Polo (added 2026-11-09; two researchers, the wiki
+     through Fandom's API and search excerpts as the accesstheanimus
+     mirror was down, Wikipedia, the Gamepressure, Ludo.guide and
+     SuperCheats walkthroughs, Penguin's excerpt of The Secret Crusade):
+     in person in Revelations' Altaïr memory "Passing the Torch" (Sequence
+     7, 1257; the wiki's "flashbacks only" label means Altaïr's memories,
+     and both are on screen). Assassins: Altaïr inducts them in 1257
+     (the wiki, Wikipedia's Revelations article; the game's database says
+     "now devoted Assassins"). Born c. 1230 (Revelations' database,
+     Wikipedia). The Secret Crusade is Niccolò's journal, told to Maffeo
+     at Masyaf, both in person. The Revelations novel has them as minor
+     characters (the wiki alone). Recollection and Memories (mobile)
+     don't count. Single sources, left out: the date 12 August 1257,
+     Maffeo as "Matteo" in the Italian release. Sources disagree on how
+     long they stayed at Masyaf (a month in the game, six months in the
+     novel). Portraits: their Revelations renders from the wiki, 124px
+     wide, scaled up (a sharper Revelations screenshot of Niccolò is in
+     the scratchpad's polo-b folder).
    - Baptiste is filed as a Templar, like Shay: a former Assassin who
      sides with the Templars. Duncan Walpole stays an Assassin: he dies
      before he can defect. No official births for either, nor for Ojeda.
@@ -3171,5 +3191,31 @@ const CHARACTERS = [
     "stories": "Comics: Assassins",
     "family": [{"id": 7, "relation": "mother"}, {"id": 6, "relation": "uncle"}, {"id": 5, "relation": "grandfather"}],
     "description": "Born into the House of Borgia in Rome, the boy history calls the Infans Romanus, now grown into an Assassin of the Italian Brotherhood in the years after Ezio."
+  },
+  {
+    "id": 209,
+    "name": "Niccolò Polo",
+    "group": "assassin",
+    "historical": true,
+    "born": "c. 1230",
+    "year": 1257,
+    "image": "images/characters/niccolo-polo.webp",
+    "games": ["Assassin's Creed Revelations"],
+    "stories": "Novel: The Secret Crusade",
+    "family": [{"id": 210, "relation": "brother"}],
+    "description": "A Venetian merchant who comes to Masyaf with his brother Maffeo as the aged Altaïr's guest, and the man Altaïr chooses to hear his life story and keep his Codex."
+  },
+  {
+    "id": 210,
+    "name": "Maffeo Polo",
+    "group": "assassin",
+    "historical": true,
+    "born": "c. 1230",
+    "year": 1257,
+    "image": "images/characters/maffeo-polo.webp",
+    "games": ["Assassin's Creed Revelations"],
+    "stories": "Novel: The Secret Crusade",
+    "family": [{"id": 209, "relation": "brother"}],
+    "description": "A Venetian merchant who travels east with his brother Niccolò and stays at Masyaf as Altaïr's guest, restless to be back on the road while his brother listens to the old Mentor's tales."
   }
 ]
