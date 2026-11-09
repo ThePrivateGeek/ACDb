@@ -67,6 +67,9 @@ Checks:
   sizes      a new or replaced image under images/ (content not in the last
              commit) is at most 1600x2400 (MAX_WIDTH, MAX_HEIGHT in
              tools/convert-to-webp.py, which shrinks it)
+  count      a warning when the "680+ official" count in index.html's
+             descriptions is COUNT_CLAIM_MARGIN or more items behind the
+             catalog
 """
 from __future__ import annotations
 
@@ -88,7 +91,9 @@ READING_ORDERS_JS = ROOT / "js" / "reading-orders.js"
 GAMES_JS = ROOT / "js" / "games.js"
 CHARACTERS_JS = ROOT / "js" / "characters.js"
 WORKER_JS = ROOT / "worker" / "acdb-worker.js"
+INDEX_HTML = ROOT / "index.html"
 CEILING_WARN_MARGIN = 25
+COUNT_CLAIM_MARGIN = 50
 
 # Reuse the share-page builder's database parser and slug logic so all the
 # tools agree on how database.js is read and how slugs are made.
@@ -691,6 +696,17 @@ def check_game_id_ceiling(highest_id, errors, warnings):
         warnings.append(f"game ids are close to the Worker's ceiling: {advice}")
 
 
+def check_item_count_claims(items, warnings):
+    """The homepage's descriptions round the item count down ("680+"); a
+    warning, never an error, so it can't block adding an item."""
+    text = INDEX_HTML.read_text(encoding="utf-8")
+    tags = re.findall(r'<meta (?:name|property)="(?:description|og:description|twitter:description)" content="([^"]*)"', text)
+    for claimed in sorted({int(n) for tag in tags for n in re.findall(r"(\d+)\+ official", tag)}):
+        if len(items) - claimed >= COUNT_CLAIM_MARGIN:
+            warnings.append(f"index.html says {claimed}+ items; the catalog has {len(items)}: "
+                            "update the three descriptions and the README")
+
+
 def check_thumbs(images, errors, warnings):
     advice = "run python3 tools/build-thumbs.py"
     manifest = thumbs.load_manifest()
@@ -865,6 +881,7 @@ def main():
     check_game_id_ceiling(highest_game_id, errors, warnings)
     check_thumbs(images, errors, warnings)
     check_new_image_sizes(errors, warnings)
+    check_item_count_claims(items, warnings)
 
     for w in warnings:
         print(f"warning: {w}")

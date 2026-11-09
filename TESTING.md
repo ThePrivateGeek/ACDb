@@ -14,6 +14,9 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Timeline bar shows all games
 - [ ] Cards render in the grid
 - [ ] "Showing all X items" text appears above grid
+- [ ] View source: one `application/ld+json` block that parses as JSON; no `keywords` tag; the three descriptions (description, `og:description`, `twitter:description`) match
+- [ ] With JavaScript off (DevTools → Run command → Disable JavaScript), a paragraph under the header says what the site is
+- [ ] The console shows no Content Security Policy message
 
 ## 2. Search
 - [ ] Type in search box — results filter live

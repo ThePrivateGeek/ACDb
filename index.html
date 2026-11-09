@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The phone browser bar continues the header: --surface-bar in css/style.css -->
+    <meta name="theme-color" content="#12121a">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; object-src 'none'; base-uri 'none'; form-action 'none'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://api.acdb.workers.dev">
     <title>ACDb - Assassin's Creed Collector's Database | Track Your Collection</title>
-    <meta name="description" content="Browse and track your Assassin's Creed collection. 600+ officially licensed collectibles — statues, figurines, collector's editions, art books, novels, comics, steelbooks, and more. Free, no account needed.">
-    <meta name="keywords" content="Assassin's Creed, collector, database, collection tracker, statues, figurines, Funko Pop, art books, novels, comics, steelbooks, Ubisoft">
+    <!-- The three descriptions match; tools/validate-catalog.py warns when the count falls behind the catalog -->
+    <meta name="description" content="Track your Assassin's Creed collection: 680+ official collectibles, reading orders for every novel and comic, all the games and 200+ characters. Free, no account needed.">
 
     <!-- Open Graph (social sharing) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="ACDb - Assassin's Creed Collector's Database | Track Your Collection">
-    <meta property="og:description" content="Browse and track your Assassin's Creed collection. 600+ officially licensed collectibles with images, filters, and collection tracking.">
+    <meta property="og:description" content="Track your Assassin's Creed collection: 680+ official collectibles, reading orders for every novel and comic, all the games and 200+ characters. Free, no account needed.">
     <meta property="og:url" content="https://acdb.theprivategeek.com">
     <meta property="og:image" content="https://acdb.theprivategeek.com/images/acdb-og-v4.jpg">
     <meta property="og:site_name" content="ACDb">
+    <meta property="og:locale" content="en_GB">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ACDb - Assassin's Creed Collector's Database | Track Your Collection">
-    <meta name="twitter:description" content="Browse and track your Assassin's Creed collection. 600+ officially licensed collectibles.">
+    <meta name="twitter:description" content="Track your Assassin's Creed collection: 680+ official collectibles, reading orders for every novel and comic, all the games and 200+ characters. Free, no account needed.">
     <meta name="twitter:image" content="https://acdb.theprivategeek.com/images/acdb-og-v4.jpg">
 
     <link rel="canonical" href="https://acdb.theprivategeek.com">
@@ -28,6 +31,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Structured data for search results (data, not a script, so the CSP doesn't apply) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ACDb",
+        "alternateName": "Assassin's Creed Collector's Database",
+        "url": "https://acdb.theprivategeek.com/",
+        "description": "A free, fan-made tracker for official Assassin's Creed collectibles, with reading orders, games and characters.",
+        "inLanguage": "en-GB"
+    }
+    </script>
 </head>
 <body>
     <!-- Ambient Background -->
@@ -44,8 +60,9 @@
                     </svg>
                 </div>
                 <div class="logo-text">
-                    <h1>ACDb</h1>
-                    <span class="logo-subtitle">Assassin's Creed Collector's Database</span>
+                    <!-- The full name is in the heading for crawlers and screen readers; the subtitle shows it (hidden at 1520px and below) -->
+                    <h1>ACDb<span class="sr-only">: Assassin's Creed Collector's Database</span></h1>
+                    <span class="logo-subtitle" aria-hidden="true">Assassin's Creed Collector's Database</span>
                 </div>
             </a>
             <nav class="main-nav" aria-label="Sections">
@@ -101,6 +118,13 @@
             </div>
         </div>
     </header>
+
+    <!-- For visitors and crawlers without JavaScript -->
+    <noscript>
+        <div class="legal-page">
+            <p>ACDb is a free, fan-made database of official Assassin's Creed collectibles: statues, figurines, collector's editions, art books, novels, comics and more, with reading orders, every game and its characters. Browsing and tracking your collection need JavaScript, which is switched off in this browser.</p>
+        </div>
+    </noscript>
 
     <!-- Sign-in banner (signed-out visitors who own something; auth.js) -->
     <div class="sync-banner" id="syncBanner" hidden>
