@@ -111,7 +111,7 @@ check(S.formatMoney(124050, '€') === '€1,240.50', 'formatMoney with a symbol
 check(S.formatMoney(124050, '') === '1,240.50', 'formatMoney with no symbol', S.formatMoney(124050, ''));
 check(S.formatMoney(124050, '$', true) === '$1,241', 'formatMoney in whole units', S.formatMoney(124050, '$', true));
 check(S.formatMoney(0, '£') === '£0.00', 'formatMoney of 0', S.formatMoney(0, '£'));
-check(S.formatMoney(124050, 'kr') === 'kr 1,240.50', 'formatMoney: a symbol of letters gets a space', S.formatMoney(124050, 'kr'));
+check(S.formatMoney(124050, 'NOK') === 'NOK 1,240.50', 'formatMoney: a code gets a space', S.formatMoney(124050, 'NOK'));
 check(S.formatMoney(124050, 'CA$') === 'CA$1,240.50', 'formatMoney: CA$ needs no space', S.formatMoney(124050, 'CA$'));
 check(S.formatMoney(150000, '¥', true) === '¥1,500', 'formatMoney: yen in whole units', S.formatMoney(150000, '¥', true));
 

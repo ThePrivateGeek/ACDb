@@ -73,7 +73,7 @@
 
     // "€1,240.50", or "€1,241" in a bar row. The symbol goes in front of a
     // plain number: Intl's own currency style prints "US$" for dollars. A
-    // symbol of letters gets a space: "kr 1,240.50".
+    // symbol of letters gets a space: "NOK 1,240.50".
     const MONEY = new Intl.NumberFormat('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const MONEY_WHOLE = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 0 });
 
@@ -91,11 +91,11 @@
         gbp: { name: 'British pound', symbol: '£' },
         cad: { name: 'Canadian dollar', symbol: 'CA$' },
         cny: { name: 'Chinese yuan', symbol: '¥' },
-        dkk: { name: 'Danish krone', symbol: 'kr' },
+        dkk: { name: 'Danish krone', symbol: 'DKK' },
         eur: { name: 'Euro', symbol: '€' },
         jpy: { name: 'Japanese yen', symbol: '¥', whole: true },
-        nok: { name: 'Norwegian krone', symbol: 'kr' },
-        sek: { name: 'Swedish krona', symbol: 'kr' },
+        nok: { name: 'Norwegian krone', symbol: 'NOK' },
+        sek: { name: 'Swedish krona', symbol: 'SEK' },
         usd: { name: 'US dollar', symbol: '$' },
     };
     const NO_CURRENCY = { name: 'No symbol', symbol: '' };
