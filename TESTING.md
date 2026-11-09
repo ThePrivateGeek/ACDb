@@ -154,6 +154,18 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Export never contains `updatedAt` (sync bookkeeping stays out of export files)
 - [ ] The file is `{"items": [...], "games": [...]}`: `games` lists every played game and DLC with its id, name (and its game's name for a DLC), `played` and `playedDate`; the toast says "Exported 12 items and 3 games" ("… and N games" left out with none played)
 - [ ] Restoring it brings the played games back (clear them first: sign out, or `ACDB.clearGamesProgress()` in the console); the toast adds "and 3 of 3 games"; signed in, the confirm counts both ("changes 2 items and 1 game"). A game id the site doesn't know is skipped. A backup from before games (a plain list of items) still restores, and leaves the played games alone
+- [ ] **Export as spreadsheet…** opens a dialog with focus on its Close button; Tab and Shift+Tab stay inside it; Esc, Cancel, the close button and a click outside close it, and focus returns to the account button
+- [ ] The format is guessed the first time (commas in an English browser, semicolons where the browser writes 1,5) and remembered after a download, across a reload
+- [ ] The file is named `acdb-collection-<date>.csv` and has one row per item with any data (the rule Back up to file uses), 17 columns; the toast says "Exported 112 items as a spreadsheet"
+- [ ] The commas file in Google Sheets and your Excel's format in Excel (double-click): every column in place, "Altaïr" and "Tantō" intact, prices are numbers that add up (the Price paid sum matches Total spent in Insights when only owned items have prices), dates are dates
+- [ ] A note with commas, quotes and a line break stays in one cell; a note of `=1+1` shows as text, not 2
+- [ ] Read and Finished reading are `yes`/`no` and a date for books, empty for statues and other items
+- [ ] With an empty collection the menu entry toasts "Nothing to export yet…" and opens nothing
+- [ ] **Print inventory** opens the print dialog on a list of the items you own: dark on white, a small photo per item, the heading with today's date and the totals ("120 items · 169 copies · €12,192.99 paid for the 89 items with a price"), sorted by game in release order then by name, the header row on every page, no row split across pages, in A4 and Letter; Save as PDF gives a file you could send to an insurer
+- [ ] Notes never appear in the printout; an item with a very long name wraps inside its cell and the table never runs off the paper
+- [ ] With nothing owned, Print inventory toasts "Nothing to print yet…" and no print dialog opens
+- [ ] Ctrl+P on the collection, a game's page and the privacy page prints what it did before (the printout's rules apply only while the inventory prints)
+- [ ] On a phone (Chrome on Android or Safari on iPhone), Print inventory opens the system print sheet with the same list
 
 ## 13. URL Hash Routing
 - [ ] Opening a card updates the URL hash (e.g., #assassins-creed-ii-black-edition)
@@ -201,17 +213,18 @@ The catalogue's categories are the Category options of the "Suggest a missing it
 - [ ] Played games keyed by game or DLC id under `acdb_games_v1` (`{"45": {"played": true, "playedDate": "2026-11-01", "updatedAt": …}}`)
 - [ ] `node tools/test-sync-merge.mjs` passes (cloud-sync merge rules for items and for played games, and that the Worker's `sanitizeItemData` and `sanitizeGameData` keep the client's normalized values unchanged)
 - [ ] `node tools/test-spending.mjs` passes (the Insights spending sums: what counts as a price, sums in whole cents, one price per item whatever the copies, owned items only, the most expensive on a tie, years and undated items, and the money format)
+- [ ] `node tools/test-export.mjs` passes (the spreadsheet export: quoting, the formula guard, both formats, prices as plain numbers, the read columns, accents and CRLF line ends)
 - [ ] `node tools/test-worker.mjs` passes (runs the Worker against a local copy of the D1 schema: request bodies must be JSON and not oversized; owned items count each id once and only ids up to `CATALOG_MAX_ID`; write and read rate limits; the top-100 leaderboard and its one-minute memory; played games (pushed with `games`, pulled with `gamesSince` on their own cursor, sanitized, limited to ids 1–1000 and 200 a push, kept out of `items`, in the account export, removed with the account, and a push of only games leaves a linked profile's date alone); and that sync, sign-in, profiles, export and account delete still work)
 - [ ] After a Worker deploy, `curl.exe -sI https://api.acdb.workers.dev/leaderboard` shows `acdb-worker:` with the `WORKER_VERSION` in `worker/acdb-worker.js`
 - [ ] Read links still open a book: archive.org returns 200 even for a missing book, so open a few (especially ones with parentheses in the path) and check the reader shows a cover, not an empty item page
 
 ## 17. Account & Cloud Sync
 Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000` (it talks to the live API; `http://127.0.0.1:8000` has separate storage, so it works as a second device). Only Google accounts listed as test users can sign in while the Google app is in Testing.
-- [ ] Signed out: header shows **Sign in ▾** (person icon); its menu leads with **Sign in with Google**, then Back up to file, Restore from file, Privacy; after owning an item, the banner appears; ✕ hides it for good (survives reload)
+- [ ] Signed out: header shows **Sign in ▾** (person icon); its menu leads with **Sign in with Google**, then Back up to file, Restore from file, Export as spreadsheet…, Print inventory, Privacy; after owning an item, the banner appears; ✕ hides it for good (survives reload)
 - [ ] Banner is hidden on profile and leaderboard views
 - [ ] Sign in from an open item: Google account chooser → back on the same item, signed in; no `?code=` left in the address bar
 - [ ] Cancelling on Google's page shows "Sign-in cancelled"
-- [ ] Account button shows the initial with a sync dot (green when synced); menu shows the email and sync status, then Back up to file, Restore from file, Download all account data, Privacy, Sign out, Delete account; Esc, clicking outside, and choosing an item close it
+- [ ] Account button shows the initial with a sync dot (green when synced); menu shows the email and sync status, then Back up to file, Restore from file, Export as spreadsheet…, Print inventory, Download all account data, Privacy, Sign out, Delete account; Esc, clicking outside, and choosing an item close it
 - [ ] Mark an item owned: the dot pulses, then turns green within ~3 seconds
 - [ ] Second browser/device signed in to the same account shows the change after switching to its tab (or reloading)
 - [ ] Same item edited on two devices: the later edit ends up on both

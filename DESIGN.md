@@ -10,7 +10,7 @@ Contents: [1. Principles](#1-principles) · [2. Colour](#2-colour) · [3. Type](
 
 ## 1. Principles
 
-1. **The dark, Animus-inspired theme is the only theme.** There is no light mode. Content sits on dark surfaces with thin lines, never on bright fills.
+1. **The dark, Animus-inspired theme is the only theme on screen.** There is no light mode. Content sits on dark surfaces with thin lines, never on bright fills. Paper is the one exception: the printed inventory is dark on white (see Print in [section 7](#7-patterns)).
 2. **Each colour has one meaning.** Gold means "you can act here, this is selected, or this is progress". Green, purple and blue mark the state of one item: owned, read (for a game or DLC, played) and wishlist. Red means danger. Don't use any of them for decoration.
 3. **Reuse before you add.** Each new screen is built from the components in section 6. If two features need the same thing, it becomes a shared component.
 4. **Tokens, not literals.** New CSS uses `var(--…)` for colour, size, space, radius, shadow and motion. A raw hex value or pixel size in new code is a bug, unless it's in [section 11](#11-allowed-exceptions).
@@ -34,6 +34,7 @@ Contents: [1. Principles](#1-principles) · [2. Colour](#2-colour) · [3. Type](
 | **Blue**, wishlist | `--wish`, `--wish-text`, `--wish-solid`, `--wish-edge` | Wishlist badge, card edge and switch | Links, info messages |
 | **Red**, danger | `--danger`, `--danger-text`, `--danger-solid` | Delete or destructive buttons, error toasts, the NEW sticker | Emphasis, prices, warnings that aren't destructive |
 | Condition | `--cond-mint` … `--cond-poor` | Only the condition badges (`.condition-*`) | Anything else |
+| Paper | `--print-paper` (white page), `--print-ink` (black text and the header rule), `--print-line` (grey rule under each row) | Only inside the print block at the end of `style.css` | Anything on screen |
 
 ### Which variant of a status colour
 
@@ -281,8 +282,8 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
 
 ```html
 <div class="modal-overlay" id="xOverlay">
-  <div class="modal share-modal" role="dialog" aria-modal="true" aria-labelledby="xTitle">
-    <button class="icon-btn modal-close" aria-label="Close">…</button>
+  <div class="modal share-modal" id="x" role="dialog" aria-modal="true" aria-labelledby="xTitle" tabindex="-1">
+    <button class="icon-btn modal-close" id="xClose" aria-label="Close">…</button>
     <div class="share-modal-content">
       <h2 class="add-modal-title" id="xTitle">Title</h2>
       <p class="add-modal-subtitle">One line of context.</p>
@@ -296,10 +297,10 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
 </div>
 ```
 - Open a dialog by adding `.active` to the overlay.
-- **A new dialog meets the accessibility floor** (the game dialog did, until games became pages on 2 Nov 2026; `ACDB.trapFocus` in `js/utils.js` is ready for the next one):
+- **A new dialog meets the accessibility floor.** The model to copy is **Export as spreadsheet** (`#exportModalOverlay` in `index.html`, `openExportModal` and `closeExportModal` in `js/collection.js`), the first dialog built to it since the game dialog became pages on 2 Nov 2026:
   - `role="dialog" aria-modal="true" aria-labelledby="<title id>"` and `tabindex="-1"` on the frame;
   - on open, focus moves to the first control (its Close button: focusing the frame would outline the whole dialog with the focus ring), and `const release = ACDB.trapFocus(frame)` keeps Tab and Shift+Tab inside;
-  - on close, `release()`, then focus goes back to the element that opened it (or, after a re-render, the same card found again), and the page title when neither is on screen;
+  - on close, `release()`, then focus goes back to the element that opened it (or, after a re-render, the same card found again; for a dialog opened from the account menu, which has closed by then, the account button), and the page title when neither is on screen;
   - it is in the Esc chain below.
   A dialog with an address pushes it on open and pushes the view's address on close, like the item modal. Opened over another view, it pushes a duplicate history entry instead, so Back closes it (`ACDB.pushReadOnlyHistoryState` for the item modal).
 - Esc is handled in one place, the `keydown` listener in `initEvents()` in `js/app.js`, in priority order (account menu, lightbox, dropdown, then dialogs). **Add a new dialog there**; don't add a second Esc listener.
@@ -352,8 +353,9 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
 
 - **Loading, empty and error in a list:** one plain line of `--text-2` text, centred and spanning the whole list (`.leaderboard-loading` is the model): "Loading leaderboard...", "No collectors yet. Be the first!", "Error loading leaderboard". No spinners or skeletons. In a `<ol>` or `<ul>`, the message is an `<li>`.
 - **Counts:** "12 / 674" or "3/9" in JetBrains Mono; "61%" as a whole number (`Math.round`).
-- **Money:** "€1,240.50": the symbol first, comma thousands, two decimals (`formatMoney` in `js/stats.js`, which adds amounts in whole cents); a currency code gets a space ("NOK 1,240.50"); whole units ("€1,241") in bar rows, with the exact amount as the tooltip. The yen has no decimals anywhere ("¥1,500"). The symbol is the visitor's pick from `CURRENCIES` in `js/stats.js` (`acdb_currency`, this browser only); amounts are never converted. Prices never appear on anything public.
-- **Dates:** always `ACDB.formatDate(value)`, giving **"9 Oct 2026"**. Never `toLocaleDateString()` with no arguments, and never US order. A release date that may be known only to the month or year (reading orders, games) uses `ACDB.formatReleased(entry)`, which reads `releasedPrecision` and shows "26 Nov 2009", "Nov 2009" or "2009".
+- **Money:** "€1,240.50": the symbol first, comma thousands, two decimals (`formatMoney` in `js/stats.js`, which adds amounts in whole cents); a currency code gets a space ("NOK 1,240.50"); whole units ("€1,241") in bar rows, with the exact amount as the tooltip. The yen has no decimals anywhere ("¥1,500"). The symbol is the visitor's pick from `CURRENCIES` in `js/stats.js` (`acdb_currency`, this browser only); amounts are never converted. Prices never appear on anything public. On paper an amount uses `ACDB.formatAmount(cents)`, the same format with the visitor's symbol. In a data file (the spreadsheet export) an amount is a plain number with no symbol and no thousands separator ("1234.56", or "1234,56" in the semicolon format), so the column adds up.
+- **Dates:** always `ACDB.formatDate(value)`, giving **"9 Oct 2026"**. Never `toLocaleDateString()` with no arguments, and never US order. A release date that may be known only to the month or year (reading orders, games) uses `ACDB.formatReleased(entry)`, which reads `releasedPrecision` and shows "26 Nov 2009", "Nov 2009" or "2009". A data file uses `2026-10-09`, the one form every spreadsheet reads as a date; anything a person reads, paper included, uses "9 Oct 2026".
+- **Print:** printing is opt-in. Nothing prints differently from the screen unless a feature asks for it by putting a class on `<body>` while it prints (`printing-inventory`, set by `printInventory` in `js/collection.js` and removed on `afterprint`); every print rule is scoped to that class, and a page margin goes on a named page (`page: inventory` with `@page inventory`), since a plain `@page` rule would change ordinary Ctrl+P too. The printout is a direct child of `<body>` (the rule hides every other child), dark on white with the paper tokens, a table whose header row repeats on every page (`thead { display: table-header-group }`) and whose rows don't split (`break-inside: avoid`), with sizes in pt and mm. Photos are the cards' small copies, not lazy-loaded, and the page waits for them (at most 10 seconds) before printing. Totals go in the heading, once, not in a `<tfoot>` (it repeats on every page).
 - **Up next:** a reading order or series page with progress shows a `btn btn-sm btn-secondary` "Up next: <title>" button that jumps to the next unread book and flashes its row (`.flash`).
 - **Previous / next:** a series page ends with links to the previous and next series, using the series names.
 - **Collected in:** reprint editions (`collects`) stay out of reading lists, so each story appears once. A series page names them under its meta line (`.series-head-editions`), as item names that open the item modal.
@@ -448,6 +450,7 @@ These keep literal values on purpose. Don't "fix" them, and don't copy them else
 - The **empty-state line**: `#666`, italic, 1.1rem. The owner chose to keep the original look (3.4:1 contrast).
 - The **footer emblem watermark**: gold at 5 % opacity.
 - `#fff` as text on `-solid` status fills and on hover of `.btn-danger`.
+- **pt and mm** inside the print block at the end of `style.css` (the printed inventory): sizes for paper, not the screen.
 
 ## 12. Known gaps (don't copy these)
 
@@ -531,4 +534,8 @@ Owner decisions this book rests on, so they aren't reopened:
   - A price counts once per item, whatever its number of copies. Only owned items count; a price of 0 is a price (a gift), and text or a negative number is none.
   - Category rows filter the collection; year rows don't. Neither follows the % / # / Timeline control.
   - Prices never appear on profiles, the leaderboard or anything else public.
+- **9 Nov 2026, spreadsheet export and printable inventory:** two entries in the account menu, under Restore from file.
+  - **Export as spreadsheet…** saves a CSV of every item with any data (17 columns, notes included). Excel reads a double-clicked CSV by the computer's regional settings, so there are two formats: commas with 1234.56 (Google Sheets, English Excel) and semicolons with 1234,56 (Excel in most of Europe). A small dialog picks one; the site guesses from how the browser writes numbers and remembers the pick in the browser. Yes/no columns say `yes` and `no`; the read columns are empty for items that aren't books. It can't be restored; Back up to file stays the backup.
+  - **Print inventory** prints the owned items with no dialog: small photos, condition, box, copies, price paid and acquired date, by game in release order then by name, with the totals in the heading. Notes stay off paper.
+  - Ordinary printing (Ctrl+P) is unchanged: the print rules apply only while the inventory prints.
 - **27 Oct 2026, Games tab:** the tab opens on the Main games chip rather than All. Most visitors come for the console games, and 42 cards with the phone tie-ins first buried them; All and the other kinds stay one chip away, and "Clear search and filters" still shows everything.

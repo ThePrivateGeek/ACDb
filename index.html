@@ -87,6 +87,8 @@
                             <button role="menuitem" class="account-menu-item" id="accountProfile" hidden>My public profile</button>
                             <button role="menuitem" class="account-menu-item" id="exportBtn" title="Save your collection as a JSON file">Back up to file</button>
                             <button role="menuitem" class="account-menu-item" id="importBtn" title="Load a collection from a backup file">Restore from file</button>
+                            <button role="menuitem" class="account-menu-item" id="exportCsvBtn" title="Save your collection as a CSV file for Excel or Google Sheets">Export as spreadsheet…</button>
+                            <button role="menuitem" class="account-menu-item" id="printInventoryBtn" title="Print a list of the items you own">Print inventory</button>
                             <div class="account-menu-sep" role="separator"></div>
                             <button role="menuitem" class="account-menu-item" id="accountExport" hidden>Download all account data</button>
                             <a role="menuitem" class="account-menu-item" href="privacy.html">Privacy</a>
@@ -535,6 +537,29 @@
         </div>
     </div>
 
+    <!-- Export as spreadsheet (collection.js) -->
+    <div class="modal-overlay" id="exportModalOverlay">
+        <div class="modal share-modal" id="exportModal" role="dialog" aria-modal="true" aria-labelledby="exportModalTitle" tabindex="-1">
+            <button class="icon-btn modal-close" id="exportModalClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            <div class="share-modal-content">
+                <h2 class="add-modal-title" id="exportModalTitle">Export as spreadsheet</h2>
+                <p class="add-modal-subtitle">A CSV file of your collection for Excel, Google Sheets or Numbers. It can't be restored: use Back up to file for that.</p>
+                <div class="form-row">
+                    <label for="exportFormat">Format</label>
+                    <select id="exportFormat" class="modal-select" aria-describedby="exportFormatHint">
+                        <option value="comma">Commas, 1234.56</option>
+                        <option value="semicolon">Semicolons, 1234,56</option>
+                    </select>
+                    <span class="form-hint" id="exportFormatHint">Commas for Google Sheets and English Excel, semicolons for Excel in most of Europe. If the file opens in a single column, pick the other format.</span>
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-quiet" id="exportCancel">Cancel</button>
+                    <button class="btn btn-primary" id="exportDownload">Download spreadsheet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- First sign-in merge dialog (sync.js). A choice is required, so it has
          no close button and ignores Esc / overlay clicks. -->
     <div class="modal-overlay" id="mergeModalOverlay">
@@ -629,6 +654,9 @@
             <p class="footer-meta">&copy; 2026 ACDb &middot; v4.0 &middot; <span id="footerItemCount">0</span> items</p>
         </div>
     </footer>
+
+    <!-- Filled and shown only while the inventory prints (collection.js) -->
+    <section class="print-inventory" id="printInventory" aria-hidden="true"></section>
 
     <!-- Toast and completion message (utils.js); polite live regions -->
     <div id="acdb-toast" role="status" aria-live="polite" aria-atomic="true"></div>

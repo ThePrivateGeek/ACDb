@@ -409,6 +409,13 @@
     A.checkCompletionCelebration = checkCompletionCelebration;
     A.getCurrency = getCurrency;
     A.setCurrency = setCurrency;
+    // For the spreadsheet export and the printed inventory (collection.js)
+    A.priceCents = priceCents;
+    // An amount with the visitor's currency symbol: "€1,240.50", "¥1,500"
+    A.formatAmount = cents => {
+        const currency = CURRENCIES[getCurrency()] || NO_CURRENCY;
+        return formatMoney(cents, currency.symbol, currency.whole);
+    };
     A.statsInternals = { priceCents, spendingSummary, formatMoney };   // tools/test-spending.mjs
 
 })();

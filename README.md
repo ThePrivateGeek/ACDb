@@ -31,7 +31,7 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 - **Shareable item links** — each item has a unique URL. Ctrl+click or right-click to open in a new tab. Browser back button closes the modal. The share button in the item modal opens the native share sheet on mobile (copies the link on desktop); shared links unfurl with the item's own image and description in Slack/Discord/social media
 - **Game timeline** — quick-access chips for every game from AC1 to Shadows, plus Black Flag Resynced, the movie and general merchandise. Pick several to combine them; the Games filter follows along
 - **Search** — instant search across item names, games, years, categories, types, series, descriptions and contents, and the names of the characters an item shows (other names included, so "connor" or "eagle bearer" find their items), with a result count. Accents and apostrophes don't matter ("altair" finds Altaïr). Every word you type must match, so "ezio statue" finds Ezio statues. When nothing matches, one button clears the search and filters
-- **Back up / Restore** — save your collection and played games as a JSON file from the account menu and restore it on another device (Restore also takes the file from **Download all account data**, and older backups of the collection alone)
+- **Back up / Restore** — save your collection and played games as a JSON file from the account menu and restore it on another device (Restore also takes the file from **Download all account data**, and older backups of the collection alone). **Export as spreadsheet…** saves the collection as a CSV file for Excel, Google Sheets or Numbers, in commas or in the semicolons most European Excels expect (the site guesses and remembers your pick), and **Print inventory** prints a clean list of what you own, with small photos, condition, price paid and totals, for your records or your insurer; the browser's Save as PDF makes it a file
 - **Static site** — the database and collection tracking run entirely in the browser (LocalStorage); a small Cloudflare Worker handles sign-in, sync and sharing
 - **Responsive** — works on desktop, tablet, and mobile with touch swipe support. On phones the filters fold behind a **Filters** button that shows how many are active
 - **One design language** — the dark Animus-inspired look with gold for actions and progress, green for owned, purple for read and blue for wishlist, the same on every screen (see [Design system](#design-system))
@@ -187,6 +187,8 @@ tools/
   test-sync-merge.mjs — tests for the sync merge rules (node tools/test-sync-merge.mjs)
   test-spending.mjs — tests for the spending sums in Collection Insights
                    (node tools/test-spending.mjs)
+  test-export.mjs — tests for the spreadsheet export in the account menu
+                   (node tools/test-export.mjs)
   test-worker.mjs — tests for the Worker against a local copy of the D1 schema
                    (node tools/test-worker.mjs)
   make-portrait.py — crops a character image to a 300x400 WebP portrait in

@@ -103,6 +103,11 @@
 
     /* Keyboard focus */
     --focus: 2px solid var(--gold);
+
+    /* Paper: only inside the print block at the end of this file */
+    --print-paper: #fff;             /* the page */
+    --print-ink: #000;               /* text and the header rule */
+    --print-line: #999;              /* the rule under each row */
 }
 
 
@@ -5337,4 +5342,147 @@ a.reading-title {
     .legal-page {
         padding: 1.5rem 1rem 2rem;
     }
+}
+
+/* ---- Print: the inventory (account menu → Print inventory) ----
+   Filled by printInventory() in collection.js. The print rules apply only
+   while <body> has .printing-inventory, so printing any other page of the
+   site is unchanged. Dark on white, the one place the site is; sizes are
+   in pt and mm: paper. */
+.print-inventory {
+    display: none;
+}
+
+@media print {
+    body.printing-inventory > *:not(.print-inventory) {
+        display: none !important;
+    }
+
+    body.printing-inventory {
+        min-height: 0;
+        background: var(--print-paper);
+        color: var(--print-ink);
+    }
+
+    body.printing-inventory .print-inventory {
+        display: block;
+        page: inventory;
+        font-family: var(--font-body);
+        font-size: 9pt;
+        line-height: 1.35;
+    }
+
+    .print-title {
+        font-family: var(--font-display);
+        font-size: 16pt;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .print-meta {
+        margin-top: 1mm;
+        font-size: 8pt;
+    }
+
+    .print-summary {
+        margin: 3mm 0 5mm;
+        font-size: 10pt;
+        font-weight: 600;
+    }
+
+    .print-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    /* The header row repeats on every page; a row never splits */
+    .print-table thead {
+        display: table-header-group;
+    }
+
+    .print-table tr {
+        break-inside: avoid;
+    }
+
+    .print-table th,
+    .print-table td {
+        padding: 1.5mm 2mm 1.5mm 0;
+        text-align: left;
+        vertical-align: middle;
+        overflow-wrap: anywhere;
+    }
+
+    .print-table th:last-child,
+    .print-table td:last-child {
+        padding-right: 0;
+    }
+
+    .print-table th {
+        border-bottom: 0.75pt solid var(--print-ink);
+        font-size: 7pt;
+        font-weight: 700;
+        letter-spacing: var(--tracking-label);
+        text-transform: uppercase;
+    }
+
+    .print-table td {
+        border-bottom: 0.5pt solid var(--print-line);
+    }
+
+    .print-table .print-figure {
+        text-align: right;
+    }
+
+    .print-table td.print-figure {
+        font-family: var(--font-data);
+        font-size: 8pt;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .print-col-photo {
+        width: 13mm;
+    }
+
+    .print-col-condition {
+        width: 19mm;
+    }
+
+    .print-col-box {
+        width: 9mm;
+    }
+
+    .print-col-copies {
+        width: 14mm;
+    }
+
+    .print-col-paid {
+        width: 24mm;
+    }
+
+    .print-col-acquired {
+        width: 22mm;
+    }
+
+
+    .print-table img {
+        display: block;
+        width: 10mm;
+        height: 13mm;
+        object-fit: cover;
+    }
+
+    .print-name {
+        display: block;
+        font-weight: 600;
+    }
+
+    .print-sub {
+        display: block;
+        font-size: 7.5pt;
+    }
+}
+
+@page inventory {
+    margin: 15mm;
 }

@@ -1492,6 +1492,8 @@ window.ACDB = window.ACDB || {};
                 const openDropdown = document.querySelector('.multi-select.open');
                 if (openDropdown) {
                     openDropdown.classList.remove('open');
+                } else if (ACDB.isExportModalOpen()) {
+                    ACDB.closeExportModal();
                 } else if (document.getElementById('shareModalOverlay').classList.contains('active')) {
                     closeShareModal();
                 } else if (dom.modalOverlay.classList.contains('active')) {
@@ -1601,6 +1603,16 @@ window.ACDB = window.ACDB || {};
                 e.target.value = ''; // reset so same file can be re-imported
             }
         });
+
+        // Spreadsheet export (a dialog for the format) and the printed inventory
+        document.getElementById('exportCsvBtn').addEventListener('click', ACDB.openExportModal);
+        document.getElementById('exportDownload').addEventListener('click', ACDB.downloadCSV);
+        document.getElementById('exportCancel').addEventListener('click', ACDB.closeExportModal);
+        document.getElementById('exportModalClose').addEventListener('click', ACDB.closeExportModal);
+        document.getElementById('exportModalOverlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) ACDB.closeExportModal();
+        });
+        document.getElementById('printInventoryBtn').addEventListener('click', ACDB.printInventory);
 
         // Logo — reset all filters
         document.getElementById('logoLink').addEventListener('click', (e) => {
