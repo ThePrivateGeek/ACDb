@@ -1406,6 +1406,18 @@ textarea:focus-visible {
     gap: 1.5rem;
 }
 
+/* Spending, Spent by category, Collected by year: a second row of three.
+   Before the media queries, so they still make it two columns, then one. */
+.stats-grid-spending {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: var(--s5);
+}
+
+/* A long item name cuts off instead of widening its column */
+.stats-grid-spending > .stats-section {
+    min-width: 0;
+}
+
 @media (max-width: 1024px) {
     .stats-grid {
         grid-template-columns: 1fr 1fr;
@@ -1446,6 +1458,18 @@ textarea:focus-visible {
     transition: background 0.15s ease;
 }
 
+/* A clickable row that is a real button (the spending rows): it looks
+   like the other rows, and the global focus ring applies */
+button.stats-bar-row {
+    background: none;
+    border: 0;
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-align: left;
+}
+
 .stats-bar-row.clickable:hover {
     background: rgba(255, 255, 255, 0.06);
 }
@@ -1465,6 +1489,29 @@ textarea:focus-visible {
 
 .stats-bar-track {
     flex: 1;
+}
+
+/* The currency pick above the Spending figures */
+.stats-currency {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s2);
+    margin-bottom: var(--s3);
+}
+
+/* Figures without a bar (Spending) line up at the right edge */
+.stats-figures .stats-bar-value {
+    margin-left: auto;
+}
+
+/* The item name in "Most expensive"; a long one cuts off */
+.stats-bar-item {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .stats-summary .stats-bar-label,

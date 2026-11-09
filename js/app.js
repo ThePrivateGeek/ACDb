@@ -213,6 +213,11 @@ window.ACDB = window.ACDB || {};
         statsByCategory: document.getElementById('statsByCategory'),
         statsByCondition: document.getElementById('statsByCondition'),
         statsReading: document.getElementById('statsReading'),
+        statsSpending: document.getElementById('statsSpending'),
+        statsSpendByCategory: document.getElementById('statsSpendByCategory'),
+        statsByYear: document.getElementById('statsByYear'),
+        statsCurrencyRow: document.getElementById('statsCurrencyRow'),
+        statsCurrency: document.getElementById('statsCurrency'),
     };
 
     // ---- Collection Persistence ----
@@ -1239,6 +1244,22 @@ window.ACDB = window.ACDB || {};
             const row = e.target.closest('.stats-bar-row.clickable');
             if (row) applyExclusiveFilter('series', row.dataset.label);
         });
+        dom.statsSpendByCategory.addEventListener('click', (e) => {
+            const row = e.target.closest('.stats-bar-row.clickable');
+            if (!row) return;
+            const hadFocus = document.activeElement === row;
+            applyExclusiveFilter('category', row.dataset.label);
+            // The redraw replaced the row (a button); keep keyboard focus on it
+            const again = [...dom.statsSpendByCategory.querySelectorAll('.stats-bar-row.clickable')]
+                .find(r => r.dataset.label === row.dataset.label);
+            if (hadFocus && again) again.focus({ preventScroll: true });
+        });
+
+        // Currency symbol for the Spending panels
+        dom.statsCurrency.addEventListener('change', () => {
+            ACDB.setCurrency(dom.statsCurrency.value);
+            renderStatsDashboard();
+        });
 
         // Stats sort toggle (% vs #)
         document.querySelectorAll('.stats-sort-btn').forEach(btn => {
@@ -1762,6 +1783,7 @@ window.ACDB = window.ACDB || {};
     A.setItemData = setItemData;
     A.setItemsData = setItemsData;
     A.findItemByRef = findItemByRef;
+    A.getItemSlug = getItemSlug;   // the "Most expensive" link in Insights (stats.js)
     A.coveringItem = coveringItem;
     A.renderItems = renderItems;
     A.refreshItems = refreshItems;

@@ -252,6 +252,27 @@
                     <div class="stats-bars" id="statsReading"></div>
                 </div>
             </div>
+            <!-- Spending (stats.js). The currency pick sits outside the redrawn
+                 list, so it keeps focus when a click redraws the panels. -->
+            <div class="stats-grid stats-grid-spending">
+                <div class="stats-section">
+                    <h4 class="section-head">Spending</h4>
+                    <div class="stats-currency" id="statsCurrencyRow" hidden>
+                        <label class="label" for="statsCurrency">Currency</label>
+                        <!-- Options from CURRENCIES in stats.js -->
+                        <select id="statsCurrency" class="modal-select"></select>
+                    </div>
+                    <div class="stats-bars stats-figures" id="statsSpending"></div>
+                </div>
+                <div class="stats-section">
+                    <h4 class="section-head">Spent by category</h4>
+                    <div class="stats-bars" id="statsSpendByCategory"></div>
+                </div>
+                <div class="stats-section">
+                    <h4 class="section-head">Collected by year</h4>
+                    <div class="stats-bars" id="statsByYear"></div>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -72,6 +72,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
 | `python3 tools/flag-large-images.py` | Sanity check after adding images |
 | `python3 tools/make-portrait.py <image> <slug> --box L,T,W` | A character portrait: crops a 3:4 box and writes `images/characters/<slug>.webp` (300x400); then set the character's `image` |
 | `node tools/test-sync-merge.mjs` | After touching the sync merge rules in `js/sync.js` |
+| `node tools/test-spending.mjs` | After touching the spending sums in `js/stats.js` |
 | `node tools/test-worker.mjs` | After any change to `worker/acdb-worker.js` (runs it locally against the D1 schema; nothing reaches production) |
 
 ## Environment

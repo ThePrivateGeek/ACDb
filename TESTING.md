@@ -128,6 +128,16 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] 100% completion — the percentage gets a check and turns green (owned panels) or purple (Reading Progress); bars stay gold
 - [ ] Confetti fires when completing a game/category (mark last unowned item)
 - [ ] Celebration toast appears center-screen
+- [ ] A second row of three panels sits under the four: Spending, Spent by category, Collected by year. Three columns above 1024px, two at 1000px, one on phones; nothing scrolls sideways
+- [ ] Spending: with no prices, "Add a price paid to an item to see your spending." and no currency control; Spent by category says "No prices yet"
+- [ ] Spending: Total spent, Items with a price ("7 / 8": priced of owned), Average per item and Most expensive match a hand count; the name opens the item card, Back closes it, and a long name cuts off with an ellipsis at 360px
+- [ ] An item with 3 copies and a price of 50 adds 50; a price of 0 counts as a price (and pulls the average down); an item that isn't owned adds nothing, even with a price
+- [ ] Prices of 0.10 and 0.20 total 0.30
+- [ ] With Insights open, changing a price or an acquired date in an item card updates the panels at once; switching Owned off removes the item from every figure
+- [ ] Currency dropdown: "No symbol" first, then the nine currencies A–Z by name (British pound (£) … US dollar ($)). Each changes every amount: "£1,100.29", "CA$1,100.29", "kr 1,100.29" (Danish, Norwegian and Swedish, with a space), "¥1,100.29" for the yuan and "¥1,100" for the yen (no decimals, tooltips included); No symbol shows bare numbers. The pick survives a reload (`acdb_currency` in Local Storage; No symbol removes it); nothing is sent to the server (Network tab); with storage blocked the panels still draw. At 360px the dropdown fits beside its label
+- [ ] Spent by category: largest first, a gold bar against the largest, whole amounts with the exact one on hover; a row filters the collection to that category and gives the Category filter its gold edge, by mouse and by keyboard (Tab reaches each row with the gold ring after the currency dropdown and the Most expensive link; Enter and Space work, and focus stays on the row)
+- [ ] Collected by year: newest first, with how many items were acquired and what they cost; owned items without a date are under "No date" last; with no dates at all, "No acquired dates yet". Year rows aren't clickable
+- [ ] The % / # / Timeline control leaves the three spending panels as they are
 
 ## 12. Back up / Restore (account menu)
 - [ ] **Back up to file** downloads a JSON file with today's date in filename
@@ -190,6 +200,7 @@ The catalogue's categories are the Category options of the "Suggest a missing it
 - [ ] Shared profiles upload item ids; profiles uploaded before ids (item names) still display. Profiles and the leaderboard are served from D1
 - [ ] Played games keyed by game or DLC id under `acdb_games_v1` (`{"45": {"played": true, "playedDate": "2026-11-01", "updatedAt": …}}`)
 - [ ] `node tools/test-sync-merge.mjs` passes (cloud-sync merge rules for items and for played games, and that the Worker's `sanitizeItemData` and `sanitizeGameData` keep the client's normalized values unchanged)
+- [ ] `node tools/test-spending.mjs` passes (the Insights spending sums: what counts as a price, sums in whole cents, one price per item whatever the copies, owned items only, the most expensive on a tie, years and undated items, and the money format)
 - [ ] `node tools/test-worker.mjs` passes (runs the Worker against a local copy of the D1 schema: request bodies must be JSON and not oversized; owned items count each id once and only ids up to `CATALOG_MAX_ID`; write and read rate limits; the top-100 leaderboard and its one-minute memory; played games (pushed with `games`, pulled with `gamesSince` on their own cursor, sanitized, limited to ids 1–1000 and 200 a push, kept out of `items`, in the account export, removed with the account, and a push of only games leaves a linked profile's date alone); and that sync, sign-in, profiles, export and account delete still work)
 - [ ] After a Worker deploy, `curl.exe -sI https://api.acdb.workers.dev/leaderboard` shows `acdb-worker:` with the `WORKER_VERSION` in `worker/acdb-worker.js`
 - [ ] Read links still open a book: archive.org returns 200 even for a missing book, so open a few (especially ones with parentheses in the path) and check the reader shows a cover, not an empty item page
@@ -263,7 +274,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 ## 19. Design System
 The rules are in [DESIGN.md](DESIGN.md) (its section 13 is the definition of done); tokens live at the top of `css/style.css` and component rules use only them. Check at 1600, 1200, 1000, 390 and 360px, signed in and out.
 - [ ] No page scrolls sideways at any of those widths (collection, every reading tab, a series page, the Games tab in both orders, a game's page, the Characters tab in both orders, a character's page, leaderboard, a profile, privacy)
-- [ ] Tab through the collection, the reading view, the Games tab, the Characters tab and an open item modal: every control (links, buttons, chips, dropdown options, Read/Owned/Played switches, the DLC ticks, fold headings, game cards) shows the same 2px gold focus ring; fields also turn their border gold
+- [ ] Tab through the collection, the reading view, the Games tab, the Characters tab and an open item modal: every control (links, buttons, chips, dropdown options, Read/Owned/Played switches, the DLC ticks, fold headings, game cards, the Insights currency dropdown and Spent by category rows) shows the same 2px gold focus ring; fields also turn their border gold
 - [ ] Following a link to a game's or character's page from the site moves focus to the page title; Back puts focus back on the link you followed. A page opened from a pasted link leaves focus alone (no ring on the title)
 - [ ] The filter dropdowns work from the keyboard: Tab into the options, Space ticks one
 - [ ] Numbers use lining figures everywhere ("AC1", "Issue #1" and years sit on the baseline)

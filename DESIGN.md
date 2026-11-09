@@ -185,6 +185,7 @@ A round 36 px button with one 18 px icon, used for close, share, previous/next a
 | Move to another view or page | **Tabs** `.tabs` > `a.tab` | `<nav class="tabs" aria-label="…"><a class="tab active" aria-current="page" href="#…">…</a>…</nav>` |
 | Change how *this* view is shown (grid or list, chronological or release, sort) | **Segmented control** `.seg` > `button.seg-btn` | `<div class="seg" role="group" aria-label="…"><button class="seg-btn active" aria-pressed="true">…</button>…</div>` |
 | Narrow a list (filter by game) | **Chips** `button.chip` (+ `.chip-count`) | `<button class="chip active" aria-pressed="true">All <span class="chip-count">120</span></button>` |
+| Pick one of many values for a setting (item condition, the Insights currency): more than a segmented control holds on a phone | **Native select** `select.modal-select` with a `<label for>` | `<label class="label" for="statsCurrency">Currency</label><select id="statsCurrency" class="modal-select">…</select>` |
 
 - Tabs are links with real `href`s (hash routes), so Back works. The header nav is the larger version of the same idea (`.main-nav-link`, with `aria-current="page"` set by `setActiveNav()`). It has five links: Collection, Reading Order, Games, Characters, Leaderboard. At 400 px and below "Reading Order" shows as "Reading" (the ` Order` part is a `.nav-long` span, hidden there), and its `aria-label` keeps the full name. At 1180 px and below the nav is a full-width row; when its links don't fit (phones), the row scrolls sideways inside itself like a chip row, with no scrollbar, and `setActiveNav()` scrolls the current link into view. The page itself never scrolls sideways.
 - Segments and chips are buttons. Keep `.active` **and** `aria-pressed` in step whenever the state changes.
@@ -206,6 +207,8 @@ A round 36 px button with one 18 px icon, used for close, share, previous/next a
   - Clamp the width to 100 %.
   - Put the figure beside it in `.progress-count` (JetBrains Mono).
   - If the bar repeats numbers already given as text, give it `aria-hidden="true"`.
+  - A bar may also show a share of the largest value in its list rather than progress (Insights' Spent by category and Collected by year rows, `renderValueBars` in `js/stats.js`). It is the same gold `.progress`, always `aria-hidden`, with the figure beside it.
+- **Insights rows** (`.stats-bar-row`): label, bar, figure. A row that filters the collection is `<button type="button" class="stats-bar-row clickable" data-label="…">`, so Tab reaches it and the focus ring shows; after the click redraws the panel, focus goes back to the same row. Panels of figures with no bar (Spending) add `stats-figures` to the list, so the figures line up on the right.
 - **Complete:** append `<span class="done-owned">✓ 12</span>` or `done-read`. Don't recolour the bar.
 
 ### Switches (item modal and reading rows)
@@ -349,6 +352,7 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
 
 - **Loading, empty and error in a list:** one plain line of `--text-2` text, centred and spanning the whole list (`.leaderboard-loading` is the model): "Loading leaderboard...", "No collectors yet. Be the first!", "Error loading leaderboard". No spinners or skeletons. In a `<ol>` or `<ul>`, the message is an `<li>`.
 - **Counts:** "12 / 674" or "3/9" in JetBrains Mono; "61%" as a whole number (`Math.round`).
+- **Money:** "€1,240.50": the symbol first, comma thousands, two decimals (`formatMoney` in `js/stats.js`, which adds amounts in whole cents); a symbol of letters gets a space ("kr 1,240.50"); whole units ("€1,241") in bar rows, with the exact amount as the tooltip. The yen has no decimals anywhere ("¥1,500"). The symbol is the visitor's pick from `CURRENCIES` in `js/stats.js` (`acdb_currency`, this browser only); amounts are never converted. Prices never appear on anything public.
 - **Dates:** always `ACDB.formatDate(value)`, giving **"9 Oct 2026"**. Never `toLocaleDateString()` with no arguments, and never US order. A release date that may be known only to the month or year (reading orders, games) uses `ACDB.formatReleased(entry)`, which reads `releasedPrecision` and shows "26 Nov 2009", "Nov 2009" or "2009".
 - **Up next:** a reading order or series page with progress shows a `btn btn-sm btn-secondary` "Up next: <title>" button that jumps to the next unread book and flashes its row (`.flash`).
 - **Previous / next:** a series page ends with links to the previous and next series, using the series names.
@@ -454,6 +458,7 @@ Older code that doesn't meet this book yet. Fix it when you're working on that s
 - Some per-view rules still use literal `rem` values for padding and margin instead of `--s*` tokens. New rules use tokens.
 - Views switch with `style.display` (from before the `[hidden]` rule). New parts use `hidden`.
 - Some older button and dialog titles are in Title Case.
+- The rows of three older Insights panels (By Game, By Category, Reading Progress) are click-only `<div>`s, so the keyboard can't reach them. The spending rows are buttons. Making the old ones buttons adds about 60 Tab stops between the toolbar and the grid whenever Insights is open, so fix them only with the owner's decision on that.
 
 ## 13. Definition of done
 
@@ -521,4 +526,9 @@ Owner decisions this book rests on, so they aren't reopened:
   - The Games tab's "N / M played" bar counts the games shown (it follows the kind chip and the search), not DLCs. Complete Lore's progress and era counts stay books only.
   - Played games are kept like the collection: in the browser (`acdb_games_v1`), in the account when signed in (a `game_progress` table, synced in the same requests as items), and in backups. They are not on public profiles or the leaderboard.
   - Not in this version: "Want to play", a "Not played" filter, counts on profiles.
+- **9 Nov 2026, spending in Insights:** Collection Insights gets a second row of three panels (Spending, Spent by category, Collected by year) under the four it had; a fifth column was too narrow at 1200 px.
+  - The currency is a symbol the visitor picks once, kept in the browser and never synced; nothing is converted, so two currencies add up as the numbers were entered. The pick is a dropdown of nine currencies (British pound, Canadian dollar, Chinese yuan, Danish krone, Euro, Japanese yen, Norwegian krone, Swedish krona, US dollar) plus "No symbol"; at first a segmented control of €, $ and £, until the owner asked for the Nordic, Chinese, Japanese and Canadian currencies, which a segmented control can't hold on a phone. The three kroner share "kr", and the yuan and yen share "¥": the visitor knows which they picked. The Canadian dollar is "CA$" so it can't pass for US dollars.
+  - A price counts once per item, whatever its number of copies. Only owned items count; a price of 0 is a price (a gift), and text or a negative number is none.
+  - Category rows filter the collection; year rows don't. Neither follows the % / # / Timeline control.
+  - Prices never appear on profiles, the leaderboard or anything else public.
 - **27 Oct 2026, Games tab:** the tab opens on the Main games chip rather than All. Most visitors come for the console games, and 42 cards with the phone tie-ins first buried them; All and the other kinds stay one chip away, and "Clear search and filters" still shows everything.
