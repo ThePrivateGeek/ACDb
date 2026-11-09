@@ -39,11 +39,12 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
   - In `images.js`, insert in the right labelled section (Collector's Editions, Comics, Statues, Novels…) next to similar items, not at the end.
 - **Field values must match:**
   - `game` values must match `SHORT_GAME_NAMES` in `js/app.js`.
-  - Categories must match the Category list in `.github/ISSUE_TEMPLATE/missing-item.yml`. The validator reads its categories from there ("Not sure" isn't one), so a new category goes into that form first.
+  - Categories must match the Category list in `.github/ISSUE_TEMPLATE/missing-item.yml`. The validator reads its categories from there ("Not sure" isn't one), so a new category goes into that form first, and its list-page name into `CATEGORY_PLURALS` in `tools/build-item-pages.py`.
 - **Renaming an item** keeps the collection safe, but you must:
   - update its `images.js` key;
   - add old slug → id in `js/slug-aliases.js` (never remove alias entries);
-  - rerun `build-share-pages.py`.
+  - rerun `build-share-pages.py` and `build-item-pages.py`.
+- **Generated pages:** `item/`, `items/` and `sitemap.xml` are written by `tools/build-item-pages.py` (as `s/` is by `build-share-pages.py`). Never edit them by hand; change the tool. A template change rewrites all 680+ item pages, so keep those rare and in a commit of their own.
 - **Images:**
   - Images are WebP, in `images/<subdir>/`.
   - Gallery images are `name_01.webp`, `name_02.webp`, and so on.
@@ -68,6 +69,8 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
 | `python3 tools/validate-catalog.py` | After any data change. It also runs as the pre-commit hook (`git config core.hooksPath .githooks`). Fix reported entries; don't skip the hook. |
 | `python3 tools/build-share-pages.py` | After adding, renaming or removing items (writes `s/<slug>.html` share pages) |
 | `python3 tools/build-images.py` | After adding or removing gallery images (`_NN.webp`) |
+| `python3 tools/build-item-pages.py` | After adding, renaming or removing items, or changing an item's text or main photo: writes the search-engine pages in `item/` and `items/` and `sitemap.xml` (`--check` writes nothing; the validator fails until it's run) |
+| `python3 tools/serve.py` | The local preview on port 8000 (see Environment) |
 | `python3 tools/build-thumbs.py` | After adding, replacing or removing item images: writes the small card copies in `images/thumbs/` and `js/thumbs.js` (only redoes what changed; the validator fails until it's run) |
 | `python3 tools/flag-large-images.py` | Sanity check after adding images |
 | `python3 tools/make-portrait.py <image> <slug> --box L,T,W` | A character portrait: crops a 3:4 box and writes `images/characters/<slug>.webp` (300x400); then set the character's `image` |
@@ -80,7 +83,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
 
 - **OS and shells:** Windows 11. PowerShell is the owner's shell; Git Bash is also available.
 - **Line endings:** checked-out files are CRLF (`core.autocrlf=true`). Keep each file's existing line endings. Git Bash `sed -i` silently converts files to LF, so prefer the Edit tool, or Python with `newline=''`.
-- **Local preview:** `python3 -m http.server 8000` in the repo root, then open http://localhost:8000/. Use port 8000: the Worker and Google sign-in accept only `localhost:8000` and `127.0.0.1:8000`, so signing in fails on any other port. Headless checks that mock the Worker can use any port.
+- **Local preview:** `python3 tools/serve.py`, then open http://localhost:8000/. It is Python's file server plus one GitHub Pages rule (`/item/<slug>` serves `item/<slug>.html`); plain `python3 -m http.server` answers those addresses, and `/s/<slug>`, with 404. Use port 8000: the Worker and Google sign-in accept only `localhost:8000` and `127.0.0.1:8000`, so signing in fails on any other port. Headless checks that mock the Worker can use any port.
 - **Headless checks:** Chrome at `C:\Program Files\Google\Chrome\Application\chrome.exe` with `--headless=new --remote-debugging-port=…`, driven over CDP from Node.
   - Mock `api.acdb.workers.dev` with `Fetch.enable` so nothing reaches production.
   - Add a unique `?n=` query to each navigation (a hash-only navigation fires no load event).

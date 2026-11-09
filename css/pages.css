@@ -1,0 +1,97 @@
+/* ============================================
+   ACDb - Static pages
+   ============================================
+
+   The pages tools/build-item-pages.py writes (item/, items/), loaded after
+   style.css and by nothing else, so the app pays nothing for them. They
+   reuse style.css's components (.page-head, .crumbs, .page-title,
+   .modal-meta, .section-head, .btn, .link, .badge); this file only lays
+   them out. Tokens only. */
+
+/* One centred column a little wider than the reading width: a photo
+   beside the facts, and two columns of links */
+.static-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--s5) var(--s6) var(--s7);
+    min-height: 60vh;
+}
+
+.static-page .section-head {
+    margin: var(--s6) 0 var(--s3);
+}
+
+/* Item page: photo left, facts and text right; one column on phones */
+.item-page {
+    display: grid;
+    grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+    gap: var(--s6);
+    align-items: start;
+}
+
+.item-page-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    background: var(--surface-card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+}
+
+.item-page-body {
+    min-width: 0;
+}
+
+.item-page-body .section-head:first-of-type {
+    margin-top: var(--s5);
+}
+
+.static-text,
+.static-intro {
+    max-width: 75ch;
+    color: var(--text-2);
+}
+
+.static-intro {
+    margin-bottom: var(--s5);
+}
+
+.static-actions {
+    margin-top: var(--s5);
+}
+
+/* Lists of links: "Name  2021 · Statue". The -cols form reads left to
+   right, then down, in 420px columns (two on a desktop) */
+.static-list {
+    display: grid;
+    gap: var(--s2);
+    list-style: none;
+}
+
+.static-list-cols {
+    grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
+    column-gap: var(--s5);
+}
+
+.static-list li {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.static-list-meta {
+    color: var(--text-3);
+    font-size: var(--fs-sm);
+}
+
+@media (max-width: 768px) {
+    .static-page {
+        padding: var(--s4);
+    }
+
+    .item-page {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--s5);
+    }
+}

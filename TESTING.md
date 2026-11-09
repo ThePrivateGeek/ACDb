@@ -219,10 +219,12 @@ The catalogue's categories are the Category options of the "Suggest a missing it
 - [ ] `node tools/test-export.mjs` passes (the spreadsheet export: quoting, the formula guard, both formats, prices as plain numbers, the read columns, accents and CRLF line ends)
 - [ ] `node tools/test-worker.mjs` passes (runs the Worker against a local copy of the D1 schema: request bodies must be JSON and not oversized; owned items count each id once and only ids up to `CATALOG_MAX_ID`; write and read rate limits; the top-100 leaderboard and its one-minute memory; played games (pushed with `games`, pulled with `gamesSince` on their own cursor, sanitized, limited to ids 1–1000 and 200 a push, kept out of `items`, in the account export, removed with the account, and a push of only games leaves a linked profile's date alone); and that sync, sign-in, profiles, export and account delete still work)
 - [ ] After a Worker deploy, `curl.exe -sI https://api.acdb.workers.dev/leaderboard` shows `acdb-worker:` with the `WORKER_VERSION` in `worker/acdb-worker.js`
+- [ ] `python3 tools/build-item-pages.py --check` exits 0 (the validator runs the same check and fails when an item or list page, or `sitemap.xml`, is missing, out of date or left over). After an item edit it names only the pages that show the change; a second run of the builder writes nothing
+- [ ] Every `src` and `href` starting with `/` in `item/` and `items/` points at a file (an address without an extension is its `.html`), and every `<loc>` in `sitemap.xml` has its file
 - [ ] Read links still open a book: archive.org returns 200 even for a missing book, so open a few (especially ones with parentheses in the path) and check the reader shows a cover, not an empty item page
 
 ## 17. Account & Cloud Sync
-Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000` (it talks to the live API; `http://127.0.0.1:8000` has separate storage, so it works as a second device). Only Google accounts listed as test users can sign in while the Google app is in Testing.
+Local testing: run `python3 tools/serve.py` and use `http://localhost:8000` (it talks to the live API; `http://127.0.0.1:8000` has separate storage, so it works as a second device). Only Google accounts listed as test users can sign in while the Google app is in Testing.
 - [ ] Signed out: header shows **Sign in ▾** (person icon); its menu leads with **Sign in with Google**, then Back up to file, Restore from file, Export as spreadsheet…, Print inventory, Privacy; after owning an item, the banner appears; ✕ hides it for good (survives reload)
 - [ ] Banner is hidden on profile and leaderboard views
 - [ ] Sign in from an open item: Google account chooser → back on the same item, signed in; no `?code=` left in the address bar
@@ -289,7 +291,7 @@ Local testing: run `python3 -m http.server 8000` and use `http://localhost:8000`
 
 ## 19. Design System
 The rules are in [DESIGN.md](DESIGN.md) (its section 13 is the definition of done); tokens live at the top of `css/style.css` and component rules use only them. Check at 1600, 1200, 1000, 390 and 360px, signed in and out.
-- [ ] No page scrolls sideways at any of those widths (collection, every reading tab, a series page, the Games tab in both orders, a game's page, the Characters tab in both orders, a character's page, leaderboard, a profile, privacy)
+- [ ] No page scrolls sideways at any of those widths (collection, every reading tab, a series page, the Games tab in both orders, a game's page, the Characters tab in both orders, a character's page, leaderboard, a profile, privacy, an item page and a list page in `item/` and `items/`)
 - [ ] Tab through the collection, the reading view, the Games tab, the Characters tab and an open item modal: every control (links, buttons, chips, dropdown options, Read/Owned/Played switches, the DLC ticks, fold headings, game cards, the Insights currency dropdown and Spent by category rows) shows the same 2px gold focus ring; fields also turn their border gold
 - [ ] Following a link to a game's or character's page from the site moves focus to the page title; Back puts focus back on the link you followed. A page opened from a pasted link leaves focus alone (no ring on the title)
 - [ ] The filter dropdowns work from the keyboard: Tab into the options, Space ticks one
@@ -353,6 +355,21 @@ The Characters tab (`#characters`, `js/characters-view.js`) lists `js/characters
 - [ ] Signed in: the header, the account menu and the sync banner behave as on the other tabs; owning an item on another device updates the page after sync
 - [ ] Tab reaches the search, the order buttons, the faction chips, the game chips and every card with the gold ring; Enter picks a chip (focus stays on it) or opens a card
 
+## 22. Static pages (item/, items/)
+The pages search engines read: one per item at `/item/<slug>`, and list pages under `/items/`. `tools/build-item-pages.py` writes them and `sitemap.xml`; never edit them by hand. Preview with `python3 tools/serve.py` (plain `http.server` answers `/item/<slug>` with 404).
+- [ ] `/items/` lists 17 categories and 21 games with counts; each category count and each game count adds up to the catalog size
+- [ ] An item page (a portrait photo, a landscape one, the 110-character "The World of Assassin's Creed Valhalla…" name, Assassin's Creed: Renaissance with its series and character, Naoe's bust with its 23-character description) shows the photo without a jump while it loads, the facts (Game and Category link to their list pages, Type only when it differs from the category, Series when there is one, the id pill), the description, Contents, Characters (links into the app's character pages) and up to six related items
+- [ ] **Track it in your collection** opens the app with that item's card open
+- [ ] The breadcrumb leads to the category page and from there to `/items/`; the logo and **Open the database** go to the app
+- [ ] The General list (146 items), Chronicles: India (2) and Art and reference books (grouped under their types) read well at 1600 and 390 px; rows read left to right, two columns on a desktop, one on a phone
+- [ ] 1600, 1200, 1000, 390 and 360 px: nothing scrolls sideways on an item page, `/items/` or the General list
+- [ ] Tab through an item page: logo, Open the database, breadcrumb, Game, Category, the characters, Track it, the related items, the footer links, all with the gold ring
+- [ ] No console messages and no CSP violations (the structured data block is data, not a script); the photo's width and height match the file
+- [ ] An old slug (`/item/ubicollectibles-bayek-figurine`) moves straight to the current page (`/item/ubicollectibles-bayek-statue`)
+- [ ] With JavaScript off, the homepage's paragraph links to `/items/`, and every item is reachable from there
+- [ ] The footer of the app and of the privacy page starts with **Browse all items**
+- [ ] View source on an item page: one `<h1>`, a canonical link to its own address, `og:image` with its width and height, and a breadcrumb `BreadcrumbList`
+
 ---
 
 ## Quick Test (for item additions only)
@@ -360,5 +377,6 @@ The Characters tab (`#characters`, `js/characters-view.js`) lists `js/characters
 - [ ] `python3 tools/validate-catalog.py` reports OK
 - [ ] New item appears in grid
 - [ ] New item's image displays (after `python3 tools/convert-to-webp.py` and `python3 tools/build-thumbs.py`)
+- [ ] `python3 tools/build-share-pages.py` and `python3 tools/build-item-pages.py` were run; the new item has its page at `/item/<slug>` and is on its category and game lists
 - [ ] Filters show updated counts
 - [ ] Footer item count is correct

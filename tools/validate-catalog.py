@@ -70,6 +70,9 @@ Checks:
   count      a warning when the "680+ official" count in index.html's
              descriptions is COUNT_CLAIM_MARGIN or more items behind the
              catalog
+  item pages the pages in item/ and items/ and sitemap.xml match what
+             tools/build-item-pages.py would write now: none missing, out
+             of date or left over
 """
 from __future__ import annotations
 
@@ -111,6 +114,11 @@ _spec.loader.exec_module(thumbs)
 _spec = importlib.util.spec_from_file_location("converter", ROOT / "tools" / "convert-to-webp.py")
 converter = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(converter)
+
+# And the item page builder, to re-render its pages in memory and compare.
+_spec = importlib.util.spec_from_file_location("item_pages", ROOT / "tools" / "build-item-pages.py")
+item_pages = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(item_pages)
 
 REQUIRED = {
     "id": int,
@@ -754,6 +762,23 @@ def webp_size(path):
     return None
 
 
+def check_item_pages(errors):
+    """Stale pages would be indexed with old text, so they block a commit."""
+    advice = "run python3 tools/build-item-pages.py"
+    try:
+        missing, stale, strays = item_pages.check()
+    except SystemExit:
+        # The builder printed why (a slug collision, a category with no plural)
+        errors.append(f"tools/build-item-pages.py can't render the pages (see its error above): fix it, then {advice}")
+        return
+    files = missing + stale + strays
+    if files:
+        shown = ", ".join(files[:3]) + (f" and {len(files) - 3} more" if len(files) > 3 else "")
+        parts = [f"{n} {label}" for n, label in ((len(missing), "missing"), (len(stale), "out of date"),
+                                                 (len(strays), "left over")) if n]
+        errors.append(f"item or list pages are not current ({', '.join(parts)}: {shown}): {advice}")
+
+
 def check_new_image_sizes(errors, warnings):
     paths = converter.uncommitted_images()
     if paths is None:
@@ -882,6 +907,7 @@ def main():
     check_thumbs(images, errors, warnings)
     check_new_image_sizes(errors, warnings)
     check_item_count_claims(items, warnings)
+    check_item_pages(errors)
 
     for w in warnings:
         print(f"warning: {w}")

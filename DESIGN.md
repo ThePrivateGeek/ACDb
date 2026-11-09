@@ -114,6 +114,7 @@ Fonts load from Google Fonts with `display=swap` (in `index.html` and `privacy.h
 |---|---|---|---|
 | Wide content (grids, multi-column lists) | `max-width: 1600px; margin: 0 auto` | `1.5rem 2rem 4rem` (`1rem` on phones) | Collection (`.main-content`), Reading Order, a profile |
 | **One-column reading width** | 760 px of content, centred | Same | Leaderboard (`#leaderboardView`), Privacy (`.legal-page`) |
+| **Static page** (a real HTML file outside the app) | `max-width: 1000px` including padding, centred (`.static-page` in `css/pages.css`) | `--s5 --s6 --s7` (`--s4` on phones) | The generated item and list pages (`item/`, `items/`); `privacy.html` is the 760 px kind |
 
 On a single-column page, put the **whole view** (title, intro line and list) in the centred column, so the title lines up with the content. Don't centre only the list.
 
@@ -278,6 +279,27 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
 - **A game's page** (`#games/<slug>`, the same kind of sub-page): a "Games › Name" breadcrumb and the name as the page title; the character page's header card (`.character-head game-head`) with the box art in the portrait's place (`.game-head-cover`, 160 px; on phones 96 px above the facts, which are long and run full width), the kind as a `badge-accent`, the facts (Developer, Set, Released, Platforms, Also released as, Remake of / Remade as as links to the other game's page), the description, a links row (`.head-card-links`: its stories in Complete Lore, "Show in the collection", and Share as a `btn btn-quiet btn-sm`), a Played row (`.game-played`: the Played switch, a native **Finished** date shown only while played, and "3 / 12 DLCs played" for a game with DLCs) and the owned bar; a Characters section of compact rows (`.character-game game-character`: a 48 px portrait, kind line, name, "Born 1459 · Renaissance"), A–Z, each a link to the character's page (on phones a cast of more than six shows six and a `btn btn-quiet btn-sm` "Show all N characters"); DLCs grouped by type (`.game-dlc` rows, in 420 px columns, each starting with its Played tick, a `list-check list-check-read`); "In the collection" with the collection's item cards, which open the item modal over the page; and previous/next links in release order. Copy the markup from `pageHTML()` in `js/games-view.js`.
 - **Story timeline** (`.games-tl-list`, the Games tab in story order): under era section heads, each row is a year (`--font-data`, gold) on a rail with a dot, then a game card (`.games-tl-card`: cover, kind line, title, setting and release date, the first three DLC names as plain badges that cut off when long, and story and item counts, with a "Played" badge above them when played). A DLC with its own place in the lore gets a striped row (`.games-tl-dlc`), like a game marker in Complete Lore. Played cards and DLC rows get the purple edge (`.played`). Copy the markup from `timelineHTML()` in `js/games-view.js`.
 
+### Static pages (`item/`, `items/`)
+
+Real pages that search engines and visitors without JavaScript can read. **`tools/build-item-pages.py` writes them; never edit them by hand.** Change the templates in the tool and rerun it. They load `css/style.css` then `css/pages.css` (nothing else loads `pages.css`, so the app pays nothing for them), and no script of the site's own.
+
+- **Frame:** the privacy page's header (logo to `/`, then `btn btn-sm btn-quiet` "Open the database"), `<main class="static-page">`, and a footer with "Browse all items", "Open the database", "Privacy" and the two legal lines from `index.html`. Every address starts with `/`, since the pages sit a folder down.
+- **Head:** the `.page-head` above, with a breadcrumb from "Items" down (none on `/items/` itself, the top) and the page's **one `<h1 class="page-title">`** (the app's views use `<h2>` because the header holds the app's `<h1>`).
+- **Item page:** `.item-page`, a grid of the photo (`.item-page-photo`: the full main image with its real `width` and `height`, not lazy, `--r-lg` on `--surface-card`, at most 380 px wide) and `.item-page-body`: the facts as a `<dl class="modal-meta">` (`dt.modal-meta-label`, `dd.modal-meta-value`), the description as `p.static-text`, `h2.section-head` sections, and one `btn btn-primary` "Track it in your collection" (`p.static-actions`) linking to `/#<slug>`. One column at 768 px and below.
+- **Lists of links:** `<ul class="static-list">`, each row `<li><a class="link" href="/item/…">Name</a> <span class="static-list-meta">2021 · Statue</span></li>`. Add `static-list-cols` for 420 px columns that read left to right, then down. A list page opens with `p.static-intro` (75ch) and groups its rows under `h2.section-head` with a `.section-head-count`.
+
+```html
+<main class="static-page">
+  <div class="page-head">
+    <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="/items/">Items</a></li><li aria-current="page">Statues</li></ol></nav>
+    <h1 class="page-title">Assassin's Creed statues</h1>
+  </div>
+  <p class="static-intro">81 official statues, from 2007 to 2026. …</p>
+  <h2 class="section-head"><span>PureArts</span><span class="section-head-count">33</span></h2>
+  <ul class="static-list static-list-cols">…</ul>
+</main>
+```
+
 ### Dialogs
 
 ```html
@@ -392,7 +414,7 @@ A card is `background: var(--surface-card); border: 1px solid var(--line)`. On h
    - New CSS goes in its own `/* ---- Foo View ---- */` block in `style.css`, near related views, using tokens only.
 7. **Docs:**
    - Add a section to `TESTING.md` and a feature bullet to the README.
-   - If the view is public, add it to `sitemap.xml` only when it has its own URL that isn't a hash route.
+   - Hash routes never go in the sitemap. A page with its own address that isn't a hash route goes in `sitemap.xml` through `tools/build-item-pages.py`, which writes the file (add it to the tool's address list; editing `sitemap.xml` by hand is undone by the next run).
 
 ## 9. Words
 
@@ -538,4 +560,10 @@ Owner decisions this book rests on, so they aren't reopened:
   - **Export as spreadsheet…** saves a CSV of every item with any data (17 columns, notes included). Excel reads a double-clicked CSV by the computer's regional settings, so there are two formats: commas with 1234.56 (Google Sheets, English Excel) and semicolons with 1234,56 (Excel in most of Europe). A small dialog picks one; the site guesses from how the browser writes numbers and remembers the pick in the browser. Yes/no columns say `yes` and `no`; the read columns are empty for items that aren't books. It can't be restored; Back up to file stays the backup.
   - **Print inventory** prints the owned items with no dialog: small photos, condition, box, copies, price paid and acquired date, by game in release order then by name, with the totals in the heading. Notes stay off paper.
   - Ordinary printing (Ctrl+P) is unchanged: the print rules apply only while the inventory prints.
+- **9 Nov 2026, item pages for search engines:** every item gets a static page at `/item/<slug>`, and `/items/` lists them by category and by game, so search engines (which never see `#` addresses) can find the catalog.
+  - The `/s/<slug>` share pages stay exactly as they are: `noindex` redirects into the app, with no canonical link to the item page (a page that says "don't index me" and "the real page is elsewhere" gives two instructions).
+  - No prices, shop links, ratings or `Product` markup: the pages are a reference, so they carry only breadcrumb structured data.
+  - One photo per page, no gallery, no "Read online" link and no owned or wishlist state: tracking stays in the app, one "Track it in your collection" button away.
+  - Pages that no longer match the catalog are a validator error, like stale thumbnails, so a commit can't ship old text for search engines to index.
+  - Game and character pages (`/game/`, `/character/`) wait until these pages show a gain in search after four weeks.
 - **27 Oct 2026, Games tab:** the tab opens on the Main games chip rather than All. Most visitors come for the console games, and 42 cards with the phone tie-ins first buried them; All and the other kinds stay one chip away, and "Clear search and filters" still shows everything.
