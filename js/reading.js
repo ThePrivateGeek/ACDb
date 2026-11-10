@@ -726,7 +726,7 @@
             return;
         }
         const openBtn = e.target.closest('[data-open]');
-        if (openBtn) A.openModalOverView(Number(openBtn.dataset.open));
+        if (openBtn) A.openModalOverView(Number(openBtn.dataset.open), openBtn);
     });
 
     // A section opened or closed (by its heading, "Collapse all" or a jump).

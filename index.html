@@ -184,7 +184,7 @@
                         <svg class="multi-select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="multi-select-dropdown">
-                        <input type="text" class="multi-select-search" id="typeSearch" placeholder="Search types..." autocomplete="off">
+                        <input type="text" class="multi-select-search" id="typeSearch" placeholder="Search types..." aria-label="Search types" autocomplete="off">
                         <div class="multi-select-options"></div>
                     </div>
                 </div>
@@ -195,7 +195,7 @@
                         <svg class="multi-select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="multi-select-dropdown">
-                        <input type="text" class="multi-select-search" id="seriesSearch" placeholder="Search series..." autocomplete="off">
+                        <input type="text" class="multi-select-search" id="seriesSearch" placeholder="Search series..." aria-label="Search series" autocomplete="off">
                         <div class="multi-select-options"></div>
                     </div>
                 </div>
@@ -210,7 +210,7 @@
                         <div class="multi-select-options"></div>
                     </div>
                 </div>
-                <select id="filterOwned" class="filter-select">
+                <select id="filterOwned" class="filter-select" aria-label="Filter by status">
                     <option value="">All Items</option>
                     <option value="owned">Owned Only</option>
                     <option value="unowned">Not Owned</option>
@@ -219,7 +219,7 @@
                     <option value="read">Read</option>
                     <option value="unread">Not Read</option>
                 </select>
-                <select id="sortBy" class="filter-select">
+                <select id="sortBy" class="filter-select" aria-label="Sort by">
                     <option value="year-desc" selected>Year (Newest First)</option>
                     <option value="year-asc">Year (Oldest First)</option>
                     <option value="name-asc">Name (A-Z)</option>
@@ -324,7 +324,7 @@
 
     <!-- Item Detail Modal -->
     <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" id="itemModal">
+        <div class="modal" id="itemModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
             <!-- Sticks to the top of the scrolling modal, so share and close stay in reach -->
             <div class="modal-actions">
             <button class="icon-btn modal-close" id="modalClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
@@ -434,9 +434,9 @@
                             <div class="control-row">
                                 <label for="modalCopies">Copies Owned</label>
                                 <div class="copies-control">
-                                    <button class="copies-btn" id="copiesMinus">-</button>
+                                    <button class="copies-btn" id="copiesMinus" aria-label="One copy fewer">-</button>
                                     <input type="number" id="modalCopies" min="0" max="99" value="0">
-                                    <button class="copies-btn" id="copiesPlus">+</button>
+                                    <button class="copies-btn" id="copiesPlus" aria-label="One more copy">+</button>
                                 </div>
                             </div>
                             <div class="control-row">
@@ -480,7 +480,7 @@
     </div>
 
     <!-- Lightbox -->
-    <div class="lightbox-overlay" id="lightboxOverlay">
+    <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-label="Image viewer">
         <button class="lightbox-close" id="lightboxClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
         <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -496,7 +496,7 @@
 
     <!-- Share Modal -->
     <div class="modal-overlay" id="shareModalOverlay">
-        <div class="modal share-modal">
+        <div class="modal share-modal" id="shareModal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle" tabindex="-1">
             <button class="icon-btn modal-close" id="shareModalClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
             <div class="share-modal-content">
                 <h2 class="add-modal-title" id="shareModalTitle">Publish Your Collection</h2>
@@ -517,6 +517,8 @@
                             <span class="stat-label">Completion</span>
                         </div>
                     </div>
+                    <!-- Signed out: the profile is owned by a token kept in this browser (sharing.js) -->
+                    <p class="form-hint share-signin-hint" id="sharePublishHint" hidden>Without signing in, only this browser can update or delete your profile, and clearing its data takes that away.<span id="sharePublishSignIn"> <a href="#" id="sharePublishSignInLink" class="link">Sign in with Google</a> first to manage it from any device.</span></p>
                     <div class="form-actions">
                         <button id="shareCancel" class="btn btn-quiet">Cancel</button>
                         <button id="shareSubmit" class="btn btn-publish-fill" disabled>Publish</button>
@@ -539,7 +541,7 @@
                         <button id="shareManageCopyUrl" class="btn btn-secondary">Copy</button>
                     </div>
                     <p class="form-hint share-auto-note" id="shareAutoNote" hidden>Updates automatically with your collection</p>
-                    <p class="form-hint share-signin-hint" id="shareSignInHint" hidden><a href="#" id="shareSignInLink" class="link">Sign in with Google</a> to keep your profile up to date automatically.</p>
+                    <p class="form-hint share-signin-hint" id="shareSignInHint" hidden><a href="#" id="shareSignInLink" class="link">Sign in with Google</a> to keep your profile up to date automatically and manage it from any device.</p>
                     <div class="form-actions">
                         <button id="shareDeleteBtn" class="btn btn-danger">Delete Profile</button>
                         <button id="shareManageCancel" class="btn btn-quiet">Cancel</button>

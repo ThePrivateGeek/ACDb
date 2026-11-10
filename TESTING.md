@@ -91,6 +91,13 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Badges are NOT clickable in read-only modal (shared profile / leaderboard)
 - [ ] Character line: an item that shows a character has "Character" (one) or "Characters" (several) with gold links after the series line. The Reflections trade paperback (#302) lists six; the PureArts Animus Ezio 1/4 statue lists Ezio; the Pre-Order Art Book (#3) has no line. A link opens that character's page (also from the read-only modal on a profile)
 - [ ] Share icon button (badges row): desktop copies `https://acdb.theprivategeek.com/s/<slug>` with toast; mobile/touch opens the native share sheet (also in read-only modal)
+- [ ] Keyboard: Tab to a card and press Enter: the item opens with the gold ring on Close. Tab and Shift+Tab go round the window's own controls and never reach the page behind (Shift+Tab from Close lands on the last control). Esc, ✕ and Back close it and the ring is back on the card. The same from a reading row's title, a card on a character's or game's page, and a card on a profile
+- [ ] An edit that redraws the list keeps that working: with **Owned Only** set, change an owned item's Condition and close: focus is on that item's card. When the card has gone (untick Owned under Owned Only), closing shows no error
+- [ ] Opened from its address (paste `/#assassins-creed-limited-edition`, or reload with an item open): no ring anywhere; the first Tab lands on Close, and Tab stays in the window
+- [ ] "Next: …" from the keyboard (an item in a reading order, from the grid and over the Reading Order tab): Enter shows the next book and the ring stays on Next, so Enter again walks on; closing returns to the card or row it was first opened from
+- [ ] A link in the window that leads to another view puts focus on that view's title: from an item opened over a character's page, Enter on its game link shows the game's page with the ring on its title; from an item in the grid, Enter on a character link does the same on the character's page
+- [ ] Gallery dots: Tab reaches them, Enter or Space on a dot shows that image and the ring stays on the dot now gold. To a screen reader the dots are named "Image 2 of 3" and the copies buttons "One copy fewer" and "One more copy"
+- [ ] A screen reader announces the window as a dialog named after the item, and the lightbox as "Image viewer"
 
 ## 9. Lightbox
 - [ ] Image shows full-screen on dark background
@@ -100,6 +107,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Counter shows "1 / 3" etc.
 - [ ] Escape closes lightbox
 - [ ] Clicking background closes lightbox
+- [ ] Keyboard: with the lightbox open, Tab goes round its Close, Previous and Next buttons only (just Close for a single image); Esc closes it, leaves the item window open, and Tab is back among the item window's controls
 
 ## 10. Collection Controls
 - [ ] Toggle Owned on — copies auto-set to 1
@@ -238,10 +246,12 @@ Local testing: run `python3 tools/serve.py` and use `http://localhost:8000` (it 
 - [ ] First sign-in on a browser with played games the account doesn't have: they're kept and sent up; games the account has come down. When only played games differ (no item conflicts), the dialog doesn't open and the most recent change wins; when it does open for items, the choice applies to the games too
 - [ ] Signing out clears the played games from the browser along with the collection (`acdb_games_v1` is `{}`); signing back in brings them back
 - [ ] Before the Worker is deployed (an old Worker, or block the response's `gamesSaved` in DevTools overrides): items still sync, a game tick stays in the browser, isn't re-sent in a loop (Network shows no repeating `PUT /collection`), and counts in the sign-out warning; once the new Worker answers, the next sync sends it
-- [ ] First sign-in on a browser whose items differ from the account: the "Combine your collections" dialog shows the counts; each choice behaves as described; "Download a backup" saves an export; Esc doesn't close it
+- [ ] First sign-in on a browser whose items differ from the account: the "Combine your collections" dialog shows the counts; each choice behaves as described; "Download a backup" saves an export; Esc doesn't close it; Tab goes round its three choices and the backup link only, also when it opens over an item (sign in from an open item); after the choice the item is still open, the page behind it doesn't scroll, and Tab is back among the item's controls
 - [ ] Offline (DevTools → Network → Offline): edits still save, the dot turns amber; back online they sync
 - [ ] Two tabs open: an edit in one appears in the other; edits made in both at once all survive
 - [ ] Not published: header shows **Publish collection**; its window reads "Publish Your Collection" / "Get a public page to show friends, and a spot on the Leaderboard"; after publishing the button leaves the header and **My public profile** appears in the account menu, opening "Your Public Profile"
+- [ ] Publish window, signed out: under the counts it says "Without signing in, only this browser can update or delete your profile, and clearing its data takes that away. **Sign in with Google** first to manage it from any device." (the link starts sign-in); signed in, the line is absent. A profile published signed out says in its manage window "Sign in with Google to keep your profile up to date automatically and manage it from any device."
+- [ ] Publish window from the keyboard: it opens with the cursor in Display Name and Tab stays inside; Esc puts the ring back on **Publish collection** (or **Join the Leaderboard**). After publishing the ring is on **Copy**; **Done** puts it on the account button. **My public profile** opens with the ring on Close, and closing puts it on the account button
 - [ ] Leaderboard, not published: "Want to be on here? **Join the Leaderboard**" sits above the list and opens the publish window without leaving the leaderboard, which refreshes after publishing ("You're on the board as …")
 - [ ] Publish while signed in: the profile is created without a token; the manage window has no Update button and says it updates automatically; owning more items updates the profile and leaderboard
 - [ ] The leaderboard lists the top 100; when your profile is published but not among them, the line above the list reads "The board shows the top 100. Your profile: <name>" (linked). No percentage on the leaderboard or a profile goes above 100%, and a profile shows each item once
@@ -251,7 +261,7 @@ Local testing: run `python3 tools/serve.py` and use `http://localhost:8000` (it 
 - [ ] **Sign out**: the grid shows nothing owned; signing in again brings everything back
 - [ ] Sign out before the first sync has finished (sign in on a browser with a collection while DevTools blocks `api.acdb.workers.dev`): the collection stays, the toast says it "hadn't synced yet, so it's still here", and nothing is pulled in afterwards
 - [ ] **Delete account**: confirm dialog; afterwards signed out, the collection is still in the browser, and the public profile is gone
-- [ ] `privacy.html` opens from the footer and the account menu, and looks right on mobile
+- [ ] `privacy.html` opens from the footer and the account menu, and looks right on mobile. It names the backup by its menu label (**Back up to file**, not "Export") and says what happens to a profile published without signing in when the browser's data is cleared
 - [ ] Fresh private window: no requests to `accounts.google.com` until Sign in is clicked (Network tab; `fonts.googleapis.com` is the site's fonts and was always there)
 
 ## 18. Reading Order
@@ -294,7 +304,7 @@ The rules are in [DESIGN.md](DESIGN.md) (its section 13 is the definition of don
 - [ ] No page scrolls sideways at any of those widths (collection, every reading tab, a series page, the Games tab in both orders, a game's page, the Characters tab in both orders, a character's page, leaderboard, a profile, privacy, an item page and a list page in `item/` and `items/`)
 - [ ] Tab through the collection, the reading view, the Games tab, the Characters tab and an open item modal: every control (links, buttons, chips, dropdown options, Read/Owned/Played switches, the DLC ticks, fold headings, game cards, the Insights currency dropdown and Spent by category rows) shows the same 2px gold focus ring; fields also turn their border gold
 - [ ] Following a link to a game's or character's page from the site moves focus to the page title; Back puts focus back on the link you followed. A page opened from a pasted link leaves focus alone (no ring on the title)
-- [ ] The filter dropdowns work from the keyboard: Tab into the options, Space ticks one
+- [ ] The filter dropdowns work from the keyboard: Tab into the options, Space ticks one. A screen reader names the two selects "Filter by status" and "Sort by", and the dropdown search boxes "Search types", "Search series" and "Search characters"
 - [ ] Numbers use lining figures everywhere ("AC1", "Issue #1" and years sit on the baseline)
 - [ ] With reduced motion on (Windows: Settings > Accessibility > Visual effects > Animation effects off): no logo pulse, no card lift or slide-in (item cards and game cards), no gallery slide, no confetti, and Back to Top / "Up next" / a highlighted DLC in a game dialog jump instead of scrolling smoothly
 - [ ] Muted text (meta lines, release dates, footer) is readable; only the "no items match" line keeps the original `#666` (on purpose)

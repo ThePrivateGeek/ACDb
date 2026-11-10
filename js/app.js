@@ -823,13 +823,15 @@ window.ACDB = window.ACDB || {};
             // Let Ctrl+click / middle-click open in new tab naturally
             if (e.ctrlKey || e.metaKey || e.button === 1) return;
             e.preventDefault();
+            // The card is passed along so closing the window puts focus back
+            // on it (a click doesn't focus a link in every browser)
             if (card.closest('#profileItemsGrid')) {
-                ACDB.openReadOnlyModal(item.id);
+                ACDB.openReadOnlyModal(item.id, card);
             } else if (card.closest('#charactersView, #gamesView')) {
                 // A character's or a game's items open over their page
-                ACDB.openModalOverView(item.id);
+                ACDB.openModalOverView(item.id, card);
             } else {
-                openModal(item.id);
+                openModal(item.id, false, card);
             }
         });
         return card;
@@ -1049,7 +1051,9 @@ window.ACDB = window.ACDB || {};
         if (readOnlyHashPushed && dom.modalOverlay.classList.contains('active')) {
             const hashUnchanged = window.location.hash === readOnlyPushedHash;
             readOnlyHashPushed = false;
-            closeModal({ skipClearHash: true, skipHistoryPop: true });
+            // Back returns focus to what opened the window; a link followed
+            // from it leaves focus to the view it leads to
+            closeModal({ skipClearHash: true, skipHistoryPop: true, leaveFocus: !hashUnchanged });
             if (hashUnchanged) return;
         }
 
@@ -1081,7 +1085,7 @@ window.ACDB = window.ACDB || {};
 
         // Reading order view (#reading shows the first order)
         if (hash === 'reading' || hash.startsWith('reading/')) {
-            if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true });
+            if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true, leaveFocus: true });
             ACDB.showReadingOrder(hash.slice('reading/'.length) || null);
             restorePlace();
             return;
@@ -1089,7 +1093,7 @@ window.ACDB = window.ACDB || {};
 
         // Games view (#games; #games/<slug> is a game's page)
         if (hash === 'games' || hash.startsWith('games/')) {
-            if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true });
+            if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true, leaveFocus: true });
             ACDB.showGames(hash.slice('games/'.length) || null);
             restorePlace();
             return;
@@ -1097,7 +1101,7 @@ window.ACDB = window.ACDB || {};
 
         // Characters view (#characters; #characters/<slug> is a character's page)
         if (hash === 'characters' || hash.startsWith('characters/')) {
-            if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true });
+            if (dom.modalOverlay.classList.contains('active')) closeModal({ skipClearHash: true, leaveFocus: true });
             ACDB.showCharacters(hash.slice('characters/'.length) || null);
             restorePlace();
             return;

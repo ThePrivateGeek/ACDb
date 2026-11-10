@@ -324,6 +324,14 @@ Real pages that search engines and visitors without JavaScript can read. **`tool
   - on open, focus moves to the first control (its Close button: focusing the frame would outline the whole dialog with the focus ring), and `const release = ACDB.trapFocus(frame)` keeps Tab and Shift+Tab inside;
   - on close, `release()`, then focus goes back to the element that opened it (or, after a re-render, the same card found again; for a dialog opened from the account menu, which has closed by then, the account button), and the page title when neither is on screen;
   - it is in the Esc chain below.
+  - **A dialog over a dialog:** `ACDB.trapFocus` keeps a stack, and only the newest trap answers Tab. The lightbox opens over the item window and the merge dialog over anything; each takes focus and Tab while it is open and hands both back when it closes (`lightbox.open` and `lightbox.close` in `js/modal.js`).
+  - **The item window** (`takeFocus` and `returnFocus` in `js/modal.js`) follows the same rules with five differences:
+    - its frame has no `tabindex` (it always has a control to focus);
+    - the caller passes what opened it (`openModal(id, false, card)`), since a click doesn't focus a link in every browser, and a card or reading row redrawn under it by an edit is found again by its item id;
+    - opened from its address with nothing focused before it (a shared link, a reload), it leaves focus alone, like a page opened from a pasted link, so no ring shows on arrival; the first Tab lands on Close;
+    - "Next" in a reading order line keeps focus on Next, so Enter walks the order;
+    - a link in it that leads to another view (a game, a character, a reading order) closes it without returning focus (`closeModal({ leaveFocus: true })` from `handleHash()`), so the view it leads to can put focus on its page title.
+  - **The publish dialog** (`showShareModal` and `closeShareModal` in `js/sharing.js`) opens on the name field, moves focus to Copy once published, and returns it to the account button when its opener has gone (the header's Publish button after publishing).
   A dialog with an address pushes it on open and pushes the view's address on close, like the item modal. Opened over another view, it pushes a duplicate history entry instead, so Back closes it (`ACDB.pushReadOnlyHistoryState` for the item modal).
 - Esc is handled in one place, the `keydown` listener in `initEvents()` in `js/app.js`, in priority order (account menu, lightbox, dropdown, then dialogs). **Add a new dialog there**; don't add a second Esc listener.
 - Esc, the overlay and the close button all close it, **unless a choice is required** (the first sign-in merge dialog has no close button and ignores Esc and overlay clicks).
@@ -449,6 +457,7 @@ None of these are optional for new UI:
   - The only exception is the empty-state line ([section 11](#11-allowed-exceptions)).
 - **Screen readers:**
   - Icon-only controls need an `aria-label`.
+  - So does any control with no visible label: the toolbar's status and sort selects ("Filter by status", "Sort by"), a dropdown's search box, the gallery dots ("Image 2 of 5", with `aria-current` on the one showing), the copies − and + buttons.
   - Bare numbers need words: add `<span class="sr-only"> items owned,</span>` after the figure.
   - Decorative bars and icons get `aria-hidden="true"`.
   - Lists are `<ol>` or `<ul>`, and breadcrumbs are `<nav aria-label="Breadcrumb"><ol>`.
@@ -478,7 +487,10 @@ These keep literal values on purpose. Don't "fix" them, and don't copy them else
 
 Older code that doesn't meet this book yet. Fix it when you're working on that screen anyway; don't spread it:
 
-- The item and share dialogs lack `role="dialog" aria-modal="true" aria-labelledby` (the merge dialog has them), and they don't trap focus or return it to the opener on close. Section 6, Dialogs, lists what a dialog needs.
+- In the item window over the grid, the category, type, game and series shortcuts that filter the grid are click-only (a `<div>`, or an `<a>` with no `href`), and so is the photo that opens the lightbox: the keyboard can't reach them.
+- With the item window open, the Left and Right arrow keys turn the gallery even while the visitor is typing in a field (Notes, Price paid) or changing Condition.
+- The toolbar's multi-select buttons don't say whether their dropdown is open (no `aria-expanded`), and their × is a click-only `<span>` inside the button.
+- The merge dialog traps Tab and hands focus back after the choice, but doesn't move focus into itself when it opens (focus on a choice would let a stray Enter pick it).
 - A header-nav click while a dialog is open over a view (the item modal over a reading order or a page) leaves its duplicate history entry behind, so Back takes one extra step.
 - Some per-view rules still use literal `rem` values for padding and margin instead of `--s*` tokens. New rules use tokens.
 - Views switch with `style.display` (from before the `[hidden]` rule). New parts use `hidden`.

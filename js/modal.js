@@ -17,6 +17,66 @@
     // controls work as usual, but the view and its hash stay underneath.
     let isOverView = false;
 
+    // ---- Focus (DESIGN.md section 6, Dialogs) ----
+    // The window takes focus when it opens, keeps Tab inside while it is
+    // open and hands focus back to what opened it. An edit made in the
+    // window can redraw the card or reading row it was opened from, so that
+    // is found again by its item id.
+    let opener = null;
+    let openerSelector = '';
+    let releaseFocus = null;
+
+    const isOnScreen = el => !!el && el.isConnected && el.getClientRects().length > 0;
+
+    // The reading order whose "Next" link has focus. Following it shows the
+    // next book in the same window, and focus stays on that order's Next
+    // link, so Enter walks the order.
+    function focusedNextOrder() {
+        const link = document.activeElement;
+        if (!link || !link.matches('#modalReadingOrder [data-next]')) return null;
+        return link.closest('.modal-reading-line').querySelector('[data-order]').dataset.order;
+    }
+
+    // `from` is what opened the window (else whatever has focus). A window
+    // that is already open keeps its first opener. `fromAddress` is an
+    // item opened by its address: with nothing focused before it (a shared
+    // link, a reload) focus is left alone, like a page opened from a pasted
+    // link, so no ring shows on arrival; the first Tab still lands inside.
+    function takeFocus(from, nextOrder, fromAddress) {
+        const modal = document.getElementById('itemModal');
+        if (!releaseFocus) {
+            const el = from || document.activeElement;
+            opener = el && el !== document.body && !modal.contains(el) ? el : null;
+            // A card, or a reading row's cover or title (both carry the id)
+            const kind = opener && opener.classList[0] ? '.' + CSS.escape(opener.classList[0]) : '';
+            openerSelector = !opener ? ''
+                : opener.matches('.item-card[data-id]') ? `${kind}[data-id="${opener.dataset.id}"]`
+                : opener.matches('[data-open]') ? `${kind}[data-open="${opener.dataset.open}"]`
+                : '';
+            releaseFocus = A.trapFocus(modal);
+        }
+        const orderLink = nextOrder && document.querySelector(`#modalReadingOrder [data-order="${CSS.escape(nextOrder)}"]`);
+        const next = orderLink && orderLink.closest('.modal-reading-line').querySelector('[data-next]');
+        if (fromAddress && !opener && !next && !modal.contains(document.activeElement)) return;
+        (next || A.dom.modalClose).focus({ preventScroll: true });
+    }
+
+    // With no opener (a shared link) focus is left to the browser. So it is
+    // with `leaveFocus`: the address moved to another view, which places
+    // focus itself (on its page title).
+    function returnFocus(leaveFocus) {
+        if (!releaseFocus) return;
+        releaseFocus();
+        releaseFocus = null;
+        const target = leaveFocus ? null
+            : isOnScreen(opener) ? opener
+            : openerSelector ? [...document.querySelectorAll(openerSelector)].find(isOnScreen)
+            : null;
+        if (target) target.focus({ preventScroll: true });
+        opener = null;
+        openerSelector = '';
+    }
+
     function setModalLink(el, hash) {
         if (hash) el.href = hash;
         else el.removeAttribute('href');
@@ -95,7 +155,7 @@
         renderGalleryImage();
     }
 
-    function openModal(id, fromHash) {
+    function openModal(id, fromHash, from) {
         const item = AC_DATABASE.find(i => i.id === id);
         if (!item) return;
 
@@ -109,6 +169,7 @@
         if (!fromHash) A.setHash(item);
         currentItemId = id;
         const dom = A.dom;
+        const nextOrder = focusedNextOrder();
 
         populateGallery(item);
         populateItemInfo(item);
@@ -116,6 +177,7 @@
 
         dom.modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+        takeFocus(from, nextOrder, fromHash);
     }
 
     // Fill the "My Collection" controls from the saved data (no save).
@@ -154,7 +216,7 @@
 
     // Full modal on top of the current view, without touching its hash. Same
     // history handling as the read-only modal: back closes it.
-    function openModalOverView(id) {
+    function openModalOverView(id, from) {
         const item = AC_DATABASE.find(i => i.id === id);
         if (!item) return;
 
@@ -171,6 +233,7 @@
         A.pushReadOnlyHistoryState();
         A.dom.modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+        takeFocus(from);
     }
 
     // Show another item in the open over-view modal (reading order "Next").
@@ -178,15 +241,17 @@
         const item = AC_DATABASE.find(i => i.id === id);
         if (!item || !isOverView) return;
         currentItemId = id;
+        const nextOrder = focusedNextOrder();
         populateGallery(item);
         populateItemInfo(item);
         populateCollectionControls(id);
         // Desktop scrolls the details pane, phones the whole modal.
         document.querySelector('#itemModal .modal-details').scrollTop = 0;
         document.getElementById('itemModal').scrollTop = 0;
+        takeFocus(null, nextOrder);
     }
 
-    function openReadOnlyModal(id) {
+    function openReadOnlyModal(id, from) {
         const item = AC_DATABASE.find(i => i.id === id);
         if (!item) return;
 
@@ -208,15 +273,19 @@
         // Show modal WITHOUT changing the visible hash (keep profile hash intact)
         dom.modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+        takeFocus(from);
     }
 
     function closeModal(options) {
         const skipClearHash = !!(options && options.skipClearHash);
         const skipHistoryPop = !!(options && options.skipHistoryPop);
+        // Set by handleHash when a link in the window led to another view
+        const leaveFocus = !!(options && options.leaveFocus);
         const dom = A.dom;
         dom.modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
         document.getElementById('itemModal').classList.remove('landscape');
+        returnFocus(leaveFocus);
         currentItemId = null;
         galleryImages = [];
         galleryIndex = 0;
@@ -291,14 +360,20 @@
         }
 
         if (hasMultiple) {
+            // The dots are redrawn on every change: a dot that had focus
+            // hands it to the dot of the image now showing
+            const hadFocus = dom.galleryDots.contains(document.activeElement);
             dom.galleryDots.classList.add('visible');
             dom.galleryDots.innerHTML = '';
             for (let i = 0; i < count; i++) {
                 const dot = document.createElement('button');
                 dot.className = 'gallery-dot' + (i === galleryIndex ? ' active' : '');
+                dot.setAttribute('aria-label', `Image ${i + 1} of ${count}`);
+                if (i === galleryIndex) dot.setAttribute('aria-current', 'true');
                 dot.addEventListener('click', () => galleryGoTo(i));
                 dom.galleryDots.appendChild(dot);
             }
+            if (hadFocus) dom.galleryDots.children[galleryIndex].focus({ preventScroll: true });
         } else {
             dom.galleryDots.classList.remove('visible');
             dom.galleryDots.innerHTML = '';
@@ -348,6 +423,11 @@
         open() {
             this.render();
             this.overlay.classList.add('active');
+            // A dialog over the item window: it takes focus and Tab while
+            // it is open, and hands both back when it closes
+            this.returnTo = document.activeElement;
+            document.getElementById('lightboxClose').focus();
+            this.release = A.trapFocus(this.overlay);
             // Push a history entry so browser back closes the lightbox
             // without closing the modal underneath.
             A.pushLightboxHistoryState();
@@ -355,6 +435,13 @@
         close(options) {
             const skipHistoryPop = !!(options && options.skipHistoryPop);
             this.overlay.classList.remove('active');
+            if (this.release) {
+                this.release();
+                this.release = null;
+                const modal = document.getElementById('itemModal');
+                const back = modal.contains(this.returnTo) ? this.returnTo : A.dom.modalClose;
+                back.focus({ preventScroll: true });
+            }
             // skipHistoryPop is set when close() is invoked from handleHash's
             // back-button branch — the browser already popped the entry.
             if (!skipHistoryPop) {

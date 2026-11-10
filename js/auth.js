@@ -406,9 +406,11 @@
         el('accountSignIn').addEventListener('click', beginSignIn);
         el('accountProfile').addEventListener('click', () => A.openShareModal());
         el('syncBannerSignIn').addEventListener('click', beginSignIn);
-        el('shareSignInLink').addEventListener('click', (e) => {
-            e.preventDefault();
-            beginSignIn();
+        ['shareSignInLink', 'sharePublishSignInLink'].forEach(id => {
+            el(id).addEventListener('click', (e) => {
+                e.preventDefault();
+                beginSignIn();
+            });
         });
         el('syncBannerClose').addEventListener('click', () => {
             store.set(BANNER_KEY, '1');

@@ -36,7 +36,7 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 - **Static site** — the database and collection tracking run entirely in the browser (LocalStorage); a small Cloudflare Worker handles sign-in, sync and sharing
 - **Responsive** — works on desktop, tablet, and mobile with touch swipe support. On phones the filters fold behind a **Filters** button that shows how many are active
 - **One design language** — the dark Animus-inspired look with gold for actions and progress, green for owned, purple for read and blue for wishlist, the same on every screen (see [Design system](#design-system))
-- **Accessible** — every control works from the keyboard with one visible focus ring, text meets WCAG AA contrast, toasts are announced to screen readers, and animations stop when the system asks for reduced motion
+- **Accessible** — every control works from the keyboard with one visible focus ring, dialogs keep Tab inside and hand focus back when they close, text meets WCAG AA contrast, toasts are announced to screen readers, and animations stop when the system asks for reduced motion
 
 ## Screenshots
 
@@ -106,7 +106,7 @@ You can optionally publish your collection for the community:
 3. You get a public profile URL you can share with friends or on social media
 4. Your profile appears on the **Collector's Leaderboard**, ranked by items owned
 5. Open **My public profile** in the account menu and click **Update Profile** anytime to sync your latest collection. When you're signed in, the profile belongs to your account and updates automatically; signing in links a profile you shared earlier from that browser
-6. You can delete your public profile at any time from the same window
+6. You can delete your public profile at any time from the same window. Signed out, only the browser you published from can update or delete it (clearing that browser's data takes that away), and the publish window says so
 
 Sharing is entirely optional. Your local collection works independently — sharing just creates a public snapshot of your owned items.
 

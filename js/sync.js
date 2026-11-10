@@ -553,13 +553,24 @@
         document.getElementById('mergeConflictCount').textContent = conflicts;
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+        // Tab stays in the dialog, also when it opens over an item. The
+        // choice hands focus back to where it was, or to the Close button
+        // of a dialog still open behind, and the page stays locked while
+        // that dialog is open.
+        const before = document.activeElement;
+        const releaseFocus = A.trapFocus(overlay.querySelector('.modal'));
 
         return new Promise(resolve => {
             const buttons = overlay.querySelectorAll('[data-strategy]');
             const choose = (e) => {
                 buttons.forEach(b => b.removeEventListener('click', choose));
                 overlay.classList.remove('active');
-                document.body.style.overflow = '';
+                const behind = document.querySelector('.modal-overlay.active');
+                document.body.style.overflow = behind ? 'hidden' : '';
+                releaseFocus();
+                const back = before && before !== document.body && before.isConnected && before.getClientRects().length > 0
+                    ? before : behind && behind.querySelector('.modal-close');
+                if (back) back.focus({ preventScroll: true });
                 resolve(e.currentTarget.dataset.strategy);
             };
             buttons.forEach(b => b.addEventListener('click', choose));

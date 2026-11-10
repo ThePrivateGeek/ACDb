@@ -50,8 +50,23 @@
         if (document.getElementById('leaderboardView').style.display !== 'none') showLeaderboard();
     }
 
+    // The dialog takes focus when it opens and keeps Tab inside; closing it
+    // puts focus back on what opened it, or on the account button when that
+    // has gone (the header's Publish button after publishing, a menu item).
+    let shareOpener = null;
+    let releaseShareFocus = null;
+
+    function showShareModal(first) {
+        document.getElementById('shareModalOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (!releaseShareFocus) {
+            shareOpener = document.activeElement;
+            releaseShareFocus = A.trapFocus(document.getElementById('shareModal'));
+        }
+        first.focus();
+    }
+
     function openShareModal() {
-        const overlay = document.getElementById('shareModalOverlay');
         const formSection = document.getElementById('shareFormSection');
         const manageSection = document.getElementById('shareManageSection');
         const successSection = document.getElementById('shareSuccessSection');
@@ -92,8 +107,7 @@
             document.getElementById('shareUpdateBtn').textContent = 'Update Profile';
             document.getElementById('shareDeleteBtn').disabled = false;
             document.getElementById('shareDeleteBtn').textContent = 'Delete Profile';
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            showShareModal(document.getElementById('shareModalClose'));
             return;
         }
 
@@ -111,15 +125,24 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Publish';
         document.getElementById('shareNameStatus').textContent = '';
+        // Signed out, the profile belongs to a token kept in this browser:
+        // say so before publishing, with the way round it when there is one
+        document.getElementById('sharePublishHint').hidden = A.isSignedIn();
+        document.getElementById('sharePublishSignIn').hidden = !A.isSyncEnabled();
 
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        nameInput.focus();
+        showShareModal(nameInput);
     }
 
     function closeShareModal() {
         document.getElementById('shareModalOverlay').classList.remove('active');
         document.body.style.overflow = '';
+        if (!releaseShareFocus) return;
+        releaseShareFocus();
+        releaseShareFocus = null;
+        const opener = shareOpener && shareOpener.isConnected && shareOpener.getClientRects().length > 0
+            ? shareOpener : document.getElementById('accountBtn');
+        opener.focus();
+        shareOpener = null;
     }
 
     async function checkNameAvailability(name) {
@@ -201,6 +224,8 @@
                 document.getElementById('shareFormSection').style.display = 'none';
                 document.getElementById('shareSuccessSection').style.display = '';
                 document.getElementById('shareUrl').value = data.shareUrl;
+                // The Publish button has just been hidden with the form
+                document.getElementById('shareCopyUrl').focus();
                 updateShareButton();
                 A.showToast('Collection published!', 'success');
             } else {

@@ -459,7 +459,12 @@
     function showCharacters(slug) {
         const wasVisible = isVisible();
         const prevSlug = wasVisible ? currentSlug : null;
-        const focusWasHere = view.contains(document.activeElement) || document.activeElement === document.body;
+        // Focus follows a link from this view or another one (now hidden,
+        // like the item window); on a fresh load (focus on the body) it
+        // stays where it is. The same rule as the Games view.
+        const active = document.activeElement;
+        const focusWasHere = view.contains(active)
+            || (!!active && active !== document.body && !(active.isConnected && active.getClientRects().length > 0));
         let character = slug ? findCharacterBySlug(slug) : null;
         if (slug && !character) {
             // An unknown character: show the list
@@ -474,9 +479,9 @@
         view.style.display = '';
         if (wasVisible && !prevSlug && slug) listScroll = window.scrollY;
         currentSlug = slug;
-        const changed = wasVisible && prevSlug !== slug;
+        const changed = prevSlug !== slug;
         const chipScrolls = chipRowScrolls();
-        render(changed);
+        render(wasVisible && changed);
         restoreChipRows(chipScrolls);
         if (slug) {
             if (prevSlug !== slug) window.scrollTo({ top: 0, behavior: 'instant' });
@@ -487,7 +492,7 @@
         }
         if (!changed || !focusWasHere) return;
         // The link that was clicked is gone: move focus to what replaced it
-        const card = !slug && content.querySelector(`[data-character-slug="${CSS.escape(prevSlug)}"]`);
+        const card = !slug && prevSlug && content.querySelector(`[data-character-slug="${CSS.escape(prevSlug)}"]`);
         const target = card || content.querySelector('.page-title');
         if (!card) target.tabIndex = -1;
         target.focus({ preventScroll: true });

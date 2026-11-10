@@ -216,12 +216,15 @@
     // Keeps Tab and Shift+Tab inside an open dialog. The dialog frame itself
     // (tabindex="-1") isn't in the cycle, so focus on it, or anywhere
     // outside the list, wraps to the first or last control. Returns a
-    // function that releases the trap.
+    // function that releases the trap. Only the newest trap answers Tab, so
+    // a dialog can open over another (the lightbox over the item window,
+    // the merge dialog over anything) and hand Tab back when it closes.
     const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    const focusTraps = [];
 
     function trapFocus(container) {
         function onKeydown(e) {
-            if (e.key !== 'Tab') return;
+            if (e.key !== 'Tab' || focusTraps[focusTraps.length - 1] !== onKeydown) return;
             const controls = [...container.querySelectorAll(FOCUSABLE)]
                 .filter(el => el.getClientRects().length > 0);
             if (controls.length === 0) {
@@ -243,8 +246,13 @@
                 first.focus();
             }
         }
+        focusTraps.push(onKeydown);
         document.addEventListener('keydown', onKeydown);
-        return () => document.removeEventListener('keydown', onKeydown);
+        return () => {
+            document.removeEventListener('keydown', onKeydown);
+            const at = focusTraps.indexOf(onKeydown);
+            if (at !== -1) focusTraps.splice(at, 1);
+        };
     }
 
     // ---- Share links ----
