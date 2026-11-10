@@ -1738,10 +1738,13 @@ window.ACDB = window.ACDB || {};
         ACDB.consumeAuthRedirect();
 
         // The toolbar sticks just under the header, whose height changes with
-        // the layout (tabs wrap to their own row on narrower screens).
+        // the layout (tabs wrap to their own row on narrower screens). The
+        // height is set on the toolbar, the only thing that reads it: set on
+        // the page, it would make the browser restyle every card.
         const header = document.querySelector('.main-header');
+        const toolbar = document.querySelector('.toolbar');
         new ResizeObserver(() => {
-            document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+            toolbar.style.setProperty('--header-height', header.offsetHeight + 'px');
         }).observe(header);
 
         initFilters();

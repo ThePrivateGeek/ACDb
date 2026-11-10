@@ -17,7 +17,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
 ## Hard constraints
 
 - **No build step, no bundler, no npm dependencies, no frameworks.** Vanilla JS and plain CSS.
-- **Script load order matters:** `index.html` loads `js/*.js` as plain `<script>` tags, with `app.js` last. Each module is an IIFE that hangs its API on `window.ACDB` (`const A = window.ACDB`).
+- **Script load order matters:** `index.html` loads `js/*.js` as plain `<script>` tags, with `app.js` last. Each module is an IIFE that hangs its API on `window.ACDB` (`const A = window.ACDB`). Every script tag has a matching `<link rel="preload" as="script">` line in the head, so the scripts download together (the validator warns when the lists differ).
 - **Content Security Policy** (a `<meta>` tag in `index.html` and `privacy.html`):
   - Scripts, images and API calls are limited to the site itself, `api.acdb.workers.dev` and Cloudflare's analytics beacon.
   - Fonts come only from Google Fonts.

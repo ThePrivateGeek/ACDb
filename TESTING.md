@@ -17,6 +17,8 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] View source: one `application/ld+json` block that parses as JSON; no `keywords` tag; the three descriptions (description, `og:description`, `twitter:description`) match
 - [ ] With JavaScript off (DevTools → Run command → Disable JavaScript), a paragraph under the header says what the site is
 - [ ] The console shows no Content Security Policy message
+- [ ] The scripts download together: in DevTools → Network (filter JS, "Disable cache" on, throttling "Fast 4G"), the `js/` files all start at the same moment, not one after another, and the console has no "preloaded but not used" warning
+- [ ] The toolbar sticks right under the header while scrolling at 1600, 1200 and 1000 px, and still does after the window is narrowed from 1600 to 1200 px without a reload (the header changes height); on a phone it scrolls away with the page
 
 ## 2. Search
 - [ ] Type in search box — results filter live

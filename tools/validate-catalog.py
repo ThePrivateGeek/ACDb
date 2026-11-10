@@ -70,6 +70,8 @@ Checks:
   count      a warning when the "680+ official" count in index.html's
              descriptions is COUNT_CLAIM_MARGIN or more items behind the
              catalog
+  preloads   a warning when a script tag in index.html has no preload line
+             in the head, or a preload line has no script tag
   item pages the pages in item/ and items/ and sitemap.xml match what
              tools/build-item-pages.py would write now: none missing, out
              of date or left over
@@ -715,6 +717,22 @@ def check_item_count_claims(items, warnings):
                             "update the three descriptions and the README")
 
 
+def check_script_preloads(warnings):
+    """Every script tag in index.html has a preload line in the head, and the
+    other way round. Without its line a script downloads only after the one
+    before it; a line with no script downloads a file nothing runs."""
+    text = INDEX_HTML.read_text(encoding="utf-8")
+    scripts = re.findall(r'<script src="(js/[^"]+)"', text)
+    preloads = re.findall(r'<link rel="preload" as="script" href="([^"]+)"', text)
+    for src in scripts:
+        if src not in preloads:
+            warnings.append(f'index.html: {src} has no <link rel="preload" as="script"> line in the head, '
+                            "so it downloads late")
+    for href in preloads:
+        if href not in scripts:
+            warnings.append(f"index.html: the preload line for {href} has no script tag")
+
+
 def check_thumbs(images, errors, warnings):
     advice = "run python3 tools/build-thumbs.py"
     manifest = thumbs.load_manifest()
@@ -907,6 +925,7 @@ def main():
     check_thumbs(images, errors, warnings)
     check_new_image_sizes(errors, warnings)
     check_item_count_claims(items, warnings)
+    check_script_preloads(warnings)
     check_item_pages(errors)
 
     for w in warnings:

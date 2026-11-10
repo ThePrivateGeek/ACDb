@@ -1047,7 +1047,7 @@ textarea:focus-visible {
     border-bottom: 1px solid var(--line);
     padding: 0.75rem 2rem;
     position: sticky;
-    top: var(--header-height, 76px);
+    top: var(--header-height, 76px);   /* set on this element by init() in js/app.js */
     z-index: 99;
 }
 

@@ -32,6 +32,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+    <!-- One line per script tag at the end of the body, so the scripts
+         download together: with a CSP <meta>, Chrome doesn't look ahead for
+         them and would fetch them one at a time. tools/validate-catalog.py
+         warns when the two lists differ. -->
+    <link rel="preload" as="script" href="js/database.js">
+    <link rel="preload" as="script" href="js/images.js">
+    <link rel="preload" as="script" href="js/thumbs.js">
+    <link rel="preload" as="script" href="js/slug-aliases.js">
+    <link rel="preload" as="script" href="js/reading-orders.js">
+    <link rel="preload" as="script" href="js/games.js">
+    <link rel="preload" as="script" href="js/characters.js">
+    <link rel="preload" as="script" href="js/utils.js">
+    <link rel="preload" as="script" href="js/modal.js">
+    <link rel="preload" as="script" href="js/stats.js">
+    <link rel="preload" as="script" href="js/collection.js">
+    <link rel="preload" as="script" href="js/sync.js">
+    <link rel="preload" as="script" href="js/game-progress.js">
+    <link rel="preload" as="script" href="js/auth.js">
+    <link rel="preload" as="script" href="js/sharing.js">
+    <link rel="preload" as="script" href="js/reading.js">
+    <link rel="preload" as="script" href="js/games-view.js">
+    <link rel="preload" as="script" href="js/characters-view.js">
+    <link rel="preload" as="script" href="js/app.js">
+
     <!-- Structured data for search results (data, not a script, so the CSP doesn't apply) -->
     <script type="application/ld+json">
     {
@@ -694,6 +718,7 @@
         <svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z"/></svg>
     </button>
 
+    <!-- Each script here has a preload line in the head -->
     <script src="js/database.js"></script>
     <script src="js/images.js"></script>
     <script src="js/thumbs.js"></script>

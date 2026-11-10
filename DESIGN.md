@@ -417,7 +417,7 @@ Real pages that search engines and visitors without JavaScript can read. **`tool
    - Show and hide parts with the `hidden` attribute or `style.display = ''`. Never set `display: block` on something whose CSS uses grid or flex.
 6. **Code:**
    - New code lives in its own file wrapped in an IIFE (`(function () { 'use strict'; const A = window.ACDB; … })()`) and exports through `A.foo = foo` at the bottom.
-   - The file gets a `<script>` tag in `index.html` before `app.js` (load order matters).
+   - The file gets a `<script>` tag in `index.html` before `app.js` (load order matters), and a matching `<link rel="preload" as="script">` line in the head. Without that line the script downloads only after the one before it, because Chrome doesn't look ahead for scripts on a page with a CSP `<meta>`. The validator warns when the two lists differ.
    - Read and write LocalStorage through `ACDB.store` (`get`, `set`, `remove`), never `localStorage` directly: storage can be blocked or full, and an exception there must not stop the page.
    - New CSS goes in its own `/* ---- Foo View ---- */` block in `style.css`, near related views, using tokens only.
 7. **Docs:**
