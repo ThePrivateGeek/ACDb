@@ -3247,7 +3247,7 @@ button.stats-bar-row {
    no number, and a Played switch where a book has Read. The gold stripe is
    a background, not a box-shadow, so the flash doesn't hide it */
 .reading-entry-game {
-    grid-template-columns: 36px minmax(0, 1fr) auto;
+    grid-template-columns: 48px minmax(0, 1fr) auto;   /* a book cover's width */
     gap: var(--s3);
     margin-left: calc(2.5rem + var(--s4));
     padding: var(--s2) var(--s4) var(--s2) var(--s3);
@@ -3272,27 +3272,18 @@ button.stats-bar-row {
 }
 
 .reading-entry-game .reading-cover {
-    width: 36px;
-}
-
-.reading-game-icon {
-    display: grid;
-    place-items: center;
-    height: 36px;
-    border-radius: var(--r-md);
-    background: var(--gold-tint-2);
-    color: var(--gold);
-}
-
-.reading-game-icon svg {
-    width: 22px;
-    height: 22px;
+    width: 48px;
 }
 
 /* Box art is wider than a book cover: keep its shape so the logo isn't cut */
 .reading-entry-game .reading-game-cover {
     height: auto;
     aspect-ratio: 3 / 4;
+}
+
+.reading-game-cover svg {
+    width: 22px;
+    height: 22px;
 }
 
 .reading-game-cover img {
@@ -3314,9 +3305,37 @@ a.reading-title {
     margin-bottom: 0.5rem;
 }
 
-/* ---- Game DLC rows (a game's page, js/games-view.js) ---- */
+/* ---- DLC covers without art of their own (js/utils.js dlcCoverHTML) ----
+   The game's box art, blurred and darkened, under the gold controller icon:
+   every DLC has art, and it reads as part of its game. The art is scaled up
+   a little so the blur's soft edge stays outside the box */
+.cover-ph {
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: var(--surface-bar);
+    color: var(--gold);
+}
+
+.cover-ph img.cover-ph-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(1.5px) brightness(0.42) saturate(0.85);
+    transform: scale(1.1);
+}
+
+.cover-ph svg {
+    position: relative;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+}
+
+/* ---- DLC cards (a game's page, js/games-view.js) ---- */
 .game-dlc-group + .game-dlc-group {
-    margin-top: var(--s4);
+    margin-top: var(--s5);
 }
 
 .game-dlc-group .label {
@@ -3330,15 +3349,52 @@ a.reading-title {
     gap: var(--s3);
 }
 
+/* A card: the cover across the top, then the Played tick beside the name
+   and facts. The tick comes first in the markup, so it is still the first
+   thing in the card for a keyboard or screen reader */
 .game-dlc {
     display: grid;
-    grid-template-columns: 28px 36px minmax(0, 1fr);
+    grid-template-columns: 28px minmax(0, 1fr);
+    grid-template-areas:
+        "cover cover"
+        "check body";
     align-items: start;
-    gap: var(--s3);
-    border-radius: var(--r-sm);   /* rounds the highlight ring (.flash) */
+    align-content: start;
+    gap: var(--s2);
+    padding: var(--s2);
+    background: var(--surface-card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
 }
 
-/* Small cover, or the controller icon for DLCs without one */
+.game-dlc.played {
+    border-color: var(--read-edge);
+}
+
+.game-dlc .list-check {
+    grid-area: check;
+}
+
+.game-dlc .game-dlc-cover {
+    grid-area: cover;
+    width: 100%;
+}
+
+.game-dlc .game-dlc-cover svg {
+    width: 40px;
+    height: 40px;
+}
+
+.game-dlc .cover-ph img.cover-ph-art {
+    filter: blur(3px) brightness(0.4) saturate(0.85);
+}
+
+.game-dlc .game-dlc-body {
+    grid-area: body;
+}
+
+/* Small cover, or the controller icon for DLCs without one (also the game
+   rows on a character's page) */
 .game-dlc-cover {
     display: grid;
     place-items: center;
@@ -3373,24 +3429,27 @@ a.reading-title {
     font-weight: 600;
 }
 
-.game-dlc .reading-meta {
-    margin-top: 0.1rem;
+.game-dlc .game-dlc-name {
+    display: block;
+    line-height: 1.3;
 }
 
-/* The DLC's Played tick, level with its cover */
-.game-dlc .list-check {
-    align-self: center;
+/* The facts stack, one to a line: the card is narrow */
+.game-dlc .reading-meta {
+    flex-direction: column;
+    gap: 0;
+    margin-top: var(--s1);
+    font-size: var(--fs-xs);
+    line-height: 1.45;
 }
 
 .game-dlc-episodes {
-    display: block;
-    margin-top: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--s1);
     color: var(--text-2);
-    font-size: var(--fs-sm);
-}
-
-.game-dlc-episode {
-    white-space: nowrap;
+    font-size: var(--fs-xs);
+    line-height: 1.45;
 }
 
 .game-dlc-date {
@@ -3704,7 +3763,7 @@ a.reading-title {
    in Complete Lore, indented under the rail */
 .games-tl-dlc {
     display: grid;
-    grid-template-columns: 36px minmax(0, 1fr) auto;
+    grid-template-columns: 64px minmax(0, 1fr) auto;   /* under the game cards' 88px */
     align-items: center;
     gap: var(--s3);
     margin-left: var(--s5);
@@ -3719,6 +3778,15 @@ a.reading-title {
 
 .games-tl-dlc:hover {
     border-color: var(--gold);
+}
+
+.games-tl-dlc .game-dlc-cover {
+    width: 100%;
+}
+
+.games-tl-dlc .game-dlc-cover svg {
+    width: 26px;
+    height: 26px;
 }
 
 .games-tl-dlc-name {
@@ -3824,10 +3892,17 @@ a.reading-title {
     display: none;
 }
 
-/* The DLCs run in columns on wide screens */
+/* The DLC cards: as many 180px columns as fit, so a release date stays on
+   one line (150px on phones, for two columns) */
 .game-dlcs .game-dlc-list {
-    grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
-    gap: var(--s3) var(--s5);
+    grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+    gap: var(--s4) var(--s3);
+}
+
+@media (max-width: 768px) {
+    .game-dlcs .game-dlc-list {
+        grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+    }
 }
 
 @media (max-width: 768px) {
@@ -3873,7 +3948,9 @@ a.reading-title {
         gap: var(--s3);
     }
 
+    /* The game cards' covers are 64px here: the DLC rows' stay smaller */
     .games-tl-dlc {
+        grid-template-columns: 48px minmax(0, 1fr) auto;
         margin-left: 0;
     }
 }
@@ -4379,17 +4456,13 @@ a.reading-title {
     }
 
     .reading-entry-game {
-        grid-template-columns: 36px minmax(0, 1fr) auto;
+        grid-template-columns: 40px minmax(0, 1fr) auto;   /* a book cover's width here */
         margin-left: calc(2rem + 0.6rem);
         padding: var(--s2) 0.75rem var(--s2) var(--s3);
     }
 
     .reading-entry-game .reading-cover {
-        width: 36px;
-    }
-
-    .reading-entry-game .reading-game-icon {
-        height: 36px;
+        width: 40px;
     }
 
     .reading-toggle-text {

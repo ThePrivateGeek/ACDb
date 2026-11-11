@@ -148,7 +148,7 @@
             if (game.remakeOf || !LORE_KINDS.has(game.kind) || game.year == null) return;
             rows.push({ ...game, game: game.name, dlc: false });
             (game.dlcs || []).forEach(dlc => {
-                if (dlc.marker) rows.push({ ...dlc, game: game.name, dlc: true });
+                if (dlc.marker) rows.push({ ...dlc, game: game.name, gameImage: game.image, dlc: true });
             });
         });
         return rows;
@@ -428,10 +428,12 @@
             const href = `#games/${A.slugify(game.game)}`;
             const label = game.dlc ? `Story DLC · ${gameLabel(game.game)}` : 'Game';
             const data = `data-game-row="${esc(game.game)}"${game.dlc ? ` data-dlc="${esc(game.name)}"` : ''}`;
-            // A DLC without a cover of its own (free updates) keeps the icon
-            const picture = game.image
-                ? `<a class="reading-cover reading-game-cover" href="${href}" ${data} aria-label="${esc(game.name)}: open the game" tabindex="-1"><img src="${esc(game.image)}" alt="" loading="lazy"></a>`
-                : `<a class="reading-cover reading-game-icon" href="${href}" ${data} aria-label="${esc(game.name)}: open the game" tabindex="-1">${A.GAME_ICON}</a>`;
+            // A DLC without a cover of its own (free updates) shows its game's
+            // art, blurred, under the controller icon
+            const picture = A.dlcCoverHTML(game.image, game.dlc ? game.gameImage : null, 'reading-cover reading-game-cover', {
+                tag: 'a',
+                attrs: ` href="${href}" ${data} aria-label="${esc(game.name)}: open the game" tabindex="-1"`
+            });
             return `
                 <li class="reading-entry reading-entry-game${played ? ' played' : ''}">
                     ${picture}

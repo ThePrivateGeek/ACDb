@@ -78,8 +78,9 @@
                cropped to about 3:4), when it has one: store art (Xbox
                Store), the Assassin's Creed Wiki, Wikipedia (Freedom Cry) or
                the site owner. The two Crossover Stories share one cover
-               (crossover-stories.webp). Shadows' free updates have none and
-               show a controller icon.
+               (crossover-stories.webp). A DLC without one (Shadows' free updates,
+               most modes) shows its game's cover, blurred and darkened,
+               under a controller icon (A.dlcCoverHTML in js/utils.js).
      episodes  episodic expansions: [{ name, released }], the DLC's own
                "released" being the first episode's
 

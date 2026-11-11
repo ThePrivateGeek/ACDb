@@ -201,6 +201,21 @@
     // The controller icon shown for a game or DLC without a cover
     const GAME_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.5 7h9a5 5 0 0 1 4.9 6l-.8 3.6a2.4 2.4 0 0 1-4.1 1.1L14.4 16H9.6l-2.1 1.7a2.4 2.4 0 0 1-4.1-1.1L2.6 13A5 5 0 0 1 7.5 7Zm-.5 3v1.5H5.5V13H7v1.5h1.5V13H10v-1.5H8.5V10H7Zm8.75 1.25a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm2-2a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg>';
 
+    // A DLC's cover box: its own cover, or, without one, its game's box art
+    // blurred and darkened under the controller icon (DESIGN.md, "DLC
+    // covers"), or just the icon when the game has no cover either.
+    // `cls` is the box's class; `attrs` any extra attributes for it.
+    function dlcCoverHTML(dlcImage, gameImage, cls, { tag = 'span', attrs = '', lazy = true } = {}) {
+        const load = lazy ? ' loading="lazy"' : '';
+        if (dlcImage) {
+            return `<${tag} class="${cls}"${attrs}><img src="${escapeHTML(dlcImage)}" alt=""${load}></${tag}>`;
+        }
+        if (gameImage) {
+            return `<${tag} class="${cls} cover-ph"${attrs}><img class="cover-ph-art" src="${escapeHTML(gameImage)}" alt=""${load}>${GAME_ICON}</${tag}>`;
+        }
+        return `<${tag} class="${cls} game-nocover"${attrs}>${GAME_ICON}</${tag}>`;
+    }
+
     // A game's address on the Games tab: #games/<slug>, e.g. "assassins-creed-ii".
     // Accents are folded first ("altairs", not slugify's "alta-rs"); item
     // slugs keep slugify as is, since their share pages are already out there.
@@ -294,6 +309,7 @@
     A.eraOf = eraOf;
     A.yearLabel = yearLabel;
     A.GAME_ICON = GAME_ICON;
+    A.dlcCoverHTML = dlcCoverHTML;
     A.gameUrlSlug = gameUrlSlug;
     A.findGameBySlug = findGameBySlug;
     A.trapFocus = trapFocus;

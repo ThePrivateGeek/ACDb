@@ -323,7 +323,7 @@
                 <span class="games-tl-year">${A.yearLabel(dlc.year)}</span>
                 <span class="games-tl-dot games-tl-dot-dlc" aria-hidden="true"></span>
                 <a class="games-tl-dlc${played ? ' played' : ''}" href="#games/${slug}" data-game-slug="${slug}" data-dlc="${esc(dlc.name)}">
-                    ${coverHTML(dlc.image, 'game-dlc-cover')}
+                    ${A.dlcCoverHTML(dlc.image, game.image, 'game-dlc-cover')}
                     <span class="games-tl-body">
                         <span class="game-kind">Story DLC · ${esc(shortName(game.name))}</span>
                         <span class="games-tl-dlc-name">${esc(dlc.name)}</span>
@@ -343,15 +343,18 @@
         return `<a class="modal-reading-name" href="#games/${A.gameUrlSlug(game)}">${A.escapeHTML(game.name)}</a>`;
     }
 
-    function dlcHTML(dlc) {
+    // A DLC card on its game's page: cover on top, then the Played tick
+    // beside the name and facts (a DLC without a cover shows the game's art)
+    function dlcHTML(dlc, game) {
         const esc = A.escapeHTML;
         const episodes = dlc.episodes
-            ? `<span class="game-dlc-episodes">${dlc.episodes.map(ep => `<span class="game-dlc-episode">${esc(ep.name)} <span class="game-dlc-date">${A.formatReleased(ep)}</span></span>`).join(' · ')}</span>`
+            ? `<span class="game-dlc-episodes">${dlc.episodes.map(ep => `<span class="game-dlc-episode">${esc(ep.name)} <span class="game-dlc-date">${A.formatReleased(ep)}</span></span>`).join('')}</span>`
             : '';
+        const played = A.isPlayed(dlc.id);
         return `
-            <li class="game-dlc" data-dlc="${esc(dlc.name)}">
+            <li class="game-dlc${played ? ' played' : ''}" data-dlc="${esc(dlc.name)}">
                 ${playedCheckHTML(dlc.id, dlc.name)}
-                <span class="game-dlc-cover">${dlc.image ? `<img src="${esc(dlc.image)}" alt="" loading="lazy">` : A.GAME_ICON}</span>
+                ${A.dlcCoverHTML(dlc.image, game.image, 'game-dlc-cover')}
                 <span class="game-dlc-body">
                     <span class="game-dlc-name">${esc(dlc.name)}</span>
                     <span class="reading-meta">
@@ -416,7 +419,7 @@
             .map(group => `
                 <div class="game-dlc-group">
                     <span class="label">${group.label}</span>
-                    <ul class="game-dlc-list">${group.dlcs.map(dlcHTML).join('')}</ul>
+                    <ul class="game-dlc-list">${group.dlcs.map(dlc => dlcHTML(dlc, game)).join('')}</ul>
                 </div>`).join('');
         const at = GAMES.indexOf(game);
         const prev = GAMES[at - 1];
