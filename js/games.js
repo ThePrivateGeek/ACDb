@@ -97,6 +97,10 @@
    - The Tyranny of King Washington: The Infamy 19 Feb and The Betrayal
      19 Mar 2013 on Xbox 360 and PC (PS3 a day later).
    - The Last Chapter: out 29 Nov 2022, a week before its announced date.
+   - Shared History (added 2026-11-11; the quest The Raven and the Cuckoo,
+     with Mirage's Roshan): out 29 Nov 2022 with The Last Chapter (Ubisoft's
+     announcement, Vulkk's 1.6.2 notes). The game gives no year; the wiki
+     says c. 880s, two decades after Mirage, so it sits at 880.
    - The Lost Archive and Dawn of Ragnarök have no historical year; Claws
      of Awaji and Black Tides are set after Shadows' main story but are
      undated. None of them gets its own place in the lore.
@@ -813,7 +817,8 @@ const GAMES = [
       { "id": 96, "name": "Crossover Stories: A Fated Encounter", "type": "story", "image": "images/games/dlc/crossover-stories.webp", "year": 887, "setting": "c. 887", "released": "2021-12-14", "marker": true, "note": "Free update" },
       { "id": 97, "name": "Dawn of Ragnarök", "type": "expansion", "image": "images/games/dlc/dawn-of-ragnarok.webp", "setting": "Odin's memories", "released": "2022-03-10" },
       { "id": 98, "name": "The Forgotten Saga", "type": "mode", "image": "images/games/dlc/the-forgotten-saga.webp", "setting": "Odin's memories", "released": "2022-08-02", "note": "Free update" },
-      { "id": 99, "name": "The Last Chapter", "type": "story", "image": "images/games/dlc/the-last-chapter.webp", "year": 889, "setting": "c. 889", "released": "2022-11-29", "marker": true, "note": "Free update" }
+      { "id": 99, "name": "The Last Chapter", "type": "story", "image": "images/games/dlc/the-last-chapter.webp", "year": 889, "setting": "c. 889", "released": "2022-11-29", "marker": true, "note": "Free update" },
+      { "id": 114, "name": "Shared History: The Raven and the Cuckoo", "type": "story", "image": "images/games/dlc/shared-history.webp", "year": 880, "setting": "c. 880s", "released": "2022-11-29", "marker": true, "note": "Free update" }
     ]
   },
   {
