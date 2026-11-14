@@ -1773,13 +1773,102 @@ button.stats-bar-row {
 }
 
 /* ---- Results Count ---- */
+/* The count on the left and the top collectors on the right. At 1180px and
+   below the collectors get a line of their own under the count (see the
+   media query): by a fixed rule, not by wrapping, so the grid doesn't move
+   when the names arrive. */
+.results-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s1) var(--s5);
+    margin-bottom: var(--s3);
+}
+
 .results-count {
+    flex-shrink: 0;
     font-size: var(--fs-md);
     color: var(--text-2);
-    margin-bottom: 0.75rem;
     font-family: var(--font-data);
     min-height: 1.2em;
     letter-spacing: 0.5px;
+}
+
+/* ---- Top collectors ---- */
+/* The leaderboard's top three (loadTopCollectors in sharing.js). One row that
+   never wraps: where it is wider than its room (phones), it scrolls sideways
+   inside itself like a chip row, with no scrollbar. The padding leaves room
+   for its links' focus rings, which the scrolling would cut off, and the
+   negative margin takes that room back. It is empty until the leaderboard
+   has loaded and keeps a line's height meanwhile. */
+.top-collectors {
+    display: flex;
+    align-items: center;
+    gap: var(--s4);
+    min-width: 0;
+    min-height: calc(1.6em + 2 * var(--s1));
+    margin: calc(-1 * var(--s1));
+    padding: var(--s1);
+    overflow-x: auto;
+    scrollbar-width: none;
+    font-size: var(--fs-sm);
+}
+
+@media (max-width: 1180px) {
+    .results-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+.top-collectors::-webkit-scrollbar {
+    display: none;
+}
+
+.top-collectors > * {
+    flex-shrink: 0;
+}
+
+.top-collectors-list {
+    display: flex;
+    align-items: center;
+    gap: var(--s4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Medal, name and count are one link to the profile */
+.top-collector {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s2);
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.top-collector-name {
+    max-width: 22ch;
+    overflow: hidden;
+    color: var(--gold);
+    font-weight: 600;
+    text-overflow: ellipsis;
+}
+
+.top-collector:hover .top-collector-name {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.top-collector-count {
+    color: var(--text-2);
+    font-family: var(--font-data);
+    font-size: var(--fs-xs);
+}
+
+.top-collectors .link {
+    white-space: nowrap;
 }
 
 /* ---- Main Content ---- */
@@ -4595,6 +4684,13 @@ a.reading-title {
 .medal.gold { background: rgba(255, 215, 0, 0.14); color: #ffd700; }
 .medal.silver { background: rgba(192, 192, 192, 0.14); color: #c0c0c0; }
 .medal.bronze { background: rgba(205, 127, 50, 0.16); color: #d98c45; }
+
+/* In a line of text (the collection's top collectors) */
+.medal-sm {
+    width: 20px;
+    height: 20px;
+    font-size: var(--fs-label);
+}
 
 .leaderboard-cta {
     display: flex;

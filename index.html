@@ -328,7 +328,11 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="results-count" id="resultsCount"></div>
+        <div class="results-row">
+            <div class="results-count" id="resultsCount"></div>
+            <!-- The leaderboard's top three (sharing.js); hidden when there is nothing to show -->
+            <div class="top-collectors" id="topCollectors"></div>
+        </div>
         <div class="items-grid" id="itemsContainer">
             <!-- Items populated by JS -->
         </div>

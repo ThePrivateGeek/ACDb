@@ -129,7 +129,7 @@ On a single-column page, put the **whole view** (title, intro line and list) in 
 | Width | What changes |
 |---|---|
 | 1520 px | Header drops the logo subtitle and tightens the nav; the collection toolbar puts the search and the grid/list control on one row and the filters on the next |
-| 1180 px | Header nav moves to its own full-width row |
+| 1180 px | Header nav moves to its own full-width row; the collection's top collectors move to a line of their own under the count |
 | 1024 px | Item modal stacks to one column |
 | **768 px** | **The phone layout**: header rows, filters behind the "Filters (n)" button, one-column forms, `1rem` page padding, smaller list rows |
 | 600 px | Page titles drop to `--fs-xl`; leaderboard cards tighten |
@@ -374,6 +374,34 @@ Real pages that search engines and visitors without JavaScript can read. **`tool
 - The grey `#666` and the wording were the owner's choice; don't change them.
 - Other lists use the plain-text pattern in [section 7](#7-patterns), not this one.
 
+### Top collectors line (collection)
+
+The leaderboard's first three, on the collection's count line (`.results-row`: "Showing all 680 items" on the left, the line on the right). Filled by `loadTopCollectors()` in `js/sharing.js`.
+
+```html
+<div class="results-row">
+  <div class="results-count" id="resultsCount">Showing all 680 items</div>
+  <div class="top-collectors" id="topCollectors">
+    <span class="label" id="topCollectorsLabel">Top collectors</span>
+    <ol class="top-collectors-list" aria-labelledby="topCollectorsLabel">
+      <li><a class="top-collector" href="#profile/masyafmentor">
+        <span class="medal medal-sm gold" aria-hidden="true">1</span>
+        <span class="top-collector-name">MasyafMentor</span>
+        <span class="top-collector-count">412<span class="sr-only"> items owned</span></span>
+      </a></li>
+      …
+    </ol>
+    <a class="link" href="#leaderboard">All 10 collectors →</a>
+  </div>
+</div>
+```
+- **It doesn't move.** No ticker, no rotation: three names fit on a line, and anything that keeps moving needs a pause control and must stop under reduced motion.
+- Medal, name and count are one link to the profile (gold name, underlined on hover like `.link`; the count in `--font-data`). `.medal-sm` is the leaderboard medal at 20 px, for a line of text. A long name cuts off at 22ch.
+- The link reads "All N collectors →" when there are more collectors than the line shows, otherwise "See the leaderboard →".
+- **Widths:** above 1180 px it shares the count's line; at 1180 px and below it has a line of its own under the count, set by the breakpoint rather than by wrapping, so the grid never moves when the names arrive (the empty line keeps its height while loading). Where it is wider than its room (phones) it is one row that scrolls sideways inside itself with no scrollbar, like a chip row; a focused link that is half off the edge is brought into view, and the row's padding leaves room for the focus ring.
+- **It is an extra, not the view's content**, so it has no loading, empty or error text: with no collectors, or when the request fails, the line is hidden. It is read once per page load, the first time the collection shows.
+- It stays while the grid is searched or filtered. It is only on the collection, never on a profile or another tab.
+
 ### Icons
 
 - Icons are inline SVG, `viewBox="0 0 24 24"`, `fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"`. They take their colour from the text.
@@ -401,7 +429,8 @@ Real pages that search engines and visitors without JavaScript can read. **`tool
   - A filter with a value (search text, a ticked multi-select, a status other than "All Items") gets a `--gold-deep` edge on `--surface-set`: `.has-selection` on a `.multi-select`, `.is-set` on the search box and `.filter-select`, toggled in `updateFilterCount()`. Sort is not a filter and never gets it. Focus and an open dropdown still show the bright `--gold` edge.
   - On phones the filters fold behind "Filters (n)", where n is the number of active filters.
 - **Sign-in is optional everywhere.** Every feature must work signed out, from this browser's own copy of the collection. Signed-in-only extras say so with a `.link` to sign in, never a wall.
-- **Anything public** (profiles, the leaderboard) shows the display name and counts only.
+- **Anything public** (profiles, the leaderboard, the collection's top collectors) shows the display name and counts only.
+- **How many collectors:** the number of public profiles is said in words where it invites ("All 10 collectors →" on the collection, "10 collectors so far." above the leaderboard), never as a number on a header tab: there it reads as a notification, and on phones the Leaderboard tab is off the edge of the row.
 
 ## 8. Building a new view
 
@@ -479,7 +508,7 @@ These keep literal values on purpose. Don't "fix" them, and don't copy them else
 
 - The **logo**, the **header meter's numbers**, the **Google sign-in button** (Google's brand colours), the **lightbox**.
 - The **NEW sticker** (`.badge-new`): a red gradient, rotated and poking outside the card.
-- **Leaderboard medals** (`.medal.gold/.silver/.bronze`): metal colours.
+- **Leaderboard medals** (`.medal.gold/.silver/.bronze`): metal colours, and their sizes in px (28, or 20 for `.medal-sm`).
 - The **empty-state line**: `#666`, italic, 1.1rem. The owner chose to keep the original look (3.4:1 contrast).
 - The **footer emblem watermark**: gold at 5 % opacity.
 - `#fff` as text on `-solid` status fills and on hover of `.btn-danger`.
@@ -581,4 +610,9 @@ Owner decisions this book rests on, so they aren't reopened:
   - Pages that no longer match the catalog are a validator error, like stale thumbnails, so a commit can't ship old text for search engines to index.
   - Game and character pages (`/game/`, `/character/`) wait until these pages show a gain in search after four weeks.
 - **27 Oct 2026, Games tab:** the tab opens on the Main games chip rather than All. Most visitors come for the console games, and 42 cards with the phone tie-ins first buried them; All and the other kinds stay one chip away, and "Clear search and filters" still shows everything.
+- **14 Nov 2026, top collectors:** the leaderboard's top three are named on the collection, on the "Showing all N items" line, as a still line of links.
+  - Not a ticker: the owner's first idea was a tape moving across the page, dropped because three names fit on one line and nothing else on the site moves by itself.
+  - Not at the end of the game chips' second row (the owner's first spot): that space is there only at some widths and with the current number of chips, and on phones the chips are one swiping row.
+  - The number of collectors goes in the line's link and above the leaderboard, not on the Leaderboard tab.
+  - The privacy page says the top three are named on the front page.
 - **11 Nov 2026, DLC cards:** a game's page shows its DLCs as cover cards rather than rows with a 36 px cover, which made the art hard to see. Elsewhere the DLC rows keep their shape with bigger covers: 64 px in the Games tab's story order (smaller than the game cards' 88 px) and 48 px in Complete Lore (a book cover's width; the gold stripe, kind line and missing number still keep them from passing for books). A DLC without a cover of its own (32 of 72 at the time) shows its game's art, blurred and darkened, under the controller icon, so a page like Shadows' isn't a wall of empty boxes.

@@ -337,8 +337,63 @@
         else if (link.right > row.right) nav.scrollLeft += link.right - row.right;
     }
 
+    // ---- Top collectors (Collection view) ----
+    // The top LEADERBOARD_SIZE profiles and how many profiles there are. The
+    // Worker sends the total from version 2026-11-14; an older one sends only
+    // the list, which is everyone while it is shorter than a full board.
+    async function fetchLeaderboard() {
+        const res = await fetch(`${A.API_URL}/leaderboard`);
+        const data = await res.json();
+        const profiles = data.profiles;
+        let total = Number.isInteger(data.total) ? data.total : null;
+        if (total === null && profiles.length < LEADERBOARD_SIZE) total = profiles.length;
+        return { profiles, total };
+    }
+
+    // The leaderboard's top three beside "Showing all N items", read once per
+    // page load, the first time the collection shows. It is an extra: with no
+    // collectors, or when the request fails, the line is hidden and says
+    // nothing. Until then it is empty and keeps its height (see the CSS).
+    let topCollectorsAsked = false;
+
+    async function loadTopCollectors() {
+        if (topCollectorsAsked) return;
+        topCollectorsAsked = true;
+        const line = document.getElementById('topCollectors');
+        try {
+            const { profiles, total } = await fetchLeaderboard();
+            const top = profiles.slice(0, 3);
+            if (top.length === 0) throw new Error('No collectors');
+            const medals = ['gold', 'silver', 'bronze'];
+            // The list numbers the ranks for screen readers; the medal is decoration
+            line.innerHTML = `
+                <span class="label" id="topCollectorsLabel">${top.length === 1 ? 'Top collector' : 'Top collectors'}</span>
+                <ol class="top-collectors-list" aria-labelledby="topCollectorsLabel">${top.map((profile, idx) => `
+                    <li><a class="top-collector" href="#profile/${A.escapeHTML(profile.displayName.toLowerCase())}">
+                        <span class="medal medal-sm ${medals[idx]}" aria-hidden="true">${idx + 1}</span>
+                        <span class="top-collector-name">${A.escapeHTML(profile.displayName)}</span>
+                        <span class="top-collector-count">${Number(profile.ownedCount)}<span class="sr-only"> items owned</span></span>
+                    </a></li>`).join('')}
+                </ol>
+                <a class="link" href="#leaderboard">${total > top.length ? `All ${total} collectors` : 'See the leaderboard'} →</a>`;
+            // On phones the line scrolls sideways. A browser brings a focused
+            // link into view only when none of it shows, so one that is half
+            // off the edge is brought in here, with room for its ring.
+            line.addEventListener('focusin', event => {
+                const row = line.getBoundingClientRect();
+                const link = event.target.getBoundingClientRect();
+                const ring = 4;
+                if (link.left - ring < row.left) line.scrollLeft -= row.left - link.left + ring;
+                else if (link.right + ring > row.right) line.scrollLeft += link.right - row.right + ring;
+            });
+        } catch {
+            line.hidden = true;
+        }
+    }
+
     function showMainContent() {
         setActiveNav('collection');
+        loadTopCollectors();
         document.querySelector('.toolbar').style.display = '';
         document.querySelector('.game-timeline').style.display = '';
         document.querySelector('.stats-dashboard').style.display = '';
@@ -425,24 +480,33 @@
         leaderboardView.style.display = '';
         document.getElementById('leaderboardBody').innerHTML = '<li class="leaderboard-loading">Loading leaderboard...</li>';
 
+        // The line above the list opens with how many collectors there are,
+        // once the list has loaded ("10 collectors so far.")
+        const totalHTML = text => `<span id="leaderboardTotal"${text ? '' : ' hidden'}>${text}</span>`;
         const ctaEl = document.getElementById('leaderboardCta');
         if (isShared()) {
             const name = getShareName();
-            ctaEl.innerHTML = `You're on the board as <a class="link" href="#profile/${name.toLowerCase()}">${A.escapeHTML(name)}</a>`;
+            ctaEl.innerHTML = `${totalHTML('')}You're on the board as <a class="link" href="#profile/${name.toLowerCase()}">${A.escapeHTML(name)}</a>`;
         } else {
-            ctaEl.innerHTML = '<span>Want to be on here?</span><button class="btn btn-sm btn-publish" id="leaderboardShareLink">Join the Leaderboard</button>';
+            ctaEl.innerHTML = `${totalHTML('')}<span>Want to be on here?</span><button class="btn btn-sm btn-publish" id="leaderboardShareLink">Join the Leaderboard</button>`;
             document.getElementById('leaderboardShareLink').addEventListener('click', openShareModal);
         }
 
         try {
-            const res = await fetch(`${A.API_URL}/leaderboard`);
-            const data = await res.json();
+            const data = await fetchLeaderboard();
             const list = document.getElementById('leaderboardBody');
             list.innerHTML = '';
 
             if (data.profiles.length === 0) {
                 list.innerHTML = '<li class="leaderboard-loading">No collectors yet. Be the first!</li>';
                 return;
+            }
+
+            const totalText = data.total ? `${data.total} ${data.total === 1 ? 'collector' : 'collectors'} so far.` : '';
+            const totalEl = document.getElementById('leaderboardTotal');
+            if (totalEl && totalText) {
+                totalEl.textContent = totalText;
+                totalEl.hidden = false;
             }
 
             // One card per collector, the whole card a link to the profile.
@@ -471,7 +535,7 @@
             const name = getShareName();
             if (name && data.profiles.length >= LEADERBOARD_SIZE
                 && !data.profiles.some(profile => profile.displayName.toLowerCase() === name.toLowerCase())) {
-                ctaEl.innerHTML = `The board shows the top ${LEADERBOARD_SIZE}. Your profile: <a class="link" href="#profile/${name.toLowerCase()}">${A.escapeHTML(name)}</a>`;
+                ctaEl.innerHTML = `${totalHTML(totalText)}The board shows the top ${LEADERBOARD_SIZE}. Your profile: <a class="link" href="#profile/${name.toLowerCase()}">${A.escapeHTML(name)}</a>`;
             }
 
         } catch {

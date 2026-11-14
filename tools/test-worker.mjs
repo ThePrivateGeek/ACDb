@@ -245,17 +245,19 @@ const change = (id, data, updatedAt = Date.now()) => ({ id, data: { owned: true,
     const p = r.data.profiles || [];
     const sorted = p.every((x, i) => i === 0 || p[i - 1].ownedCount > x.ownedCount || (p[i - 1].ownedCount === x.ownedCount && p[i - 1].displayName.toLowerCase() < x.displayName.toLowerCase()));
     check('leaderboard returns the top 100, by count then name', p.length === 100 && sorted && p[0].ownedCount === 49, `${p.length} sorted=${sorted}`);
+    check('leaderboard counts every profile, not only the top 100', r.data.total === 130, r.data.total);
     check('leaderboard keeps its browser cache header', r.headers.get('Cache-Control') === 'public, max-age=60');
     let s = env.DB.stats.statements;
     r = await call(w, env, req('/leaderboard'));
     check('a second view within a minute does not query D1', env.DB.stats.statements === s && r.data.profiles.length === 100);
     r = await call(w, env, req('/share', { method: 'POST', body: { displayName: 'NewTop_1', ownedItems: catalogIds.slice(0, 60) } }));
     r = await call(w, env, req('/leaderboard'));
-    check('publishing a profile refreshes this instance\'s leaderboard', r.data.profiles[0].displayName === 'NewTop_1', r.data.profiles[0].displayName);
+    check('publishing a profile refreshes this instance\'s leaderboard and its count', r.data.profiles[0].displayName === 'NewTop_1' && r.data.total === 131, `${r.data.profiles[0].displayName} ${r.data.total}`);
     s = env.DB.stats.statements;
     clockOffset += 61 * 1000;
     r = await call(w, env, req('/leaderboard'));
-    check('after a minute the leaderboard is read again', env.DB.stats.statements === s + 1);
+    // Two statements in one batch: the top 100 and the count
+    check('after a minute the leaderboard is read again', env.DB.stats.statements === s + 2);
     clockOffset = 0;
 }
 

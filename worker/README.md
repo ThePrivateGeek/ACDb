@@ -192,6 +192,25 @@ If the site goes live before the Worker, nothing breaks: the old Worker ignores 
 no `gamesSaved` and keeps the ticks in the browser as unsent (they count in the sign-out warning), and
 sends them once the new Worker answers.
 
+## Collector count (14 Nov 2026)
+
+What changed: `GET /leaderboard` also answers `total`, the number of public profiles (one more query in
+the same once-a-minute read). The site shows it on the collection ("All 130 collectors") and above the
+leaderboard ("130 collectors so far."). No schema change.
+
+No order: until this is deployed the site counts the list itself, which is right while there are fewer
+than 100 profiles; with 100 or more and the old Worker it leaves the number out.
+
+1. Deploy `acdb-worker.js` as above, then:
+   ```
+   curl.exe -sI https://api.acdb.workers.dev/leaderboard
+   ```
+   → `acdb-worker: 2026-11-14`
+   ```
+   curl.exe -s https://api.acdb.workers.dev/leaderboard
+   ```
+   → ends with `"total":` and the number of profiles.
+
 ## Cleanup after the move to D1
 
 Done 2026-10-13, one week after the switch:

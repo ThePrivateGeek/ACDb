@@ -14,7 +14,7 @@
 
 // Sent on every response as the ACDb-Worker header, so the live version can
 // be checked with curl. Change it with every deploy.
-const WORKER_VERSION = '2026-11-04';
+const WORKER_VERSION = '2026-11-14';
 
 const SITE_URL = 'https://acdb.theprivategeek.com';
 const ALLOWED_ORIGINS = [
@@ -257,7 +257,7 @@ function checkReadLimit(ip) {
 // for as long) and drops it when it changes a profile itself.
 const LEADERBOARD_SIZE = 100;
 const LEADERBOARD_TTL = 60 * 1000;
-let leaderboardCache = null;   // { at, profiles }
+let leaderboardCache = null;   // { at, profiles, total }
 
 function profilesChanged() {
   leaderboardCache = null;
@@ -314,17 +314,23 @@ const d1Profiles = {
     };
   },
 
-  // The top LEADERBOARD_SIZE profiles
+  // The top LEADERBOARD_SIZE profiles, and how many profiles there are
   async leaderboard(env) {
     // Ties break alphabetically, the order the old KV store listed them in
-    const { results } = await env.DB.prepare(
-      'SELECT display_name, owned_count, last_updated FROM profiles ORDER BY owned_count DESC, name_lower LIMIT ?'
-    ).bind(LEADERBOARD_SIZE).all();
-    return results.map(row => ({
-      displayName: row.display_name,
-      ownedCount: row.owned_count,
-      lastUpdated: new Date(row.last_updated).toISOString()
-    }));
+    const [top, count] = await env.DB.batch([
+      env.DB.prepare(
+        'SELECT display_name, owned_count, last_updated FROM profiles ORDER BY owned_count DESC, name_lower LIMIT ?'
+      ).bind(LEADERBOARD_SIZE),
+      env.DB.prepare('SELECT COUNT(*) AS n FROM profiles')
+    ]);
+    return {
+      profiles: top.results.map(row => ({
+        displayName: row.display_name,
+        ownedCount: row.owned_count,
+        lastUpdated: new Date(row.last_updated).toISOString()
+      })),
+      total: count.results[0].n
+    };
   },
 
   // Returns false when no profile has this token.
@@ -416,9 +422,9 @@ async function handleGetProfile(request, env, path, ip) {
 async function handleLeaderboard(request, env) {
   const now = Date.now();
   if (!leaderboardCache || now - leaderboardCache.at >= LEADERBOARD_TTL) {
-    leaderboardCache = { at: now, profiles: await d1Profiles.leaderboard(env) };
+    leaderboardCache = { at: now, ...(await d1Profiles.leaderboard(env)) };
   }
-  return json(request, { profiles: leaderboardCache.profiles }, 200, { 'Cache-Control': 'public, max-age=60' });
+  return json(request, { profiles: leaderboardCache.profiles, total: leaderboardCache.total }, 200, { 'Cache-Control': 'public, max-age=60' });
 }
 
 // GET /check-name/:name - Check if a display name is available

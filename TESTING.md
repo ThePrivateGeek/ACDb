@@ -14,6 +14,10 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Timeline bar shows all games
 - [ ] Cards render in the grid
 - [ ] "Showing all X items" text appears above grid
+- [ ] Top collectors: on the same line, at the right, "TOP COLLECTORS", the leaderboard's first three (medal, gold name, item count) and "All N collectors →". A name opens that profile ("Collection › Name" breadcrumb); the link opens the leaderboard. At 1180px and below the line sits under the count; on a phone it is one line that swipes sideways (no scrollbar) and the page doesn't. The grid doesn't jump when the names arrive
+- [ ] Top collectors from the keyboard: Tab reaches the three names and the link after the toolbar; on a phone the line follows the focus and each gold ring shows whole
+- [ ] Top collectors stay while searching or filtering and in list view; they are not on the other tabs, a profile or the leaderboard. One `/leaderboard` request per page load (DevTools → Network), and none when the page opens on another tab until the collection is shown
+- [ ] With the Worker blocked (DevTools → Network → block `api.acdb.workers.dev`), the top collectors line is simply missing: no error, no empty gap on wide screens
 - [ ] View source: one `application/ld+json` block that parses as JSON; no `keywords` tag; the three descriptions (description, `og:description`, `twitter:description`) match
 - [ ] With JavaScript off (DevTools → Run command → Disable JavaScript), a paragraph under the header says what the site is
 - [ ] The console shows no Content Security Policy message
@@ -257,6 +261,7 @@ Local testing: run `python3 tools/serve.py` and use `http://localhost:8000` (it 
 - [ ] Leaderboard, not published: "Want to be on here? **Join the Leaderboard**" sits above the list and opens the publish window without leaving the leaderboard, which refreshes after publishing ("You're on the board as …")
 - [ ] Publish while signed in: the profile is created without a token; the manage window has no Update button and says it updates automatically; owning more items updates the profile and leaderboard
 - [ ] The leaderboard lists the top 100; when your profile is published but not among them, the line above the list reads "The board shows the top 100. Your profile: <name>" (linked). No percentage on the leaderboard or a profile goes above 100%, and a profile shows each item once
+- [ ] The line above the leaderboard opens with the number of collectors once the list has loaded: "10 collectors so far. Want to be on here?" (or "… You're on the board as <name>", or "… The board shows the top 100. …"); "1 collector so far." for one. The number counts every profile, not only the 100 shown (the Worker's `total`; with a Worker older than 2026-11-14 and a full board, the number is left out here and the collection's link reads "See the leaderboard →")
 - [ ] Publish window: when the name check fails (offline, or the Worker answers with an error), it says "Could not check. Try again." rather than "Already taken"; a profile that fails to load for any reason other than 404 says "Error loading profile"
 - [ ] Signing in on a browser that shared a profile before sign-in existed links that profile (toast) and it starts updating automatically
 - [ ] **Download all account data** downloads `acdb-account-<date>.json`
