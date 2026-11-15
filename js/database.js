@@ -91,7 +91,7 @@ const AC_DATABASE = [
     "year": 2010,
     "category": "Collector's Edition",
     "description": "European/Australian exclusive premium edition featuring the Codex hand-written book and Renaissance Collector Chest.",
-    "contents": "Game, Renaissance Collector Chest, exclusive Codex (60-page hand-written book by Altair), Map of Rome, multiplayer character cards, Assassin's Creed Lineage movie, bonus DVD with game soundtrack, 2 single-player missions",
+    "contents": "Game, Renaissance Collector Chest, exclusive Codex (60-page hand-written book by Altair), Map of Rome, 16 multiplayer character cards, Assassin's Creed Lineage movie, bonus DVD with game soundtrack, 2 single-player missions",
     "type": "Collector's Edition"
   },
   {

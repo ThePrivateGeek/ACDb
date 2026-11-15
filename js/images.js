@@ -28,7 +28,11 @@ const AC_IMAGES = {
         "images/collectors-editions/brotherhood-collectors-edition_01.webp",
     ],
     "Assassin's Creed Brotherhood Collector's Edition (Doctor Variant)": ["images/collectors-editions/brotherhood-collectors-edition-doctor.webp"],
-    "Assassin's Creed Brotherhood Codex Edition": ["images/collectors-editions/brotherhood-codex-edition.webp"],
+    "Assassin's Creed Brotherhood Codex Edition": [
+        "images/collectors-editions/brotherhood-codex-edition.webp",
+        "images/collectors-editions/brotherhood-codex-edition_01.webp",
+        "images/collectors-editions/brotherhood-codex-edition_02.webp",
+    ],
     "Assassin's Creed Brotherhood Auditore Edition": [
         "images/collectors-editions/brotherhood-auditore-edition.webp",
         "images/collectors-editions/brotherhood-auditore-edition_01.webp",
