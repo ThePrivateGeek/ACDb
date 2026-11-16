@@ -45,4 +45,7 @@ const SLUG_ALIASES = {
     "mcfarlane-toys-aguilar-action-figure-movie-series": 186, // now "McFarlane Toys Aguilar Action Figure (Color Tops Blue Wave #12)"
     // renamed 2026-11-08
     "hachette-issue-60-cultista-de-kosmos": 531, // now "Hachette Issue #60 Cultist of Kosmos"
+    // renamed 2026-11-16
+    "assassins-creed-conspiracies-vol-1-die-glocke": 308, // now "Assassin's Creed: Conspiracies - Issue #1"
+    "assassins-creed-conspiracies-vol-2-le-projet-rainbow": 309, // now "Assassin's Creed: Conspiracies - Issue #2"
 };

@@ -1596,7 +1596,7 @@ const CHARACTERS = [
     "year": 1931,
     "image": "images/characters/eddie-gorm.webp",
     "games": [],
-    "stories": "Graphic novels: Conspiracies",
+    "stories": "Comics: Conspiracies",
     "description": "The boss of London's East End docks, a small-time racketeer drawn into the Assassins' war during the Second World War."
   },
   {
@@ -1607,7 +1607,7 @@ const CHARACTERS = [
     "historical": false,
     "year": 2000,
     "games": [],
-    "stories": "Graphic novels: Bloodstone, Conspiracies",
+    "stories": "Graphic novel: Bloodstone; comics: Conspiracies",
     "description": "One of the youngest members of the Japanese Brotherhood, more scientist than fighter, who uncovers a conspiracy reaching back to the Vietnam War."
   },
   {

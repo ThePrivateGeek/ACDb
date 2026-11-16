@@ -3458,7 +3458,7 @@ const AC_DATABASE = [
   },
   {
     "id": 308,
-    "name": "Assassin's Creed: Conspiracies, Vol. 1 - Die Glocke",
+    "name": "Assassin's Creed: Conspiracies - Issue #1",
     "game": "General",
     "year": 2018,
     "category": "Comic Book",
@@ -3471,7 +3471,7 @@ const AC_DATABASE = [
   },
   {
     "id": 309,
-    "name": "Assassin's Creed: Conspiracies, Vol. 2 - Le Projet Rainbow",
+    "name": "Assassin's Creed: Conspiracies - Issue #2",
     "game": "General",
     "year": 2018,
     "category": "Comic Book",
@@ -3490,7 +3490,7 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "A new era — a new adventure — a new Assassin! Europe, World War II. On the sidelines of the race for the atomic bomb, discover the story of Eddie Gorm and his integration into the Assassin Brotherhood while he infiltrates the Templars to foil their plan to create a devastating weapon. English collected edition combining both French volumes (Die Glocke and Le Projet Rainbow). Written by Guillaume Dorison. Art by Jean-Baptiste Hostache and Patrick Pion. Published by Titan Comics (December 2018).",
     "contents": "104-page paperback collecting both French volumes in English translation",
-    "type": "Graphic Novel",
+    "type": "Comic Book",
     "series": "Assassin's Creed: Conspiracies",
     "collects": [308, 309],
     "characters": [71]
