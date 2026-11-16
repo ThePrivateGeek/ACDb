@@ -2901,7 +2901,7 @@ const CHARACTERS = [
     "year": 873,
     "image": "images/characters/ivarr.webp",
     "games": ["Assassin's Creed Valhalla"],
-    "stories": "Comic: Blood Brothers",
+    "stories": "Graphic novel: Blood Brothers",
     "family": [{"id": 185, "relation": "brother"}, {"id": 186, "relation": "brother"}],
     "description": "The wild and unpredictable son of Ragnar Lothbrok, who welcomes the Raven Clan into the Danish fight for Mercia."
   },
@@ -2926,7 +2926,7 @@ const CHARACTERS = [
     "year": 876,
     "image": "images/characters/halfdan.webp",
     "games": ["Assassin's Creed Valhalla"],
-    "stories": "Novel: Geirmund's Saga; comic: Blood Brothers",
+    "stories": "Novel: Geirmund's Saga; graphic novel: Blood Brothers",
     "family": [{"id": 184, "relation": "brother"}, {"id": 185, "relation": "brother"}],
     "description": "The eldest of Ragnar Lothbrok's sons, a seasoned war-leader who calls on Eivor to help him hold Northumbria."
   },
@@ -2940,7 +2940,7 @@ const CHARACTERS = [
     "year": 874,
     "image": "images/characters/alfred-the-great.webp",
     "games": ["Assassin's Creed Valhalla"],
-    "stories": "Novel: Geirmund's Saga; comic: Blood Brothers",
+    "stories": "Novel: Geirmund's Saga; graphic novel: Blood Brothers",
     "description": "The proud and pious King of Wessex, the last Saxon king standing against the Danish invasion of England."
   },
   {
