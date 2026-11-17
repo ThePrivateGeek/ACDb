@@ -532,6 +532,7 @@ const AC_IMAGES = {
     ],
     "Assassin's Creed Unity: The Complete Official Guide": ["images/art-books/guide-unity.webp"],
     "Assassin's Creed Unity: The Complete Official Guide - Collector's Edition": ["images/art-books/guide-unity-ce.webp"],
+    "Assassin's Creed Rogue: Prima Official Game Guide": ["images/art-books/guide-rogue.webp"],
     "Assassin's Creed Syndicate: Official Strategy Guide": ["images/art-books/guide-syndicate.webp"],
     "Assassin's Creed Syndicate: Official Collector's Edition Guide": ["images/art-books/guide-syndicate-ce.webp"],
     "Assassin's Creed Origins: Official Guide": ["images/art-books/guide-origins.webp"],

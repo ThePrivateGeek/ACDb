@@ -7641,4 +7641,14 @@ const AC_DATABASE = [
     "type": "Replica",
     "characters": [34]
   },
+  {
+    "id": 681,
+    "name": "Assassin's Creed Rogue: Prima Official Game Guide",
+    "game": "Assassin's Creed Rogue",
+    "year": 2014,
+    "category": "Art & Reference",
+    "description": "Official strategy guide for AC Rogue, covering the PlayStation 3 and Xbox 360 versions. Released alongside the game on 11 November 2014. Published by Prima Games.",
+    "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
+    "type": "Official Guide"
+  },
 ];

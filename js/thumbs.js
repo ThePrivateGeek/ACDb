@@ -25,6 +25,7 @@ const AC_THUMBS = new Set([
     "images/art-books/encyclopedia-third-edition.webp",
     "images/art-books/guide-odyssey-ce.webp",
     "images/art-books/guide-odyssey-pe.webp",
+    "images/art-books/guide-rogue.webp",
     "images/art-books/guide-shadows-ce.webp",
     "images/art-books/guide-shadows.webp",
     "images/art-books/guide-unity-chalice-initiate.webp",
