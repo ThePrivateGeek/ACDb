@@ -880,7 +880,10 @@ const AC_IMAGES = {
     "Assassin's Creed Vol. 6: Leila": ["images/comics/ac-vol6-leila.webp"],
     "Assassin's Creed: The Ankh of Isis Trilogy": ["images/comics/ac-ankh-of-isis-trilogy.webp"],
     "Assassin's Creed: The Hawk Trilogy": ["images/comics/ac-hawk-trilogy.webp"],
-    "Assassin's Creed: Assassins - Issue #1": ["images/comics/ac-assassins-issue-1.webp"],
+    "Assassin's Creed: Assassins - Issue #1": [
+        "images/comics/ac-assassins-issue-1.webp",
+        "images/comics/ac-assassins-issue-1_01.webp",
+    ],
     "Assassin's Creed: Assassins - Issue #2": ["images/comics/ac-assassins-issue-2.webp"],
     "Assassin's Creed: Assassins - Issue #3": ["images/comics/ac-assassins-issue-3.webp"],
     "Assassin's Creed: Assassins - Issue #4": ["images/comics/ac-assassins-issue-4.webp"],
