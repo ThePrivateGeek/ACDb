@@ -511,7 +511,12 @@ const AC_IMAGES = {
         "images/art-books/abstergo-employee-handbook_01.webp",
         "images/art-books/abstergo-employee-handbook_02.webp",
     ],
-    "Assassin's Creed: Prima Official Game Guide": ["images/art-books/guide-ac1.webp"],
+    "Assassin's Creed: Prima Official Game Guide": [
+        "images/art-books/guide-ac1.webp",
+        "images/art-books/guide-ac1_01.webp",
+        "images/art-books/guide-ac1_02.webp",
+        "images/art-books/guide-ac1_03.webp",
+    ],
     "Assassin's Creed II: The Complete Official Guide": ["images/art-books/guide-ac2.webp"],
     "Assassin's Creed II: The Complete Official Guide - Collector's Edition": ["images/art-books/guide-ac2-ce.webp"],
     "Assassin's Creed Brotherhood: The Complete Official Guide": ["images/art-books/guide-brotherhood.webp"],
