@@ -7651,4 +7651,75 @@ const AC_DATABASE = [
     "contents": "Softcover strategy guide with walkthroughs, maps, and collectible locations",
     "type": "Official Guide"
   },
+  {
+    "id": 682,
+    "name": "Assassin's Creed Discovery Book: L'Égypte des pharaons (The Egypt of the Pharaohs)",
+    "game": "Assassin's Creed Origins",
+    "year": 2020,
+    "category": "Art & Reference",
+    "description": "French-language illustrated history book based on Discovery Tour: Ancient Egypt from Assassin's Creed Origins, and with La Grèce antique the first of Larousse's \"Discovery Book by Assassin's Creed\" series (tagline \"L'histoire est notre terrain de jeu\"). Illustrated almost entirely with game art and concept art, it covers daily life in ancient Egypt, the pyramids and how they were built, embalming and mummification, the lands of the Nile and the tombs of the dead, up to Egypt in Cleopatra's time, with \"Dans le jeu\" boxes comparing the game with history. Aya and Bayek are on the cover. For readers aged 10 and up, recommended to go with the French 6e history curriculum. Published by Larousse under the direction of Carine Girac-Marinier, 23 September 2020, €14.95 (ISBN 9782035982810).",
+    "contents": "Hardcover book (96 pages, about 26 x 26 cm), French language",
+    "type": "Companion Book",
+    "series": "Discovery Book by Assassin's Creed",
+    "characters": [26, 27]
+  },
+  {
+    "id": 683,
+    "name": "Assassin's Creed Discovery Book: La Grèce antique (Ancient Greece)",
+    "game": "Assassin's Creed Odyssey",
+    "year": 2020,
+    "category": "Art & Reference",
+    "description": "French-language illustrated history book based on Discovery Tour: Ancient Greece from Assassin's Creed Odyssey, published alongside L'Égypte des pharaons as the start of Larousse's \"Discovery Book by Assassin's Creed\" series. Illustrated with game art and concept art, it walks through the streets of Athens, its temples and the great sites of Greek culture, with themes on politics and philosophy, famous sites, daily life, conflicts and battles, art, and religion and myths, including Sparta and the Spartan education. Kassandra and Alexios are on the cover. For readers aged 10 and up, recommended to go with the French 6e history curriculum. Published by Larousse under the direction of Carine Girac-Marinier, 23 September 2020, €14.95 (ISBN 9782035996695).",
+    "contents": "Hardcover book (96 pages, about 26 x 26 cm), French language",
+    "type": "Companion Book",
+    "series": "Discovery Book by Assassin's Creed",
+    "characters": [30, 31]
+  },
+  {
+    "id": 684,
+    "name": "Assassin's Creed Discovery Book: Le Temps des Vikings (The Time of the Vikings)",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2022,
+    "category": "Art & Reference",
+    "description": "French-language illustrated history book based on Discovery Tour: Viking Age from Assassin's Creed Valhalla, the third in Larousse's \"Discovery Book by Assassin's Creed\" series. It follows the Viking world from Scandinavia to England: Viking society and clans, navigation and shipbuilding, rites and ceremonies, Anglo-Saxon monasteries, England from the Viking raids to the Normans, and Norse mythology with Asgard, Valhalla and Jotunheim. Eivor appears inside in a box on how she was created. Foreword by historian Ryan Lavelle. Published by Larousse under the direction of Carine Girac-Marinier, 21 September 2022, €16.95 (ISBN 9782036016187).",
+    "contents": "Hardcover book (96 pages, about 26 x 26 cm), French language",
+    "type": "Companion Book",
+    "series": "Discovery Book by Assassin's Creed",
+    "characters": [32]
+  },
+  {
+    "id": 685,
+    "name": "Assassin's Creed Discovery Book: Au cœur de Bagdad (At the Heart of Baghdad)",
+    "game": "Assassin's Creed Mirage",
+    "year": 2023,
+    "category": "Art & Reference",
+    "description": "French-language illustrated history book tied to Assassin's Creed Mirage, the fourth in Larousse's \"Discovery Book by Assassin's Creed\" series. It explores 9th-century Baghdad, capital of the Abbasid Empire: the Round City founded by al-Mansur, its districts, gardens and grand bazaar, the palaces, mosques and mausoleums, the roles of the caliph, the vizier and the qadis, maritime trade, policing and prisons, and the daily life of the city's men and women. Basim is on the back cover. Foreword by Raphaël Weyland. Published by Larousse under the direction of Carine Girac-Marinier, 18 October 2023, €19.95 (ISBN 9782036041820).",
+    "contents": "Hardcover book (96 pages, about 26 x 26 cm), French language",
+    "type": "Companion Book",
+    "series": "Discovery Book by Assassin's Creed",
+    "characters": [34]
+  },
+  {
+    "id": 686,
+    "name": "Assassin's Creed Discovery Book: Le Japon des samouraïs (The Japan of the Samurai)",
+    "game": "Assassin's Creed Shadows",
+    "year": 2025,
+    "category": "Art & Reference",
+    "description": "French-language illustrated history book tied to Assassin's Creed Shadows, the fifth in Larousse's \"Discovery Book by Assassin's Creed\" series. It covers 16th-century Japan, the age of samurai and ninja, with a double page per theme across seven parts: medieval Japan, between seas and mountains, society and daily life, religions, arts and sports, agriculture and food, and economic life. Topics include Buddhist temples and Shinto shrines, village and castle life, clothing, sumo, Noh theatre, the tea ceremony, money and taxes, and a page on Yasuke, the African samurai. Naoe and Yasuke are on the cover. Foreword by Stéphanie-Anne Ruatta of the Assassin's Creed Shadows team. Published by Larousse under the direction of Carine Girac-Marinier, 28 May 2025, €19.95 (ISBN 9782036056565).",
+    "contents": "Hardcover book (96 pages, about 26 x 26 cm), French language",
+    "type": "Companion Book",
+    "series": "Discovery Book by Assassin's Creed",
+    "characters": [45, 46]
+  },
+  {
+    "id": 687,
+    "name": "Assassin's Creed Black Flag Resynced Launch Edition",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2026,
+    "category": "Special Edition",
+    "description": "Physical-only launch edition of Assassin's Creed Black Flag Resynced for PlayStation 5 and Xbox Series X, released 9 July 2026 at €59.99 (£49.99 in the UK). The game comes in a cardboard sleeve marked \"Launch Edition\", with a 34-page art book of concept art, character explorations and environment art, a double-sided world map poster with a map of the Caribbean on one side and game artwork on the other, and the Blackbeard's Crimson Pack (Crimson costume, sword and pistol). Sold in limited quantities while supplies lasted, mainly in Europe; Eurogamer reported it would not be sold in the US. Some retailers added an exclusive steelbook (MediaMarkt and Saturn in Germany, JB Hi-Fi in Australia), which is not part of the edition itself.",
+    "contents": "Game (PS5 or Xbox Series X) in a Launch Edition cardboard sleeve, 34-page art book, double-sided world map poster, Blackbeard's Crimson Pack (digital)",
+    "type": "Special Edition",
+    "characters": [14]
+  },
 ];

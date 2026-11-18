@@ -117,6 +117,11 @@ const AC_IMAGES = {
         "images/collectors-editions/ac-black-flag-resynced-flagship.webp",
         "images/collectors-editions/ac-black-flag-resynced-flagship_01.webp",
     ],
+    "Assassin's Creed Black Flag Resynced Launch Edition": [
+        "images/collectors-editions/ac-black-flag-resynced-launch.webp",
+        "images/collectors-editions/ac-black-flag-resynced-launch_01.webp",
+        "images/collectors-editions/ac-black-flag-resynced-launch_02.webp",
+    ],
 
     // ── Steelbooks ──
     "Assassin's Creed Steelcase Limited Edition": [
@@ -590,6 +595,31 @@ const AC_IMAGES = {
         "images/art-books/world-of-ac-valhalla-journey-north-deluxe.webp",
         "images/art-books/world-of-ac-valhalla-journey-north-deluxe_01.webp",
         "images/art-books/world-of-ac-valhalla-journey-north-deluxe_02.webp",
+    ],
+    "Assassin's Creed Discovery Book: L'Égypte des pharaons (The Egypt of the Pharaohs)": [
+        "images/art-books/discovery-book-egypte.webp",
+        "images/art-books/discovery-book-egypte_01.webp",
+        "images/art-books/discovery-book-egypte_02.webp",
+    ],
+    "Assassin's Creed Discovery Book: La Grèce antique (Ancient Greece)": [
+        "images/art-books/discovery-book-grece.webp",
+        "images/art-books/discovery-book-grece_01.webp",
+        "images/art-books/discovery-book-grece_02.webp",
+    ],
+    "Assassin's Creed Discovery Book: Le Temps des Vikings (The Time of the Vikings)": [
+        "images/art-books/discovery-book-vikings.webp",
+        "images/art-books/discovery-book-vikings_01.webp",
+        "images/art-books/discovery-book-vikings_02.webp",
+    ],
+    "Assassin's Creed Discovery Book: Au cœur de Bagdad (At the Heart of Baghdad)": [
+        "images/art-books/discovery-book-bagdad.webp",
+        "images/art-books/discovery-book-bagdad_01.webp",
+        "images/art-books/discovery-book-bagdad_02.webp",
+    ],
+    "Assassin's Creed Discovery Book: Le Japon des samouraïs (The Japan of the Samurai)": [
+        "images/art-books/discovery-book-japon.webp",
+        "images/art-books/discovery-book-japon_01.webp",
+        "images/art-books/discovery-book-japon_02.webp",
     ],
     "The Art of Assassin's Creed Mirage": ["images/art-books/art-of-ac-mirage.webp"],
     "The Art of Assassin's Creed Mirage (Deluxe Edition)": [
