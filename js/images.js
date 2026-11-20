@@ -696,6 +696,18 @@ const AC_IMAGES = {
     "Funko Pop! Games #80 - Jacob Frye (Uncloaked) (Underground Toys Exclusive)": ["images/funko-pop/funko-pop-80-jacob-frye-uncloaked.webp"],
     "Funko Pop! Games #776 - Eivor": ["images/funko-pop/funko-pop-776-eivor.webp"],
     "Funko Pop! Games #778 - Eivor with Double Axe (GameStop Exclusive)": ["images/funko-pop/funko-pop-778-eivor-double-axe.webp"],
+    "Funko Pop! Games #1359 - Edward Thatch": [
+        "images/funko-pop/funko-pop-1359-edward-thatch.webp",
+        "images/funko-pop/funko-pop-1359-edward-thatch_01.webp",
+    ],
+    "Funko Pop! Games #1360 - Adéwalé": [
+        "images/funko-pop/funko-pop-1360-adewale.webp",
+        "images/funko-pop/funko-pop-1360-adewale_01.webp",
+    ],
+    "Funko Pop! Premium #1361 - Edward Kenway": [
+        "images/funko-pop/funko-pop-premium-1361-edward-kenway.webp",
+        "images/funko-pop/funko-pop-premium-1361-edward-kenway_01.webp",
+    ],
     "Funko Pop! Movies #375 - Aguilar": ["images/funko-pop/funko-pop-375-aguilar.webp"],
     "Funko Pop! Movies #376 - Maria": ["images/funko-pop/funko-pop-376-maria.webp"],
     "Funko Pop! Movies #377 - Ojeda": ["images/funko-pop/funko-pop-377-ojeda.webp"],

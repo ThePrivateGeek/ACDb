@@ -7753,4 +7753,37 @@ const AC_DATABASE = [
     "contents": "Enigma glasses with amber lenses, flat-fold glasses case with the Valhalla logo, knotwork drawstring pouch, cleaning cloth",
     "type": "Eyewear"
   },
+  {
+    "id": 691,
+    "name": "Funko Pop! Games #1359 - Edward Thatch",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2027,
+    "category": "Figurine",
+    "description": "Funko Pop! Games vinyl figure of Edward Thatch, the pirate Blackbeard, from Assassin's Creed Black Flag Resynced. He wears a tricorn hat with a black feather plume over a red headband, with rope fuses hanging from the brim into his thick black beard, and holds a cutlass low. About 12 cm (4.8 in) tall. One of three Black Flag Resynced Pops, with Adéwalé (#1360) and the Pop! Premium Edward Kenway (#1361). Due for release in December 2026 in the US and January 2027 in Europe.",
+    "contents": "Pop! vinyl figure in a window display box",
+    "type": "Funko Pop",
+    "characters": [21]
+  },
+  {
+    "id": 692,
+    "name": "Funko Pop! Games #1360 - Adéwalé",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2027,
+    "category": "Figurine",
+    "description": "Funko Pop! Games vinyl figure of Adéwalé, quartermaster of Edward Kenway's ship the Jackdaw, from Assassin's Creed Black Flag Resynced. He stands with his arms crossed, in a patterned head wrap and a gold earring, a green waistcoat over a white shirt, a red sash and striped trousers. About 10 cm (3.9 in) tall. One of three Black Flag Resynced Pops, with Edward Thatch (#1359) and the Pop! Premium Edward Kenway (#1361). Due for release in December 2026 in the US and January 2027 in Europe.",
+    "contents": "Pop! vinyl figure in a window display box",
+    "type": "Funko Pop",
+    "characters": [18]
+  },
+  {
+    "id": 693,
+    "name": "Funko Pop! Premium #1361 - Edward Kenway",
+    "game": "Assassin's Creed Black Flag Resynced",
+    "year": 2027,
+    "category": "Figurine",
+    "description": "Larger Pop! Premium vinyl figure of Edward Kenway from Assassin's Creed Black Flag Resynced, numbered 1361 in the Pop! Games run. Hooded and crouching on a ship's wooden deck as sea spray bursts around him, Edward holds a flintlock pistol in one hand and his cutlass in the other, below a mast flying the black flag with the Assassin skull insignia. About 15.5 cm (6.1 in) tall. One of three Black Flag Resynced Pops, with Edward Thatch (#1359) and Adéwalé (#1360). Due for release in December 2026 in the US and January 2027 in Europe.",
+    "contents": "Pop! Premium vinyl figure on a ship's deck base with mast and black flag, in a window display box",
+    "type": "Funko Pop",
+    "characters": [14]
+  },
 ];
