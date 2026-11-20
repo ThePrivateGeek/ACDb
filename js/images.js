@@ -23,6 +23,11 @@ const AC_IMAGES = {
         "images/collectors-editions/ac2-white-edition_01.webp",
     ],
     "Assassin's Creed II Master Assassin's Edition": ["images/collectors-editions/ac2-master-assassins-edition.webp"],
+    "Assassin's Creed II Special Film Edition": [
+        "images/collectors-editions/ac2-special-film-edition.webp",
+        "images/collectors-editions/ac2-special-film-edition_01.webp",
+        "images/collectors-editions/ac2-special-film-edition_02.webp",
+    ],
     "Assassin's Creed Brotherhood Collector's Edition (Russian Exclusive)": [
         "images/collectors-editions/brotherhood-collectors-edition.webp",
         "images/collectors-editions/brotherhood-collectors-edition_01.webp",

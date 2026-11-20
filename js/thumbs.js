@@ -42,6 +42,7 @@ const AC_THUMBS = new Set([
     "images/collectors-editions/ac-movie-limited-edition-arm-sleeve.webp",
     "images/collectors-editions/ac1-limited-edition.webp",
     "images/collectors-editions/ac2-black-edition.webp",
+    "images/collectors-editions/ac2-special-film-edition.webp",
     "images/collectors-editions/ac2-white-edition.webp",
     "images/collectors-editions/ac3-freedom-edition.webp",
     "images/collectors-editions/ac3-join-or-die-edition.webp",

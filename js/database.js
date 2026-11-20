@@ -7722,4 +7722,15 @@ const AC_DATABASE = [
     "type": "Special Edition",
     "characters": [14]
   },
+  {
+    "id": 688,
+    "name": "Assassin's Creed II Special Film Edition",
+    "game": "Assassin's Creed II",
+    "year": 2010,
+    "category": "Special Edition",
+    "description": "European (PAL) re-release of Assassin's Creed II for Xbox 360 and PlayStation 3, also called the Lineage Edition. The standard game case comes in a white cardboard box marked \"Special Film Edition\", together with the Assassin's Creed Lineage short film on DVD: the 36-minute live-action prequel directed by Yves Simoneau, in which Giovanni Auditore (Romano Orzari) is sent to find out who murdered the Duke of Milan. The box also adds two bonus Templar lair maps, Santa Maria dei Frari and Palazzo Medici, and three lithographs from the comic Assassin's Creed 1: Desmond in a printed envelope. Gameswelt gave its release as 4 March 2010 and its recommended price as €74.95.",
+    "contents": "Game (Xbox 360 or PS3) in a Special Film Edition cardboard box, Assassin's Creed Lineage short film DVD (about 36 minutes, region 2), two bonus maps (Santa Maria dei Frari, Palazzo Medici), three comic book lithographs (Assassin's Creed 1: Desmond) in an envelope",
+    "type": "Special Edition",
+    "characters": [1, 11]
+  },
 ];
