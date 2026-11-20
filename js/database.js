@@ -7733,4 +7733,24 @@ const AC_DATABASE = [
     "type": "Special Edition",
     "characters": [1, 11]
   },
+  {
+    "id": 689,
+    "name": "Gunnar Intercept Gaming Glasses - Assassin's Creed Mirage Edition",
+    "game": "Assassin's Creed Mirage",
+    "year": 2023,
+    "category": "Jewelry & Accessories",
+    "description": "Officially licensed blue-light gaming glasses made by GUNNAR Optiks in partnership with Ubisoft, part of a limited-edition collection sold while supplies lasted. They launched alongside the game in October 2023 at $84.99. The Intercept frame is indigo with orange inner arms; the outer arms carry an orange lattice pattern, an Assassin's Creed crest sits by each hinge, and an eagle is printed inside the arm. The amber lenses filter blue light and block all UV light, and the glasses were also offered with prescription lenses. The case, drawstring pouch and cleaning cloth all carry the Mirage crest.",
+    "contents": "Intercept glasses with amber lenses, glasses case, drawstring microfiber pouch and cleaning cloth, all with Mirage artwork",
+    "type": "Eyewear"
+  },
+  {
+    "id": 690,
+    "name": "Gunnar Enigma Gaming Glasses - Assassin's Creed Valhalla Edition",
+    "game": "Assassin's Creed Valhalla",
+    "year": 2020,
+    "category": "Jewelry & Accessories",
+    "description": "Officially licensed blue-light gaming glasses made by GUNNAR Optiks in partnership with Ubisoft, announced on 13 October 2020 as the official gaming glasses of Assassin's Creed Valhalla. The limited edition launched ahead of the game at $79.99 (£67.99 in the UK, €69.90 in Germany). The Enigma frame is dark teal, and the outer arms are covered in bright teal Norse knotwork. The amber lenses block 65% of blue light and all UV light, and the glasses were also sold as sunglasses and with prescription lenses. They come with a flat-fold glasses case bearing the Valhalla logo, a matching knotwork drawstring pouch and a cleaning cloth.",
+    "contents": "Enigma glasses with amber lenses, flat-fold glasses case with the Valhalla logo, knotwork drawstring pouch, cleaning cloth",
+    "type": "Eyewear"
+  },
 ];

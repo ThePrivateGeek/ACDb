@@ -1993,6 +1993,18 @@ const AC_IMAGES = {
         "images/other/hidden-blade-fragrance.webp",
         "images/other/hidden-blade-fragrance_01.webp",
     ],
+
+    // ── Eyewear (Gunnar gaming glasses) ──
+    "Gunnar Intercept Gaming Glasses - Assassin's Creed Mirage Edition": [
+        "images/other/gunnar-intercept-mirage.webp",
+        "images/other/gunnar-intercept-mirage_01.webp",
+        "images/other/gunnar-intercept-mirage_02.webp",
+    ],
+    "Gunnar Enigma Gaming Glasses - Assassin's Creed Valhalla Edition": [
+        "images/other/gunnar-enigma-valhalla.webp",
+        "images/other/gunnar-enigma-valhalla_01.webp",
+        "images/other/gunnar-enigma-valhalla_02.webp",
+    ],
     // ── Promotional (USB stick, bracelet) ──
     "Assassin's Creed III Axe USB Stick": [
         "images/other/ac-3-promo-usb-stick.webp",

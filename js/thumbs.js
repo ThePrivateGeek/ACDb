@@ -216,6 +216,7 @@ const AC_THUMBS = new Set([
     "images/other/goodloot-ac-shadows-naoe-yasuke.webp",
     "images/other/goodloot-ac-shadows-vista-japan.webp",
     "images/other/goodloot-ac-syndicate-tavern.webp",
+    "images/other/gunnar-intercept-mirage.webp",
     "images/other/king-ice-yasuke-kabuto-necklace.webp",
     "images/other/landstalker-flintlock-pistol.webp",
     "images/other/leap-into-history-vinyl.webp",
