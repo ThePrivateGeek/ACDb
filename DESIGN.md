@@ -398,7 +398,7 @@ The leaderboard's first three, on the collection's count line (`.results-row`: "
 - **It doesn't move.** No ticker, no rotation: three names fit on a line, and anything that keeps moving needs a pause control and must stop under reduced motion.
 - Medal, name and count are one link to the profile (gold name, underlined on hover like `.link`; the count in `--font-data`). `.medal-sm` is the leaderboard medal at 20 px, for a line of text. A long name cuts off at 22ch.
 - The link reads "All N collectors →" when there are more collectors than the line shows, otherwise "See the leaderboard →".
-- **Widths:** above 1180 px it shares the count's line; at 1180 px and below it has a line of its own under the count, set by the breakpoint rather than by wrapping, so the grid never moves when the names arrive (the empty line keeps its height while loading). Where it is wider than its room (phones) it is one row that scrolls sideways inside itself with no scrollbar, like a chip row; a focused link that is half off the edge is brought into view, and the row's padding leaves room for the focus ring.
+- **Widths:** above 1180 px it shares the count's line; at 1180 px and below it has a line of its own under the count, set by the breakpoint rather than by wrapping, so the grid never moves when the names arrive (the empty line keeps its height while loading). Where it is wider than its room (phones) it is one row that scrolls sideways inside itself with no scrollbar, like a chip row; a focused link that is half off the edge is brought into view, and the row's padding leaves room for the focus ring. The row is `position: relative` so its hidden "items owned" words scroll with it instead of widening the page.
 - **It is an extra, not the view's content**, so it has no loading, empty or error text: with no collectors, or when the request fails, the line is hidden. It is read once per page load, the first time the collection shows.
 - It stays while the grid is searched or filtered. It is only on the collection, never on a profile or another tab.
 
@@ -490,6 +490,7 @@ None of these are optional for new UI:
   - Icon-only controls need an `aria-label`.
   - So does any control with no visible label: the toolbar's status and sort selects ("Filter by status", "Sort by"), a dropdown's search box, the gallery dots ("Image 2 of 5", with `aria-current` on the one showing), the copies − and + buttons.
   - Bare numbers need words: add `<span class="sr-only"> items owned,</span>` after the figure.
+  - `.sr-only` text is absolutely placed, so inside a row that scrolls sideways (`overflow-x: auto`) it isn't clipped by the row unless the row is `position: relative`. Without that, the hidden words past the screen's edge widen the page and a phone can zoom the whole site out (the top collectors line did this).
   - Decorative bars and icons get `aria-hidden="true"`.
   - Lists are `<ol>` or `<ul>`, and breadcrumbs are `<nav aria-label="Breadcrumb"><ol>`.
   - Toggles keep `aria-pressed` or `aria-current` up to date.

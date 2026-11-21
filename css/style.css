@@ -1800,8 +1800,12 @@ button.stats-bar-row {
    inside itself like a chip row, with no scrollbar. The padding leaves room
    for its links' focus rings, which the scrolling would cut off, and the
    negative margin takes that room back. It is empty until the leaderboard
-   has loaded and keeps a line's height meanwhile. */
+   has loaded and keeps a line's height meanwhile. It is position: relative
+   so the hidden "items owned" words (.sr-only, absolutely placed) scroll
+   and clip with the row: otherwise they sit outside it, widen the page and
+   let a phone zoom the whole site out. */
 .top-collectors {
+    position: relative;
     display: flex;
     align-items: center;
     gap: var(--s4);
