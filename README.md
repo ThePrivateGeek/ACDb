@@ -32,6 +32,14 @@ A fan-made collection tracker for official Assassin's Creed collectibles. Browse
 - **A page for every item** — each item also has a plain page of its own at `/item/<slug>` that search engines can read: its photo, facts, description, contents and characters, related items from the same game, and a button that opens it in the database. **Browse all items** (`/items/`, linked from the footer) lists them by category ("Assassin's Creed statues") and by game, and works with JavaScript switched off. `tools/build-item-pages.py` writes these pages and the sitemap from the catalog
 - **Game timeline** — quick-access chips for every game from AC1 to Shadows, plus Black Flag Resynced, the movie and general merchandise. Pick several to combine them; the Games filter follows along
 - **Search** — instant search across item names, games, years, categories, types, series, descriptions and contents, and the names of the characters an item shows (other names included, so "connor" or "eagle bearer" find their items), with a result count. Accents and apostrophes don't matter ("altair" finds Altaïr). Every word you type must match, so "ezio statue" finds Ezio statues. When nothing matches, one button clears the search and filters
+- **Ask the search box** — it also takes plain questions, with no AI and nothing sent anywhere: "how many apples of eden are there in the database?", "list all art books", "ezio statues before 2015", "comics I haven't read". It understands:
+  - plurals and filler ("how many", "list", "show me all the", "are there");
+  - kinds of item, by category or main type ("statues", "art books", "comics", "figures"), and games by name or short name ("valhalla", "black flag", "ac2", "assassin's creed 3"); two of a kind show either ("novels and comics");
+  - years: "2017", "in 2017", "before 2012", "after 2020", "since 2020", "until 2012", "2010-2014", "between 2010 and 2014", "the 2010s", "this year", "next year";
+  - your own collection: "I own", "my", "I don't own", "missing", "wishlist", "I've read", "unread", "missing stories", and "read online" for items with a read link;
+  - "not", "without", "except" or a minus sign ("statues without ezio", "figurines -funko", "everything except comics and novels", "not on my wishlist"), "or" between two words ("mcfarlane or neca"), and `"quoted text"` for exactly that text.
+
+  The empty box invites it ("Search or ask: statues before 2015"). A line above the count, "Understood as Statue · before 2015 · “ezio”", says how the words were read, and ends with "Found in your browser using code, not AI.", linked to the privacy page. Kind, game and year words filter like the dropdowns, so "statues" counts the Statue category; when other items only mention the word (a collector's edition with a statue in it), a button on that line shows them too. Typing an item's name always finds it. The word lists are in `js/search.js`
 - **Back up / Restore** — save your collection and played games as a JSON file from the account menu and restore it on another device (Restore also takes the file from **Download all account data**, and older backups of the collection alone). **Export as spreadsheet…** saves the collection as a CSV file for Excel, Google Sheets or Numbers, in commas or in the semicolons most European Excels expect (the site guesses and remembers your pick), and **Print inventory** prints a clean list of what you own, with small photos, condition, price paid and totals, for your records or your insurer; the browser's Save as PDF makes it a file
 - **Static site** — the database and collection tracking run entirely in the browser (LocalStorage); a small Cloudflare Worker handles sign-in, sync and sharing
 - **Responsive** — works on desktop, tablet, and mobile with touch swipe support. On phones the filters fold behind a **Filters** button that shows how many are active
@@ -140,6 +148,8 @@ js/
                    items point at from their "characters" field
   utils.js       — shared utilities (toast, escapeHTML, LocalStorage wrapper,
                    slugify, release dates, focus trap, share links, etc.)
+  search.js      — reads the collection's search text: plain questions, kinds,
+                   games, years, status words (no AI; nothing is sent anywhere)
   modal.js       — item modal, gallery, lightbox
   stats.js       — stats dashboard, completion celebration
   collection.js  — export/import
@@ -204,6 +214,8 @@ tools/
                    (node tools/test-spending.mjs)
   test-export.mjs — tests for the spreadsheet export in the account menu
                    (node tools/test-export.mjs)
+  test-search.mjs — tests for the collection's search, against the real catalog
+                   (node tools/test-search.mjs)
   test-worker.mjs — tests for the Worker against a local copy of the D1 schema
                    (node tools/test-worker.mjs)
   make-portrait.py — crops a character image to a 300x400 WebP portrait in

@@ -607,6 +607,11 @@ textarea:focus-visible {
     color: var(--text-3);
 }
 
+/* A placeholder longer than its box ends in "…" instead of being cut */
+.search-box input:placeholder-shown {
+    text-overflow: ellipsis;
+}
+
 .search-box .clear-search {
     position: absolute;
     right: 6px;
@@ -1770,6 +1775,36 @@ button.stats-bar-row {
     color: rgba(255, 255, 255, 0.6);
     font-family: var(--font-data);
     font-size: 0.8rem;
+}
+
+/* ---- Search: how the text was read ---- */
+/* "UNDERSTOOD AS  Statue · before 2012 · “ezio”" above the count, when the
+   search text was read as more than plain words (js/search.js), then a
+   .link button for the items that only mention those words. It wraps. */
+.search-read {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s1) var(--s3);
+    margin: 0 0 var(--s2);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+}
+
+.search-read-parts {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* A long button wraps like the text beside it */
+.search-read .link {
+    text-align: left;
+}
+
+/* "Found in your browser using code, not AI.", with a .link to the privacy page */
+.search-read-note {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
 }
 
 /* ---- Results Count ---- */
@@ -5479,6 +5514,7 @@ a.reading-title {
     font-size: var(--fs-lg);
     color: var(--text);
     margin: 2rem 0 0.5rem;
+    scroll-margin-top: 6rem;   /* a link to a section (privacy.html#search) lands below the sticky header */
 }
 
 .legal-page p,

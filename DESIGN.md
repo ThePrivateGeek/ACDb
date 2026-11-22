@@ -370,9 +370,29 @@ Real pages that search engines and visitors without JavaScript can read. **`tool
 ### Empty state (collection search)
 
 `.no-results` shows the faded icon, the italic grey line **"Nothing is true, everything is permitted... but no items match your search."** and a `btn btn-secondary` "Clear search and filters".
-- When there is search text, a "Suggest a missing item" line follows, pre-filled with the search text.
+- When there is search text, a "Suggest a missing item" line follows, pre-filled with the search text. Not when the search asks about the visitor's own collection ("my wishlist"): an empty wishlist doesn't mean the catalogue lacks anything.
 - The grey `#666` and the wording were the owner's choice; don't change them.
 - Other lists use the plain-text pattern in [section 7](#7-patterns), not this one.
+
+### "Understood as" line (collection search)
+
+The collection's search box takes plain questions (`js/search.js`; see Search in [section 7](#7-patterns)). When the text was read as more than plain words, a line above the count says how. Filled by `updateSearchRead()` in `js/app.js`.
+
+```html
+<p class="search-read" id="searchRead">
+  <span class="label">Understood as</span>
+  <span class="search-read-parts" id="searchReadParts">Statue · before 2015 · “ezio”</span>
+  <button type="button" class="link" id="searchReadMore">Also show 1 that mentions “statue”</button>
+  <span class="search-read-note">Found <a class="link" href="privacy.html#search">in your browser</a> using code, not AI.</span>
+</p>
+```
+- **When it shows:** only when a word was read as a kind, a game, a year, a status, "read online", "not" or "or". A plain search ("ezio", "hidden blade") and filler alone ("how many items are there") show nothing. It also shows over the empty state, where it explains why nothing matched.
+- **The parts** are joined with " · ", always in this order: kinds, games, years, status, read online, then the remaining words in curly quotes. Values are written as the dropdowns write them ("Art Book", "Assassin's Creed II"); either/or reads "Novel or Comic Book"; a left-out part reads "not “funko”".
+- **The button** is there only when other items mention a word read as a kind, a game or a bare year (a collector's edition with a statue in it). It names the word when there is one ("these words" for several), lets those items in, then reads "Hide the 8 that only mention “art book”". It is a real `<button class="link">`, never re-created, so it keeps the focus when pressed. It lasts until the search text changes and is not saved.
+- **The note** "Found in your browser using code, not AI." ends the line (`--fs-xs`, `--text-3`), because a line that says "Understood as" is where a visitor wonders. "In your browser" says that what was typed isn't sent anywhere, and is a `.link` to the privacy page's "Searching" section (`privacy.html#search`), which makes the same promise. Only those three words are the link: gold on the whole note would compete with the button. Keep the claim that narrow: it describes how the search finds items, not the site.
+- **The placeholder** of the search box, "Search or ask: statues before 2015", is the only other hint. It fits a 360 px phone with little to spare (about 220 px of text in 246 px), so a longer one needs checking there. Where the box is narrower still (a window just over 1520 px, a phone under 340 px), a `.search-box` placeholder ends in "…" rather than being cut.
+- **Text, not chips:** it reports how the text was read; the text itself is edited in the search box. It is `--fs-sm` in `--text-2` with a `.label`, like the top collectors line under it, and it wraps (a long word breaks, so a phone never scrolls sideways).
+- It is not a live region: the count beside it isn't one either.
 
 ### Top collectors line (collection)
 
@@ -428,6 +448,11 @@ The leaderboard's first three, on the collection's count line (`.results-row`: "
   - "Clear search and filters" keeps the sort order.
   - A filter with a value (search text, a ticked multi-select, a status other than "All Items") gets a `--gold-deep` edge on `--surface-set`: `.has-selection` on a `.multi-select`, `.is-set` on the search box and `.filter-select`, toggled in `updateFilterCount()`. Sort is not a filter and never gets it. Focus and an open dropdown still show the bright `--gold` edge.
   - On phones the filters fold behind "Filters (n)", where n is the number of active filters.
+- **Search (collection):** the box takes plain questions, read in the browser by `js/search.js` with no AI and nothing sent anywhere.
+  - Words that name a category, a main type, a game or a year filter like the dropdowns do, so the count for "statues" is the Statue category's; two of a kind show either. Status words ("I own", "unread") are checked like the status dropdown and add to it. Everything typed works on top of the dropdowns, never instead of them: the search never ticks or clears a filter, and never changes the sort.
+  - Nothing today's visitors rely on may get lost: an item is always found by typing its name (an "or" inside a name, as in "join or die", is a word and not a choice), quoted text is always plain text, makers stay plain text, and items that only mention a kind, game or year word are one button away (the "Understood as" line in [section 6](#6-components)).
+  - A new word goes in the lists at the top of `js/search.js`, with a test in `tools/test-search.mjs`. Don't add a word collectors search for on its own to the filler list ("display", "new", "first", "pieces"): a filler word typed alone finds every item. Don't read a bare "read", "want" or "need" as a status ("mary read" is a character).
+  - The Games and Characters tabs keep their plain search boxes.
 - **Sign-in is optional everywhere.** Every feature must work signed out, from this browser's own copy of the collection. Signed-in-only extras say so with a `.link` to sign in, never a wall.
 - **Anything public** (profiles, the leaderboard, the collection's top collectors) shows the display name and counts only.
 - **How many collectors:** the number of public profiles is said in words where it invites ("All 10 collectors →" on the collection, "10 collectors so far." above the leaderboard), never as a number on a header tab: there it reads as a notification, and on phones the Leaderboard tab is off the edge of the row.
@@ -616,4 +641,12 @@ Owner decisions this book rests on, so they aren't reopened:
   - Not at the end of the game chips' second row (the owner's first spot): that space is there only at some widths and with the current number of chips, and on phones the chips are one swiping row.
   - The number of collectors goes in the line's link and above the leaderboard, not on the Leaderboard tab.
   - The privacy page says the top three are named on the front page.
+- **22 Nov 2026, questions in the search box:** the owner's old idea of an AI search ("how many apples of eden are there in the database?", "list all art books") is built without AI: the search box reads plain questions itself.
+  - No model and no Worker call: free with no quota, instant, nothing typed leaves the browser, and nothing new is stored or sent. An AI layer stays possible later if visitors type questions this can't read.
+  - Kind, game and year words answer like the dropdowns ("statues" is the 81 in the Statue category, not the 90 items that mention one), because a count that disagrees with the dropdowns and the `/items/` pages is no answer to "how many". The items that only mention the word are offered on the "Understood as" line.
+  - Sorting words ("newest", "oldest") are ignored for now rather than obeyed: the sort is a saved setting with its own control.
+  - The placeholder invites questions with one example, "Search or ask: statues before 2015". It is as long as the box allows on a 360 px phone, so it doesn't also carry the "not AI" message.
+  - The site says the search isn't AI where a visitor would wonder: at the end of the "Understood as" line, "Found in your browser using code, not AI." (the owner's wording: plain words for how it works, and "in your browser" because nothing typed is sent anywhere). The claim is about how the search works, never about the site as a whole, which is built with AI help.
+  - "In your browser" links to the privacy page, which gained a short "Searching" section saying the same (the owner's idea). An AI layer later would mean changing both. The privacy page's headings have a scroll margin, so a link to a section lands below the sticky header.
+  - A code review before release settled four readings. A "not" also covers the next of its kind after "and" or "or" ("except comics and novels" leaves out both). An "or" inside an item's name is a word ("join or die"). A year word with no year after it is ignored, so "statues before" still lists the statues on the way to "statues before 2012". The missing-item suggestion isn't offered when the search asks about the visitor's own collection.
 - **11 Nov 2026, DLC cards:** a game's page shows its DLCs as cover cards rather than rows with a 36 px cover, which made the art hard to see. Elsewhere the DLC rows keep their shape with bigger covers: 64 px in the Games tab's story order (smaller than the game cards' 88 px) and 48 px in Complete Lore (a book cover's width; the gold stripe, kind line and missing number still keep them from passing for books). A DLC without a cover of its own (32 of 72 at the time) shows its game's art, blurred and darkened, under the controller icon, so a page like Shadows' isn't a wall of empty boxes.

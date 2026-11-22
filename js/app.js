@@ -206,6 +206,9 @@ window.ACDB = window.ACDB || {};
         modalReadDate: document.getElementById('modalReadDate'),
         modalReadingCollects: document.getElementById('modalReadingCollects'),
         resultsCount: document.getElementById('resultsCount'),
+        searchRead: document.getElementById('searchRead'),
+        searchReadParts: document.getElementById('searchReadParts'),
+        searchReadMore: document.getElementById('searchReadMore'),
         statsDashboard: document.getElementById('statsDashboard'),
         statsToggle: document.getElementById('statsToggle'),
         statsPanel: document.getElementById('statsPanel'),
@@ -579,25 +582,55 @@ window.ACDB = window.ACDB || {};
     // Search text: case, accents and apostrophes ignored ("altair" finds
     // Altaïr, "obrien" O'Brien), as on the Games and Characters tabs
     function searchKey(text) {
-        return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/['‘’ʿʾ]/g, '');
+        return ACDB.search.key(text);
     }
 
-    // What the search looks through, per item: its own fields and the names
-    // (and other names) of the characters it shows, so "connor" finds
-    // Ratonhnhaké:ton's items. The catalogue is static, so it's built once.
-    let haystacks = null;
-    function haystackOf(item) {
-        if (!haystacks) {
-            const names = new Map(CHARACTERS.map(c => [c.id, [c.name, ...(c.aka || [])].join(' ')]));
-            haystacks = new Map(AC_DATABASE.map(i => [i.id, searchKey(
-                `${i.name} ${i.game} ${i.year} ${i.category} ${i.description} ${i.contents} ${i.type} ${i.series || ''} `
-                + (i.characters || []).map(id => names.get(id) || '').join(' '))]));
+    // The search box takes plain questions ("statues before 2012", "comics
+    // I haven't read"): js/search.js reads the text into a question to ask
+    // of every item. Read once per text.
+    let searchText = null;
+    let searchQuery = null;
+    function readSearch() {
+        if (dom.searchInput.value !== searchText) {
+            searchText = dom.searchInput.value;
+            searchQuery = ACDB.search.parse(searchText);
         }
-        return haystacks.get(item.id) || '';
+        return searchQuery;
     }
 
-    function getFilteredItems() {
-        const search = searchKey(dom.searchInput.value.trim());
+    // "Also show N that mention …" on the "Understood as" line: the search
+    // text whose kind, game and year words also let in the items that only
+    // mention them. It lasts until the text changes.
+    let wideSearchText = null;
+    function searchIsWide() {
+        return wideSearchText !== null && wideSearchText === dom.searchInput.value;
+    }
+
+    // Owned / read status, for the status dropdown and for status words in
+    // the search. The read ones and "Missing Stories" only ever show story
+    // publications, the only items with a read status.
+    function hasStatus(item, status) {
+        const data = getItemData(item.id);
+        switch (status) {
+            case 'owned': return data.owned;
+            case 'unowned': return !data.owned;
+            case 'missing': return isMissingStory(item);
+            case 'wishlist': return data.wishlist;
+            case 'unwished': return !data.wishlist;   // search only: "not on my wishlist"
+            case 'read': return ACDB.isReadable(item) && data.hasRead;
+            case 'unread': return ACDB.isReadable(item) && !data.hasRead;
+            default: return true;
+        }
+    }
+
+    // The statuses in force: the dropdown's, and any asked for in the search
+    function activeStatuses() {
+        return [dom.filterOwned.value, ...readSearch().statuses].filter(Boolean);
+    }
+
+    // The items the search and the filters leave, in catalog order
+    function filterItems(wide) {
+        const query = readSearch();
         const gameFilters = getSelectedValues(dom.filterGame);
         const categoryFilters = getSelectedValues(dom.filterCategory);
         const typeFilters = getSelectedValues(dom.filterType);
@@ -605,15 +638,9 @@ window.ACDB = window.ACDB || {};
         const characterFilters = getSelectedValues(dom.filterCharacter);
         const ownedFilter = dom.filterOwned.value;
 
-        const sortValue = dom.sortBy.value;
-
-        let results = AC_DATABASE.filter(item => {
-            // Search — AND-match each whitespace-separated token across all fields
-            if (search) {
-                const haystack = haystackOf(item);
-                const tokens = search.split(/\s+/);
-                if (!tokens.every(t => haystack.includes(t))) return false;
-            }
+        return AC_DATABASE.filter(item => {
+            // Search (js/search.js); its status words are checked like the dropdown's
+            if (!query.matches(item, { wide, hasStatus })) return false;
             // Game (empty set = all)
             if (gameFilters.size > 0 && !gameFilters.has(item.game)) return false;
             // Category (empty set = all)
@@ -624,20 +651,15 @@ window.ACDB = window.ACDB || {};
             if (seriesFilters.size > 0 && !seriesFilters.has(item.series)) return false;
             // Characters (empty set = all; an item showing any of them matches)
             if (characterFilters.size > 0 && !(item.characters || []).some(id => characterFilters.has(String(id)))) return false;
-            // Owned / read status. The read filters and "Missing Stories"
-            // only ever show story publications, the only items with a read
-            // status.
-            if (ownedFilter) {
-                const data = getItemData(item.id);
-                if (ownedFilter === 'owned' && !data.owned) return false;
-                if (ownedFilter === 'unowned' && data.owned) return false;
-                if (ownedFilter === 'missing' && !isMissingStory(item)) return false;
-                if (ownedFilter === 'wishlist' && !data.wishlist) return false;
-                if (ownedFilter === 'read' && !(ACDB.isReadable(item) && data.hasRead)) return false;
-                if (ownedFilter === 'unread' && !(ACDB.isReadable(item) && !data.hasRead)) return false;
-            }
+            // Owned / read status
+            if (ownedFilter && !hasStatus(item, ownedFilter)) return false;
             return true;
         });
+    }
+
+    function getFilteredItems() {
+        const results = filterItems(searchIsWide());
+        const sortValue = dom.sortBy.value;
 
         // Sort
         if (sortValue === 'year-asc') results.sort((a, b) => a.year - b.year);
@@ -651,14 +673,16 @@ window.ACDB = window.ACDB || {};
 
     // "Suggest a missing item" in the empty state: only for a search, since an
     // empty filter (say, an empty wishlist) doesn't mean the catalogue lacks
-    // anything. The search text pre-fills the GitHub form and the email.
+    // anything; the same goes for a search that asks about the visitor's own
+    // collection ("my wishlist"). The search text pre-fills the GitHub form
+    // and the email.
     const SUGGEST_FORM = 'https://github.com/ThePrivateGeek/ACDb/issues/new?template=missing-item.yml';
     const SUGGEST_EMAIL = 'mailto:info@theprivategeek.com';
 
     function updateSuggestMissing() {
         const query = dom.searchInput.value.trim();
-        dom.suggestMissing.hidden = !query;
-        if (!query) return;
+        dom.suggestMissing.hidden = !query || readSearch().statuses.length > 0;
+        if (dom.suggestMissing.hidden) return;
         const enc = encodeURIComponent;
         dom.suggestGithub.href = `${SUGGEST_FORM}&title=${enc('Missing item: ' + query)}&item-name=${enc(query)}`;
         const body = [
@@ -674,6 +698,7 @@ window.ACDB = window.ACDB || {};
     }
 
     function renderItems() {
+        if (!searchIsWide()) wideSearchText = null;
         const items = getFilteredItems();
         dom.itemsContainer.innerHTML = '';
         updateResultsCount(items);
@@ -695,10 +720,11 @@ window.ACDB = window.ACDB || {};
 
     // After an edit to a few items (the item window, a Read switch): update
     // their cards instead of redrawing all of them. An edit can only add or
-    // drop cards when the status filter is set (owned, wishlist, read,
-    // Missing Stories), so then the whole list is redrawn.
+    // drop cards when a status is asked for (owned, wishlist, read, Missing
+    // Stories; in the dropdown or in the search), so then the whole list is
+    // redrawn.
     function refreshItems(ids) {
-        if (dom.filterOwned.value) {
+        if (activeStatuses().length > 0) {
             renderItems();
             return;
         }
@@ -724,7 +750,32 @@ window.ACDB = window.ACDB || {};
         ['.card-badges', '.card-footer'].forEach(sel => card.querySelector(sel).replaceWith(fresh.querySelector(sel)));
     }
 
+    // "Understood as  Statue · before 2012 · “ezio”" above the count: how
+    // the search text was read, when it was read as more than plain words.
+    // The button lets in (or takes out again) the items that only mention a
+    // word read as a kind, a game or a year: a collector's edition with a
+    // statue in it, under "statues". `shown` is how many items are listed.
+    function updateSearchRead(shown) {
+        const query = readSearch();
+        dom.searchRead.hidden = query.understood.length === 0;
+        if (dom.searchRead.hidden) return;
+        dom.searchReadParts.textContent = query.understood.join(' · ');
+        const wide = searchIsWide();
+        let extra = 0;
+        if (query.mentionWords.length > 0) {
+            extra = wide ? shown - filterItems(false).length : filterItems(true).length - shown;
+        }
+        dom.searchReadMore.hidden = extra <= 0;
+        if (extra <= 0) return;
+        const words = query.mentionWords.length === 1 ? `“${query.mentionWords[0]}”` : 'these words';
+        const mention = extra === 1 ? 'mentions' : 'mention';
+        dom.searchReadMore.textContent = wide
+            ? `Hide the ${extra} that only ${mention} ${words}`
+            : `Also show ${extra} that ${mention} ${words}`;
+    }
+
     function updateResultsCount(items) {
+        updateSearchRead(items.length);
         if (items.length === 0) {
             dom.noResults.style.display = '';   // the stylesheet's centred grid
             dom.resultsCount.textContent = '';
@@ -736,7 +787,10 @@ window.ACDB = window.ACDB || {};
                 dom.resultsCount.textContent = `Showing all ${total} items`;
             } else {
                 const filteredOwned = items.filter(item => getItemData(item.id).owned).length;
-                const ownedFilter = dom.filterOwned.value;
+                // One status asked for (in the dropdown or in the search)
+                // words the count; two ("owned" and "not read") don't
+                const statuses = new Set(activeStatuses());
+                const ownedFilter = statuses.size === 1 ? [...statuses][0] : '';
                 if (ownedFilter === 'owned') {
                     dom.resultsCount.textContent = `Showing ${items.length} owned items`;
                 } else if (ownedFilter === 'unowned') {
@@ -1134,6 +1188,13 @@ window.ACDB = window.ACDB || {};
             dom.clearSearch.classList.remove('visible');
             renderItems();
             dom.searchInput.focus();
+        });
+
+        // "Also show N that mention …" / "Hide the N that only mention …".
+        // The button stays where it is, so it keeps the focus.
+        dom.searchReadMore.addEventListener('click', () => {
+            wideSearchText = searchIsWide() ? null : dom.searchInput.value;
+            renderItems();
         });
 
         // Another tab saved the collection. Both tabs save the whole object,

@@ -77,6 +77,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
 | `node tools/test-sync-merge.mjs` | After touching the sync merge rules in `js/sync.js` |
 | `node tools/test-spending.mjs` | After touching the spending sums in `js/stats.js` |
 | `node tools/test-export.mjs` | After touching the spreadsheet export in `js/collection.js` |
+| `node tools/test-search.mjs` | After touching `js/search.js`, and after adding or renaming a category or a game (the search reads their names as words; a game whose title alone isn't what people type gets a line in `GAME_NAMES` there) |
 | `node tools/test-worker.mjs` | After any change to `worker/acdb-worker.js` (runs it locally against the D1 schema; nothing reaches production) |
 
 ## Environment

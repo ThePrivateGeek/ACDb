@@ -44,6 +44,7 @@
     <link rel="preload" as="script" href="js/games.js">
     <link rel="preload" as="script" href="js/characters.js">
     <link rel="preload" as="script" href="js/utils.js">
+    <link rel="preload" as="script" href="js/search.js">
     <link rel="preload" as="script" href="js/modal.js">
     <link rel="preload" as="script" href="js/stats.js">
     <link rel="preload" as="script" href="js/collection.js">
@@ -171,7 +172,7 @@
                     <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
                 </svg>
                 <label class="sr-only" for="searchInput">Search items</label>
-                <input type="text" id="searchInput" placeholder="Search items..." autocomplete="off">
+                <input type="text" id="searchInput" placeholder="Search or ask: statues before 2015" autocomplete="off">
                 <button id="clearSearch" class="icon-btn icon-btn-sm icon-btn-bare clear-search" title="Clear search" aria-label="Clear search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
             </div>
             <!-- Phones: the filters fold away behind this button -->
@@ -328,6 +329,13 @@
 
     <!-- Main Content -->
     <main class="main-content">
+        <!-- How the search text was read (js/search.js): shown only when it was read as more than plain words -->
+        <p class="search-read" id="searchRead" hidden>
+            <span class="label">Understood as</span>
+            <span class="search-read-parts" id="searchReadParts"></span>
+            <button type="button" class="link" id="searchReadMore" hidden></button>
+            <span class="search-read-note">Found <a class="link" href="privacy.html#search">in your browser</a> using code, not AI.</span>
+        </p>
         <div class="results-row">
             <div class="results-count" id="resultsCount"></div>
             <!-- The leaderboard's top three (sharing.js); hidden when there is nothing to show -->
@@ -342,7 +350,7 @@
             </svg>
             <p>Nothing is true, everything is permitted... but no items match your search.</p>
             <button class="btn btn-sm btn-quiet" id="clearFilters" type="button">Clear search and filters</button>
-            <!-- Shown only when there is search text; app.js fills the links with it -->
+            <!-- Shown only when there is search text that doesn't ask about the visitor's own collection; app.js fills the links with it -->
             <p class="no-results-suggest" id="suggestMissing" hidden>
                 Can't find an item? Suggest it <a class="link" id="suggestGithub" href="https://github.com/ThePrivateGeek/ACDb/issues/new?template=missing-item.yml" target="_blank" rel="noopener">on GitHub</a>
                 or <a class="link" id="suggestEmail" href="mailto:info@theprivategeek.com?subject=Missing%20item">by email</a>.
@@ -732,6 +740,7 @@
     <script src="js/games.js"></script>
     <script src="js/characters.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/search.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/stats.js"></script>
     <script src="js/collection.js"></script>
