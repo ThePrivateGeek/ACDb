@@ -7885,4 +7885,175 @@ const AC_DATABASE = [
     "type": "WISEBLOCK",
     "characters": [1]
   },
+  {
+    "id": 703,
+    "name": "Mega Bloks Da Vinci's Flying Machine Building Set",
+    "game": "Assassin's Creed II",
+    "year": 2014,
+    "category": "Building Sets",
+    "description": "Building block model of Leonardo da Vinci's flying machine from Assassin's Creed II, with an Ezio Auditore micro action figure to fly it (set 94302, also numbered DBJ09). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 95-piece glider has real fabric wings, and a clear display stand holds it in flight with Ezio hanging underneath. Ezio's hood, robe and sash come off, and he carries a sword and two hidden blades. Part of the first wave of six sets, released in late 2014, for ages 10 and up.",
+    "contents": "95 building block pieces, Ezio Auditore micro action figure with detachable hood, glider with fabric wings, display stand, sword, 2 hidden blades",
+    "type": "Mega Bloks",
+    "characters": [1]
+  },
+  {
+    "id": 704,
+    "name": "Mega Bloks Cannon Strike Building Set",
+    "game": "Assassin's Creed Unity",
+    "year": 2014,
+    "category": "Building Sets",
+    "description": "Building block cannon from Assassin's Creed Unity with an Arno Dorian micro action figure (set 94303, also numbered DBJ08). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 74-piece set builds a field cannon on a two-wheeled carriage that turns and fires, with a small patch of ground holding a powder barrel and a stack of shot. Arno's hood and coat come off, and he carries a sword, a pistol and a wrist crossbow. Part of the first wave of six sets, released in late 2014, for ages 10 and up.",
+    "contents": "74 building block pieces, Arno Dorian micro action figure with detachable hood, cannon that fires, scenery base with barrel and shot, sword, pistol, wrist crossbow",
+    "type": "Mega Bloks",
+    "characters": [36]
+  },
+  {
+    "id": 705,
+    "name": "Mega Bloks Pirate Crew Pack",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2014,
+    "category": "Building Sets",
+    "description": "Five micro action figures from Assassin's Creed IV Black Flag with a small beach scene to build (set 94305, also numbered CNF06). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 111-piece pack has an unnamed Assassin in white robes and a red sash, a pirate captain and three pirates. The scene is a pirate cove with a black Assassin flag, a treasure chest with gold coins and a stack of cargo. Cutlasses, pistols and a hidden blade are included, and the Assassin's hood, robe and sash come off. Part of the first wave of six sets, released in late 2014, for ages 10 and up. It was re-issued in 2015 with four figures and 97 pieces (set CNK22).",
+    "contents": "111 building block pieces, 5 micro action figures (an Assassin, a pirate captain, 3 pirates), beach scene with flag and treasure chest, cutlasses, pistols, hidden blade",
+    "type": "Mega Bloks"
+  },
+  {
+    "id": 706,
+    "name": "Mega Bloks Borgia Guard Pack",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2014,
+    "category": "Building Sets",
+    "description": "Five micro action figures from Assassin's Creed Brotherhood with a small scene to build (set 94306, also numbered CNF07). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 122-piece pack has an unnamed Assassin in cream robes and a red sash and four Borgia guards. The scene is a stone tunnel entrance, the fast-travel point of Brotherhood's Rome. Halberds, swords and a hidden blade are included, and the Assassin's hood, robe and sash come off. Part of the first wave of six sets, released in late 2014, for ages 10 and up. It was re-issued in 2015 with four figures and 106 pieces (set CNK23).",
+    "contents": "122 building block pieces, 5 micro action figures (an Assassin, 4 Borgia guards), tunnel entrance, halberds, swords, hidden blade",
+    "type": "Mega Bloks"
+  },
+  {
+    "id": 707,
+    "name": "Mega Bloks Gunboat Takeover Building Set",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2014,
+    "category": "Building Sets",
+    "description": "Building block gunboat from Assassin's Creed IV Black Flag, the largest set and the only ship in Mega Bloks' Assassin's Creed line (set 94308, also numbered DBJ05). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 580-piece boat has real canvas sails, string rigging and ratlines, deck guns, and two cloth flags to hoist, one pirate and one Spanish. Four micro action figures are included: Edward Kenway, with a detachable hood, and three seamen, one of them in a tricorn hat. Part of the first wave of six sets, released in late 2014, for ages 14 and up.",
+    "contents": "580 building block pieces, 4 micro action figures (Edward Kenway, 3 seamen), canvas sails, string rigging, pirate and Spanish flags, swords, 2 hidden blades",
+    "type": "Mega Bloks",
+    "characters": [14]
+  },
+  {
+    "id": 708,
+    "name": "Mega Bloks Fortress Attack Building Set",
+    "game": "Assassin's Creed II",
+    "year": 2014,
+    "category": "Building Sets",
+    "description": "Building block watchtower with Ezio Auditore and a guard to fight over it (set 94319, also numbered DBJ04). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets; Mega Bloks described the build as one tower from the Monteriggioni compound. The 314-piece, three-storey stone tower has climbing poles, hiding spots, Leap of Faith ledges and a working lift that rises when its stone counterweights drop. Two micro action figures are included: Ezio in a dark outfit with a detachable hood, and a guard with a halberd. Part of the first wave of six sets, released in late 2014, for ages 12 and up.",
+    "contents": "314 building block pieces, 2 micro action figures (Ezio Auditore, a guard), tower with working lift, sword, 2 hidden blades, halberd",
+    "type": "Mega Bloks",
+    "characters": [1]
+  },
+  {
+    "id": 709,
+    "name": "Mega Bloks 2014 Exclusive Figure",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2014,
+    "category": "Building Sets",
+    "description": "A promotional micro action figure given away free by Mega Bloks in 2014, sealed in a printed bag marked \"2014 Exclusive Figure\" (item 99708). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) for its Assassin's Creed Collector Series. The figure is a bearded Assassin in pirate dress: an orange hood, a brown coat over a striped shirt and an orange sash, with a pistol, a cutlass and a hidden blade, on a small stand to build. The bag gives no name; fan lists call him Edward Kenway. Mega Bloks announced an event-exclusive figure for New York Comic Con in October 2014, though some sellers list this one as a San Diego Comic-Con exclusive. Never sold in shops. 18 pieces, for ages 10 and up.",
+    "contents": "18 pieces: 1 micro action figure with detachable hood, pistol, cutlass, hidden blade, small buildable stand, in a sealed printed bag",
+    "type": "Mega Bloks"
+  },
+  {
+    "id": 710,
+    "name": "Mega Bloks French Revolution Pack",
+    "game": "Assassin's Creed Unity",
+    "year": 2015,
+    "category": "Building Sets",
+    "description": "Five micro action figures from Assassin's Creed Unity with a small barricade to build (set 94320, also numbered CNC64; Mega Bloks' own site called it the French Revolution Battalion). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 116-piece pack has an unnamed Assassin in a green coat, a brown hood and a red sash, and four French soldiers in blue coats. The barricade is built around a cart wheel, with a barrel, sandbags and a pole that hoists a cloth tricolour on a string. Muskets with bayonets, a sabre and a pistol are included. Announced as a seventh set after the 2014 launch wave and released in 2015, for ages 10 and up. It was re-issued later in 2015 with four figures and 98 pieces (set CNK24).",
+    "contents": "116 building block pieces, 5 micro action figures (an Assassin, 4 French soldiers), barricade with cloth tricolour, muskets, sabre, pistol",
+    "type": "Mega Bloks"
+  },
+  {
+    "id": 711,
+    "name": "Mega Bloks Haytham's Pursuit",
+    "game": "Assassin's Creed III",
+    "year": 2015,
+    "category": "Building Sets",
+    "description": "Haytham Kenway on horseback, from Assassin's Creed III (set CNG07). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 56-piece set has a Haytham micro action figure in his blue coat and tricorn hat, with a sword and a pistol, a fully jointed horse with a saddle, and a small scene to build: a hitching post with a water trough and a barrel. Haytham's hat and coat come off. The only Haytham figure in the line, released in 2015, for ages 10 and up.",
+    "contents": "56 building block pieces, Haytham Kenway micro action figure, jointed horse, hitching post with water trough, sword, pistol",
+    "type": "Mega Bloks",
+    "characters": [15]
+  },
+  {
+    "id": 712,
+    "name": "Mega Bloks American Revolution Pack",
+    "game": "Assassin's Creed III",
+    "year": 2015,
+    "category": "Building Sets",
+    "description": "Four micro action figures from Assassin's Creed III with a British outpost to build (set CNG10). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 106-piece pack has Connor, with a detachable hood, a tomahawk and a hidden blade, and three British soldiers in red coats, one of them a captain. The outpost has a palisade wall, a barrel and a Union flag on a pole. The only Connor figure in the line, released in 2015, for ages 10 and up.",
+    "contents": "106 building block pieces, 4 micro action figures (Connor, 3 British soldiers), outpost with palisade and Union flag, tomahawk, hidden blade, muskets, sword",
+    "type": "Mega Bloks",
+    "characters": [16]
+  },
+  {
+    "id": 713,
+    "name": "Mega Bloks Naval Cannon Building Set",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2015,
+    "category": "Building Sets",
+    "description": "Building block model of Leonardo da Vinci's naval cannon, one of the war machines of Assassin's Creed Brotherhood (set CNG11, also numbered 38080; some shops listed it as War Boat). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 214-piece boat has printed blue and gold panels, fabric sails, a working rudder and a turning gun turret that fires. Two micro action figures are included: Ezio Auditore in a red hooded outfit with a cape, and a Heavy Borgia Soldier in gold and blue armour with a war axe. Released in 2015, for ages 10 and up.",
+    "contents": "214 building block pieces, 2 micro action figures (Ezio Auditore, Heavy Borgia Soldier), boat with firing turret and fabric sails, sword, 2 hidden blades, war axe",
+    "type": "Mega Bloks",
+    "characters": [1]
+  },
+  {
+    "id": 714,
+    "name": "Mega Bloks Chariot Chase Building Set",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2015,
+    "category": "Building Sets",
+    "description": "Building block war chariot drawn by two horses, with Ezio Auditore giving chase (set CNG12, also numbered 38081). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 315-piece, four-wheeled chariot has blades that fold out from its sides and a turning turret that fires, and is pulled by two fully jointed horses, one brown and one white. Two micro action figures are included: Ezio in white robes with a cape, holding the Apple of Eden, and a Borgia soldier with a mace. The second-largest set in the line, released in 2015, for ages 10 and up.",
+    "contents": "315 building block pieces, 2 micro action figures (Ezio Auditore, a Borgia soldier), 2 jointed horses, chariot with firing turret, Apple of Eden, sword, 2 hidden blades, mace",
+    "type": "Mega Bloks",
+    "characters": [1]
+  },
+  {
+    "id": 715,
+    "name": "Mega Bloks Adéwalé Micro Action Figure",
+    "game": "Assassin's Creed IV: Black Flag",
+    "year": 2015,
+    "category": "Building Sets",
+    "description": "Adéwalé from Assassin's Creed IV Black Flag as a single micro action figure, in the blue hooded Assassin outfit he wears in Freedom Cry (set CNG88, also numbered 38157). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 31-piece set has the figure, with a detachable hood and outfit, a machete, a pistol and a hidden blade, and a small scene to build with a wooden wall and a powder barrel. Released in 2015, for ages 10 and up.",
+    "contents": "31 building block pieces, Adéwalé micro action figure with detachable hood, small scene with barrel, machete, pistol, hidden blade",
+    "type": "Mega Bloks",
+    "characters": [18]
+  },
+  {
+    "id": 716,
+    "name": "Mega Bloks Heavy Borgia Soldier Micro Action Figure",
+    "game": "Assassin's Creed Brotherhood",
+    "year": 2015,
+    "category": "Building Sets",
+    "description": "One of the armoured Borgia heavies from Assassin's Creed Brotherhood as a single micro action figure (set CNG89, also numbered 38158). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014) as one of its Assassin's Creed Collector Construction Sets. The 36-piece set has the soldier, whose silver and red armour and helmet come off, and a stone weapons rack to build, holding a halberd, a battle axe and a morning star. Released in 2015, for ages 10 and up.",
+    "contents": "36 building block pieces, Heavy Borgia Soldier micro action figure with detachable armour, weapons rack, halberd, battle axe, morning star",
+    "type": "Mega Bloks"
+  },
+  {
+    "id": 717,
+    "name": "Mega Bloks Kubros Ezio",
+    "game": "Assassin's Creed II",
+    "year": 2016,
+    "category": "Building Sets",
+    "description": "A blocky, brick-built Ezio Auditore in his white robes, from Mega Bloks' Kubros line of buildable character figures (set DPH92). Officially licensed by Ubisoft and made by Mega Bloks (MEGA Brands, part of Mattel since 2014). The 148-piece figure has a head and arms that move, a hidden blade at the wrist and a metal Kubros coin set into one foot. Ezio was one of the six characters in the first Kubros wave of 2016, alongside Master Chief, He-Man, Skeletor, the Terminator and Spock, and is the only Assassin's Creed figure in the line. Later stock was sold under the Mega Construx name. For ages 10 and up.",
+    "contents": "148 building block pieces, including a metal Kubros coin",
+    "type": "Mega Bloks",
+    "characters": [1]
+  },
+  {
+    "id": 718,
+    "name": "Mega Construx Heroes Ezio (Series 4)",
+    "game": "Assassin's Creed II",
+    "year": 2018,
+    "category": "Building Sets",
+    "description": "Ezio Auditore as a carded micro action figure in Series 4 of Mega Construx Heroes (item GBG37). Officially licensed by Ubisoft and made by Mattel's Mega Construx, the later name of Mega Bloks. The 22-piece set has a jointed Ezio about 5 cm (2 in) tall in his white robes, with a sword and two hidden blades, and a small stand to build with a printed \"Ezio\" nameplate. His series-mates were Kratos, Hellboy, the T-800, Man-At-Arms and Evil-Lyn. On shelves from late 2018, it is the only Assassin's Creed item sold under the Mega Construx name, and Mega's last. For ages 8 and up.",
+    "contents": "22 pieces: Ezio micro action figure, sword, 2 hidden blades, buildable display stand with nameplate",
+    "type": "Mega Bloks",
+    "characters": [1]
+  },
 ];

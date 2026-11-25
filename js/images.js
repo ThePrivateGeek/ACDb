@@ -1633,6 +1633,82 @@ const AC_IMAGES = {
         "images/other/wiseblock-the-book-of-ezio.webp",
         "images/other/wiseblock-the-book-of-ezio_01.webp",
     ],
+    "Mega Bloks Da Vinci's Flying Machine Building Set": [
+        "images/other/mega-bloks-da-vincis-flying-machine.webp",
+        "images/other/mega-bloks-da-vincis-flying-machine_01.webp",
+        "images/other/mega-bloks-da-vincis-flying-machine_02.webp",
+    ],
+    "Mega Bloks Cannon Strike Building Set": [
+        "images/other/mega-bloks-cannon-strike.webp",
+        "images/other/mega-bloks-cannon-strike_01.webp",
+        "images/other/mega-bloks-cannon-strike_02.webp",
+    ],
+    "Mega Bloks Pirate Crew Pack": [
+        "images/other/mega-bloks-pirate-crew-pack.webp",
+        "images/other/mega-bloks-pirate-crew-pack_01.webp",
+        "images/other/mega-bloks-pirate-crew-pack_02.webp",
+    ],
+    "Mega Bloks Borgia Guard Pack": [
+        "images/other/mega-bloks-borgia-guard-pack.webp",
+        "images/other/mega-bloks-borgia-guard-pack_01.webp",
+        "images/other/mega-bloks-borgia-guard-pack_02.webp",
+    ],
+    "Mega Bloks Gunboat Takeover Building Set": [
+        "images/other/mega-bloks-gunboat-takeover.webp",
+        "images/other/mega-bloks-gunboat-takeover_01.webp",
+        "images/other/mega-bloks-gunboat-takeover_02.webp",
+    ],
+    "Mega Bloks Fortress Attack Building Set": [
+        "images/other/mega-bloks-fortress-attack.webp",
+        "images/other/mega-bloks-fortress-attack_01.webp",
+        "images/other/mega-bloks-fortress-attack_02.webp",
+    ],
+    "Mega Bloks 2014 Exclusive Figure": [
+        "images/other/mega-bloks-2014-exclusive-figure.webp",
+        "images/other/mega-bloks-2014-exclusive-figure_01.webp",
+        "images/other/mega-bloks-2014-exclusive-figure_02.webp",
+    ],
+    "Mega Bloks French Revolution Pack": [
+        "images/other/mega-bloks-french-revolution-pack.webp",
+        "images/other/mega-bloks-french-revolution-pack_01.webp",
+        "images/other/mega-bloks-french-revolution-pack_02.webp",
+    ],
+    "Mega Bloks Haytham's Pursuit": [
+        "images/other/mega-bloks-haythams-pursuit.webp",
+        "images/other/mega-bloks-haythams-pursuit_01.webp",
+        "images/other/mega-bloks-haythams-pursuit_02.webp",
+    ],
+    "Mega Bloks American Revolution Pack": [
+        "images/other/mega-bloks-american-revolution-pack.webp",
+        "images/other/mega-bloks-american-revolution-pack_01.webp",
+        "images/other/mega-bloks-american-revolution-pack_02.webp",
+    ],
+    "Mega Bloks Naval Cannon Building Set": [
+        "images/other/mega-bloks-naval-cannon.webp",
+        "images/other/mega-bloks-naval-cannon_01.webp",
+        "images/other/mega-bloks-naval-cannon_02.webp",
+    ],
+    "Mega Bloks Chariot Chase Building Set": [
+        "images/other/mega-bloks-chariot-chase.webp",
+        "images/other/mega-bloks-chariot-chase_01.webp",
+        "images/other/mega-bloks-chariot-chase_02.webp",
+    ],
+    "Mega Bloks Adéwalé Micro Action Figure": [
+        "images/other/mega-bloks-adewale.webp",
+        "images/other/mega-bloks-adewale_01.webp",
+        "images/other/mega-bloks-adewale_02.webp",
+    ],
+    "Mega Bloks Heavy Borgia Soldier Micro Action Figure": [
+        "images/other/mega-bloks-heavy-borgia-soldier.webp",
+        "images/other/mega-bloks-heavy-borgia-soldier_01.webp",
+        "images/other/mega-bloks-heavy-borgia-soldier_02.webp",
+    ],
+    "Mega Bloks Kubros Ezio": [
+        "images/other/mega-bloks-kubros-ezio.webp",
+        "images/other/mega-bloks-kubros-ezio_01.webp",
+        "images/other/mega-bloks-kubros-ezio_02.webp",
+    ],
+    "Mega Construx Heroes Ezio (Series 4)": ["images/other/mega-construx-heroes-ezio.webp"],
 
     "Assassin's Creed Unity Collectible Coin": [
         "images/other/lootcrate-unity-coin.webp",
