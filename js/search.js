@@ -122,6 +122,7 @@
         [['board and card game', 'tabletop game'], 'category', ['Board & Card Games']],
         [['jewelry', 'jewellery', 'accessory'], 'category', ['Jewelry & Accessories']],
         [['jigsaw', 'jigsaw puzzle'], 'category', ['Puzzles']],
+        [['building block', 'brick', 'brick set', 'block', 'block set', 'construction set'], 'category', ['Building Sets']],
         [['decor'], 'category', ['Home Decor']],
         [['gadget', 'tech and gadgets'], 'category', ['Tech & Gadgets']],
         [['art book', 'artbook'], 'type', ['Art Book']],

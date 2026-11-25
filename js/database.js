@@ -7791,10 +7791,10 @@ const AC_DATABASE = [
     "name": "WISEBLOCK Jackdaw (Epic Warship Edition) Building Set",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2026,
-    "category": "Puzzles",
+    "category": "Building Sets",
     "description": "Building block model of the Jackdaw, Edward Kenway's brig from Assassin's Creed IV Black Flag, and the largest set in WISEBLOCK's Black Flag Series (set HA395107). Officially licensed by Ubisoft and made by WISEBLOCK, the building-block brand of Alpha Group. The 3,781-piece ship stands on a display base and comes with two sets of sails, black and white, a choice of pirate or Assassin flag, a removable captain's cabin and 52 cannons; turning a cask on deck runs the broadside cannons in and out. Eight minifigures are included: Edward Kenway, Adéwalé, Blackbeard, Mary Read, Bartholomew Roberts, Charles Vane, Jack Rackham and Benjamin Hornigold. The finished ship is about 81.5 cm long and 61.7 cm tall (32.1 x 24.3 in). Released in the US in June 2026, for ages 18 and up.",
     "contents": "3,781 building block pieces, 8 minifigures (Edward Kenway, Adéwalé, Blackbeard, Mary Read, Bartholomew Roberts, Charles Vane, Jack Rackham, Benjamin Hornigold), display base, black and white sail sets, instructions",
-    "type": "Building Set",
+    "type": "WISEBLOCK",
     "characters": [14, 18, 21, 103, 105, 107, 108, 106]
   },
   {
@@ -7802,10 +7802,10 @@ const AC_DATABASE = [
     "name": "WISEBLOCK Havana Harbour Building Set",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2026,
-    "category": "Puzzles",
+    "category": "Building Sets",
     "description": "Building block diorama of Havana's waterfront from Assassin's Creed IV Black Flag, part of WISEBLOCK's Black Flag Series (set HA395106). Officially licensed by Ubisoft and made by WISEBLOCK, the building-block brand of Alpha Group. The 2,399-piece harbour has a tavern, a blacksmith's shop, a white twin-towered church and a fountain square, with a rowing boat and a jetty at the water's edge. The rooftops flip up and the walls turn to show the rooms inside, and Edward crosses a rope strung from the rooftops to the church. Hidden touches include a treasure chest uncovered by twisting a gear, a secret door that swings round and a hay cart for Edward to hide in. Six minifigures are included: Edward Kenway, Stede Bonnet, Governor Laureano de Torres, Bartholomew Roberts, a blacksmith and a townswoman. The finished model is about 57.7 cm wide, 41.7 cm deep and 31.2 cm tall (22.7 x 16.4 x 12.3 in). Released in the US in June 2026, for ages 18 and up.",
     "contents": "2,399 building block pieces, 6 minifigures (Edward Kenway, Stede Bonnet, Laureano de Torres, Bartholomew Roberts, a blacksmith, a townswoman), rowing boat, 2 instruction manuals",
-    "type": "Building Set",
+    "type": "WISEBLOCK",
     "characters": [14, 109, 105]
   },
   {
@@ -7813,10 +7813,10 @@ const AC_DATABASE = [
     "name": "WISEBLOCK Jackdaw (Voyage Edition) Building Set",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2026,
-    "category": "Puzzles",
+    "category": "Building Sets",
     "description": "The smaller of WISEBLOCK's two building block models of the Jackdaw, Edward Kenway's brig from Assassin's Creed IV Black Flag (Black Flag Series, set HA395105). Officially licensed by Ubisoft and made by WISEBLOCK, the building-block brand of Alpha Group. The 1,269-piece ship has broadside cannons that fire, captain's cabin sides that open, storage inside the hull and a stern deck that lifts off. Six minifigures are included: Edward Kenway, Adéwalé, Blackbeard, James Kidd and two sailors. The finished ship is about 64 cm long and 51.3 cm tall (25.2 x 20.2 in). Released in the US in June 2026, for ages 18 and up.",
     "contents": "1,269 building block pieces, 6 minifigures (Edward Kenway, Adéwalé, Blackbeard, James Kidd, 2 sailors), instructions",
-    "type": "Building Set",
+    "type": "WISEBLOCK",
     "characters": [14, 18, 21, 103]
   },
   {
@@ -7824,10 +7824,10 @@ const AC_DATABASE = [
     "name": "WISEBLOCK Harbour Master Building Set",
     "game": "Assassin's Creed IV: Black Flag",
     "year": 2026,
-    "category": "Puzzles",
+    "category": "Building Sets",
     "description": "The smallest set in WISEBLOCK's Black Flag Series (set HA395108): a 331-piece harbour master's hut on a wooden jetty, as found in the ports of Assassin's Creed IV Black Flag, with two minifigures, Edward Kenway and the harbour master. The striped roof lifts off, the back wall panels slide open, and the hut is hung with a ship's wheel, an anchor and a painted sign, with a treasure map and compass on the desk. Officially licensed by Ubisoft and made by WISEBLOCK, the building-block brand of Alpha Group. Sold on its own and also given free with larger orders from WISEBLOCK's shop. Released in the US in June 2026, for ages 18 and up.",
     "contents": "331 building block pieces, 2 minifigures (Edward Kenway, the harbour master), instructions",
-    "type": "Building Set",
+    "type": "WISEBLOCK",
     "characters": [14]
   },
   {
@@ -7835,10 +7835,10 @@ const AC_DATABASE = [
     "name": "WISEBLOCK Leap of Faith Blind Box (Series 1)",
     "game": "General",
     "year": 2026,
-    "category": "Puzzles",
+    "category": "Building Sets",
     "description": "Display box of six building block blind boxes from WISEBLOCK's Assassin's Creed Classic Series 1 (set HA395101). Officially licensed by Ubisoft and made by WISEBLOCK, the building-block brand of Alpha Group. Each box holds one minifigure and a small tower of 90 to 98 pieces to build, with a ledge for the figure to perch on before a Leap of Faith, and a full display box has all six with no duplicates: Altaïr, Ezio, Edward Kenway, Shay, Arno and Bayek. The six builds come to 578 pieces. The blind boxes are also sold singly, at random. Released in the US in August 2026, for ages 18 and up.",
     "contents": "6 blind boxes (578 building block pieces in all), 6 minifigures (Altaïr, Ezio, Edward Kenway, Shay, Arno, Bayek), each with a micro diorama",
-    "type": "Building Set",
+    "type": "WISEBLOCK",
     "characters": [2, 1, 14, 17, 36, 26]
   },
   {
@@ -7846,10 +7846,10 @@ const AC_DATABASE = [
     "name": "WISEBLOCK Ezio Hidden Blade Building Set",
     "game": "Assassin's Creed II",
     "year": 2026,
-    "category": "Puzzles",
+    "category": "Building Sets",
     "description": "Building block model of Ezio Auditore's Hidden Blade bracer from Assassin's Creed II, part of WISEBLOCK's Assassin's Creed Classic Series 1 (set HA395104), sold as \"Ezio · Hidden Blade\". Officially licensed by Ubisoft and made by WISEBLOCK, the building-block brand of Alpha Group. The 1,027-piece bracer stands upright on a display stand, about 32.5 cm (12.8 in) tall, and its blade slides in and out by hand. A small scene is built into the model, with several places to stand the Ezio minifigure. Released in the US in August 2026, for ages 18 and up.",
     "contents": "1,027 building block pieces, Ezio minifigure, display stand, instructions",
-    "type": "Building Set",
+    "type": "WISEBLOCK",
     "characters": [1]
   },
   {
@@ -7857,10 +7857,10 @@ const AC_DATABASE = [
     "name": "WISEBLOCK Tailor Shop & Art Merchant Building Set",
     "game": "Assassin's Creed II",
     "year": 2026,
-    "category": "Puzzles",
+    "category": "Building Sets",
     "description": "Building block Renaissance street front from Assassin's Creed II, part of WISEBLOCK's Assassin's Creed Classic Series 1 (set HA395103): the tailor's shop and the art merchant where Ezio buys his dyes, pouches and paintings. Officially licensed by Ubisoft and made by WISEBLOCK, the building-block brand of Alpha Group. The 839-piece model can be arranged as two different street layouts, and an eagle on the rooftop turns on a gear. Four minifigures are included: Ezio Auditore, the tailor and two more townsmen. The back of the model is open to show the art merchant's shop inside. Released in the US in August 2026, for ages 18 and up.",
     "contents": "839 building block pieces, 4 minifigures (Ezio Auditore, the tailor, 2 townsmen), instructions",
-    "type": "Building Set",
+    "type": "WISEBLOCK",
     "characters": [1]
   },
   {
@@ -7868,10 +7868,10 @@ const AC_DATABASE = [
     "name": "WISEBLOCK Papal Carriage Building Set",
     "game": "Assassin's Creed Brotherhood",
     "year": 2026,
-    "category": "Puzzles",
+    "category": "Building Sets",
     "description": "Building block model of the Pope's horse-drawn carriage, part of WISEBLOCK's Assassin's Creed Classic Series 1 (set HA395102). Officially licensed by Ubisoft and made by WISEBLOCK, the building-block brand of Alpha Group. The 488-piece carriage is about 38.4 cm (15.1 in) long with its horses; the front wheels steer and the right side opens to show the inside. Four minifigures are included: Ezio Auditore, Rodrigo Borgia, an Assassin ally and a Borgia guard. Released in the US in August 2026, for ages 18 and up.",
     "contents": "488 building block pieces, 4 minifigures (Ezio Auditore, Rodrigo Borgia, an Assassin ally, a Borgia guard), horses, instructions",
-    "type": "Building Set",
+    "type": "WISEBLOCK",
     "characters": [1, 5]
   },
   {
@@ -7879,10 +7879,10 @@ const AC_DATABASE = [
     "name": "WISEBLOCK The Book of Ezio Building Set",
     "game": "Assassin's Creed II",
     "year": 2026,
-    "category": "Puzzles",
+    "category": "Building Sets",
     "description": "The smallest set in WISEBLOCK's Assassin's Creed Classic Series 1 (set HA395109): a 126-piece building block book from Assassin's Creed II, about 12.8 cm (5 in) tall. The blue cover has a window onto an Ezio Auditore minifigure standing on a nameplate inside, and the book can be displayed closed or opened out. Officially licensed by Ubisoft and made by WISEBLOCK, the building-block brand of Alpha Group. Released in the US in 2026, for ages 18 and up.",
     "contents": "126 building block pieces, Ezio minifigure, instructions",
-    "type": "Building Set",
+    "type": "WISEBLOCK",
     "characters": [1]
   },
 ];

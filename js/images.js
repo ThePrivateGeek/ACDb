@@ -1587,6 +1587,8 @@ const AC_IMAGES = {
         "images/other/wrebbit3d-ac-unity-notre-dame.webp",
         "images/other/wrebbit3d-ac-unity-notre-dame_01.webp",
     ],
+
+    // ── Building Sets ──
     "WISEBLOCK Jackdaw (Epic Warship Edition) Building Set": [
         "images/other/wiseblock-jackdaw-epic-warship-edition.webp",
         "images/other/wiseblock-jackdaw-epic-warship-edition_01.webp",

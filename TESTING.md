@@ -212,7 +212,7 @@ For simple item additions or image updates, skip to the "Data" section only.
 
 ## 14. Category list
 The catalogue's categories are the Category options of the "Suggest a missing item" form (`.github/ISSUE_TEMPLATE/missing-item.yml`); `tools/validate-catalog.py` reads them from there.
-- [ ] `python3 tools/validate-catalog.py` passes: every item's category is one of the form's 17 ("Not sure" is not a category)
+- [ ] `python3 tools/validate-catalog.py` passes: every item's category is one of the form's 18 ("Not sure" is not a category)
 - [ ] Taking a category out of the form (try Music, then put it back) makes the validator report each item that uses it
 - [ ] The site has no "Add Item" button or code generator (retired 2 Nov 2026), even with an old `acdb_admin` flag in localStorage
 
@@ -390,7 +390,7 @@ The Characters tab (`#characters`, `js/characters-view.js`) lists `js/characters
 
 ## 22. Static pages (item/, items/)
 The pages search engines read: one per item at `/item/<slug>`, and list pages under `/items/`. `tools/build-item-pages.py` writes them and `sitemap.xml`; never edit them by hand. Preview with `python3 tools/serve.py` (plain `http.server` answers `/item/<slug>` with 404).
-- [ ] `/items/` lists 17 categories and 21 games with counts; each category count and each game count adds up to the catalog size
+- [ ] `/items/` lists 18 categories and 21 games with counts; each category count and each game count adds up to the catalog size
 - [ ] An item page (a portrait photo, a landscape one, the 110-character "The World of Assassin's Creed Valhalla…" name, Assassin's Creed: Renaissance with its series and character, Naoe's bust with its 23-character description) shows the photo without a jump while it loads, the facts (Game and Category link to their list pages, Type only when it differs from the category, Series when there is one, the id pill), the description, Contents, Characters (links into the app's character pages) and up to six related items
 - [ ] **Track it in your collection** opens the app with that item's card open
 - [ ] The breadcrumb leads to the category page and from there to `/items/`; the logo and **Open the database** go to the app

@@ -69,7 +69,8 @@ CATEGORY_PLURALS = {
     "Steelbook": "Steelbooks", "Statue": "Statues", "Figurine": "Figurines",
     "Action Figure": "Action figures", "Replica/Prop": "Replicas and props",
     "Art & Reference": "Art and reference books", "Comic Book": "Comic books", "Novel": "Novels",
-    "Board & Card Games": "Board and card games", "Puzzles": "Puzzles", "Music": "Music",
+    "Board & Card Games": "Board and card games", "Puzzles": "Puzzles",
+    "Building Sets": "Building sets", "Music": "Music",
     "Drinkware": "Drinkware", "Home Decor": "Home decor",
     "Jewelry & Accessories": "Jewelry and accessories", "Tech & Gadgets": "Tech and gadgets",
 }
