@@ -1587,6 +1587,50 @@ const AC_IMAGES = {
         "images/other/wrebbit3d-ac-unity-notre-dame.webp",
         "images/other/wrebbit3d-ac-unity-notre-dame_01.webp",
     ],
+    "WISEBLOCK Jackdaw (Epic Warship Edition) Building Set": [
+        "images/other/wiseblock-jackdaw-epic-warship-edition.webp",
+        "images/other/wiseblock-jackdaw-epic-warship-edition_01.webp",
+        "images/other/wiseblock-jackdaw-epic-warship-edition_02.webp",
+    ],
+    "WISEBLOCK Havana Harbour Building Set": [
+        "images/other/wiseblock-havana-harbour.webp",
+        "images/other/wiseblock-havana-harbour_01.webp",
+        "images/other/wiseblock-havana-harbour_02.webp",
+    ],
+    "WISEBLOCK Jackdaw (Voyage Edition) Building Set": [
+        "images/other/wiseblock-jackdaw-voyage-edition.webp",
+        "images/other/wiseblock-jackdaw-voyage-edition_01.webp",
+        "images/other/wiseblock-jackdaw-voyage-edition_02.webp",
+    ],
+    "WISEBLOCK Harbour Master Building Set": [
+        "images/other/wiseblock-harbour-master.webp",
+        "images/other/wiseblock-harbour-master_01.webp",
+        "images/other/wiseblock-harbour-master_02.webp",
+    ],
+    "WISEBLOCK Leap of Faith Blind Box (Series 1)": [
+        "images/other/wiseblock-leap-of-faith-blind-box.webp",
+        "images/other/wiseblock-leap-of-faith-blind-box_01.webp",
+        "images/other/wiseblock-leap-of-faith-blind-box_02.webp",
+    ],
+    "WISEBLOCK Ezio Hidden Blade Building Set": [
+        "images/other/wiseblock-ezio-hidden-blade.webp",
+        "images/other/wiseblock-ezio-hidden-blade_01.webp",
+        "images/other/wiseblock-ezio-hidden-blade_02.webp",
+    ],
+    "WISEBLOCK Tailor Shop & Art Merchant Building Set": [
+        "images/other/wiseblock-tailor-shop-art-merchant.webp",
+        "images/other/wiseblock-tailor-shop-art-merchant_01.webp",
+        "images/other/wiseblock-tailor-shop-art-merchant_02.webp",
+    ],
+    "WISEBLOCK Papal Carriage Building Set": [
+        "images/other/wiseblock-papal-carriage.webp",
+        "images/other/wiseblock-papal-carriage_01.webp",
+        "images/other/wiseblock-papal-carriage_02.webp",
+    ],
+    "WISEBLOCK The Book of Ezio Building Set": [
+        "images/other/wiseblock-the-book-of-ezio.webp",
+        "images/other/wiseblock-the-book-of-ezio_01.webp",
+    ],
 
     "Assassin's Creed Unity Collectible Coin": [
         "images/other/lootcrate-unity-coin.webp",
