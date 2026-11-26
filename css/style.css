@@ -4000,7 +4000,7 @@ a.reading-title {
 }
 
 /* A header card's links (a game's or a character's page): Complete Lore,
-   the collection, share */
+   the collection */
 .head-card-links {
     display: flex;
     flex-wrap: wrap;
@@ -4008,6 +4008,15 @@ a.reading-title {
     gap: var(--s2) var(--s5);
     margin-top: var(--s4);
     font-size: var(--fs-md);
+}
+
+/* A header card's share button: the round icon button in the card's top
+   right corner, where the item window has its own. First in the card's
+   markup, so Tab reaches it before the links below. */
+.head-card-share {
+    position: absolute;
+    top: var(--s4);
+    right: var(--s4);
 }
 
 /* The cast: a character page's game rows, with a portrait in the cover's place */
@@ -4201,6 +4210,7 @@ a.reading-title {
 
 /* A character's page: header card (portrait; badge, facts, description, owned) */
 .character-head {
+    position: relative;   /* the corner share button (.head-card-share) */
     display: grid;
     grid-template-columns: 160px minmax(0, 1fr);
     align-content: start;

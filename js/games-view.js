@@ -389,9 +389,10 @@
         ].join('');
         const links = [
             lore ? `<a class="link" href="${lore.hash}">${count(lore.count, 'story', 'stories')} in Complete Lore &rarr;</a>` : '',
-            items.length ? `<button class="link" data-game-catalog="${esc(game.name)}">Show in the collection &rarr;</button>` : '',
-            `<button class="btn btn-quiet btn-sm" data-game-share>${SHARE_ICON}${A.canWebShare ? 'Share this game' : 'Copy link'}</button>`
+            items.length ? `<button class="link" data-game-catalog="${esc(game.name)}">Show in the collection &rarr;</button>` : ''
         ].join('');
+        // Share sits in the card's top right corner, like the item window's
+        const shareLabel = A.canWebShare ? 'Share this game' : 'Copy a link to this game';
         // Played, with the date they finished it, and how many DLCs
         const played = A.getGameProgress(game.id);
         const dlcsPlayed = game.dlcs.filter(dlc => A.isPlayed(dlc.id)).length;
@@ -435,13 +436,14 @@
                 <h2 class="page-title">${esc(game.name)}</h2>
             </div>
             <div class="character-head game-head">
+                <button class="icon-btn head-card-share" data-game-share title="${shareLabel}" aria-label="${shareLabel}">${SHARE_ICON}</button>
                 ${coverHTML(game.image, 'game-head-cover', false)}
                 <div class="character-head-facts">
                     <div class="modal-badges-row"><span class="badge badge-accent modal-badge">${esc(game.remakeOf ? 'Remake' : KIND_LABELS[game.kind] || '')}</span></div>
                     <div class="modal-meta">${meta}</div>
                 </div>
                 <p class="character-description">${esc(game.description)}</p>
-                <div class="head-card-links">${links}</div>
+                ${links ? `<div class="head-card-links">${links}</div>` : ''}
                 ${playedRow}
                 ${progress}
             </div>
