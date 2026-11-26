@@ -2186,7 +2186,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [1]
+    "characters": [1, 4, 5, 10, 9, 11, 8, 91, 97, 12, 95, 93, 94, 92, 90, 98, 96, 89, 24]
   },
   {
     "id": 207,
@@ -2198,7 +2198,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [1]
+    "characters": [1, 6, 9, 12, 4, 7, 8, 5, 95, 96, 10]
   },
   {
     "id": 208,
@@ -2210,7 +2210,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [2, 84, 85, 86, 87, 88, 195, 202, 209, 210]
+    "characters": [2, 84, 88, 87, 86, 85, 209, 195, 210, 202]
   },
   {
     "id": 209,
@@ -2222,7 +2222,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [1]
+    "characters": [1, 13, 2, 99, 100, 101, 102, 42, 12, 159]
   },
   {
     "id": 210,
@@ -2234,7 +2234,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [15]
+    "characters": [15, 113, 16, 22, 14, 112, 117, 23, 114, 116]
   },
   {
     "id": 211,
@@ -2246,7 +2246,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [14, 196]
+    "characters": [14, 21, 105, 103, 109, 18, 107, 110, 104, 106, 111, 108, 196]
   },
   {
     "id": 212,
@@ -2258,7 +2258,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [36]
+    "characters": [37, 36, 130, 127, 129]
   },
   {
     "id": 213,
@@ -2270,7 +2270,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [39, 41, 43, 144, 154, 155]
+    "characters": [41, 154, 144, 39, 38, 43, 40, 140, 155]
   },
   {
     "id": 214,
@@ -2281,7 +2281,7 @@ const AC_DATABASE = [
     "description": "Abstergo employee Simon Hathaway relives the memories of Joan of Arc's companion-at-arms, exploring the role of a Sword of Eden in the Hundred Years' War. By Christie Golden.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [75, 157, 158]
+    "characters": [75, 158, 157]
   },
   {
     "id": 215,
@@ -2293,7 +2293,7 @@ const AC_DATABASE = [
     "contents": "Premium hardcover edition features exclusive art sketches and behind the scenes interviews, as well as a special code to unlock Assassin's Creed rewards through Ubisoft Club's loyalty program.",
     "type": "Novel",
     "collects": [214],
-    "characters": [75, 157, 158]
+    "characters": [75, 158, 157]
   },
   {
     "id": 216,
@@ -2305,7 +2305,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Assassin's Creed: Last Descendants",
-    "characters": [73, 76, 77, 158]
+    "characters": [76, 77, 73, 158]
   },
   {
     "id": 217,
@@ -2317,7 +2317,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Assassin's Creed: Last Descendants",
-    "characters": [76, 77, 158]
+    "characters": [76, 77, 158, 51]
   },
   {
     "id": 218,
@@ -2329,7 +2329,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Assassin's Creed: Last Descendants",
-    "characters": [76, 77, 158]
+    "characters": [76, 77, 158, 24]
   },
   {
     "id": 219,
@@ -2341,7 +2341,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Oliver Bowden Novels",
-    "characters": [26]
+    "characters": [26, 27]
   },
   {
     "id": 220,
@@ -2352,7 +2352,7 @@ const AC_DATABASE = [
     "description": "Novelization following the Eagle Bearer during the Peloponnesian War in ancient Greece, uncovering the Cult of Kosmos and her family's legacy. By Gordon Doherty.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [30, 173, 174, 175, 176, 177, 178, 179, 180, 181]
+    "characters": [30, 31, 173, 174, 175, 181, 176, 177, 180, 179, 178, 204]
   },
   {
     "id": 221,
@@ -2363,7 +2363,7 @@ const AC_DATABASE = [
     "description": "Geirmund's Saga is a tie-in novel to Assassin's Creed Valhalla. Follows Norse warrior Geirmund Hel-hide during the Viking invasion of England, offering a parallel story to the game's events. By Matthew Kirby.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [80, 183, 186, 187, 190]
+    "characters": [80, 32, 186, 187, 190, 183]
   },
   {
     "id": 222,
@@ -2421,7 +2421,7 @@ const AC_DATABASE = [
     "description": "Sword of the White Horse is a tie-in novel and sequel to Assassin's Creed Valhalla. Follows Niamh, a blind Norse-Gaelic woman and Hidden One, in the court of King Alfred's Wessex, as she protects a sacred artifact. By Elsa Sjunneson.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [81, 191]
+    "characters": [81, 56, 191, 32]
   },
   {
     "id": 227,
@@ -2432,7 +2432,7 @@ const AC_DATABASE = [
     "description": "Constantinople, 867 - A murderous plot is afoot. Assisted by the Order of the Ancients, the emperor schemes to assassinate his son and throw the city into chaos. In response, the Hidden Ones have dispatched Assassin acolyte Hytham to join his mentor, Basim Ibn Ishaq, to infiltrate the palace and foil the emperor's plan. But that is not his only mission... Hytham's brotherhood have entrusted him with uncovering where Basim's true loyalties lie and whether the master Assassin's personal obsessions outweigh his sense of duty. For Hytham to succeed, he must tread carefully, for Constantinople is a city of shadows, and danger hides in all of them.. By Jaleigh Johnson.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [34, 56]
+    "characters": [56, 34]
   },
   {
     "id": 228,
@@ -2443,7 +2443,7 @@ const AC_DATABASE = [
     "description": "Master Assassin Roshan's past is revealed as she joins a hunt along the Silk Road for a powerful lost artifact. A prequel companion to AC Mirage. By Maria Lewis.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [35]
+    "characters": [35, 133]
   },
   {
     "id": 229,
@@ -2475,7 +2475,8 @@ const AC_DATABASE = [
     "category": "Novel",
     "description": "Interactive gamebook (choose-your-own-adventure) where the reader takes on the role of an Assassin on a mission along the Silk Road. French language only ('Le Livre dont vous etes l'Assassin'). By Mathieu Rivero.",
     "contents": "Interactive gamebook (French language only)",
-    "type": "Gamebook"
+    "type": "Gamebook",
+    "characters": [34, 56]
   },
   {
     "id": 232,
@@ -4643,7 +4644,7 @@ const AC_DATABASE = [
     "description": "Official novelization of the 2016 Assassin's Creed film starring Michael Fassbender. Follows Callum Lynch as he relives the memories of his ancestor Aguilar during the Spanish Inquisition.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [57, 58, 157, 192, 193, 199]
+    "characters": [57, 58, 192, 157, 59, 193, 199, 211, 212, 213, 214, 194, 42, 99, 196]
   },
   {
     "id": 413,
@@ -7168,7 +7169,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Assassin's Creed: The Engine of History",
-    "characters": [78, 79]
+    "characters": [78, 79, 39]
   },
   {
     "id": 639,

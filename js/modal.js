@@ -17,6 +17,12 @@
     // controls work as usual, but the view and its hash stay underneath.
     let isOverView = false;
 
+    // A long Characters line folds: an item with more characters than
+    // CHARACTERS_WHOLE shows the first CHARACTERS_SHOWN and "Show all N".
+    // The gap between the two keeps the button from hiding one or two names.
+    const CHARACTERS_SHOWN = 6;
+    const CHARACTERS_WHOLE = 8;
+
     // ---- Focus (DESIGN.md section 6, Dialogs) ----
     // The window takes focus when it opens, keeps Tab inside while it is
     // open and hands focus back to what opened it. An edit made in the
@@ -109,13 +115,17 @@
         }
 
         // Characters the item shows or tells the story of (js/characters.js),
-        // each a link to their page on the Characters tab
+        // each a link to their page on the Characters tab, in the item's own
+        // order (the lead first). A long list is folded each time the
+        // window opens.
         const characters = (item.characters || []).map(A.findCharacterById).filter(Boolean);
+        const folded = characters.length > CHARACTERS_WHOLE;
         document.getElementById('modalCharactersRow').hidden = characters.length === 0;
         document.getElementById('modalCharactersLabel').textContent = characters.length === 1 ? 'Character' : 'Characters';
         document.getElementById('modalCharacters').innerHTML = characters
-            .map(c => `<a class="modal-reading-name" href="#characters/${A.characterSlug(c)}" data-character-id="${c.id}">${A.escapeHTML(c.name)}</a>`)
-            .join('');
+            .map((c, i) => `<a class="modal-reading-name" href="#characters/${A.characterSlug(c)}" data-character-id="${c.id}"${folded && i >= CHARACTERS_SHOWN ? ' hidden' : ''}>${A.escapeHTML(c.name)}</a>`)
+            .join('')
+            + (folded ? `<button type="button" class="link link-quiet modal-characters-more" data-characters-more aria-label="Show all ${characters.length} characters">Show all ${characters.length}</button>` : '');
 
         // Free scan on the Internet Archive, when one exists for this publication
         // (or another edition/translation of the same story). Shown in read-only
@@ -526,7 +536,17 @@
 
     // Opened over the page of the character it links to, the link just
     // closes the modal (like the reading order line); otherwise it navigates.
+    // "Show all N" shows the rest of a folded list and moves focus to the
+    // first name it brings in.
     document.getElementById('modalCharacters').addEventListener('click', (e) => {
+        const more = e.target.closest('[data-characters-more]');
+        if (more) {
+            const rest = [...e.currentTarget.querySelectorAll('[data-character-id][hidden]')];
+            rest.forEach(a => { a.hidden = false; });
+            more.remove();
+            if (rest[0]) rest[0].focus({ preventScroll: true });
+            return;
+        }
         const link = e.target.closest('[data-character-id]');
         if (!link || !isOverView) return;
         if (A.isCharacterPageOpen(A.findCharacterById(Number(link.dataset.characterId)))) {

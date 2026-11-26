@@ -64,7 +64,9 @@
      Black Cross, the Templar title (id 206); Kiyoshi Takakura and
      Giovanni Borgia of the comic Assassins (ids 207-208);
    - the owner's request (2026-11-09): Niccolò and Maffeo Polo (ids
-     209-210).
+     209-210);
+   - the owner's request (2026-11-26): the 2016 film's Abstergo inmates
+     Moussa, Lin, Emir and Nathan (ids 211-214).
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -104,7 +106,9 @@
                render, a database portrait or promo art, a screenshot only
                as a last resort), cropped to head and shoulders at 3:4 and
                saved as a 300x400 WebP with tools/make-portrait.py. Never
-               fan art, cosplay, film stills or photos of merchandise.
+               fan art, cosplay or photos of merchandise. A character of
+               the 2016 film uses a still, poster or frame of the film:
+               Ubisoft licensed it (the owner's call, 2026-11-26)
                Optional: without one the tab shows the emblem
      games     the games they appear in person, names exactly as in GAMES
                (js/games.js), main, spin-off and handheld games only, in
@@ -137,9 +141,52 @@
    Items (the "characters" field in database.js): the ids of the
    characters an item shows or tells the story of. Figures, statues and
    busts of them; collector's editions whose statue or figurine is them;
-   novels and comics where they're a main character; replicas of their
-   own weapons and gear; art prints and posters of them. Not: art books,
-   soundtracks, guides, or items about a whole game.
+   replicas of their own weapons and gear; art prints and posters of
+   them. Not: art books, soundtracks, guides, or items about a whole game.
+
+   Novels and comics (the owner's call, 2026-11-26; before it, main
+   characters only): the lead, and every named character on this list
+   with a real part in the story: they act or speak in it and the plot
+   would change without them. Not: a cameo, a name in passing or a
+   flashback glimpse. A collected edition lists the cast of all it collects.
+
+   Order: an item's list is in order of importance to that item, the
+   lead first, then the others by their weight in the story (not by id
+   or A to Z). The item window shows only the first six of a list longer
+   than eight, behind "Show all N" (js/modal.js), so the first six are
+   the ones most visitors see.
+
+   The novels were gone through under this rule on 2026-11-26 (comics
+   still to do), from the wiki's plot summaries, Access the Animus'
+   chapter summaries and Wikipedia; nobody read the books themselves.
+   Calls made then:
+   - A lead is whoever tells the story: Élise in the Unity novel, Henry
+     Green in Underworld, Hytham in The Golden City.
+   - An Isu who speaks to the hero in one scene the ending turns on is
+     in, last: Minerva (Renaissance, Fate of the Gods), Jupiter
+     (Revelations).
+   - Revelations: Altaïr is in (his memories run through the book); the
+     people inside those memories (Abbas, Maria Thorpe, the Polos) are
+     flashback glimpses and out.
+   - Left out as cameos or unconfirmed: John Pitcairn (Forsaken), Pierre
+     Bellec (Unity novel), Juhani Otso Berg (Heresy, a projection),
+     Ethan Frye (The Magus Conspiracy), Hytham and Valka (Geirmund's
+     Saga), Ezio (the Shao Jun
+     novels: mentioned only in The Ming Storm, unconfirmed in The Desert
+     Threat).
+   - The film novelization ends with "Regressions", a short Animus
+     story for each of four Abstergo inmates (Subjects Nathan, Moussa,
+     Emir and Lin), so after the film's cast it lists the four inmates
+     (ids 211-214), then their ancestors: Baptiste, Shao Jun, Yusuf
+     Tazim and Duncan Walpole. The owner
+     checked the Penguin edition in the catalogue, which has all four
+     (2026-11-26; the wiki had Shao Jun as mentioned only).
+   - The owner's calls (2026-11-26): the one-scene Isu stay; Randvi
+     stays on Geirmund's Saga though she has one line there; the
+     gamebook La Route de la Soie lists Basim, who sends the heroes on
+     their quest in one scene, and Hytham, who is beside him in it.
+   - Fate of the Gods' Styrbjörn the Strong is a tenth-century Swedish
+     prince, not Valhalla's Styrbjorn (id 190).
 
    Disputes: whenever sources disagree (a birth year, a side, a family
    link, whether a game counts), flag it to the owner, who decides. Don't
@@ -399,6 +446,23 @@
      novel). Portraits: their Revelations renders from the wiki, 124px
      wide, scaled up (a sharper Revelations screenshot of Niccolò is in
      the scratchpad's polo-b folder).
+   - Moussa, Lin, Emir and Nathan (added 2026-11-26; one researcher, the
+     wiki through the accesstheanimus mirror, Wikipedia's article on the
+     film, GamesRadar and ScreenRant): the inmates Callum Lynch meets at
+     the Abstergo Foundation in Madrid in 2016, each the descendant of a
+     game character (Baptiste, Shao Jun, Yusuf Tazim, Duncan Walpole; the
+     wiki, Wikipedia and GamesRadar agree). Every source gives one name
+     only. Assassins, all four (the wiki; GamesRadar's "members of the
+     modern day Brotherhood"), though Baptiste and Walpole turned on the
+     Brotherhood. They also lead the "Regressions" stories that end the
+     film's novelization (the owner checked the book). Births left out:
+     the wiki alone gives Emir c. 1980 and Nathan "1990s", both uncited.
+     The descriptions say nothing of how the four end up. Portraits:
+     frames of the film from its Blu-ray (fancaps.net; no press still
+     shows any of them large enough): Moussa, Lin and Emir in the
+     cafeteria, Nathan in the Animus chamber, brightened, as the frame is
+     dark. Other candidates are in the scratchpad's stills folder (Emir
+     in the garden, with nothing in his hand).
    - Baptiste is filed as a Templar, like Shay: a former Assassin who
      sides with the Templars. Duncan Walpole stays an Assassin: he dies
      before he can defect. No official births for either, nor for Ojeda.
@@ -1247,6 +1311,7 @@ const CHARACTERS = [
     "year": 1526,
     "image": "images/characters/shao-jun.webp",
     "games": ["Assassin's Creed Chronicles: China"],
+    "family": [{"id": 212, "relation": "descendant"}],
     "description": "The last Assassin of the Chinese Brotherhood, trained in Italy by Ezio Auditore, who returns to Ming China to bring down those who destroyed her order."
   },
   {
@@ -1923,6 +1988,7 @@ const CHARACTERS = [
     "year": 1511,
     "image": "images/characters/yusuf-tazim.webp",
     "games": ["Assassin's Creed Revelations"],
+    "family": [{"id": 213, "relation": "descendant"}],
     "description": "The cheerful, quick-witted leader of the Assassins in Constantinople, who welcomes Ezio to the city and shows him its rooftops."
   },
   {
@@ -3023,6 +3089,7 @@ const CHARACTERS = [
     "year": 1765,
     "image": "images/characters/baptiste.webp",
     "games": ["Assassin's Creed III: Liberation"],
+    "family": [{"id": 211, "relation": "descendant"}],
     "description": "A former Assassin of Saint-Domingue turned voodoo cult leader in the bayou, who has thrown in his lot with the Templars and stands in Aveline's way."
   },
   {
@@ -3047,6 +3114,7 @@ const CHARACTERS = [
     "image": "images/characters/duncan-walpole.webp",
     "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
     "stories": "Novel: Black Flag",
+    "family": [{"id": 214, "relation": "descendant"}],
     "description": "An Assassin deserting the Brotherhood with secrets to sell to the Templars, whose fateful duel with Edward Kenway sets the young pirate on a new course."
   },
   {
@@ -3217,5 +3285,53 @@ const CHARACTERS = [
     "stories": "Novel: The Secret Crusade",
     "family": [{"id": 209, "relation": "brother"}],
     "description": "A Venetian merchant who travels east with his brother Niccolò and stays at Masyaf as Altaïr's guest, restless to be back on the road while his brother listens to the old Mentor's tales."
+  },
+  {
+    "id": 211,
+    "name": "Moussa",
+    "group": "assassin",
+    "historical": false,
+    "year": 2016,
+    "image": "images/characters/moussa.webp",
+    "games": [],
+    "stories": "Film: Assassin's Creed (2016)",
+    "family": [{"id": 194, "relation": "ancestor"}],
+    "description": "The wry unofficial leader of the Assassin descendants held at the Abstergo Foundation in Madrid, who sizes up Callum Lynch when he arrives. In the Animus he relives Baptiste, the voodoo poisoner of Saint-Domingue."
+  },
+  {
+    "id": 212,
+    "name": "Lin",
+    "group": "assassin",
+    "historical": false,
+    "year": 2016,
+    "image": "images/characters/lin.webp",
+    "games": [],
+    "stories": "Film: Assassin's Creed (2016)",
+    "family": [{"id": 42, "relation": "ancestor"}],
+    "description": "A watchful inmate of the Abstergo Foundation in Madrid, held for the memories of her ancestor Shao Jun, the last Assassin of the Chinese Brotherhood."
+  },
+  {
+    "id": 213,
+    "name": "Emir",
+    "group": "assassin",
+    "historical": false,
+    "year": 2016,
+    "image": "images/characters/emir.webp",
+    "games": [],
+    "stories": "Film: Assassin's Creed (2016)",
+    "family": [{"id": 99, "relation": "ancestor"}],
+    "description": "A quiet inmate of the Abstergo Foundation in Madrid, descended from Yusuf Tazim of Constantinople, who warns Callum Lynch to guard what his ancestor knew about the Apple."
+  },
+  {
+    "id": 214,
+    "name": "Nathan",
+    "group": "assassin",
+    "historical": false,
+    "year": 2016,
+    "image": "images/characters/nathan.webp",
+    "games": [],
+    "stories": "Film: Assassin's Creed (2016)",
+    "family": [{"id": 196, "relation": "ancestor"}],
+    "description": "A young Londoner held at the Abstergo Foundation in Madrid, descended from the turncoat Duncan Walpole, and the inmate who trusts Callum Lynch the least."
   }
 ]
