@@ -189,11 +189,12 @@
    - Fate of the Gods' Styrbjörn the Strong is a tenth-century Swedish
      prince, not Valhalla's Styrbjorn (id 190).
 
-   The comics are being gone through the same way, issue by issue,
-   starting with the ones that had no characters at all and then the
-   series that listed only their lead (2026-11-26, from the wiki's
-   issue pages, Access the Animus' summaries and reviews; the rest are
-   still to do). Calls made then:
+   The comics were gone through the same way, issue by issue
+   (2026-11-26): first the ones that had no characters at all,
+   then the series that listed only their lead, then the rest, from the
+   wiki's issue pages, Access the Animus' summaries and reviews, and for
+   Uprising the scans the read links open. A collected edition's list
+   is the union of its issues'. Calls made then:
    - Forgotten Myths is carried by Norse Isu (Baldr, Loki, Odin), none
      of them on this list, so issues 1 and 2 have no characters. Issue
      3 and the collected edition list Basim: he closes the series on
@@ -209,8 +210,8 @@
      robot, and its "Minerva" a pilot, namesakes only. "Powder" (issue
      3) was checked from its preview pages alone.
    - The 2016 Free Comic Book Day issue: Charlotte ("The Chair"), then
-     Albert Bolden ("Great Wall"), tagged as on the Templars issues,
-     without the Black Cross's own entry. Galina is not in it.
+     Albert Bolden and the Black Cross ("Great Wall"), tagged as on the
+     Templars issues. Galina is not in it.
    - The 2021 Free Comic Book Day issue: Li E, from Dynasty's first
      chapter. Blood Brothers' first chapter only mentions Ivarr and
      Halfdan.
@@ -238,6 +239,63 @@
      has one scene in volume 2 (1964). Eddie Gorm is only mentioned in
      Bloodstone; William Miles, Daniel Cross and Alan Rikkin are on
      the wiki's cast lists but mentioned only.
+   - The Fall and The Chain: Warren Vidic is on issues 1 and 3 and The
+     Chain (the wiki only). William Miles is a voice on the phone and
+     Alan Rikkin the addressee of an email: out.
+   - The French albums: volumes 1 to 3 list the modern-day cast with
+     Desmond (Lucy throughout; Vidic, Subject 16, Altaïr and Al Mualim
+     in volume 1; Shaun and Rebecca from volume 2; Jonathan Hawk from
+     volume 3; William Miles for the desert flashback whose riddle
+     volume 2 turns on). Volume 4 has Desmond, Shaun and Lucy handing
+     over to Hawk, and Alan Rikkin runs Abstergo's side of volumes 4
+     to 6 (the wiki only). Left out: Malik (one brief scene in volume
+     1), Ezio (Desmond enters his memories on volume 1's last page) and
+     Rebecca in volume 4 (in one panel, silent).
+   - Brahman: Juhani Otso Berg, for the closing scene where he names
+     himself.
+   - The 2007 webcomic: Al Mualim is only a voice in its captions: out.
+   - Assassins: the ancestor comes before Galina where the issue is
+     mostly theirs. Ezio is on issue 12 (he teaches Giovanni and sends
+     Hiram on his mission, in a memory). Juno is only mentioned.
+   - Templars: Berg is on issue 5 for its closing scene. In issues 6 to
+     9 André relives Jan van der Graff, not Albert Bolden, who is only
+     mentioned there.
+   - Reflections: Berg frames every issue from his study, so he is on
+     all four, last; Maria Thorpe is on issue 2.
+   - Uprising: Berg has a real part in every issue. Albert Bolden is on
+     issues 7 and 8 (the memories Berg relives), André on 1 to 3 and 8,
+     Juno on 4 and 9 to 12, and Minerva on 4 for the memory in which
+     she argues with Juno. Simon Hathaway is a silent face in issue 2:
+     out.
+   - The Black Cross's own entry (the owner's call, 2026-11-26) goes
+     wherever the masked figure acts, straight after whoever wears it,
+     and still names no one: Templars 1 to 5 and volume 1, the 2016 Free
+     Comic Book Day issue, Uprising 1, 2, 7 to 10 and 12 and its three
+     volumes. Not on Uprising 11 (Berg wears the coat and does nothing
+     as the Black Cross) or Templars 6 to 9, whose holders are not on
+     this list.
+   - Origins (comic): Cleopatra's frame opens every issue, so she is on
+     all four; Julius Caesar on issue 1. It has no modern day.
+   - Locus: Evie Frye and Henry Green are with Tommy in every issue;
+     Abberline is confirmed for issue 2 only; Victoria Bibeau is on
+     issue 3, by video call. Jacob Frye is only mentioned.
+   - Song of Glory: Sigurd, Styrbjorn and Dag are in all three issues;
+     Basim closes issue 3 (the one-scene rule).
+   - A Soar of Eagles: Fuladh leads and Roshan is second (the owner's
+     call, 2026-11-26: his homeland, his duel, and the blurbs name him
+     first). Basim is a closing picture in issue 3: out.
+   - Unchanged after checking: Blood Brothers (no Ubba), Tales of Iga
+     volumes 1 and 2 (Naoe and Nobunaga come in volume 3), the 2007
+     comic, the Valhalla webcomic and the Vinland Saga crossover.
+   - Found plainly absent and removed on the owner's word (2026-11-26):
+     Tom Stoddard (Assassins 5, all modern day), Bayek (Origins 2; he
+     is in no issue, only the recap text), Kiyoshi Takakura (Uprising
+     2) and Galina Voronina (Uprising 3, she stays in Berlin).
+   - To check again when the comics are to hand (the owner's call,
+     2026-11-26: they stay meanwhile). These rest on the wiki alone:
+     Warren Vidic on The Fall 1 and 3 and The Chain, Alan Rikkin on the
+     French volumes 4 to 6, and Evie Frye and Henry Green on Locus 4.
+     William Miles on the French volume 2 is one flashback scene.
 
    Disputes: whenever sources disagree (a birth year, a side, a family
    link, whether a game counts), flag it to the owner, who decides. Don't
@@ -437,7 +495,8 @@
      game. Rogue has him as voice only (its audio logs of the 2014
      Rotterdam job with Harlan), Syndicate's Jack the Ripper and Odyssey
      mention him only. In person in Assassins #14 (2016, the first) and
-     Uprising #1-#6, #9, #11 and #12. Arend Schut before he married
+     Uprising #1-#6, #9, #11 and #12 (the scanned pages add #7 and #10:
+     the comics audit of 2026-11-26, above). Arend Schut before he married
      Harlan Cunningham in 2015; Harlan is not a character here, so no
      Family row. No birth year in any source. Portrait: Remko Troost's
      concept art for Ubisoft, from the wiki.
@@ -465,7 +524,10 @@
      also cite #7, #8 and #10; the summaries and the wiki's own issue
      pages don't show him there: left untagged, the owner's call), and
      in the modern-day story of the manga Blade of Shao Jun, where he is
-     not a main character, so its volumes aren't tagged. No birth year in
+     not a main character, so its volumes aren't tagged. (The comics
+     audit of 2026-11-26, above, went by the scanned pages and the wider
+     rule: he is out of Uprising #2, in #7 and #10, and on the Blade of
+     Shao Jun volumes.) No birth year in
      any source. Portrait: the owner's pick, Brotherhood of Venice's
      render of him with his katana (the board game's licensed art; the
      comic panels are a profile or bloodied).
@@ -1349,7 +1411,7 @@ const CHARACTERS = [
     "year": 1868,
     "image": "images/characters/henry-green.webp",
     "games": ["Assassin's Creed Syndicate"],
-    "stories": "Novel: Underworld",
+    "stories": "Novel: Underworld; comic: Locus",
     "family": [{"id": 43, "relation": "father"}, {"id": 155, "relation": "mother"}],
     "description": "The quiet keeper of the Assassins' bureau in London, an antiques dealer born in India who becomes the Frye twins' closest ally in the city."
   },
@@ -1515,7 +1577,7 @@ const CHARACTERS = [
     "year": 2014,
     "image": "images/characters/juhani-otso-berg.webp",
     "games": ["Assassin's Creed Rogue", "Assassin's Creed Syndicate", "Assassin's Creed Chronicles: Russia", "Assassin's Creed Odyssey"],
-    "stories": "Comics: Templars, Uprising",
+    "stories": "Comics: Templars, Uprising, Reflections; graphic novel: Brahman",
     "description": "A Finnish former special forces officer who leads Abstergo's Sigma Team, hunting Assassins and Pieces of Eden for the Templars."
   },
   {
@@ -1895,7 +1957,7 @@ const CHARACTERS = [
     "year": 1191,
     "image": "images/characters/maria-thorpe.webp",
     "games": ["Assassin's Creed", "Assassin's Creed II", "Assassin's Creed: Bloodlines", "Assassin's Creed Revelations"],
-    "stories": "Novel: The Secret Crusade",
+    "stories": "Novel: The Secret Crusade; comic: Reflections",
     "family": [{"id": 2, "relation": "husband"}, {"id": 195, "relation": "son"}, {"id": 202, "relation": "son"}],
     "description": "An English Templar in Robert de Sablé's service, sharp-tongued and handy with a sword, who crosses paths with Altaïr in Jerusalem during the Third Crusade."
   },
@@ -2706,7 +2768,7 @@ const CHARACTERS = [
     "year": 2012,
     "image": "images/characters/alan-rikkin.webp",
     "games": ["Assassin's Creed"],
-    "stories": "Film: Assassin's Creed (2016); novel: Heresy",
+    "stories": "Film: Assassin's Creed (2016); novel: Heresy; graphic novels: Hawk, El Cakr, Leila",
     "family": [{"id": 192, "relation": "daughter"}],
     "description": "The chief executive of Abstergo Industries, who keeps a close eye on its Animus research, from Desmond Miles's sessions to Callum Lynch's in the 2016 film."
   },
