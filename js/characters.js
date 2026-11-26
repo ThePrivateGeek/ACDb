@@ -156,8 +156,8 @@
    than eight, behind "Show all N" (js/modal.js), so the first six are
    the ones most visitors see.
 
-   The novels were gone through under this rule on 2026-11-26 (comics
-   still to do), from the wiki's plot summaries, Access the Animus'
+   The novels were gone through under this rule on 2026-11-26 (the
+   comics follow below), from the wiki's plot summaries, Access the Animus'
    chapter summaries and Wikipedia; nobody read the books themselves.
    Calls made then:
    - A lead is whoever tells the story: Élise in the Unity novel, Henry
@@ -188,6 +188,31 @@
      their quest in one scene, and Hytham, who is beside him in it.
    - Fate of the Gods' Styrbjörn the Strong is a tenth-century Swedish
      prince, not Valhalla's Styrbjorn (id 190).
+
+   The comics are being gone through the same way, issue by issue,
+   starting with the ones that had no characters at all (2026-11-26,
+   from the wiki's issue pages and Access the Animus' summaries; the
+   lead-only series and the rest are still to do). Calls made then:
+   - Forgotten Myths is carried by Norse Isu (Baldr, Loki, Odin), none
+     of them on this list, so issues 1 and 2 have no characters. Issue
+     3 and the collected edition list Basim: he closes the series on
+     its last page, shutting the book of myths, the scene its frame
+     turns on (the one-scene rule above). The rooftop Assassin on that
+     page is Arno to Access the Animus and unnamed to the wiki: left
+     out.
+   - The Hidden Codex: its leads, the monk Edward and Niels, are not on
+     this list, so Hytham comes first, then Eivor, Alfred (one scene,
+     but he set the plot going) and Sigurd (a small part in person).
+   - Visionaries has no characters: its stories are non-canon, with
+     casts of their own. Its "Altaïr" is a robot eagle and then a giant
+     robot, and its "Minerva" a pilot, namesakes only. "Powder" (issue
+     3) was checked from its preview pages alone.
+   - The 2016 Free Comic Book Day issue: Charlotte ("The Chair"), then
+     Albert Bolden ("Great Wall"), tagged as on the Templars issues,
+     without the Black Cross's own entry. Galina is not in it.
+   - The 2021 Free Comic Book Day issue: Li E, from Dynasty's first
+     chapter. Blood Brothers' first chapter only mentions Ivarr and
+     Halfdan.
 
    Disputes: whenever sources disagree (a birth year, a side, a family
    link, whether a game counts), flag it to the owner, who decides. Don't
@@ -1477,7 +1502,7 @@ const CHARACTERS = [
     "year": 872,
     "image": "images/characters/hytham.webp",
     "games": ["Assassin's Creed Valhalla"],
-    "stories": "Novels: The Golden City, Geirmund's Saga, Sword of the White Horse",
+    "stories": "Novels: The Golden City, Geirmund's Saga, Sword of the White Horse; graphic novel: The Hidden Codex",
     "description": "A young and earnest Hidden One who comes to England with Basim and keeps the Brotherhood's bureau in the Raven Clan's settlement."
   },
   {
@@ -3007,7 +3032,7 @@ const CHARACTERS = [
     "year": 874,
     "image": "images/characters/alfred-the-great.webp",
     "games": ["Assassin's Creed Valhalla"],
-    "stories": "Novel: Geirmund's Saga; graphic novel: Blood Brothers",
+    "stories": "Novel: Geirmund's Saga; graphic novels: Blood Brothers, The Hidden Codex",
     "description": "The proud and pious King of Wessex, the last Saxon king standing against the Danish invasion of England."
   },
   {

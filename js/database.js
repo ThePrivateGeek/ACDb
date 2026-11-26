@@ -3609,7 +3609,8 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Forgotten Myths",
     "read": "15/AC_Valhalla Forgotten Myths 3 chpt. edition 2022",
-    "collects": [320, 321, 322]
+    "collects": [320, 321, 322],
+    "characters": [34]
   },
   {
     "id": 320,
@@ -3645,7 +3646,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Forgotten Myths",
-    "read": "15/ACV Forgotten Myths 2022 (3)"
+    "read": "15/ACV Forgotten Myths 2022 (3)",
+    "characters": [34]
   },
   {
     "id": 323,
@@ -4613,7 +4615,8 @@ const AC_DATABASE = [
     "description": "After securing his freedom from a Viking clan, Edward, a scribe and reluctant monk, returns to find his brother missing and strange documents in a language he innately understands. Written by Mathieu Gabella. Published by Dark Horse Comics. 88 pages.",
     "contents": "Hardcover graphic novel",
     "type": "Graphic Novel",
-    "read": "14. AC Valhalla/AC Valhalla - The Hidden Codex 2024"
+    "read": "14. AC Valhalla/AC Valhalla - The Hidden Codex 2024",
+    "characters": [56, 32, 187, 33]
   },
   {
     "id": 410,
@@ -5137,7 +5140,8 @@ const AC_DATABASE = [
     "description": "The Assassin's Creed FCBD 2016 Edition is an exclusive two-issue one-shot from Titan Comics that ties into both their Assassins and Templars ongoing series and was given away as part of the 2016 Free Comic Book Day on 7 May.\n\nThe book showcases two new stories from the series' protagonists: 21st century Assassin Charlotte de la Cruz and the early 20th century Templar Albert Bolden.\n\nIn \"The Chair\", set in 2016 around issues seven and eight of the Assassins storyline, Charlotte relives the memories of the Assassin Elsie in Saint-Domingue in 1791. \"Great Wall\" takes place in March 1927 during the first issue of Templars.",
     "contents": "26 pages comic",
     "type": "Comic Book",
-    "read": "06/AC Free Comic Book Day 2016"
+    "read": "06/AC Free Comic Book Day 2016",
+    "characters": [60, 65]
   },
     {
     "id": 459,
@@ -5147,7 +5151,8 @@ const AC_DATABASE = [
     "category": "Comic Book",
     "description": "The Assassin's Creed FCBD 2021 Edition is an exclusive two-issue one-shot from Tokyopop that ties into both their English publications of Valhalla: Blood Brothers and Dynasty series written by Feng Zisu and Xu Xianzhe, respectively. The book features sneak peeks from the comics, depicting each series' respective first chapters, \"An Invitation from England\" and \"The Flower Banquet (Part 1)\".",
     "contents": "38 pages comic",
-    "type": "Comic Book"
+    "type": "Comic Book",
+    "characters": [74]
   },
     {
     "id": 460,
