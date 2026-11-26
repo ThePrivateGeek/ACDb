@@ -1012,7 +1012,10 @@ const AC_IMAGES = {
         "images/art-books/ac-essential-guide.webp",
         "images/art-books/ac-essential-guide_01.webp",
     ],
-    "Assassin's Creed: The Official Film Tie-In": ["images/novels/ac-official-film-tie-in.webp"],
+    "Assassin's Creed: The Official Film Tie-In": [
+        "images/novels/ac-official-film-tie-in.webp",
+        "images/novels/ac-official-film-tie-in_01.webp",
+    ],
     "Assassin's Creed Unity: Chalice Initiate Edition (Prima Games)": [
         "images/art-books/guide-unity-chalice-initiate.webp",
         "images/art-books/guide-unity-chalice-initiate_01.webp",

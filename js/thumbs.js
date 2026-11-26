@@ -180,6 +180,7 @@ const AC_THUMBS = new Set([
     "images/novels/ac-heresy.webp",
     "images/novels/ac-magus-conspiracy.webp",
     "images/novels/ac-ming-storm.webp",
+    "images/novels/ac-official-film-tie-in.webp",
     "images/novels/ac-renaissance.webp",
     "images/novels/ac-resurrection-plot.webp",
     "images/novels/ac-revelations-novel.webp",
