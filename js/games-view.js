@@ -53,7 +53,6 @@
 
     const SEARCH_ICON ='<svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>';
     const CLEAR_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
-    const SHARE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
 
     const SOURCES_HTML = `<p class="reading-sources">Every released game with its DLCs; cosmetic packs, multiplayer map and character packs and seasonal events are left out. Settings from the <a href="https://assassinscreed.fandom.com/wiki/User_blog:Kulurak/Chronological_order_of_Assassin%27s_Creed_franchise" target="_blank" rel="noopener noreferrer">Assassin's Creed Wiki</a>; release dates, developers and platforms from Ubisoft, the platform stores and the press. Games are placed by their main historical story; the modern-day story is left out. Cover art &copy; Ubisoft.</p>`;
 
@@ -391,8 +390,6 @@
             lore ? `<a class="link" href="${lore.hash}">${count(lore.count, 'story', 'stories')} in Complete Lore &rarr;</a>` : '',
             items.length ? `<button class="link" data-game-catalog="${esc(game.name)}">Show in the collection &rarr;</button>` : ''
         ].join('');
-        // Share sits in the card's top right corner, like the item window's
-        const shareLabel = A.canWebShare ? 'Share this game' : 'Copy a link to this game';
         // Played, with the date they finished it, and how many DLCs
         const played = A.getGameProgress(game.id);
         const dlcsPlayed = game.dlcs.filter(dlc => A.isPlayed(dlc.id)).length;
@@ -436,7 +433,7 @@
                 <h2 class="page-title">${esc(game.name)}</h2>
             </div>
             <div class="character-head game-head">
-                <button class="icon-btn head-card-share" data-game-share title="${shareLabel}" aria-label="${shareLabel}">${SHARE_ICON}</button>
+                ${A.headShareHTML('game')}
                 ${coverHTML(game.image, 'game-head-cover', false)}
                 <div class="character-head-facts">
                     <div class="modal-badges-row"><span class="badge badge-accent modal-badge">${esc(game.remakeOf ? 'Remake' : KIND_LABELS[game.kind] || '')}</span></div>
@@ -615,7 +612,7 @@
             cast.querySelectorAll('a')[CAST_FOLD]?.focus();
             return;
         }
-        if (e.target.closest('[data-game-share]')) {
+        if (e.target.closest('.head-card-share')) {
             const game = A.findGameBySlug(currentSlug);
             if (game) A.shareLink({ title: game.name, text: game.description, url: SITE_URL + '#games/' + A.gameUrlSlug(game) });
             return;

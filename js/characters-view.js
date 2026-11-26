@@ -41,6 +41,7 @@
         "Assassin's Creed: Bloodlines": 'Bloodlines'
     };
     const NO_GAME = 'none';
+    const SITE_URL = 'https://acdb.theprivategeek.com/';
 
     const SEARCH_ICON = '<svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>';
     const CLEAR_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
@@ -385,9 +386,10 @@
                 <h2 class="page-title">${esc(character.name)}</h2>
             </div>
             <div class="character-head">
+                ${A.headShareHTML('character')}
                 ${portraitHTML(character, 'character-head-portrait', false)}
                 <div class="character-head-facts">
-                    ${kind ? `<div class="modal-badges-row"><span class="badge badge-accent modal-badge">${esc(kind)}</span></div>` : ''}
+                    <div class="modal-badges-row">${kind ? `<span class="badge badge-accent modal-badge">${esc(kind)}</span>` : ''}</div>
                     <div class="modal-meta">${meta}</div>
                 </div>
                 <p class="character-description">${esc(character.description)}</p>
@@ -524,6 +526,11 @@
             history.pushState(null, '', window.location.pathname + window.location.search);
             A.showMainContent();
             A.applyExclusiveFilter('character', catalog.dataset.characterCatalog);
+            return;
+        }
+        if (e.target.closest('.head-card-share')) {
+            const character = findCharacterBySlug(currentSlug);
+            if (character) A.shareLink({ title: character.name, text: character.description, url: SITE_URL + '#characters/' + characterSlug(character) });
             return;
         }
         const modeBtn = e.target.closest('[data-characters-mode]');

@@ -290,6 +290,17 @@
         }
     }
 
+    // The share button of a page's header card (a game's or a character's
+    // page): the round icon button in the card's top right corner, as in
+    // the item window (DESIGN.md, "Dialogs"). `thing` is the word for what
+    // it shares ("game"); the view answers its click with shareLink().
+    const SHARE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
+
+    function headShareHTML(thing) {
+        const label = canWebShare ? `Share this ${thing}` : `Copy a link to this ${thing}`;
+        return `<button class="icon-btn head-card-share" title="${label}" aria-label="${label}">${SHARE_ICON}</button>`;
+    }
+
     // Expose on namespace
     A.escapeHTML = escapeHTML;
     A.store = store;
@@ -315,5 +326,6 @@
     A.trapFocus = trapFocus;
     A.canWebShare = canWebShare;
     A.shareLink = shareLink;
+    A.headShareHTML = headShareHTML;
 
 })();

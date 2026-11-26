@@ -4010,9 +4010,10 @@ a.reading-title {
     font-size: var(--fs-md);
 }
 
-/* A header card's share button: the round icon button in the card's top
-   right corner, where the item window has its own. First in the card's
-   markup, so Tab reaches it before the links below. */
+/* A header card's share button (A.headShareHTML): the round icon button in
+   the card's top right corner, where the item window has its own, level
+   with the badge. First in the card's markup, so Tab reaches it before the
+   links below. */
 .head-card-share {
     position: absolute;
     top: var(--s4);
@@ -4243,6 +4244,17 @@ a.reading-title {
     white-space: normal;
 }
 
+/* The badge shares its line with the corner share button (.head-card-share)
+   and stops short of it. A character with no side has an empty row: hidden
+   here, and on phones it keeps the facts below the button. */
+.character-head .modal-badges-row {
+    padding-right: calc(var(--s6) + var(--s1));
+}
+
+.character-head .modal-badges-row:empty {
+    display: none;
+}
+
 .character-description {
     max-width: 75ch;
     margin: 0;
@@ -4333,6 +4345,18 @@ a.reading-title {
         grid-template-columns: 96px minmax(0, 1fr);
         column-gap: var(--s4);
         padding: var(--s4);
+    }
+
+    /* The card's padding is smaller here: the share button moves with it,
+       so it stays level with the badge */
+    .head-card-share {
+        top: var(--s2);
+        right: var(--s2);
+    }
+
+    .character-head .modal-badges-row:empty {
+        display: flex;
+        min-height: var(--s5);
     }
 
     .character-head-portrait {
