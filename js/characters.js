@@ -170,8 +170,7 @@
      flashback glimpses and out.
    - Left out as cameos or unconfirmed: John Pitcairn (Forsaken), Pierre
      Bellec (Unity novel), Juhani Otso Berg (Heresy, a projection),
-     Ethan Frye (The Magus Conspiracy), Hytham and Valka (Geirmund's
-     Saga), Ezio (the Shao Jun
+     Ethan Frye (The Magus Conspiracy), Ezio (the Shao Jun
      novels: mentioned only in The Ming Storm, unconfirmed in The Desert
      Threat).
    - The film novelization ends with "Regressions", a short Animus
@@ -182,7 +181,9 @@
      checked the Penguin edition in the catalogue, which has all four
      (2026-11-26; the wiki had Shao Jun as mentioned only).
    - The owner's calls (2026-11-26): the one-scene Isu stay; Randvi
-     stays on Geirmund's Saga though she has one line there; the
+     stays on Geirmund's Saga though she has one line there, and Valka
+     (the seer whose prophecy Geirmund recalls) and Hytham, one scene
+     each, go on it too; the
      gamebook La Route de la Soie lists Basim, who sends the heroes on
      their quest in one scene, and Hytham, who is beside him in it.
    - Fate of the Gods' Styrbjörn the Strong is a tenth-century Swedish

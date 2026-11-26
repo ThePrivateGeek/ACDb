@@ -2363,7 +2363,7 @@ const AC_DATABASE = [
     "description": "Geirmund's Saga is a tie-in novel to Assassin's Creed Valhalla. Follows Norse warrior Geirmund Hel-hide during the Viking invasion of England, offering a parallel story to the game's events. By Matthew Kirby.",
     "contents": "Paperback novel",
     "type": "Novel",
-    "characters": [80, 32, 186, 187, 190, 183]
+    "characters": [80, 32, 186, 187, 191, 56, 190, 183]
   },
   {
     "id": 222,
