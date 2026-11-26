@@ -190,9 +190,10 @@
      prince, not Valhalla's Styrbjorn (id 190).
 
    The comics are being gone through the same way, issue by issue,
-   starting with the ones that had no characters at all (2026-11-26,
-   from the wiki's issue pages and Access the Animus' summaries; the
-   lead-only series and the rest are still to do). Calls made then:
+   starting with the ones that had no characters at all and then the
+   series that listed only their lead (2026-11-26, from the wiki's
+   issue pages, Access the Animus' summaries and reviews; the rest are
+   still to do). Calls made then:
    - Forgotten Myths is carried by Norse Isu (Baldr, Loki, Odin), none
      of them on this list, so issues 1 and 2 have no characters. Issue
      3 and the collected edition list Basim: he closes the series on
@@ -213,6 +214,30 @@
    - The 2021 Free Comic Book Day issue: Li E, from Dynasty's first
      chapter. Blood Brothers' first chapter only mentions Ivarr and
      Halfdan.
+   - Awakening retells Black Flag with changes, so its cast was checked
+     against the manga, not the game: no Vane, Rackham, Anne Bonny or
+     Haytham. Issues 1 to 6 are volume 1, chapter for issue. Nobody
+     sums up volume 2 chapter by chapter, so it lists only those a
+     review or Shueisha's blurb puts in a scene (Thatch, Ah Tabai,
+     Hornigold, Rogers). Left out as unconfirmed: Mary Read and Torres
+     in volume 2, Rogers in issue 3, Adéwalé outside issue 4, and
+     Bartholomew Roberts everywhere (on the wiki's cast list, in no
+     summary).
+   - Forgotten Temple, volumes 1 to 7 (episodes 1 to 51): Edward alone.
+     The others on this list are mentions, flashbacks, cameo pictures
+     or Animus projections there (Ezio in episode 13, Mary Read in 34).
+     Adéwalé has a real scene in episode 93, for a later volume.
+   - Dynasty: Li E alone; it has no modern day and no one from the
+     games.
+   - Blade of Shao Jun: Kiyoshi Takakura is on all four volumes, on one
+     short scene in volume 1 and one told by Mari in volume 3. Ezio is
+     out: Shao Jun only remembers his words. The modern-day faces in
+     its pictures (Lin, Callum Lynch, Galina, Desmond) are glimpses.
+   - Conspiracies: Tomo is in volume 2's last scene, as "Dr. Florent
+     Carpentier", and the ending turns on him. Bloodstone: Warren Vidic
+     has one scene in volume 2 (1964). Eddie Gorm is only mentioned in
+     Bloodstone; William Miles, Daniel Cross and Alan Rikkin are on
+     the wiki's cast lists but mentioned only.
 
    Disputes: whenever sources disagree (a birth year, a side, a family
    link, whether a game counts), flag it to the owner, who decides. Don't
@@ -3139,7 +3164,7 @@ const CHARACTERS = [
     "year": 1715,
     "image": "images/characters/duncan-walpole.webp",
     "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
-    "stories": "Novel: Black Flag",
+    "stories": "Novel: Black Flag; manga: Awakening",
     "family": [{"id": 214, "relation": "descendant"}],
     "description": "An Assassin deserting the Brotherhood with secrets to sell to the Templars, whose fateful duel with Edward Kenway sets the young pirate on a new course."
   },

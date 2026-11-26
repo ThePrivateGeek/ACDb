@@ -3481,7 +3481,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Conspiracies",
     "read": "13. AC - Conspiracies Cycle 2/AC Conspiracies 2018 (2)",
-    "characters": [71]
+    "characters": [71, 72]
   },
   {
     "id": 310,
@@ -3494,7 +3494,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Conspiracies",
     "collects": [308, 309],
-    "characters": [71]
+    "characters": [71, 72]
   },
   {
     "id": 311,
@@ -3518,7 +3518,7 @@ const AC_DATABASE = [
     "contents": "48-page hardcover graphic novel",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Bloodstone",
-    "characters": [72]
+    "characters": [72, 53]
   },
   {
     "id": 313,
@@ -3532,7 +3532,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Bloodstone",
     "read": "17/AC - Bloodstone - Complete Collection 2022",
     "collects": [311, 312],
-    "characters": [72]
+    "characters": [72, 53]
   },
   {
     "id": 314,
@@ -3751,7 +3751,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 01 2019",
     "readLang": "fr",
-    "characters": [42]
+    "characters": [42, 207]
   },
   {
     "id": 331,
@@ -3765,7 +3765,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 02 2020",
     "readLang": "fr",
-    "characters": [42]
+    "characters": [42, 207]
   },
   {
     "id": 332,
@@ -3779,7 +3779,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 03 2021",
     "readLang": "fr",
-    "characters": [42]
+    "characters": [42, 207]
   },
   {
     "id": 333,
@@ -3793,7 +3793,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 04 2022",
     "readLang": "fr",
-    "characters": [42]
+    "characters": [42, 207]
   },
   {
     "id": 334,
@@ -3806,7 +3806,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
     "collects": [629, 630, 631, 632, 633, 634],
-    "characters": [14]
+    "characters": [14, 103, 109, 111, 196, 110, 18, 21, 106]
   },
   {
     "id": 335,
@@ -3818,7 +3818,7 @@ const AC_DATABASE = [
     "contents": "Paperback manga (192 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
-    "characters": [14]
+    "characters": [14, 21, 111, 106, 110]
   },
   {
     "id": 336,
@@ -7058,7 +7058,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
     "read": "09. AC - Awakening/AC Awakening 2016 (1)",
-    "characters": [14]
+    "characters": [14, 196]
   },
   {
     "id": 630,
@@ -7084,7 +7084,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
     "read": "09. AC - Awakening/AC Awakening 2016 (3)",
-    "characters": [14]
+    "characters": [14, 109]
   },
   {
     "id": 632,
@@ -7097,7 +7097,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
     "read": "09. AC - Awakening/AC Awakening 2016 (4)",
-    "characters": [14]
+    "characters": [14, 103, 18, 109, 110]
   },
   {
     "id": 633,
@@ -7110,7 +7110,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
     "read": "09. AC - Awakening/AC Awakening 2016 (5)",
-    "characters": [14]
+    "characters": [14, 103, 111, 21, 106]
   },
   {
     "id": 634,
