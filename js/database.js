@@ -2305,7 +2305,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Assassin's Creed: Last Descendants",
-    "characters": [76, 77, 73, 158]
+    "characters": [76, 77, 73, 235, 158]
   },
   {
     "id": 217,
@@ -2317,7 +2317,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Assassin's Creed: Last Descendants",
-    "characters": [76, 77, 158, 51]
+    "characters": [76, 77, 235, 158, 51]
   },
   {
     "id": 218,
@@ -2329,7 +2329,7 @@ const AC_DATABASE = [
     "contents": "Paperback novel",
     "type": "Novel",
     "series": "Assassin's Creed: Last Descendants",
-    "characters": [76, 77, 158, 24]
+    "characters": [76, 77, 235, 158, 24]
   },
   {
     "id": 219,
@@ -2529,7 +2529,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
     "read": "02. AC - The Fall/AC The Fall 1st 2010",
-    "characters": [44, 67, 53]
+    "characters": [44, 67, 240, 53]
   },
   {
     "id": 237,
@@ -2542,7 +2542,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
     "read": "02. AC - The Fall/AC The Fall 2nd 2011",
-    "characters": [44, 67]
+    "characters": [44, 67, 240]
   },
   {
     "id": 238,
@@ -2555,7 +2555,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
     "read": "02. AC - The Fall/AC The Fall 3rd 2011",
-    "characters": [44, 67, 53]
+    "characters": [44, 67, 53, 240]
   },
   {
     "id": 239,
@@ -2569,7 +2569,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: The Fall",
     "read": "02. AC - The Fall/AC - The Fall (Deluxe Edition) 2012",
     "collects": [236, 237, 238],
-    "characters": [44, 67, 53]
+    "characters": [44, 67, 240, 53]
   },
   {
     "id": 240,
@@ -2595,7 +2595,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
     "collects": [236, 237, 238, 240],
-    "characters": [44, 67, 53]
+    "characters": [44, 67, 240, 53]
   },
   {
     "id": 242,
@@ -2621,7 +2621,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol2 - Aquilus 2010",
-    "characters": [3, 70, 49, 50, 51, 52]
+    "characters": [3, 70, 49, 241, 50, 51, 52]
   },
   {
     "id": 244,
@@ -2634,7 +2634,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "read": "01. AC Cycle 1/1 The Ankh of Isis Trilogy/AC vol3 - Accipiter 2012",
-    "characters": [3, 70, 49, 68, 50, 51]
+    "characters": [3, 70, 241, 49, 68, 50, 51]
   },
   {
     "id": 245,
@@ -2687,7 +2687,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed (Les Deux Royaumes)",
     "collects": [242, 243, 244],
-    "characters": [3, 70, 49, 50, 51, 68, 53, 2, 54, 84, 52]
+    "characters": [3, 70, 49, 241, 50, 51, 68, 53, 2, 54, 84, 52]
   },
   {
     "id": 249,
@@ -2713,7 +2713,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (1st)",
-    "characters": [60, 61, 62]
+    "characters": [60, 61, 62, 230]
   },
   {
     "id": 251,
@@ -2726,7 +2726,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (2nd)",
-    "characters": [60, 62, 61]
+    "characters": [60, 62, 61, 230]
   },
   {
     "id": 252,
@@ -2739,7 +2739,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (3rd)",
-    "characters": [60, 62, 61]
+    "characters": [60, 62, 61, 230]
   },
   {
     "id": 253,
@@ -2752,7 +2752,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (4th)",
-    "characters": [60, 62, 61]
+    "characters": [60, 62, 61, 230]
   },
   {
     "id": 254,
@@ -2765,7 +2765,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 1 Trial by Fire/AC 2015-2016 (5th)",
-    "characters": [60, 61]
+    "characters": [60, 61, 230]
   },
   {
     "id": 255,
@@ -2778,7 +2778,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (6th)",
-    "characters": [60, 63, 61]
+    "characters": [60, 63, 61, 230]
   },
   {
     "id": 256,
@@ -2791,7 +2791,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (7th)",
-    "characters": [60, 63, 61]
+    "characters": [60, 63, 61, 230]
   },
   {
     "id": 257,
@@ -2804,7 +2804,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (8th)",
-    "characters": [60, 63, 61]
+    "characters": [60, 63, 61, 230]
   },
   {
     "id": 258,
@@ -2817,7 +2817,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (9th)",
-    "characters": [60, 63, 61]
+    "characters": [60, 63, 61, 230]
   },
   {
     "id": 259,
@@ -2830,7 +2830,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 2  Setting Sun/AC 2015-2016 (_10th)",
-    "characters": [60, 63, 61]
+    "characters": [60, 63, 61, 230]
   },
   {
     "id": 260,
@@ -2843,7 +2843,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (11th)",
-    "characters": [60, 61, 208]
+    "characters": [60, 61, 230, 231, 208]
   },
   {
     "id": 261,
@@ -2856,7 +2856,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (12th)",
-    "characters": [60, 208, 61, 1]
+    "characters": [60, 231, 208, 61, 1, 230]
   },
   {
     "id": 262,
@@ -2869,7 +2869,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (13th)",
-    "characters": [60, 208, 61]
+    "characters": [60, 231, 230, 208, 61]
   },
   {
     "id": 263,
@@ -2882,7 +2882,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "read": "05. AC/vol. 3 Homecoming/AC 2015-2016 (14th)",
-    "characters": [60, 61, 205, 207]
+    "characters": [60, 61, 230, 205, 207]
   },
   {
     "id": 264,
@@ -2895,7 +2895,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "collects": [250, 251, 252, 253, 254],
-    "characters": [60, 62, 61]
+    "characters": [60, 62, 61, 230]
   },
   {
     "id": 265,
@@ -2908,7 +2908,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "collects": [255, 256, 257, 258, 259],
-    "characters": [60, 63, 61]
+    "characters": [60, 63, 61, 230]
   },
   {
     "id": 266,
@@ -2921,7 +2921,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Assassins",
     "collects": [260, 261, 262, 263],
-    "characters": [60, 61, 208, 1, 205, 207]
+    "characters": [60, 231, 61, 208, 230, 1, 205, 207]
   },
   {
     "id": 267,
@@ -2986,7 +2986,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
     "read": "07. AC Templars/AC Templars 2016 (5)",
-    "characters": [64, 65, 206, 55]
+    "characters": [64, 65, 206, 55, 233]
   },
   {
     "id": 272,
@@ -2999,7 +2999,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
     "read": "07. AC Templars/AC Templars 2016 (6)",
-    "characters": [55, 66]
+    "characters": [55, 66, 232, 233, 206]
   },
   {
     "id": 273,
@@ -3012,7 +3012,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
     "read": "07. AC Templars/AC Templars 2016 (7)",
-    "characters": [55, 66]
+    "characters": [55, 66, 232, 233]
   },
   {
     "id": 274,
@@ -3025,7 +3025,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
     "read": "07. AC Templars/AC Templars 2016 (8)",
-    "characters": [55, 66]
+    "characters": [55, 66, 233, 232]
   },
   {
     "id": 275,
@@ -3038,7 +3038,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
     "read": "07. AC Templars/AC Templars 2016 (9)",
-    "characters": [55, 66]
+    "characters": [55, 66, 232, 206, 233]
   },
   {
     "id": 276,
@@ -3051,7 +3051,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
     "collects": [267, 268, 269, 270, 271],
-    "characters": [64, 65, 206, 55]
+    "characters": [64, 65, 206, 55, 233]
   },
   {
     "id": 277,
@@ -3064,7 +3064,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Templars",
     "collects": [272, 273, 274, 275],
-    "characters": [55, 66]
+    "characters": [55, 66, 232, 206, 233]
   },
   {
     "id": 278,
@@ -3077,7 +3077,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
     "read": "08. AC - Locus/AC Locus 01 Case In Point 2016",
-    "characters": [73, 39, 41]
+    "characters": [73, 235, 39, 41]
   },
   {
     "id": 279,
@@ -3090,7 +3090,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
     "read": "08. AC - Locus/AC Locus 02 Last Descendants 2016",
-    "characters": [73, 39, 41, 144]
+    "characters": [73, 39, 41, 235, 144]
   },
   {
     "id": 280,
@@ -3103,7 +3103,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
     "read": "08. AC - Locus/AC Locus 03 Last Descendants 2016",
-    "characters": [73, 39, 41, 158]
+    "characters": [73, 39, 41, 235, 158]
   },
   {
     "id": 281,
@@ -3116,7 +3116,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
     "read": "08. AC - Locus/AC Locus 04 Last Descendants 2016",
-    "characters": [73, 39, 41]
+    "characters": [73, 235, 39, 41]
   },
   {
     "id": 282,
@@ -3129,7 +3129,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Last Descendants",
     "collects": [278, 279, 280, 281],
-    "characters": [73, 39, 41, 144, 158]
+    "characters": [73, 235, 39, 41, 144, 158]
   },
   {
     "id": 283,
@@ -3142,7 +3142,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (1)",
-    "characters": [60, 55, 206, 61, 66, 205, 207]
+    "characters": [60, 55, 206, 61, 233, 66, 205, 207]
   },
   {
     "id": 284,
@@ -3155,7 +3155,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (2)",
-    "characters": [60, 55, 206, 66, 61, 205]
+    "characters": [60, 55, 206, 66, 61, 205, 233]
   },
   {
     "id": 285,
@@ -3181,7 +3181,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (4)",
-    "characters": [60, 61, 55, 25, 205, 207, 24]
+    "characters": [60, 61, 55, 25, 233, 205, 207, 24]
   },
   {
     "id": 287,
@@ -3233,7 +3233,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (8)",
-    "characters": [60, 203, 65, 206, 55, 66, 61]
+    "characters": [60, 203, 65, 206, 55, 66, 61, 233]
   },
   {
     "id": 291,
@@ -3259,7 +3259,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (10)",
-    "characters": [60, 55, 206, 61, 205, 207, 25]
+    "characters": [60, 55, 206, 61, 205, 207, 25, 233]
   },
   {
     "id": 293,
@@ -3272,7 +3272,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (11)",
-    "characters": [60, 55, 205, 25, 207, 61]
+    "characters": [60, 55, 205, 25, 234, 207, 61, 233]
   },
   {
     "id": 294,
@@ -3285,7 +3285,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "read": "10. AC - Uprising/AC Uprising 2016 (12)",
-    "characters": [60, 25, 55, 206, 61, 207, 205]
+    "characters": [60, 25, 55, 206, 234, 233, 61, 207, 205]
   },
   {
     "id": 295,
@@ -3298,7 +3298,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "collects": [283, 284, 285, 286],
-    "characters": [60, 55, 61, 205, 207, 206, 66, 25, 24]
+    "characters": [60, 55, 61, 205, 207, 206, 233, 66, 25, 24]
   },
   {
     "id": 296,
@@ -3311,7 +3311,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "collects": [287, 288, 289, 290],
-    "characters": [60, 203, 55, 65, 206, 61, 207, 205, 66]
+    "characters": [60, 203, 55, 65, 206, 61, 207, 205, 66, 233]
   },
   {
     "id": 297,
@@ -3324,7 +3324,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Uprising",
     "collects": [291, 292, 293, 294],
-    "characters": [60, 55, 25, 61, 205, 207, 206]
+    "characters": [60, 55, 25, 234, 61, 205, 207, 206, 233]
   },
   {
     "id": 298,
@@ -3402,7 +3402,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
     "read": "12. AC - Origins/AC Origins 2018 (1)",
-    "characters": [27, 171, 29, 172, 28]
+    "characters": [27, 171, 29, 238, 172, 28]
   },
   {
     "id": 304,
@@ -3415,7 +3415,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
     "read": "12. AC - Origins/AC Origins 2018 (2)",
-    "characters": [27, 171, 172, 28]
+    "characters": [27, 238, 171, 172, 28, 239]
   },
   {
     "id": 305,
@@ -3428,7 +3428,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
     "read": "12. AC - Origins/AC Origins 2018 (3)",
-    "characters": [27, 28, 171, 172]
+    "characters": [27, 238, 28, 239, 171, 172]
   },
   {
     "id": 306,
@@ -3441,7 +3441,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
     "read": "12. AC - Origins/AC Origins 2018 (4)",
-    "characters": [27, 28, 171, 172]
+    "characters": [27, 28, 171, 238, 239, 172]
   },
   {
     "id": 307,
@@ -3455,7 +3455,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Origins (Comic)",
     "read": "12. AC - Origins/AC Origins - Special Edition 2021",
     "collects": [303, 304, 305, 306],
-    "characters": [27, 171, 28, 172, 29]
+    "characters": [27, 171, 238, 28, 172, 239, 29]
   },
   {
     "id": 308,
@@ -3468,7 +3468,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Conspiracies",
     "read": "13. AC - Conspiracies Cycle 2/AC Conspiracies 2018 (1)",
-    "characters": [71]
+    "characters": [71, 237]
   },
   {
     "id": 309,
@@ -3481,7 +3481,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Conspiracies",
     "read": "13. AC - Conspiracies Cycle 2/AC Conspiracies 2018 (2)",
-    "characters": [71, 72]
+    "characters": [71, 237, 72]
   },
   {
     "id": 310,
@@ -3494,7 +3494,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Conspiracies",
     "collects": [308, 309],
-    "characters": [71, 72]
+    "characters": [71, 237, 72]
   },
   {
     "id": 311,
@@ -3506,7 +3506,7 @@ const AC_DATABASE = [
     "contents": "48-page hardcover graphic novel",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Bloodstone",
-    "characters": [72]
+    "characters": [72, 236, 237]
   },
   {
     "id": 312,
@@ -3518,7 +3518,7 @@ const AC_DATABASE = [
     "contents": "48-page hardcover graphic novel",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Bloodstone",
-    "characters": [72, 53]
+    "characters": [72, 236, 237, 53]
   },
   {
     "id": 313,
@@ -3532,7 +3532,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Bloodstone",
     "read": "17/AC - Bloodstone - Complete Collection 2022",
     "collects": [311, 312],
-    "characters": [72, 53]
+    "characters": [72, 236, 237, 53]
   },
   {
     "id": 314,
@@ -3545,7 +3545,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Song of Glory",
     "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (1)",
-    "characters": [32, 33, 189, 190]
+    "characters": [32, 33, 219, 189, 190]
   },
   {
     "id": 315,
@@ -3558,7 +3558,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Song of Glory",
     "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (2)",
-    "characters": [32, 33, 190, 189]
+    "characters": [32, 33, 219, 190, 189]
   },
   {
     "id": 316,
@@ -3571,7 +3571,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Song of Glory",
     "read": "14. AC Valhalla - Song of Glory/AC Valhalla Song of Glory 2020 (3)",
-    "characters": [32, 33, 190, 189, 34]
+    "characters": [32, 33, 219, 190, 189, 34]
   },
   {
     "id": 317,
@@ -3584,7 +3584,7 @@ const AC_DATABASE = [
     "type": "Graphic Novel",
     "series": "Assassin's Creed Valhalla: Song of Glory",
     "collects": [314, 315, 316],
-    "characters": [32, 33, 190, 189, 34]
+    "characters": [32, 33, 219, 190, 189, 34]
   },
   {
     "id": 318,
@@ -3596,7 +3596,7 @@ const AC_DATABASE = [
     "contents": "Standalone graphic novel",
     "type": "Graphic Novel",
     "read": "14. AC Valhalla/AC Valhalla_ Blood Brothers 2021",
-    "characters": [184, 186, 187]
+    "characters": [217, 218, 184, 186, 187]
   },
   {
     "id": 319,
@@ -3610,7 +3610,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed Valhalla: Forgotten Myths",
     "read": "15/AC_Valhalla Forgotten Myths 3 chpt. edition 2022",
     "collects": [320, 321, 322],
-    "characters": [34]
+    "characters": [220, 221, 222, 34]
   },
   {
     "id": 320,
@@ -3622,7 +3622,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Forgotten Myths",
-    "read": "15/ACV Forgotten Myths 2022 (1)"
+    "read": "15/ACV Forgotten Myths 2022 (1)",
+    "characters": [220, 221, 222]
   },
   {
     "id": 321,
@@ -3634,7 +3635,8 @@ const AC_DATABASE = [
     "contents": "Single issue comic book",
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Forgotten Myths",
-    "read": "15/ACV Forgotten Myths 2022 (2)"
+    "read": "15/ACV Forgotten Myths 2022 (2)",
+    "characters": [220, 221]
   },
   {
     "id": 322,
@@ -3647,7 +3649,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed Valhalla: Forgotten Myths",
     "read": "15/ACV Forgotten Myths 2022 (3)",
-    "characters": [34]
+    "characters": [220, 221, 34]
   },
   {
     "id": 323,
@@ -3660,7 +3662,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
     "read": "18/AC Dynasty (1) 2022",
-    "characters": [74]
+    "characters": [74, 227, 226]
   },
   {
     "id": 324,
@@ -3673,7 +3675,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
     "read": "18/AC Dynasty (2) 2022",
-    "characters": [74]
+    "characters": [74, 226, 227]
   },
   {
     "id": 325,
@@ -3686,7 +3688,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
     "read": "18/AC Dynasty (3) 2022",
-    "characters": [74]
+    "characters": [74, 226, 227]
   },
   {
     "id": 326,
@@ -3699,7 +3701,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
     "read": "18/AC Dynasty (4) 2022",
-    "characters": [74]
+    "characters": [74, 226, 227]
   },
   {
     "id": 327,
@@ -3712,7 +3714,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
     "read": "18/AC Dynasty (5) 2022",
-    "characters": [74]
+    "characters": [74, 227]
   },
   {
     "id": 328,
@@ -3724,7 +3726,7 @@ const AC_DATABASE = [
     "contents": "Paperback manhua (French language, Mana Books)",
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
-    "characters": [74]
+    "characters": [74, 227]
   },
   {
     "id": 329,
@@ -3737,7 +3739,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Dynasty",
     "collects": [323, 324, 325, 326, 327],
-    "characters": [74]
+    "characters": [74, 226, 227]
   },
   {
     "id": 330,
@@ -3751,7 +3753,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 01 2019",
     "readLang": "fr",
-    "characters": [42, 207]
+    "characters": [42, 225, 207]
   },
   {
     "id": 331,
@@ -3765,7 +3767,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 02 2020",
     "readLang": "fr",
-    "characters": [42, 207]
+    "characters": [42, 225, 207]
   },
   {
     "id": 332,
@@ -3779,7 +3781,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 03 2021",
     "readLang": "fr",
-    "characters": [42, 207]
+    "characters": [42, 225, 207]
   },
   {
     "id": 333,
@@ -3793,7 +3795,7 @@ const AC_DATABASE = [
     "series": "Assassin's Creed: Blade of Shao Jun",
     "read": "16/AC Blade of Shao Jun 04 2022",
     "readLang": "fr",
-    "characters": [42, 207]
+    "characters": [42, 225, 207]
   },
   {
     "id": 334,
@@ -3806,7 +3808,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
     "collects": [629, 630, 631, 632, 633, 634],
-    "characters": [14, 103, 109, 111, 196, 110, 18, 21, 106]
+    "characters": [14, 223, 103, 109, 111, 196, 110, 18, 21, 106]
   },
   {
     "id": 335,
@@ -3818,7 +3820,7 @@ const AC_DATABASE = [
     "contents": "Paperback manga (192 pages)",
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
-    "characters": [14, 21, 111, 106, 110]
+    "characters": [14, 223, 21, 111, 106, 110]
   },
   {
     "id": 336,
@@ -3888,7 +3890,7 @@ const AC_DATABASE = [
     "contents": "Standalone graphic novel",
     "type": "Graphic Novel",
     "read": "03. 04/04 AC Brahman 2013",
-    "characters": [43, 155, 55]
+    "characters": [43, 242, 155, 55]
   },
   {
     "id": 342,
@@ -4616,7 +4618,7 @@ const AC_DATABASE = [
     "contents": "Hardcover graphic novel",
     "type": "Graphic Novel",
     "read": "14. AC Valhalla/AC Valhalla - The Hidden Codex 2024",
-    "characters": [56, 32, 187, 33]
+    "characters": [215, 216, 56, 32, 187, 33]
   },
   {
     "id": 410,
@@ -5141,7 +5143,7 @@ const AC_DATABASE = [
     "contents": "26 pages comic",
     "type": "Comic Book",
     "read": "06/AC Free Comic Book Day 2016",
-    "characters": [60, 65, 206]
+    "characters": [60, 65, 206, 230]
   },
     {
     "id": 459,
@@ -5152,7 +5154,7 @@ const AC_DATABASE = [
     "description": "The Assassin's Creed FCBD 2021 Edition is an exclusive two-issue one-shot from Tokyopop that ties into both their English publications of Valhalla: Blood Brothers and Dynasty series written by Feng Zisu and Xu Xianzhe, respectively. The book features sneak peeks from the comics, depicting each series' respective first chapters, \"An Invitation from England\" and \"The Flower Banquet (Part 1)\".",
     "contents": "38 pages comic",
     "type": "Comic Book",
-    "characters": [74]
+    "characters": [74, 217, 218]
   },
     {
     "id": 460,
@@ -5164,7 +5166,7 @@ const AC_DATABASE = [
     "contents": "192 pages manga",
     "type": "Manga",
     "series": "Assassin's Creed Shadows: Tales of Iga",
-    "characters": [200, 201]
+    "characters": [228, 200, 229, 201]
   },
     {
     "id": 461,
@@ -5175,7 +5177,7 @@ const AC_DATABASE = [
     "description": "Assassin's Creed: Valhalla is a short French webcomic created by Glénat Editions. The comic, written by Mathieu Gabella with art by Paolo Traisci and colors by Fabien Alquier, was released on 26 November 2020. It served as a tie-in to the video game of the same name, and followed the Viking shieldmaiden Eivor Varinsdottir of the Raven Clan as she raided a monastery.",
     "contents": "Eight pages comic",
     "type": "Comic Book",
-    "characters": [32]
+    "characters": [32, 215]
   },
   {
     "id": 462,
@@ -7009,7 +7011,7 @@ const AC_DATABASE = [
     "contents": "Paperback graphic novel (224 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Forgotten Temple",
-    "characters": [14]
+    "characters": [14, 224]
   },
   {
     "id": 626,
@@ -7021,7 +7023,7 @@ const AC_DATABASE = [
     "contents": "Paperback graphic novel (224 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Forgotten Temple",
-    "characters": [14]
+    "characters": [14, 224]
   },
   {
     "id": 627,
@@ -7033,7 +7035,7 @@ const AC_DATABASE = [
     "contents": "Paperback graphic novel (200 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Forgotten Temple",
-    "characters": [14]
+    "characters": [14, 224]
   },
   {
     "id": 628,
@@ -7045,7 +7047,7 @@ const AC_DATABASE = [
     "contents": "Paperback graphic novel (184 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Forgotten Temple",
-    "characters": [14]
+    "characters": [14, 224]
   },
   {
     "id": 629,
@@ -7058,7 +7060,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
     "read": "09. AC - Awakening/AC Awakening 2016 (1)",
-    "characters": [14, 196]
+    "characters": [14, 196, 223]
   },
   {
     "id": 630,
@@ -7071,7 +7073,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
     "read": "09. AC - Awakening/AC Awakening 2016 (2)",
-    "characters": [14]
+    "characters": [223, 14]
   },
   {
     "id": 631,
@@ -7110,7 +7112,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
     "read": "09. AC - Awakening/AC Awakening 2016 (5)",
-    "characters": [14, 103, 111, 21, 106]
+    "characters": [14, 103, 111, 21, 106, 223]
   },
   {
     "id": 634,
@@ -7123,7 +7125,7 @@ const AC_DATABASE = [
     "type": "Manga",
     "series": "Assassin's Creed: Awakening",
     "read": "09. AC - Awakening/AC Awakening 2016 (6)",
-    "characters": [14, 111]
+    "characters": [223, 14, 111]
   },
   {
     "id": 635,
@@ -7209,7 +7211,7 @@ const AC_DATABASE = [
     "contents": "Paperback graphic novel (French language, Mana Books, 192 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Forgotten Temple",
-    "characters": [14]
+    "characters": [14, 224]
   },
   {
     "id": 642,
@@ -7221,7 +7223,7 @@ const AC_DATABASE = [
     "contents": "Paperback graphic novel (French language, Mana Books, 224 pages)",
     "type": "Graphic Novel",
     "series": "Assassin's Creed: Forgotten Temple",
-    "characters": [14]
+    "characters": [14, 224]
   },
   {
     "id": 643,
@@ -7233,7 +7235,7 @@ const AC_DATABASE = [
     "contents": "208 pages manga",
     "type": "Manga",
     "series": "Assassin's Creed Shadows: Tales of Iga",
-    "characters": [200, 201]
+    "characters": [200, 229, 228, 201]
   },
   {
     "id": 644,
@@ -7246,7 +7248,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
     "collects": [236, 237, 238, 240],
-    "characters": [44, 67, 53]
+    "characters": [44, 67, 240, 53]
   },
   {
     "id": 645,
@@ -7259,7 +7261,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: The Fall",
     "collects": [236, 237, 238],
-    "characters": [44, 67, 53]
+    "characters": [44, 67, 240, 53]
   },
   {
     "id": 646,
@@ -7272,7 +7274,7 @@ const AC_DATABASE = [
     "type": "Comic Book",
     "series": "Assassin's Creed: Origins (Comic)",
     "collects": [303, 304, 305, 306],
-    "characters": [27, 171, 28, 172, 29]
+    "characters": [27, 171, 238, 28, 172, 239, 29]
   },
   {
     "id": 647,

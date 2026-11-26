@@ -66,7 +66,10 @@
    - the owner's request (2026-11-09): Niccolò and Maffeo Polo (ids
      209-210);
    - the owner's request (2026-11-26): the 2016 film's Abstergo inmates
-     Moussa, Lin, Emir and Nathan (ids 211-214).
+     Moussa, Lin, Emir and Nathan (ids 211-214);
+   - the missing leads (2026-11-26): the 28 characters who lead or carry
+     a comic and were not on the list, found by the comics audit below
+     (ids 215-242; the notes are under "The missing leads").
    Still to come: more allies and targets from the games.
 
    Characters (keys in this order; the list itself is in id order):
@@ -296,6 +299,139 @@
      Warren Vidic on The Fall 1 and 3 and The Chain, Alan Rikkin on the
      French volumes 4 to 6, and Evie Frye and Henry Green on Locus 4.
      William Miles on the French volume 2 is one flashback scene.
+
+   The missing leads (2026-11-26, ids 215-242): the audit above could
+   only tag characters on this list, so several comics showed their
+   supporting cast but not their lead. The owner chose the 28: 19 leads
+   and co-leads and nine key figures (Odin, Maxime Gorm, An Lushan, Kody
+   Adams, Violet da Costa, Elijah, Mark Antony, Caesarion, Gull); the
+   wider supporting cast waits. Four researchers, one per group, from
+   the wiki's mirror, Access the Animus, Wikipedia, publishers' pages
+   and reviews; two of them read the scans the read links open (The
+   Hidden Codex, Blood Brothers, Song of Glory, Forgotten Myths, and
+   Assassins, Templars, Locus and Uprising, mostly as OCR). Their
+   reports are kept outside the repo. Where this changes a comics note
+   above (Forgotten Myths 1 and 2, The Hidden Codex, Templars 6 to 9,
+   the lead-only series), this is the later word. The owner's calls,
+   all on 2026-11-26:
+   - Names. "Brother Edward" for the monk of The Hidden Codex: the book
+     and both publishers say "Edward", Eivor says "Brother Edward" once,
+     and it cannot be taken for Edward Kenway. "Niels", with the wiki's
+     "Niels Gunnarsson" as aka: the book says only Niels (as for Naoe).
+     "Hattori Hanzo" without the macron, as Ubisoft, VIZ and the game's
+     dialogue write it (the wiki and Wikipedia: Hanzō). Masato Yagyu:
+     Shueisha prints the reading, and "Yanao Seijin" in Titan's volume 1
+     blurb is a misreading of the same kanji. Lisa Huang as VIZ has her
+     (the wiki's page is Kō Risa; "Lisa Yang" was never printed). Odin,
+     as the database and Ubisoft's marketing have him; the Æsir call
+     him Havi. Alekseï Gavrani with the diaeresis (Titan's blurb).
+     Elijah has no surname in any source.
+   - The Norse Isu (Baldr, Loki, Odin) come in under "isu", with
+     Valhalla as their game, like the Isu of The Fate of Atlantis. Loki
+     and Odin are in the Asgard and Jotunheim arcs, and Odin walks
+     through Eivor's visions. Baldr counts for Valhalla on Dawn of
+     Ragnarök alone, where he is on screen only as Surtr's unconscious
+     captive (the owner's call). Who Odin, Loki and Týr are reborn as
+     is Valhalla's reveal: it stays out of names, descriptions and
+     Family rows, so Loki has no link to Basim or Aletheia and Odin
+     none to Eivor. Mirage is not counted for Loki (a recording at its
+     ending, itself the reveal). Loki is Odin's blood brother by oath,
+     not kin: no link. Baldr is Odin's son (the database, Ubisoft's
+     Dawn of Ragnarök blurb, the comic).
+   - Sides. Jan van der Graff is "other": Napoleon's agent for three
+     issues, a Templar only from the last (as for Hornigold), and that
+     he becomes the next Black Cross stays out. Lisa Huang is an
+     Assassin: Shao Jun's descendant, sworn in on the last pages (as
+     for Callum Lynch). Maxime Gorm is a Templar: Bloodstone opens with
+     him leading an Abstergo raid (Conspiracies states no side). An
+     Lushan is a Templar: Tokyopop's blurb gives him "ties to the
+     Knights Templar" and the manhua's own card files him under "The
+     Order", though he breaks with the Golden Turtles in the story.
+     Mark Antony is "other" (the comic never ties him to the Order; a
+     tabletop scenario does). Caesarion, Gull, Elijah and Sean Molloy
+     are "other" and what they turn out to be stays out: Caesarion's
+     ending, Gull's nature (issue 3), Elijah as a Sage, Sean's months
+     on the Templars' side. Violet da Costa is a Templar and her second
+     loyalty stays out, though Uprising's own character card prints it.
+     Fujibayashi Nagato and Hattori Hanzo are Assassins (the Kakushiba
+     ikki), as Tsuyu is.
+   - Games. Caesarion counts for Origins: a small, silent child beside
+     Cleopatra in the closing Rome cutscene (as Arno counts for Rogue),
+     so year -44. Violet da Costa: Rogue's modern day and Syndicate's
+     cutscenes; Unity has only her files. Nagato and Hanzo: Shadows
+     (Nagato from the 1579 training memories, with Naoe's year; Hanzo
+     from 1581, and Claws of Awaji). Mark Antony is only named in
+     Origins; Hannah Mueller is only talked about in AC III, Jot Soora
+     only named in a Rogue file, Elijah only in files.
+   - Years and births. No source dates The Hidden Codex ("late 870s" on
+     the wiki): 878. None dates Awakening's present day: 2013, when the
+     manga ran beside Black Flag. Hanzo c. 1542 (Wikipedia; the wiki's
+     copy of the Shadows database says "around the 1545s"). Yan Jiming
+     730, from the manhua's own card, like Li E. Kody Adams 1991 (the
+     wiki, citing the Essential Guide) and Violet 1988 (the wiki and
+     Wikipedia). Left out as uncited: Sean Molloy 2001, Elijah c. 2005,
+     Hannah Mueller "1970s", Ulf c. 846, Nagato c. 1538, Lisa 2001.
+     Gull's 870 and Noa Kim's 2023 are the wiki's alone. Nagato counts
+     as historical though the game's own database doubts he existed.
+   - Family. Maxime Gorm is Eddie Gorm's grandson: every source's word,
+     used though he relives him. Tomo is not Gavrani's descendant (one
+     Titan blurb says "ancestor"; the story has him reliving stored
+     data): no link. Hiram Stoddard is the ancestor of Tom Stoddard and
+     of Charlotte, who relives him in Assassins 11 to 13. Jan van der
+     Graff is the ancestor André relives (the surprise that ends
+     Templars 6) and Albert Bolden's too (the wiki says great-
+     grandfather, citing no issue). Elijah is Desmond's son, known from
+     Syndicate's files before the comic, and so William Miles's
+     grandson. Accipiter is Aquilus's cousin and the ancestor Hawk
+     relives in volume 3. Nagato is Naoe's father and Tsuyu's husband.
+     Caesarion's father is Julius Caesar, as the game and the comic
+     have it. The Stensson brothers are listed as brothers (the wiki
+     makes both the adopted sons of Sten Blueshield). Noa Kim's other
+     ancestors are a late reveal and left out.
+   - Tags. A new lead goes first: Brother Edward and Niels on The
+     Hidden Codex, Ulf and Björn on Blood Brothers, Baldr and Loki on
+     Forgotten Myths (Odin on issue 1 only), Masato on Awakening 2 and
+     6 (both almost all present day), Nagato on Tales of Iga volume 1
+     (in every chapter; Tsuyu keeps volume 2, with Hanzo second). The
+     others keep their lead: Tomo on Bloodstone, Tommy Greyling on
+     Locus, Edward Kenway on Forgotten Temple, Desmond on the Accipiter
+     album, Li E on Dynasty, Shao Jun on her manga, with the newcomer
+     second or by weight. Hiram goes before Giovanni Borgia, being the
+     ancestor relived.
+   - The Black Cross entry now goes on Templars 6 (Solomon Bolden, not
+     on this list, wears the costume against the pirates: last) and 9
+     (Jan, masked, straight after him), and on volume 2.
+   - Elijah is on Uprising 11 and 12 and volume 3 only: in 1, 4, 8 and
+     10 he is on the page but neither speaks nor acts.
+   - Sean Molloy is on the three Last Descendants novels too (the
+     wiki's chapter summaries; nobody read the books).
+   - Not tagged: Noa Kim on Forgotten Temple volume 5, Yan Jiming on
+     Dynasty 5 and 6 and either of them on the 2021 Free Comic Book Day
+     issue's Dynasty chapter, Hannah Mueller on The Chain, Odin on
+     Forgotten Myths 2 and 3, Masato on Awakening 3 and 4, Hiram on
+     Assassins 14, Violet on Uprising 3, 5 to 7 and 9.
+   - Thin but tagged, under the generous rule: Maxime Gorm on
+     Conspiracies 1 (its last page), Caesarion on Origins 2, Masato on
+     Awakening 1 and 5, Violet on Templars 5 and Uprising 8 and 11, the
+     Stensson brothers on the 2021 Free Comic Book Day issue (the
+     sampler itself was not seen).
+   - Portraits, picked by Claude for the owner to review; candidates
+     are kept with the reports. Game art: Loki (a Valhalla screenshot,
+     with the face the game gives him), Odin (Ubisoft's concept art of
+     the hooded wanderer; the Dawn of Ragnarök renders show Havi with
+     Eivor's face and are avoided), Violet da Costa (her Syndicate
+     render), Nagato (Ubisoft's cinematic trailer), Hanzo (a Shadows
+     cutscene), Caesarion (the game's child model, 160px, scaled up;
+     the comic's hooded youth gives his ending away). Baldr uses
+     Forgotten Myths art: his game images are a 55px render and a
+     bruised, red-lit captive. Comic, manga and manhua art for the
+     rest: panels from the scans (Brother Edward, Niels, the Stensson
+     brothers, Elijah from Uprising 4, scaled up), the wiki's panels and
+     cut-outs (Gull, straightened; Masato, Noa Kim, Lisa, Kody, Hiram,
+     Jan, Mark Antony, Hannah, Accipiter, Jot Soora), the manhua's
+     official character art (Yan Jiming, An Lushan), the Bloodstone
+     volume 1 cover (Gavrani) and the Essential Guide's illustration
+     (Sean Molloy). Maxime Gorm has no usable art: the emblem.
 
    Disputes: whenever sources disagree (a birth year, a side, a family
    link, whether a game counts), flag it to the owner, who decides. Don't
@@ -964,7 +1100,7 @@ const CHARACTERS = [
     "year": 2012,
     "image": "images/characters/desmond-miles.webp",
     "games": ["Assassin's Creed", "Assassin's Creed II", "Assassin's Creed Brotherhood", "Assassin's Creed Revelations", "Assassin's Creed III", "Assassin's Creed Valhalla"],
-    "family": [{"id": 52, "relation": "father"}, {"id": 70, "relation": "ancestor"}, {"id": 2, "relation": "ancestor"}, {"id": 1, "relation": "ancestor"}, {"id": 14, "relation": "ancestor"}, {"id": 15, "relation": "ancestor"}, {"id": 16, "relation": "ancestor"}, {"id": 202, "relation": "ancestor"}],
+    "family": [{"id": 52, "relation": "father"}, {"id": 70, "relation": "ancestor"}, {"id": 2, "relation": "ancestor"}, {"id": 1, "relation": "ancestor"}, {"id": 14, "relation": "ancestor"}, {"id": 15, "relation": "ancestor"}, {"id": 16, "relation": "ancestor"}, {"id": 202, "relation": "ancestor"}, {"id": 234, "relation": "son"}],
     "description": "A bartender descended from a long line of Assassins, taken by Abstergo Industries in 2012 and made to relive his ancestors' memories in a machine called the Animus."
   },
   {
@@ -1094,7 +1230,7 @@ const CHARACTERS = [
     "year": 1715,
     "image": "images/characters/edward-kenway.webp",
     "games": ["Assassin's Creed IV: Black Flag", "Assassin's Creed Black Flag Resynced"],
-    "family": [{"id": 15, "relation": "son"}, {"id": 16, "relation": "grandson"}, {"id": 3, "relation": "descendant"}],
+    "family": [{"id": 15, "relation": "son"}, {"id": 16, "relation": "grandson"}, {"id": 3, "relation": "descendant"}, {"id": 223, "relation": "descendant"}, {"id": 224, "relation": "descendant"}],
     "description": "A Welsh privateer turned pirate captain in the Caribbean, more interested in fortune and fame than in the war between Assassins and Templars he stumbles into."
   },
   {
@@ -1256,7 +1392,7 @@ const CHARACTERS = [
     "year": -48,
     "image": "images/characters/cleopatra.webp",
     "games": ["Assassin's Creed Origins"],
-    "family": [{"id": 168, "relation": "brother"}],
+    "family": [{"id": 168, "relation": "brother"}, {"id": 239, "relation": "son"}],
     "description": "The young queen of Egypt, driven from her throne by her brother Ptolemy XIII, who sees in Bayek and Aya useful allies in winning it back."
   },
   {
@@ -1268,6 +1404,7 @@ const CHARACTERS = [
     "year": -48,
     "image": "images/characters/julius-caesar.webp",
     "games": ["Assassin's Creed Origins"],
+    "family": [{"id": 239, "relation": "son"}],
     "description": "The Roman general whose arrival in Egypt in the middle of a civil war tips the balance of power and draws him into Cleopatra's fight for the throne."
   },
   {
@@ -1424,7 +1561,7 @@ const CHARACTERS = [
     "year": 1526,
     "image": "images/characters/shao-jun.webp",
     "games": ["Assassin's Creed Chronicles: China"],
-    "family": [{"id": 212, "relation": "descendant"}],
+    "family": [{"id": 212, "relation": "descendant"}, {"id": 225, "relation": "descendant"}],
     "description": "The last Assassin of the Chinese Brotherhood, trained in Italy by Ezio Auditore, who returns to Ming China to bring down those who destroyed her order."
   },
   {
@@ -1460,7 +1597,7 @@ const CHARACTERS = [
     "year": 1579,
     "image": "images/characters/naoe.webp",
     "games": ["Assassin's Creed Shadows"],
-    "family": [{"id": 200, "relation": "mother"}],
+    "family": [{"id": 228, "relation": "father"}, {"id": 200, "relation": "mother"}],
     "description": "A young shinobi of Iga, the daughter of Fujibayashi Nagato, trained in stealth and the blade as war closes in on her home province."
   },
   {
@@ -1540,7 +1677,7 @@ const CHARACTERS = [
     "year": 2012,
     "image": "images/characters/william-miles.webp",
     "games": ["Assassin's Creed Revelations", "Assassin's Creed III", "Assassin's Creed Origins"],
-    "family": [{"id": 3, "relation": "son"}],
+    "family": [{"id": 3, "relation": "son"}, {"id": 234, "relation": "grandson"}],
     "description": "Desmond's father and a leader of the modern-day Assassins, a stern and demanding man who puts the Brotherhood first."
   },
   {
@@ -1639,7 +1776,7 @@ const CHARACTERS = [
     "image": "images/characters/charlotte-de-la-cruz.webp",
     "games": [],
     "stories": "Comics: Assassins, Uprising",
-    "family": [{"id": 62, "relation": "ancestor"}, {"id": 203, "relation": "ancestor"}],
+    "family": [{"id": 62, "relation": "ancestor"}, {"id": 203, "relation": "ancestor"}, {"id": 231, "relation": "ancestor"}],
     "description": "An overqualified office worker in San Diego whose obsession with conspiracy theories leads her straight into the Assassins' secret war."
   },
   {
@@ -1664,7 +1801,7 @@ const CHARACTERS = [
     "image": "images/characters/tom-stoddard.webp",
     "games": [],
     "stories": "Comics: Assassins",
-    "family": [{"id": 60, "relation": "descendant"}],
+    "family": [{"id": 231, "relation": "ancestor"}, {"id": 60, "relation": "descendant"}],
     "description": "A seasoned Assassin in 1692 Salem, an ancestor of Charlotte de la Cruz, caught up in the witch trials as hysteria grips the town."
   },
   {
@@ -1699,7 +1836,7 @@ const CHARACTERS = [
     "image": "images/characters/albert-bolden.webp",
     "games": [],
     "stories": "Comics: Templars, Uprising",
-    "family": [{"id": 66, "relation": "son"}],
+    "family": [{"id": 66, "relation": "son"}, {"id": 232, "relation": "ancestor"}],
     "description": "A jazz trumpeter from Baltimore and a Templar in 1920s Shanghai, caught up in a struggle to root out corruption within the Order."
   },
   {
@@ -1713,7 +1850,7 @@ const CHARACTERS = [
     "image": "images/characters/andre-bolden.webp",
     "games": [],
     "stories": "Comics: Templars, Uprising",
-    "family": [{"id": 65, "relation": "father"}],
+    "family": [{"id": 65, "relation": "father"}, {"id": 232, "relation": "ancestor"}],
     "description": "Albert Bolden's son, an older man in 2016 whose family memories suddenly become of great interest to Abstergo."
   },
   {
@@ -1738,7 +1875,7 @@ const CHARACTERS = [
     "image": "images/characters/jonathan-hawk.webp",
     "games": [],
     "stories": "Graphic novels: Accipiter, Hawk, El Cakr, Leila",
-    "family": [{"id": 69, "relation": "ancestor"}],
+    "family": [{"id": 69, "relation": "ancestor"}, {"id": 241, "relation": "ancestor"}],
     "description": "A London Assassin and a friend of Desmond Miles, sent to find a powerful ancient sceptre through the memories of his ancestor."
   },
   {
@@ -1763,7 +1900,7 @@ const CHARACTERS = [
     "image": "images/characters/aquilus.webp",
     "games": [],
     "stories": "Graphic novels: Desmond, Aquilus, Accipiter (the Ankh of Isis trilogy)",
-    "family": [{"id": 3, "relation": "descendant"}],
+    "family": [{"id": 241, "relation": "cousin"}, {"id": 3, "relation": "descendant"}],
     "description": "An Assassin of the third-century Roman Empire, one of Desmond Miles' ancestors, whose memories hold the secret of an ancient artefact."
   },
   {
@@ -1775,6 +1912,7 @@ const CHARACTERS = [
     "image": "images/characters/eddie-gorm.webp",
     "games": [],
     "stories": "Comics: Conspiracies",
+    "family": [{"id": 237, "relation": "grandson"}],
     "description": "The boss of London's East End docks, a small-time racketeer drawn into the Assassins' war during the Second World War."
   },
   {
@@ -1798,6 +1936,7 @@ const CHARACTERS = [
     "image": "images/characters/tommy-greyling.webp",
     "games": [],
     "stories": "Novel: Last Descendants; comic: Locus",
+    "family": [{"id": 235, "relation": "descendant"}],
     "description": "A New York police officer in the 1863 draft riots who later becomes a Pinkerton detective on the trail of a killer in Victorian London."
   },
   {
@@ -3275,7 +3414,7 @@ const CHARACTERS = [
     "image": "images/characters/tsuyu.webp",
     "games": ["Assassin's Creed Shadows"],
     "stories": "Manga: Tales of Iga",
-    "family": [{"id": 45, "relation": "daughter"}],
+    "family": [{"id": 228, "relation": "husband"}, {"id": 45, "relation": "daughter"}],
     "description": "A young woman of Iga taken under the wing of the Spanish Assassin Alvaro, who trains as a shinobi and fights beside him against the Templars. Naoe's mother."
   },
   {
@@ -3446,5 +3585,343 @@ const CHARACTERS = [
     "stories": "Film: Assassin's Creed (2016)",
     "family": [{"id": 196, "relation": "ancestor"}],
     "description": "A young Londoner held at the Abstergo Foundation in Madrid, descended from the turncoat Duncan Walpole, and the inmate who trusts Callum Lynch the least."
+  },
+  {
+    "id": 215,
+    "name": "Brother Edward",
+    "group": "other",
+    "historical": false,
+    "year": 878,
+    "image": "images/characters/brother-edward.webp",
+    "games": [],
+    "stories": "Graphic novel: The Hidden Codex; webcomic: Assassin's Creed Valhalla",
+    "description": "A young copyist monk of Readingum Abbey, the best in the region, carried off by Eivor in a raid and put to work in Ravensthorpe, where strange writings set him looking for his missing brother."
+  },
+  {
+    "id": 216,
+    "name": "Niels",
+    "aka": ["Niels Gunnarsson"],
+    "group": "other",
+    "historical": false,
+    "year": 878,
+    "image": "images/characters/niels.webp",
+    "games": [],
+    "stories": "Graphic novel: The Hidden Codex",
+    "description": "A young hunter of the Raven Clan in Ravensthorpe, as undisciplined as he is gifted, who dreams of leaving his father's farm to see the world. Hytham sends him to Lunden with the monk Edward."
+  },
+  {
+    "id": 217,
+    "name": "Ulf Stensson",
+    "group": "other",
+    "historical": false,
+    "year": 866,
+    "image": "images/characters/ulf-stensson.webp",
+    "games": [],
+    "stories": "Graphic novel: Blood Brothers",
+    "family": [{"id": 218, "relation": "brother"}],
+    "description": "The elder of two Norse brothers raised by the jarl Sten Blueshield, a calm archer who lets his arrows answer his brother's boasting. In 866 he sails for England to join the sons of Ragnar."
+  },
+  {
+    "id": 218,
+    "name": "Björn Stensson",
+    "group": "other",
+    "historical": false,
+    "year": 866,
+    "image": "images/characters/bjorn-stensson.webp",
+    "games": [],
+    "stories": "Graphic novel: Blood Brothers",
+    "family": [{"id": 217, "relation": "brother"}],
+    "description": "The younger of two Norse brothers raised by the jarl Sten Blueshield: a loud, boastful axeman forever trying to outdo his brother. In 866 he sails for England to join the sons of Ragnar."
+  },
+  {
+    "id": 219,
+    "name": "Gull",
+    "group": "other",
+    "historical": false,
+    "year": 870,
+    "image": "images/characters/gull.webp",
+    "games": [],
+    "stories": "Comic: Song of Glory",
+    "description": "A tattooed thrall of Kjotve the Cruel who speaks in riddles, her head full of stories of the gods. Eivor carries her off as a gift for King Styrbjorn, and she promises a treasure in return."
+  },
+  {
+    "id": 220,
+    "name": "Baldr",
+    "aka": ["Baldur"],
+    "group": "isu",
+    "historical": false,
+    "year": -75000,
+    "image": "images/characters/baldr.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "stories": "Comic: Forgotten Myths",
+    "family": [{"id": 222, "relation": "father"}],
+    "description": "The best loved of the Æsir, Odin's son: bright, hopeful and all but impossible to wound, with a gift for glimpsing the future. In Forgotten Myths he sets out to make peace between the fire giants and the dwarves."
+  },
+  {
+    "id": 221,
+    "name": "Loki",
+    "group": "isu",
+    "historical": false,
+    "year": -75000,
+    "image": "images/characters/loki.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "stories": "Comic: Forgotten Myths",
+    "description": "The cleverest of the Æsir and the least trusted: a shape-shifter of jötun blood whom Odin made his blood brother and counsellor. In Forgotten Myths he agrees to guide young Baldr on his quest."
+  },
+  {
+    "id": 222,
+    "name": "Odin",
+    "aka": ["Havi", "All-Father"],
+    "group": "isu",
+    "historical": false,
+    "year": -75000,
+    "image": "images/characters/odin.webp",
+    "games": ["Assassin's Creed Valhalla"],
+    "stories": "Comic: Forgotten Myths",
+    "family": [{"id": 220, "relation": "son"}],
+    "description": "The All-Father, leader of the Æsir of Asgard, known to his own as Havi: a one-eyed seeker of knowledge who will do anything to escape the doom foretold for him. He walks through Eivor's visions as a cloaked wanderer."
+  },
+  {
+    "id": 223,
+    "name": "Masato Yagyu",
+    "group": "other",
+    "historical": false,
+    "year": 2013,
+    "image": "images/characters/masato-yagyu.webp",
+    "games": [],
+    "stories": "Manga: Awakening",
+    "family": [{"id": 14, "relation": "ancestor"}],
+    "description": "A 17-year-old Japanese schoolboy invited by Abstergo to test what he is told is a new video game. The machine is the Animus, and the pirate life it shows him is that of his ancestor Edward Kenway."
+  },
+  {
+    "id": 224,
+    "name": "Noa Kim",
+    "group": "other",
+    "historical": false,
+    "year": 2023,
+    "image": "images/characters/noa-kim.webp",
+    "games": [],
+    "stories": "Webtoon: Forgotten Temple",
+    "family": [{"id": 14, "relation": "ancestor"}],
+    "description": "A Korean-American student who wins a trip to Macau after a genetic ancestry test, only to be abducted by Abstergo and made to relive the memories of his ancestor Edward Kenway in the Animus."
+  },
+  {
+    "id": 225,
+    "name": "Lisa Huang",
+    "aka": ["Kō Risa"],
+    "group": "assassin",
+    "historical": false,
+    "year": 2019,
+    "image": "images/characters/lisa-huang.webp",
+    "games": [],
+    "stories": "Manga: Blade of Shao Jun",
+    "family": [{"id": 42, "relation": "ancestor"}],
+    "description": "A quick-tempered teenager from Yokohama sent for therapy at an Abstergo clinic, where Dr. Kagami has her relive the memories of her ancestor Shao Jun, the last Assassin of Ming China."
+  },
+  {
+    "id": 226,
+    "name": "Yan Jiming",
+    "group": "other",
+    "historical": true,
+    "born": "730",
+    "year": 754,
+    "image": "images/characters/yan-jiming.webp",
+    "games": [],
+    "stories": "Manhua: Dynasty",
+    "description": "The good-natured son of Yan Gaoqing, governor of Changshan, who helps Li E out of a tight spot in Chang'an and later stands with him and the Tang loyalists against An Lushan's rebellion."
+  },
+  {
+    "id": 227,
+    "name": "An Lushan",
+    "group": "templar",
+    "historical": true,
+    "born": "c. 703",
+    "year": 754,
+    "image": "images/characters/an-lushan.webp",
+    "games": [],
+    "stories": "Manhua: Dynasty",
+    "description": "The feared frontier general of Tang China, a favourite of Emperor Xuanzong and bitter rival of Chancellor Yang Guozhong, whose ambitions within the secretive Golden Turtles lead him to turn his armies on the throne."
+  },
+  {
+    "id": 228,
+    "name": "Fujibayashi Nagato",
+    "aka": ["Fujibayashi Masayasu"],
+    "group": "assassin",
+    "historical": true,
+    "year": 1579,
+    "image": "images/characters/fujibayashi-nagato.webp",
+    "games": ["Assassin's Creed Shadows"],
+    "stories": "Manga: Tales of Iga",
+    "family": [{"id": 200, "relation": "wife"}, {"id": 45, "relation": "daughter"}],
+    "description": "A shinobi master of Iga and the father of Naoe, whom he trains in stealth and the blade as war closes in. The manga Tales of Iga shows him as the young farmer Masayasu, set on becoming a shinobi."
+  },
+  {
+    "id": 229,
+    "name": "Hattori Hanzo",
+    "aka": ["Oni Hanzo"],
+    "group": "assassin",
+    "historical": true,
+    "born": "c. 1542",
+    "year": 1581,
+    "image": "images/characters/hattori-hanzo.webp",
+    "games": ["Assassin's Creed Shadows"],
+    "stories": "Manga: Tales of Iga",
+    "description": "The famed shinobi and samurai in the service of Tokugawa Ieyasu, known as Oni Hanzo, who returns to Iga with a warning as Nobunaga's army closes in. Tales of Iga shows him as Momochi Sandayu's proud young apprentice."
+  },
+  {
+    "id": 230,
+    "name": "Kody Adams",
+    "group": "assassin",
+    "historical": false,
+    "born": "1991",
+    "year": 2015,
+    "image": "images/characters/kody-adams.webp",
+    "games": [],
+    "stories": "Comic: Assassins",
+    "description": "The technician of Charlotte de la Cruz's Assassin cell: a hacker and engineer who built the team's home-made Animus, which he calls Red Rider, and who talks Charlotte through her first missions."
+  },
+  {
+    "id": 231,
+    "name": "Hiram Stoddard",
+    "aka": ["Bloody Hiram"],
+    "group": "assassin",
+    "historical": false,
+    "year": 1516,
+    "image": "images/characters/hiram-stoddard.webp",
+    "games": [],
+    "stories": "Comic: Assassins",
+    "family": [{"id": 62, "relation": "descendant"}, {"id": 60, "relation": "descendant"}],
+    "description": "An English Assassin of the Italian Brotherhood, trained by Ezio Auditore alongside his rival Giovanni Borgia. The Brotherhood remembers him as \"Bloody Hiram\"; Charlotte de la Cruz relives his memories of 1515 and 1516 in the Animus."
+  },
+  {
+    "id": 232,
+    "name": "Jan van der Graff",
+    "group": "other",
+    "historical": false,
+    "year": 1805,
+    "image": "images/characters/jan-van-der-graff.webp",
+    "games": [],
+    "stories": "Comic: Templars",
+    "family": [{"id": 65, "relation": "descendant"}, {"id": 66, "relation": "descendant"}],
+    "description": "A talkative Flemish agent of Napoleon, bound for Tripoli in 1805 in the guise of a cloth merchant with an eye on the Sultan's treasure. On the voyage he strikes a bargain with Solomon Bolden, a Templar with business of his own in the palace."
+  },
+  {
+    "id": 233,
+    "name": "Violet da Costa",
+    "group": "templar",
+    "historical": false,
+    "born": "1988",
+    "year": 2014,
+    "image": "images/characters/violet-da-costa.webp",
+    "games": ["Assassin's Creed Rogue", "Assassin's Creed Syndicate"],
+    "stories": "Comics: Templars, Uprising",
+    "description": "An Abstergo security specialist and Templar, the sharp-tongued tactical voice in Otso Berg's ear on Sigma Team. From Montreal to London she works at his side in the hunt for Assassins and Pieces of Eden."
+  },
+  {
+    "id": 234,
+    "name": "Elijah",
+    "group": "other",
+    "historical": false,
+    "year": 2017,
+    "image": "images/characters/elijah.webp",
+    "games": [],
+    "stories": "Comic: Uprising",
+    "family": [{"id": 3, "relation": "father"}, {"id": 52, "relation": "grandfather"}],
+    "description": "The young son Desmond Miles never knew he had. In 2017 the boy is in the keeping of the Instruments of the First Will, the cult that worships Juno, who parade him before their followers."
+  },
+  {
+    "id": 235,
+    "name": "Sean Molloy",
+    "group": "other",
+    "historical": false,
+    "year": 2016,
+    "image": "images/characters/sean-molloy.webp",
+    "games": [],
+    "stories": "Novels: Last Descendants trilogy; comic: Locus",
+    "family": [{"id": 73, "relation": "ancestor"}],
+    "description": "A teenager who has used a wheelchair since a car accident and finds in the Animus a way to walk again. One of six young people recruited to trace a Piece of Eden through their ancestors, he relives the memories of Tommy Greyling."
+  },
+  {
+    "id": 236,
+    "name": "Alekseï Gavrani",
+    "group": "assassin",
+    "historical": false,
+    "year": 1957,
+    "image": "images/characters/aleksei-gavrani.webp",
+    "games": [],
+    "stories": "Graphic novel: Bloodstone",
+    "description": "A former Soviet hitman turned CIA operative and Assassin, sent to Vietnam in the early 1960s with a secret unit of the Brotherhood. Tomo relives his memories in Bloodstone."
+  },
+  {
+    "id": 237,
+    "name": "Maxime Gorm",
+    "group": "templar",
+    "historical": false,
+    "year": 2017,
+    "games": [],
+    "stories": "Graphic novel: Bloodstone; comics: Conspiracies",
+    "family": [{"id": 71, "relation": "grandfather"}],
+    "description": "Eddie Gorm's grandson, an amnesiac held in a Madrid cellar in 2017 and made to relive his grandfather's wartime memories in an Animus. In Bloodstone he is the man Tomo has been hunting since childhood."
+  },
+  {
+    "id": 238,
+    "name": "Mark Antony",
+    "aka": ["Marcus Antonius"],
+    "group": "other",
+    "historical": true,
+    "born": "83 BCE",
+    "year": -44,
+    "image": "images/characters/mark-antony.webp",
+    "games": [],
+    "stories": "Comic: Origins",
+    "description": "Julius Caesar's loyal general and friend, a shrewd Roman politician who knows Aya through Cleopatra. After the Ides of March he turns the anger of Rome's crowds on the men who killed Caesar."
+  },
+  {
+    "id": 239,
+    "name": "Caesarion",
+    "aka": ["Ptolemy XV Caesar"],
+    "group": "other",
+    "historical": true,
+    "born": "47 BCE",
+    "year": -44,
+    "image": "images/characters/caesarion.webp",
+    "games": ["Assassin's Creed Origins"],
+    "stories": "Comic: Origins",
+    "family": [{"id": 28, "relation": "mother"}, {"id": 29, "relation": "father"}],
+    "description": "The son of Cleopatra and Julius Caesar: a small child at his mother's side in Rome in 44 BCE and, by 30 BCE, a youth learning to fight as Octavian's army closes on Alexandria."
+  },
+  {
+    "id": 240,
+    "name": "Hannah Mueller",
+    "group": "assassin",
+    "historical": false,
+    "year": 1998,
+    "image": "images/characters/hannah-mueller.webp",
+    "games": [],
+    "stories": "Comic: The Fall",
+    "description": "An Assassin born into the Brotherhood, a computer technician at a camp near Philadelphia who has never killed anyone. In 1998 she pulls a raving Daniel Cross out of trouble and becomes his closest friend among the Assassins."
+  },
+  {
+    "id": 241,
+    "name": "Accipiter",
+    "group": "assassin",
+    "historical": false,
+    "year": 259,
+    "image": "images/characters/accipiter.webp",
+    "games": [],
+    "stories": "Graphic novels: Aquilus, Accipiter (the Ankh of Isis trilogy)",
+    "family": [{"id": 70, "relation": "cousin"}, {"id": 68, "relation": "descendant"}],
+    "description": "A general of the Alemanni in 259 and a member of the Liberalis Circulum, the Assassins of the Roman world, who carries an ancient artefact, the Ankh, to his cousin Aquilus in Gaul. His descendant Jonathan Hawk relives his memories."
+  },
+  {
+    "id": 242,
+    "name": "Jot Soora",
+    "group": "other",
+    "historical": false,
+    "year": 2013,
+    "image": "images/characters/jot-soora.webp",
+    "games": [],
+    "stories": "Graphic novel: Brahman",
+    "description": "A gifted programmer at MysoreTech in Bangalore in 2013, engaged to the film star Monima Das, who finds that the virtual-reality headset he is building for Abstergo lets its wearer relive an ancestor's memories."
   }
 ]
