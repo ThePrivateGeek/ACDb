@@ -51,7 +51,8 @@ Checks:
              URL slug, a side (CHARACTER_GROUPS), a year, a portrait (when
              given) in images/characters/<slug>.webp, games from GAMES
              (main, spin-off or handheld, each once, in release order),
-             "stories" when they're in no game, and a description; "family"
+             "stories" when they're in no game, and a description (an
+             "aside" writes its links as [words](https://address)); "family"
              links other characters by id with a relation (FAMILY_RELATIONS),
              and each link is returned on the relative's own entry. An
              item's "characters" lists existing character ids, each once
@@ -161,7 +162,9 @@ DLC_FIELDS = {"id", "name", "type", "image", "year", "setting", "released", "rel
               "marker", "note", "episodes"}
 CHARACTER_GROUPS = {"assassin", "templar", "isu", "other"}
 CHARACTER_FIELDS = {"id", "name", "aka", "group", "historical", "born", "year", "image", "games", "stories",
-                    "family", "description"}
+                    "family", "description", "aside"}
+# A link in a character's "aside": [words](https://address)
+ASIDE_LINK = re.compile(r"\[[^\]]+\]\(https://[^\s)\"]+\)")
 # What a relative is to the character whose entry lists them
 FAMILY_RELATIONS = {
     "father", "mother", "son", "daughter", "brother", "sister", "twin brother", "twin sister",
@@ -602,6 +605,12 @@ def check_characters(items, errors, warnings):
             errors.append(f"{label}: missing \"description\"")
         elif len(description) > DESCRIPTION_MAX:
             warnings.append(f"{label}: description is {len(description)} characters; keep it to {DESCRIPTION_MAX}")
+        if "aside" in character:
+            aside = character["aside"]
+            if not is_text(aside):
+                errors.append(f"{label}: \"aside\" should be text")
+            elif "[" in ASIDE_LINK.sub("", aside) or "]" in ASIDE_LINK.sub("", aside):
+                errors.append(f"{label}: a link in \"aside\" should read [words](https://address)")
 
     # Every family link exists and is returned on the relative's own entry
     for cid, (label, relatives) in families.items():

@@ -140,6 +140,11 @@
                them. Their side is fine to state, even where a game keeps
                it back for a while (Haytham Kenway, Shay Patrick Cormac):
                the box, the store page and their figures all say it
+     aside     a line after the description on the character's own page
+               only (not the card, the share text or the search), for the
+               rare wink. Optional. A link to another site is written
+               [words](https://address) and opens in a new tab. Only Dag
+               has one (the owner's Easter egg, 2026-11-27)
 
    Items (the "characters" field in database.js): the ids of the
    characters an item shows or tells the story of. Figures, statues and
@@ -3280,7 +3285,8 @@ const CHARACTERS = [
     "image": "images/characters/dag.webp",
     "games": ["Assassin's Creed Valhalla"],
     "stories": "Comic: Song of Glory",
-    "description": "A gruff veteran of the Raven Clan and Sigurd's old friend, who fights at Eivor's side but keeps a wary eye on her."
+    "description": "A gruff veteran of the Raven Clan and Sigurd's old friend, who fights at Eivor's side but keeps a wary eye on her.",
+    "aside": "[Also, Fuck Dag](https://www.reddit.com/r/fuckdag/)."
   },
   {
     "id": 190,

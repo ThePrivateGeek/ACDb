@@ -312,6 +312,13 @@
         }).join('');
     }
 
+    // A character's "aside" (js/characters.js): plain text in which
+    // [words](https://address) becomes a link to another site
+    function asideHTML(text) {
+        return A.escapeHTML(text).replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g,
+            '<a class="link" href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    }
+
     function gameRowHTML(game) {
         const esc = A.escapeHTML;
         const slug = A.gameUrlSlug(game);
@@ -392,7 +399,7 @@
                     <div class="modal-badges-row">${kind ? `<span class="badge badge-accent modal-badge">${esc(kind)}</span>` : ''}</div>
                     <div class="modal-meta">${meta}</div>
                 </div>
-                <p class="character-description">${esc(character.description)}</p>
+                <p class="character-description">${esc(character.description)}${character.aside ? ' ' + asideHTML(character.aside) : ''}</p>
                 ${items.length ? `<div class="head-card-links"><button class="link" data-character-catalog="${character.id}">Show in the collection &rarr;</button></div>` : ''}
                 ${progress}
             </div>
