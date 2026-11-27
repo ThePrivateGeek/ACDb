@@ -9,7 +9,9 @@ For simple item additions or image updates, skip to the "Data" section only.
 - [ ] Page loads without console errors (F12 > Console)
 - [ ] Header shows the Collection / Reading Order / Leaderboard tabs (Collection active) and the progress meter (owned / total, %, bar)
 - [ ] Click the progress meter — grid filters to owned items
-- [ ] Header layout: tabs inline above 1180px; own full-width row below it; on a phone the rows are logo + meter, action buttons, tabs; no sideways scroll at 360px
+- [ ] Header layout: tabs inline above 1360px; own full-width row at 1360px and below; the logo subtitle shows above 1600px only; on a phone the rows are logo + meter, action buttons, tabs; no sideways scroll at 360px
+- [ ] The header never stacks the progress meter above the buttons. Check signed out, signed in before publishing (both show "Publish collection") and published, at 1920, 1601, 1600, 1361 and 1360px: one row above 1360px, and at 1360px and below the tabs alone on the second row
+- [ ] On a window wider than 1664px (1920): the header's logo, the search box, the first game chip, "Collection Insights" and the first card all start at the same left edge, and the account button, the grid/list control and the last card end at the same right edge. The sign-in banner lines up too
 - [ ] Item count matches footer count
 - [ ] Timeline bar shows all games
 - [ ] Cards render in the grid
@@ -223,6 +225,7 @@ The catalogue's categories are the Category options of the "Suggest a missing it
 - [ ] Cards switch to single column on small screens
 - [ ] Modal switches to single column layout below 1024px
 - [ ] Scrolling a long item modal keeps the share and close buttons in view (desktop and phone)
+- [ ] A long item (Assassin's Creed: Renaissance) on a desktop window: it opens with the whole cover on screen, centred in the left half, and the cover stays there while the details scroll. A short item (a statue) looks as before, photo centred, and its arrows and dots stay with the photo. Below 1024px the photo scrolls away with the rest
 - [ ] Timeline scrolls horizontally
 - [ ] On phones the account menu opens centred under the button row and stays on screen at 360px
 - [ ] Back to Top button appears on scroll, works on tap

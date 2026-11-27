@@ -853,8 +853,11 @@ textarea:focus-visible {
     padding: 0.75rem 2rem;
 }
 
+/* As wide as the content under it: the page containers are 1600px with
+   their 2rem padding inside, and this bar's padding is outside its inner
+   box (the toolbar and the sign-in banner do the same) */
 .header-inner {
-    max-width: 1600px;
+    max-width: calc(1600px - 4rem);
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -906,19 +909,21 @@ textarea:focus-visible {
     font-weight: 500;
 }
 
+/* The widest this gets is "Publish collection" beside the account button
+   (anyone who hasn't published yet). The breakpoints below are set so the
+   row fits with both showing; wrapping is only the last resort. */
 .header-stats {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .collection-actions {
     display: flex;
     gap: 0.4rem;
-    margin-left: 0.5rem;
-    padding-left: 1.5rem;
+    padding-left: 1rem;
     border-left: 1px solid var(--line);
 }
 
@@ -927,18 +932,18 @@ textarea:focus-visible {
     display: flex;
     align-items: stretch;
     gap: 0.25rem;
-    margin: 0 auto 0 2.5rem;
+    margin: 0 auto 0 1rem;
 }
 
 .main-nav-link {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 0.5rem 0.9rem;
+    padding: 0.5rem 0.65rem;
     font-family: var(--font-display);
     font-size: var(--fs-sm);
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
@@ -959,8 +964,8 @@ textarea:focus-visible {
 .main-nav-link.active::after {
     content: '';
     position: absolute;
-    left: 0.9rem;
-    right: 0.9rem;
+    left: 0.65rem;
+    right: 0.65rem;
     bottom: 0;
     height: 2px;
     border-radius: 1px;
@@ -1060,7 +1065,7 @@ textarea:focus-visible {
 }
 
 .toolbar-inner {
-    max-width: 1600px;
+    max-width: calc(1600px - 4rem);   /* lines up with the content: see .header-inner */
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -2530,10 +2535,17 @@ button.stats-bar-row {
 }
 
 /* ---- Gallery ---- */
+/* A window taller than the screen scrolls (books with reading orders): the
+   gallery is then as tall as the part on screen and stays there, so the
+   photo is centred in what the visitor sees, not in the whole scrolling
+   height. 90vh is .modal's max-height; 3rem is the section's padding. */
 .modal-gallery {
-    position: relative;
+    position: sticky;
+    top: 1.5rem;
+    align-self: flex-start;
     width: 100%;
     height: 100%;
+    max-height: calc(90vh - 3rem);
     min-height: 400px;
     display: flex;
     align-items: center;
@@ -5020,45 +5032,32 @@ a.reading-title {
 .item-card:nth-child(12) { animation-delay: 0.24s; }
 
 /* ---- Responsive ---- */
-/* Mid-width: make room for the nav tabs by dropping the logo subtitle */
-@media (max-width: 1520px) {
+/* With the logo subtitle, the header's row is 1574px of page when "Publish
+   collection" and the account button both show (1590 of window with a
+   classic scrollbar). Below that it would break onto two rows, so the
+   subtitle goes. A breakpoint of the header's own, because its content
+   sets it: re-measure if the nav gains a link or a button gets longer. */
+@media (max-width: 1600px) {
     .logo-subtitle {
         display: none;
     }
+}
 
-    /* The collection toolbar may no longer fit on one line: the search
-       shares its row with the layout toggle, and the filters get a row of
-       their own (phones do the same, behind "Filters") */
+/* Mid-width: the collection toolbar may no longer fit on one line: the
+   search shares its row with the layout toggle, and the filters get a row
+   of their own (phones do the same, behind "Filters") */
+@media (max-width: 1520px) {
     .filter-group {
         order: 5;
         flex-basis: 100%;
     }
-
-    .main-nav {
-        margin-left: 1rem;
-    }
-
-    .main-nav-link {
-        padding: 0.5rem 0.65rem;
-        letter-spacing: 1px;
-    }
-
-    .main-nav-link.active::after {
-        left: 0.65rem;
-        right: 0.65rem;
-    }
-
-    .header-stats {
-        gap: 1rem;
-    }
-
-    .collection-actions {
-        padding-left: 1rem;
-    }
 }
 
-/* Narrower: tabs move to their own full-width row under the logo */
-@media (max-width: 1180px) {
+/* Narrower: tabs move to their own full-width row under the logo. Like the
+   subtitle's, the width is where logo, nav, meter, "Publish collection" and
+   the account button stop fitting on one row (1341px of page). It was 1180,
+   where only a published collector's header fitted. */
+@media (max-width: 1360px) {
     .header-inner {
         flex-wrap: wrap;
         row-gap: 0.5rem;
@@ -5100,6 +5099,12 @@ a.reading-title {
     .modal-image-section {
         min-height: 250px;
         border-radius: var(--r-xl) var(--r-xl) 0 0;
+    }
+    /* One column: the photo scrolls away with the rest */
+    .modal-gallery {
+        position: relative;
+        top: auto;
+        max-height: none;
     }
     /* Single-column layout puts the gallery under the floating share/close
        buttons — move the image counter to the opposite corner. */
@@ -5577,7 +5582,7 @@ a.reading-title {
 }
 
 .sync-banner-inner {
-    max-width: 1600px;
+    max-width: calc(1600px - 4rem);   /* lines up with the content: see .header-inner */
     margin: 0 auto;
     display: flex;
     align-items: center;

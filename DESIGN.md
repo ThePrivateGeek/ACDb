@@ -118,6 +118,8 @@ Fonts load from Google Fonts with `display=swap` (in `index.html` and `privacy.h
 
 On a single-column page, put the **whole view** (title, intro line and list) in the centred column, so the title lines up with the content. Don't centre only the list.
 
+**A full-width bar** (the header, the collection toolbar, the sign-in banner) has its padding on the bar and its content in an inner box. That box is `max-width: calc(1600px - 4rem)`, the wide container less its padding, so on a screen wider than the container the bar's edges still line up with the content under it. A new bar copies `.header-inner`.
+
 ### Grids
 
 - For responsive columns, use `grid-template-columns: repeat(auto-fill, minmax(min(Npx, 100%), 1fr))`. The `min(…, 100%)` stops a phone from scrolling sideways. Current values: item grid 280 px (240 px on phones), reading rows 520 px, games grid 200 px (150 px on phones, two columns), character cards, a character's game rows and a game's character rows 280 px, a game page's DLC cards 180 px (150 px on phones, two columns).
@@ -128,14 +130,20 @@ On a single-column page, put the **whole view** (title, intro line and list) in 
 
 | Width | What changes |
 |---|---|
-| 1520 px | Header drops the logo subtitle and tightens the nav; the collection toolbar puts the search and the grid/list control on one row and the filters on the next |
-| 1180 px | Header nav moves to its own full-width row; the collection's top collectors move to a line of their own under the count |
+| 1600 px | Header drops the logo subtitle |
+| 1520 px | The collection toolbar puts the search and the grid/list control on one row and the filters on the next |
+| 1360 px | Header nav moves to its own full-width row |
+| 1180 px | The collection's top collectors move to a line of their own under the count |
 | 1024 px | Item modal stacks to one column |
 | **768 px** | **The phone layout**: header rows, filters behind the "Filters (n)" button, one-column forms, `1rem` page padding, smaller list rows |
 | 600 px | Page titles drop to `--fs-xl`; leaderboard cards tighten |
 | 480 px, 400 px | Logo and header squeeze for very small phones |
 
-The one `min-width` query, `min-width: 769px` for the list view's single-line row, is the 768 px breakpoint seen from above, not a new one. Reuse these breakpoints. Don't add a new one for one component unless nothing else works; if you must, note why in a comment.
+The one `min-width` query, `min-width: 769px` for the list view's single-line row, is the 768 px breakpoint seen from above, not a new one.
+
+**The header's two breakpoints (1600 and 1360) are measured, not chosen.** The header is one row at every width above 1360 px, whoever is looking. Its widest state is "Publish collection" beside the account button (anyone who hasn't published yet, which is every first-time visitor): the row then needs 1574 px of page with the subtitle and 1341 px without, plus up to 17 px for a classic scrollbar. Below each width something has to go (the subtitle, then the nav to its own row), or the meter stacks above the buttons and the header nearly doubles in height. If the nav gains a link, a header button gets a longer label or the nav's spacing changes, measure the row again in all three states (signed out, signed in before publishing, published) and move these two.
+
+Reuse these breakpoints. Don't add a new one for one component unless nothing else works; if you must, note why in a comment.
 
 ### Checking a layout
 
@@ -189,7 +197,7 @@ A round 36 px button with one 18 px icon, used for close, share, previous/next a
 | Narrow a list (filter by game) | **Chips** `button.chip` (+ `.chip-count`) | `<button class="chip active" aria-pressed="true">All <span class="chip-count">120</span></button>` |
 | Pick one of many values for a setting (item condition, the Insights currency): more than a segmented control holds on a phone | **Native select** `select.modal-select` with a `<label for>` | `<label class="label" for="statsCurrency">Currency</label><select id="statsCurrency" class="modal-select">…</select>` |
 
-- Tabs are links with real `href`s (hash routes), so Back works. The header nav is the larger version of the same idea (`.main-nav-link`, with `aria-current="page"` set by `setActiveNav()`). It has five links: Collection, Reading Order, Games, Characters, Leaderboard. At 400 px and below "Reading Order" shows as "Reading" (the ` Order` part is a `.nav-long` span, hidden there), and its `aria-label` keeps the full name. At 1180 px and below the nav is a full-width row; when its links don't fit (phones), the row scrolls sideways inside itself like a chip row, with no scrollbar, and `setActiveNav()` scrolls the current link into view. The page itself never scrolls sideways.
+- Tabs are links with real `href`s (hash routes), so Back works. The header nav is the larger version of the same idea (`.main-nav-link`, with `aria-current="page"` set by `setActiveNav()`). It has five links: Collection, Reading Order, Games, Characters, Leaderboard. At 400 px and below "Reading Order" shows as "Reading" (the ` Order` part is a `.nav-long` span, hidden there), and its `aria-label` keeps the full name. At 1360 px and below the nav is a full-width row; when its links don't fit (phones), the row scrolls sideways inside itself like a chip row, with no scrollbar, and `setActiveNav()` scrolls the current link into view. The page itself never scrolls sideways.
 - Segments and chips are buttons. Keep `.active` **and** `aria-pressed` in step whenever the state changes.
 - Put a row of chips in a **chip row**, `<div class="chip-row" role="group" aria-label="…">`. It wraps on wide screens; on phones it becomes one row that scrolls sideways inside itself (like the game timeline), and the page doesn't. A view that re-renders the row keeps its sideways scroll and brings the active chip into view (`restoreChipRow` in `js/reading.js`).
 - Multi-select filters use the existing `.multi-select` dropdown in the toolbar. Don't build a second dropdown. A long list gets the search box inside the dropdown (Types, Series, Characters); it ignores accents and apostrophes and also matches an option's `data-search` text (a character's other names). An option whose value isn't readable (a character's id) shows its `data-name`, and so does the label when it's the only pick.
@@ -370,6 +378,7 @@ Small surprises for fans, never needed to use the site. Keep them few, spoiler-f
 - Esc is handled in one place, the `keydown` listener in `initEvents()` in `js/app.js`, in priority order (account menu, lightbox, dropdown, then dialogs). **Add a new dialog there**; don't add a second Esc listener.
 - Esc, the overlay and the close button all close it, **unless a choice is required** (the first sign-in merge dialog has no close button and ignores Esc and overlay clicks).
 - Sizes: `.share-modal` is 480 px, for small dialogs. The item modal is 980 px; the item modal grows to 1300 px for a landscape image.
+- **The item window's photo stays on screen.** In the two-column window (above 1024 px) the gallery (`.modal-gallery`) is at most as tall as the part of the window on screen and sticks to its top, so in a window taller than the screen (a book with reading orders) the photo is centred in what the visitor sees and stays there while the details scroll. A column beside a longer scrolling one does the same; don't centre it in the full scrolling height. In the one-column window the photo scrolls away with the rest.
 - A share button uses `ACDB.shareLink({ title, text, url })`: the native share sheet on touch devices (`ACDB.canWebShare`, which also decides its label, "Share this …"), otherwise copy and "Link copied!".
 - **Share is always the round icon button in the top right corner** of the thing it shares: beside Close in the item window, and in the corner of a page's header card (a game's page, a character's page). Never a labelled button among a card's links.
   - A header card's button comes from `ACDB.headShareHTML('game')` in `js/utils.js`, which writes `<button class="icon-btn head-card-share" title="Copy a link to this game" aria-label="Copy a link to this game">`; the view answers a click on `.head-card-share` with `ACDB.shareLink`. The `title` and `aria-label` say "Copy a link to this …", or "Share this …" where the share sheet opens.
