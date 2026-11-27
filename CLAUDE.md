@@ -18,7 +18,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
 
 - **No build step, no bundler, no npm dependencies, no frameworks.** Vanilla JS and plain CSS.
 - **Script load order matters:** `index.html` loads `js/*.js` as plain `<script>` tags, with `app.js` last. Each module is an IIFE that hangs its API on `window.ACDB` (`const A = window.ACDB`). Every script tag has a matching `<link rel="preload" as="script">` line in the head, so the scripts download together (the validator warns when the lists differ).
-- **Content Security Policy** (a `<meta>` tag in `index.html` and `privacy.html`):
+- **Content Security Policy** (a `<meta>` tag in `index.html`, `privacy.html` and `404.html`):
   - Scripts, images and API calls are limited to the site itself, `api.acdb.workers.dev` and Cloudflare's analytics beacon.
   - Fonts come only from Google Fonts.
   - Anything new from outside needs a CSP change and the owner's OK.
@@ -84,7 +84,7 @@ ACDb (Assassin's Creed Collector's Database) is a fan-made, solo-maintained stat
 
 - **OS and shells:** Windows 11. PowerShell is the owner's shell; Git Bash is also available.
 - **Line endings:** checked-out files are CRLF (`core.autocrlf=true`). Keep each file's existing line endings. Git Bash `sed -i` silently converts files to LF, so prefer the Edit tool, or Python with `newline=''`.
-- **Local preview:** `python3 tools/serve.py`, then open http://localhost:8000/. It is Python's file server plus one GitHub Pages rule (`/item/<slug>` serves `item/<slug>.html`); plain `python3 -m http.server` answers those addresses, and `/s/<slug>`, with 404. Use port 8000: the Worker and Google sign-in accept only `localhost:8000` and `127.0.0.1:8000`, so signing in fails on any other port. Headless checks that mock the Worker can use any port.
+- **Local preview:** `python3 tools/serve.py`, then open http://localhost:8000/. It is Python's file server plus two GitHub Pages rules (`/item/<slug>` serves `item/<slug>.html`, and a missing address gets `404.html`); plain `python3 -m http.server` answers those addresses, and `/s/<slug>`, with 404. Use port 8000: the Worker and Google sign-in accept only `localhost:8000` and `127.0.0.1:8000`, so signing in fails on any other port. Headless checks that mock the Worker can use any port.
 - **Headless checks:** Chrome at `C:\Program Files\Google\Chrome\Application\chrome.exe` with `--headless=new --remote-debugging-port=…`, driven over CDP from Node.
   - Mock `api.acdb.workers.dev` with `Fetch.enable` so nothing reaches production.
   - Add a unique `?n=` query to each navigation (a hash-only navigation fires no load event).

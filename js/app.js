@@ -206,6 +206,8 @@ window.ACDB = window.ACDB || {};
         modalReadDate: document.getElementById('modalReadDate'),
         modalReadingCollects: document.getElementById('modalReadingCollects'),
         resultsCount: document.getElementById('resultsCount'),
+        searchReply: document.getElementById('searchReply'),
+        searchReplyText: document.getElementById('searchReplyText'),
         searchRead: document.getElementById('searchRead'),
         searchReadParts: document.getElementById('searchReadParts'),
         searchReadMore: document.getElementById('searchReadMore'),
@@ -775,6 +777,10 @@ window.ACDB = window.ACDB || {};
     }
 
     function updateResultsCount(items) {
+        // An Easter egg: a line of the Creed gets the next line back
+        const reply = ACDB.search.reply(dom.searchInput.value);
+        dom.searchReply.hidden = !reply;
+        dom.searchReplyText.textContent = reply || '';
         updateSearchRead(items.length);
         if (items.length === 0) {
             dom.noResults.style.display = '';   // the stylesheet's centred grid
@@ -1793,6 +1799,34 @@ window.ACDB = window.ACDB || {};
     }
 
     // ---- Initialize ----
+    // ---- An Easter egg: "On this day" in the footer ----
+    // On the anniversary of a main game's release (js/games.js; only dates
+    // known to the day, by the visitor's own calendar) the footer says so:
+    // "On this day in 2014, Assassin's Creed Rogue and Assassin's Creed
+    // Unity were released." Plus the dates below. '' on any other day.
+    const ON_THIS_DAY = [
+        { date: '2012-12-21', text: 'the world was due to end. Desmond Miles had other plans.' }
+    ];
+
+    function onThisDay(now) {
+        const pad = n => String(n).padStart(2, '0');
+        const day = `-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+        const byYear = new Map();   // year -> the games released on this day of it
+        GAMES.forEach(game => {
+            const year = Number(game.released.slice(0, 4));
+            if (game.kind !== 'main' || game.releasedPrecision || !game.released.endsWith(day) || year >= now.getFullYear()) return;
+            byYear.set(year, [...(byYear.get(year) || []), game.name]);
+        });
+        const lines = [...byYear].sort((a, b) => a[0] - b[0]).map(([year, names]) => {
+            const list = names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]} were` : `${names[0]} was`;
+            return `On this day in ${year}, ${list} released.`;
+        });
+        ON_THIS_DAY.forEach(({ date, text }) => {
+            if (date.endsWith(day)) lines.push(`On this day in ${date.slice(0, 4)}, ${text}`);
+        });
+        return lines.join(' ');
+    }
+
     function init() {
         // Coming back from Google's sign-in page: restore the address before
         // anything reads the hash.
@@ -1816,6 +1850,15 @@ window.ACDB = window.ACDB || {};
         // Footer item count
         const footerCount = document.getElementById('footerItemCount');
         if (footerCount) footerCount.textContent = AC_DATABASE.length;
+
+        // Two Easter eggs: the footer's anniversary line, and a greeting for
+        // whoever opens the developer tools
+        const today = onThisDay(new Date());
+        const footerToday = document.getElementById('footerToday');
+        footerToday.hidden = !today;
+        footerToday.textContent = today;
+        console.log('%cNothing is true, everything is permitted.', 'color: #c9a84c; font: 600 16px Georgia, serif');
+        console.log(`Looking under the hood? ACDb is plain HTML, CSS and JavaScript: https://github.com/ThePrivateGeek/ACDb\nKnow an item it lacks? ${SUGGEST_FORM}`);
 
         // Share button state
         updateShareButton();

@@ -143,8 +143,10 @@
      aside     a line after the description on the character's own page
                only (not the card, the share text or the search), for the
                rare wink. Optional. A link to another site is written
-               [words](https://address) and opens in a new tab. Only Dag
-               has one (the owner's Easter egg, 2026-11-27)
+               [words](https://address) and opens in a new tab. Easter
+               eggs (the owner's idea, 2026-11-27), kept to a handful so
+               finding one stays a surprise: Dag, Altaïr, Leonardo da
+               Vinci, Mario Auditore, Ratonhnhaké:ton and Kassandra
 
    Items (the "characters" field in database.js): the ids of the
    characters an item shows or tells the story of. Figures, statues and
@@ -1094,7 +1096,8 @@ const CHARACTERS = [
     "image": "images/characters/altair-ibn-laahad.webp",
     "games": ["Assassin's Creed", "Assassin's Creed: Altaïr's Chronicles", "Assassin's Creed II", "Assassin's Creed: Bloodlines", "Assassin's Creed Revelations"],
     "family": [{"id": 87, "relation": "wife"}, {"id": 195, "relation": "son"}, {"id": 202, "relation": "son"}, {"id": 3, "relation": "descendant"}],
-    "description": "A gifted but arrogant Assassin of the Levantine Brotherhood during the Third Crusade, stripped of his rank and sent to earn it back by hunting nine men across Damascus, Acre and Jerusalem."
+    "description": "A gifted but arrogant Assassin of the Levantine Brotherhood during the Third Crusade, stripped of his rank and sent to earn it back by hunting nine men across Damascus, Acre and Jerusalem.",
+    "aside": "Cannot swim."
   },
   {
     "id": 3,
@@ -1117,7 +1120,8 @@ const CHARACTERS = [
     "year": 1476,
     "image": "images/characters/leonardo-da-vinci.webp",
     "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood"],
-    "description": "The Renaissance painter, inventor and engineer, here a warm and endlessly curious friend of Ezio who builds his gadgets and deciphers the pages of an ancient codex."
+    "description": "The Renaissance painter, inventor and engineer, here a warm and endlessly curious friend of Ezio who builds his gadgets and deciphers the pages of an ancient codex.",
+    "aside": "Don't forget to hug him."
   },
   {
     "id": 5,
@@ -1188,7 +1192,8 @@ const CHARACTERS = [
     "image": "images/characters/mario-auditore.webp",
     "games": ["Assassin's Creed II", "Assassin's Creed Brotherhood"],
     "family": [{"id": 11, "relation": "brother"}, {"id": 90, "relation": "nephew"}, {"id": 1, "relation": "nephew"}, {"id": 12, "relation": "niece"}],
-    "description": "Ezio's uncle, a gruff condottiere who runs the family's villa at Monteriggioni and teaches his nephew how to fight."
+    "description": "Ezio's uncle, a gruff condottiere who runs the family's villa at Monteriggioni and teaches his nephew how to fight.",
+    "aside": "And yes, he says it: \"It's-a me, Mario!\""
   },
   {
     "id": 11,
@@ -1261,7 +1266,8 @@ const CHARACTERS = [
     "image": "images/characters/ratonhnhake-ton.webp",
     "games": ["Assassin's Creed III", "Assassin's Creed III: Liberation"],
     "family": [{"id": 15, "relation": "father"}, {"id": 112, "relation": "mother"}, {"id": 14, "relation": "grandfather"}, {"id": 3, "relation": "descendant"}],
-    "description": "A Kanien'kehá:ka (Mohawk) man who takes the name Connor and joins the Assassins to protect his people during the American Revolution."
+    "description": "A Kanien'kehá:ka (Mohawk) man who takes the name Connor and joins the Assassins to protect his people during the American Revolution.",
+    "aside": "Where is Charles Lee?"
   },
   {
     "id": 17,
@@ -1423,7 +1429,8 @@ const CHARACTERS = [
     "image": "images/characters/kassandra.webp",
     "games": ["Assassin's Creed Odyssey", "Assassin's Creed Valhalla"],
     "family": [{"id": 173, "relation": "mother"}, {"id": 174, "relation": "stepfather"}, {"id": 198, "relation": "grandfather"}],
-    "description": "A Spartan-born mercenary, or misthios, scraping a living on the island of Kephallonia when the Peloponnesian War and the search for her family pull her across the Greek world."
+    "description": "A Spartan-born mercenary, or misthios, scraping a living on the island of Kephallonia when the Peloponnesian War and the search for her family pull her across the Greek world.",
+    "aside": "Malaká!"
   },
   {
     "id": 31,

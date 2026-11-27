@@ -302,6 +302,30 @@ Real pages that search engines and visitors without JavaScript can read. **`tool
 </main>
 ```
 
+### The 404 page (`404.html`)
+
+GitHub Pages serves it for any address that doesn't exist (`python3 tools/serve.py` does the same). It is the game's "Desynchronized" screen in the site's own look: the static pages' header and a short footer, then `<main class="desync">`, one centred column (560 px at most):
+
+- the mark (`.desync-mark`, 88 px, gold at 35 %), the `.label` "Error 404 · Memory not found", and the page's one `<h1 class="desync-title">` "Desynchronized" (Cinzel, 28 to 52 px by width, one line on a 360 px phone);
+- two sentences in `--text-2` saying what happened in plain words;
+- a sync bar (`.desync-sync`: a `.label`, the gold `.progress`, the figure in `.progress-count`, `aria-hidden`), which drains once as the page opens while the figure counts down with it from 100% to 0% (a registered custom property animated in steps and written out by a CSS counter, since the page has no script);
+- one `btn btn-primary` "Return to the database" and a `btn btn-quiet` "Browse all items";
+- the empty state's Creed line, ending "... even this address." (the owner's wording) (`.desync-creed`, `--fs-sm`, `--text-3`).
+
+The mark and the title tear: the word (`.desync-word`) is hidden and drawn instead by two copies of itself (`.desync-slice-a` above a cut, `.desync-slice-b` below it, both `aria-hidden`), pushed opposite ways, so it breaks where it stands and is never gone. A third, paler strip (`.desync-slice-c`, `--text`) crosses the title, a thin gold line (`.desync::before`) jumps down the column, and the label blinks with them. One long tear as the page opens (about a second, while the bar drains), then three quick frames every five seconds. Each frame is a hard cut with no easing, the distances are in em so a phone's smaller title tears in proportion, and only gold and `--text` are used (no status colours). Every animation ends on the resting look, so reduced motion shows a still page with an empty bar. The copies are real elements, not `::before`/`::after` text, so a screen reader hears the heading once.
+
+Its styles are a `<style>` block in the page, the one place the site does that: nothing else uses them, and the app shouldn't pay for them. Every address in the page starts with `/`, since it is served at any depth. It is `noindex` and not in the sitemap.
+
+### Easter eggs
+
+Small surprises for fans, never needed to use the site. Keep them few, spoiler-free, and out of the feature list and the changelog.
+
+- **Asides:** a character's `aside` (`js/characters.js`) is a last sentence after the description on their page (see **A character's page**). A handful of characters have one.
+- **The Creed answers:** a collection search that is exactly a line of the Creed gets the next line back in `p.search-reply` above the "Understood as" line and the count: the mark (16 px, `aria-hidden`) and the line in Cinzel, `--fs-base`, gold, with no box or background. It fades in over `--t-slow` each time it appears and wraps on a phone. (The owner's calls: a small grey italic line was too easy to miss, and a gold-edged plate at `--fs-lg` was too much.) The lines are `REPLIES` in `js/search.js`. The search itself is unchanged, so the items that carry the words still show. It is not a live region.
+- **On this day:** on the anniversary of a main game's release (dates known to the day in `js/games.js`, by the visitor's own calendar), the footer gains a `p.footer-legal` line above the version: "On this day in 2007, Assassin's Creed was released." Other dates are `ON_THIS_DAY` in `js/app.js`. Hidden on every other day.
+- **The console:** opening the developer tools shows the Creed in gold, the repository and the missing-item form. Two `console.log` lines in `init()` (`js/app.js`); the only place a colour is written outside the stylesheet.
+- **The 404 page** above.
+
 ### Dialogs
 
 ```html
@@ -656,5 +680,6 @@ Owner decisions this book rests on, so they aren't reopened:
   - A code review before release settled four readings. A "not" also covers the next of its kind after "and" or "or" ("except comics and novels" leaves out both). An "or" inside an item's name is a word ("join or die"). A year word with no year after it is ignored, so "statues before" still lists the statues on the way to "statues before 2012". The missing-item suggestion isn't offered when the search asks about the visitor's own collection.
 - **26 Nov 2026, share buttons on pages:** a game page's share button is the round icon button in the header card's top right corner, as in the item window, instead of a labelled "Copy link" button at the end of the links row. There it was the only bordered thing among two links, and the heaviest; the corner is where the item window taught visitors to look, and it is free at every width. The words "Copy link" are now the tooltip and the `aria-label`. A character's page gets the same button (it had none, for no reason but history: the game's came from the old game dialog, and characters were pages from the start); it copies `#characters/<slug>`.
 - **26 Nov 2026, portraits of film characters:** a character of the 2016 film may use a still, poster or frame of the film, since Ubisoft licensed it (the 31 Oct rule said never film stills, though Aguilar, María, Callum and others already used them). Fan art, cosplay and merchandise photos stay out. Same crop and size as every other portrait.
+- **27 Nov 2026, Easter eggs:** the owner's idea, starting with Dag's link to r/fuckdag. Asides are a field of their own rather than markup in the description, which also feeds the card, the share text and the search. The Creed's reply sits above the results rather than in place of the empty state, because "nothing is true" finds a real item (the Apple of Eden bookends). The 404 page keeps to gold and the text colours: the game's screen is white and blue, but blue here means wishlist. Eagle Vision and a count of the eggs a visitor has found are ideas for later; the count would be new stored data, so it needs a line in `privacy.html`.
 - **26 Nov 2026, casts of novels and comics:** a novel or comic lists the lead and every named character with a real part in its story who is on the Characters tab, not the lead alone, so a character's page shows the stories they are in. Because that makes some lists long, the item window shows the first six of a list longer than eight, with "Show all N"; each item's list is therefore in order of importance to that item, the lead first. Six, not ten: ten names are already five or six lines on a phone, above the description.
 - **11 Nov 2026, DLC cards:** a game's page shows its DLCs as cover cards rather than rows with a 36 px cover, which made the art hard to see. Elsewhere the DLC rows keep their shape with bigger covers: 64 px in the Games tab's story order (smaller than the game cards' 88 px) and 48 px in Complete Lore (a book cover's width; the gold stripe, kind line and missing number still keep them from passing for books). A DLC without a cover of its own (32 of 72 at the time) shows its game's art, blurred and darkened, under the controller icon, so a page like Shadows' isn't a wall of empty boxes.

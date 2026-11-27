@@ -329,6 +329,11 @@
 
     <!-- Main Content -->
     <main class="main-content">
+        <!-- An Easter egg: a search that is a line of the Creed gets the next line here (js/search.js) -->
+        <p class="search-reply" id="searchReply" hidden>
+            <svg class="search-reply-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/></svg>
+            <span id="searchReplyText"></span>
+        </p>
         <!-- How the search text was read (js/search.js): shown only when it was read as more than plain words -->
         <p class="search-read" id="searchRead" hidden>
             <span class="label">Understood as</span>
@@ -715,6 +720,8 @@
             <p class="footer-legal">More from AC fans: <a class="link" href="https://assassinscreed.fyi/" target="_blank" rel="noopener">The Animus Archive</a>, an interactive timeline of Assassin's Creed history.</p>
             <p class="footer-legal">This is a fan-made collection tracker, not affiliated with or endorsed by Ubisoft. Assassin's Creed and all related names, logos, and trademarks are property of Ubisoft Entertainment. Product images are the property of their respective manufacturers and retailers (e.g. PureArts, Ravenforge), used for identification and reference only; no copyright or affiliation is claimed. Game cover art and character art are &copy; Ubisoft, shown for identification only. <a href="mailto:info@theprivategeek.com">Contact us</a> to request removal of any image.</p>
             <p class="footer-legal">Your collection is saved in your browser. Sign in with Google to also keep it in your account and see it on any device. Shared profiles are public. Anonymous visitor analytics by Cloudflare (no cookies).</p>
+            <!-- An Easter egg: filled on the anniversary of a main game's release (app.js) -->
+            <p class="footer-legal" id="footerToday" hidden></p>
             <p class="footer-meta">&copy; 2026 ACDb &middot; v4.0 &middot; <span id="footerItemCount">0</span> items</p>
         </div>
     </footer>

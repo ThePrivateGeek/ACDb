@@ -343,5 +343,15 @@ for (const text of ['"', '""', '-', '--', '- -', '-"', 'not', 'or', 'or or', 'no
     check(threw === null, `"${text.slice(0, 20)}" does not throw`, threw);
 }
 
+// ---- The Creed answers (an Easter egg), and changes nothing the search finds ----
+check(S.reply('nothing is true') === 'Everything is permitted.', '"nothing is true" gets its reply', S.reply('nothing is true'));
+check(S.reply('  Nothing is true, everything is permitted. ') === 'We work in the dark to serve the light. We are Assassins.', 'case and punctuation don\'t matter to a reply');
+check(S.reply('Requiescat in pace') === 'Rest in peace.', '"requiescat in pace" gets its reply');
+for (const text of ['', 'ezio', 'nothing', 'nothing is true statue', 'is nothing true']) {
+    check(S.reply(text) === null, `"${text}" gets no reply`, S.reply(text));
+}
+check(same(find('nothing is true'), where(i => says(i, 'nothing') && says(i, 'true'))) && read('nothing is true').understood.length === 0,
+    'a line of the Creed is still searched as plain words', find('nothing is true').length);
+
 console.log(`${passed} passed${failed ? `, ${failed} failed` : ''}`);
 process.exit(failed ? 1 : 0);

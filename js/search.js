@@ -602,5 +602,23 @@
     }
 
     // `words` is for tools/test-search.mjs, which checks the lists against the catalog
-    A.search = { key: searchKey, parse, words: { kinds: KIND_WORDS, games: GAME_NAMES } };
+    // ---- An Easter egg: the Creed answers ----
+    // A search that is exactly one of these lines (case and punctuation
+    // aside) gets the next line back, shown above the results by app.js.
+    // The search itself is untouched: "nothing is true" still finds the
+    // bookends that carry the words.
+    const REPLIES = {
+        'nothing is true': 'Everything is permitted.',
+        'everything is permitted': 'Nothing is true.',
+        'nothing is true everything is permitted': 'We work in the dark to serve the light. We are Assassins.',
+        'we work in the dark': 'To serve the light.',
+        'we work in the dark to serve the light': 'We are Assassins.',
+        'requiescat in pace': 'Rest in peace.',
+    };
+
+    function reply(text) {
+        return REPLIES[wordsOf(searchKey(text)).trim()] || null;
+    }
+
+    A.search = { key: searchKey, parse, reply, words: { kinds: KIND_WORDS, games: GAME_NAMES } };
 })();
