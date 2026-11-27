@@ -232,11 +232,7 @@
     function resultsHTML() {
         const shown = shownCharacters();
         if (shown.length === 0) {
-            return `
-                <div class="games-empty">
-                    <p>No characters match your ${searchText.trim() ? 'search' : 'filters'}.</p>
-                    <button class="btn btn-secondary btn-sm" data-characters-clear>Clear search and filters</button>
-                </div>`;
+            return A.noResultsHTML('characters', 'data-characters-clear', searchText.trim() ? 'search' : 'filters');
         }
         if (getMode() === 'az') return `<ul class="character-grid">${shown.sort(byName).map(cardHTML).join('')}</ul>`;
         // Story order: by year (birth, or when they're first known), under era headings

@@ -2265,7 +2265,10 @@ button.stats-bar-row {
     }
 }
 
-/* ---- No Results ---- */
+/* ---- Empty state ----
+   What every searched or filtered list shows when nothing matches (the
+   collection, Games, Characters): the emblem, the Creed line and "Clear
+   search and filters". One component; don't write a view its own. */
 .no-results {
     display: grid;
     justify-items: center;
@@ -3948,15 +3951,6 @@ a.reading-title {
     color: var(--text);
     font-size: var(--fs-md);
     font-weight: 600;
-}
-
-.games-empty {
-    display: grid;
-    justify-items: center;
-    gap: var(--s3);
-    padding: var(--s6) 0;
-    color: var(--text-2);
-    text-align: center;
 }
 
 /* A game's page: the character page's header card (.character-head) with

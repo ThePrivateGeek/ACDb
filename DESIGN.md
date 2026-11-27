@@ -395,12 +395,26 @@ Small surprises for fans, never needed to use the site. Keep them few, spoiler-f
 - Don't use toasts for information the visitor must act on; use a dialog or inline text.
 - `ACDB.showCelebration()` and the confetti are only for completing a set.
 
-### Empty state (collection search)
+### Empty state (a search or filter that finds nothing)
 
-`.no-results` shows the faded icon, the italic grey line **"Nothing is true, everything is permitted... but no items match your search."** and a `btn btn-secondary` "Clear search and filters".
-- When there is search text, a "Suggest a missing item" line follows, pre-filled with the search text. Not when the search asks about the visitor's own collection ("my wishlist"): an empty wishlist doesn't mean the catalogue lacks anything.
-- The grey `#666` and the wording were the owner's choice; don't change them.
-- Other lists use the plain-text pattern in [section 7](#7-patterns), not this one.
+**One component, `.no-results`, for every list the visitor can search or filter** (the collection, Games, Characters, and any list that gets a search box or filter chips later). When the search or the filters match nothing, the list's place is taken by the faded emblem, the italic grey Creed line and a `btn btn-secondary btn-sm` "Clear search and filters". A view never writes an empty state of its own.
+
+```html
+<div class="no-results">
+  <svg viewBox="0 0 100 100" class="no-results-icon" aria-hidden="true" focusable="false">
+    <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor" opacity="0.2"/>
+  </svg>
+  <p>Nothing is true, everything is permitted... but no games match your search.</p>
+  <button class="btn btn-secondary btn-sm" type="button" data-games-clear>Clear search and filters</button>
+</div>
+```
+
+- **In a view built by JS, call `ACDB.noResultsHTML(things, clearAttr, by)`** (`js/utils.js`) rather than copying the markup: `ACDB.noResultsHTML('games', 'data-games-clear')`. The collection's is the same markup, written out in `index.html`; a change to one is a change to both.
+- **The line** is always "Nothing is true, everything is permitted... but no *things* match your search.", with the list's own plural ("items", "games", "characters"). It ends "... your filters." only when the search box is empty and the chips alone matched nothing (Characters: Isu + Mirage). The grey `#666`, the italics and the wording were the owner's choice ([section 11](#11-allowed-exceptions)); don't change them.
+- **The button** always reads "Clear search and filters", even in a view with only one of the two. It empties the search and every filter, keeps the sort or order, shows the whole list again and puts focus in the search box.
+- **Nothing else goes in it**: no heading, and no count or progress line above it.
+- **Only the collection adds a line under the button**: when there is search text, "Can't find an item? Suggest it on GitHub or by email." (`.no-results-suggest`), pre-filled with the search text. Not when the search asks about the visitor's own collection ("my wishlist"): an empty wishlist doesn't mean the catalogue lacks anything. Games and characters aren't suggested this way, so their empty states end at the button.
+- **Not for a list that is empty by itself** (no collectors yet, a character with no items, a request that failed): nothing was searched, so there is nothing to clear. Those use the plain-text line in [section 7](#7-patterns).
 
 ### "Understood as" line (collection search)
 
@@ -460,6 +474,9 @@ The leaderboard's first three, on the collection's count line (`.results-row`: "
 ## 7. Patterns
 
 - **Loading, empty and error in a list:** one plain line of `--text-2` text, centred and spanning the whole list (`.leaderboard-loading` is the model): "Loading leaderboard...", "No collectors yet. Be the first!", "Error loading leaderboard". No spinners or skeletons. In a `<ol>` or `<ul>`, the message is an `<li>`.
+- **Two kinds of empty, never mixed:**
+  - The list has nothing in it yet, whatever the visitor does: the plain line above.
+  - The visitor's search or filters matched nothing: the `.no-results` empty state ([section 6](#6-components)), the same on every tab.
 - **Counts:** "12 / 674" or "3/9" in JetBrains Mono; "61%" as a whole number (`Math.round`).
 - **Money:** "€1,240.50": the symbol first, comma thousands, two decimals (`formatMoney` in `js/stats.js`, which adds amounts in whole cents); a currency code gets a space ("NOK 1,240.50"); whole units ("€1,241") in bar rows, with the exact amount as the tooltip. The yen has no decimals anywhere ("¥1,500"). The symbol is the visitor's pick from `CURRENCIES` in `js/stats.js` (`acdb_currency`, this browser only); amounts are never converted. Prices never appear on anything public. On paper an amount uses `ACDB.formatAmount(cents)`, the same format with the visitor's symbol. In a data file (the spreadsheet export) an amount is a plain number with no symbol and no thousands separator ("1234.56", or "1234,56" in the semicolon format), so the column adds up.
 - **Dates:** always `ACDB.formatDate(value)`, giving **"9 Oct 2026"**. Never `toLocaleDateString()` with no arguments, and never US order. A release date that may be known only to the month or year (reading orders, games) uses `ACDB.formatReleased(entry)`, which reads `releasedPrecision` and shows "26 Nov 2009", "Nov 2009" or "2009". A data file uses `2026-10-09`, the one form every spreadsheet reads as a date; anything a person reads, paper included, uses "9 Oct 2026".
@@ -500,6 +517,7 @@ The leaderboard's first three, on the collection's count line (`.results-row`: "
    - No inline `<script>` blocks or `on…=` attributes: the CSP has no `'unsafe-inline'` for scripts, so they won't run. Attach listeners from JS.
    - Put inline styles only on dynamic values (bar widths).
    - Show and hide parts with the `hidden` attribute or `style.display = ''`. Never set `display: block` on something whose CSS uses grid or flex.
+   - A list with a search box or filter chips shows `ACDB.noResultsHTML(…)` when they match nothing (Empty state in [section 6](#6-components)); don't write the view its own message.
 6. **Code:**
    - New code lives in its own file wrapped in an IIFE (`(function () { 'use strict'; const A = window.ACDB; … })()`) and exports through `A.foo = foo` at the bottom.
    - The file gets a `<script>` tag in `index.html` before `app.js` (load order matters), and a matching `<link rel="preload" as="script">` line in the head. Without that line the script downloads only after the one before it, because Chrome doesn't look ahead for scripts on a page with a CSP `<meta>`. The validator warns when the two lists differ.
@@ -564,7 +582,7 @@ These keep literal values on purpose. Don't "fix" them, and don't copy them else
 - The **logo**, the **header meter's numbers**, the **Google sign-in button** (Google's brand colours), the **lightbox**.
 - The **NEW sticker** (`.badge-new`): a red gradient, rotated and poking outside the card.
 - **Leaderboard medals** (`.medal.gold/.silver/.bronze`): metal colours, and their sizes in px (28, or 20 for `.medal-sm`).
-- The **empty-state line**: `#666`, italic, 1.1rem. The owner chose to keep the original look (3.4:1 contrast).
+- The **empty-state line** (`.no-results p`, on every tab that has the empty state): `#666`, italic, 1.1rem. The owner chose to keep the original look (3.4:1 contrast).
 - The **footer emblem watermark**: gold at 5 % opacity.
 - `#fff` as text on `-solid` status fills and on hover of `.btn-danger`.
 - **pt and mm** inside the print block at the end of `style.css` (the printed inventory): sizes for paper, not the screen.
@@ -591,7 +609,7 @@ Before handing over any UI change:
 - [ ] Checked at 1600, 1200, 1000, 390 and 360 px, signed in **and** signed out. Nothing scrolls sideways; long names cut off cleanly.
 - [ ] Tab reaches every control with the gold ring; Enter, Space and Esc work.
 - [ ] Reduced motion: nothing slides, pulses or scrolls smoothly.
-- [ ] Loading, empty and error states exist and follow [section 7](#7-patterns).
+- [ ] Loading, empty and error states exist and follow [section 7](#7-patterns). A search or filter that finds nothing shows the shared `.no-results` empty state, not a message of the view's own.
 - [ ] Dates use `formatDate`; counts use JetBrains Mono.
 - [ ] Wording follows [section 9](#9-words).
 - [ ] No console errors.
@@ -681,5 +699,6 @@ Owner decisions this book rests on, so they aren't reopened:
 - **26 Nov 2026, share buttons on pages:** a game page's share button is the round icon button in the header card's top right corner, as in the item window, instead of a labelled "Copy link" button at the end of the links row. There it was the only bordered thing among two links, and the heaviest; the corner is where the item window taught visitors to look, and it is free at every width. The words "Copy link" are now the tooltip and the `aria-label`. A character's page gets the same button (it had none, for no reason but history: the game's came from the old game dialog, and characters were pages from the start); it copies `#characters/<slug>`.
 - **26 Nov 2026, portraits of film characters:** a character of the 2016 film may use a still, poster or frame of the film, since Ubisoft licensed it (the 31 Oct rule said never film stills, though Aguilar, María, Callum and others already used them). Fan art, cosplay and merchandise photos stay out. Same crop and size as every other portrait.
 - **27 Nov 2026, Easter eggs:** the owner's idea, starting with Dag's link to r/fuckdag. Asides are a field of their own rather than markup in the description, which also feeds the card, the share text and the search. The Creed's reply sits above the results rather than in place of the empty state, because "nothing is true" finds a real item (the Apple of Eden bookends). The 404 page keeps to gold and the text colours: the game's screen is white and blue, but blue here means wishlist. Eagle Vision and a count of the eggs a visitor has found are ideas for later; the count would be new stored data, so it needs a line in `privacy.html`.
+- **27 Nov 2026, one empty state:** a search or filter that finds nothing looks the same on every tab: the collection's emblem, Creed line and "Clear search and filters", with the list's own noun. Games and Characters had a plain grey "No games match your search." of their own (the 23 Oct Games tab followed this book's old rule that only the collection used the Creed line); the owner spotted the difference. The rule is now the other way round, and the markup comes from one helper (`ACDB.noResultsHTML`) so a new list can't drift. The collection's button became `btn-secondary` as this book always said (its markup had `btn-quiet`).
 - **26 Nov 2026, casts of novels and comics:** a novel or comic lists the lead and every named character with a real part in its story who is on the Characters tab, not the lead alone, so a character's page shows the stories they are in. Because that makes some lists long, the item window shows the first six of a list longer than eight, with "Show all N"; each item's list is therefore in order of importance to that item, the lead first. Six, not ten: ten names are already five or six lines on a phone, above the description.
 - **11 Nov 2026, DLC cards:** a game's page shows its DLCs as cover cards rather than rows with a 36 px cover, which made the art hard to see. Elsewhere the DLC rows keep their shape with bigger covers: 64 px in the Games tab's story order (smaller than the game cards' 88 px) and 48 px in Complete Lore (a book cover's width; the gold stripe, kind line and missing number still keep them from passing for books). A DLC without a cover of its own (32 of 72 at the time) shows its game's art, blurred and darkened, under the controller icon, so a page like Shadows' isn't a wall of empty boxes.

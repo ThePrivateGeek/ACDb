@@ -190,13 +190,7 @@
 
     function resultsHTML() {
         const games = shownGames();
-        if (games.length === 0) {
-            return `
-                <div class="games-empty">
-                    <p>No games match your search.</p>
-                    <button class="btn btn-secondary btn-sm" data-games-clear>Clear search and filters</button>
-                </div>`;
-        }
+        if (games.length === 0) return A.noResultsHTML('games', 'data-games-clear');
         return playedHTML(games) + (getMode() === 'story' ? timelineHTML(games) : gridHTML(games));
     }
 

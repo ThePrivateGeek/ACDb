@@ -301,6 +301,24 @@
         return `<button class="icon-btn head-card-share" title="${label}" aria-label="${label}">${SHARE_ICON}</button>`;
     }
 
+    // ---- Empty state (DESIGN.md, "Empty state") ----
+    // What a searched or filtered list shows when nothing matches: the
+    // emblem, the Creed line and "Clear search and filters". The same markup
+    // as the collection's own in index.html; keep the two alike.
+    // `things` is what the list holds ("games"); `clearAttr` the data
+    // attribute the view answers the button's click with; `by` is "filters"
+    // when the search box is empty and the chips alone matched nothing.
+    function noResultsHTML(things, clearAttr, by = 'search') {
+        return `
+            <div class="no-results">
+                <svg viewBox="0 0 100 100" class="no-results-icon" aria-hidden="true" focusable="false">
+                    <path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor" opacity="0.2"/>
+                </svg>
+                <p>Nothing is true, everything is permitted... but no ${things} match your ${by}.</p>
+                <button class="btn btn-secondary btn-sm" type="button" ${clearAttr}>Clear search and filters</button>
+            </div>`;
+    }
+
     // Expose on namespace
     A.escapeHTML = escapeHTML;
     A.store = store;
@@ -327,5 +345,6 @@
     A.canWebShare = canWebShare;
     A.shareLink = shareLink;
     A.headShareHTML = headShareHTML;
+    A.noResultsHTML = noResultsHTML;
 
 })();
