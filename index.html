@@ -334,6 +334,12 @@
             <svg class="search-reply-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/></svg>
             <span id="searchReplyText"></span>
         </p>
+        <!-- Another: while Eagle Vision is on (V, or "eagle vision" in the search; js/app.js) this line names it and is the way out. It floats in the window's bottom left corner, and is here so it comes before the grid for the keyboard and hides with the collection -->
+        <p class="search-reply eagle-line" id="eagleLine" hidden>
+            <svg class="search-reply-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 L30 55 L5 95 L25 95 L50 55 L75 95 L95 95 L70 55 Z" fill="currentColor"/></svg>
+            <span>Eagle Vision</span>
+            <button type="button" class="link link-quiet" id="eagleOff">Turn off</button>
+        </p>
         <!-- How the search text was read (js/search.js): shown only when it was read as more than plain words -->
         <p class="search-read" id="searchRead" hidden>
             <span class="label">Understood as</span>

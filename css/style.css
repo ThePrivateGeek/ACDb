@@ -92,6 +92,9 @@
     --shadow-pop: 0 12px 40px rgba(0, 0, 0, 0.55);
     --shadow-modal: 0 24px 80px rgba(0, 0, 0, 0.7);
     --glow-card: 0 8px 32px rgba(201, 168, 76, 0.12);
+    /* Eagle Vision only: the light around an owned or a wishlist card */
+    --glow-owned: 0 0 0 1px var(--owned), 0 0 28px rgba(39, 174, 96, 0.4);
+    --glow-wish: 0 0 0 1px var(--wish), 0 0 28px rgba(52, 152, 219, 0.4);
 
     /* Motion (named properties, never "all") */
     --t-fast: 120ms;
@@ -1834,6 +1837,43 @@ button.stats-bar-row {
     from { opacity: 0; }
 }
 
+/* Another: the line that names Eagle Vision while it is on, with its way
+   out. The same gold line, floating in the window's bottom left corner on
+   the toast's surface (Back to Top has the right corner): in the page it
+   pushed the grid down a row as Eagle Vision started, and scrolled out of
+   reach. The button is an ordinary quiet link. */
+.eagle-line {
+    position: fixed;
+    bottom: 2rem;   /* level with Back to Top */
+    left: 2rem;
+    z-index: 100;   /* over the start's veil, under dialogs */
+    min-height: var(--h-md);
+    margin: 0;
+    padding: 0 var(--s4);
+    background: var(--surface-bar);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-pop);
+}
+
+.eagle-line .link {
+    margin-left: var(--s2);
+    font-size: var(--fs-sm);
+    letter-spacing: 0;
+}
+
+/* Phones: the line is as wide as the gap the toast needs, so a toast shows
+   above it while it is there */
+@media (max-width: 768px) {
+    .eagle-line {
+        left: 1rem;
+    }
+
+    body:has(.eagle-line:not([hidden])) #acdb-toast {
+        bottom: calc(2rem + var(--h-md) + var(--s3));
+    }
+}
+
 /* ---- Results Count ---- */
 /* The count on the left and the top collectors on the right. At 1180px and
    below the collectors get a line of their own under the count (see the
@@ -2263,6 +2303,116 @@ button.stats-bar-row {
         justify-content: center;
         margin-left: var(--s1);
     }
+}
+
+/* ---- Eagle Vision (an Easter egg) ----
+   V, or "eagle vision" typed in the search, puts .eagle-vision on the
+   collection's grid (js/app.js): the owned cards light up green and the
+   wishlist cards blue, in grid and list view, and every other card
+   recedes. A receding card keeps the three text colours on a darker
+   surface, and nothing is filtered or faded on the card itself, so its
+   text passes 4.5:1 and its focus ring is the usual gold. */
+.items-grid.eagle-vision .item-card.owned {
+    border-color: var(--owned);
+    box-shadow: var(--glow-owned);
+}
+
+.items-grid.eagle-vision .item-card.wishlist {
+    border-color: var(--wish);
+    box-shadow: var(--glow-wish);
+}
+
+.items-grid.eagle-vision .item-card:not(.owned):not(.wishlist) {
+    background: var(--surface-page);
+}
+
+.items-grid.eagle-vision .item-card:not(.owned):not(.wishlist) .card-image img {
+    filter: grayscale(1) brightness(0.4);
+}
+
+.items-grid.eagle-vision .item-card:not(.owned):not(.wishlist) .badge-new {
+    filter: grayscale(1) brightness(0.6);
+}
+
+.items-grid.eagle-vision .item-card:not(.owned):not(.wishlist) .card-title {
+    color: var(--text-2);
+}
+
+.items-grid.eagle-vision .item-card:not(.owned):not(.wishlist) .card-game,
+.items-grid.eagle-vision .item-card:not(.owned):not(.wishlist) .card-description {
+    color: var(--text-3);
+}
+
+/* The start, about a second: the page under the header goes dark and
+   clears (the veil), two pale rings open from the middle of the window one
+   after the other, and the lit cards on screen flare before they settle
+   (.eagle-flare). app.js adds the veil, the rings and the flare, removes
+   them when they are done, and leaves them all out under reduced motion. */
+.eagle-pulse {
+    position: fixed;
+    inset: 0;
+    z-index: 90;   /* over the page, under the header and the toolbar */
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.eagle-pulse::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--surface-page);
+    opacity: 0;
+    animation: eagle-veil calc(var(--t-slow) * 3) ease-out;
+}
+
+.eagle-pulse span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vmax;
+    height: 100vmax;
+    margin: -50vmax 0 0 -50vmax;
+    border-radius: 50%;
+    box-shadow: 0 0 var(--s7) var(--text), inset 0 0 var(--s7) var(--text);
+    opacity: 0;
+    animation: eagle-pulse calc(var(--t-slow) * 2) var(--ease);
+}
+
+.eagle-pulse span + span {
+    animation-delay: calc(var(--t-slow) / 2);
+}
+
+@keyframes eagle-veil {
+    from { opacity: 0.8; }
+    to { opacity: 0; }
+}
+
+@keyframes eagle-pulse {
+    from { opacity: 0.45; transform: scale(0.1); }
+    to { opacity: 0; transform: scale(1.5); }
+}
+
+/* The flare is a second, stronger light on top of the card's own, fading
+   out: only its opacity moves, and the card's entrance animation is left
+   alone. */
+.items-grid.eagle-vision .item-card.owned { --eagle-light: var(--owned); }
+.items-grid.eagle-vision .item-card.wishlist { --eagle-light: var(--wish); }
+
+.items-grid.eagle-vision .item-card.eagle-flare::after {
+    content: '';
+    position: absolute;
+    inset: -1px;   /* over the card's border */
+    border-radius: inherit;
+    box-shadow: 0 0 0 var(--s1) var(--eagle-light), 0 0 var(--s7) var(--s2) var(--eagle-light);
+    opacity: 0;
+    pointer-events: none;
+    animation: eagle-flare calc(var(--t-slow) * 4) var(--ease);
+}
+
+@keyframes eagle-flare {
+    from { opacity: 0; }
+    25% { opacity: 1; }
+    to { opacity: 0; }
 }
 
 /* ---- Empty state ----

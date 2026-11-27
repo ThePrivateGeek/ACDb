@@ -620,5 +620,13 @@
         return REPLIES[wordsOf(searchKey(text)).trim()] || null;
     }
 
-    A.search = { key: searchKey, parse, reply, words: { kinds: KIND_WORDS, games: GAME_NAMES } };
+    // ---- Another: Eagle Vision ----
+    // "eagle vision", typed as the whole search (case and punctuation
+    // aside), switches Eagle Vision on or off in app.js. It is searched as
+    // plain words like anything else.
+    function isEagleVision(text) {
+        return wordsOf(searchKey(text)).trim() === 'eagle vision';
+    }
+
+    A.search = { key: searchKey, parse, reply, isEagleVision, words: { kinds: KIND_WORDS, games: GAME_NAMES } };
 })();

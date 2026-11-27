@@ -164,6 +164,7 @@ window.ACDB = window.ACDB || {};
         gameTimeline: document.getElementById('gameTimeline'),
         itemsContainer: document.getElementById('itemsContainer'),
         noResults: document.getElementById('noResults'),
+        eagleLine: document.getElementById('eagleLine'),
         suggestMissing: document.getElementById('suggestMissing'),
         suggestGithub: document.getElementById('suggestGithub'),
         suggestEmail: document.getElementById('suggestEmail'),
@@ -701,6 +702,7 @@ window.ACDB = window.ACDB || {};
 
     function renderItems() {
         if (!searchIsWide()) wideSearchText = null;
+        eagleTyped = ACDB.search.isEagleVision(dom.searchInput.value);
         const items = getFilteredItems();
         dom.itemsContainer.innerHTML = '';
         updateResultsCount(items);
@@ -1186,8 +1188,21 @@ window.ACDB = window.ACDB || {};
         // Search
         dom.searchInput.addEventListener('input', debounce(() => {
             dom.clearSearch.classList.toggle('visible', dom.searchInput.value.length > 0);
+            // An Easter egg: typing "eagle vision" switches Eagle Vision
+            // on, and typing it again switches it off
+            if (!eagleTyped && ACDB.search.isEagleVision(dom.searchInput.value)) setEagleVision(!eagleVisionOn());
             renderItems();
         }, 200));
+
+        document.getElementById('eagleOff').addEventListener('click', () => {
+            setEagleVision(false);
+            dom.searchInput.focus();   // the button has gone
+        });
+
+        // A lit card's flare as Eagle Vision starts has played
+        dom.itemsContainer.addEventListener('animationend', (e) => {
+            if (e.animationName === 'eagle-flare') e.target.classList.remove('eagle-flare');
+        });
 
         dom.clearSearch.addEventListener('click', () => {
             dom.searchInput.value = '';
@@ -1569,7 +1584,14 @@ window.ACDB = window.ACDB || {};
                     closeShareModal();
                 } else if (dom.modalOverlay.classList.contains('active')) {
                     closeModal();
+                } else if (eagleVisionOn() && collectionShowing()) {
+                    setEagleVision(false);
                 }
+            }
+            // An Easter egg: V switches Eagle Vision on and off
+            if ((e.key === 'v' || e.key === 'V') && eagleVisionKeyAllowed(e)) {
+                setEagleVision(!eagleVisionOn());
+                return;
             }
             if (lightbox.overlay.classList.contains('active')) {
                 if (e.key === 'ArrowLeft' && ACDB.getGalleryImages().length > 1) lightbox.prev();
@@ -1796,6 +1818,58 @@ window.ACDB = window.ACDB || {};
         dom.modalPricePaid.value = '';
         dom.modalAcquiredDate.value = '';
         dom.modalNotes.value = '';
+    }
+
+    // ---- An Easter egg: Eagle Vision ----
+    // V, or "eagle vision" typed as the whole search (the way in on a
+    // phone), dims the collection's grid and lights the owned cards green
+    // and the wishlist cards blue (.eagle-vision in style.css). V, Esc,
+    // "Turn off" on the line in the window's corner, or typing it again ends it,
+    // and so does a reload: nothing is saved.
+    let eagleTyped = false;   // the search text is "eagle vision" (renderItems keeps it)
+
+    function eagleVisionOn() {
+        return dom.itemsContainer.classList.contains('eagle-vision');
+    }
+
+    // The collection is the view on screen (not a profile or another tab)
+    function collectionShowing() {
+        return dom.itemsContainer.offsetParent !== null;
+    }
+
+    // V is a letter first: not while typing, with Ctrl, Alt or Cmd, held
+    // down, or with a dialog, the lightbox or a menu open
+    function eagleVisionKeyAllowed(e) {
+        if (e.ctrlKey || e.metaKey || e.altKey || e.repeat) return false;
+        if (e.target.closest && e.target.closest('input, textarea, select, [contenteditable]')) return false;
+        if (document.querySelector('.modal-overlay.active, .lightbox-overlay.active, .multi-select.open') || ACDB.isAccountMenuOpen()) return false;
+        return collectionShowing();
+    }
+
+    function setEagleVision(on) {
+        if (on === eagleVisionOn()) return;
+        dom.itemsContainer.classList.toggle('eagle-vision', on);
+        dom.eagleLine.hidden = !on;
+        if (!on) dom.itemsContainer.querySelectorAll('.eagle-flare').forEach(card => card.classList.remove('eagle-flare'));
+        // Screen readers hear the toast. A phone has no keys to name.
+        const keys = window.matchMedia('(pointer: coarse)').matches ? '' : ' Press V or Esc to leave.';
+        ACDB.showToast(on ? `Eagle Vision on.${keys}` : 'Eagle Vision off.');
+        if (!on || ACDB.scrollBehavior() !== 'smooth') return;   // reduced motion: no start
+        // The start: the page goes dark and clears while two rings open,
+        // and the lit cards on screen flare (.eagle-pulse and .eagle-flare
+        // in style.css). Both are removed once they have played.
+        const pulse = document.createElement('div');
+        pulse.className = 'eagle-pulse';
+        pulse.innerHTML = '<span></span><span></span>';
+        pulse.addEventListener('animationend', (e) => {
+            if (e.animationName === 'eagle-veil') pulse.remove();   // the longest of the three
+        });
+        document.body.appendChild(pulse);
+        dom.itemsContainer.querySelectorAll('.item-card.owned, .item-card.wishlist').forEach(card => {
+            const box = card.getBoundingClientRect();
+            if (box.bottom < 0 || box.top > window.innerHeight) return;
+            card.classList.add('eagle-flare');   // taken off again in initEvents, when it has played
+        });
     }
 
     // ---- Initialize ----

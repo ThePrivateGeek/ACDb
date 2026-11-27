@@ -353,5 +353,12 @@ for (const text of ['', 'ezio', 'nothing', 'nothing is true statue', 'is nothing
 check(same(find('nothing is true'), where(i => says(i, 'nothing') && says(i, 'true'))) && read('nothing is true').understood.length === 0,
     'a line of the Creed is still searched as plain words', find('nothing is true').length);
 
+check(S.isEagleVision('eagle vision') && S.isEagleVision('  Eagle Vision! '), '"eagle vision" is the Eagle Vision switch, whatever its case and punctuation');
+for (const text of ['', 'eagle', 'vision', 'eagle vision statue', 'vision eagle']) {
+    check(!S.isEagleVision(text), `"${text}" is not the Eagle Vision switch`);
+}
+check(same(find('eagle vision'), where(i => says(i, 'eagle') && says(i, 'vision'))) && read('eagle vision').understood.length === 0,
+    '"eagle vision" is still searched as plain words', find('eagle vision').length);
+
 console.log(`${passed} passed${failed ? `, ${failed} failed` : ''}`);
 process.exit(failed ? 1 : 0);
